@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 
 const __DEV__ = process.env.NODE_ENV === 'development';
 
-const resolve = ({ src, width, type }) => {
+export const resolve = ({ src, width, type }) => {
   if (__DEV__) {
     return src;
   }

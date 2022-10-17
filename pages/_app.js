@@ -1,8 +1,11 @@
 import { useSetAtom } from 'jotai';
 import { useAtom } from 'jotai';
-import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect } from 'react';
 import { scrollAtom } from '../atoms/scroll';
+import LoadingProgress from '../components/LoadingProgress';
 import '../styles/globals.css';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps }) {
   const updateValue = useSetAtom(scrollAtom);
@@ -16,9 +19,32 @@ function MyApp({ Component, pageProps }) {
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
-  }, []);
+  }, [updateValue]);
 
-  return <Component {...pageProps} />;
+  return (
+    <div>
+      <LoadingProgress />
+      <Component {...pageProps} />
+      {/* <Script
+        id="help-ukraine-win"
+        data-type="one"
+        data-position="bottom-right"
+        strategy="lazyOnload"
+        src="https://helpukrainewinwidget.org/cdn/widget.js"
+      /> */}
+    </div>
+  );
+  return;
 }
+
+class ErrorBoundary extends React.Component {
+  state = { hasError: '' };
+  render() {
+    return this.props.children;
+  }
+}
+ErrorBoundary.getDerivedStateFromError = (error) => ({
+  hasError: error.toString(),
+});
 
 export default MyApp;
