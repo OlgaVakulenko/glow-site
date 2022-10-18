@@ -51,13 +51,13 @@ const stats = [
 
 export default function Workflow() {
   return (
-    <Section className="border-b border-black pt-[80px]">
+    <Section className="">
       <Section.Title>Workflow</Section.Title>
       <Section.Description>
         Our approach allows us to make complex things simple. We will learn
         about your business, study the audience.
       </Section.Description>
-      <div className="mt-[64px] divide-y divide-black">
+      <div className="mt-[64px]  divide-y divide-black">
         {stages.map((stage, i) => (
           <div
             key={i}
@@ -113,8 +113,8 @@ export default function Workflow() {
           </div>
         ))}
       </div>
-      <div>
-        <div className="mb-4 font-glow text-xl font-medium leading-[170%]">
+      <div className="border-b border-t border-black pt-[56px]">
+        <div className="mb-4 font-glow text-xl text-center font-medium leading-[170%]">
           Compact = Efficient
         </div>
         <div className="text-lg italic leading-[133%]">

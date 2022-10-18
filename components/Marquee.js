@@ -1,15 +1,19 @@
+import cx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
-import { useInView } from 'framer-motion';
 
 function Line({ children, className = '' }) {
   return (
-    <div className={'inline-block w-full border' + ' ' + className}>
+    <div
+      className={
+        'flex-grow-0 flex-shrink-0 basis-auto min-w-full' + ' ' + className
+      }
+    >
       {children}
     </div>
   );
 }
 
-const useIsInViewport = (ref) => {
+const useInView = (ref) => {
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
@@ -34,13 +38,23 @@ const useIsInViewport = (ref) => {
   return isInView;
 };
 
-export default function Marquee({ children }) {
+const useSafeEffect = (cb, deps) => {
+  useEffect(() => {
+    try {
+      return cb();
+    } catch (e) {
+      console.log(e);
+    }
+  }, deps);
+};
+
+export default function Marquee({ children, debug = false }) {
   const ref = useRef(null);
   const inView = useInView(ref);
   const refId = useRef(null);
   const refPrevTime = useRef(null);
 
-  useEffect(() => {
+  useSafeEffect(() => {
     if (!inView) return;
 
     const animate = (time) => {
@@ -73,9 +87,18 @@ export default function Marquee({ children }) {
 
   return (
     <div className="overflow-hidden">
-      <div ref={ref} className="box-content overflow-hidden whitespace-nowrap">
+      <div
+        ref={ref}
+        className="flex box-content overflow-hidden whitespace-nowrap"
+      >
         <Line>{children}</Line>
-        <Line className="border-red-500">{children}</Line>
+        <Line
+          className={cx({
+            ['border-red-500 border']: debug,
+          })}
+        >
+          {children}
+        </Line>
       </div>
     </div>
   );

@@ -1,17 +1,16 @@
+import cx from 'clsx';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { EffectCreative } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/effect-creative';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { addLeadingZero } from '../../../lib/utils';
 import Image from '../../Image';
 import Layout from '../../Layout';
 import Section from '../../Section';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
-import { EffectCreative } from 'swiper';
-import cx from 'clsx';
 import BeastImage from './assets/slider-beast.png';
-
-import 'swiper/css';
-import 'swiper/css/effect-creative';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { addLeadingZero } from '../../../lib/utils';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -133,8 +132,9 @@ function NavigationProgress({ className = '' }) {
   const left = useMemo(() => {
     if (slidesCount > 0) {
       const thumbWidth = trackWidth / slidesCount;
-      const left = (trackWidth - thumbWidth) * progress;
-
+      let left = (trackWidth - thumbWidth) * progress;
+      left = Math.max(left, 0);
+      left = Math.min(left, trackWidth - thumbWidth);
       return left;
     }
 

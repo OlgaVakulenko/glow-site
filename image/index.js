@@ -44,11 +44,15 @@ walk(out, async (err, pathname, dir) => {
         continue;
       }
 
-      const exist = await Promise.any(
-        ['.jpg', '.jpeg', '.png'].map((ext) => {
-          return fileExist(source.replace('.webp', ext));
-        })
-      ).catch(() => false);
+      const exist = (
+        await Promise.all(
+          ['.jpg', '.jpeg', '.png'].map((ext) => {
+            return fileExist(source.replace('.webp', ext));
+          })
+        ).catch(() => false)
+      ).find((v) => v);
+
+      console.log(exist);
 
       if (!exist) {
         console.error(`File ${group.path}.* not found`);

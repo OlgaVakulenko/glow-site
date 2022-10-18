@@ -17,7 +17,7 @@ module.exports = {
       },
       colors: {
         brand: '#E33230',
-        brand: '#d6dbe0', //Dev only
+        // brand: '#d6dbe0', //Dev only
         black: '#19191B',
         lblue: '#F0F6FF',
         dim: '#F3F2F4',

@@ -1,4 +1,3 @@
-import FutureImage from 'next/future/image';
 import { useMemo } from 'react';
 
 const __DEV__ = process.env.NODE_ENV === 'development';

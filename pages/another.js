@@ -1,16 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
 
-import {
-  useDeferredValue,
-  useEffect,
-  useId,
-  useMemo,
-  useRef,
-  useState,
-  useTransition,
-} from 'react';
-
 export default function Home() {
   return (
     <div>

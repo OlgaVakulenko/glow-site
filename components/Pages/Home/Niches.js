@@ -1,24 +1,24 @@
-import Section from '../../Section';
 import cx from 'clsx';
+import Section from '../../Section';
 
 const items = [
   {
     title: 'Carsharing',
     count: 12,
     description:
-      'By working with transportation related companies we deep dive into the subject of your product. ',
+      'Be it a carsharing app or an internal service for a logistics company – the key to happy users is in comfortable UX that is easy to navigate.',
   },
   {
     title: 'Fintech',
     count: 3,
     description:
-      'By working with transportation related companies we deep dive into the subject of your product. ',
+      'Who said that fintech must be dull? This is an important and well organized field but not everything connected to finances should resemble a spreadsheet.',
   },
   {
-    title: 'Edtech',
+    title: 'Healthcare',
     count: 4,
     description:
-      'By working with transportation related companies we deep dive into the subject of your product. ',
+      'The users of a healthcare service may not be that good with modern technology so the UX must be as user friendly as possible.',
   },
 ];
 
@@ -39,10 +39,11 @@ export default function Niches() {
   return (
     <Section className="bg-white">
       <div className="py-[64px]">
-        <Section.Title>Our niches</Section.Title>
+        <Section.Title>Niches that we fit</Section.Title>
         <Section.Description>
-          With a niche set of services, we have a great understanding of where,
-          how and with whom we provide the best results.
+          Experience matters. Over the years we dived into the nuances of a
+          number of industries and we will be happy to make a design that works
+          for your project specifically.
         </Section.Description>
       </div>
       <ul className="divide-y divide-black">

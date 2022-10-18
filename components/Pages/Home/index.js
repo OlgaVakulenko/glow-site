@@ -1,22 +1,19 @@
-import Image, { resolve } from '../../Image';
+import Image from '../../Image';
 import Layout from '../../Layout';
-import Navbar from '../../Navbar';
-
 import Home1Image from './assets/home-1.png';
 import CasesSlider from './CasesSlider';
 import Niches from './Niches';
 import OurClients from './OurClients';
+import Reviews from './Reviews';
 import Workflow from './Workflow';
 
 export default function Home() {
   return (
     <div>
-      <Navbar />
       <Layout>
         <div className="relative flex h-[80vh] flex-col justify-between bg-brand pb-[40px] pt-[59px]">
           <div className="ml-auto max-w-[252px] text-lg italic">
-            We help transportation companies to design efficient digital
-            products
+            Your trusted design team for fintech challenges.
           </div>
           <div className="absolute top-[27px] left-[-16px]">
             <svg
@@ -40,9 +37,10 @@ export default function Home() {
               />
             </svg>
           </div>
-          <div className="font-glow text-[40px] font-bold leading-10">
-            The logical aesthetics your{' '}
-            <span className="block w-full text-right">experience</span>
+          <div className="font-glow text-[40px] font-medium leading-10">
+            Simple design for&nbsp;complex products
+            {/* The logical aesthetics your{' '} */}
+            {/* <span className="block w-full text-right">experience</span> */}
           </div>
         </div>
       </Layout>
@@ -54,6 +52,7 @@ export default function Home() {
       <div className="bg-dim">
         <Workflow />
         <OurClients />
+        <Reviews />
       </div>
     </div>
   );
