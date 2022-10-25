@@ -89,16 +89,21 @@ export default function Header() {
             </div>
             <div className="hidden lg:block ml-[-100px]">
               {links.map((link) => (
-                <Link key={link} href="/">
-                  <a className="text-sm mr-[77px] last:mr-0">{link}</a>
+                <Link
+                  className="text-sm mr-[77px] last:mr-0"
+                  key={link}
+                  href="/"
+                >
+                  {link}
                 </Link>
               ))}
             </div>
             <div className="hidden lg:block">
-              <Link href="/">
-                <a className="glow-border text-sm leading-[19px] px-4 py-[15px] rounded-full">
-                  Let&apos;s get in touch
-                </a>
+              <Link
+                href="/"
+                className="glow-border text-sm leading-[19px] px-4 py-[15px] rounded-full"
+              >
+                Let&apos;s get in touch
               </Link>
             </div>
             <BurgerButton

@@ -11,9 +11,7 @@ export default function Home() {
       </Head>
       {/* <Header /> */}
       <div className="w-full">Page 2</div>
-      <Link href="/">
-        <a>Page 1</a>
-      </Link>
+      <Link href="/">Page 1</Link>
     </div>
   );
 }
