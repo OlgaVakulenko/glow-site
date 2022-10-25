@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 
 export default function Weather() {
   const [temp, setTemp] = useState(0);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     fetch(
@@ -11,11 +12,14 @@ export default function Weather() {
       .then((res) => res.json())
       .then(({ main }) => {
         const { temp } = main;
-        setTemp(temp);
+        setTemp(temp.toFixed(0));
+      })
+      .catch((e) => {
+        setIsError(true);
       });
   }, []);
 
-  useEffect(() => {}, []);
-
-  return <div className={cx({ invisible: temp <= 0 })}>{temp}°C</div>;
+  return (
+    !isError && <div className={cx({ invisible: temp <= 0 })}>{temp}°C</div>
+  );
 }

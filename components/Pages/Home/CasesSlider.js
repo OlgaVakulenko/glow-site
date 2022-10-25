@@ -1,15 +1,15 @@
-import cx from 'clsx';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { EffectCreative } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { addLeadingZero } from '../../../lib/utils';
 import Image from '../../Image';
 import Layout from '../../Layout';
 import Section from '../../Section';
+import SliderProgress from '../../SliderProgress';
 import BeastImage from './assets/slider-beast.png';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -113,94 +113,6 @@ function CaseSlide({ item, index }) {
   );
 }
 
-function NavigationProgress({ className = '' }) {
-  const ref = useRef(null);
-  const thumbRef = useRef(null);
-  const [trackWidth, setTrackWidth] = useState(0);
-  const [slidesCount, setSlidesCount] = useState(0);
-  const [progress, setProgress] = useState(0);
-  const swiper = useSwiper();
-
-  const thumbWidth = useMemo(() => {
-    if (slidesCount > 0) {
-      return 100 / slidesCount;
-    }
-
-    return 0;
-  }, [slidesCount]);
-
-  const left = useMemo(() => {
-    if (slidesCount > 0) {
-      const thumbWidth = trackWidth / slidesCount;
-      let left = (trackWidth - thumbWidth) * progress;
-      left = Math.max(left, 0);
-      left = Math.min(left, trackWidth - thumbWidth);
-      return left;
-    }
-
-    return 0;
-  }, [trackWidth, slidesCount, progress]);
-
-  useEffect(() => {
-    if (swiper.slides) {
-      setSlidesCount(swiper.slides.length);
-    }
-
-    const onProgress = (e, p) => {
-      const progress = e.progress;
-      setProgress(progress);
-    };
-
-    swiper.on('progress', onProgress);
-
-    return () => {
-      swiper.off('progress', onProgress);
-    };
-  }, [swiper]);
-
-  useEffect(() => {
-    const handleWidth = () => {
-      if (ref.current) {
-        const w = ref.current.offsetWidth;
-        if (w) {
-          setTrackWidth(w);
-        }
-      }
-    };
-
-    handleWidth();
-    window.addEventListener('resize', handleWidth);
-
-    return () => {
-      window.removeEventListener('resize', handleWidth);
-    };
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={cx(
-        'relative flex h-[16px] items-center justify-center',
-        className
-      )}
-    >
-      {slidesCount > 0 && (
-        <>
-          <div className="h-[1px] w-full bg-black opacity-20"></div>
-          <div
-            ref={thumbRef}
-            style={{
-              left: left,
-              width: `${thumbWidth}%`,
-            }}
-            className="absolute top-1/2 left-0 h-[2px] w-full -translate-y-2/4 bg-black"
-          ></div>
-        </>
-      )}
-    </div>
-  );
-}
-
 export default function CasesSlider() {
   const ref = useRef();
 
@@ -211,7 +123,7 @@ export default function CasesSlider() {
         start: 'top bottom',
         end: '+=500',
         scrub: true,
-        markers: true,
+        // markers: true,
       };
 
       gsap.to('.__slide', {
@@ -238,7 +150,6 @@ export default function CasesSlider() {
         <Swiper
           grabCursor={true}
           effect={'creative'}
-          watchSlidesProgress={true}
           creativeEffect={{
             prev: {
               shadow: true,
@@ -258,7 +169,7 @@ export default function CasesSlider() {
             </SwiperSlide>
           ))}
           <Layout>
-            <NavigationProgress className="mt-6" />
+            <SliderProgress className="mt-6" />
           </Layout>
         </Swiper>
       </Section>

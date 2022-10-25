@@ -1,5 +1,8 @@
 import cx from 'clsx';
-import { useId, useState } from 'react';
+import Link from 'next/link';
+import { useEffect, useId, useState } from 'react';
+import { useBodyLock } from '../lib/utils';
+import BigButton from './BigButton';
 import Layout from './Layout';
 import Logo from './Logo';
 
@@ -36,14 +39,18 @@ function BurgerIcon({ isOpen = false }) {
   );
 }
 
-const BurgerButton = ({ isOpen, ...props }) => {
+const BurgerButton = ({ isOpen, className, ...props }) => {
   return (
     <button
       {...props}
       type="button"
-      className={cx('flex items-center justify-center', {
-        ['px-[4px] py-[11px]']: !isOpen,
-      })}
+      className={cx(
+        'flex items-center justify-center',
+        {
+          ['px-[4px] py-[11px]']: !isOpen,
+        },
+        className
+      )}
     >
       <BurgerIcon isOpen={isOpen} />
     </button>
@@ -54,7 +61,15 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const links = ['Work', 'Team', 'Services'];
   const menuId = useId();
-  // usePreventScroll(isOpen);
+  const { lock, release } = useBodyLock();
+
+  useEffect(() => {
+    if (isOpen) {
+      lock();
+    } else {
+      release();
+    }
+  }, [isOpen]);
 
   const onBurgerClick = () => {
     setIsOpen((v) => !v);
@@ -68,11 +83,26 @@ export default function Header() {
             ['flex h-screen flex-col justify-between bg-brand']: isOpen,
           })}
         >
-          <div className="flex justify-between py-[28px]">
+          <div className="flex justify-between items-center py-[28px] font-medium text-black uppercase">
             <div className="flex items-center justify-center">
               <Logo />
             </div>
+            <div className="hidden lg:block ml-[-100px]">
+              {links.map((link) => (
+                <Link key={link} href="/">
+                  <a className="text-sm mr-[77px] last:mr-0">{link}</a>
+                </Link>
+              ))}
+            </div>
+            <div className="hidden lg:block">
+              <Link href="/">
+                <a className="glow-border text-sm leading-[19px] px-4 py-[15px] rounded-full">
+                  Let&apos;s get in touch
+                </a>
+              </Link>
+            </div>
             <BurgerButton
+              className="lg:hidden"
               aria-controls={menuId}
               isOpen={isOpen}
               onClick={onBurgerClick}
@@ -104,24 +134,7 @@ export default function Header() {
                   ))}
                 </ul>
               </nav>
-              <button
-                type="button"
-                className="mb-[60px] flex items-center justify-between rounded-full border-1.5 border-black px-[24px] py-[56px] text-sm font-medium uppercase text-black"
-              >
-                let’s get in touche{' '}
-                <svg
-                  width="35"
-                  height="16"
-                  viewBox="0 0 35 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M34.7071 8.70711C35.0976 8.31658 35.0976 7.68342 34.7071 7.29289L28.3431 0.928931C27.9526 0.538406 27.3195 0.538406 26.9289 0.92893C26.5384 1.31945 26.5384 1.95262 26.9289 2.34314L32.5858 8L26.9289 13.6569C26.5384 14.0474 26.5384 14.6805 26.9289 15.0711C27.3195 15.4616 27.9526 15.4616 28.3431 15.0711L34.7071 8.70711ZM34 7L0.549709 6.99999L0.549709 8.99999L34 9L34 7Z"
-                    fill="#19191B"
-                  />
-                </svg>
-              </button>
+              <BigButton className="mb-[60px]">let’s get in touche </BigButton>
             </>
           )}
         </div>

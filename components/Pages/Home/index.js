@@ -15,7 +15,8 @@ export default function Home() {
           <div className="ml-auto max-w-[252px] text-lg italic">
             Your trusted design team for fintech challenges.
           </div>
-          <div className="absolute top-[27px] left-[-16px]">
+
+          {/* <div className="absolute top-[27px] left-[-16px]">
             <svg
               width="320"
               height="380"
@@ -36,9 +37,12 @@ export default function Home() {
                 fill="#19191B"
               />
             </svg>
-          </div>
+          </div> */}
           <div className="font-glow text-[40px] font-medium leading-10">
-            Simple design for&nbsp;complex products
+            <h1>
+              Simple design
+              <br className="hidden lg:block" /> for&nbsp;complex products
+            </h1>
             {/* The logical aesthetics your{' '} */}
             {/* <span className="block w-full text-right">experience</span> */}
           </div>
@@ -49,7 +53,7 @@ export default function Home() {
       </div>
       <Niches />
       <CasesSlider />
-      <div className="bg-dim">
+      <div className="bg-dim pb-14">
         <Workflow />
         <OurClients />
         <Reviews />

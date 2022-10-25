@@ -1,5 +1,6 @@
 import cx from 'clsx';
 import Section from '../../Section';
+import NichesAnimation from './NichesAnimation';
 
 const items = [
   {
@@ -38,14 +39,15 @@ function Badge({ children, className = '' }) {
 export default function Niches() {
   return (
     <Section className="bg-white">
-      <div className="py-[64px]">
-        <Section.Title>Niches that we fit</Section.Title>
+      <Section.Header className="py-[64px]">
+        <Section.Title>Niches that we&nbsp;fit</Section.Title>
         <Section.Description>
           Experience matters. Over the years we dived into the nuances of a
           number of industries and we will be happy to make a design that works
           for your project specifically.
         </Section.Description>
-      </div>
+      </Section.Header>
+      <NichesAnimation />
       <ul className="divide-y divide-black">
         {items.map((item, i) => (
           <li key={i} className="block pb-10 pt-12 first:pt-0">

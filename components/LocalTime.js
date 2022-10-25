@@ -1,9 +1,6 @@
-import { useAtom } from 'jotai';
 import { useEffect, useMemo, useState } from 'react';
-import { mediaAtom } from '../lib/agent';
 
 export default function LocalTime() {
-  const [media] = useAtom(mediaAtom);
   const [date, setDate] = useState(null);
 
   const formatted = useMemo(() => {
@@ -27,9 +24,5 @@ export default function LocalTime() {
     };
   }, []);
 
-  return (
-    <div>
-      {formatted} {media}
-    </div>
-  );
+  return <div>{formatted}</div>;
 }

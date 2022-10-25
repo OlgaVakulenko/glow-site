@@ -1,9 +1,11 @@
 import { useMemo } from 'react';
+import { Autoplay } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import Image from '../../Image';
 import Layout from '../../Layout';
+import SliderProgress from '../../SliderProgress';
 import Reviews1Avatar from './assets/reviews-1-avatar.png';
 import Reviews1Company from './assets/reviews-1-company.svg';
-import Star from './assets/star.svg';
 
 const reviews = [
   {
@@ -11,31 +13,63 @@ const reviews = [
     companyAvatar: Reviews1Company,
     name: 'Darrell Steward',
     company: 'Founder Cryptogenie',
-    text: 'Impressing the internal staff, the team delivered a navigable, intuitive, and dependable solution that positively',
+    text: '#1 Impressing the internal staff, the team delivered a navigable, intuitive, and dependable solution that positively',
+    rating: 5,
+    link: '#',
+  },
+  {
+    avatar: Reviews1Avatar,
+    companyAvatar: Reviews1Company,
+    name: 'Darrell Steward',
+    company: 'Founder Cryptogenie',
+    text: '#2 Impressing the internal staff, the team delivered a navigable, intuitive, and dependable solution that positively',
+    rating: 5,
+    link: '#',
+  },
+  {
+    avatar: Reviews1Avatar,
+    companyAvatar: Reviews1Company,
+    name: 'Darrell Steward',
+    company: 'Founder Cryptogenie',
+    text: '#3 Impressing the internal staff, the team delivered a navigable, intuitive, and dependable solution that positively',
     rating: 5,
     link: '#',
   },
 ];
 
+function StarSvg({ size = 12 }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+    >
+      <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z" />
+    </svg>
+  );
+}
+
 function ReviewAvatar({ image }) {
-  return <Image className="max-w-[64px] ml-[-16px]" src={image} />;
+  return <Image className="max-w-[64px] ml-[-16px]" src={image} alt="" />;
 }
 
 function ClutchRating({ rating = 5 }) {
   const stars = useMemo(() => {
     const stars = [];
     for (let i = 0; i < rating; i++) {
-      stars.push(<img src={Star.src} />);
+      stars.push(<StarSvg size={12} key={i} />);
     }
-    console.log('stars', stars, rating);
 
     return stars;
   }, [rating]);
-  console.log(stars);
+
   return (
-    <div className="bg-white rounded-full px-4 py-2">
+    <div className="flex bg-white items-center rounded-full px-4 py-2 text-[#d05c54]">
       <svg
-        width="100%"
+        className="-mr-1"
+        width="32px"
         height="24px"
         viewBox="0 0 105 119"
         fill="none"
@@ -51,29 +85,46 @@ function ClutchRating({ rating = 5 }) {
         />
       </svg>
       {stars}
+      <span className="text-black ml-2 font-medium">5.0</span>
     </div>
+  );
+}
+
+function ReviewSlide({ review }) {
+  return (
+    <Layout>
+      <div>
+        <div className="flex justify-between items-center mb-9">
+          <div className="flex">
+            <div className="bg-black rounded-full p-[18px] max-w-[64px]">
+              <Image src={review.companyAvatar} />
+            </div>
+            <ReviewAvatar image={review.avatar} />
+          </div>
+
+          <ClutchRating />
+        </div>
+        <div className="text-xl pb-9 border-b border-black">{review.text}</div>
+        <div className="pt-7 pb-9">
+          <div className="text-xl">{review.name}</div>
+          <div className="text-base">{review.company}</div>
+        </div>
+      </div>
+    </Layout>
   );
 }
 
 export default function Reviews() {
   return (
-    <Layout>
+    <Swiper modules={[Autoplay]} grabCursor={true} loop={true} autoplay={true}>
       {reviews.map((review, i) => (
-        <div key={i}>
-          <div>
-            <div className="flex justify-between items-center">
-              <div className="flex">
-                <div className="bg-black rounded-full p-[18px] max-w-[64px]">
-                  <Image src={review.companyAvatar} />
-                </div>
-                <ReviewAvatar image={review.avatar} />
-              </div>
-
-              <ClutchRating />
-            </div>
-          </div>
-        </div>
+        <SwiperSlide key={i}>
+          <ReviewSlide review={review} />
+        </SwiperSlide>
       ))}
-    </Layout>
+      <Layout>
+        <SliderProgress mode="realIndex" />
+      </Layout>
+    </Swiper>
   );
 }

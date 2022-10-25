@@ -1,4 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
+const plugin = require('tailwindcss/plugin');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -27,5 +28,16 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // plugin((api) => {
+    //   api.addVariant('phover', ({ container }) => {
+    //     const mediaRule = api.postcss.atRule({
+    //       name: 'media',
+    //       params: '(hover: hover)',
+    //     });
+    //     mediaRule.append(container.nodes);
+    //     container.append(mediaRule);
+    //   });
+    // }),
+  ],
 };
