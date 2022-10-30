@@ -51,7 +51,7 @@ const stats = [
 
 export default function Workflow() {
   return (
-    <Section className="">
+    <Section className="pt-16">
       <Section.Title>Workflow</Section.Title>
       <Section.Description>
         Our approach allows us to make complex things simple. We will learn

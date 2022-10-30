@@ -1,11 +1,14 @@
-import Image from '../../Image';
+import Image, { resolve, Source, x2 } from '../../Image';
 import Layout from '../../Layout';
 import Home1Image from './assets/home-1.png';
+import HomeTabletImage from './assets/home-tablet.png';
+import HomeDesktopImage from './assets/home-desktop.png';
 import CasesSlider from './CasesSlider';
 import Niches from './Niches';
 import OurClients from './OurClients';
 import Reviews from './Reviews';
 import Workflow from './Workflow';
+import OutProjectsLink from './OurProjectsLink';
 
 export default function Home() {
   return (
@@ -49,10 +52,31 @@ export default function Home() {
         </div>
       </Layout>
       <div>
-        <Image className="max-h-[408px] object-cover" src={Home1Image} alt="" />
+        <picture>
+          <Source image={Home1Image} width={400} media="(max-width: 767.5px)" />
+          <Source
+            image={HomeTabletImage}
+            width={1024}
+            media="(min-width: 768.5px) and (max-width: 1024.5px)"
+          />
+          <Source
+            image={HomeDesktopImage}
+            width={1440}
+            media="(min-width: 1025.5px)"
+          />
+          <img
+            className="max-h-[408px] w-full object-cover lg:max-h-[463px]"
+            src={resolve({ src: Home1Image.src, width: 1440 })}
+            alt=""
+          />
+        </picture>
       </div>
-      <Niches />
-      <CasesSlider />
+      <div className="bg-white">
+        <Niches />
+        <CasesSlider />
+        <OutProjectsLink />
+      </div>
+
       <div className="bg-dim pb-14">
         <Workflow />
         <OurClients />

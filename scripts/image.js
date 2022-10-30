@@ -8,6 +8,8 @@ const os = require('os');
 
 sharp.cache(false);
 
+const args = process.argv.slice(2);
+
 const out = path.resolve(__dirname, './../out');
 const mediaPath = '/_next/static/media/';
 const cacheDir = path.resolve(os.tmpdir(), 'glow/cache');
@@ -37,6 +39,7 @@ const toVerify = [];
 
 // let total = 0;
 // bar.start(total, 0);
+const images = [];
 
 walk(out, async (err, pathname, dir) => {
   if (err) {
@@ -51,24 +54,77 @@ walk(out, async (err, pathname, dir) => {
   if (pathname.endsWith('.html')) {
     const content = await (await fs.readFile(pathname)).toString();
     const matches = content.matchAll(regexp3);
+
     for (const match of matches) {
       const filepath = match[0];
+      if (!filepath) {
+        continue;
+      }
 
-      console.log(filepath);
-      return;
-      const fullpath = out + match[0];
-      // console.log(fullpath, match);
-      // return;
-      const filename = match.groups.path;
+      const parts = filepath.match(
+        /\/_next\/static\/media\/(?<name>.+)\.w-(?<width>\d+)\.(?<ext>.+)/
+      );
+
+      if (!parts) {
+        continue;
+      }
+
+      const filename = parts.groups.name;
+      const width = +parts.groups.width;
+      const ext = parts.groups.ext;
+
+      if (!filename || !width || isNaN(width) || !ext) {
+        continue;
+      }
+
+      if (!['png', 'jpg', 'jpeg', 'webp'].includes(ext)) {
+        continue;
+      }
+
+      const fullpath = path.resolve(out + filepath);
+
+      if (!args.includes('--force')) {
+        if (await fileExist(fullpath)) {
+          continue;
+        }
+      }
+
+      const source = path.resolve(out + mediaPath, filename);
+
+      const sourceExtension = (
+        await Promise.all(
+          ['.jpg', '.jpeg', '.png'].map((ext) => {
+            return fileExist(source + ext);
+          })
+        ).catch(() => false)
+      )
+        .find((v) => v)
+        ?.split('.')
+        .at(-1);
+
+      if (!sourceExtension) {
+        continue;
+      }
+
+      const fullSource = source + '.' + sourceExtension;
+
+      images.push({
+        source: fullSource,
+        destination: fullpath,
+        width,
+        ext,
+      });
+
+      continue;
+
       const m = fullpath.match(/\.w-(?<width>\d+)\./);
-      const width = m?.groups?.width;
-      const ext = fullpath.split('.').at(-1);
+
       console.log(filepath);
       return;
       // console.log(path);
       // return;
       // const group = match.groups;
-      const source = path.resolve(out + mediaPath, filename);
+      // const source = path.resolve(out + mediaPath, filename);
       // const ext = group.ext;
       console.log(source, ext);
       return;
@@ -126,12 +182,49 @@ walk(out, async (err, pathname, dir) => {
     }
   }
 })
-  .then(() => {
-    return Promise.all(toVerify.map((file) => fileExist(file)));
-  })
-  .then(() => {
-    // bar.stop();
-    // console.log(toVerify);
+  .then(async () => {
+    const bar = new progress.SingleBar();
+    bar.start(images.length, 0);
+    const promises = images.map((image) => {
+      const s = sharp(image.source).resize({
+        width: image.width,
+        withoutEnlargement: true,
+      });
+
+      if (image.ext === 'webp') {
+        s.webp({
+          quality: 80,
+          effort: 6,
+        });
+      }
+
+      if (image.ext === 'jpeg' || image.ext === 'jpg') {
+        s.jpeg({
+          quality: 80,
+          mozjpeg: true,
+        });
+      }
+
+      if (image.ext === 'png') {
+        s.png({
+          compressionLevel: 9,
+        });
+      }
+
+      return (
+        s
+          // .sharpen()
+          .toFormat(image.ext)
+          .toFile(image.destination)
+          .then(() => {
+            bar.increment();
+          })
+      );
+    });
+
+    await Promise.all(promises);
+
+    bar.stop();
   })
   .catch((e) => {
     console.error(e);

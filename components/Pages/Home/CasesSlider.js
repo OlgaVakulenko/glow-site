@@ -1,16 +1,19 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useAtom } from 'jotai';
 import { useEffect, useRef } from 'react';
 import { EffectCreative } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { mediaAtom, useMedia } from '../../../lib/agent';
 import { addLeadingZero } from '../../../lib/utils';
 import Image from '../../Image';
 import Layout from '../../Layout';
 import Section from '../../Section';
 import SliderProgress from '../../SliderProgress';
 import BeastImage from './assets/slider-beast.png';
+import cx from 'clsx';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,39 +22,46 @@ const cases = [
     title: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
+    company: ['Funding 30M'],
     image: BeastImage,
   },
   {
     title: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
+    company: ['Funding 30M'],
     image: BeastImage,
   },
   {
     title: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
+    company: ['Funding 30M'],
     image: BeastImage,
   },
   {
     title: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
+    company: ['Funding 30M'],
     image: BeastImage,
   },
   {
     title: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
+    company: ['Funding 30M'],
     image: BeastImage,
   },
 ];
 
 function Col({ title, items, className = '' }) {
   return (
-    <div className={className}>
-      <div className="mb-4 text-xs uppercase leading-[13px]">{title}</div>
-      <div className="text-sm leading-[26px]">
+    <div className={cx(className)}>
+      <div className="mb-[21px] text-xs font-medium uppercase leading-[110%]">
+        {title}
+      </div>
+      <div className="text-sm leading-[186%]">
         {items.map((item, i) => (
           <div key={i}>{item}</div>
         ))}
@@ -61,11 +71,13 @@ function Col({ title, items, className = '' }) {
 }
 
 function CaseSlide({ item, index }) {
+  const [media] = useAtom(mediaAtom);
+
   return (
     <Layout className="__slide-wrapper">
-      <div className="__slide relative flex h-[456px] overflow-hidden rounded-2xl text-lblue">
+      <div className="__slide relative flex h-[456px] overflow-hidden rounded-2xl text-lblue lg:h-[688px] lg:items-end">
         <Image
-          className="__slider-item absolute top-0 left-0 max-h-[456px] object-cover"
+          className="__slider-item absolute top-0 left-0 max-h-[456px] object-cover lg:max-h-[688px]"
           src={item.image}
           alt=""
         />
@@ -77,9 +89,10 @@ function CaseSlide({ item, index }) {
             bottom-0
             left-0"
         ></div>
-        <div className="relative px-6 pt-[193px] pb-[48px]">
-          <div className="relative inline-block font-glow text-[11px] tracking-[2px]">
-            {addLeadingZero(index + 1)}&nbsp;&nbsp;-&nbsp;&nbsp;
+        <div className="relative px-6 pt-[193px] pb-12 lg:px-[45px] lg:pb-[57px] lg:pt-[250px]">
+          <div className="relative inline-block pl-[3px] font-glow text-[11px] tracking-[2px]">
+            {addLeadingZero(index + 1)}
+            &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
             {addLeadingZero(cases.length)}
             <div className="absolute top-[-20px] right-[-30px]">
               <svg
@@ -96,16 +109,15 @@ function CaseSlide({ item, index }) {
               </svg>
             </div>
           </div>
-          <div className="mb-[23px] mt-[16px] font-glow text-[26px] font-medium">
+          <div className="mb-8 mt-[20px] font-glow text-[26px] font-medium leading-[120%] lg:mb-[38px] lg:mt-[15px] lg:text-[32px]">
             {item.title}
           </div>
-          <div className="flex">
-            <Col
-              className="mr-11 last:mr-0"
-              title="Industry"
-              items={item.industry}
-            />
+          <div className="flex space-x-[56px] pl-[3px] lg:space-x-[96px]">
+            <Col className="" title="Industry" items={item.industry} />
             <Col title="Service" items={item.service} />
+            {media !== 'mobile' && item.company && (
+              <Col title="Company" items={item.company} />
+            )}
           </div>
         </div>
       </div>
@@ -120,10 +132,10 @@ export default function CasesSlider() {
     const ctx = gsap.context(() => {
       const scroller = {
         trigger: '.__slide',
-        start: 'top bottom',
-        end: '+=500',
+        start: 'top 90%',
+        end: '+=400',
         scrub: true,
-        // markers: true,
+        markers: true,
       };
 
       gsap.to('.__slide', {
@@ -146,7 +158,7 @@ export default function CasesSlider() {
 
   return (
     <div ref={ref}>
-      <Section withLayout={false} className="bg-white pb-[80px]">
+      <Section withLayout={false} className="pb-[80px] lg:pb-[72px]">
         <Swiper
           grabCursor={true}
           effect={'creative'}
@@ -177,49 +189,49 @@ export default function CasesSlider() {
   );
 }
 
-export function CasesSlider2() {
-  return (
-    <Section withLayout={false} className="bg-white">
-      {cases.map((item, i) => (
-        // <Layout key={i}>
-        <div
-          key={i}
-          ref={ref}
-          className="ref relative flex h-[456px] overflow-hidden rounded-2xl text-lblue"
-        >
-          <Image
-            className="__slider-item absolute top-0 left-0 max-h-[456px] object-cover"
-            src={item.image}
-            alt=""
-          />
-          <div
-            className="__slider-item
-            absolute
-            top-0
-            right-0
-            bottom-0
-            left-0"
-          ></div>
-          <div className="relative px-6 pt-[193px] pb-[48px]">
-            <div className="font-glow text-[11px] tracking-[2px]">
-              {addLeadingZero(i + 1)}&nbsp;&nbsp;-&nbsp;&nbsp;
-              {addLeadingZero(cases.length)}
-            </div>
-            <div className="mb-[23px] mt-[16px] font-glow text-[26px] font-medium">
-              {item.title}
-            </div>
-            <div className="flex">
-              <Col
-                className="mr-11 last:mr-0"
-                title="Industry"
-                items={item.industry}
-              />
-              <Col title="Service" items={item.service} />
-            </div>
-          </div>
-        </div>
-        // </Layout>
-      ))}
-    </Section>
-  );
-}
+// export function CasesSlider2() {
+//   return (
+//     <Section withLayout={false} className="bg-white">
+//       {cases.map((item, i) => (
+//         // <Layout key={i}>
+//         <div
+//           key={i}
+//           ref={ref}
+//           className="ref relative flex h-[456px] overflow-hidden rounded-2xl text-lblue"
+//         >
+//           <Image
+//             className="__slider-item absolute top-0 left-0 max-h-[456px] object-cover"
+//             src={item.image}
+//             alt=""
+//           />
+//           <div
+//             className="__slider-item
+//             absolute
+//             top-0
+//             right-0
+//             bottom-0
+//             left-0"
+//           ></div>
+//           <div className="relative px-6 pt-[193px] pb-[48px]">
+//             <div className="font-glow text-[11px] tracking-[2px]">
+//               {addLeadingZero(i + 1)}&nbsp;&nbsp;-&nbsp;&nbsp;
+//               {addLeadingZero(cases.length)}
+//             </div>
+//             <div className="mb-[23px] mt-[16px] font-glow text-[26px] font-medium">
+//               {item.title}
+//             </div>
+//             <div className="flex">
+//               <Col
+//                 className="mr-11 last:mr-0"
+//                 title="Industry"
+//                 items={item.industry}
+//               />
+//               <Col title="Service" items={item.service} />
+//             </div>
+//           </div>
+//         </div>
+//         // </Layout>
+//       ))}
+//     </Section>
+//   );
+// }

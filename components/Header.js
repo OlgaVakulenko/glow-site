@@ -1,6 +1,7 @@
 import cx from 'clsx';
 import Link from 'next/link';
 import { useEffect, useId, useState } from 'react';
+import { useSupports } from '../lib/agent';
 import { useBodyLock } from '../lib/utils';
 import BigButton from './BigButton';
 import Layout from './Layout';
@@ -62,6 +63,7 @@ export default function Header() {
   const links = ['Work', 'Team', 'Services'];
   const menuId = useId();
   const { lock, release } = useBodyLock();
+  const isEyeDropperSupported = useSupports('EyeDropper');
 
   useEffect(() => {
     if (isOpen) {
@@ -75,6 +77,21 @@ export default function Header() {
     setIsOpen((v) => !v);
   };
 
+  const handleTestClick = () => {
+    const eyeDropper = new EyeDropper();
+
+    console.log('before open');
+    eyeDropper
+      .open()
+      .then((result) => {
+        console.log('after open');
+        console.log(result);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   return (
     <header>
       <Layout>
@@ -83,14 +100,14 @@ export default function Header() {
             ['flex h-screen flex-col justify-between bg-brand']: isOpen,
           })}
         >
-          <div className="flex justify-between items-center py-[28px] font-medium text-black uppercase">
+          <div className="flex items-center justify-between py-[28px] font-medium uppercase text-black">
             <div className="flex items-center justify-center">
               <Logo />
             </div>
-            <div className="hidden lg:block ml-[-100px]">
+            <div className="ml-[-100px] hidden lg:block">
               {links.map((link) => (
                 <Link
-                  className="text-sm mr-[77px] last:mr-0"
+                  className="mr-[77px] text-sm last:mr-0"
                   key={link}
                   href="/"
                 >
@@ -101,7 +118,7 @@ export default function Header() {
             <div className="hidden lg:block">
               <Link
                 href="/"
-                className="glow-border text-sm leading-[19px] px-4 py-[15px] rounded-full"
+                className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors hover:bg-black hover:text-brand"
               >
                 Let&apos;s get in touch
               </Link>
@@ -139,7 +156,14 @@ export default function Header() {
                   ))}
                 </ul>
               </nav>
-              <BigButton className="mb-[60px]">let’s get in touche </BigButton>
+              <BigButton
+                onClick={() => {
+                  handleTestClick();
+                }}
+                className="mb-[60px]"
+              >
+                let’s get in touche{' '}
+              </BigButton>
             </>
           )}
         </div>

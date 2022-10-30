@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export && node image/index.js",
+    "build": "next build && next export",
     "start": "next start",
     "lint": "next lint"
   },
@@ -28,16 +28,18 @@
   "devDependencies": {
     "@root/walk": "^1.1.0",
     "autoprefixer": "^10.4.12",
+    "cli-progress": "^3.11.2",
     "critters": "0.0.7",
     "eslint": "8.24.0",
     "eslint-config-next": "13.0.0",
     "eslint-config-prettier": "^8.5.0",
+    "fs-extra": "^10.1.0",
     "postcss": "^8.4.17",
     "prettier": "^2.7.1",
     "prettier-plugin-organize-imports": "^3.1.1",
     "prettier-plugin-tailwindcss": "^0.1.13",
     "sharp": "^0.31.1",
-    "tailwindcss": "^3.1.8",
+    "tailwindcss": "^3.2.1",
     "typescript": "^4.8.4"
   }
 }

@@ -2,10 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '../assets/fonts/css/general-sans.css';
+@import '../assets/fonts/general-sans/general-sans.css';
 @import '../assets/fonts/glow/glow.css';
 
 @layer base {
+  ::selection {
+    color: theme('colors.white');
+    background-color: theme('colors.brand');
+  }
+
   html {
     color: theme('colors.black');
   }
@@ -32,7 +37,11 @@
 }
 
 .glow-border {
-  box-shadow: inset 0 0 0 1px;
+  box-shadow: inset 0 0 0 1.1px;
+}
+
+.glow-border-black {
+  box-shadow: inset 0 0 0 1.1px theme('colors.black');
 }
 
 /** Niches Animations */
