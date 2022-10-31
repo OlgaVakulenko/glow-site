@@ -14,19 +14,19 @@ function Section({ children, withLayout = true, ...props }) {
 }
 
 Section.Header = function Header({ className, children }) {
-  return <div className={cx(className, 'lg:flex')}>{children}</div>;
+  return <div className={cx(className, 'md:flex')}>{children}</div>;
 };
 
 Section.Title = function Title({ children }) {
   return (
-    <div className="mb-4 lg:text-[60px] lg:leading-[95%] lg:w-1/2 font-glow text-[32px] font-medium leading-[60px] ">
+    <div className="mb-4 font-glow text-[32px] font-medium leading-[60px] md:w-1/2 md:text-[60px] md:leading-[95%] ">
       {children}
     </div>
   );
 };
 
 Section.Description = function Description({ children }) {
-  return <div className="text-lg lg:w-1/2 lg:pl-10 italic">{children}</div>;
+  return <div className="text-lg italic md:w-1/2 md:pl-10">{children}</div>;
 };
 
 export default Section;

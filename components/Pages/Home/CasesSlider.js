@@ -13,6 +13,7 @@ import Layout from '../../Layout';
 import Section from '../../Section';
 import SliderProgress from '../../SliderProgress';
 import BeastImage from './assets/slider-beast.png';
+import CaseDesktop from './assets/case-desktop-1.png';
 import cx from 'clsx';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -23,35 +24,35 @@ const cases = [
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
-    image: BeastImage,
+    image: CaseDesktop,
   },
   {
     title: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
-    image: BeastImage,
+    image: CaseDesktop,
   },
   {
     title: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
-    image: BeastImage,
+    image: CaseDesktop,
   },
   {
     title: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
-    image: BeastImage,
+    image: CaseDesktop,
   },
   {
     title: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
-    image: BeastImage,
+    image: CaseDesktop,
   },
 ];
 
@@ -74,10 +75,10 @@ function CaseSlide({ item, index }) {
   const [media] = useAtom(mediaAtom);
 
   return (
-    <Layout className="__slide-wrapper">
-      <div className="__slide relative flex h-[456px] overflow-hidden rounded-2xl text-lblue lg:h-[688px] lg:items-end">
+    <div className="__slide-wrapper">
+      <div className="relative flex h-[456px] overflow-hidden rounded-2xl text-lblue md:h-[688px] md:items-end">
         <Image
-          className="__slider-item absolute top-0 left-0 max-h-[456px] object-cover lg:max-h-[688px]"
+          className="__slider-item absolute top-0 left-0 h-full max-h-[456px] w-full object-cover md:max-h-full"
           src={item.image}
           alt=""
         />
@@ -89,7 +90,7 @@ function CaseSlide({ item, index }) {
             bottom-0
             left-0"
         ></div>
-        <div className="relative px-6 pt-[193px] pb-12 lg:px-[45px] lg:pb-[57px] lg:pt-[250px]">
+        <div className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]">
           <div className="relative inline-block pl-[3px] font-glow text-[11px] tracking-[2px]">
             {addLeadingZero(index + 1)}
             &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
@@ -109,10 +110,10 @@ function CaseSlide({ item, index }) {
               </svg>
             </div>
           </div>
-          <div className="mb-8 mt-[20px] font-glow text-[26px] font-medium leading-[120%] lg:mb-[38px] lg:mt-[15px] lg:text-[32px]">
+          <div className="mb-8 mt-[20px] font-glow text-[26px] font-medium leading-[120%] md:mb-[38px] md:mt-[15px] md:text-[32px]">
             {item.title}
           </div>
-          <div className="flex space-x-[56px] pl-[3px] lg:space-x-[96px]">
+          <div className="flex space-x-[56px] pl-[3px] md:space-x-[96px]">
             <Col className="" title="Industry" items={item.industry} />
             <Col title="Service" items={item.service} />
             {media !== 'mobile' && item.company && (
@@ -121,21 +122,26 @@ function CaseSlide({ item, index }) {
           </div>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 }
 
 export default function CasesSlider() {
   const ref = useRef();
+  const [media] = useAtom(mediaAtom);
 
   useEffect(() => {
+    // if (media === 'desktop') {
+    //   return;
+    // }
+
     const ctx = gsap.context(() => {
       const scroller = {
         trigger: '.__slide',
         start: 'top 90%',
         end: '+=400',
         scrub: true,
-        markers: true,
+        // markers: true,
       };
 
       gsap.to('.__slide', {
@@ -154,17 +160,25 @@ export default function CasesSlider() {
       ctx.revert();
       console.log('reverting');
     };
-  }, []);
+  }, [media]);
 
   return (
     <div ref={ref}>
-      <Section withLayout={false} className="pb-[80px] lg:pb-[72px]">
+      <Section withLayout={false} className="pb-[80px] md:pb-[72px]">
         <Swiper
+          slidesPerView={1}
+          speed={500}
+          breakpoints={{
+            1440: {
+              slidesPerView: 1.2,
+              // spaceBetween: 100,
+            },
+          }}
           grabCursor={true}
           effect={'creative'}
           creativeEffect={{
             prev: {
-              shadow: true,
+              // shadow: true,
               translate: ['-20%', 0, -1],
               opacity: 0,
               scale: 0.95,
@@ -176,62 +190,20 @@ export default function CasesSlider() {
           modules={[EffectCreative]}
         >
           {cases.map((item, i) => (
-            <SwiperSlide key={i}>
+            <SwiperSlide
+              key={i}
+              className="__slide lsat:pr-[16px] pr-[16px] pl-[16px] xl:pr-0 xl:pl-[32px]"
+            >
               <CaseSlide item={item} index={i} />
             </SwiperSlide>
           ))}
-          <Layout>
-            <SliderProgress className="mt-6" />
-          </Layout>
+          {media !== 'desktop' && (
+            <Layout>
+              <SliderProgress className="mt-6" />
+            </Layout>
+          )}
         </Swiper>
       </Section>
     </div>
   );
 }
-
-// export function CasesSlider2() {
-//   return (
-//     <Section withLayout={false} className="bg-white">
-//       {cases.map((item, i) => (
-//         // <Layout key={i}>
-//         <div
-//           key={i}
-//           ref={ref}
-//           className="ref relative flex h-[456px] overflow-hidden rounded-2xl text-lblue"
-//         >
-//           <Image
-//             className="__slider-item absolute top-0 left-0 max-h-[456px] object-cover"
-//             src={item.image}
-//             alt=""
-//           />
-//           <div
-//             className="__slider-item
-//             absolute
-//             top-0
-//             right-0
-//             bottom-0
-//             left-0"
-//           ></div>
-//           <div className="relative px-6 pt-[193px] pb-[48px]">
-//             <div className="font-glow text-[11px] tracking-[2px]">
-//               {addLeadingZero(i + 1)}&nbsp;&nbsp;-&nbsp;&nbsp;
-//               {addLeadingZero(cases.length)}
-//             </div>
-//             <div className="mb-[23px] mt-[16px] font-glow text-[26px] font-medium">
-//               {item.title}
-//             </div>
-//             <div className="flex">
-//               <Col
-//                 className="mr-11 last:mr-0"
-//                 title="Industry"
-//                 items={item.industry}
-//               />
-//               <Col title="Service" items={item.service} />
-//             </div>
-//           </div>
-//         </div>
-//         // </Layout>
-//       ))}
-//     </Section>
-//   );
-// }

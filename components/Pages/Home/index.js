@@ -44,7 +44,7 @@ export default function Home() {
           <div className="font-glow text-[40px] font-medium leading-10">
             <h1>
               Simple design
-              <br className="hidden lg:block" /> for&nbsp;complex products
+              <br className="hidden md:block" /> for&nbsp;complex products
             </h1>
             {/* The logical aesthetics your{' '} */}
             {/* <span className="block w-full text-right">experience</span> */}
@@ -65,7 +65,7 @@ export default function Home() {
             media="(min-width: 1025.5px)"
           />
           <img
-            className="max-h-[408px] w-full object-cover lg:max-h-[463px]"
+            className="max-h-[408px] w-full object-cover md:max-h-[463px]"
             src={resolve({ src: Home1Image.src, width: 1440 })}
             alt=""
           />
@@ -74,7 +74,7 @@ export default function Home() {
       <div className="bg-white">
         <Niches />
         <CasesSlider />
-        <OutProjectsLink />
+        <OutProjectsLink className="hidden md:block" />
       </div>
 
       <div className="bg-dim pb-14">

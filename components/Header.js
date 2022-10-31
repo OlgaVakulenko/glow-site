@@ -6,6 +6,7 @@ import { useBodyLock } from '../lib/utils';
 import BigButton from './BigButton';
 import Layout from './Layout';
 import Logo from './Logo';
+import RollingText from './RollingText';
 
 function BurgerIcon({ isOpen = false }) {
   if (isOpen) {
@@ -63,7 +64,6 @@ export default function Header() {
   const links = ['Work', 'Team', 'Services'];
   const menuId = useId();
   const { lock, release } = useBodyLock();
-  const isEyeDropperSupported = useSupports('EyeDropper');
 
   useEffect(() => {
     if (isOpen) {
@@ -101,30 +101,31 @@ export default function Header() {
           })}
         >
           <div className="flex items-center justify-between py-[28px] font-medium uppercase text-black">
-            <div className="flex items-center justify-center">
+            <Link href="/" className="flex items-center justify-center">
               <Logo />
-            </div>
-            <div className="ml-[-100px] hidden lg:block">
+            </Link>
+            <div className="ml-[-100px] hidden md:flex">
               {links.map((link) => (
                 <Link
                   className="mr-[77px] text-sm last:mr-0"
                   key={link}
                   href="/"
                 >
-                  {link}
+                  <RollingText text={link} height={20} />
+                  {/* {link} */}
                 </Link>
               ))}
             </div>
-            <div className="hidden lg:block">
+            <div className="hidden md:block">
               <Link
                 href="/"
-                className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors hover:bg-black hover:text-brand"
+                className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
               >
                 Let&apos;s get in touch
               </Link>
             </div>
             <BurgerButton
-              className="lg:hidden"
+              className="md:hidden"
               aria-controls={menuId}
               isOpen={isOpen}
               onClick={onBurgerClick}

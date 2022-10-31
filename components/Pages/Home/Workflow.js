@@ -51,17 +51,19 @@ const stats = [
 
 export default function Workflow() {
   return (
-    <Section className="pt-16">
-      <Section.Title>Workflow</Section.Title>
-      <Section.Description>
-        Our approach allows us to make complex things simple. We will learn
-        about your business, study the audience.
-      </Section.Description>
-      <div className="mt-[64px]  divide-y divide-black">
+    <Section className="pt-16 md:pt-[139px] xl:pt-[176px]">
+      <Section.Header>
+        <Section.Title>Workflow</Section.Title>
+        <Section.Description>
+          Our approach allows us to make complex things simple. We will learn
+          about your business, study the audience.
+        </Section.Description>
+      </Section.Header>
+      <div className="mt-[64px] flex flex-wrap divide-y divide-black md:divide-x">
         {stages.map((stage, i) => (
           <div
             key={i}
-            className="pt-[49px] pb-[33px] first:border-t first:border-black last:border-t last:border-black"
+            className="w-full pt-[49px] pb-[33px] first:border-t first:border-black last:border-t last:border-black md:w-1/2 md:px-[44px] md:pt-[48px] md:pb-[40px] md:odd:!border-l-0"
           >
             <div className="text-xs font-medium uppercase opacity-50">
               {addLeadingZero(i + 1)} Stage
@@ -109,25 +111,30 @@ export default function Workflow() {
               </svg>
             </div>
             <div className="mb-4 text-lg font-medium">{stage.title}</div>
-            <div>{stage.description}</div>
+            <div className="md:max-w-[270px]">{stage.description}</div>
           </div>
         ))}
       </div>
-      <div className="border-b border-t border-black pt-[56px]">
-        <div className="mb-4 font-glow text-xl text-center font-medium leading-[170%]">
-          Compact = Efficient
+      <div className="border-b border-t border-black pt-[56px] md:flex md:items-end md:pb-24">
+        <div className="pl-[6px] md:w-5/12">
+          <div className="mb-4 text-center font-glow text-xl font-medium leading-[170%] md:text-left">
+            Compact = Efficient
+          </div>
+          <div className="text-center text-lg italic leading-[133%] md:text-left">
+            We measure our success with numbers and feelings. But first, let the
+            numbers talk:
+          </div>
         </div>
-        <div className="text-lg italic leading-[133%]">
-          We measure our success with numbers and feelings. But first, let the
-          numbers talk:
-        </div>
-        <div className="mt-[40px]">
+        <div className="mt-[40px] md:mb-[-72px] md:flex md:w-7/12 md:flex-wrap">
           {stats.map((stat, i) => (
-            <div key={i} className="mb-6">
+            <div
+              key={i}
+              className="mb-6 md:mb-[72px] md:w-1/2 md:pr-[80px] md:even:pr-0"
+            >
               <div className="mb-2 text-xs font-medium uppercase opacity-50">
                 {stat.title}
               </div>
-              <div className="mb-2 text-[33px] font-medium uppercase leading-[170%]">
+              <div className="mb-2 text-[33px] font-medium leading-[170%] md:text-[44px] md:leading-[127%]">
                 {stat.value}
               </div>
             </div>

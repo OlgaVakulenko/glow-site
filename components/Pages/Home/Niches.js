@@ -1,6 +1,7 @@
 import cx from 'clsx';
 import Link from 'next/link';
 import Layout from '../../Layout';
+import LinkArrowCircle from '../../LinkArrowCircle';
 import Section from '../../Section';
 import NichesAnimation from './NichesAnimation';
 
@@ -41,26 +42,6 @@ function Badge({ children, className = '' }) {
   );
 }
 
-const Arrow = () => {
-  return (
-    <svg
-      width="56"
-      height="56"
-      viewBox="0 0 56 56"
-      fill="transparent"
-      xmlns="http://www.w3.org/2000/svg"
-      className="group/arrow transition-colors group-hover:fill-black"
-    >
-      <circle cx="28" cy="28.0005" r="27.5" stroke="currentColor" />
-      <path
-        className="transition-transform group-hover/arrow:translate-x-[2px]"
-        d="M28 21.0005L35.0711 28.0716M35.0711 28.0716L28 35.1426M35.0711 28.0716H20.9289"
-        stroke="currentColor"
-      />
-    </svg>
-  );
-};
-
 export default function Niches() {
   return (
     <Section withLayout={false}>
@@ -75,15 +56,15 @@ export default function Niches() {
         </Section.Header>
       </Layout>
       <NichesAnimation />
-      <Layout className="lg:mt-[120px]">
+      <Layout className="md:mt-[120px]">
         <ul className="divide-y divide-black">
           {items.map((item, i) => (
             <li key={i} className="pb-10 pt-12 ">
               <Link
                 href="#"
-                className="group block first:pt-0 lg:flex lg:items-start lg:justify-between"
+                className="group block first:pt-0 md:flex md:items-start md:justify-between"
               >
-                <div className="mb-[38px] lg:w-full lg:max-w-[25%]">
+                <div className="mb-[38px] md:w-full md:max-w-[25%]">
                   <svg
                     width="80"
                     height="76"
@@ -110,15 +91,15 @@ export default function Niches() {
                     </defs>
                   </svg>
                 </div>
-                <div className="mb-4 flex items-center text-xl font-medium leading-[30px] lg:w-full lg:max-w-[25%] lg:items-start">
+                <div className="mb-4 flex items-center text-xl font-medium leading-[30px] md:w-full md:max-w-[25%] md:items-start">
                   <span className="pt-5">{item.title}</span>
                   <Badge className="ml-2">{item.count}</Badge>
                 </div>
-                <div className="lg:w-full lg:max-w-[25%]">
+                <div className="md:w-full md:max-w-[25%]">
                   {item.description}
                 </div>
-                <div className="transition-colors group-hover:text-white">
-                  <Arrow />
+                <div className="hidden transition-colors md:block">
+                  <LinkArrowCircle />
                 </div>
               </Link>
             </li>

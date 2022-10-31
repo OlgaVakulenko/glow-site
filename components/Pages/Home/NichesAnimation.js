@@ -2,6 +2,8 @@ import gsap from 'gsap';
 import { useAtom } from 'jotai';
 import { useEffect, useRef } from 'react';
 import { mediaAtom } from '../../../lib/agent';
+import Image from '../../Image';
+import Noise from './assets/noise.png';
 
 function Logo() {
   return (
@@ -131,6 +133,33 @@ export default function NichesAnimation() {
         rotate: '-20deg',
       });
 
+      gsap.to('.__noise', {
+        scrollTrigger: {
+          trigger: ref.current,
+          start: 'top 70%',
+          end: 'bottom 50%',
+          scrub: true,
+          // markers: true,
+        },
+        ease: 'power2.inOut',
+        opacity: 0,
+
+        rotate: '22deg',
+      });
+
+      gsap.to('.__noise2', {
+        scrollTrigger: {
+          trigger: ref.current,
+          start: 'top 70%',
+          end: 'bottom 50%',
+          scrub: true,
+          // markers: true,
+        },
+        ease: 'power2.inOut',
+        opacity: 1,
+        rotate: `${45 + 22}deg`,
+      });
+
       const textTrigger = {
         trigger: ref.current,
         start: 'top 35%',
@@ -165,11 +194,26 @@ export default function NichesAnimation() {
   return (
     <div
       ref={ref}
-      className="relative hidden h-[580px] justify-between overflow-hidden lg:flex"
+      className="relative hidden h-[580px] justify-between overflow-hidden md:flex"
     >
+      <div></div>
       <div className="__shape absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <Shape />
+        <div className="relative">
+          <Shape />
+          <Image
+            src={Noise}
+            alt=""
+            className="__noise absolute top-[6.9%] left-[24.1%] h-[440px] w-[440px]"
+          />
+          <Image
+            src={Noise}
+            alt=""
+            className="__noise2 absolute top-[6.9%] left-[24.1%] h-[440px] w-[440px] rotate-45 opacity-0"
+          />
+        </div>
       </div>
+      <div></div>
+      <div></div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <Logo />
       </div>

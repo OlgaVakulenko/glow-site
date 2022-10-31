@@ -1,9 +1,10 @@
 import SectionLink from '../../SectionLink';
+import cx from 'clsx';
 
-export default function OutProjectsLink() {
+export default function OutProjectsLink({ className }) {
   return (
     <SectionLink
-      className="pb-[126px]"
+      className={cx('pb-[126px]', className)}
       title="Our projects"
       description={[
         'How we do it.',
