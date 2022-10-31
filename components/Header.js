@@ -97,7 +97,7 @@ export default function Header() {
       <Layout>
         <div
           className={cx({
-            ['flex h-screen flex-col justify-between bg-brand']: isOpen,
+            ['flex h-screenx flex-col justify-between bg-brand']: isOpen,
           })}
         >
           <div className="flex items-center justify-between py-[28px] font-medium uppercase text-black">

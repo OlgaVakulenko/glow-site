@@ -22,6 +22,9 @@ module.exports = {
         lblue: '#F0F6FF',
         dim: '#F3F2F4',
       },
+      spacing: {
+        screenx: 'calc(var(--vh, 1vh) * 100);',
+      },
       borderWidth: {
         ['1.5']: '1.5px',
       },

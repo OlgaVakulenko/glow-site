@@ -32,11 +32,13 @@ export default function OurClients() {
           </div>
         </Marquee>
       </div>
-      <div className="flex items-center justify-center mb-[80px]">
+      <div className="mb-[80px] flex items-center justify-center">
         <Go />
       </div>
-      <div className="flex justify-center items-center relative mx-[36px] mb-[40px]">
+      <div className="relative mx-[36px] mb-[40px] flex items-center justify-center pb-[100%]">
         <svg
+          className="absolute inset-0"
+          width="100%"
           viewBox="0 0 304 304"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -85,7 +87,7 @@ export default function OurClients() {
         <Image className="absolute inset-0" src={Noise} alt="" />
       </div>
       <Layout>
-        <div className="italic text-center text-lg leading-[133%]">
+        <div className="text-center text-lg italic leading-[133%]">
           We’ve built long-lasting partnerships with the most ambitious brands
           across the globe
         </div>

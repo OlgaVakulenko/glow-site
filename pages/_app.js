@@ -106,6 +106,18 @@ function MyApp({ Component, pageProps }) {
           content="/favicons/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#ffffff" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            function updateScreenHeight() {
+              document.documentElement.style.setProperty('--vh', window.innerHeight / 100 + 'px');
+            }
+            updateScreenHeight();
+            window.addEventListener('resize', updateScreenHeight);
+            window.addEventListener('orientationchange', updateScreenHeight);
+          `,
+          }}
+        />
       </Head>
       <LoadingProgress />
       <Header />
