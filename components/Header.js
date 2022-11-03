@@ -1,12 +1,15 @@
 import cx from 'clsx';
 import Link from 'next/link';
-import { useEffect, useId, useState } from 'react';
+import React, { useEffect, useId, useState } from 'react';
 import { useSupports } from '../lib/agent';
 import { useBodyLock } from '../lib/utils';
 import BigButton from './BigButton';
 import Layout from './Layout';
 import Logo from './Logo';
 import RollingText from './RollingText';
+import { Transition } from '@headlessui/react';
+import { atom } from 'jotai';
+import { useAtom } from 'jotai';
 
 function BurgerIcon({ isOpen = false }) {
   if (isOpen) {
@@ -59,8 +62,131 @@ const BurgerButton = ({ isOpen, className, ...props }) => {
   );
 };
 
+const openAtom = atom(false);
+
+const Animation = ({ index, children, ...props }) => {
+  return (
+    <Transition.Child
+      unmount={false}
+      appear={true}
+      enter="transition ease-in-out duration-500 transform"
+      enterFrom="translate-y-5 opacity-0"
+      enterTo="translate-y-0 opacity-1"
+      leave="transition ease-in-out duration-300 transform"
+      leaveFrom="translate-y-0 opacity-1"
+      leaveTo="translate-y-5 opacity-0"
+      className="mb-[24px] text-[59px] uppercase leading-[80px] last:mb-[0px]"
+      {...props}
+      style={{
+        transitionDelay: (1 + index) * 100 + 'ms',
+      }}
+    >
+      {children}
+    </Transition.Child>
+  );
+};
+
+const BurgerMenu = ({
+  // transitionOpen,
+  // isOpen,
+  menuId,
+  links,
+  // onBurgerClick,
+}) => {
+  const [isOpen, setIsOpen] = useAtom(openAtom);
+
+  return (
+    <Transition
+      show={isOpen}
+      appear={true}
+      enter="transition-opacity duration-300"
+      enterFrom="opacity-0"
+      enterTo="opacity-100"
+      leave="transition-opacity duration-300"
+      leaveFrom="opacity-100"
+      leaveTo="opacity-0"
+      className="fixed inset-0 z-10 bg-brand"
+    >
+      <div className="">
+        <Layout>
+          <div className={'flex h-screenx flex-col justify-between'}>
+            <div className="flex items-center justify-between py-[28px] font-medium uppercase text-black">
+              <Link href="/" className="flex items-center justify-center">
+                <Logo />
+              </Link>
+              <div className="ml-[-100px] hidden md:flex">
+                {links.map((link) => (
+                  <Link
+                    key={link}
+                    className="mr-[77px] text-sm last:mr-0"
+                    href="/"
+                  >
+                    <RollingText text={link} height={20} />
+                    {/* {link} */}
+                  </Link>
+                ))}
+              </div>
+              <div className="hidden md:block">
+                <Link
+                  href="/"
+                  className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
+                >
+                  Let&apos;s get in touch
+                </Link>
+              </div>
+              <BurgerButton
+                className="md:hidden"
+                aria-controls={menuId}
+                isOpen={isOpen}
+                onClick={() => setIsOpen((v) => !v)}
+                aria-expanded={isOpen}
+              />
+            </div>
+            <nav
+              aria-label="Main menu"
+              role="navigation"
+              id={menuId}
+              className="flex flex-col"
+            >
+              <ul className="text-center">
+                {links.map((item, i) => (
+                  <Animation as="li" key={item} index={i}>
+                    {/* <li
+                      // key={item}
+                      className="mb-[24px] text-[59px] uppercase leading-[80px] last:mb-[0px]"
+                    > */}
+                    <a
+                      href="#"
+                      className="flex items-center justify-center font-medium text-black"
+                    >
+                      {item}
+                    </a>
+                    {/* </li> */}
+                  </Animation>
+                ))}
+              </ul>
+            </nav>
+            <Animation index={links.length}>
+              <BigButton
+                onClick={() => {
+                  handleTestClick();
+                }}
+                className="mb-[60px]"
+              >
+                let’s get in touche{' '}
+              </BigButton>
+            </Animation>
+          </div>
+        </Layout>
+      </div>
+    </Transition>
+  );
+};
+
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [transitionOpen, setTransitionOpen] = useState(false);
+  const [isOpen, setIsOpen] = useAtom(openAtom);
+  // const [isOpen, setIsOpen] = useState(false);
   const links = ['Work', 'Team', 'Services'];
   const menuId = useId();
   const { lock, release } = useBodyLock();
@@ -93,82 +219,85 @@ export default function Header() {
   };
 
   return (
-    <header>
-      <Layout>
-        <div
-          className={cx({
-            ['flex h-screenx flex-col justify-between bg-brand']: isOpen,
-          })}
-        >
-          <div className="flex items-center justify-between py-[28px] font-medium uppercase text-black">
-            <Link href="/" className="flex items-center justify-center">
-              <Logo />
-            </Link>
-            <div className="ml-[-100px] hidden md:flex">
-              {links.map((link) => (
-                <Link
-                  className="mr-[77px] text-sm last:mr-0"
-                  key={link}
-                  href="/"
-                >
-                  <RollingText text={link} height={20} />
-                  {/* {link} */}
-                </Link>
-              ))}
-            </div>
-            <div className="hidden md:block">
-              <Link
-                href="/"
-                className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
-              >
-                Let&apos;s get in touch
+    <>
+      <header>
+        <Layout>
+          <div
+            className={cx({
+              ['flex h-screenx flex-col bg-brand']: false,
+            })}
+          >
+            <div className="flex items-center justify-between py-[28px] font-medium uppercase text-black">
+              <Link href="/" className="flex items-center justify-center">
+                <Logo />
               </Link>
+              <div className="ml-[-100px] hidden md:flex">
+                {links.map((link) => (
+                  <Link
+                    className="mr-[77px] text-sm last:mr-0"
+                    key={link}
+                    href="/"
+                  >
+                    <RollingText text={link} height={20} />
+                    {/* {link} */}
+                  </Link>
+                ))}
+              </div>
+              <div className="hidden md:block">
+                <Link
+                  href="/"
+                  className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
+                >
+                  Let&apos;s get in touch
+                </Link>
+              </div>
+              <BurgerButton
+                className="md:hidden"
+                aria-controls={menuId}
+                isOpen={isOpen}
+                onClick={onBurgerClick}
+                aria-expanded={isOpen}
+              />
             </div>
-            <BurgerButton
-              className="md:hidden"
-              aria-controls={menuId}
-              isOpen={isOpen}
-              onClick={onBurgerClick}
-              aria-expanded={isOpen}
-            />
-          </div>
 
-          {isOpen && (
-            <>
-              <nav
-                aria-label="Main menu"
-                role="navigation"
-                id={menuId}
-                className="flex flex-col"
-              >
-                <ul className="text-center">
-                  {links.map((item) => (
-                    <li
-                      key={item}
-                      className="mb-[24px] text-[59px] uppercase leading-[80px] last:mb-[0px]"
-                    >
-                      <a
-                        href="#"
-                        className="flex items-center justify-center font-medium text-black"
+            {isOpen && false && (
+              <>
+                <nav
+                  aria-label="Main menu"
+                  role="navigation"
+                  id={menuId}
+                  className="flex flex-col"
+                >
+                  <ul className="text-center">
+                    {links.map((item) => (
+                      <li
+                        key={item}
+                        className="mb-[24px] text-[59px] uppercase leading-[80px] last:mb-[0px]"
                       >
-                        {item}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-              <BigButton
-                onClick={() => {
-                  handleTestClick();
-                }}
-                className="mb-[60px]"
-              >
-                let’s get in touche{' '}
-              </BigButton>
-            </>
-          )}
-        </div>
-      </Layout>
-    </header>
+                        <a
+                          href="#"
+                          className="flex items-center justify-center font-medium text-black"
+                        >
+                          {item}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+                <BigButton
+                  onClick={() => {
+                    handleTestClick();
+                  }}
+                  className="mb-[60px]"
+                >
+                  let’s get in touche{' '}
+                </BigButton>
+              </>
+            )}
+          </div>
+        </Layout>
+      </header>
+      <BurgerMenu menuId={menuId} links={links} />
+    </>
   );
 }

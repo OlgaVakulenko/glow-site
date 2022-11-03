@@ -115,26 +115,26 @@ export default function Workflow() {
           </div>
         ))}
       </div>
-      <div className="border-b border-t border-black pt-[56px] md:flex md:items-end md:pb-24">
-        <div className="pl-[6px] md:w-5/12">
-          <div className="mb-4 text-center font-glow text-xl font-medium leading-[170%] md:text-left">
-            Compact = Efficient
+      <div className="border-b border-t border-black pt-[56px] md:flex md:items-end md:pt-[96px] md:pb-24 xl:pb-[111px] xl:pt-[106px]">
+        <div className="pl-[6px] md:w-5/12 md:pr-[95px] xl:w-[36%] xl:pl-0">
+          <div className="mb-4 text-center font-glow text-xl font-medium leading-[170%] md:text-left md:text-[22px] md:leading-[40px] md:tracking-[0.02em] xl:text-2xl xl:leading-[40px]">
+            Compact = Efficient&nbsp;
           </div>
-          <div className="text-center text-lg italic leading-[133%] md:text-left">
+          <div className="md:leading=[27px] text-center text-lg italic leading-[133%] md:text-left md:text-xl xl:max-w-[300px]">
             We measure our success with numbers and feelings. But first, let the
             numbers talk:
           </div>
         </div>
-        <div className="mt-[40px] md:mb-[-72px] md:flex md:w-7/12 md:flex-wrap">
+        <div className="mt-[40px] md:mt-0 md:mb-[-72px] md:flex md:w-7/12 md:flex-wrap xl:mb-[-80px] xl:w-[64%]">
           {stats.map((stat, i) => (
             <div
               key={i}
-              className="mb-6 md:mb-[72px] md:w-1/2 md:pr-[80px] md:even:pr-0"
+              className="mb-6 md:mb-[72px] md:w-1/2 md:px-[40px] md:odd:pl-0 md:even:pr-0 xl:mb-[80px]"
             >
-              <div className="mb-2 text-xs font-medium uppercase opacity-50">
+              <div className="mb-2 text-xs font-medium uppercase opacity-50 md:mb-4 xl:mb-6 xl:max-w-[220px]">
                 {stat.title}
               </div>
-              <div className="mb-2 text-[33px] font-medium leading-[170%] md:text-[44px] md:leading-[127%]">
+              <div className="mb-2 text-[33px] font-medium leading-[170%] md:mb-0 md:text-[44px] md:leading-[127%] xl:text-[56px] xl:leading-[100%]">
                 {stat.value}
               </div>
             </div>

@@ -10,7 +10,12 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['GeneralSans-Variable', ...defaultTheme.fontFamily.sans],
-        glow: 'Glow',
+        glow: [
+          'Glow',
+          {
+            fontFeatureSettings: '"liga"',
+          },
+        ],
       },
       fontSize: {
         xs: ['12px', '18px'],

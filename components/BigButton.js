@@ -14,7 +14,7 @@ export default function BigButton({
     <button
       type="button"
       className={cx(
-        'font-medium flex justify-between transition-colors duration-200 text-left px-6 text-sm uppercase py-14 glow-border rounded-full',
+        'glow-border flex w-full justify-between rounded-full px-6 py-14 text-left text-sm font-medium uppercase transition-colors duration-200',
         {
           [activeHeader]: variant === 'header',
           [activeFooter]: variant === 'footer',

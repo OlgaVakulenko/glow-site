@@ -4,7 +4,9 @@
     url('./Glow-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
-  font-display: swap;
+  /* font-display: swap; */
+  /* font-feature-settings: "liga";
+  font-variant-ligatures: normal; */
 }
 
 @font-face {
@@ -14,6 +16,8 @@
   font-weight: 500;
   font-style: normal;
   /* font-display: swap; */
+  /* font-feature-settings: "liga";
+  font-variant-ligatures: normal; */
 }
 
 
@@ -24,6 +28,8 @@
   font-weight: 700;
   font-style: normal;
   /* font-display: swap; */
+  /* font-feature-settings: "liga";
+  font-variant-ligatures: normal; */
 }
 
 @font-face {
@@ -33,4 +39,6 @@
   font-weight: 900;
   font-style: normal;
   /* font-display: swap; */
+  /* font-feature-settings: "liga";
+  font-variant-ligatures: normal; */
 }
