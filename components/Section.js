@@ -1,4 +1,8 @@
 import cx from 'clsx';
+import { useAtom } from 'jotai';
+import { useMemo } from 'react';
+import { mediaAtom } from '../lib/agent';
+import Animated from './Animated';
 import Layout from './Layout';
 
 function Section({ children, withLayout = true, ...props }) {
@@ -19,14 +23,24 @@ Section.Header = function Header({ className, children }) {
 
 Section.Title = function Title({ children }) {
   return (
-    <div className="mb-4 font-glow text-[32px] font-medium leading-[60px] md:w-1/2 md:text-[60px] md:leading-[95%] ">
+    <Animated
+      animate={'fade-up'}
+      className="mb-4 font-glow text-[32px] font-medium leading-[60px] md:w-1/2 md:text-[60px] md:leading-[95%]"
+    >
       {children}
-    </div>
+    </Animated>
   );
 };
 
 Section.Description = function Description({ children }) {
-  return <div className="text-lg italic md:w-1/2 md:pl-10">{children}</div>;
+  const [media] = useAtom(mediaAtom);
+  const delay = media === 'mobile' ? 0 : 150;
+
+  return (
+    <Animated delay={delay} className="text-lg italic md:w-1/2 md:pl-10">
+      {children}
+    </Animated>
+  );
 };
 
 export default Section;

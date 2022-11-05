@@ -6,6 +6,7 @@ import Layout from '../../Layout';
 import SliderProgress from '../../SliderProgress';
 import Reviews1Avatar from './assets/reviews-1-avatar.png';
 import Reviews1Company from './assets/reviews-1-company.svg';
+import cx from 'clsx';
 
 const reviews = [
   {
@@ -52,10 +53,10 @@ function StarSvg({ size = 12 }) {
 }
 
 function ReviewAvatar({ image }) {
-  return <Image className="max-w-[64px] ml-[-16px]" src={image} alt="" />;
+  return <Image className="ml-[-16px] max-w-[64px]" src={image} alt="" />;
 }
 
-function ClutchRating({ rating = 5 }) {
+function ClutchRating({ rating = 5, className = '' }) {
   const stars = useMemo(() => {
     const stars = [];
     for (let i = 0; i < rating; i++) {
@@ -66,7 +67,12 @@ function ClutchRating({ rating = 5 }) {
   }, [rating]);
 
   return (
-    <div className="flex bg-white items-center rounded-full px-4 py-2 text-[#d05c54]">
+    <div
+      className={cx(
+        className,
+        'flex items-center rounded-full bg-white px-4 py-2 text-[#d05c54]'
+      )}
+    >
       <svg
         className="-mr-1"
         width="32px"
@@ -85,7 +91,7 @@ function ClutchRating({ rating = 5 }) {
         />
       </svg>
       {stars}
-      <span className="text-black ml-2 font-medium">5.0</span>
+      <span className="ml-2 font-medium text-black">5.0</span>
     </div>
   );
 }
@@ -94,20 +100,23 @@ function ReviewSlide({ review }) {
   return (
     <Layout>
       <div>
-        <div className="flex justify-between items-center mb-9">
+        <div className="mb-9 flex items-center justify-between">
           <div className="flex">
-            <div className="bg-black rounded-full p-[18px] max-w-[64px]">
+            <div className="max-w-[64px] rounded-full bg-black p-[18px]">
               <Image src={review.companyAvatar} />
             </div>
             <ReviewAvatar image={review.avatar} />
           </div>
 
-          <ClutchRating />
+          <ClutchRating className="md:hidden" />
         </div>
-        <div className="text-xl pb-9 border-b border-black">{review.text}</div>
-        <div className="pt-7 pb-9">
-          <div className="text-xl">{review.name}</div>
-          <div className="text-base">{review.company}</div>
+        <div className="border-b border-black pb-9 text-xl">{review.text}</div>
+        <div className="md:flex md:items-center md:justify-between">
+          <div className="pt-7 pb-9">
+            <div className="text-xl">{review.name}</div>
+            <div className="text-base">{review.company}</div>
+          </div>
+          <ClutchRating className="hidden md:flex" />
         </div>
       </div>
     </Layout>
@@ -116,7 +125,28 @@ function ReviewSlide({ review }) {
 
 export default function Reviews() {
   return (
-    <Swiper modules={[Autoplay]} grabCursor={true} loop={true} autoplay={true}>
+    <Swiper
+      modules={[Autoplay]}
+      grabCursor={true}
+      loop={true}
+      autoplay={true}
+      // loopedSlides={3}
+      slidesPerView={'auto'}
+      breakpoints={{
+        320: {
+          slidesPerView: 1,
+        },
+        965: {
+          slidesPerView: 2,
+        },
+        1280: {
+          slidesPerView: 2.7,
+        },
+        1500: {
+          slidesPerView: 3.5,
+        },
+      }}
+    >
       {reviews.map((review, i) => (
         <SwiperSlide key={i}>
           <ReviewSlide review={review} />

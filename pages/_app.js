@@ -30,6 +30,18 @@ function MyApp({ Component, pageProps }) {
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Glow Design Agency</title>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            document.documentElement.classList.remove('no-js')
+            setTimeout(function() {
+              if (!document.documentElement.classList.contains('y')) {
+                // document.documentElement.classList.add('force');
+              }
+            }, 500);
+            `,
+          }}
+        />
         <link
           rel="apple-touch-icon"
           sizes="57x57"

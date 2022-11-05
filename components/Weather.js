@@ -1,7 +1,7 @@
 import cx from 'clsx';
 import { useEffect, useState } from 'react';
 
-export default function Weather() {
+export default function Weather({ className }) {
   const [temp, setTemp] = useState(0);
   const [isError, setIsError] = useState(false);
 
@@ -20,6 +20,8 @@ export default function Weather() {
   }, []);
 
   return (
-    !isError && <div className={cx({ invisible: temp <= 0 })}>{temp}°C</div>
+    !isError && (
+      <div className={cx({ invisible: temp <= 0 }, className)}>{temp}°C</div>
+    )
   );
 }

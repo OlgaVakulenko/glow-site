@@ -9,15 +9,19 @@ import OurClients from './OurClients';
 import Reviews from './Reviews';
 import Workflow from './Workflow';
 import OutProjectsLink from './OurProjectsLink';
+import Animated from '../../Animated';
 
 export default function Home() {
   return (
     <div>
       <Layout>
         <div className="relative flex h-[80vh] flex-col justify-between bg-brand pb-[40px] pt-[59px]">
-          <div className="ml-auto max-w-[252px] text-lg italic">
+          <Animated
+            className="ml-auto max-w-[252px] text-lg italic"
+            delay={200}
+          >
             Your trusted design team for fintech challenges.
-          </div>
+          </Animated>
 
           {/* <div className="absolute top-[27px] left-[-16px]">
             <svg
@@ -42,10 +46,10 @@ export default function Home() {
             </svg>
           </div> */}
           <div className="font-glow text-[40px] font-medium leading-10">
-            <h1>
+            <Animated as="h1">
               Simple design
               <br className="hidden md:block" /> for&nbsp;complex products
-            </h1>
+            </Animated>
             {/* The logical aesthetics your{' '} */}
             {/* <span className="block w-full text-right">experience</span> */}
           </div>

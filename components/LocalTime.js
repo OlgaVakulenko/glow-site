@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
-export default function LocalTime() {
+export default function LocalTime({ className }) {
   const [date, setDate] = useState(null);
 
   const formatted = useMemo(() => {
@@ -24,5 +24,5 @@ export default function LocalTime() {
     };
   }, []);
 
-  return <div>{formatted}</div>;
+  return <div className={className}>{formatted}</div>;
 }

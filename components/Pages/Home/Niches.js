@@ -1,5 +1,6 @@
 import cx from 'clsx';
 import Link from 'next/link';
+import Animated from '../../Animated';
 import Layout from '../../Layout';
 import LinkArrowCircle from '../../LinkArrowCircle';
 import Section from '../../Section';
@@ -59,12 +60,12 @@ export default function Niches() {
       <Layout className="md:mt-[120px]">
         <ul className="divide-y divide-black">
           {items.map((item, i) => (
-            <li key={i} className="pb-10 pt-12 ">
+            <Animated as="li" key={i} className="pb-10 pt-12">
               <Link
                 href="#"
                 className="group block first:pt-0 md:flex md:items-start md:justify-between"
               >
-                <div className="mb-[38px] md:w-full md:max-w-[25%]">
+                <Animated className="mb-[38px] md:w-full md:max-w-[25%]">
                   <svg
                     width="80"
                     height="76"
@@ -90,19 +91,25 @@ export default function Niches() {
                       </linearGradient>
                     </defs>
                   </svg>
-                </div>
-                <div className="mb-4 flex items-center text-xl font-medium leading-[30px] md:w-full md:max-w-[25%] md:items-start">
+                </Animated>
+                <Animated
+                  delay={100}
+                  className="mb-4 flex items-center text-xl font-medium leading-[30px] md:w-full md:max-w-[25%] md:items-start"
+                >
                   <span className="pt-5">{item.title}</span>
                   <Badge className="ml-2">{item.count}</Badge>
-                </div>
-                <div className="md:w-full md:max-w-[25%]">
+                </Animated>
+                <Animated delay={200} className="md:w-full md:max-w-[25%]">
                   {item.description}
-                </div>
-                <div className="hidden transition-colors md:block">
+                </Animated>
+                <Animated
+                  delay={300}
+                  className="hidden transition-colors md:block"
+                >
                   <LinkArrowCircle />
-                </div>
+                </Animated>
               </Link>
-            </li>
+            </Animated>
           ))}
         </ul>
       </Layout>

@@ -1,7 +1,7 @@
 import cx from 'clsx';
 import Link from 'next/link';
 import React, { useEffect, useId, useState } from 'react';
-import { useSupports } from '../lib/agent';
+import { mediaAtom, useSupports } from '../lib/agent';
 import { useBodyLock } from '../lib/utils';
 import BigButton from './BigButton';
 import Layout from './Layout';
@@ -10,6 +10,7 @@ import RollingText from './RollingText';
 import { Transition } from '@headlessui/react';
 import { atom } from 'jotai';
 import { useAtom } from 'jotai';
+import Animated from './Animated';
 
 function BurgerIcon({ isOpen = false }) {
   if (isOpen) {
@@ -68,13 +69,12 @@ const Animation = ({ index, children, ...props }) => {
   return (
     <Transition.Child
       unmount={false}
-      appear={true}
       enter="transition ease-in-out duration-500 transform"
       enterFrom="translate-y-5 opacity-0"
       enterTo="translate-y-0 opacity-1"
       leave="transition ease-in-out duration-300 transform"
-      leaveFrom="translate-y-0 opacity-1"
-      leaveTo="translate-y-5 opacity-0"
+      leaveFrom="opacity-1"
+      leaveTo="opacity-0"
       className="mb-[24px] text-[59px] uppercase leading-[80px] last:mb-[0px]"
       {...props}
       style={{
@@ -94,18 +94,24 @@ const BurgerMenu = ({
   // onBurgerClick,
 }) => {
   const [isOpen, setIsOpen] = useAtom(openAtom);
+  const [media] = useAtom(mediaAtom);
+
+  useEffect(() => {
+    if (media !== 'mobile') {
+      setIsOpen(false);
+    }
+  }, [media]);
 
   return (
     <Transition
       show={isOpen}
-      appear={true}
       enter="transition-opacity duration-300"
       enterFrom="opacity-0"
       enterTo="opacity-100"
       leave="transition-opacity duration-300"
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
-      className="fixed inset-0 z-10 bg-brand"
+      className="absolute top-0 left-0 z-10 h-[150vh] w-full bg-brand"
     >
       <div className="">
         <Layout>
@@ -115,7 +121,7 @@ const BurgerMenu = ({
                 <Logo />
               </Link>
               <div className="ml-[-100px] hidden md:flex">
-                {links.map((link) => (
+                {links.map((link, i) => (
                   <Link
                     key={link}
                     className="mr-[77px] text-sm last:mr-0"
@@ -159,7 +165,8 @@ const BurgerMenu = ({
                       href="#"
                       className="flex items-center justify-center font-medium text-black"
                     >
-                      {item}
+                      <RollingText text={item} height={80} />
+                      {/* {item} */}
                     </a>
                     {/* </li> */}
                   </Animation>
@@ -232,24 +239,27 @@ export default function Header() {
                 <Logo />
               </Link>
               <div className="ml-[-100px] hidden md:flex">
-                {links.map((link) => (
-                  <Link
-                    className="mr-[77px] text-sm last:mr-0"
-                    key={link}
+                {links.map((link, i) => (
+                  <Animated
+                    as={Link}
                     href="/"
+                    key={link}
+                    delay={(i + 1) * 100}
+                    className="mr-[77px] text-sm last:mr-0"
                   >
                     <RollingText text={link} height={20} />
-                    {/* {link} */}
-                  </Link>
+                  </Animated>
                 ))}
               </div>
               <div className="hidden md:block">
-                <Link
+                <Animated
+                  as={Link}
                   href="/"
+                  delay={(links.length + 1) * 100}
                   className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
                 >
                   Let&apos;s get in touch
-                </Link>
+                </Animated>
               </div>
               <BurgerButton
                 className="md:hidden"

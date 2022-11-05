@@ -50,6 +50,10 @@
   box-shadow: inset 0 0 0 1.1px theme('colors.black');
 }
 
+.glow-border-light {
+  box-shadow: inset 0 0 0 1.1px theme('colors.lblue');
+}
+
 /** Niches Animations */
 @keyframes niches-rotate {
   from {
@@ -89,5 +93,28 @@
 
 .rolling-text-container:hover .rolling-letter {
   transform: translateY(-100%) translateZ(0);
+}
 
+
+.to-animate {
+  opacity: 0;
+  transition: transform .7s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s, opacity .7s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s;
+}
+
+.no-js .to-animate, .force .to-animate {
+  opacity: 1;
+  transform: none;
+}
+
+.fade-up {
+  transform: translate3d(0, 20px, 0);
+}
+
+.fade-right {
+  transform: translate3d(-20px, 0, 0);
+}
+
+.in-viewport {
+  opacity: 1;
+  transform: translateZ(0);
 }

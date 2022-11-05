@@ -1,4 +1,26 @@
+import { useAtom } from 'jotai';
+import { mediaAtom } from '../lib/agent';
+
 export default function LinkArrow() {
+  const media = useAtom(mediaAtom);
+
+  if (media !== 'mobile') {
+    return (
+      <svg
+        width="35"
+        height="9"
+        viewBox="0 0 35 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M34.7207 4.99125C34.916 4.79599 34.916 4.4794 34.7207 4.28414L31.5388 1.10216C31.3435 0.906898 31.0269 0.906898 30.8317 1.10216C30.6364 1.29742 30.6364 1.61401 30.8317 1.80927L33.6601 4.6377L30.8317 7.46612C30.6364 7.66138 30.6364 7.97797 30.8317 8.17323C31.0269 8.36849 31.3435 8.36849 31.5388 8.17323L34.7207 4.99125ZM34.3672 4.1377L0.916897 4.13769L0.916897 5.13769L34.3672 5.1377L34.3672 4.1377Z"
+          fill="currentColor"
+        />
+      </svg>
+    );
+  }
+
   return (
     <svg
       width="35"
