@@ -4,7 +4,7 @@ import cx from 'clsx';
 export default function OutProjectsLink({ className }) {
   return (
     <SectionLink
-      className={cx('pb-[126px]', className)}
+      className={cx('pb-[126px] xl:pb-[176px]', className)}
       title="Our projects"
       description={[
         'How we do it.',

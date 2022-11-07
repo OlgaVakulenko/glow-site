@@ -17,7 +17,7 @@ export default function Footer() {
     <footer className="bg-black py-[30px] pt-[61px] text-lblue md:pt-[160px] xl:pt-[176px]">
       <Layout>
         <div className="md:flex md:items-baseline md:justify-between">
-          <div className="pb-[66px] text-lg italic leading-[24px] md:w-full md:min-w-[292px] md:text-xl md:leading-[27px] xl:min-w-full xl:max-w-[265px]">
+          <div className="pb-[66px] text-lg italic leading-[24px] md:w-full md:min-w-[292px] md:text-xl md:leading-[27px] xl:min-w-[initial] xl:max-w-[265px]">
             Contact us to upgrade your product and&nbsp;make it top-tier with
             our design.
           </div>
@@ -46,9 +46,9 @@ export default function Footer() {
               </div>
               <div>Odessa, Ukraine</div>
             </div>
-            <div className="-mr-7 flex items-center md:ml-8 md:-mr-8">
+            <div className="flex items-center  md:ml-8 md:-mr-8">
               <LocalTime className="mr-7 md:mr-8" />
-              <Weather className="mr-7 md:mr-8" />
+              <Weather className="md:mr-8" />
             </div>
           </div>
           <div className="mr-[-40px] hidden md:flex xl:mr-[-56px]">

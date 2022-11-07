@@ -73,10 +73,11 @@ function Col({ title, items, className = '' }) {
 
 function CaseSlide({ item, index }) {
   const [media] = useAtom(mediaAtom);
+  // console.log(media);
 
   return (
-    <div className="__slide-wrapper">
-      <div className="relative flex h-[456px] overflow-hidden rounded-2xl text-lblue md:h-[688px] md:items-end">
+    <div className="">
+      <div className="__slide relative flex h-[456px] overflow-hidden rounded-2xl text-lblue md:h-[688px] md:items-end md:rounded-[32px]">
         <Image
           className="__slider-item absolute top-0 left-0 h-full max-h-[456px] w-full object-cover md:max-h-full"
           src={item.image}
@@ -158,18 +159,21 @@ export default function CasesSlider() {
 
     return () => {
       ctx.revert();
-      console.log('reverting');
+      // console.log('reverting');
     };
   }, [media]);
 
   return (
     <div ref={ref}>
-      <Section withLayout={false} className="pb-[80px] md:pb-[72px]">
+      <Section
+        withLayout={false}
+        className="pb-[80px] md:pb-[72px] xl:pb-[80px]"
+      >
         <Swiper
           slidesPerView={1}
           speed={500}
           breakpoints={{
-            1440: {
+            1280: {
               slidesPerView: 1.2,
               // spaceBetween: 100,
             },
@@ -178,21 +182,34 @@ export default function CasesSlider() {
           effect={'creative'}
           creativeEffect={{
             prev: {
-              // shadow: true,
-              translate: ['-20%', 0, -1],
+              shadow: true,
+              translate: ['-20%', 0, -150],
               opacity: 0,
-              scale: 0.95,
+              // scale: 0.95,
             },
             next: {
+              opacity: 1,
               translate: ['100%', 0, 0],
             },
+            // prev: {
+            //   shadow: true,
+            //   translate: [0, 0, -400],
+            // },
+            // next: {
+            //   translate: ['100%', 0, 0],
+            // },
           }}
           modules={[EffectCreative]}
         >
           {cases.map((item, i) => (
             <SwiperSlide
               key={i}
-              className="__slide lsat:pr-[16px] pr-[16px] pl-[16px] xl:pr-0 xl:pl-[32px]"
+              // className="__slide-wrapper lsat:pr-[16px] pr-[16px] pl-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px]
+              className="__slide-wrapper pr-[16px] pl-[16px] last:pr-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px] 
+
+              "
+              // first:xl:pl-[56px] last:xl:pr-[32px]
+              // "
             >
               <CaseSlide item={item} index={i} />
             </SwiperSlide>

@@ -59,16 +59,16 @@ export default function Workflow() {
           about your business, study the audience.
         </Section.Description>
       </Section.Header>
-      <div className="mt-[64px] flex flex-wrap divide-y divide-black md:divide-x">
+      <div className="mt-[64px] flex flex-wrap divide-y divide-black md:mt-[126px] md:divide-x xl:mt-[137px]">
         {stages.map((stage, i) => (
           <div
             key={i}
-            className="w-full pt-[49px] pb-[33px] first:border-t first:border-black last:border-t last:border-black md:w-1/2 md:px-[44px] md:pt-[48px] md:pb-[40px] md:odd:!border-l-0"
+            className="w-full pt-[49px] pb-[33px] first:border-t first:border-black last:border-t last:border-black md:w-1/2 md:px-[44px] md:pt-[48px] md:pb-[40px] md:odd:!border-l-0 xl:px-[80px] xl:pb-[70px] xl:even:pl-[134px]"
           >
-            <div className="text-xs font-medium uppercase opacity-50">
+            <div className="text-body-heading-s font-medium uppercase opacity-50">
               {addLeadingZero(i + 1)} Stage
             </div>
-            <div className="mb-[75px]">
+            <div className="mb-[75px] md:mb-[94px] xl:mb-[134px]">
               <svg
                 width="184"
                 height="124"
@@ -110,8 +110,12 @@ export default function Workflow() {
                 </defs>
               </svg>
             </div>
-            <div className="mb-4 text-lg font-medium">{stage.title}</div>
-            <div className="md:max-w-[270px]">{stage.description}</div>
+            <div className="mb-4 text-lg font-medium xl:text-[20px] xl:leading-[150%]">
+              {stage.title}
+            </div>
+            <div className="md:max-w-[270px] xl:max-w-[353px] xl:text-[20px] xl:leading-[150%]">
+              {stage.description}
+            </div>
           </div>
         ))}
       </div>
@@ -120,7 +124,7 @@ export default function Workflow() {
           <div className="mb-4 text-center font-glow text-xl font-medium leading-[170%] md:text-left md:text-[22px] md:leading-[40px] md:tracking-[0.02em] xl:text-2xl xl:leading-[40px]">
             Compact = Efficient&nbsp;
           </div>
-          <div className="md:leading=[27px] text-center text-lg italic leading-[133%] md:text-left md:text-xl xl:max-w-[300px]">
+          <div className="md:leading=[27px] text-center text-lg italic leading-[133%] md:text-left md:text-xl xl:max-w-[300px] xl:text-subtitle-m">
             We measure our success with numbers and feelings. But first, let the
             numbers talk:
           </div>

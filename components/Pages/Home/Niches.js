@@ -47,8 +47,11 @@ export default function Niches() {
   return (
     <Section withLayout={false}>
       <Layout>
-        <Section.Header className="py-[64px]">
-          <Section.Title>Niches that we&nbsp;fit</Section.Title>
+        <Section.Header className="py-[64px] md:pt-[107px] xl:pt-[160px]">
+          <Section.Title>
+            Niches that
+            <br /> we&nbsp;fit
+          </Section.Title>
           <Section.Description>
             Experience matters. Over the years we dived into the nuances of a
             number of industries and we will be happy to make a design that
@@ -58,9 +61,13 @@ export default function Niches() {
       </Layout>
       <NichesAnimation />
       <Layout className="md:mt-[120px]">
-        <ul className="divide-y divide-black">
+        <ul className="divide-y divide-black md:pb-[12px] xl:pb-[32px]">
           {items.map((item, i) => (
-            <Animated as="li" key={i} className="pb-10 pt-12">
+            <Animated
+              as="li"
+              key={i}
+              className="pb-10 pt-12 md:pb-[56px] md:pt-[72px] xl:pb-[72px]"
+            >
               <Link
                 href="#"
                 className="group block first:pt-0 md:flex md:items-start md:justify-between"
@@ -94,7 +101,7 @@ export default function Niches() {
                 </Animated>
                 <Animated
                   delay={100}
-                  className="mb-4 flex items-center text-xl font-medium leading-[30px] md:w-full md:max-w-[25%] md:items-start"
+                  className="mb-4 flex items-center text-xl font-medium leading-[30px] md:mt-[12px] md:w-full md:max-w-[25%] md:items-start xl:mt-[20px]"
                 >
                   <span className="pt-5">{item.title}</span>
                   <Badge className="ml-2">{item.count}</Badge>

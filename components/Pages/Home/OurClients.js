@@ -19,17 +19,17 @@ export default function OurClients() {
   return (
     <Section
       withLayout={false}
-      className="pt-[56px] pb-[56px] md:pt-[80px] md:pb-[80px]"
+      className="pt-[56px] pb-[56px] md:pt-[84px] md:pb-[160px] xl:pb-[120px] xl:pt-[56px]"
     >
       <SectionLink
-        href="#"
+        // href="#"
         title="Our clients"
-        description={[
-          `Our approach is to integrate in our client’s team`,
-          ` and always keep in
-          touch; we support our partners`,
-          ` even after our work is done.`,
-        ]}
+        description={
+          <>
+            Our approach is to integrate in our client’s team and&nbsp;always
+            keep in touch; we support our partners even after our work is done.
+          </>
+        }
       />
       <Layout>
         {/* <Section.Title>Our clients</Section.Title>
@@ -38,11 +38,11 @@ export default function OurClients() {
           touch; we support our partners even after our work is done.
         </Section.Description> */}
       </Layout>
-      <div className="mb-[56px] mt-[56px] md:mt-[64px] md:mb-[152px]">
+      <div className="mb-[56px] mt-[59px] md:mt-[64px] md:mb-[152px] xl:mt-[80px]">
         <ReactMarquee
           className="flex justify-between"
           gradient={false}
-          speed={60}
+          // speed={60}
         >
           {/* <div className="flex"> */}
           {[...clients, ...clients].map((client, i) => (
@@ -61,7 +61,7 @@ export default function OurClients() {
       </div>
       <div className="md:flex">
         <div className="relative mx-[36px] mb-[40px] flex items-center justify-center pb-[100%] md:static md:mb-0 md:mr-0 md:ml-auto md:w-1/2 md:max-w-[448px] md:justify-end md:pb-0">
-          <div className="md:relative md:h-auto md:w-full md:max-w-[448px] md:pb-[100%]">
+          <div className="md:relative md:h-auto md:w-full md:max-w-[448px] md:pb-[100%] xl:max-w-[534px]">
             <svg
               className="absolute inset-0"
               width="100%"
@@ -113,8 +113,8 @@ export default function OurClients() {
             <Image className="absolute inset-0" src={Noise} alt="" />
           </div>
         </div>
-        <Layout className="md:flex md:w-1/2 md:items-center md:justify-start md:pr-[81px]">
-          <div className="text-center text-lg italic leading-[133%] md:max-w-[328px]  md:text-left">
+        <Layout className="md:flex md:w-2/5 md:items-center md:justify-start md:pl-[32px] md:pr-[81px] xl:w-6/12  xl:pl-[136px]">
+          <div className="text-center text-lg italic leading-[133%] md:max-w-[328px] md:text-left md:text-xl md:leading-[27px] xl:text-[22px] xl:leading-[28px]">
             We’ve built long-lasting partnerships with the&nbsp;most ambitious
             brands across the globe
           </div>

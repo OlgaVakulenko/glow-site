@@ -120,7 +120,7 @@ const BurgerMenu = ({
               <Link href="/" className="flex items-center justify-center">
                 <Logo />
               </Link>
-              <div className="ml-[-100px] hidden md:flex">
+              <div className="ml-[-68px] hidden md:flex">
                 {links.map((link, i) => (
                   <Link
                     key={link}
@@ -210,21 +210,6 @@ export default function Header() {
     setIsOpen((v) => !v);
   };
 
-  const handleTestClick = () => {
-    const eyeDropper = new EyeDropper();
-
-    console.log('before open');
-    eyeDropper
-      .open()
-      .then((result) => {
-        console.log('after open');
-        console.log(result);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
-
   return (
     <>
       <header>
@@ -234,11 +219,11 @@ export default function Header() {
               ['flex h-screenx flex-col bg-brand']: false,
             })}
           >
-            <div className="flex items-center justify-between py-[28px] font-medium uppercase text-black">
+            <div className="flex items-center justify-between py-[28px]  font-medium uppercase text-black md:py-[44px]">
               <Link href="/" className="flex items-center justify-center">
                 <Logo />
               </Link>
-              <div className="ml-[-100px] hidden md:flex">
+              <div className="ml-[-32px] hidden md:flex">
                 {links.map((link, i) => (
                   <Animated
                     as={Link}
@@ -256,7 +241,7 @@ export default function Header() {
                   as={Link}
                   href="/"
                   delay={(links.length + 1) * 100}
-                  className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
+                  className="glow-border-black rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
                 >
                   Let&apos;s get in touch
                 </Animated>
@@ -294,12 +279,7 @@ export default function Header() {
                     ))}
                   </ul>
                 </nav>
-                <BigButton
-                  onClick={() => {
-                    handleTestClick();
-                  }}
-                  className="mb-[60px]"
-                >
+                <BigButton className="mb-[60px]">
                   let’s get in touche{' '}
                 </BigButton>
               </>

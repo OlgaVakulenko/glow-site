@@ -5,7 +5,7 @@ function Line({ children, className = '' }) {
   return (
     <div
       className={
-        'flex-grow-0 flex-shrink-0 basis-auto min-w-full' + ' ' + className
+        'min-w-full flex-shrink-0 flex-grow-0 basis-auto' + ' ' + className
       }
     >
       {children}
@@ -78,7 +78,7 @@ export default function Marquee({ children, debug = false }) {
     requestAnimationFrame(animate);
 
     return () => {
-      console.log('cancel animation frame');
+      // console.log('cancel animation frame');
       cancelAnimationFrame(refId.current);
     };
   }, [inView]);
@@ -89,12 +89,12 @@ export default function Marquee({ children, debug = false }) {
     <div className="overflow-hidden">
       <div
         ref={ref}
-        className="flex box-content overflow-hidden whitespace-nowrap"
+        className="box-content flex overflow-hidden whitespace-nowrap"
       >
         <Line>{children}</Line>
         <Line
           className={cx({
-            ['border-red-500 border']: debug,
+            ['border border-red-500']: debug,
           })}
         >
           {children}

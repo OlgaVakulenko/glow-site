@@ -2,7 +2,7 @@ export default function Go() {
   return (
     <button
       type="button"
-      className="rounded-full border-1.5 border-black p-[14px]"
+      className="rounded-full border-1.5 border-black p-[11.5px]"
     >
       <svg
         width="22"

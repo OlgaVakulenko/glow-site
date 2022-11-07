@@ -6,12 +6,21 @@ import { useSwiper } from 'swiper/react';
 export default function SliderProgress({ className = '', mode = 'progress' }) {
   const ref = useRef(null);
   const thumbRef = useRef(null);
+  const thumbRef2 = useRef(null);
+  const thumbRef3 = useRef(null);
   const [trackWidth, setTrackWidth] = useState(0);
   const [slidesCount, setSlidesCount] = useState(0);
   const [realIndex, setRealIndex] = useState(0);
   const [progress, setProgress] = useState(0);
   const gsapStub = useRef({ value: 0 });
   const swiper = useSwiper();
+
+  const slidesPerView = useMemo(() => {
+    if (!isNaN(swiper.params.slidesPerView)) {
+      return swiper.params.slidesPerView;
+    }
+    return 1;
+  }, [swiper.params.slidesPerView]);
 
   const thumbWidth = useMemo(() => {
     if (slidesCount > 0) {
@@ -25,6 +34,14 @@ export default function SliderProgress({ className = '', mode = 'progress' }) {
     if (thumbRef.current) {
       thumbRef.current.style.width = thumbWidth + '%';
     }
+
+    if (thumbRef2.current) {
+      thumbRef2.current.style.width = thumbWidth + '%';
+    }
+
+    if (thumbRef3.current) {
+      thumbRef3.current.style.width = thumbWidth + '%';
+    }
   }, [thumbWidth]);
 
   const left = useMemo(() => {
@@ -35,20 +52,20 @@ export default function SliderProgress({ className = '', mode = 'progress' }) {
         left = (trackWidth - thumbWidth) * progress;
       }
       if (mode === 'realIndex') {
-        left = thumbWidth * realIndex;
+        // console.log(swiper.activeIndex);
+        left = thumbWidth * swiper.realIndex;
+        // console.log(thumbWidth);
       }
-      // left = Math.max(left, 0);
-      // left = Math.min(left, trackWidth - thumbWidth);
       return left;
     }
 
     return 0;
-  }, [trackWidth, slidesCount, progress, mode, realIndex]);
+  }, [trackWidth, thumbWidth, slidesCount, progress, mode, realIndex]);
 
   useEffect(() => {
     if (swiper.params) {
       const count = swiper.params.loop
-        ? swiper.slides.length - 2
+        ? swiper.params.loopedSlides
         : swiper.slides.length;
       if (swiper.slides) {
         setSlidesCount(count);
@@ -109,29 +126,47 @@ export default function SliderProgress({ className = '', mode = 'progress' }) {
         if (thumbRef.current) {
           thumbRef.current.style.left = gsapStub.current.value + 'px';
         }
+
+        if (thumbRef2.current) {
+          thumbRef2.current.style.left =
+            gsapStub.current.value + trackWidth + 'px';
+        }
+
+        if (thumbRef3.current) {
+          thumbRef3.current.style.left =
+            gsapStub.current.value - trackWidth + 'px';
+        }
       },
     });
 
     return () => {
       am.kill();
     };
-  }, [mode, left]);
+  }, [trackWidth, left]);
 
   return (
     <div
       ref={ref}
       className={cx(
-        'relative flex h-[16px] items-center overflow-hidden justify-center',
+        'relative flex h-[16px] items-center justify-center overflow-hidden',
         className
       )}
     >
       {slidesCount > 0 && (
         <>
           <div className="h-[1px] w-full bg-black opacity-20"></div>
+          {/* <div
+            ref={thumbRef3}
+            className="absolute top-1/2 left-0 h-[2px] w-full -translate-y-2/4 bg-black"
+          ></div> */}
           <div
             ref={thumbRef}
             className="absolute top-1/2 left-0 h-[2px] w-full -translate-y-2/4 bg-black"
           ></div>
+          {/* <div
+            ref={thumbRef2}
+            className="absolute top-1/2 left-0 h-[2px] w-full -translate-y-2/4 bg-black"
+          ></div> */}
         </>
       )}
     </div>

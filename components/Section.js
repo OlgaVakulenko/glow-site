@@ -25,9 +25,9 @@ Section.Title = function Title({ children }) {
   return (
     <Animated
       animate={'fade-up'}
-      className="mb-4 font-glow text-[32px] font-medium leading-[60px] md:w-1/2 md:text-[60px] md:leading-[95%]"
+      className="mb-4 font-glow text-[32px] font-medium leading-[32px] md:w-1/2 md:text-[60px] md:leading-[95%]  xl:text-heading-h1"
     >
-      {children}
+      <div className="xl:max-w-[440px]">{children}</div>
     </Animated>
   );
 };
@@ -37,7 +37,10 @@ Section.Description = function Description({ children }) {
   const delay = media === 'mobile' ? 0 : 150;
 
   return (
-    <Animated delay={delay} className="text-lg italic md:w-1/2 md:pl-10">
+    <Animated
+      delay={delay}
+      className="text-lg italic md:w-1/2 md:pl-10 md:text-subtitle-m xl:pl-40 xl:text-subtitle-l"
+    >
       {children}
     </Animated>
   );

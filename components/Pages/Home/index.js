@@ -1,8 +1,8 @@
 import Image, { resolve, Source, x2 } from '../../Image';
 import Layout from '../../Layout';
-import Home1Image from './assets/home-1.png';
-import HomeTabletImage from './assets/home-tablet.png';
-import HomeDesktopImage from './assets/home-desktop.png';
+// import Home1Image from './assets/home-1.png';
+// import HomeTabletImage from './assets/home-tablet.png';
+// import HomeDesktopImage from './assets/home-desktop.png';
 import CasesSlider from './CasesSlider';
 import Niches from './Niches';
 import OurClients from './OurClients';
@@ -10,16 +10,31 @@ import Reviews from './Reviews';
 import Workflow from './Workflow';
 import OutProjectsLink from './OurProjectsLink';
 import Animated from '../../Animated';
+import Showreel from './Showreel';
 
 export default function Home() {
   return (
     <div>
       <Layout>
-        <div className="relative flex h-[80vh] flex-col justify-between bg-brand pb-[40px] pt-[59px]">
+        <div className="relative flex min-h-[80vh] flex-col justify-between bg-brand pb-[48px] pt-[59px] md:min-h-[calc(100vh-120px)] md:pt-[160px] md:pb-[89px] xl:pb-[49px]">
           <Animated
-            className="ml-auto max-w-[252px] text-lg italic"
+            className="relative ml-auto max-w-[252px] text-lg italic md:max-w-[328px] md:text-subtitle-l xl:mr-[200px]"
             delay={200}
           >
+            <div className="absolute left-0 top-[-32px]">
+              <svg
+                width="16"
+                height="18"
+                viewBox="0 0 16 18"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.66499 17.0667L6.89169 11.0769L1.93451 14.8513L-2.15194e-07 12.1436L4.99748 8.53332L-5.30813e-07 4.92306L1.93451 2.17434L6.89169 5.9487L8.66499 -1.30005e-05L11.8086 1.02563L9.83375 6.93332L16 6.85127L16 10.2154L9.87406 10.1333L11.8086 16.041L8.66499 17.0667Z"
+                  fill="#19191B"
+                />
+              </svg>
+            </div>
             Your trusted design team for fintech challenges.
           </Animated>
 
@@ -45,7 +60,7 @@ export default function Home() {
               />
             </svg>
           </div> */}
-          <div className="font-glow text-[40px] font-medium leading-10">
+          <div className="font-glow text-[40px] font-medium leading-10 md:text-[60px] md:leading-[64px] xl:text-[64px]">
             <Animated as="h1">
               Simple design
               <br className="hidden md:block" /> for&nbsp;complex products
@@ -55,26 +70,7 @@ export default function Home() {
           </div>
         </div>
       </Layout>
-      <div>
-        <picture>
-          <Source image={Home1Image} width={400} media="(max-width: 767.5px)" />
-          <Source
-            image={HomeTabletImage}
-            width={1024}
-            media="(min-width: 768.5px) and (max-width: 1024.5px)"
-          />
-          <Source
-            image={HomeDesktopImage}
-            width={1440}
-            media="(min-width: 1025.5px)"
-          />
-          <img
-            className="max-h-[408px] w-full object-cover md:max-h-[463px]"
-            src={resolve({ src: Home1Image.src, width: 1440 })}
-            alt=""
-          />
-        </picture>
-      </div>
+      <Showreel />
       <div className="bg-white">
         <Niches />
         <CasesSlider />

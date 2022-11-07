@@ -12,13 +12,13 @@ export default function LoadingProgress() {
       const reqId = ref.current;
 
       timeoutId = setTimeout(() => {
-        console.log(reqId, ref.current);
+        // console.log(reqId, ref.current);
         if (reqId === ref.current) {
           setProgress(0.8);
         }
       }, 300);
 
-      console.log('route change start');
+      // console.log('route change start');
     };
 
     const handleFinish = () => {

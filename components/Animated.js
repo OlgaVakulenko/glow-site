@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import cx from 'clsx';
 
-const globalOn = false;
+const globalOn = true;
 
 const isClient = typeof window !== 'undefined';
 

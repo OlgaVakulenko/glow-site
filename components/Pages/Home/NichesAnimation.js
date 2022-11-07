@@ -113,7 +113,7 @@ export default function NichesAnimation() {
   const ref = useRef(null);
   const [media] = useAtom(mediaAtom);
 
-  console.log(media);
+  // console.log(media);
 
   useEffect(() => {
     if (media === 'mobile') {
@@ -186,7 +186,7 @@ export default function NichesAnimation() {
     }, ref);
 
     return () => {
-      console.log('running destroy effect');
+      // console.log('running destroy effect');
       ctx.revert();
     };
   }, [media]);
@@ -217,13 +217,15 @@ export default function NichesAnimation() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <Logo />
       </div>
-      <div className="__left-text opacity-1 flex w-1/2 pt-[68px] pl-16 text-center opacity-0">
-        <div className="max-w-[176px]">
+      <div className="__left-text opacity-1 flex w-1/2 pt-[68px] pl-16 text-center text-body-s opacity-0 xl:items-end xl:pb-[200px]">
+        <div className="max-w-[176px] xl:ml-auto xl:mr-[470px]">
           We take into account the needs of business
         </div>
       </div>
-      <div className="__right-text opacity-1 flex w-1/2 items-end justify-end pb-[68px] pr-16 text-center opacity-0">
-        <div className="max-w-[176px]">We create user-friendly interfaces</div>
+      <div className="__right-text opacity-1 flex w-1/2 items-end justify-end pb-[68px] pr-16 text-center text-body-s opacity-0 xl:items-center">
+        <div className="max-w-[176px] xl:mr-auto xl:ml-[470px]">
+          We create user-friendly interfaces
+        </div>
       </div>
     </div>
   );
