@@ -32,14 +32,15 @@ function MyApp({ Component, pageProps }) {
         <title>Glow Design Agency</title>
         <script
           dangerouslySetInnerHTML={{
-            __html: `
-            document.documentElement.classList.remove('no-js')
-            setTimeout(function() {
-              if (!document.documentElement.classList.contains('y')) {
-                // document.documentElement.classList.add('force');
-              }
-            }, 500);
-            `,
+            __html: `if (window.location.search.indexOf('a=') > -1) {
+              document.documentElement.classList.remove('no-js')
+              setTimeout(function() {
+                if (!document.documentElement.classList.contains('y')) {
+                  // document.documentElement.classList.add('force');
+                }
+              }, 500);
+            }
+          `,
           }}
         />
         <link

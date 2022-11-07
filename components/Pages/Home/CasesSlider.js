@@ -182,7 +182,7 @@ export default function CasesSlider() {
           effect={'creative'}
           creativeEffect={{
             prev: {
-              shadow: true,
+              // shadow: true,
               translate: ['-20%', 0, -150],
               opacity: 0,
               // scale: 0.95,

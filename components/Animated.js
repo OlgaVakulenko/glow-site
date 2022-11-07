@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import cx from 'clsx';
 
-const globalOn = true;
+const globalOn = false;
 
 const isClient = typeof window !== 'undefined';
 
@@ -63,7 +63,9 @@ export default function Animated({
   delayRef.current = delay;
   const [inViewport, setInViewport] = useState(false);
   const Component = as;
-  const enabled = globalOn;
+  const enabled = isClient ? window.location.search.indexOf('a=') >= 0 : true;
+
+  console.log(enabled);
 
   useEffect(() => {
     if (!enabled) {
@@ -86,8 +88,8 @@ export default function Animated({
     <Component
       ref={ref}
       {...rest}
-      className={cx(className, enabled && animate, enabled && 'to-animate', {
-        'in-viewport': inViewport && enabled,
+      className={cx(className, animate, 'to-animate', {
+        'in-viewport': inViewport,
       })}
     >
       {children}

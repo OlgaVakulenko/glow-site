@@ -1,4 +1,5 @@
 import { addLeadingZero } from '../../../lib/utils';
+import Animated from '../../Animated';
 import Section from '../../Section';
 
 const stages = [
@@ -65,10 +66,13 @@ export default function Workflow() {
             key={i}
             className="w-full pt-[49px] pb-[33px] first:border-t first:border-black last:border-t last:border-black md:w-1/2 md:px-[44px] md:pt-[48px] md:pb-[40px] md:odd:!border-l-0 xl:px-[80px] xl:pb-[70px] xl:even:pl-[134px]"
           >
-            <div className="text-body-heading-s font-medium uppercase opacity-50">
+            <Animated className="text-body-heading-s font-medium uppercase opacity-50">
               {addLeadingZero(i + 1)} Stage
-            </div>
-            <div className="mb-[75px] md:mb-[94px] xl:mb-[134px]">
+            </Animated>
+            <Animated
+              delay={100}
+              className="mb-[75px] md:mb-[94px] xl:mb-[134px]"
+            >
               <svg
                 width="184"
                 height="124"
@@ -109,25 +113,31 @@ export default function Workflow() {
                   </linearGradient>
                 </defs>
               </svg>
-            </div>
-            <div className="mb-4 text-lg font-medium xl:text-[20px] xl:leading-[150%]">
+            </Animated>
+            <Animated
+              delay={200}
+              className="mb-4 text-lg font-medium xl:text-[20px] xl:leading-[150%]"
+            >
               {stage.title}
-            </div>
-            <div className="md:max-w-[270px] xl:max-w-[353px] xl:text-[20px] xl:leading-[150%]">
+            </Animated>
+            <Animated
+              delay={300}
+              className="md:max-w-[270px] xl:max-w-[353px] xl:text-[20px] xl:leading-[150%]"
+            >
               {stage.description}
-            </div>
+            </Animated>
           </div>
         ))}
       </div>
       <div className="border-b border-t border-black pt-[56px] md:flex md:items-end md:pt-[96px] md:pb-24 xl:pb-[111px] xl:pt-[106px]">
         <div className="pl-[6px] md:w-5/12 md:pr-[95px] xl:w-[36%] xl:pl-0">
-          <div className="mb-4 text-center font-glow text-xl font-medium leading-[170%] md:text-left md:text-[22px] md:leading-[40px] md:tracking-[0.02em] xl:text-2xl xl:leading-[40px]">
+          <Animated className="mb-4 text-center font-glow text-xl font-medium leading-[170%] md:text-left md:text-[22px] md:leading-[40px] md:tracking-[0.02em] xl:text-2xl xl:leading-[40px]">
             Compact = Efficient&nbsp;
-          </div>
-          <div className="md:leading=[27px] text-center text-lg italic leading-[133%] md:text-left md:text-xl xl:max-w-[300px] xl:text-subtitle-m">
+          </Animated>
+          <Animated className="md:leading=[27px] text-center text-lg italic leading-[133%] md:text-left md:text-xl xl:max-w-[300px] xl:text-subtitle-m">
             We measure our success with numbers and feelings. But first, let the
             numbers talk:
-          </div>
+          </Animated>
         </div>
         <div className="mt-[40px] md:mt-0 md:mb-[-72px] md:flex md:w-7/12 md:flex-wrap xl:mb-[-80px] xl:w-[64%]">
           {stats.map((stat, i) => (
@@ -135,12 +145,15 @@ export default function Workflow() {
               key={i}
               className="mb-6 md:mb-[72px] md:w-1/2 md:px-[40px] md:odd:pl-0 md:even:pr-0 xl:mb-[80px]"
             >
-              <div className="mb-2 text-xs font-medium uppercase opacity-50 md:mb-4 xl:mb-6 xl:max-w-[220px]">
+              <Animated className="mb-2 text-xs font-medium uppercase opacity-50 md:mb-4 xl:mb-6 xl:max-w-[220px]">
                 {stat.title}
-              </div>
-              <div className="mb-2 text-[33px] font-medium leading-[170%] md:mb-0 md:text-[44px] md:leading-[127%] xl:text-[56px] xl:leading-[100%]">
+              </Animated>
+              <Animated
+                delay={150}
+                className="mb-2 text-[33px] font-medium leading-[170%] md:mb-0 md:text-[44px] md:leading-[127%] xl:text-[56px] xl:leading-[100%]"
+              >
                 {stat.value}
-              </div>
+              </Animated>
             </div>
           ))}
         </div>
