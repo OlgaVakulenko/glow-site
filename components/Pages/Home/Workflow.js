@@ -66,8 +66,8 @@ export default function Workflow() {
             key={i}
             className="w-full pt-[49px] pb-[33px] first:border-t first:border-black last:border-t last:border-black md:w-1/2 md:px-[44px] md:pt-[48px] md:pb-[40px] md:odd:!border-l-0 xl:px-[80px] xl:pb-[70px] xl:even:pl-[134px]"
           >
-            <Animated className="text-body-heading-s font-medium uppercase opacity-50">
-              {addLeadingZero(i + 1)} Stage
+            <Animated className="text-body-heading-s font-medium uppercase">
+              <span className="opacity-50">{addLeadingZero(i + 1)} Stage</span>
             </Animated>
             <Animated
               delay={100}
@@ -145,8 +145,8 @@ export default function Workflow() {
               key={i}
               className="mb-6 md:mb-[72px] md:w-1/2 md:px-[40px] md:odd:pl-0 md:even:pr-0 xl:mb-[80px]"
             >
-              <Animated className="mb-2 text-xs font-medium uppercase opacity-50 md:mb-4 xl:mb-6 xl:max-w-[220px]">
-                {stat.title}
+              <Animated className="mb-2 text-xs font-medium uppercase  md:mb-4 xl:mb-6 xl:max-w-[220px]">
+                <span className="opacity-50">{stat.title}</span>
               </Animated>
               <Animated
                 delay={150}
