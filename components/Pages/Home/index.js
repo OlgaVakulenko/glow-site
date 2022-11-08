@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div>
       <Layout>
-        <div className="relative flex min-h-[calc(var(--vh)*100-96px)] flex-col justify-between bg-brand pb-[48px] pt-[59px] md:min-h-[calc(100vh-120px)] md:pt-[160px] md:pb-[89px] xl:pb-[49px]">
+        <div className="relative flex min-h-[calc(var(--lvh)*100-96px)] flex-col justify-between bg-brand pb-[48px] pt-[59px] md:min-h-[calc(100vh-120px)] md:pt-[160px] md:pb-[89px] xl:pb-[49px]">
           <Animated
             className="relative ml-auto max-w-[252px] text-lg italic md:max-w-[328px] md:text-subtitle-l xl:mr-[200px]"
             delay={200}

@@ -1,5 +1,6 @@
 import { useSetAtom } from 'jotai';
 import Head from 'next/head';
+import Script from 'next/script';
 import React, { useEffect } from 'react';
 import { scrollAtom } from '../atoms/scroll';
 import Footer from '../components/Footer';
@@ -124,6 +125,7 @@ function MyApp({ Component, pageProps }) {
             __html: `
             function updateScreenHeight() {
               document.documentElement.style.setProperty('--vh', window.innerHeight / 100 + 'px');
+              document.documentElement.style.setProperty('--lvh', document.documentElement.clientHeight / 100 + 'px');
             }
             updateScreenHeight();
             window.addEventListener('resize', updateScreenHeight);
