@@ -137,6 +137,19 @@ export default function CasesSlider() {
     // }
 
     const ctx = gsap.context(() => {
+      const pinScroller = {
+        trigger: '.__pin-trigger',
+        start: 'top 150px',
+        end: '+=1500',
+        scrub: true,
+        pin: '.__pin',
+        markers: true,
+      };
+
+      // gsap.to('.__slide', {
+      //   scrollTrigger: pinScroller,
+      // });
+
       const scroller = {
         trigger: '.__slide',
         start: 'top 90%',
@@ -145,16 +158,29 @@ export default function CasesSlider() {
         // markers: true,
       };
 
-      gsap.to('.__slide', {
-        scrollTrigger: scroller,
-        borderRadius: 0,
-      });
+      // const scroller2 = {
+      //   trigger: '.__slide',
+      //   start: 'top 40%',
+      //   end: '+=400',
+      //   scrub: true,
+      //   markers: true,
+      // };
 
-      gsap.to('.__slide-wrapper', {
-        paddingLeft: 0,
-        paddingRight: 0,
-        scrollTrigger: scroller,
-      });
+      // gsap.to('.__slide', {
+      //   scrollTrigger: scroller2,
+      //   height: '100vh',
+      // });
+
+      // gsap.to('.__slide', {
+      //   scrollTrigger: pinScroller,
+      //   borderRadius: 0,
+      // });
+
+      // gsap.to('.__slide-wrapper', {
+      //   paddingLeft: 0,
+      //   paddingRight: 0,
+      //   scrollTrigger: scroller,
+      // });
     }, ref);
 
     return () => {
@@ -167,59 +193,61 @@ export default function CasesSlider() {
     <div ref={ref}>
       <Section
         withLayout={false}
-        className="pb-[80px] md:pb-[72px] xl:pb-[80px]"
+        className="__pin-trigger relative pb-[80px] md:pb-[72px] xl:pb-[80px]"
       >
-        <Swiper
-          slidesPerView={1}
-          speed={500}
-          breakpoints={{
-            1280: {
-              slidesPerView: 1.2,
-              // spaceBetween: 100,
-            },
-          }}
-          grabCursor={true}
-          effect={'creative'}
-          creativeEffect={{
-            prev: {
-              // shadow: true,
-              translate: ['-20%', 0, -150],
-              opacity: 0,
-              // scale: 0.95,
-            },
-            next: {
-              opacity: 1,
-              translate: ['100%', 0, 0],
-            },
-            // prev: {
-            //   shadow: true,
-            //   translate: [0, 0, -400],
-            // },
-            // next: {
-            //   translate: ['100%', 0, 0],
-            // },
-          }}
-          modules={[EffectCreative]}
-        >
-          {cases.map((item, i) => (
-            <SwiperSlide
-              key={i}
-              // className="__slide-wrapper lsat:pr-[16px] pr-[16px] pl-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px]
-              className="__slide-wrapper pr-[16px] pl-[16px] last:pr-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px] 
+        <div className="">
+          <Swiper
+            slidesPerView={1}
+            speed={500}
+            breakpoints={{
+              1280: {
+                slidesPerView: 1.2,
+                // spaceBetween: 100,
+              },
+            }}
+            grabCursor={true}
+            effect={'creative'}
+            creativeEffect={{
+              prev: {
+                // shadow: true,
+                translate: ['-20%', 0, -150],
+                opacity: 0,
+                // scale: 0.95,
+              },
+              next: {
+                opacity: 1,
+                translate: ['100%', 0, 0],
+              },
+              // prev: {
+              //   shadow: true,
+              //   translate: [0, 0, -400],
+              // },
+              // next: {
+              //   translate: ['100%', 0, 0],
+              // },
+            }}
+            modules={[EffectCreative]}
+          >
+            {cases.map((item, i) => (
+              <SwiperSlide
+                key={i}
+                // className="__slide-wrapper lsat:pr-[16px] pr-[16px] pl-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px]
+                className="__slide-wrapper pr-[16px] pl-[16px] last:pr-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px] 
 
               "
-              // first:xl:pl-[56px] last:xl:pr-[32px]
-              // "
-            >
-              <CaseSlide item={item} index={i} />
-            </SwiperSlide>
-          ))}
-          {media !== 'desktop' && (
-            <Layout>
-              <SliderProgress className="mt-6" />
-            </Layout>
-          )}
-        </Swiper>
+                // first:xl:pl-[56px] last:xl:pr-[32px]
+                // "
+              >
+                <CaseSlide item={item} index={i} />
+              </SwiperSlide>
+            ))}
+            {media !== 'desktop' && (
+              <Layout>
+                <SliderProgress className="mt-6" />
+              </Layout>
+            )}
+          </Swiper>
+        </div>
       </Section>
     </div>
   );

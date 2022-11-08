@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <div>
       <Layout>
-        <div className="relative flex min-h-[80vh] flex-col justify-between bg-brand pb-[48px] pt-[59px] md:min-h-[calc(100vh-120px)] md:pt-[160px] md:pb-[89px] xl:pb-[49px]">
+        <div className="relative flex min-h-[calc(100vh-96px)] flex-col justify-between bg-brand pb-[48px] pt-[59px] md:min-h-[calc(100vh-120px)] md:pt-[160px] md:pb-[89px] xl:pb-[49px]">
           <Animated
             className="relative ml-auto max-w-[252px] text-lg italic md:max-w-[328px] md:text-subtitle-l xl:mr-[200px]"
             delay={200}
@@ -60,7 +60,7 @@ export default function Home() {
               />
             </svg>
           </div> */}
-          <div className="font-glow text-[40px] font-medium leading-10 md:text-[60px] md:leading-[64px] xl:text-[64px]">
+          <div className="sticky bottom-[48px] font-glow text-[40px] font-medium leading-10 md:text-[60px] md:leading-[64px] xl:text-[64px]">
             <Animated as="h1">
               Simple design
               <br className="hidden md:block" /> for&nbsp;complex products

@@ -65,8 +65,6 @@ export default function Animated({
   const Component = as;
   const enabled = isClient ? window.location.search.indexOf('a=') >= 0 : true;
 
-  console.log(enabled);
-
   useEffect(() => {
     if (!enabled) {
       return;

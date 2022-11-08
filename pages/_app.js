@@ -5,7 +5,7 @@ import { scrollAtom } from '../atoms/scroll';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import LoadingProgress from '../components/LoadingProgress';
-import { useMedia } from '../lib/agent';
+import { useKonamiCode, useMedia } from '../lib/agent';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {

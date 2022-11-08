@@ -98,7 +98,7 @@
 
 .to-animate {
   opacity: 0;
-  transition: transform .7s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s, opacity .7s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s;
+  transition: transform .4s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s, opacity .4s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s;
 }
 
 .no-js .to-animate, .force .to-animate {
