@@ -63,7 +63,8 @@ export default function Animated({
   delayRef.current = delay;
   const [inViewport, setInViewport] = useState(false);
   const Component = as;
-  const enabled = isClient ? window.location.search.indexOf('a=') >= 0 : true;
+  // const enabled = isClient ? window.location.search.indexOf('a=') >= 0 : true;
+  const enabled = true;
 
   useEffect(() => {
     if (!enabled) {

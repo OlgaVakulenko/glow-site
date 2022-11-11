@@ -72,12 +72,12 @@
 .rect-right {
   /** circle.cx / svg.width * 100; circle.cy / svg.height * 100 */
   transform-origin: 60.555625% 49.8048828125%;
-  animation: 30s linear 0s infinite niches-rotate;
+  animation: 30s cubic-bezier(.55, .68, .77, .75) 0s infinite niches-rotate;
 }
 
 .rect-left {
   transform-origin: 39.4444444444% 49.8046875%;
-  animation: 30s linear 0s infinite niches-rotate;
+  animation: 20s cubic-bezier(0.4, 0.01, 0.165, 0.89) 0s infinite niches-rotate;
 }
 
 .rolling-text-container {
@@ -95,6 +95,25 @@
   transform: translateY(-100%) translateZ(0);
 }
 
+.rolling-word {
+  white-space: nowrap;
+}
+
+.rolling-word .rolling-letter {
+  transform: translateZ(0);
+  transition: transform .4s;
+  backface-visibility: hidden;
+  display: inline-block;
+}
+
+.rolling-word .rolling-letter.active {
+  transform: translateY(-100%) translateZ(0);
+}
+
+.transition-none {
+  transition: none !important;
+}
+
 
 .to-animate {
   opacity: 0;
@@ -107,11 +126,11 @@
 }
 
 .fade-up {
-  transform: translate3d(0, 20px, 0);
+  transform: translate3d(0, 10px, 0);
 }
 
 .fade-right {
-  transform: translate3d(-20px, 0, 0);
+  transform: translate3d(-10px, 0, 0);
 }
 
 .in-viewport {

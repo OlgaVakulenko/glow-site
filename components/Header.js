@@ -220,9 +220,11 @@ export default function Header() {
             })}
           >
             <div className="flex items-center justify-between py-[28px]  font-medium uppercase text-black md:py-[44px]">
-              <Link href="/" className="flex items-center justify-center">
-                <Logo />
-              </Link>
+              <Animated delay={50}>
+                <Link href="/" className="flex items-center justify-center">
+                  <Logo />
+                </Link>
+              </Animated>
               <div className="ml-[-32px] hidden md:flex">
                 {links.map((link, i) => (
                   <Animated
@@ -237,22 +239,23 @@ export default function Header() {
                 ))}
               </div>
               <div className="hidden md:block">
-                <Animated
-                  as={Link}
-                  href="/"
-                  delay={(links.length + 1) * 100}
-                  className="glow-border-black rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
-                >
-                  Let&apos;s get in touch
+                <Animated delay={(links.length + 1) * 100}>
+                  <Link
+                    href="/"
+                    className="glow-border-black rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
+                  >
+                    Let&apos;s get in touch
+                  </Link>
                 </Animated>
               </div>
-              <BurgerButton
-                className="md:hidden"
-                aria-controls={menuId}
-                isOpen={isOpen}
-                onClick={onBurgerClick}
-                aria-expanded={isOpen}
-              />
+              <Animated className="md:hidden" delay={150}>
+                <BurgerButton
+                  aria-controls={menuId}
+                  isOpen={isOpen}
+                  onClick={onBurgerClick}
+                  aria-expanded={isOpen}
+                />
+              </Animated>
             </div>
 
             {isOpen && false && (
