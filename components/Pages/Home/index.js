@@ -16,6 +16,8 @@ import cx from 'clsx';
 import gsap from 'gsap';
 import { useAtom } from 'jotai';
 import { mediaAtom } from '../../../lib/agent';
+// import LocomotiveScroll from 'locomotive-scroll';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 
 function RollingWords({ words, interval = 16500 }) {
   const [media] = useAtom(mediaAtom);
@@ -76,19 +78,6 @@ function RollingWords({ words, interval = 16500 }) {
         width: el.offsetWidth,
       });
     });
-
-    // let maxWidth = 0;
-    // let maxWidthIndex = -1;
-    // widths.forEach((v, i) => {
-    //   if (v.width > maxWidth) {
-    //     maxWidthIndex = i;
-    //     maxWidth = v.width;
-    //   }
-    // });
-
-    // if (maxWidthIndex > -1) {
-    //   widths[maxWidthIndex].width += 10;
-    // }
 
     setRefWidths(widths);
   }, [media]);
@@ -166,6 +155,20 @@ function RollingWords({ words, interval = 16500 }) {
 export default function Home() {
   const changeBgRef = useRef(null);
   const trigger = useRef(null);
+  const refScrollContainer = useRef(null);
+
+  useEffect(() => {
+    async function getLocomotive() {
+      const Locomotive = (await import('locomotive-scroll')).default;
+      const scroll = new Locomotive({
+        el: refScrollContainer.current,
+        smooth: true,
+        lerp: 0.05,
+      });
+    }
+
+    getLocomotive();
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -189,7 +192,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
+    <div ref={refScrollContainer}>
       <Layout>
         <div className="relative flex min-h-[calc(var(--lvh)*100-96px)] flex-col justify-between bg-brand pb-[48px] pt-[59px] md:min-h-[calc(100vh-120px)] md:pt-[160px] md:pb-[89px] xl:pb-[49px]">
           <Animated
