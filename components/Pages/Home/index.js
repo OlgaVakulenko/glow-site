@@ -159,11 +159,14 @@ export default function Home() {
 
   useEffect(() => {
     async function getLocomotive() {
+      const urlSearchParams = new URLSearchParams(window.location.search);
+      const params = Object.fromEntries(urlSearchParams.entries());
+      const lerp = params.lerp || 0.1;
       const Locomotive = (await import('locomotive-scroll')).default;
       const scroll = new Locomotive({
         el: refScrollContainer.current,
         smooth: true,
-        lerp: 0.05,
+        lerp: lerp,
       });
     }
 
