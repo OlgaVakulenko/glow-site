@@ -3,11 +3,12 @@ import HomeTabletImage from './assets/home-tablet.png';
 import HomeDesktopImage from './assets/home-desktop.png';
 import { resolve, Source } from '../../Image';
 import BigButton from '../../BigButton';
-import { useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import cx from 'clsx';
 import { atom } from 'jotai';
+import gsap from 'gsap';
 
-function HoverCursor({ x = 0, y = 0 }) {
+const HoverCursor = forwardRef(function HoverCursor(props, ref) {
   const [appear, setAppear] = useState(false);
 
   useEffect(() => {
@@ -16,16 +17,13 @@ function HoverCursor({ x = 0, y = 0 }) {
 
   return (
     <div
+      ref={ref}
       className={cx(
         {
           ['opacity-100']: appear,
         },
         'pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap opacity-0 transition-opacity duration-500'
       )}
-      style={{
-        top: y,
-        left: x,
-      }}
     >
       <BigButton
         hideLink={true}
@@ -36,34 +34,77 @@ function HoverCursor({ x = 0, y = 0 }) {
       </BigButton>
     </div>
   );
-}
+});
 
 export default function Showreel() {
   const ref = useRef(null);
   const [isHover, setIsHover] = useState(false);
-  const [xy, setXy] = useState({ x: 0, y: 0 });
+  const isHoverPrefRef = useRef(isHover);
+  const isHoverRef = useRef(isHover);
+  isHoverRef.current = isHover;
 
-  const handleMouseEnter = () => {
-    setIsHover(true);
+  const handleMouseEnter = (e) => {
+    // setIsHover(true);
   };
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = (e) => {
     setIsHover(false);
   };
 
   const handleMouseMove = (e) => {
-    // console.log(e);
-    setXy({
+    if (!isHover) {
+      setIsHover(true);
+    }
+
+    gsap.to(cursorRef.current, {
+      y: e.nativeEvent.offsetY,
       x: e.nativeEvent.offsetX,
-      y: e.nativeEvent.offsetY - 150,
+      ease: 'power1.out',
+      duration: isHoverRef.current ? 0.2 : 0,
     });
   };
 
+  const cursorRef = useRef(null);
+
+  useEffect(() => {
+    gsap.to(cursorRef.current, {
+      scale: isHover ? 1 : 0,
+      duration: 0.3,
+    });
+  }, [isHover]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.__image',
+        {
+          yPercent: -35,
+        },
+        {
+          scrollTrigger: {
+            trigger: ref.current,
+            scrub: true,
+            start: 'top bottom',
+            end: 'bottom bottom',
+            // markers: true,
+          },
+          yPercent: 0,
+          ease: 'linear',
+        }
+      );
+    }, ref);
+
+    return () => {
+      ctx.revert();
+    };
+  }, [ref]);
+
+  useEffect(() => {
+    isHoverPrefRef.current = isHover;
+  }, [isHover]);
+
   return (
-    <div
-      // ref={ref}
-      className="relative cursor-none"
-    >
+    <div ref={ref} className="relative cursor-none overflow-hidden bg-white">
       <picture>
         <Source image={Home1Image} width={400} media="(max-width: 767.5px)" />
         <Source
@@ -77,22 +118,19 @@ export default function Showreel() {
           media="(min-width: 1025.5px)"
         />
         <img
-          className="min-h-[408px] w-full object-cover md:min-h-[463px]"
+          className="__image min-h-[47px] w-full object-cover md:min-h-[463px]"
           src={resolve({ src: Home1Image.src, width: 1440 })}
           alt=""
         />
       </picture>
       <div
-        ref={ref}
-        className="absolute inset-0 bottom-[-150px] top-[-116px]"
+        className="absolute inset-0"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
       ></div>
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {isHover && !(xy.x === 0 && xy.y === 0) && (
-          <HoverCursor x={xy.x} y={xy.y} />
-        )}
+        <HoverCursor ref={cursorRef} />
       </div>
     </div>
   );

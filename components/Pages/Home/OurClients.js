@@ -12,10 +12,21 @@ import Client4 from './assets/client-4.svg';
 import Client5 from './assets/client-5.svg';
 import Noise from './assets/noise.png';
 import SectionLink from '../../SectionLink';
+import { useEffect, useState } from 'react';
+import { atom } from 'jotai';
+import { useSetAtom } from 'jotai';
 
 const clients = [Client1, Client2, Client3, Client4, Client5];
 
+// const marqueeMounted = atom(false);
+
 export default function OurClients() {
+  // const setMarqueeMounted = useSetAtom(marqueeMounted);
+
+  useEffect(() => {
+    // setMarqueeMounted(true);
+  }, []);
+
   return (
     <Section
       withLayout={false}
@@ -40,11 +51,9 @@ export default function OurClients() {
       </Layout>
       <div className="mb-[56px] mt-[59px] md:mt-[64px] md:mb-[152px] xl:mt-[80px]">
         <ReactMarquee
-          className="flex justify-between"
+          className="flex h-[37px] justify-between"
           gradient={false}
-          // speed={60}
         >
-          {/* <div className="flex"> */}
           {[...clients, ...clients].map((client, i) => (
             <img
               className="pr-9 md:pr-[66px] xl:pr-[150px]"
@@ -53,7 +62,6 @@ export default function OurClients() {
               alt=""
             />
           ))}
-          {/* </div> */}
         </ReactMarquee>
       </div>
       <div className="mb-[80px] flex items-center justify-center md:hidden">

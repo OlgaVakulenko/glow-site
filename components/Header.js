@@ -11,6 +11,8 @@ import { Transition } from '@headlessui/react';
 import { atom } from 'jotai';
 import { useAtom } from 'jotai';
 import Animated from './Animated';
+import { scrollAtom } from '../atoms/scroll';
+import debounce from 'lodash.debounce';
 
 function BurgerIcon({ isOpen = false }) {
   if (isOpen) {
@@ -111,7 +113,7 @@ const BurgerMenu = ({
       leave="transition-opacity duration-300"
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
-      className="absolute top-0 left-0 z-10 h-[150vh] w-full bg-brand"
+      className="fixed top-0 left-0 z-10 h-[150vh] w-full bg-brand"
     >
       <div className="">
         <Layout>
@@ -191,12 +193,16 @@ const BurgerMenu = ({
 };
 
 export default function Header() {
+  const [scrollTop] = useAtom(scrollAtom);
   const [transitionOpen, setTransitionOpen] = useState(false);
   const [isOpen, setIsOpen] = useAtom(openAtom);
   // const [isOpen, setIsOpen] = useState(false);
   const links = ['Work', 'Team', 'Services'];
   const menuId = useId();
   const { lock, release } = useBodyLock();
+  const [isStop, setIsStop] = useState(true);
+
+  // console.log('scrollTop', scrollTop);
 
   useEffect(() => {
     if (isOpen) {
@@ -206,13 +212,30 @@ export default function Header() {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    const setStop = debounce(() => {
+      setIsStop(true);
+    }, 1000);
+
+    const onScroll = () => {
+      setIsStop(false);
+      setStop();
+    };
+
+    window.addEventListener('scroll', onScroll);
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
   const onBurgerClick = () => {
     setIsOpen((v) => !v);
   };
 
   return (
     <>
-      <header>
+      <header className="fixed z-10 w-full">
         <Layout>
           <div
             className={cx({
@@ -225,7 +248,14 @@ export default function Header() {
                   <Logo />
                 </Link>
               </Animated>
-              <div className="ml-[-32px] hidden md:flex">
+              <div
+                className={cx(
+                  'ml-[-32px] hidden transition-opacity duration-500 md:flex',
+                  {
+                    'opacity-0': scrollTop > 0 && !isStop,
+                  }
+                )}
+              >
                 {links.map((link, i) => (
                   <Animated
                     as={Link}
@@ -238,7 +268,14 @@ export default function Header() {
                   </Animated>
                 ))}
               </div>
-              <div className="hidden md:block">
+              <div
+                className={cx(
+                  'hidden transition-opacity duration-500 md:block',
+                  {
+                    'opacity-0': scrollTop > 0 && !isStop,
+                  }
+                )}
+              >
                 <Animated delay={(links.length + 1) * 100}>
                   <Link
                     href="/"

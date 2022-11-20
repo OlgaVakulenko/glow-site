@@ -1,7 +1,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useAtom } from 'jotai';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { EffectCreative } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
@@ -15,6 +15,8 @@ import SliderProgress from '../../SliderProgress';
 import BeastImage from './assets/slider-beast.png';
 import CaseDesktop from './assets/case-desktop-1.png';
 import cx from 'clsx';
+import Link from 'next/link';
+import throttle from 'lodash.throttle';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,9 +79,9 @@ function CaseSlide({ item, index }) {
 
   return (
     <div className="">
-      <div className="__slide relative flex h-[456px] overflow-hidden rounded-2xl text-lblue md:h-[688px] md:items-end md:rounded-[32px]">
+      <div className="__slide relative flex  overflow-hidden text-lblue md:h-[688px] md:items-end">
         <Image
-          className="__slider-item absolute top-0 left-0 h-full max-h-[456px] w-full object-cover md:max-h-full"
+          className="__slider-item absolute top-0 left-0 h-full w-full object-cover md:max-h-full"
           src={item.image}
           alt=""
         />
@@ -91,7 +93,10 @@ function CaseSlide({ item, index }) {
             bottom-0
             left-0"
         ></div>
-        <div className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]">
+        <div
+          // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
+          className="relative px-[40px] pt-[209px] pb-[64px] md:px-[96px] md:pb-[105px] md:pt-[282] xl:px-[104px]"
+        >
           <div className="relative inline-block pl-[3px] font-glow text-[11px] tracking-[2px]">
             {addLeadingZero(index + 1)}
             &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
@@ -129,12 +134,34 @@ function CaseSlide({ item, index }) {
 
 export default function CasesSlider() {
   const ref = useRef();
+  const sliderRef = useRef(null);
   const [media] = useAtom(mediaAtom);
+  const [init, setInit] = useState(false);
+  const swiperRef = useRef(null);
+
+  const onUpdate = useCallback(
+    throttle((e) => {
+      if (media !== 'desktop') return;
+      const v = gsap.utils.interpolate(1, 1.1, e.progress);
+      swiperRef.current.params.slidesPerView = v;
+      swiperRef.current.update();
+      // console.log(swiperRef.current);
+    }, 10),
+    [media]
+  );
+
+  const toggleTouchMove = useCallback((bool) => {
+    if (bool) {
+      swiperRef.current.enable();
+    } else {
+      swiperRef.current.disable();
+    }
+    // swiperRef.current.params.allowTouchMove = bool;
+    // swiperRef.current.update();
+  }, []);
 
   useEffect(() => {
-    // if (media === 'desktop') {
-    //   return;
-    // }
+    if (!init) return;
 
     const ctx = gsap.context(() => {
       const pinScroller = {
@@ -143,7 +170,7 @@ export default function CasesSlider() {
         end: '+=1500',
         scrub: true,
         pin: '.__pin',
-        markers: true,
+        // markers: true,
       };
 
       // gsap.to('.__slide', {
@@ -155,6 +182,7 @@ export default function CasesSlider() {
         start: 'top 90%',
         end: '+=400',
         scrub: true,
+        // pin: true,
         // markers: true,
       };
 
@@ -170,15 +198,145 @@ export default function CasesSlider() {
       //   scrollTrigger: scroller2,
       //   height: '100vh',
       // });
+      const clipPathSize =
+        {
+          mobile: 16,
+          tablet: 48,
+        }[media] || 56;
+
+      const gapSize =
+        {
+          mobile: 16,
+          table: 48,
+        }[media] || 32 / 2;
+
+      const borderRadiusSize =
+        {
+          mobile: '16px',
+        }[media] || '32px';
+
+      gsap.fromTo(
+        '.__slider-progress',
+        {
+          opacity: 0,
+        },
+        {
+          scrollTrigger: {
+            trigger: '.__trigger',
+            start: '50% 50%',
+            end: 'bottom 70%',
+            scrub: true,
+            // markers: true,
+          },
+          ease: 'power2.in',
+          opacity: 1,
+        }
+      );
+
+      gsap.to('.__slide', {
+        scrollTrigger: {
+          trigger: '.__trigger',
+          start: '50% 50%',
+          end: 'bottom 70%',
+          scrub: true,
+          pin: true,
+          onUpdate: onUpdate,
+          onLeave: (inst) => {
+            // setAllowTouchMove(true);
+            // console.log(
+            //   'inst.params.allowTouchMove',
+            //   swiperRef.current.params.allowTouchMove
+            // );
+            toggleTouchMove(true);
+            // console.log(
+            //   'inst.params.allowTouchMove',
+            //   swiperRef.current.params.allowTouchMove
+            // );
+          },
+          onEnterBack: () => {
+            // setAllowTouchMove(false);
+            toggleTouchMove(false);
+          },
+        },
+        // 'clip-path': ,
+        clipPath: (index, s, nodes) => {
+          if (media !== 'desktop') {
+            return `
+            inset(${clipPathSize}px
+              ${clipPathSize}px
+              ${clipPathSize}px
+              ${clipPathSize}px
+              round
+              ${borderRadiusSize}
+              ${borderRadiusSize}
+              ${borderRadiusSize}
+              ${borderRadiusSize})
+              `;
+          }
+
+          if (index === 0) {
+            return `
+            inset(${clipPathSize}px
+              ${gapSize}px
+              ${clipPathSize}px
+              ${clipPathSize}px
+              round
+              ${borderRadiusSize}
+              ${borderRadiusSize}
+              ${borderRadiusSize}
+              ${borderRadiusSize})
+              `;
+          }
+
+          if (index === nodes.length - 1) {
+            return `
+            inset(${clipPathSize}px
+              ${clipPathSize}px
+              ${clipPathSize}px
+              ${gapSize}px
+              round
+              ${borderRadiusSize}
+              ${borderRadiusSize}
+              ${borderRadiusSize}
+              ${borderRadiusSize})
+              `;
+          }
+
+          return `
+            inset(${clipPathSize}px
+              ${gapSize}px
+              ${clipPathSize}px
+              ${gapSize}px
+              round
+              ${borderRadiusSize}
+              ${borderRadiusSize}
+              ${borderRadiusSize}
+              ${borderRadiusSize})
+            `;
+
+          return `
+          inset(${clipPathSize}
+            0
+            ${clipPathSize}
+            ${clipPathSize}
+            round
+            ${borderRadiusSize}
+            ${borderRadiusSize}
+            ${borderRadiusSize}
+            ${borderRadiusSize})
+            `;
+        },
+      });
 
       // gsap.to('.__slide', {
-      //   scrollTrigger: pinScroller,
-      //   borderRadius: 0,
+      //   scrollTrigger: scroller,
+      //   borderRadius: 32, //16 - md:32
       // });
 
-      // gsap.to('.__slide-wrapper', {
-      //   paddingLeft: 0,
-      //   paddingRight: 0,
+      // gsap.from('.__slide-wrapper', {
+      //   // scale: 1.1,
+      //   // paddingLeft: 0,
+      //   // paddingRight: 0,
       //   scrollTrigger: scroller,
       // });
     }, ref);
@@ -187,7 +345,7 @@ export default function CasesSlider() {
       ctx.revert();
       // console.log('reverting');
     };
-  }, [media]);
+  }, [media, init, onUpdate, toggleTouchMove]);
 
   return (
     <div ref={ref}>
@@ -195,16 +353,20 @@ export default function CasesSlider() {
         withLayout={false}
         className="__pin-trigger relative pb-[80px] md:pb-[72px] xl:pb-[80px]"
       >
-        <div className="">
+        <div className="__trigger">
           <Swiper
+            onInit={(e) => {
+              setInit(true);
+              swiperRef.current = e;
+              swiperRef.current.disable();
+            }}
             slidesPerView={1}
             speed={500}
-            breakpoints={{
-              1280: {
-                slidesPerView: 1.2,
-                // spaceBetween: 100,
-              },
-            }}
+            // breakpoints={{
+            //   1280: {
+            //     slidesPerView: 1.2,
+            //   },
+            // }}
             grabCursor={true}
             effect={'creative'}
             creativeEffect={{
@@ -232,17 +394,18 @@ export default function CasesSlider() {
               <SwiperSlide
                 key={i}
                 // className="__slide-wrapper lsat:pr-[16px] pr-[16px] pl-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px]
-                className="__slide-wrapper pr-[16px] pl-[16px] last:pr-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px] 
-
-              "
+                // className="__slide-wrapper pr-[16px] pl-[16px] last:pr-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px]"
+                className="__slide-wrapper "
                 // first:xl:pl-[56px] last:xl:pr-[32px]
                 // "
               >
+                {/* <Link href="#"> */}
                 <CaseSlide item={item} index={i} />
+                {/* </Link> */}
               </SwiperSlide>
             ))}
             {media !== 'desktop' && (
-              <Layout>
+              <Layout className="__slider-progress">
                 <SliderProgress className="mt-6" />
               </Layout>
             )}

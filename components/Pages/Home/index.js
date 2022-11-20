@@ -16,8 +16,7 @@ import cx from 'clsx';
 import gsap from 'gsap';
 import { useAtom } from 'jotai';
 import { mediaAtom } from '../../../lib/agent';
-// import LocomotiveScroll from 'locomotive-scroll';
-import 'locomotive-scroll/dist/locomotive-scroll.css';
+import ScrollContainer from '../../SmoothScroll/ScrollContainer';
 
 function RollingWords({ words, interval = 16500 }) {
   const [media] = useAtom(mediaAtom);
@@ -75,7 +74,7 @@ function RollingWords({ words, interval = 16500 }) {
         el,
         index,
         word,
-        width: el.offsetWidth,
+        width: el.offsetWidth + 5,
       });
     });
 
@@ -89,10 +88,10 @@ function RollingWords({ words, interval = 16500 }) {
     if (!v || !root.current) return;
     if (!showClass) return;
 
-    if (showClass) {
-      console.log(v?.word, vPref?.word);
-      console.log('From', v?.width, 'To', vPref?.width);
-    }
+    // if (showClass) {
+    //   console.log(v?.word, vPref?.word);
+    //   console.log('From', v?.width, 'To', vPref?.width);
+    // }
     // console.log(v.width);
     const ctx = gsap.context(() => {
       const timeline = gsap.fromTo(
@@ -157,21 +156,21 @@ export default function Home() {
   const trigger = useRef(null);
   const refScrollContainer = useRef(null);
 
-  useEffect(() => {
-    async function getLocomotive() {
-      const urlSearchParams = new URLSearchParams(window.location.search);
-      const params = Object.fromEntries(urlSearchParams.entries());
-      const lerp = params.lerp || 0.1;
-      const Locomotive = (await import('locomotive-scroll')).default;
-      const scroll = new Locomotive({
-        el: refScrollContainer.current,
-        smooth: true,
-        lerp: lerp,
-      });
-    }
+  // useEffect(() => {
+  //   async function getLocomotive() {
+  //     const urlSearchParams = new URLSearchParams(window.location.search);
+  //     const params = Object.fromEntries(urlSearchParams.entries());
+  //     const lerp = params.lerp || 0.1;
+  //     const Locomotive = (await import('locomotive-scroll')).default;
+  //     const scroll = new Locomotive({
+  //       el: refScrollContainer.current,
+  //       smooth: true,
+  //       lerp: lerp,
+  //     });
+  //   }
 
-    getLocomotive();
-  }, []);
+  //   getLocomotive();
+  // }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -181,7 +180,7 @@ export default function Home() {
           start: 'top 90%',
           end: '+=300',
           scrub: true,
-          markers: true,
+          // markers: true,
         },
         // backgroundColor: '#F3F2F4',
         opacity: 1,
@@ -197,7 +196,7 @@ export default function Home() {
   return (
     <div ref={refScrollContainer}>
       <Layout>
-        <div className="relative flex min-h-[calc(var(--lvh)*100-96px)] flex-col justify-between bg-brand pb-[48px] pt-[59px] md:min-h-[calc(100vh-120px)] md:pt-[160px] md:pb-[89px] xl:pb-[49px]">
+        <div className="relative flex min-h-[calc(var(--lvh)*100-96px)] flex-col justify-between bg-brand pb-[48px] pt-[155px] md:min-h-screen md:pt-[280px] md:pb-[89px] xl:pb-[49px]">
           <Animated
             className="relative ml-auto min-w-[232px] max-w-[252px] text-lg italic md:min-w-[308px] md:max-w-[328px] md:text-subtitle-l xl:mr-[200px]"
             delay={200}

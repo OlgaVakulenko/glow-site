@@ -2,15 +2,16 @@ import { useSetAtom } from 'jotai';
 import Head from 'next/head';
 import Script from 'next/script';
 import React, { useEffect } from 'react';
-import { scrollAtom } from '../atoms/scroll';
-import Footer from '../components/Footer';
+import { nativeScrollAtom } from '../atoms/scroll';
+import Footer, { ParallaxFooter } from '../components/Footer';
 import Header from '../components/Header';
 import LoadingProgress from '../components/LoadingProgress';
+import ScrollContainer from '../components/SmoothScroll/ScrollContainer';
 import { useKonamiCode, useMedia } from '../lib/agent';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
-  const updateValue = useSetAtom(scrollAtom);
+  const updateValue = useSetAtom(nativeScrollAtom);
 
   useEffect(() => {
     const onScroll = () => {
@@ -135,8 +136,11 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <LoadingProgress />
       <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <ScrollContainer>
+        <Component {...pageProps} />
+        {/* <Footer /> */}
+        <ParallaxFooter />
+      </ScrollContainer>
       {/* <Script
         id="help-ukraine-win"
         data-type="one"

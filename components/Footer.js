@@ -1,7 +1,11 @@
+import gsap from 'gsap';
+import { useAtom } from 'jotai';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import BigButton from './BigButton';
 import Layout from './Layout';
 import LocalTime from './LocalTime';
 import RollingText from './RollingText';
+import { ScrollSmootherMounted } from './SmoothScroll/ScrollContainer';
 import Weather from './Weather';
 
 const links = [
@@ -12,7 +16,7 @@ const links = [
   { href: 'https://dribbble.com/glow-team', label: 'Dribbble' },
 ];
 
-export default function Footer() {
+function Footer(props) {
   return (
     <footer className="bg-black py-[30px] pt-[61px] text-lblue md:pt-[160px] xl:pt-[176px]">
       <Layout>
@@ -69,3 +73,56 @@ export default function Footer() {
     </footer>
   );
 }
+
+export function ParallaxFooter(props) {
+  const [scrollMounted] = useAtom(ScrollSmootherMounted);
+  const wrapperRef = useRef(null);
+
+  useEffect(() => {
+    if (!scrollMounted) {
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.__content',
+        {
+          yPercent: -80,
+          // translateY: '-80%',
+          scale: 0.98,
+        },
+        {
+          scrollTrigger: {
+            trigger: wrapperRef.current,
+            scrub: true,
+            start: 'top bottom',
+            end: 'bottom bottom',
+            // markers: true,
+          },
+          // translateY: 0,
+          yPercent: 0,
+          scale: 1,
+          opacity: 1,
+          ease: 'linear',
+        }
+      );
+    }, wrapperRef);
+
+    return () => {
+      ctx.revert();
+    };
+  }, [wrapperRef, scrollMounted]);
+
+  return (
+    <div
+      ref={wrapperRef}
+      className="relative h-full w-full overflow-hidden bg-black"
+    >
+      <div className="__content">
+        <Footer {...props} />
+      </div>
+    </div>
+  );
+}
+
+export default Footer;
