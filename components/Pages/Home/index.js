@@ -1,22 +1,18 @@
-import Image, { resolve, Source, x2 } from '../../Image';
 import Layout from '../../Layout';
-// import Home1Image from './assets/home-1.png';
-// import HomeTabletImage from './assets/home-tablet.png';
-// import HomeDesktopImage from './assets/home-desktop.png';
-import CasesSlider from './CasesSlider';
-import Niches from './Niches';
-import OurClients from './OurClients';
-import Reviews from './Reviews';
-import Workflow from './Workflow';
-import OutProjectsLink from './OurProjectsLink';
-import Animated from '../../Animated';
-import Showreel from './Showreel';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import cx from 'clsx';
 import gsap from 'gsap';
 import { useAtom } from 'jotai';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { mediaAtom } from '../../../lib/agent';
-import ScrollContainer from '../../SmoothScroll/ScrollContainer';
+import Animated from '../../Animated';
+import { useHeaderTheme } from '../../Header';
+import CasesSlider from './CasesSlider';
+import Niches from './Niches';
+import OurClients from './OurClients';
+import OutProjectsLink from './OurProjectsLink';
+import Reviews from './Reviews';
+import Showreel from './Showreel';
+import Workflow from './Workflow';
 
 function RollingWords({ words, interval = 16500 }) {
   const [media] = useAtom(mediaAtom);
@@ -70,11 +66,12 @@ function RollingWords({ words, interval = 16500 }) {
   useEffect(() => {
     const widths = [];
     refs.current.map(({ el, index, word }) => {
+      const w = Math.ceil(el.getBoundingClientRect()?.width);
       widths.push({
         el,
         index,
         word,
-        width: el.offsetWidth + 5,
+        width: w,
       });
     });
 
@@ -156,6 +153,8 @@ export default function Home() {
   const trigger = useRef(null);
   const refScrollContainer = useRef(null);
 
+  useHeaderTheme(changeBgRef, 'dark');
+
   // useEffect(() => {
   //   async function getLocomotive() {
   //     const urlSearchParams = new URLSearchParams(window.location.search);
@@ -219,7 +218,7 @@ export default function Home() {
             for&nbsp;
             <RollingWords
               words={['transportation', 'healthcare', 'fintech']}
-              interval={3000}
+              interval={2200}
             />{' '}
             <div className="inline-flex">challenges.</div>
           </Animated>

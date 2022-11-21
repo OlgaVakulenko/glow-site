@@ -38,6 +38,8 @@ const HoverCursor = forwardRef(function HoverCursor(props, ref) {
 
 export default function Showreel() {
   const ref = useRef(null);
+  const videoRef = useRef(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const [isHover, setIsHover] = useState(false);
   const isHoverPrefRef = useRef(isHover);
   const isHoverRef = useRef(isHover);
@@ -62,6 +64,21 @@ export default function Showreel() {
       ease: 'power1.out',
       duration: isHoverRef.current ? 0.2 : 0,
     });
+  };
+
+  const handleClick = (e) => {
+    const el = videoRef.current;
+    if (!el) return;
+
+    if (el.requestFullscreen) {
+      el.requestFullscreen();
+    } else if (el.webkitRequestFullscreen) {
+      /* Safari */
+      el.webkitRequestFullscreen();
+    } else if (el.msRequestFullscreen) {
+      /* IE11 */
+      el.msRequestFullscreen();
+    }
   };
 
   const cursorRef = useRef(null);
@@ -103,9 +120,37 @@ export default function Showreel() {
     isHoverPrefRef.current = isHover;
   }, [isHover]);
 
+  useEffect(() => {
+    const node = videoRef.current;
+    const onFullscreenChange = (e) => {
+      const isFullscreen = document.fullscreenElement === node;
+      setIsFullscreen(isFullscreen);
+    };
+
+    node.addEventListener('fullscreenchange', onFullscreenChange);
+    return () => {
+      node.removeEventListener('fullscreenchange', onFullscreenChange);
+    };
+  }, []);
+
   return (
-    <div ref={ref} className="relative cursor-none overflow-hidden bg-white">
-      <picture>
+    <div
+      ref={ref}
+      className={cx('relative overflow-hidden bg-white', {
+        'cursor-none': !isFullscreen,
+      })}
+    >
+      <video
+        ref={videoRef}
+        src="/video/video_test.mp4"
+        type="video/mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="__image h-[408px] w-full object-cover md:h-[463px]"
+      />
+      {/* <picture>
         <Source image={Home1Image} width={400} media="(max-width: 767.5px)" />
         <Source
           image={HomeTabletImage}
@@ -122,12 +167,13 @@ export default function Showreel() {
           src={resolve({ src: Home1Image.src, width: 1440 })}
           alt=""
         />
-      </picture>
+      </picture> */}
       <div
         className="absolute inset-0"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
+        onClick={handleClick}
       ></div>
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
         <HoverCursor ref={cursorRef} />

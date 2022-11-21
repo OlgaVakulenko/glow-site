@@ -49,8 +49,8 @@ export default function Niches() {
       <Layout>
         <Section.Header className="py-[64px] md:pt-[107px] xl:pt-[160px]">
           <Section.Title>
-            Niches that
-            <br /> we&nbsp;fit
+            Niches <br />
+            that we&nbsp;fit
           </Section.Title>
           <Section.Description>
             Experience matters. Over the years we dived into the nuances of a

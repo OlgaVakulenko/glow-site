@@ -13,31 +13,6 @@ function Line({ children, className = '' }) {
   );
 }
 
-const useInView = (ref) => {
-  const [isInView, setIsInView] = useState(false);
-
-  useEffect(() => {
-    if (ref.current) {
-      if (!'IntersectionObserver' in window) {
-        setIsInView(true);
-        return;
-      }
-      const io = new IntersectionObserver(([entry]) => {
-        const isIntersecting = entry.isIntersecting;
-        setIsInView(isIntersecting);
-      });
-
-      io.observe(ref.current);
-
-      return () => {
-        io.disconnect();
-      };
-    }
-  }, [ref]);
-
-  return isInView;
-};
-
 const useSafeEffect = (cb, deps) => {
   useEffect(() => {
     try {

@@ -2,7 +2,7 @@ import cx from 'clsx';
 import Link from 'next/link';
 import React, { useEffect, useId, useState } from 'react';
 import { mediaAtom, useSupports } from '../lib/agent';
-import { useBodyLock } from '../lib/utils';
+import { useBodyLock, useInView } from '../lib/utils';
 import BigButton from './BigButton';
 import Layout from './Layout';
 import Logo from './Logo';
@@ -13,6 +13,7 @@ import { useAtom } from 'jotai';
 import Animated from './Animated';
 import { scrollAtom } from '../atoms/scroll';
 import debounce from 'lodash.debounce';
+import { useSetAtom } from 'jotai';
 
 function BurgerIcon({ isOpen = false }) {
   if (isOpen) {
@@ -192,8 +193,48 @@ const BurgerMenu = ({
   );
 };
 
+export const headerTheme = atom('brand');
+
+export const useHeaderTheme = (ref, themeInView = '') => {
+  const setHeaderTheme = useSetAtom(headerTheme);
+
+  useEffect(() => {
+    if ('!IntersectionObserver' in window) {
+      return;
+    }
+
+    const node = ref.current;
+    if (!node) {
+      return;
+    }
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          console.log(entry.isIntersecting);
+        });
+      },
+      {
+        rootMargin: 120 - 1 + 'px',
+        threshold: 0,
+      }
+    );
+
+    io.observe(node);
+
+    return () => {
+      io.disconnect();
+    };
+  }, [ref]);
+  // const isInView = useInView(ref, (inView) => {
+  //   if (inView) {
+  //     setHeaderTheme(themeInView);
+  //   }
+  // });
+};
+
 export default function Header() {
-  const [scrollTop] = useAtom(scrollAtom);
+  const [theme] = useAtom(headerTheme);
   const [transitionOpen, setTransitionOpen] = useState(false);
   const [isOpen, setIsOpen] = useAtom(openAtom);
   // const [isOpen, setIsOpen] = useState(false);
@@ -202,6 +243,7 @@ export default function Header() {
   const { lock, release } = useBodyLock();
   const [isStop, setIsStop] = useState(true);
 
+  console.log('header theme', theme);
   // console.log('scrollTop', scrollTop);
 
   useEffect(() => {
@@ -212,22 +254,22 @@ export default function Header() {
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    const setStop = debounce(() => {
-      setIsStop(true);
-    }, 1000);
+  // useEffect(() => {
+  //   const setStop = debounce(() => {
+  //     setIsStop(true);
+  //   }, 1000);
 
-    const onScroll = () => {
-      setIsStop(false);
-      setStop();
-    };
+  //   const onScroll = () => {
+  //     setIsStop(false);
+  //     setStop();
+  //   };
 
-    window.addEventListener('scroll', onScroll);
+  //   window.addEventListener('scroll', onScroll);
 
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener('scroll', onScroll);
+  //   };
+  // }, []);
 
   const onBurgerClick = () => {
     setIsOpen((v) => !v);
@@ -250,10 +292,7 @@ export default function Header() {
               </Animated>
               <div
                 className={cx(
-                  'ml-[-32px] hidden transition-opacity duration-500 md:flex',
-                  {
-                    'opacity-0': scrollTop > 0 && !isStop,
-                  }
+                  'ml-[-32px] hidden transition-opacity duration-500 md:flex'
                 )}
               >
                 {links.map((link, i) => (
@@ -270,16 +309,13 @@ export default function Header() {
               </div>
               <div
                 className={cx(
-                  'hidden transition-opacity duration-500 md:block',
-                  {
-                    'opacity-0': scrollTop > 0 && !isStop,
-                  }
+                  'hidden transition-opacity duration-500 md:block'
                 )}
               >
                 <Animated delay={(links.length + 1) * 100}>
                   <Link
                     href="/"
-                    className="glow-border-black rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
+                    className="glow-border-black rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-colors duration-500 hover:bg-black hover:text-brand"
                   >
                     Let&apos;s get in touch
                   </Link>
