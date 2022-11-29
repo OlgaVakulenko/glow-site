@@ -248,7 +248,7 @@ export default function Header() {
             className={cx(
               'backdrop pointer-events-none absolute top-0 left-0 h-[155px] w-full opacity-0 transition-opacity duration-700',
               {
-                'opacity-100': t !== 'brand',
+                'opacity-100': t !== 'brand' && t !== 'dark',
               }
             )}
           ></div>
@@ -292,7 +292,7 @@ export default function Header() {
                       'hover:text-brand',
                       t === 'white' && 'hover:text-white',
                       t === 'dark' &&
-                        'glow-border-white text-white hover:text-brand'
+                        'glow-border-white text-white hover:text-white'
                     )}
                   >
                     <RollingText
