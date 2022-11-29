@@ -210,7 +210,6 @@ export const useHeaderTheme = (ref, themeInView = '') => {
       onLeave,
       onEnterBack: onEnter,
       onLeaveBack: onLeave,
-      // markers: true,
     });
 
     return () => {

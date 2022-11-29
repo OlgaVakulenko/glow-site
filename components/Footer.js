@@ -109,7 +109,6 @@ export function ParallaxFooter(props) {
               // console.log(wrapperRef.current.offsetHeight, window.innerHeight);
               return 'bottom bottom';
             },
-            // markers: true,
           },
           // translateY: 0,
           yPercent: 0,

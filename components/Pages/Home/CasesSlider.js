@@ -168,7 +168,6 @@ export function CasesSlider2() {
           trigger: '.h-scroller',
           pin: true,
           scrub: 1,
-          markers: true,
 
           // markers: true,
           // snap: {
