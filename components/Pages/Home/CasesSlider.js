@@ -42,20 +42,20 @@ const cases = [
     company: ['Funding 30M'],
     image: CaseDesktop,
   },
-  {
-    title: 'Beast Tesla Rent',
-    industry: ['Car Rent'],
-    service: ['User Experience', 'User Interface', 'Branding'],
-    company: ['Funding 30M'],
-    image: CaseDesktop,
-  },
-  {
-    title: 'Beast Tesla Rent',
-    industry: ['Car Rent'],
-    service: ['User Experience', 'User Interface', 'Branding'],
-    company: ['Funding 30M'],
-    image: CaseDesktop,
-  },
+  // {
+  //   title: 'Beast Tesla Rent',
+  //   industry: ['Car Rent'],
+  //   service: ['User Experience', 'User Interface', 'Branding'],
+  //   company: ['Funding 30M'],
+  //   image: CaseDesktop,
+  // },
+  // {
+  //   title: 'Beast Tesla Rent',
+  //   industry: ['Car Rent'],
+  //   service: ['User Experience', 'User Interface', 'Branding'],
+  //   company: ['Funding 30M'],
+  //   image: CaseDesktop,
+  // },
 ];
 
 function Col({ title, items, className = '' }) {
@@ -78,8 +78,8 @@ function CaseSlide({ item, index }) {
   // console.log(media);
 
   return (
-    <div className="">
-      <div className="__slide relative flex  overflow-hidden text-lblue md:h-[688px] md:items-end">
+    <div className="__slide-wrapper h-full w-full">
+      <div className="__slide relative flex h-full items-end overflow-hidden text-lblue">
         <Image
           className="__slider-item absolute top-0 left-0 h-full w-full object-cover md:max-h-full"
           src={item.image}
@@ -128,6 +128,200 @@ function CaseSlide({ item, index }) {
           </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+export function CasesSlider2() {
+  const ref = useRef();
+  const scrollerRef = useRef();
+  const [media] = useAtom(mediaAtom);
+
+  useEffect(() => {
+    const firstAnimationDurationPx = 600;
+    const clipPathSize =
+      {
+        mobile: 16,
+        tablet: 48,
+      }[media] || 56;
+
+    const gapSize =
+      {
+        mobile: 16,
+        tablet: 48,
+      }[media] || 32 / 2;
+
+    const borderRadiusSize =
+      {
+        mobile: '16px',
+      }[media] || '32px';
+
+    const ctx = gsap.context(() => {
+      const x = media === 'desktop' ? -94.5 : -100;
+
+      gsap.to('.__slide-wrapper', {
+        xPercent: x * (cases.length - 1),
+        ease: 'none',
+        scrollTrigger: {
+          // scroller: '.h-scroller',
+          // pinType: 'fixed',
+          trigger: '.h-scroller',
+          pin: true,
+          scrub: 1,
+          markers: true,
+
+          // markers: true,
+          // snap: {
+          //   snapTo: 1 / (cases.length - 1),
+          //   inertia: false,
+          //   duration: { min: 0.3, max: 1 },
+          // },
+          // snap: 1 / (cases.length - 1),
+          start: `center+=1 center`,
+          // refreshPriority: 1,
+          end: () => {
+            if (media === 'desktop') {
+              // return '+=' + scrollerRef.current.offsetWidth * 0.6;
+            }
+            //scroll speed
+            return '+=' + scrollerRef.current.offsetWidth;
+          },
+          // invalidateOnRefresh: true,
+        },
+      });
+
+      if (media === 'desktop') {
+        gsap.to('.h-scroller', {
+          scrollTrigger: {
+            trigger: '.h-scroller',
+            // pin: true,
+            scrub: true,
+            start: 'center center',
+            end: `center+=${firstAnimationDurationPx} center`,
+          },
+          width: '90%',
+          // onUpdate: (e) => {
+          //   console.log(e);
+          // },
+        });
+      }
+
+      gsap.fromTo(
+        '.__slide-wrapper',
+        {
+          height: '100vh',
+          // width: '100%',
+        },
+        {
+          scrollTrigger: {
+            trigger: '.h-scroller',
+            pin: true,
+            scrub: true,
+            start: 'center center',
+            end: `center+=${firstAnimationDurationPx} center`,
+          },
+          // width: '50%',
+          height: () => {
+            if (media === 'mobile') {
+              return 456 + clipPathSize * 2;
+            }
+
+            return 688 + clipPathSize * 2;
+          },
+          clipPath: (index, s, nodes) => {
+            let top = clipPathSize;
+            let right = clipPathSize;
+            let bottom = clipPathSize;
+            let left = clipPathSize;
+
+            if (index !== 0 && index !== nodes.length - 1) {
+              left = 0;
+            }
+
+            if (index === nodes.length - 2) {
+              right = 0;
+            }
+
+            // if (index === 0 || index === nodes.length - 1) {
+            //   left = clipPathSize;
+            //   right = clipPathSize;
+            // }
+
+            // if (index === 1) {
+            //   left = 0;
+            // }
+
+            // if (index === nodes.length - 2) {
+            //   right = 0;
+            // }
+            // if (index === 1) {
+            //   left = 0;
+            // }
+            // if (index === nodes.length - 2) {
+            //   right = 0;
+            // }
+
+            // if (index === 0) {
+            //   left = clipPathSize;
+            // }
+
+            // if (index === nodes.length - 1) {
+            //   left = clipPathSize;
+            // }
+
+            return `
+            inset(${top}px ${right}px ${bottom}px ${left}px round ${borderRadiusSize})
+            `;
+          },
+        }
+      );
+    }, ref);
+    // console.log('+=' + ref.current.offsetWidth);
+    return () => {
+      ctx.revert();
+    };
+  }, [media]);
+
+  // console.log('media call', media);
+
+  return (
+    <div ref={ref}>
+      <Section
+        withLayout={false}
+        className="__pin-trigger relative overflow-hidden pb-[80px] md:pb-[72px] xl:pb-[80px]"
+      >
+        <div
+          ref={scrollerRef}
+          className="h-scroller"
+          style={{
+            width: cases.length * 100 + '%',
+          }}
+        >
+          {/* <div
+            className="__trigger z-[-1] flex h-full flex-nowrap"
+            style={{
+              width: '500%',
+            }}
+          > */}
+          {/* {['first', 'second'].map((l) => {
+            return (
+              <div key={l} className="__slide-wrapper h-full w-full">
+                {l}
+              </div>
+            );
+          })} */}
+          {cases.map((item, i) => (
+            <CaseSlide key={i} item={item} index={i} />
+          ))}
+          {/* wtf  */}
+          {/* {media !== 'desktop' && (
+            <Layout className="__slider-progress">
+              <SliderProgress className="mt-6" />
+            </Layout>
+          )} */}
+          {/* </div> */}
+        </div>
+      </Section>
     </div>
   );
 }

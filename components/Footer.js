@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import { useAtom } from 'jotai';
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import BigButton from './BigButton';
+import { useHeaderTheme } from './Header';
 import Layout from './Layout';
 import LocalTime from './LocalTime';
 import RollingText from './RollingText';
@@ -78,7 +79,11 @@ export function ParallaxFooter(props) {
   const [scrollMounted] = useAtom(ScrollSmootherMounted);
   const wrapperRef = useRef(null);
 
+  useHeaderTheme(wrapperRef, 'dark');
+
   useEffect(() => {
+    // return;
+
     if (!scrollMounted) {
       return;
     }
@@ -89,21 +94,28 @@ export function ParallaxFooter(props) {
         {
           yPercent: -80,
           // translateY: '-80%',
-          scale: 0.98,
+          // scale: 0.98,
         },
         {
           scrollTrigger: {
             trigger: wrapperRef.current,
             scrub: true,
             start: 'top bottom',
-            end: 'bottom bottom',
+            end: (e) => {
+              console.log('E CALL');
+              if (wrapperRef.current?.offsetHeight > window.innerHeight) {
+                return '75% bottom';
+              }
+              // console.log(wrapperRef.current.offsetHeight, window.innerHeight);
+              return 'bottom bottom';
+            },
             // markers: true,
           },
           // translateY: 0,
           yPercent: 0,
-          scale: 1,
+          // scale: 1,
           opacity: 1,
-          ease: 'linear',
+          ease: 'none',
         }
       );
     }, wrapperRef);
@@ -114,10 +126,7 @@ export function ParallaxFooter(props) {
   }, [wrapperRef, scrollMounted]);
 
   return (
-    <div
-      ref={wrapperRef}
-      className="relative h-full w-full overflow-hidden bg-black"
-    >
+    <div ref={wrapperRef} className="relative w-full overflow-hidden bg-black">
       <div className="__content">
         <Footer {...props} />
       </div>

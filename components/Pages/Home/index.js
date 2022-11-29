@@ -6,7 +6,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { mediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
 import { useHeaderTheme } from '../../Header';
-import CasesSlider from './CasesSlider';
+import CasesSlider, { CasesSlider2 } from './CasesSlider';
 import Niches from './Niches';
 import OurClients from './OurClients';
 import OutProjectsLink from './OurProjectsLink';
@@ -71,7 +71,7 @@ function RollingWords({ words, interval = 16500 }) {
         el,
         index,
         word,
-        width: w,
+        width: w + 2,
       });
     });
 
@@ -104,10 +104,6 @@ function RollingWords({ words, interval = 16500 }) {
 
       // console.log(timeline);
     }, root);
-
-    // return () => {
-    //   ctx.revert();
-    // };
   }, [v, showClass]);
 
   return (
@@ -149,27 +145,30 @@ function RollingWords({ words, interval = 16500 }) {
 }
 
 export default function Home() {
+  const firstSectionRef = useRef(null);
   const changeBgRef = useRef(null);
   const trigger = useRef(null);
   const refScrollContainer = useRef(null);
 
-  useHeaderTheme(changeBgRef, 'dark');
+  useHeaderTheme(changeBgRef, 'white');
 
-  // useEffect(() => {
-  //   async function getLocomotive() {
-  //     const urlSearchParams = new URLSearchParams(window.location.search);
-  //     const params = Object.fromEntries(urlSearchParams.entries());
-  //     const lerp = params.lerp || 0.1;
-  //     const Locomotive = (await import('locomotive-scroll')).default;
-  //     const scroll = new Locomotive({
-  //       el: refScrollContainer.current,
-  //       smooth: true,
-  //       lerp: lerp,
-  //     });
-  //   }
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(firstSectionRef.current, {
+        scrollTrigger: {
+          trigger: firstSectionRef.current,
+          start: '100% center',
+          end: '130% center',
+          scrub: true,
+        },
+        backgroundColor: 'white',
+      });
+    });
 
-  //   getLocomotive();
-  // }, []);
+    return () => {
+      ctx.revert();
+    };
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -194,36 +193,37 @@ export default function Home() {
 
   return (
     <div ref={refScrollContainer}>
-      <Layout>
-        <div className="relative flex min-h-[calc(var(--lvh)*100-96px)] flex-col justify-between bg-brand pb-[48px] pt-[155px] md:min-h-screen md:pt-[280px] md:pb-[89px] xl:pb-[49px]">
-          <Animated
-            className="relative ml-auto min-w-[232px] max-w-[252px] text-lg italic md:min-w-[308px] md:max-w-[328px] md:text-subtitle-l xl:mr-[200px]"
-            delay={200}
-          >
-            <div className="absolute left-0 top-[-32px]">
-              <svg
-                width="16"
-                height="18"
-                viewBox="0 0 16 18"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M8.66499 17.0667L6.89169 11.0769L1.93451 14.8513L-2.15194e-07 12.1436L4.99748 8.53332L-5.30813e-07 4.92306L1.93451 2.17434L6.89169 5.9487L8.66499 -1.30005e-05L11.8086 1.02563L9.83375 6.93332L16 6.85127L16 10.2154L9.87406 10.1333L11.8086 16.041L8.66499 17.0667Z"
-                  fill="#19191B"
-                />
-              </svg>
-            </div>
-            Your trusted design team <br />
-            for&nbsp;
-            <RollingWords
-              words={['transportation', 'healthcare', 'fintech']}
-              interval={2200}
-            />{' '}
-            <div className="inline-flex">challenges.</div>
-          </Animated>
+      <div ref={firstSectionRef} className="bg-brand">
+        <Layout>
+          <div className="relative flex min-h-[calc(var(--lvh)*100-96px)] flex-col justify-between pb-[48px] pt-[155px] md:min-h-screen md:pt-[280px] md:pb-[89px] xl:pb-[49px]">
+            <Animated
+              className="relative ml-auto min-w-[232px] max-w-[252px] text-lg italic md:min-w-[308px] md:max-w-[328px] md:text-subtitle-l xl:mr-[200px]"
+              delay={200}
+            >
+              <div className="absolute left-0 top-[-32px]">
+                <svg
+                  width="16"
+                  height="18"
+                  viewBox="0 0 16 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M8.66499 17.0667L6.89169 11.0769L1.93451 14.8513L-2.15194e-07 12.1436L4.99748 8.53332L-5.30813e-07 4.92306L1.93451 2.17434L6.89169 5.9487L8.66499 -1.30005e-05L11.8086 1.02563L9.83375 6.93332L16 6.85127L16 10.2154L9.87406 10.1333L11.8086 16.041L8.66499 17.0667Z"
+                    fill="#19191B"
+                  />
+                </svg>
+              </div>
+              Your trusted design team <br />
+              for&nbsp;
+              <RollingWords
+                words={['transportation', 'healthcare', 'fintech']}
+                interval={2200}
+              />{' '}
+              <div className="inline-flex">challenges.</div>
+            </Animated>
 
-          {/* <div className="absolute top-[27px] left-[-16px]">
+            {/* <div className="absolute top-[27px] left-[-16px]">
             <svg
               width="320"
               height="380"
@@ -245,20 +245,23 @@ export default function Home() {
               />
             </svg>
           </div> */}
-          <div className="sticky bottom-[48px] font-glow text-[40px] font-medium leading-10 md:text-[60px] md:leading-[64px] xl:text-[64px]">
-            <Animated as="h1">
-              Simple design
-              <br className="hidden md:block" /> for&nbsp;complex products
-            </Animated>
-            {/* The logical aesthetics your{' '} */}
-            {/* <span className="block w-full text-right">experience</span> */}
+            <div className="sticky bottom-[48px] font-glow text-[40px] font-medium leading-10 md:text-[60px] md:leading-[64px] xl:text-[64px]">
+              <Animated as="h1">
+                Simple design
+                <br className="hidden md:block" /> for&nbsp;complex products
+              </Animated>
+              {/* The logical aesthetics your{' '} */}
+              {/* <span className="block w-full text-right">experience</span> */}
+            </div>
           </div>
-        </div>
-      </Layout>
-      <Showreel />
+        </Layout>
+      </div>
       <div ref={changeBgRef} className="bg-white">
+        <div>
+          <Showreel />
+        </div>
         <Niches />
-        <CasesSlider />
+        <CasesSlider2 />
         <OutProjectsLink className="hidden md:block" />
 
         <div

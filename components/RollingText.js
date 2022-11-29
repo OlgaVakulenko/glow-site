@@ -5,18 +5,6 @@ export default function RollingText({ text = '', height }) {
     return text.split('');
   }, [text]);
 
-  const output = letters.map((l, i) => (
-    <span
-      key={i}
-      style={{
-        transitionDelay: 0.015 * i + 's',
-      }}
-      className="rolling-letter"
-    >
-      {l}
-    </span>
-  ));
-
   return (
     <div
       className="rolling-text-container"
@@ -37,7 +25,7 @@ export default function RollingText({ text = '', height }) {
           </span>
         ))}
       </div>
-      <div className="block ">
+      <div className="block">
         {letters.map((l, i) => (
           <span
             key={i}

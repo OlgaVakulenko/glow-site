@@ -1,6 +1,6 @@
 import cx from 'clsx';
 import Link from 'next/link';
-import React, { useEffect, useId, useState } from 'react';
+import React, { useEffect, useId, useRef, useState } from 'react';
 import { mediaAtom, useSupports } from '../lib/agent';
 import { useBodyLock, useInView } from '../lib/utils';
 import BigButton from './BigButton';
@@ -14,6 +14,7 @@ import Animated from './Animated';
 import { scrollAtom } from '../atoms/scroll';
 import debounce from 'lodash.debounce';
 import { useSetAtom } from 'jotai';
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 function BurgerIcon({ isOpen = false }) {
   if (isOpen) {
@@ -177,14 +178,7 @@ const BurgerMenu = ({
               </ul>
             </nav>
             <Animation index={links.length}>
-              <BigButton
-                onClick={() => {
-                  handleTestClick();
-                }}
-                className="mb-[60px]"
-              >
-                let’s get in touche{' '}
-              </BigButton>
+              <BigButton className="mb-[60px]">let’s get in touche </BigButton>
             </Animation>
           </div>
         </Layout>
@@ -193,58 +187,47 @@ const BurgerMenu = ({
   );
 };
 
-export const headerTheme = atom('brand');
+export const headerTheme = atom(['brand']);
 
 export const useHeaderTheme = (ref, themeInView = '') => {
   const setHeaderTheme = useSetAtom(headerTheme);
 
   useEffect(() => {
-    if ('!IntersectionObserver' in window) {
-      return;
-    }
+    const onEnter = () => {
+      setHeaderTheme((c) => [...c, themeInView]);
+    };
 
-    const node = ref.current;
-    if (!node) {
-      return;
-    }
+    const onLeave = () => {
+      setHeaderTheme((c) => c.filter((v) => v !== themeInView));
+    };
 
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          console.log(entry.isIntersecting);
-        });
-      },
-      {
-        rootMargin: 120 - 1 + 'px',
-        threshold: 0,
-      }
-    );
-
-    io.observe(node);
+    const s = ScrollTrigger.create({
+      trigger: ref.current,
+      start: 'top top+=69',
+      end: 'bottom top',
+      refreshPriority: -1,
+      onEnter,
+      onLeave,
+      onEnterBack: onEnter,
+      onLeaveBack: onLeave,
+      // markers: true,
+    });
 
     return () => {
-      io.disconnect();
+      s.kill();
     };
-  }, [ref]);
-  // const isInView = useInView(ref, (inView) => {
-  //   if (inView) {
-  //     setHeaderTheme(themeInView);
-  //   }
-  // });
+  }, [ref, setHeaderTheme, themeInView]);
+
+  return;
 };
 
 export default function Header() {
   const [theme] = useAtom(headerTheme);
-  const [transitionOpen, setTransitionOpen] = useState(false);
+  const t = theme[theme.length - 1];
   const [isOpen, setIsOpen] = useAtom(openAtom);
-  // const [isOpen, setIsOpen] = useState(false);
   const links = ['Work', 'Team', 'Services'];
   const menuId = useId();
   const { lock, release } = useBodyLock();
-  const [isStop, setIsStop] = useState(true);
-
-  console.log('header theme', theme);
-  // console.log('scrollTop', scrollTop);
 
   useEffect(() => {
     if (isOpen) {
@@ -254,40 +237,27 @@ export default function Header() {
     }
   }, [isOpen]);
 
-  // useEffect(() => {
-  //   const setStop = debounce(() => {
-  //     setIsStop(true);
-  //   }, 1000);
-
-  //   const onScroll = () => {
-  //     setIsStop(false);
-  //     setStop();
-  //   };
-
-  //   window.addEventListener('scroll', onScroll);
-
-  //   return () => {
-  //     window.removeEventListener('scroll', onScroll);
-  //   };
-  // }, []);
-
   const onBurgerClick = () => {
     setIsOpen((v) => !v);
   };
 
   return (
     <>
-      <header className="fixed z-10 w-full">
-        <Layout>
+      <header className={'fixed z-10 w-full'}>
+        <div className="relative">
           <div
-            className={cx({
-              ['flex h-screenx flex-col bg-brand']: false,
-            })}
-          >
-            <div className="flex items-center justify-between py-[28px]  font-medium uppercase text-black md:py-[44px]">
+            className={cx(
+              'backdrop pointer-events-none absolute top-0 left-0 h-[155px] w-full opacity-0 transition-opacity duration-700',
+              {
+                'opacity-100': t !== 'brand',
+              }
+            )}
+          ></div>
+          <Layout>
+            <div className="flex items-center justify-between pt-[28px]  font-medium uppercase text-black md:pt-[44px]">
               <Animated delay={50}>
                 <Link href="/" className="flex items-center justify-center">
-                  <Logo />
+                  <Logo className={t} />
                 </Link>
               </Animated>
               <div
@@ -301,7 +271,10 @@ export default function Header() {
                     href="/"
                     key={link}
                     delay={(i + 1) * 100}
-                    className="mr-[77px] text-sm last:mr-0"
+                    className={cx(
+                      'mr-[77px] text-sm last:mr-0',
+                      t === 'dark' && 'text-white'
+                    )}
                   >
                     <RollingText text={link} height={20} />
                   </Animated>
@@ -315,9 +288,18 @@ export default function Header() {
                 <Animated delay={(links.length + 1) * 100}>
                   <Link
                     href="/"
-                    className="glow-border-black rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-colors duration-500 hover:bg-black hover:text-brand"
+                    className={cx(
+                      'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-all duration-500 hover:bg-black',
+                      'hover:text-brand',
+                      t === 'white' && 'hover:text-white',
+                      t === 'dark' &&
+                        'glow-border-white text-white hover:text-brand'
+                    )}
                   >
-                    Let&apos;s get in touch
+                    <RollingText
+                      height={20}
+                      text={`Let's get in touch`}
+                    ></RollingText>
                   </Link>
                 </Animated>
               </div>
@@ -360,8 +342,8 @@ export default function Header() {
                 </BigButton>
               </>
             )}
-          </div>
-        </Layout>
+          </Layout>
+        </div>
       </header>
       <BurgerMenu menuId={menuId} links={links} />
     </>

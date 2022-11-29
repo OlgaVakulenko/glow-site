@@ -16,11 +16,11 @@ export default function SliderProgress({ className = '', mode = 'progress' }) {
   const swiper = useSwiper();
 
   const slidesPerView = useMemo(() => {
-    if (!isNaN(swiper.params.slidesPerView)) {
+    if (!isNaN(swiper?.params.slidesPerView)) {
       return swiper.params.slidesPerView;
     }
     return 1;
-  }, [swiper.params.slidesPerView]);
+  }, [swiper?.params.slidesPerView]);
 
   const thumbWidth = useMemo(() => {
     if (slidesCount > 0) {
@@ -63,7 +63,7 @@ export default function SliderProgress({ className = '', mode = 'progress' }) {
   }, [trackWidth, thumbWidth, slidesCount, progress, mode, realIndex]);
 
   useEffect(() => {
-    if (swiper.params) {
+    if (swiper?.params) {
       const count = swiper.params.loop
         ? swiper.params.loopedSlides
         : swiper.slides.length;
@@ -74,6 +74,9 @@ export default function SliderProgress({ className = '', mode = 'progress' }) {
   }, [swiper]);
 
   useEffect(() => {
+    if (!swiper) {
+      return;
+    }
     if (mode === 'progress') {
       const onProgress = (e, p) => {
         const progress = e.progress;

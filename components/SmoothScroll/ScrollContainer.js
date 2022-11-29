@@ -24,6 +24,7 @@ export default function ScrollContainer({ children }) {
       wrapper: viewportRef.current,
       content: ref.current,
       effects: true,
+      smoothTouch: 0.1,
       onUpdate: throttle((e) => {
         const scrollTop = Math.round(Math.abs(e.scrollTop()));
         updateScrollPosition(scrollTop);

@@ -10,7 +10,7 @@ export default function LinkArrowCircle() {
     >
       <circle cx="28" cy="28.0005" r="27.5" stroke="currentColor" />
       <path
-        className=" group-hover:text-white"
+        className=" group-hover:text-brand"
         d="M28 21.0005L35.0711 28.0716M35.0711 28.0716L28 35.1426M35.0711 28.0716H20.9289"
         stroke="currentColor"
       />

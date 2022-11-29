@@ -61,8 +61,8 @@ export default function Showreel() {
     gsap.to(cursorRef.current, {
       y: e.nativeEvent.offsetY,
       x: e.nativeEvent.offsetX,
-      ease: 'power1.out',
-      duration: isHoverRef.current ? 0.2 : 0,
+      ease: 'power2.inout',
+      duration: isHoverRef.current ? 1 : 0,
     });
   };
 
@@ -136,20 +136,23 @@ export default function Showreel() {
   return (
     <div
       ref={ref}
-      className={cx('relative overflow-hidden bg-white', {
+      className={cx('relative bg-white', {
         'cursor-none': !isFullscreen,
       })}
     >
-      <video
-        ref={videoRef}
-        src="/video/video_test.mp4"
-        type="video/mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="__image h-[408px] w-full object-cover md:h-[463px]"
-      />
+      <div className="overflow-hidden">
+        <video
+          ref={videoRef}
+          src="/video/video_test.mp4"
+          type="video/mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="__image -mt-[1px] h-[408px] w-full object-cover md:h-[463px]"
+        />
+      </div>
+
       {/* <picture>
         <Source image={Home1Image} width={400} media="(max-width: 767.5px)" />
         <Source
@@ -175,7 +178,7 @@ export default function Showreel() {
         onMouseMove={handleMouseMove}
         onClick={handleClick}
       ></div>
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0">
         <HoverCursor ref={cursorRef} />
       </div>
     </div>

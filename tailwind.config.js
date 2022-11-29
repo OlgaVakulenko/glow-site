@@ -19,6 +19,7 @@ module.exports = {
       },
       screens: {
         md: '965px',
+        wide: '1920px',
       },
       fontSize: {
         xs: ['12px', '18px'],

@@ -27,7 +27,7 @@ Section.Title = function Title({ children }) {
       animate={'fade-up'}
       className="mb-4 font-glow text-[32px] font-medium leading-[32px] md:w-1/2 md:text-[60px] md:leading-[95%]  xl:text-heading-h1"
     >
-      <div className="xl:max-w-[440px]">{children}</div>
+      <h2 className="xl:max-w-[440px]">{children}</h2>
     </Animated>
   );
 };
