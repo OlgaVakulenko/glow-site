@@ -1,7 +1,7 @@
 import cx from 'clsx';
 import LinkArrow from './LinkArrow';
 
-const activeHeader = 'hover:bg-black hover:text-brand';
+const activeHeader = 'hover:bg-brand hover:text-black';
 const activeFooter = 'hover:bg-lblue hover:text-black';
 
 export default function BigButton({

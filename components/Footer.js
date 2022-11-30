@@ -102,7 +102,7 @@ export function ParallaxFooter(props) {
             scrub: true,
             start: 'top bottom',
             end: (e) => {
-              console.log('E CALL');
+              // console.log('E CALL');
               if (wrapperRef.current?.offsetHeight > window.innerHeight) {
                 return '75% bottom';
               }
@@ -125,8 +125,11 @@ export function ParallaxFooter(props) {
   }, [wrapperRef, scrollMounted]);
 
   return (
-    <div ref={wrapperRef} className="relative w-full overflow-hidden bg-black">
-      <div className="__content">
+    <div
+      ref={wrapperRef}
+      className="relative flex min-h-screen w-full items-end overflow-hidden bg-black"
+    >
+      <div className="__content w-full">
         <Footer {...props} />
       </div>
     </div>

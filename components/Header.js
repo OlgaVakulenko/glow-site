@@ -1,35 +1,47 @@
+import { Transition } from '@headlessui/react';
 import cx from 'clsx';
+import { atom, useAtom } from 'jotai';
 import Link from 'next/link';
-import React, { useEffect, useId, useRef, useState } from 'react';
-import { mediaAtom, useSupports } from '../lib/agent';
-import { useBodyLock, useInView } from '../lib/utils';
+import React, { useEffect, useId } from 'react';
+import { mediaAtom } from '../lib/agent';
+import { useBodyLock } from '../lib/utils';
+import Animated from './Animated';
 import BigButton from './BigButton';
 import Layout from './Layout';
 import Logo from './Logo';
 import RollingText from './RollingText';
-import { Transition } from '@headlessui/react';
-import { atom } from 'jotai';
-import { useAtom } from 'jotai';
-import Animated from './Animated';
-import { scrollAtom } from '../atoms/scroll';
-import debounce from 'lodash.debounce';
-import { useSetAtom } from 'jotai';
+// import { scrollAtom } from '../atoms/scroll';
+// import debounce from 'lodash.debounce';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { useSetAtom } from 'jotai';
 
-function BurgerIcon({ isOpen = false }) {
+function BurgerIcon({ isOpen = false, theme }) {
+  let stroke = '#19191B';
+
+  if (theme === 'dark') {
+    stroke = 'white';
+  }
+
   if (isOpen) {
     return (
       <svg
+        style={{
+          color: '#19191B',
+        }}
         width="40"
         height="40"
         viewBox="0 0 40 40"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M8.68628 9L31.3137 31.6274" stroke="#19191B" strokeWidth="2" />
+        <path
+          d="M8.68628 9L31.3137 31.6274"
+          stroke="currentColor"
+          strokeWidth="2"
+        />
         <path
           d="M8.68628 32L31.3137 9.37258"
-          stroke="#19191B"
+          stroke="currentColor"
           strokeWidth="2"
         />
       </svg>
@@ -38,18 +50,22 @@ function BurgerIcon({ isOpen = false }) {
 
   return (
     <svg
+      style={{
+        color: stroke,
+      }}
+      className="transition-colors"
       width="32"
       height="18"
       viewBox="0 0 32 18"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M0 1H32M0 17H32" stroke="#19191B" strokeWidth="2" />
+      <path d="M0 1H32M0 17H32" stroke="currentColor" strokeWidth="2" />
     </svg>
   );
 }
 
-const BurgerButton = ({ isOpen, className, ...props }) => {
+const BurgerButton = ({ isOpen, className, theme, ...props }) => {
   return (
     <button
       {...props}
@@ -62,7 +78,7 @@ const BurgerButton = ({ isOpen, className, ...props }) => {
         className
       )}
     >
-      <BurgerIcon isOpen={isOpen} />
+      <BurgerIcon theme={theme} isOpen={isOpen} />
     </button>
   );
 };
@@ -178,7 +194,7 @@ const BurgerMenu = ({
               </ul>
             </nav>
             <Animation index={links.length}>
-              <BigButton className="mb-[60px]">let’s get in touche </BigButton>
+              <BigButton className="mb-[60px]">let’s get in touch</BigButton>
             </Animation>
           </div>
         </Layout>
@@ -246,9 +262,9 @@ export default function Header() {
         <div className="relative">
           <div
             className={cx(
-              'backdrop pointer-events-none absolute top-0 left-0 h-[155px] w-full opacity-0 transition-opacity duration-700',
+              'backdrop pointer-events-none absolute top-0 left-0 h-[155px] w-full -translate-y-full transition-transform duration-700',
               {
-                'opacity-100': t !== 'brand' && t !== 'dark',
+                '!translate-y-0': t !== 'brand' && t !== 'dark',
               }
             )}
           ></div>
@@ -290,7 +306,8 @@ export default function Header() {
                     className={cx(
                       'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-all duration-500 hover:bg-black',
                       'hover:text-brand',
-                      t === 'white' && 'hover:text-white',
+                      t === 'white' &&
+                        'glow-border-b-b hover:!bg-brand hover:!text-black',
                       t === 'dark' &&
                         'glow-border-white text-white hover:text-white'
                     )}
@@ -304,6 +321,7 @@ export default function Header() {
               </div>
               <Animated className="md:hidden" delay={150}>
                 <BurgerButton
+                  theme={t}
                   aria-controls={menuId}
                   isOpen={isOpen}
                   onClick={onBurgerClick}
@@ -311,36 +329,6 @@ export default function Header() {
                 />
               </Animated>
             </div>
-
-            {isOpen && false && (
-              <>
-                <nav
-                  aria-label="Main menu"
-                  role="navigation"
-                  id={menuId}
-                  className="flex flex-col"
-                >
-                  <ul className="text-center">
-                    {links.map((item) => (
-                      <li
-                        key={item}
-                        className="mb-[24px] text-[59px] uppercase leading-[80px] last:mb-[0px]"
-                      >
-                        <a
-                          href="#"
-                          className="flex items-center justify-center font-medium text-black"
-                        >
-                          {item}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </nav>
-                <BigButton className="mb-[60px]">
-                  let’s get in touche{' '}
-                </BigButton>
-              </>
-            )}
           </Layout>
         </div>
       </header>

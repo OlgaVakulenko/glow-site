@@ -195,7 +195,7 @@ export default function Home() {
     <div ref={refScrollContainer}>
       <div ref={firstSectionRef} className="bg-brand">
         <Layout>
-          <div className="relative flex min-h-[calc(var(--lvh)*100-96px)] flex-col justify-between pb-[48px] pt-[155px] md:min-h-screen md:pt-[280px] md:pb-[89px] xl:pb-[49px]">
+          <div className="relative flex min-h-[calc(var(--lvh)*100)] flex-col justify-between pb-[48px] pt-[155px] md:min-h-screen md:pt-[280px] md:pb-[89px] xl:pb-[49px]">
             <Animated
               className="relative ml-auto min-w-[232px] max-w-[252px] text-lg italic md:min-w-[308px] md:max-w-[328px] md:text-subtitle-l xl:mr-[200px]"
               delay={200}

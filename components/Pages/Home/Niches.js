@@ -8,7 +8,7 @@ import NichesAnimation from './NichesAnimation';
 
 const items = [
   {
-    title: 'Carsharing',
+    title: 'Transportation',
     count: 12,
     description:
       'Be it a carsharing app or an internal service for a logistics company – the key to happy users is in comfortable UX that is easy to navigate.',
