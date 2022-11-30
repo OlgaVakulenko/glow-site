@@ -75,6 +75,10 @@
   color: white;
 }
 
+.header-logo.white path {
+  color: theme('colors.brand');
+}
+
 /** Niches Animations */
 @keyframes niches-rotate {
   from {
