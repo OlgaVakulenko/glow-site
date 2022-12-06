@@ -332,6 +332,8 @@ export default function Header({
   const menuId = useId();
   const { lock, release } = useBodyLock();
 
+  console.log('theme', t);
+
   useEffect(() => {
     if (isOpen) {
       lock();
