@@ -309,7 +309,9 @@ export default function Home() {
         >
           <Workflow />
           <OurClients />
-          <Reviews />
+          <Animated>
+            <Reviews />
+          </Animated>
         </div>
       </div>
     </div>

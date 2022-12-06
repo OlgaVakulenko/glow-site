@@ -38,6 +38,24 @@ const reviews = [
     rating: 5,
     link: '#',
   },
+  {
+    avatar: Reviews1Avatar,
+    companyAvatar: Reviews1Company,
+    name: 'Darrell Steward',
+    company: 'Founder Cryptogenie',
+    text: '#4 Impressing the internal staff, the team delivered a navigable, intuitive, and dependable solution that positively',
+    rating: 5,
+    link: '#',
+  },
+  {
+    avatar: Reviews1Avatar,
+    companyAvatar: Reviews1Company,
+    name: 'Darrell Steward',
+    company: 'Founder Cryptogenie',
+    text: '#5 Impressing the internal staff, the team delivered a navigable, intuitive, and dependable solution that positively',
+    rating: 5,
+    link: '#',
+  },
 ];
 
 function StarSvg({ size = 12 }) {

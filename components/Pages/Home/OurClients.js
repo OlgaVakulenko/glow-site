@@ -18,6 +18,7 @@ import { atom } from 'jotai';
 import { useSetAtom } from 'jotai';
 import { useAtom } from 'jotai';
 import { mediaAtom } from '../../../lib/agent';
+import Animated from '../../Animated';
 
 const clients = [Client1, Client4, Client5, Client2, Client3];
 
@@ -81,16 +82,20 @@ export default function OurClients() {
                   )}
                 >
                   {chunk.map((client, i) => (
-                    <div key={client.src + i} className={cx('mr-4', {})}>
+                    <Animated
+                      delay={i * 100}
+                      key={client.src + i}
+                      className={cx('mr-4', {})}
+                    >
                       <img className="w-full" src={client.src} alt="" />
-                    </div>
+                    </Animated>
                   ))}
                 </div>
               ))
             : clients.map((client, i) => (
-                <div key={client.src + i}>
+                <Animated key={client.src + i} delay={i * 100}>
                   <img className="w-full" src={client.src} alt="" />
-                </div>
+                </Animated>
               ))}
         </Layout>
       </div>
@@ -222,12 +227,15 @@ export default function OurClients() {
               <Image className="absolute inset-0" src={Noise} alt="" />
             </div>
           </div>
+
           <div className="md:flex md:justify-center ">
             <div className="md:flex md:items-center md:justify-start md:pl-[32px] md:pr-[81px] xl:pl-[136px]">
-              <div className="text-center text-lg italic leading-[133%] md:max-w-[328px] md:text-left md:text-xl md:leading-[27px] xl:text-[22px] xl:leading-[28px]">
-                We’ve built long-lasting partnerships with the&nbsp;most
-                ambitious brands across the globe
-              </div>
+              <Animated delay={200}>
+                <div className="text-center text-lg italic leading-[133%] md:max-w-[328px] md:text-left md:text-xl md:leading-[27px] xl:text-[22px] xl:leading-[28px]">
+                  We’ve built long-lasting partnerships with the&nbsp;most
+                  ambitious brands across the globe
+                </div>
+              </Animated>
             </div>
           </div>
         </div>
