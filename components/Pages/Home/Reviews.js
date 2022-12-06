@@ -145,7 +145,6 @@ export default function Reviews() {
     <Swiper
       modules={[Autoplay]}
       grabCursor={true}
-      loop={true}
       autoplay={true}
       // loopedSlides={3}
       slidesPerView={'auto'}
