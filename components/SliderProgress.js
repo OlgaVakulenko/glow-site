@@ -1,5 +1,6 @@
 import cx from 'clsx';
-import gsap from 'gsap';
+// import gsap from 'gsap';
+import gsap from '../dist/gsap';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSwiper } from 'swiper/react';
 

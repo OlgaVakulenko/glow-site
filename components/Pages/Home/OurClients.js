@@ -219,12 +219,7 @@ export default function OurClients() {
                 </svg>
               )}
 
-              <Image
-                keepOriginalExtension={true}
-                className="absolute inset-0"
-                src={Noise}
-                alt=""
-              />
+              <Image className="absolute inset-0" src={Noise} alt="" />
             </div>
           </div>
           <div className="md:flex md:justify-center ">

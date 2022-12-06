@@ -2,7 +2,7 @@ import { Transition } from '@headlessui/react';
 import cx from 'clsx';
 import { atom, useAtom } from 'jotai';
 import Link from 'next/link';
-import React, { useEffect, useId } from 'react';
+import React, { useEffect, useId, useMemo, useRef } from 'react';
 import { mediaAtom } from '../lib/agent';
 import { useBodyLock } from '../lib/utils';
 import Animated from './Animated';
@@ -12,10 +12,13 @@ import Logo from './Logo';
 import RollingText from './RollingText';
 // import { scrollAtom } from '../atoms/scroll';
 // import debounce from 'lodash.debounce';
-import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+// import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import { ScrollTrigger } from '../dist/gsap';
 import { useSetAtom } from 'jotai';
+import { useRouter } from 'next/router';
+import gsap from '../dist/gsap';
 
-function BurgerIcon({ isOpen = false, theme }) {
+export function BurgerIcon({ isOpen = false, theme, size = 40 }) {
   let stroke = '#19191B';
 
   if (theme === 'dark') {
@@ -28,8 +31,8 @@ function BurgerIcon({ isOpen = false, theme }) {
         style={{
           color: '#19191B',
         }}
-        width="40"
-        height="40"
+        width={size}
+        height={size}
         viewBox="0 0 40 40"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -154,7 +157,7 @@ const BurgerMenu = ({
               </div>
               <div className="hidden md:block">
                 <Link
-                  href="/"
+                  href="#"
                   className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
                 >
                   Let&apos;s get in touch
@@ -194,7 +197,9 @@ const BurgerMenu = ({
               </ul>
             </nav>
             <Animation index={links.length}>
-              <BigButton className="mb-[60px]">let’s get in touch</BigButton>
+              <Link href="#">
+                <BigButton className="mb-[60px]">let’s get in touch</BigButton>
+              </Link>
             </Animation>
           </div>
         </Layout>
@@ -203,25 +208,37 @@ const BurgerMenu = ({
   );
 };
 
-export const headerTheme = atom(['brand']);
+const defaultTheme = 'brand';
+export const headerTheme = atom([defaultTheme]);
+export const logoColor = atom(null);
 
-export const useHeaderTheme = (ref, themeInView = '') => {
+//theme: 'white' | 'dark'
+export const useHeaderTheme = ({ ref, theme = '' }) => {
+  const router = useRouter();
   const setHeaderTheme = useSetAtom(headerTheme);
 
   useEffect(() => {
+    // return;
     const onEnter = () => {
-      setHeaderTheme((c) => [...c, themeInView]);
+      setHeaderTheme((c) => [...c, theme]);
     };
 
     const onLeave = () => {
-      setHeaderTheme((c) => c.filter((v) => v !== themeInView));
+      setHeaderTheme((c) => c.filter((v) => v !== theme));
     };
+
+    if (!ref) {
+      console.log('ref negative call');
+      onEnter();
+
+      return onLeave;
+    }
 
     const s = ScrollTrigger.create({
       trigger: ref.current,
       start: 'top top+=69',
       end: 'bottom top',
-      refreshPriority: -1,
+      refreshPriority: -10,
       onEnter,
       onLeave,
       onEnterBack: onEnter,
@@ -229,16 +246,87 @@ export const useHeaderTheme = (ref, themeInView = '') => {
     });
 
     return () => {
+      onLeave();
       s.kill();
     };
-  }, [ref, setHeaderTheme, themeInView]);
+  }, [ref, setHeaderTheme, theme, router.pathname]);
+
+  const initRef = useRef(false);
+  const onUnmount = useRef([]);
+
+  useEffect(() => {
+    return () => {
+      initRef.current = false;
+      onUnmount.current.forEach((cb) => {
+        try {
+          cb();
+        } catch (e) {
+          console.error(e);
+        }
+      });
+    };
+  }, []);
 
   return;
+
+  return (
+    <div
+      className="absolute top-0 z-[999] w-full"
+      ref={(node) => {
+        if (!node) return;
+        console.log('ref init', node);
+        if (!initRef.current) {
+          console.log('ref init inside');
+          const offsetTop = (node) => {
+            const rect = node.getBoundingClientRect();
+            const distance = rect.top + window.pageYOffset;
+            return distance;
+          };
+          let h;
+
+          const onScroll = () => {
+            console.log('scroll');
+            if (!h) {
+              h = document.querySelector('.first-header');
+            }
+            if (!h) return;
+
+            const h1 = offsetTop(h);
+            const h2 = offsetTop(ref.current);
+            // console.log(h1, h2);
+            const distance = h1 - h2;
+            // console.log('distance', distance);
+            // console.log(node);
+            gsap.to(node, {
+              duration: 0,
+              y: distance,
+              force3D: true,
+            });
+          };
+
+          window.addEventListener('scroll', onScroll);
+
+          onUnmount.current.push(() => {
+            window.removeEventListener('scroll', onScroll);
+          });
+        }
+
+        initRef.current = true;
+      }}
+    >
+      <Header isFixed={false} overrideTheme={theme} />
+    </div>
+  );
 };
 
-export default function Header() {
+export default function Header({
+  isFixed = true,
+  headerRightSlot = null,
+  overrideTheme = '',
+}) {
   const [theme] = useAtom(headerTheme);
-  const t = theme[theme.length - 1];
+  const [color, setColor] = useAtom(logoColor);
+  const t = overrideTheme || theme[theme.length - 1];
   const [isOpen, setIsOpen] = useAtom(openAtom);
   const links = ['Work', 'Team', 'Services'];
   const menuId = useId();
@@ -256,23 +344,38 @@ export default function Header() {
     setIsOpen((v) => !v);
   };
 
+  useEffect(() => {
+    setColor(null);
+  }, [t]);
+
   return (
     <>
-      <header className={'fixed z-10 w-full'}>
+      <header
+        className={cx('z-10 w-full', {
+          ['first-header fixed']: isFixed,
+          ['absolute']: !isFixed,
+        })}
+      >
         <div className="relative">
           <div
             className={cx(
-              'backdrop pointer-events-none absolute top-0 left-0 h-[155px] w-full -translate-y-full transition-transform duration-700',
+              'backdrop pointer-events-none absolute top-0 left-0 h-[155px] w-full -translate-y-full opacity-0 transition-all duration-700',
               {
                 '!translate-y-0': t !== 'brand' && t !== 'dark',
+                '!opacity-100': t !== 'brand' && t !== 'dark',
               }
             )}
           ></div>
           <Layout>
-            <div className="flex items-center justify-between pt-[28px]  font-medium uppercase text-black md:pt-[44px]">
+            <div className="flex items-center justify-between pt-[28px]  font-medium uppercase  md:pt-[44px]">
               <Animated delay={50}>
                 <Link href="/" className="flex items-center justify-center">
-                  <Logo className={t} />
+                  <Logo
+                    className={t}
+                    style={{
+                      color,
+                    }}
+                  />
                 </Link>
               </Animated>
               <div
@@ -295,30 +398,33 @@ export default function Header() {
                   </Animated>
                 ))}
               </div>
-              <div
-                className={cx(
-                  'hidden transition-opacity duration-500 md:block'
-                )}
-              >
-                <Animated delay={(links.length + 1) * 100}>
-                  <Link
-                    href="/"
-                    className={cx(
-                      'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-all duration-500 hover:bg-black',
-                      'hover:text-brand',
-                      t === 'white' &&
-                        'glow-border-b-b hover:!bg-brand hover:!text-black',
-                      t === 'dark' &&
-                        'glow-border-white text-white hover:text-white'
-                    )}
-                  >
-                    <RollingText
-                      height={20}
-                      text={`Let's get in touch`}
-                    ></RollingText>
-                  </Link>
-                </Animated>
-              </div>
+              {headerRightSlot || (
+                <div
+                  className={cx(
+                    'hidden transition-opacity duration-500 md:block'
+                  )}
+                >
+                  <Animated delay={(links.length + 1) * 100}>
+                    <Link
+                      href="#"
+                      className={cx(
+                        'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-all duration-500 hover:bg-black',
+                        'hover:text-brand',
+                        t === 'white' &&
+                          'glow-border-b-b hover:!bg-brand hover:!text-black',
+                        t === 'dark' &&
+                          'glow-border-white text-white hover:text-white'
+                      )}
+                    >
+                      <RollingText
+                        height={20}
+                        text={`Let's get in touch`}
+                      ></RollingText>
+                    </Link>
+                  </Animated>
+                </div>
+              )}
+
               <Animated className="md:hidden" delay={150}>
                 <BurgerButton
                   theme={t}

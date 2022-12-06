@@ -1,12 +1,13 @@
 import { useCallback, useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import ScrollSmoother from '../../dist/ScrollSmoother';
+import gsap, { ScrollSmoother } from '../../dist/gsap';
+// import gsap from 'gsap';
+// import ScrollSmoother from '../../dist/ScrollSmoother';
 import throttle from 'lodash.throttle';
 import { useSetAtom } from 'jotai';
 import { smoothScrollAtom } from '../../atoms/scroll';
 import { atom } from 'jotai';
 
-gsap.registerPlugin(ScrollSmoother);
+// gsap.registerPlugin(ScrollSmoother);
 
 export const ScrollSmootherMounted = atom(false);
 

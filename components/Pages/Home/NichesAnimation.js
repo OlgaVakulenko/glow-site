@@ -1,4 +1,5 @@
-import gsap from 'gsap';
+import gsap from '../../../dist/gsap';
+// import gsap from 'gsap';
 import { useAtom } from 'jotai';
 import { useEffect, useRef, useState } from 'react';
 import { mediaAtom } from '../../../lib/agent';
@@ -208,13 +209,11 @@ export default function NichesAnimation() {
           <Shape />
           <Image
             src={Noise}
-            keepOriginalExtension={true}
             alt=""
             className="__noise absolute top-[6.9%] left-[24.1%] h-[440px] w-[440px]"
           />
           <Image
             src={Noise}
-            keepOriginalExtension={true}
             alt=""
             className="__noise2 absolute top-[6.9%] left-[24.1%] h-[440px] w-[440px] rotate-45 opacity-0"
           />

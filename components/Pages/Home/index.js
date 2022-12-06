@@ -1,18 +1,24 @@
 import Layout from '../../Layout';
 import cx from 'clsx';
-import gsap from 'gsap';
+// import gsap from 'gsap';
+import gsap, { ScrollTrigger } from '../../../dist/gsap';
 import { useAtom } from 'jotai';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { mediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
-import { useHeaderTheme } from '../../Header';
+import { headerTheme, logoColor, useHeaderTheme } from '../../Header';
 import CasesSlider, { CasesSlider2 } from './CasesSlider';
 import Niches from './Niches';
 import OurClients from './OurClients';
 import OutProjectsLink from './OurProjectsLink';
-import Reviews from './Reviews';
+// import Reviews from './Reviews';
 import Showreel from './Showreel';
 import Workflow from './Workflow';
+import dynamic from 'next/dynamic';
+import { useSetAtom } from 'jotai';
+import Star from '../../Star';
+
+const Reviews = dynamic(() => import('./Reviews'));
 
 function RollingWords({ words, interval = 16500 }) {
   const [media] = useAtom(mediaAtom);
@@ -145,12 +151,44 @@ function RollingWords({ words, interval = 16500 }) {
 }
 
 export default function Home() {
+  const setHeaderTheme = useSetAtom(headerTheme);
+  const setLogoColor = useSetAtom(logoColor);
   const firstSectionRef = useRef(null);
   const changeBgRef = useRef(null);
   const trigger = useRef(null);
   const refScrollContainer = useRef(null);
 
-  useHeaderTheme(changeBgRef, 'white');
+  // useHeaderTheme({ ref: changeBgRef, theme: 'white' });
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const obj = {
+        color: '#19191B',
+      };
+      gsap.to(obj, {
+        scrollTrigger: {
+          trigger: firstSectionRef.current,
+          start: '100% center',
+          end: '130% center',
+          scrub: true,
+          onUpdate: () => {
+            setLogoColor(obj.color);
+          },
+          onEnterBack: () => {
+            setHeaderTheme((c) => c.filter((v) => v !== 'white'));
+          },
+          onLeave: () => {
+            setHeaderTheme((c) => [...c, 'white']);
+          },
+        },
+        color: '#E33230',
+      });
+    });
+
+    return () => {
+      ctx.revert();
+    };
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -172,18 +210,24 @@ export default function Home() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.to(trigger.current, {
-        scrollTrigger: {
-          trigger: trigger.current,
-          start: 'top 90%',
-          end: '+=300',
-          scrub: true,
-          // markers: true,
+      gsap.fromTo(
+        trigger.current,
+        {
+          opacity: 0,
         },
-        // backgroundColor: '#F3F2F4',
-        opacity: 1,
-        ease: 'none',
-      });
+        {
+          scrollTrigger: {
+            trigger: trigger.current,
+            start: 'top 90%',
+            end: '+=300',
+            scrub: true,
+            // markers: true,
+          },
+          // backgroundColor: '#F3F2F4',
+          opacity: 1,
+          ease: 'none',
+        }
+      );
     });
 
     return () => {
@@ -201,18 +245,7 @@ export default function Home() {
               delay={200}
             >
               <div className="absolute left-0 top-[-32px]">
-                <svg
-                  width="16"
-                  height="18"
-                  viewBox="0 0 16 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M8.66499 17.0667L6.89169 11.0769L1.93451 14.8513L-2.15194e-07 12.1436L4.99748 8.53332L-5.30813e-07 4.92306L1.93451 2.17434L6.89169 5.9487L8.66499 -1.30005e-05L11.8086 1.02563L9.83375 6.93332L16 6.85127L16 10.2154L9.87406 10.1333L11.8086 16.041L8.66499 17.0667Z"
-                    fill="#19191B"
-                  />
-                </svg>
+                <Star />
               </div>
               Your trusted design team <br />
               for&nbsp;
@@ -272,7 +305,7 @@ export default function Home() {
               // transition: 'background-color .5s',
             }
           }
-          className="bg-dim pb-14 opacity-0"
+          className="bg-dim pb-14"
         >
           <Workflow />
           <OurClients />

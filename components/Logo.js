@@ -1,6 +1,6 @@
 import cx from 'clsx';
 
-export default function Logo({ className = '' }) {
+export default function Logo({ className = '', style = {} }) {
   return (
     <svg
       width="78"
@@ -8,7 +8,8 @@ export default function Logo({ className = '' }) {
       viewBox="0 0 78 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cx('header-logo', className)}
+      className={cx(className, !style.color && 'header-logo')}
+      style={style}
     >
       <path
         fillRule="evenodd"

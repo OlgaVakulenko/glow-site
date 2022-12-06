@@ -1,17 +1,36 @@
 import { useSetAtom } from 'jotai';
 import Head from 'next/head';
 import Script from 'next/script';
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { nativeScrollAtom } from '../atoms/scroll';
 import Footer, { ParallaxFooter } from '../components/Footer';
 import Header from '../components/Header';
 import LoadingProgress from '../components/LoadingProgress';
+import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 import ScrollContainer from '../components/SmoothScroll/ScrollContainer';
 import { useKonamiCode, useMedia } from '../lib/agent';
+import { useAtomsDebugValue } from 'jotai/devtools';
 import '../styles/globals.css';
+import { useRouter } from 'next/router';
+import { atom } from 'jotai';
+
+const DebugAtoms = () => {
+  useAtomsDebugValue();
+  return null;
+};
+
+export const routerHistory = atom([]);
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  const setRouterHistory = useSetAtom(routerHistory);
   const updateValue = useSetAtom(nativeScrollAtom);
+
+  const getLayout = useMemo(() => {
+    return (
+      Component.getLayout || ((page) => <DefaultLayout>{page}</DefaultLayout>)
+    );
+  }, [Component]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -25,6 +44,18 @@ function MyApp({ Component, pageProps }) {
   }, [updateValue]);
 
   useMedia();
+
+  useEffect(() => {
+    const onRouteChange = (url) => {
+      setRouterHistory((h) => [...h, url]);
+    };
+
+    router.events.on('routeChangeComplete', onRouteChange);
+
+    return () => {
+      router.events.off('routeChangeComplete', onRouteChange);
+    };
+  }, [router.events, setRouterHistory]);
 
   return (
     <div>
@@ -135,12 +166,12 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <LoadingProgress />
-      <Header />
+      <DebugAtoms />
+      {getLayout(<Component {...pageProps} />)}
+      {/* <Header />
       <ScrollContainer>
-        <Component {...pageProps} />
-        {/* <Footer /> */}
         <ParallaxFooter />
-      </ScrollContainer>
+      </ScrollContainer> */}
       {/* <Script
         id="help-ukraine-win"
         data-type="one"
@@ -152,15 +183,5 @@ function MyApp({ Component, pageProps }) {
   );
   return;
 }
-
-class ErrorBoundary extends React.Component {
-  state = { hasError: '' };
-  render() {
-    return this.props.children;
-  }
-}
-ErrorBoundary.getDerivedStateFromError = (error) => ({
-  hasError: error.toString(),
-});
 
 export default MyApp;

@@ -6,7 +6,8 @@ import BigButton from '../../BigButton';
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import cx from 'clsx';
 import { atom } from 'jotai';
-import gsap from 'gsap';
+import gsap from '../../../dist/gsap';
+// import gsap from 'gsap';
 
 const HoverCursor = forwardRef(function HoverCursor(props, ref) {
   const [appear, setAppear] = useState(false);

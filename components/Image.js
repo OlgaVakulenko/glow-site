@@ -49,7 +49,7 @@ export default function Image(props) {
     return [props.src.width * ratio, props.src.height * ratio];
   }, [props.src.width, props.src.height]);
 
-  const ext = props.keepOriginalExtension ? null : 'jpg';
+  const ext = props.ext || null;
 
   return (
     <picture>

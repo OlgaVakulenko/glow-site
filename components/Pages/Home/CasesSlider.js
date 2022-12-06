@@ -1,11 +1,12 @@
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+// import gsap from 'gsap';
+// import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import gsap, { ScrollTrigger } from '../../../dist/gsap';
 import { useAtom } from 'jotai';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { EffectCreative } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
-import { Swiper, SwiperSlide } from 'swiper/react';
+// import { Swiper, SwiperSlide } from 'swiper/react';
 import { mediaAtom, useMedia } from '../../../lib/agent';
 import { addLeadingZero } from '../../../lib/utils';
 import Image from '../../Image';
@@ -18,7 +19,7 @@ import cx from 'clsx';
 import Link from 'next/link';
 import throttle from 'lodash.throttle';
 
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 
 const cases = [
   {
@@ -325,286 +326,286 @@ export function CasesSlider2() {
   );
 }
 
-export default function CasesSlider() {
-  const ref = useRef();
-  const sliderRef = useRef(null);
-  const [media] = useAtom(mediaAtom);
-  const [init, setInit] = useState(false);
-  const swiperRef = useRef(null);
+// export default function CasesSlider() {
+//   const ref = useRef();
+//   const sliderRef = useRef(null);
+//   const [media] = useAtom(mediaAtom);
+//   const [init, setInit] = useState(false);
+//   const swiperRef = useRef(null);
 
-  const onUpdate = useCallback(
-    throttle((e) => {
-      if (media !== 'desktop') return;
-      const v = gsap.utils.interpolate(1, 1.1, e.progress);
-      swiperRef.current.params.slidesPerView = v;
-      swiperRef.current.update();
-      // console.log(swiperRef.current);
-    }, 10),
-    [media]
-  );
+//   const onUpdate = useCallback(
+//     throttle((e) => {
+//       if (media !== 'desktop') return;
+//       const v = gsap.utils.interpolate(1, 1.1, e.progress);
+//       swiperRef.current.params.slidesPerView = v;
+//       swiperRef.current.update();
+//       // console.log(swiperRef.current);
+//     }, 10),
+//     [media]
+//   );
 
-  const toggleTouchMove = useCallback((bool) => {
-    if (bool) {
-      swiperRef.current.enable();
-    } else {
-      swiperRef.current.disable();
-    }
-    // swiperRef.current.params.allowTouchMove = bool;
-    // swiperRef.current.update();
-  }, []);
+//   const toggleTouchMove = useCallback((bool) => {
+//     if (bool) {
+//       swiperRef.current.enable();
+//     } else {
+//       swiperRef.current.disable();
+//     }
+//     // swiperRef.current.params.allowTouchMove = bool;
+//     // swiperRef.current.update();
+//   }, []);
 
-  useEffect(() => {
-    if (!init) return;
+//   useEffect(() => {
+//     if (!init) return;
 
-    const ctx = gsap.context(() => {
-      const pinScroller = {
-        trigger: '.__pin-trigger',
-        start: 'top 150px',
-        end: '+=1500',
-        scrub: true,
-        pin: '.__pin',
-        // markers: true,
-      };
+//     const ctx = gsap.context(() => {
+//       const pinScroller = {
+//         trigger: '.__pin-trigger',
+//         start: 'top 150px',
+//         end: '+=1500',
+//         scrub: true,
+//         pin: '.__pin',
+//         // markers: true,
+//       };
 
-      // gsap.to('.__slide', {
-      //   scrollTrigger: pinScroller,
-      // });
+//       // gsap.to('.__slide', {
+//       //   scrollTrigger: pinScroller,
+//       // });
 
-      const scroller = {
-        trigger: '.__slide',
-        start: 'top 90%',
-        end: '+=400',
-        scrub: true,
-        // pin: true,
-        // markers: true,
-      };
+//       const scroller = {
+//         trigger: '.__slide',
+//         start: 'top 90%',
+//         end: '+=400',
+//         scrub: true,
+//         // pin: true,
+//         // markers: true,
+//       };
 
-      // const scroller2 = {
-      //   trigger: '.__slide',
-      //   start: 'top 40%',
-      //   end: '+=400',
-      //   scrub: true,
-      //   markers: true,
-      // };
+//       // const scroller2 = {
+//       //   trigger: '.__slide',
+//       //   start: 'top 40%',
+//       //   end: '+=400',
+//       //   scrub: true,
+//       //   markers: true,
+//       // };
 
-      // gsap.to('.__slide', {
-      //   scrollTrigger: scroller2,
-      //   height: '100vh',
-      // });
-      const clipPathSize =
-        {
-          mobile: 16,
-          tablet: 48,
-        }[media] || 56;
+//       // gsap.to('.__slide', {
+//       //   scrollTrigger: scroller2,
+//       //   height: '100vh',
+//       // });
+//       const clipPathSize =
+//         {
+//           mobile: 16,
+//           tablet: 48,
+//         }[media] || 56;
 
-      const gapSize =
-        {
-          mobile: 16,
-          table: 48,
-        }[media] || 32 / 2;
+//       const gapSize =
+//         {
+//           mobile: 16,
+//           table: 48,
+//         }[media] || 32 / 2;
 
-      const borderRadiusSize =
-        {
-          mobile: '16px',
-        }[media] || '32px';
+//       const borderRadiusSize =
+//         {
+//           mobile: '16px',
+//         }[media] || '32px';
 
-      gsap.fromTo(
-        '.__slider-progress',
-        {
-          opacity: 0,
-        },
-        {
-          scrollTrigger: {
-            trigger: '.__trigger',
-            start: '50% 50%',
-            end: 'bottom 70%',
-            scrub: true,
-            // markers: true,
-          },
-          ease: 'power2.in',
-          opacity: 1,
-        }
-      );
+//       gsap.fromTo(
+//         '.__slider-progress',
+//         {
+//           opacity: 0,
+//         },
+//         {
+//           scrollTrigger: {
+//             trigger: '.__trigger',
+//             start: '50% 50%',
+//             end: 'bottom 70%',
+//             scrub: true,
+//             // markers: true,
+//           },
+//           ease: 'power2.in',
+//           opacity: 1,
+//         }
+//       );
 
-      gsap.to('.__slide', {
-        scrollTrigger: {
-          trigger: '.__trigger',
-          start: '50% 50%',
-          end: 'bottom 70%',
-          scrub: true,
-          pin: true,
-          onUpdate: onUpdate,
-          onLeave: (inst) => {
-            // setAllowTouchMove(true);
-            // console.log(
-            //   'inst.params.allowTouchMove',
-            //   swiperRef.current.params.allowTouchMove
-            // );
-            toggleTouchMove(true);
-            // console.log(
-            //   'inst.params.allowTouchMove',
-            //   swiperRef.current.params.allowTouchMove
-            // );
-          },
-          onEnterBack: () => {
-            // setAllowTouchMove(false);
-            toggleTouchMove(false);
-          },
-        },
-        // 'clip-path': ,
-        clipPath: (index, s, nodes) => {
-          if (media !== 'desktop') {
-            return `
-            inset(${clipPathSize}px
-              ${clipPathSize}px
-              ${clipPathSize}px
-              ${clipPathSize}px
-              round
-              ${borderRadiusSize}
-              ${borderRadiusSize}
-              ${borderRadiusSize}
-              ${borderRadiusSize})
-              `;
-          }
+//       gsap.to('.__slide', {
+//         scrollTrigger: {
+//           trigger: '.__trigger',
+//           start: '50% 50%',
+//           end: 'bottom 70%',
+//           scrub: true,
+//           pin: true,
+//           onUpdate: onUpdate,
+//           onLeave: (inst) => {
+//             // setAllowTouchMove(true);
+//             // console.log(
+//             //   'inst.params.allowTouchMove',
+//             //   swiperRef.current.params.allowTouchMove
+//             // );
+//             toggleTouchMove(true);
+//             // console.log(
+//             //   'inst.params.allowTouchMove',
+//             //   swiperRef.current.params.allowTouchMove
+//             // );
+//           },
+//           onEnterBack: () => {
+//             // setAllowTouchMove(false);
+//             toggleTouchMove(false);
+//           },
+//         },
+//         // 'clip-path': ,
+//         clipPath: (index, s, nodes) => {
+//           if (media !== 'desktop') {
+//             return `
+//             inset(${clipPathSize}px
+//               ${clipPathSize}px
+//               ${clipPathSize}px
+//               ${clipPathSize}px
+//               round
+//               ${borderRadiusSize}
+//               ${borderRadiusSize}
+//               ${borderRadiusSize}
+//               ${borderRadiusSize})
+//               `;
+//           }
 
-          if (index === 0) {
-            return `
-            inset(${clipPathSize}px
-              ${gapSize}px
-              ${clipPathSize}px
-              ${clipPathSize}px
-              round
-              ${borderRadiusSize}
-              ${borderRadiusSize}
-              ${borderRadiusSize}
-              ${borderRadiusSize})
-              `;
-          }
+//           if (index === 0) {
+//             return `
+//             inset(${clipPathSize}px
+//               ${gapSize}px
+//               ${clipPathSize}px
+//               ${clipPathSize}px
+//               round
+//               ${borderRadiusSize}
+//               ${borderRadiusSize}
+//               ${borderRadiusSize}
+//               ${borderRadiusSize})
+//               `;
+//           }
 
-          if (index === nodes.length - 1) {
-            return `
-            inset(${clipPathSize}px
-              ${clipPathSize}px
-              ${clipPathSize}px
-              ${gapSize}px
-              round
-              ${borderRadiusSize}
-              ${borderRadiusSize}
-              ${borderRadiusSize}
-              ${borderRadiusSize})
-              `;
-          }
+//           if (index === nodes.length - 1) {
+//             return `
+//             inset(${clipPathSize}px
+//               ${clipPathSize}px
+//               ${clipPathSize}px
+//               ${gapSize}px
+//               round
+//               ${borderRadiusSize}
+//               ${borderRadiusSize}
+//               ${borderRadiusSize}
+//               ${borderRadiusSize})
+//               `;
+//           }
 
-          return `
-            inset(${clipPathSize}px
-              ${gapSize}px
-              ${clipPathSize}px
-              ${gapSize}px
-              round
-              ${borderRadiusSize}
-              ${borderRadiusSize}
-              ${borderRadiusSize}
-              ${borderRadiusSize})
-            `;
+//           return `
+//             inset(${clipPathSize}px
+//               ${gapSize}px
+//               ${clipPathSize}px
+//               ${gapSize}px
+//               round
+//               ${borderRadiusSize}
+//               ${borderRadiusSize}
+//               ${borderRadiusSize}
+//               ${borderRadiusSize})
+//             `;
 
-          return `
-          inset(${clipPathSize}
-            0
-            ${clipPathSize}
-            ${clipPathSize}
-            round
-            ${borderRadiusSize}
-            ${borderRadiusSize}
-            ${borderRadiusSize}
-            ${borderRadiusSize})
-            `;
-        },
-      });
+//           return `
+//           inset(${clipPathSize}
+//             0
+//             ${clipPathSize}
+//             ${clipPathSize}
+//             round
+//             ${borderRadiusSize}
+//             ${borderRadiusSize}
+//             ${borderRadiusSize}
+//             ${borderRadiusSize})
+//             `;
+//         },
+//       });
 
-      // gsap.to('.__slide', {
-      //   scrollTrigger: scroller,
-      //   borderRadius: 32, //16 - md:32
-      // });
+//       // gsap.to('.__slide', {
+//       //   scrollTrigger: scroller,
+//       //   borderRadius: 32, //16 - md:32
+//       // });
 
-      // gsap.from('.__slide-wrapper', {
-      //   // scale: 1.1,
-      //   // paddingLeft: 0,
-      //   // paddingRight: 0,
-      //   scrollTrigger: scroller,
-      // });
-    }, ref);
+//       // gsap.from('.__slide-wrapper', {
+//       //   // scale: 1.1,
+//       //   // paddingLeft: 0,
+//       //   // paddingRight: 0,
+//       //   scrollTrigger: scroller,
+//       // });
+//     }, ref);
 
-    return () => {
-      ctx.revert();
-      // console.log('reverting');
-    };
-  }, [media, init, onUpdate, toggleTouchMove]);
+//     return () => {
+//       ctx.revert();
+//       // console.log('reverting');
+//     };
+//   }, [media, init, onUpdate, toggleTouchMove]);
 
-  return (
-    <div ref={ref}>
-      <Section
-        withLayout={false}
-        className="__pin-trigger relative pb-[80px] md:pb-[72px] xl:pb-[80px]"
-      >
-        <div className="__trigger">
-          <Swiper
-            onInit={(e) => {
-              setInit(true);
-              swiperRef.current = e;
-              swiperRef.current.disable();
-            }}
-            slidesPerView={1}
-            speed={500}
-            // breakpoints={{
-            //   1280: {
-            //     slidesPerView: 1.2,
-            //   },
-            // }}
-            grabCursor={true}
-            effect={'creative'}
-            creativeEffect={{
-              prev: {
-                // shadow: true,
-                translate: ['-20%', 0, -150],
-                opacity: 0,
-                // scale: 0.95,
-              },
-              next: {
-                opacity: 1,
-                translate: ['100%', 0, 0],
-              },
-              // prev: {
-              //   shadow: true,
-              //   translate: [0, 0, -400],
-              // },
-              // next: {
-              //   translate: ['100%', 0, 0],
-              // },
-            }}
-            modules={[EffectCreative]}
-          >
-            {cases.map((item, i) => (
-              <SwiperSlide
-                key={i}
-                // className="__slide-wrapper lsat:pr-[16px] pr-[16px] pl-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px]
-                // className="__slide-wrapper pr-[16px] pl-[16px] last:pr-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px]"
-                className="__slide-wrapper "
-                // first:xl:pl-[56px] last:xl:pr-[32px]
-                // "
-              >
-                {/* <Link href="#"> */}
-                <CaseSlide item={item} index={i} />
-                {/* </Link> */}
-              </SwiperSlide>
-            ))}
-            {media !== 'desktop' && (
-              <Layout className="__slider-progress">
-                <SliderProgress className="mt-6" />
-              </Layout>
-            )}
-          </Swiper>
-        </div>
-      </Section>
-    </div>
-  );
-}
+//   return (
+//     <div ref={ref}>
+//       <Section
+//         withLayout={false}
+//         className="__pin-trigger relative pb-[80px] md:pb-[72px] xl:pb-[80px]"
+//       >
+//         <div className="__trigger">
+//           <Swiper
+//             onInit={(e) => {
+//               setInit(true);
+//               swiperRef.current = e;
+//               swiperRef.current.disable();
+//             }}
+//             slidesPerView={1}
+//             speed={500}
+//             // breakpoints={{
+//             //   1280: {
+//             //     slidesPerView: 1.2,
+//             //   },
+//             // }}
+//             grabCursor={true}
+//             effect={'creative'}
+//             creativeEffect={{
+//               prev: {
+//                 // shadow: true,
+//                 translate: ['-20%', 0, -150],
+//                 opacity: 0,
+//                 // scale: 0.95,
+//               },
+//               next: {
+//                 opacity: 1,
+//                 translate: ['100%', 0, 0],
+//               },
+//               // prev: {
+//               //   shadow: true,
+//               //   translate: [0, 0, -400],
+//               // },
+//               // next: {
+//               //   translate: ['100%', 0, 0],
+//               // },
+//             }}
+//             modules={[EffectCreative]}
+//           >
+//             {cases.map((item, i) => (
+//               <SwiperSlide
+//                 key={i}
+//                 // className="__slide-wrapper lsat:pr-[16px] pr-[16px] pl-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px]
+//                 // className="__slide-wrapper pr-[16px] pl-[16px] last:pr-[16px] md:px-[48px] xl:pr-0 xl:pl-[32px]"
+//                 className="__slide-wrapper "
+//                 // first:xl:pl-[56px] last:xl:pr-[32px]
+//                 // "
+//               >
+//                 {/* <Link href="#"> */}
+//                 <CaseSlide item={item} index={i} />
+//                 {/* </Link> */}
+//               </SwiperSlide>
+//             ))}
+//             {media !== 'desktop' && (
+//               <Layout className="__slider-progress">
+//                 <SliderProgress className="mt-6" />
+//               </Layout>
+//             )}
+//           </Swiper>
+//         </div>
+//       </Section>
+//     </div>
+//   );
+// }
