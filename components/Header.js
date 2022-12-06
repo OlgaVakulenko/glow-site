@@ -332,7 +332,7 @@ export default function Header({
   const menuId = useId();
   const { lock, release } = useBodyLock();
 
-  console.log('theme', t);
+  console.log('theme', t, theme, overrideTheme);
 
   useEffect(() => {
     if (isOpen) {

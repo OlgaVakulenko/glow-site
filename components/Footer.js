@@ -79,7 +79,7 @@ export function ParallaxFooter(props) {
   const [scrollMounted] = useAtom(ScrollSmootherMounted);
   const wrapperRef = useRef(null);
 
-  useHeaderTheme(wrapperRef, 'dark');
+  useHeaderTheme({ ref: wrapperRef, theme: 'dark' });
 
   useEffect(() => {
     // return;
