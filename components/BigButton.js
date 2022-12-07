@@ -3,6 +3,7 @@ import LinkArrow from './LinkArrow';
 
 const activeHeader = 'hover:bg-brand hover:text-black';
 const activeFooter = 'hover:bg-lblue hover:text-black';
+const activeContacts = 'hover:bg-black hover:text-white';
 
 export default function BigButton({
   variant = 'header',
@@ -21,6 +22,8 @@ export default function BigButton({
           ['glow-border']: border,
           [activeHeader]: variant === 'header',
           [activeFooter]: variant === 'footer',
+          [activeContacts]: variant === 'contacts',
+          ['glow-border-black']: variant === 'contacts',
           ['glow-border-light']: variant === 'footer',
         },
         className

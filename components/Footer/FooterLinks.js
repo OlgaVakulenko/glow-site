@@ -1,6 +1,7 @@
 import LocalTime from '../LocalTime';
 import RollingText from '../RollingText';
 import Weather from '../Weather';
+import cx from 'clsx';
 
 const links = [
   { href: 'https://www.facebook.com/glow.design.agency', label: 'Facebook' },
@@ -10,9 +11,14 @@ const links = [
   { href: 'https://dribbble.com/glow-team', label: 'Dribbble' },
 ];
 
-export default function FooterLinks() {
+export default function FooterLinks({ className = '' }) {
   return (
-    <div className="flex items-center justify-between text-sm text-white md:text-base">
+    <div
+      className={cx(
+        'flex items-center justify-between text-sm text-white md:text-base',
+        className
+      )}
+    >
       <div className="flex w-full items-center justify-between md:justify-start">
         <div className="flex items-center">
           <div className="styag mr-4 w-[24px] overflow-hidden rounded md:mr-6">

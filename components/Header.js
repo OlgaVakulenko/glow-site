@@ -157,7 +157,7 @@ const BurgerMenu = ({
               </div>
               <div className="hidden md:block">
                 <Link
-                  href="#"
+                  href="/contacts"
                   className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
                 >
                   Let&apos;s get in touch
@@ -197,7 +197,7 @@ const BurgerMenu = ({
               </ul>
             </nav>
             <Animation index={links.length}>
-              <Link href="#">
+              <Link href="/contacts">
                 <BigButton className="mb-[60px]">let’s get in touch</BigButton>
               </Link>
             </Animation>
@@ -224,7 +224,13 @@ export const useHeaderTheme = ({ ref, theme = '' }) => {
     };
 
     const onLeave = () => {
-      setHeaderTheme((c) => c.filter((v) => v !== theme));
+      setHeaderTheme((c) => {
+        const themes = c.filter((v) => v !== theme);
+        if (theme === 'brand') {
+          themes.push('brand');
+        }
+        return themes;
+      });
     };
 
     if (!ref) {
@@ -369,7 +375,7 @@ export default function Header({
             )}
           ></div>
           <Layout>
-            <div className="flex items-center justify-between pt-[28px]  font-medium uppercase  md:pt-[44px]">
+            <div className="flex items-center justify-between pt-[28px] font-medium  uppercase md:h-[96px]  md:pt-[44px]">
               <Animated delay={50}>
                 <Link href="/" className="flex items-center justify-center">
                   <Logo
@@ -408,7 +414,7 @@ export default function Header({
                 >
                   <Animated delay={(links.length + 1) * 100}>
                     <Link
-                      href="#"
+                      href="/contacts"
                       className={cx(
                         'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-all duration-500 hover:bg-black',
                         'hover:text-brand',

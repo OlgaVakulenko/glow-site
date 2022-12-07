@@ -2,7 +2,7 @@ import { useAtom } from 'jotai';
 import { mediaAtom } from '../lib/agent';
 
 export default function LinkArrow() {
-  const media = useAtom(mediaAtom);
+  const [media] = useAtom(mediaAtom);
 
   if (media !== 'mobile') {
     return (

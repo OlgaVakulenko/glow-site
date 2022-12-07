@@ -20,11 +20,12 @@ export default function DefaultLayout({ children, footer = true, page = '' }) {
               onClick={() => {
                 router.back();
               }}
+              className="flex w-[185px] justify-end"
             >
               <BurgerIcon isOpen={true} size={28} />
             </button>
           ) : (
-            <div></div>
+            <div className="w-[185px]"></div>
           ))
         }
       />
