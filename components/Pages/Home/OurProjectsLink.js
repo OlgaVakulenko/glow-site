@@ -12,6 +12,7 @@ export default function OutProjectsLink({ className }) {
         'Check out how we make ideas glow click-by-click.',
       ]}
       href="#"
+      buttonLabel="CASES"
     />
   );
 }

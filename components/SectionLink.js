@@ -5,8 +5,16 @@ import Go from './Go';
 import Layout from './Layout';
 import LinkArrow from './LinkArrow';
 import LinkArrowCircle from './LinkArrowCircle';
+import RollingText from './RollingText';
+import cx from 'clsx';
 
-export default function SectionLink({ className, title, description, href }) {
+export default function SectionLink({
+  className,
+  title,
+  description,
+  href,
+  buttonLabel,
+}) {
   const Wrapper = useMemo(() => {
     if (href) {
       return function Wrapper({ children, ...props }) {
@@ -25,7 +33,7 @@ export default function SectionLink({ className, title, description, href }) {
 
   return (
     <Layout className={className}>
-      <Wrapper className="group">
+      <Wrapper className="rolling-text-container group">
         <div className="flex flex-col items-center justify-between md:flex-row  md:items-start">
           <Animated className="mb-[15px] font-glow text-xl font-medium leading-[34px] tracking-[0.02em] md:mb-0 md:w-full md:max-w-[240px] md:text-[22px] xl:max-w-[320px] xl:text-2xl xl:leading-10">
             {title}
@@ -36,9 +44,26 @@ export default function SectionLink({ className, title, description, href }) {
           >
             <div className="md:max-w-[440px]">{description}</div>
           </Animated>
-          <Animated delay={300} className="hidden md:block">
-            <LinkArrowCircle />
-          </Animated>
+          {buttonLabel ? (
+            <Animated delay={300}>
+              <span
+                className={cx(
+                  'glow-border-black rolling-text-group flex min-w-[150px] whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-all duration-500 md:px-[48px] xl:px-[68px]',
+                  // 'hover:text-brand'
+                  // t === 'white' &&
+                  'glow-border-b-b group-hover:!bg-brand group-hover:!text-black'
+                  // t === 'dark' &&
+                  //   'glow-border-white text-white hover:text-white'
+                )}
+              >
+                <RollingText height={20} text={buttonLabel}></RollingText>
+              </span>
+            </Animated>
+          ) : (
+            <Animated delay={300} className="hidden md:block">
+              <LinkArrowCircle />
+            </Animated>
+          )}
         </div>
       </Wrapper>
     </Layout>
