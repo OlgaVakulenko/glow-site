@@ -7,7 +7,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { mediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
 import { headerTheme, logoColor, useHeaderTheme } from '../../Header';
-import CasesSlider, { CasesSlider2 } from './CasesSlider';
+import CasesSlider, { CasesSlider2, CasesSlider3 } from './CasesSlider';
 import Niches from './Niches';
 import OurClients from './OurClients';
 import OutProjectsLink from './OurProjectsLink';
@@ -294,7 +294,8 @@ export default function Home() {
           <Showreel />
         </div>
         <Niches />
-        <CasesSlider2 />
+        {/* <CasesSlider2 /> */}
+        <CasesSlider3 />
         <OutProjectsLink className="hidden md:block" />
 
         <div

@@ -18,6 +18,11 @@ import CaseDesktop from './assets/case-desktop-1.png';
 import cx from 'clsx';
 import Link from 'next/link';
 import throttle from 'lodash.throttle';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import Case1Image from '../Cases/assets/case_1.png';
+import Case2Image from '../Cases/assets/case_2.png';
+import Case3Image from '../Cases/assets/case_3.png';
+import Case4Image from '../Cases/assets/case_4.png';
 
 // gsap.registerPlugin(ScrollTrigger);
 
@@ -27,21 +32,28 @@ const cases = [
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
-    image: CaseDesktop,
+    image: Case1Image,
+  },
+  {
+    title: 'CryptoGenie is a tool for predicting the relevant trends',
+    industry: ['Car Rent'],
+    service: ['User Experience', 'User Interface', 'Branding'],
+    company: ['Funding 30M'],
+    image: Case2Image,
   },
   {
     title: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
-    image: CaseDesktop,
+    image: Case3Image,
   },
   {
-    title: 'Beast Tesla Rent',
+    title: 'CryptoGenie is a tool for predicting the relevant trends',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
-    image: CaseDesktop,
+    image: Case4Image,
   },
   // {
   //   title: 'Beast Tesla Rent',
@@ -58,6 +70,21 @@ const cases = [
   //   image: CaseDesktop,
   // },
 ];
+
+function Col2({ title, items, className = '' }) {
+  return (
+    <div className={cx(className)}>
+      <div className="mb-[21px] text-xs font-medium uppercase leading-[110%] opacity-50">
+        {title}
+      </div>
+      <div className="text-sm leading-[186%]">
+        {items.map((item, i) => (
+          <div key={i}>{item}</div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 function Col({ title, items, className = '' }) {
   return (
@@ -130,6 +157,118 @@ function CaseSlide({ item, index }) {
         </div>
       </div>
     </div>
+  );
+}
+
+function CaseItem({ image, title, columns = [], className = '' }) {
+  return (
+    <div className={cx('pb-10 xl:pb-[88px]', className)}>
+      <div className="mb-8 overflow-hidden rounded-3xl">
+        <Image
+          src={image}
+          alt=""
+          className="min-h-[304px] object-cover xl:min-h-[392px]"
+        />
+      </div>
+      <div className="mb-8 font-glow text-heading-h4 xl:text-heading-h3">
+        {title}
+      </div>
+      <div className="-mr-10 flex">
+        {columns.map((col, i) => (
+          <Col2 key={i} title={col.title} items={col.items} className="mr-10" />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function CasesRow({ cases, className = '' }) {
+  return (
+    <div className={className}>
+      {cases.map((caseItem, i) => (
+        <div key={i} className="mx-8 flex flex-col xl:mx-[56px]">
+          <CaseItem
+            image={caseItem.image}
+            title={caseItem.title}
+            columns={[
+              {
+                title: 'industry',
+                items: caseItem.industry,
+              },
+              {
+                title: 'service',
+                items: caseItem.service,
+              },
+              {
+                title: 'company',
+                items: caseItem.company,
+              },
+            ]}
+          />
+        </div>
+      ))}
+    </div>
+  );
+
+  return;
+  // ));
+}
+
+export function CasesSlider3() {
+  const [media] = useAtom(mediaAtom);
+
+  if (media === 'mobile') {
+    return (
+      <div className="pb-16">
+        <Swiper>
+          {cases.map((caseItem, i) => (
+            <SwiperSlide key={i}>
+              <Layout>
+                <CaseItem
+                  image={caseItem.image}
+                  title={caseItem.title}
+                  columns={[
+                    {
+                      title: 'industry',
+                      items: caseItem.industry,
+                    },
+                    {
+                      title: 'service',
+                      items: caseItem.service,
+                    },
+                    {
+                      title: 'company',
+                      items: caseItem.company,
+                    },
+                  ]}
+                />
+              </Layout>
+            </SwiperSlide>
+          ))}
+          <Layout>
+            <SliderProgress />
+          </Layout>
+        </Swiper>
+      </div>
+    );
+  }
+  const c1 = cases.filter((_, i) => i % 2 === 0);
+  const c2 = cases.filter((_, i) => i % 2 !== 0);
+
+  // console.log('c1', c1);
+  // console.log('c2', c2);
+
+  return (
+    <Layout className="mb-[56px] ">
+      <div className="-mx-8 flex pb-[64px] xl:-mx-[56px]">
+        <CasesRow cases={c1} />
+        <CasesRow cases={c2} className="pt-[113px]" />
+      </div>
+      <div className="border-b border-black"></div>
+      {/* <div className="-mx-8 flex flex-wrap pb-[113px] xl:-mx-[56px]">
+
+      </div> */}
+    </Layout>
   );
 }
 

@@ -234,7 +234,7 @@ export const useHeaderTheme = ({ ref, theme = '' }) => {
     };
 
     if (!ref) {
-      console.log('ref negative call');
+      // console.log('ref negative call');
       onEnter();
 
       return onLeave;
@@ -280,9 +280,9 @@ export const useHeaderTheme = ({ ref, theme = '' }) => {
       className="absolute top-0 z-[999] w-full"
       ref={(node) => {
         if (!node) return;
-        console.log('ref init', node);
+        // console.log('ref init', node);
         if (!initRef.current) {
-          console.log('ref init inside');
+          // console.log('ref init inside');
           const offsetTop = (node) => {
             const rect = node.getBoundingClientRect();
             const distance = rect.top + window.pageYOffset;
@@ -338,7 +338,7 @@ export default function Header({
   const menuId = useId();
   const { lock, release } = useBodyLock();
 
-  console.log('theme', t, theme, overrideTheme);
+  // console.log('theme', t, theme, overrideTheme);
 
   useEffect(() => {
     if (isOpen) {
