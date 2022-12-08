@@ -23,6 +23,7 @@ import Case1Image from '../Cases/assets/case_1.png';
 import Case2Image from '../Cases/assets/case_2.png';
 import Case3Image from '../Cases/assets/case_3.png';
 import Case4Image from '../Cases/assets/case_4.png';
+import Animated from '../../Animated';
 
 // gsap.registerPlugin(ScrollTrigger);
 
@@ -260,10 +261,10 @@ export function CasesSlider3() {
 
   return (
     <Layout className="mb-[56px] ">
-      <div className="-mx-8 flex pb-[64px] xl:-mx-[56px]">
+      <Animated className="-mx-8 flex pb-[64px] xl:-mx-[56px]">
         <CasesRow cases={c1} />
         <CasesRow cases={c2} className="pt-[113px]" />
-      </div>
+      </Animated>
       <div className="border-b border-black"></div>
       {/* <div className="-mx-8 flex flex-wrap pb-[113px] xl:-mx-[56px]">
 
