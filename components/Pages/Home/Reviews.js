@@ -127,7 +127,7 @@ const reviews = [
     link: '#',
   },
   {
-    avatar: '/reviews/r_2.png',
+    avatar: '/reviews/r_2.png?v=1',
     companyAvatar: '/reviews/rc_2.svg',
     name: 'Vitaly Babiy',
     company: 'Founder, FleetChaser',
