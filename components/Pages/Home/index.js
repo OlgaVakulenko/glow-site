@@ -115,7 +115,7 @@ function RollingWords({ words, interval = 16500 }) {
   return (
     <span
       ref={root}
-      className="inline-flex h-8 flex-col items-start overflow-hidden"
+      className="inline-flex h-7 flex-col items-start overflow-hidden"
       // style={{
       //   maxWidth: refWidths.find((r) => r.word === rollingWords[0])?.width,
       // }}
@@ -239,9 +239,9 @@ export default function Home() {
     <div ref={refScrollContainer}>
       <div ref={firstSectionRef} className="bg-brand">
         <Layout>
-          <div className="relative flex min-h-[calc(var(--lvh)*100)] flex-col justify-between pb-[48px] pt-[155px] md:min-h-screen md:pt-[280px] md:pb-[89px] xl:pb-[49px]">
+          <div className="relative flex min-h-[calc(var(--lvh)*100)] flex-col justify-between pb-[48px] pt-[155px] md:min-h-screen md:pt-[280px]">
             <Animated
-              className="relative ml-auto min-w-[232px] max-w-[252px] text-lg italic md:min-w-[308px] md:max-w-[328px] md:text-subtitle-l xl:mr-[200px]"
+              className="relative ml-auto min-w-[232px] max-w-[252px] text-lg italic !leading-[133%] md:min-w-[308px] md:max-w-[328px] md:text-subtitle-l xl:mr-[200px]"
               delay={200}
             >
               <div className="absolute left-0 top-[-32px]">
@@ -278,7 +278,7 @@ export default function Home() {
               />
             </svg>
           </div> */}
-            <div className="sticky bottom-[48px] font-glow text-[40px] font-medium leading-10 md:text-[60px] md:leading-[64px] xl:text-[64px]">
+            <div className="sticky bottom-[48px] font-glow text-[40px] font-medium leading-10 md:text-[80px] md:leading-[81px] xl:text-[100px] xl:leading-[90px]">
               <Animated as="h1">
                 Simple design
                 <br className="hidden md:block" /> for&nbsp;complex products

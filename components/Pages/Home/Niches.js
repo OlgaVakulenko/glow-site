@@ -120,7 +120,10 @@ export default function Niches() {
                   <span className="pt-5">{item.title}</span>
                   <Badge className="ml-2">{item.count}</Badge>
                 </Animated>
-                <Animated delay={200} className="md:w-full md:max-w-[25%]">
+                <Animated
+                  delay={200}
+                  className="text-base leading-[22px] md:w-full md:max-w-[25%]"
+                >
                   {item.description}
                 </Animated>
                 <Animated

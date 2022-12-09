@@ -39,7 +39,7 @@ Section.Description = function Description({ children }) {
   return (
     <Animated
       delay={delay}
-      className="text-lg italic md:w-1/2 md:pl-10 md:text-subtitle-m xl:pl-40 xl:text-subtitle-l"
+      className="text-lg italic leading-[24px] md:w-1/2 md:pl-10 md:text-subtitle-m xl:pl-40 xl:text-subtitle-l"
     >
       {children}
     </Animated>

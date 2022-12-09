@@ -36,7 +36,12 @@ const cases = [
     image: Case1Image,
   },
   {
-    title: 'CryptoGenie is a tool for predicting the relevant trends',
+    title: (
+      <>
+        CryptoGenie is a tool for
+        <br className="hidden md:block" /> predicting the relevant trends
+      </>
+    ),
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
@@ -50,7 +55,12 @@ const cases = [
     image: Case3Image,
   },
   {
-    title: 'CryptoGenie is a tool for predicting the relevant trends',
+    title: (
+      <>
+        CryptoGenie is a tool for
+        <br className="hidden md:block" /> predicting the relevant trends
+      </>
+    ),
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],

@@ -1,23 +1,31 @@
 import { addLeadingZero } from '../../../lib/utils';
 import Animated from '../../Animated';
+import Create from '../../Icons/Create';
+import Ideate from '../../Icons/Ideate';
+import Investigate from '../../Icons/Investigate';
+import Iterate from '../../Icons/Iterate';
 import Section from '../../Section';
 
 const stages = [
   {
     title: 'Investigate',
     description: 'By working with transportation related companies we deep.',
+    icon: <Investigate />,
   },
   {
     title: 'Ideate',
     description: 'By working with transportation related companies we deep.',
+    icon: <Ideate />,
   },
   {
     title: 'Create',
     description: 'By working with transportation related companies we deep.',
+    icon: <Create />,
   },
   {
     title: 'Iterate',
     description: 'By working with transportation related companies we deep.',
+    icon: <Iterate />,
   },
 ];
 
@@ -71,58 +79,19 @@ export default function Workflow() {
             </Animated>
             <Animated
               delay={100}
-              className="mb-[75px] md:mb-[94px] xl:mb-[134px]"
+              className="mb-[69px] mt-10 md:mb-[63px] xl:mb-[130px] xl:mt-14"
             >
-              <svg
-                width="184"
-                height="124"
-                viewBox="0 0 184 124"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M84 79.9599L54.5192 88.8264L73.0962 113.612L59.7692 123.285L42 98.2974L24.2308 123.285L10.7019 113.612L29.2788 88.8264L3.84181e-06 79.9599L5.04808 64.242L34.125 74.116L33.7212 43.2848L50.2788 43.2848L49.875 73.9145L78.9519 64.242L84 79.9599Z"
-                  fill="url(#paint0_linear_2141_1369)"
-                />
-                <path
-                  d="M161.418 80.061L132.59 69.2595L132.358 100.233L115.896 99.8577L116.892 69.2125L87.6179 78.3319L82.7118 62.4411L112.506 53.9713L94.5798 29.182L108.117 19.7331L125.272 45.2017L143.626 20.425L156.8 30.454L137.927 54.5812L166.921 64.4968L161.418 80.061Z"
-                  fill="url(#paint1_linear_2141_1369)"
-                />
-                <defs>
-                  <linearGradient
-                    id="paint0_linear_2141_1369"
-                    x1="147.891"
-                    y1="162.997"
-                    x2="11.1025"
-                    y2="84.9743"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop stopColor="#19191B" />
-                    <stop offset="1" stopColor="#19191B" stopOpacity="0" />
-                  </linearGradient>
-                  <linearGradient
-                    id="paint1_linear_2141_1369"
-                    x1="161.959"
-                    y1="184.832"
-                    x2="100.377"
-                    y2="39.8968"
-                    gradientUnits="userSpaceOnUse"
-                  >
-                    <stop stopColor="#19191B" />
-                    <stop offset="1" stopColor="#19191B" stopOpacity="0" />
-                  </linearGradient>
-                </defs>
-              </svg>
+              {stage.icon}
             </Animated>
             <Animated
               delay={200}
-              className="mb-4 text-lg font-medium xl:text-[20px] xl:leading-[150%]"
+              className="mb-4 text-lg font-medium leading-[27px] xl:text-[20px] xl:leading-[150%]"
             >
               {stage.title}
             </Animated>
             <Animated
               delay={300}
-              className="md:max-w-[270px] xl:max-w-[353px] xl:text-[20px] xl:leading-[150%]"
+              className="md:max-w-[270px] md:text-[18px] md:leading-[27px] xl:max-w-[353px] xl:text-[20px] xl:leading-[27px]"
             >
               {stage.description}
             </Animated>
@@ -131,10 +100,10 @@ export default function Workflow() {
       </div>
       <div className="border-b border-t border-black pt-[56px] md:flex md:items-end md:pt-[96px] md:pb-24 xl:pb-[111px] xl:pt-[106px]">
         <div className="pl-[6px] md:w-5/12 md:pr-[95px] xl:w-[36%] xl:pl-0">
-          <Animated className="mb-4 text-center font-glow text-xl font-medium leading-[170%] md:text-left md:text-[22px] md:leading-[40px] md:tracking-[0.02em] xl:text-2xl xl:leading-[40px]">
+          <Animated className="mb-4 text-center font-glow text-xl font-medium leading-[170%] md:text-left md:text-[22px] md:leading-[40px] md:tracking-[0.02em] xl:text-heading-h4">
             Compact = Efficient&nbsp;
           </Animated>
-          <Animated className="md:leading=[27px] text-center text-lg italic leading-[133%] md:text-left md:text-xl xl:max-w-[300px] xl:text-subtitle-m">
+          <Animated className="text-center text-lg italic leading-[133%] md:text-left md:text-xl md:leading-[27px] xl:max-w-[300px] xl:text-subtitle-m">
             We measure our success with numbers and feelings. But first, let the
             numbers talk:
           </Animated>
@@ -150,7 +119,7 @@ export default function Workflow() {
               </Animated>
               <Animated
                 delay={150}
-                className="mb-2 text-[33px] font-medium leading-[170%] md:mb-0 md:text-[44px] md:leading-[127%] xl:text-[56px] xl:leading-[100%]"
+                className="mb-2 text-[32px] font-medium leading-[170%] md:mb-0 md:text-[44px] md:leading-[127%] xl:text-[56px] xl:leading-[100%]"
               >
                 {stat.value}
               </Animated>

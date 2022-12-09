@@ -66,6 +66,14 @@
   box-shadow: inset 0 0 0 1.1px theme('colors.white');
 }
 
+.glow-border-white-to-r {
+  box-shadow: inset 0 0 0 1.1px theme('colors.white');
+}
+
+.glow-border-white-to-r:hover {
+  box-shadow: inset 0 0 0 1.1px theme('colors.brand');
+}
+
 .header-logo path {
   color: #19191B;
   transition: color .3s;

@@ -11,6 +11,8 @@ import Client2 from './assets/client-2.svg';
 import Client3 from './assets/client-3.svg';
 import Client4 from './assets/client-4.svg';
 import Client5 from './assets/client-5.svg';
+import ClientLandflow from './assets/client-lendflow.svg';
+import ClientLiquidSpace from './assets/client-liquidspace.svg';
 import Noise from './assets/noise.png';
 import SectionLink from '../../SectionLink';
 import { useEffect, useMemo, useState } from 'react';
@@ -20,7 +22,15 @@ import { useAtom } from 'jotai';
 import { mediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
 
-const clients = [Client1, Client4, Client5, Client2, Client3];
+const clients = [
+  Client1,
+  Client2,
+  Client3,
+  ClientLandflow,
+  Client4,
+  // Client5,
+  ClientLiquidSpace,
+];
 
 const chunk = (arr, per) => {
   return arr.reduce((resultArray, item, index) => {
@@ -52,7 +62,8 @@ export default function OurClients() {
       className="pt-[56px] pb-[56px] md:pt-[84px] md:pb-[160px] xl:pb-[152px] xl:pt-[56px]"
     >
       <SectionLink
-        // href="#"
+        buttonLabel={'ABOUT US'}
+        href="#"
         title="Our clients"
         description={
           <>
@@ -69,7 +80,7 @@ export default function OurClients() {
         </Section.Description> */}
       </Layout>
       <div className="mb-[56px] mt-[59px] md:mt-[64px] md:mb-[152px] xl:mt-[80px]">
-        <Layout className="md:flex md:justify-between">
+        <Layout className="md:-mr-4 md:-mb-4 md:flex md:flex-wrap md:justify-around xl:justify-between">
           {media === 'mobile'
             ? chunk(clients, 3).map((chunk, i) => (
                 <div
@@ -93,7 +104,11 @@ export default function OurClients() {
                 </div>
               ))
             : clients.map((client, i) => (
-                <Animated key={client.src + i} delay={i * 100}>
+                <Animated
+                  key={client.src + i}
+                  delay={i * 100}
+                  className="md:mr-4 md:mb-4 md:flex md:items-center md:justify-center"
+                >
                   <img className="w-full" src={client.src} alt="" />
                 </Animated>
               ))}

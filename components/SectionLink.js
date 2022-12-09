@@ -7,6 +7,8 @@ import LinkArrow from './LinkArrow';
 import LinkArrowCircle from './LinkArrowCircle';
 import RollingText from './RollingText';
 import cx from 'clsx';
+import { useAtom } from 'jotai';
+import { mediaAtom } from '../lib/agent';
 
 export default function SectionLink({
   className,
@@ -14,7 +16,10 @@ export default function SectionLink({
   description,
   href,
   buttonLabel,
+  showButtonOnMobile = false,
 }) {
+  const [media] = useAtom(mediaAtom);
+
   const Wrapper = useMemo(() => {
     if (href) {
       return function Wrapper({ children, ...props }) {
@@ -44,11 +49,12 @@ export default function SectionLink({
           >
             <div className="md:max-w-[440px]">{description}</div>
           </Animated>
-          {buttonLabel ? (
+          {buttonLabel && (media === 'mobile' ? showButtonOnMobile : true) ? (
             <Animated delay={300}>
               <span
                 className={cx(
-                  'glow-border-black rolling-text-group flex min-w-[150px] whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-all duration-500 md:px-[48px] xl:px-[68px]',
+                  'min-w-[184px]',
+                  'glow-border-black rolling-text-group flex justify-center whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-center text-button-m shadow-black transition-all duration-500',
                   // 'hover:text-brand'
                   // t === 'white' &&
                   'glow-border-b-b group-hover:!bg-brand group-hover:!text-black'

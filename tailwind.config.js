@@ -103,14 +103,14 @@ module.exports = {
           '32px',
           {
             fontWeight: '500',
-            lineHeight: '48px',
+            lineHeight: '44px',
           },
         ],
         'heading-h4': [
           '24px',
           {
             fontWeight: '500',
-            lineHeight: '40px',
+            lineHeight: '32px',
             letterSpacing: '0.02em',
           },
         ],

@@ -166,6 +166,7 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <LoadingProgress />
+
       <DebugAtoms />
       {getLayout(<Component {...pageProps} />)}
       {/* <Header />
@@ -179,6 +180,54 @@ function MyApp({ Component, pageProps }) {
         strategy="lazyOnload"
         src="https://helpukrainewinwidget.org/cdn/widget.js"
       /> */}
+      {/* <div
+        style={{
+          width: '100%',
+          height: '100vh',
+          backgroundColor: 'green',
+          position: 'absolute',
+          top: 0,
+          right: 0,
+          bottom: 0,
+          left: 0,
+          zIndex: 10,
+        }}
+      >
+        <div
+          id="preload-progress-num"
+          style={{
+            position: 'absolute',
+            right: 20,
+            bottom: 120,
+            fontSize: '300px',
+            fontWeight: 'medium',
+          }}
+        >
+          75
+        </div>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+          function updateProgress(total, current) {
+            const el = document.getElementById('preload-progress-num');
+            el.innerText = current / total * 100
+          }
+            
+          const scripts = Array.from(document.querySelectorAll('script'));
+          const newScripts = scripts
+            .filter(sc => Boolean(sc.src))
+            .filter(sc => sc.src[0] === 'h' || sc.src[0] === '/')
+          let i = 1;
+          newScripts.forEach(sc => {
+            sc.addEventListener('load', () => {
+                updateProgress(newScripts.length, i);
+                i++;    
+            })
+          })
+          `,
+          }}
+        ></script>
+      </div> */}
     </div>
   );
   return;

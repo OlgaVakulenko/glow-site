@@ -232,7 +232,7 @@ const reviews = [
     link: '#',
   },
   {
-    avatar: '/reviews/r_9.png',
+    avatar: '/reviews/r_9.png?v=1',
     companyAvatar: '/reviews/rc_9.svg',
     name: 'Jacob Berg',
     company: 'CTO, Social Curator',
