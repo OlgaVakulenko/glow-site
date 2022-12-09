@@ -80,13 +80,13 @@ export default function OurClients() {
         </Section.Description> */}
       </Layout>
       <div className="mb-[56px] mt-[59px] md:mt-[64px] md:mb-[152px] xl:mt-[80px]">
-        <Layout className="md:-mr-4 md:-mb-4 md:flex md:flex-wrap md:justify-around xl:justify-between">
+        <Layout className="md:-mb-4 md:flex md:flex-wrap md:justify-around xl:justify-between">
           {media === 'mobile'
             ? chunk(clients, 3).map((chunk, i) => (
                 <div
                   key={i}
                   className={cx(
-                    'mb-7 -mr-4 flex justify-center md:w-full md:justify-between',
+                    'mb-7 flex justify-center md:w-full md:justify-between',
                     {
                       ['px-5']: i > 0,
                     }
@@ -107,7 +107,7 @@ export default function OurClients() {
                 <Animated
                   key={client.src + i}
                   delay={i * 100}
-                  className="md:mr-4 md:mb-4 md:flex md:items-center md:justify-center"
+                  className="md:mr-4 md:mb-4 md:flex md:items-center md:justify-center last:md:mr-0"
                 >
                   <img className="w-full" src={client.src} alt="" />
                 </Animated>
