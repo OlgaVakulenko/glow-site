@@ -1,5 +1,6 @@
 import cx from 'clsx';
 import LinkArrow from './LinkArrow';
+import RollingText from './RollingText';
 
 const activeHeader = 'hover:bg-brand hover:text-black';
 const activeFooter = 'hover:bg-lblue hover:text-black';
@@ -17,7 +18,7 @@ export default function BigButton({
     <button
       type="button"
       className={cx(
-        ' flex w-full items-center justify-between rounded-full px-6 py-14 text-left text-sm font-medium uppercase tracking-[0.03em] transition-colors duration-500 md:aspect-square md:max-w-[320px] md:pr-[20px]',
+        'rolling-text-group flex w-full items-center justify-between rounded-full px-6 py-14 text-left text-sm font-medium uppercase tracking-[0.03em] transition-colors duration-500 md:aspect-square md:max-w-[320px] md:pr-[20px]',
         {
           ['glow-border']: border,
           [activeHeader]: variant === 'header',
@@ -30,7 +31,8 @@ export default function BigButton({
       )}
       {...props}
     >
-      {children}
+      <RollingText height={20} text={children}></RollingText>
+      {/* {children} */}
       {!hideLink && (
         <span>
           <LinkArrow />

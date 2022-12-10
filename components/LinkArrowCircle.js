@@ -16,7 +16,12 @@ export default function LinkArrowCircle() {
         stroke="currentColor"
       />
       <path
-        className="text-black"
+        className="text-black transition-transform duration-300 group-hover:translate-x-full"
+        d="M28 21.0005L35.0711 28.0716M35.0711 28.0716L28 35.1426M35.0711 28.0716H20.9289"
+        stroke="currentColor"
+      />
+      <path
+        className="-translate-x-full text-black transition-transform duration-300 group-hover:translate-x-0"
         d="M28 21.0005L35.0711 28.0716M35.0711 28.0716L28 35.1426M35.0711 28.0716H20.9289"
         stroke="currentColor"
       />

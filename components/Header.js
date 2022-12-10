@@ -2,7 +2,7 @@ import { Transition } from '@headlessui/react';
 import cx from 'clsx';
 import { atom, useAtom } from 'jotai';
 import Link from 'next/link';
-import React, { useEffect, useId, useMemo, useRef } from 'react';
+import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { mediaAtom } from '../lib/agent';
 import { useBodyLock } from '../lib/utils';
 import Animated from './Animated';
@@ -356,26 +356,61 @@ export default function Header({
     setColor(null);
   }, [t]);
 
+  const sRef = useRef();
+  const [isTop, setIsTop] = useState(false);
+  useEffect(() => {
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          setIsTop(entry.isIntersecting);
+        });
+      });
+
+      io.observe(sRef.current);
+
+      return () => {
+        io.disconnect();
+      };
+    }
+  }, []);
+
   return (
     <>
-      <header
-        className={cx('z-10 w-full', {
-          ['first-header fixed']: isFixed,
-          ['absolute']: !isFixed,
-        })}
-      >
+      <div ref={sRef} className="h-4 bg-brand"></div>
+      <div className="fixed top-0 z-10 w-full">
         <div className="relative">
           <div
             className={cx(
-              'backdrop pointer-events-none absolute top-0 left-0 h-[155px] w-full -translate-y-full opacity-0 transition-all duration-700',
+              'backdrop pointer-events-none absolute top-0 left-0 h-[96px] w-full opacity-0 transition-all duration-700',
               {
-                '!translate-y-0': t !== 'brand' && t !== 'dark',
+                // '!translate-y-0': t !== 'brand' && t !== 'dark',
                 '!opacity-100': t !== 'brand' && t !== 'dark',
               }
             )}
+            style={{
+              backdropFilter: 'saturate(170%) blur(12px)',
+            }}
           ></div>
+        </div>
+      </div>
+      <header
+        className={cx(
+          'first-header fixed top-4 z-10 w-full transition-transform duration-500',
+          {
+            '-translate-y-4': !isTop,
+            // '!transla': !isTop,
+            // ['first-header fixed']: !isTop,
+            // ['absolute']: !isFixed,
+          }
+        )}
+        // style={{
+        //   backdropFilter:
+        //     t !== 'brand' && t !== 'dark' ? 'saturate(170%) blur(40px)' : null,
+        // }}
+      >
+        <div className="relative">
           <Layout>
-            <div className="flex items-center justify-between pt-[28px] font-medium  uppercase md:h-[96px]  md:pt-[44px]">
+            <div className="flex items-center justify-between pt-[28px] font-medium  uppercase md:h-[96px]  md:pt-[44px] md:!pt-[28px] md:!pb-[28px]">
               <Animated delay={50}>
                 <Link href="/" className="flex items-center justify-center">
                   <Logo

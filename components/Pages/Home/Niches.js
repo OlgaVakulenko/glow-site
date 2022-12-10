@@ -5,7 +5,7 @@ import Layout from '../../Layout';
 import LinkArrowCircle from '../../LinkArrowCircle';
 import Section from '../../Section';
 import NichesAnimation from './NichesAnimation';
-import Transportation from '../../Icons/Transportation';
+import Transportation, { Transportation2 } from '../../Icons/Transportation';
 import Fintech from '../../Icons/Fintech';
 import Healthcare from '../../Icons/Healthcare';
 
@@ -15,7 +15,7 @@ const items = [
     count: 12,
     description:
       'Be it a carsharing app or an internal service for a logistics company – the key to happy users is in comfortable UX that is easy to navigate.',
-    icon: <Transportation />,
+    icon: <Transportation2 />,
   },
   {
     title: 'Fintech',

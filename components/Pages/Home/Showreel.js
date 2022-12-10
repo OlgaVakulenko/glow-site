@@ -23,15 +23,15 @@ const HoverCursor = forwardRef(function HoverCursor(props, ref) {
         {
           ['opacity-100']: appear,
         },
-        'pointer-events-none absolute -translate-x-1/2 -translate-y-1/2 whitespace-nowrap opacity-0 transition-opacity duration-500'
+        'pointer-events-none absolute z-10  whitespace-nowrap opacity-0 transition-opacity duration-500'
       )}
     >
       <BigButton
         hideLink={true}
-        className="h-[232px] w-[232px] bg-brand"
+        className="h-[140px] w-[140px] bg-brand"
         border={false}
       >
-        View Showreel
+        View
       </BigButton>
     </div>
   );
@@ -61,7 +61,7 @@ export default function Showreel() {
 
     gsap.to(cursorRef.current, {
       y: e.nativeEvent.offsetY,
-      x: e.nativeEvent.offsetX,
+      x: e.nativeEvent.offsetX + 16,
       ease: 'power2.inout',
       duration: isHoverRef.current ? 1 : 0,
     });
@@ -138,7 +138,7 @@ export default function Showreel() {
     <div
       ref={ref}
       className={cx('relative bg-white', {
-        'cursor-none': !isFullscreen,
+        // 'cursor-none': !isFullscreen,
       })}
     >
       <div className="overflow-hidden">

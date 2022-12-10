@@ -122,6 +122,7 @@
   transition: transform .4s;
   backface-visibility: hidden;
   display: inline-block;
+  white-space: break-spaces;
 }
 
 .rolling-text-container:hover .rolling-letter,
@@ -190,5 +191,7 @@
 }
 
 .backdrop {
-  background: linear-gradient(180deg, hsl(0deg 0% 99%), hsl(0deg 0% 98%/74%) 19%, hsl(0deg 0% 98%/54%) 34%, hsl(0deg 0% 98%/38%) 47%, hsl(0deg 0% 98%/28%) 56.5%, hsl(0deg 0% 98%/19%) 65%, hsl(0deg 0% 98%/13%) 73%, hsl(0deg 0% 98%/8%) 80.2%, hsl(0deg 0% 98%/4%) 86.1%, hsl(0deg 0% 98%/2%) 91%, hsl(0deg 0% 98%/1%) 95.2%, hsl(0deg 0% 98%/0%) 98.2%, hsl(0deg 0% 98%/0%));
+  background-image: linear-gradient(180deg, hsla(0, 0%, 100%, .85), hsla(0, 0%, 100%, .85));
+  /* background: linear-gradient(180deg, hsl(0deg 0% 99%), hsl(0deg 0% 98%/74%) 19%, hsl(0deg 0% 98%/54%) 34%, hsl(0deg 0% 98%/38%) 47%, hsl(0deg 0% 98%/28%) 56.5%, hsl(0deg 0% 98%/19%) 65%, hsl(0deg 0% 98%/13%) 73%, hsl(0deg 0% 98%/8%) 80.2%, hsl(0deg 0% 98%/4%) 86.1%, hsl(0deg 0% 98%/2%) 91%, hsl(0deg 0% 98%/1%) 95.2%, hsl(0deg 0% 98%/0%) 98.2%, hsl(0deg 0% 98%/0%)); */
+
 }
