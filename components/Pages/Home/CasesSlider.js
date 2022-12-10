@@ -8,7 +8,7 @@ import 'swiper/css';
 import 'swiper/css/effect-creative';
 // import { Swiper, SwiperSlide } from 'swiper/react';
 import { mediaAtom, useMedia } from '../../../lib/agent';
-import { addLeadingZero } from '../../../lib/utils';
+import { addLeadingZero, useIsClient } from '../../../lib/utils';
 import Image from '../../Image';
 import Layout from '../../Layout';
 import Section from '../../Section';
@@ -226,9 +226,10 @@ function CasesRow({ cases, className = '' }) {
 }
 
 export function CasesSlider3() {
+  const isClient = useIsClient();
   const [media] = useAtom(mediaAtom);
 
-  if (media === 'mobile') {
+  if (media === 'mobile' && isClient) {
     return (
       <div className="pb-16">
         <Swiper>
