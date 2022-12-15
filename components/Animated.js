@@ -56,9 +56,13 @@ export default function Animated({
   animate = 'fade-up',
   children,
   delay = 0,
+  onViewChange = () => {},
+  // onInView = () => {},
   ...rest
 }) {
   const ref = useRef(null);
+  const onViewChangeRef = useRef(null);
+  onViewChangeRef.current = onViewChange;
   const delayRef = useRef(0);
   delayRef.current = delay;
   const [inViewport, setInViewport] = useState(false);
@@ -75,9 +79,15 @@ export default function Animated({
         if (delayRef.current > 0) {
           setTimeout(() => {
             setInViewport(true);
+            if (onViewChangeRef.current) {
+              onViewChangeRef.current(true);
+            }
           }, delayRef.current);
         } else {
           setInViewport(true);
+          if (onViewChangeRef.current) {
+            onViewChangeRef.current(true);
+          }
         }
       });
     }

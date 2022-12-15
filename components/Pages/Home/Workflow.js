@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { addLeadingZero } from '../../../lib/utils';
 import Animated from '../../Animated';
 import Create from '../../Icons/Create';
@@ -10,22 +11,22 @@ const stages = [
   {
     title: 'Investigate',
     description: 'By working with transportation related companies we deep.',
-    icon: <Investigate />,
+    icon: Investigate,
   },
   {
     title: 'Ideate',
     description: 'By working with transportation related companies we deep.',
-    icon: <Ideate />,
+    icon: Ideate,
   },
   {
     title: 'Create',
     description: 'By working with transportation related companies we deep.',
-    icon: <Create />,
+    icon: Create,
   },
   {
     title: 'Iterate',
     description: 'By working with transportation related companies we deep.',
-    icon: <Iterate />,
+    icon: Iterate,
   },
 ];
 
@@ -59,6 +60,8 @@ const stats = [
 ];
 
 export default function Workflow() {
+  const [iconMap, setIconMap] = useState({});
+
   return (
     <Section className="pt-16 md:pt-[139px] xl:pt-[176px]">
       <Section.Header>
@@ -78,10 +81,16 @@ export default function Workflow() {
               <span className="opacity-50">{addLeadingZero(i + 1)} Stage</span>
             </Animated>
             <Animated
+              onViewChange={(inView) => {
+                setIconMap((map) => ({
+                  ...map,
+                  [i]: inView,
+                }));
+              }}
               delay={100}
               className="mb-[69px] mt-10 md:mb-[63px] xl:mb-[130px] xl:mt-14"
             >
-              {stage.icon}
+              {<stage.icon isReady={iconMap[i] === true} />}
             </Animated>
             <Animated
               delay={200}

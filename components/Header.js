@@ -381,7 +381,7 @@ export default function Header({
         <div className="relative">
           <div
             className={cx(
-              'backdrop pointer-events-none absolute top-0 left-0 h-[96px] w-full opacity-0 transition-all duration-700',
+              'backdrop pointer-events-none absolute top-0 left-0 h-[96px] w-full opacity-0 transition-all duration-300',
               {
                 // '!translate-y-0': t !== 'brand' && t !== 'dark',
                 '!opacity-100': t !== 'brand' && t !== 'dark',

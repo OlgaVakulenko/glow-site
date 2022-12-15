@@ -8,6 +8,7 @@ import NichesAnimation from './NichesAnimation';
 import Transportation, { Transportation2 } from '../../Icons/Transportation';
 import Fintech from '../../Icons/Fintech';
 import Healthcare from '../../Icons/Healthcare';
+import { useState } from 'react';
 
 const items = [
   {
@@ -15,21 +16,21 @@ const items = [
     count: 12,
     description:
       'Be it a carsharing app or an internal service for a logistics company – the key to happy users is in comfortable UX that is easy to navigate.',
-    icon: <Transportation2 />,
+    icon: Transportation2,
   },
   {
     title: 'Fintech',
     count: 3,
     description:
       'Who said that fintech must be dull? This is an important and well organized field but not everything connected to finances should resemble a spreadsheet.',
-    icon: <Fintech />,
+    icon: Fintech,
   },
   {
     title: 'Healthcare',
     count: 4,
     description:
       'The users of a healthcare service may not be that good with modern technology so the UX must be as user friendly as possible.',
-    icon: <Healthcare />,
+    icon: Healthcare,
   },
 ];
 
@@ -50,6 +51,8 @@ function Badge({ children, className = '' }) {
 }
 
 export default function Niches() {
+  const [iconMap, setIconMap] = useState({});
+
   return (
     <Section withLayout={false}>
       <Layout>
@@ -78,9 +81,17 @@ export default function Niches() {
                 href="#"
                 className="group block first:pt-0 md:flex md:items-center md:justify-between"
               >
-                <Animated className="md:w-full md:max-w-[25%]">
+                <Animated
+                  className="md:w-full md:max-w-[25%]"
+                  onViewChange={(inView) => {
+                    setIconMap((map) => ({
+                      ...map,
+                      [i]: inView,
+                    }));
+                  }}
+                >
                   {!!item.icon ? (
-                    item.icon
+                    <item.icon isReady={iconMap[i] === true} />
                   ) : (
                     <svg
                       width="80"

@@ -195,3 +195,58 @@
   /* background: linear-gradient(180deg, hsl(0deg 0% 99%), hsl(0deg 0% 98%/74%) 19%, hsl(0deg 0% 98%/54%) 34%, hsl(0deg 0% 98%/38%) 47%, hsl(0deg 0% 98%/28%) 56.5%, hsl(0deg 0% 98%/19%) 65%, hsl(0deg 0% 98%/13%) 73%, hsl(0deg 0% 98%/8%) 80.2%, hsl(0deg 0% 98%/4%) 86.1%, hsl(0deg 0% 98%/2%) 91%, hsl(0deg 0% 98%/1%) 95.2%, hsl(0deg 0% 98%/0%) 98.2%, hsl(0deg 0% 98%/0%)); */
 
 }
+
+@keyframes lin-grad {
+  from {
+    scale: 0;
+  }
+
+  to {
+    scale: 1;
+  }
+}
+
+.line-test {
+  stroke-dasharray: 1032;
+  stroke-dashoffset: 1032;
+  /* fill: black; */
+  /* fill-opacity: 0; */
+  animation: line-anim 2s ease forwards infinite;
+}
+
+.svg-line-anim {
+  stroke-dasharray: var(--dash-array, 1032);
+  stroke-dashoffset: var(--dash-offset, 1032);
+  transition: transform 2s;
+}
+
+.svg-line-anim.ready {
+  animation: line-anim var(--anim-duration, 2s) ease-out forwards;
+  animation-delay: var(--anim-delay, 0s);
+}
+
+
+@keyframes line-anim {
+  to {
+    stroke-dashoffset: var(--dash-to, 0);
+  }
+}
+
+.lin-grad-anim {
+  animation: lin-grad 5s infinite;
+}
+
+.svg-transform-circle {
+  transition: transform 2s;
+  transition-delay: var(--anim-delay, 0s);
+}
+
+.svg-circle {
+  fill: #E4E4E4;
+  transition: fill .2s ease-in-out;
+  transition-delay: var(--anim-delay, 0s);
+}
+
+.svg-circle.active {
+  fill: black;
+}
