@@ -81,6 +81,9 @@ function P({ children }) {
 export default function Faq() {
   return (
     <Layout>
+      <div className="mb-14 text-center font-glow text-heading-h2">
+        Frequently Asked Questions
+      </div>
       <div className="divide-y divide-black border-t border-b border-black">
         <Disclosure
           title="What does your company stand for?"

@@ -12,7 +12,7 @@ export default function FormPage() {
         <PageSubheading>
           Hi there, please fill this form so we know more about you.
         </PageSubheading>
-        <PageHeading>
+        <PageHeading className="mt-[66px]">
           Let’s Glow up <br />
           your project
         </PageHeading>

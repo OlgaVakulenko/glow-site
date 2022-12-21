@@ -4,11 +4,13 @@ import Layout from '../../Layout';
 import FormSection from './FormSection';
 import FormStep from './FormStep';
 import cx from 'clsx';
+import { useHeaderTheme } from '../../Header';
 
 export default function Form() {
   const maxIndex = 5;
   const [index, setIndex] = useState(0);
   const [form, setForm] = useState({});
+  useHeaderTheme({ theme: 'white' });
 
   const onChange = (e, index) => {
     setForm((form) => ({
