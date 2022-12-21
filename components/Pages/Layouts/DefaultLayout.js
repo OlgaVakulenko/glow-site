@@ -8,25 +8,44 @@ import ScrollContainer from '../../SmoothScroll/ScrollContainer';
 export default function DefaultLayout({ children, footer = true, page = '' }) {
   const router = useRouter();
   const [history] = useAtom(routerHistory);
-  const showBackButton = page === 'clients' && history.length > 0;
+  const canGoBack = history.length > 0;
 
   return (
     <>
       <Header
         headerRightSlot={
-          page === 'clients' &&
-          (showBackButton ? (
+          (page === 'clients' || page === 'form') && (
             <button
               onClick={() => {
-                router.back();
+                if (canGoBack) {
+                  router.back();
+                } else {
+                  router.push('/');
+                }
               }}
               className="flex w-[185px] justify-end"
             >
-              <BurgerIcon isOpen={true} size={28} />
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="0.5"
+                  y="0.5"
+                  width="47"
+                  height="47"
+                  rx="23.5"
+                  stroke="#19191B"
+                />
+                <path d="M32 17L17 32M32 32L17 17" stroke="black" />
+              </svg>
+
+              {/* <BurgerIcon isOpen={true} size={28} /> */}
             </button>
-          ) : (
-            <div className="w-[185px]"></div>
-          ))
+          )
         }
       />
       <ScrollContainer>

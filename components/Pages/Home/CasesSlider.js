@@ -173,12 +173,12 @@ function CaseSlide({ item, index }) {
 
 function CaseItem({ image, title, columns = [], className = '' }) {
   return (
-    <div className={cx('pb-10 xl:pb-[88px]', className)}>
+    <Link href="#" className={cx('group pb-10 xl:pb-[88px]', className)}>
       <div className="mb-8 overflow-hidden rounded-3xl">
         <Image
           src={image}
           alt=""
-          className="min-h-[304px] object-cover xl:min-h-[392px]"
+          className="min-h-[304px] object-cover transition-transform duration-500 group-hover:scale-105 xl:min-h-[392px]"
         />
       </div>
       <div className="mb-8 font-glow text-heading-h4 xl:text-heading-h3">
@@ -189,7 +189,7 @@ function CaseItem({ image, title, columns = [], className = '' }) {
           <Col2 key={i} title={col.title} items={col.items} className="mr-10" />
         ))}
       </div>
-    </div>
+    </Link>
   );
 }
 

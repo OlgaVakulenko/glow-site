@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import { useAtom } from 'jotai';
+import Link from 'next/link';
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import BigButton from './BigButton';
 import FooterLinks from './Footer/FooterLinks';
@@ -34,9 +35,10 @@ function Footer(props) {
           >
             Discovery Call
           </BigButton>
-          <BigButton variant="footer" className="">
+          <BigButton href="/form" variant="footer" className="">
             Fill out the form
           </BigButton>
+
           {/* </div> */}
         </div>
         <div className="mb-[38px] mt-[68px] font-glow text-[32px] font-medium leading-[100%] md:mb-[112px] md:mt-[110px] md:pl-2 md:text-[60px] xl:mb-[120px] xl:text-[64px]">

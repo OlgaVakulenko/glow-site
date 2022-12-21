@@ -4,19 +4,25 @@ import { atom, useAtom } from 'jotai';
 import Link from 'next/link';
 import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { mediaAtom } from '../lib/agent';
-import { useBodyLock } from '../lib/utils';
+import { useBodyLock, useScrollDirection } from '../lib/utils';
 import Animated from './Animated';
 import BigButton from './BigButton';
 import Layout from './Layout';
 import Logo from './Logo';
 import RollingText from './RollingText';
 // import { scrollAtom } from '../atoms/scroll';
-// import debounce from 'lodash.debounce';
+import throttle from 'lodash.throttle';
 // import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { ScrollTrigger } from '../dist/gsap';
 import { useSetAtom } from 'jotai';
 import { useRouter } from 'next/router';
 import gsap from '../dist/gsap';
+import {
+  scrollAtom,
+  scrollDirection,
+  scrollDirectionAtom,
+  scrollIsTopAtom,
+} from '../atoms/scroll';
 
 export function BurgerIcon({ isOpen = false, theme, size = 40 }) {
   let stroke = '#19191B';
@@ -116,6 +122,7 @@ const BurgerMenu = ({
   links,
   // onBurgerClick,
 }) => {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useAtom(openAtom);
   const [media] = useAtom(mediaAtom);
 
@@ -124,6 +131,10 @@ const BurgerMenu = ({
       setIsOpen(false);
     }
   }, [media]);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [router.pathname]);
 
   return (
     <Transition
@@ -234,7 +245,6 @@ export const useHeaderTheme = ({ ref, theme = '' }) => {
     };
 
     if (!ref) {
-      // console.log('ref negative call');
       onEnter();
 
       return onLeave;
@@ -249,6 +259,9 @@ export const useHeaderTheme = ({ ref, theme = '' }) => {
       onLeave,
       onEnterBack: onEnter,
       onLeaveBack: onLeave,
+      onRefresh: () => {
+        console.log('refreshed');
+      },
     });
 
     return () => {
@@ -337,8 +350,8 @@ export default function Header({
   const links = ['Work', 'Team', 'Services'];
   const menuId = useId();
   const { lock, release } = useBodyLock();
-
-  // console.log('theme', t, theme, overrideTheme);
+  const scrollDirection = useScrollDirection('backward');
+  console.log(scrollDirection);
 
   useEffect(() => {
     if (isOpen) {
@@ -356,30 +369,44 @@ export default function Header({
     setColor(null);
   }, [t]);
 
-  const sRef = useRef();
+  const offset = 112;
+
   const [isTop, setIsTop] = useState(false);
+
   useEffect(() => {
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          setIsTop(entry.isIntersecting);
-        });
-      });
+    const offset = 112;
+    const onScroll = throttle(() => {
+      const isTop = window.scrollY < offset;
+      setIsTop(isTop);
+    }, 100);
+    onScroll();
+    window.addEventListener('scroll', onScroll);
 
-      io.observe(sRef.current);
-
-      return () => {
-        io.disconnect();
-      };
-    }
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
   }, []);
 
   return (
     <>
-      <div ref={sRef} className="h-4 bg-brand"></div>
-      <div className="fixed top-0 z-10 w-full">
+      <div className={cx('fixed top-0 z-10 w-full')}>
         <div className="relative">
           <div
+            className={cx(
+              'backdrop pointer-events-none absolute top-0 left-0 h-[96px] w-full -translate-y-full bg-white opacity-0 transition-all duration-300',
+              {
+                '!translate-y-0':
+                  t !== 'brand' &&
+                  t !== 'dark' &&
+                  scrollDirection !== 'forward',
+                '!opacity-100':
+                  t !== 'brand' &&
+                  t !== 'dark' &&
+                  scrollDirection !== 'forward',
+              }
+            )}
+          ></div>
+          {/* <div
             className={cx(
               'backdrop pointer-events-none absolute top-0 left-0 h-[96px] w-full opacity-0 transition-all duration-300',
               {
@@ -390,19 +417,24 @@ export default function Header({
             style={{
               backdropFilter: 'saturate(170%) blur(12px)',
             }}
-          ></div>
+          ></div> */}
         </div>
       </div>
       <header
         className={cx(
-          'first-header fixed top-4 z-10 w-full transition-transform duration-500',
+          'first-header fixed z-10 w-full transition-transform duration-300 md:top-4',
           {
-            '-translate-y-4': !isTop,
+            'md:-translate-y-4': !isTop,
+            '!-translate-y-full': scrollDirection === 'forward',
+
             // '!transla': !isTop,
             // ['first-header fixed']: !isTop,
             // ['absolute']: !isFixed,
           }
         )}
+        // style={{
+        //   transform: `translateY(${offsetTop}px)`,
+        // }}
         // style={{
         //   backdropFilter:
         //     t !== 'brand' && t !== 'dark' ? 'saturate(170%) blur(40px)' : null,
@@ -467,16 +499,19 @@ export default function Header({
                   </Animated>
                 </div>
               )}
-
-              <Animated className="md:hidden" delay={150}>
-                <BurgerButton
-                  theme={t}
-                  aria-controls={menuId}
-                  isOpen={isOpen}
-                  onClick={onBurgerClick}
-                  aria-expanded={isOpen}
-                />
-              </Animated>
+              {headerRightSlot ? null : (
+                <div className="md:hidden">
+                  <Animated delay={150}>
+                    <BurgerButton
+                      theme={t}
+                      aria-controls={menuId}
+                      isOpen={isOpen}
+                      onClick={onBurgerClick}
+                      aria-expanded={isOpen}
+                    />
+                  </Animated>
+                </div>
+              )}
             </div>
           </Layout>
         </div>

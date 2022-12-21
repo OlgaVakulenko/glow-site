@@ -30,7 +30,9 @@ export default function ContactsFooter() {
           >
             Discovery Call
           </BigButton>
-          <BigButton variant="contacts">Fill out the form</BigButton>
+          <BigButton href="/form" variant="contacts">
+            Fill out the form
+          </BigButton>
         </div>
       </div>
 
