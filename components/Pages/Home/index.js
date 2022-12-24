@@ -11,7 +11,7 @@ import CasesSlider, { CasesSlider2, CasesSlider3 } from './CasesSlider';
 import Niches from './Niches';
 import OurClients from './OurClients';
 import OutProjectsLink from './OurProjectsLink';
-// import Reviews from './Reviews';
+import Reviews from './Reviews';
 import Showreel from './Showreel';
 import Workflow from './Workflow';
 import dynamic from 'next/dynamic';
@@ -20,7 +20,7 @@ import Star from '../../Star';
 import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
 
-const Reviews = dynamic(() => import('./Reviews'));
+// const Reviews = dynamic(() => import('./Reviews'));
 
 function RollingWords({ words, interval = 16500 }) {
   const [media] = useAtom(mediaAtom);

@@ -85,12 +85,13 @@ export default function ScrollContainer({ children }) {
   // }, []);
 
   useEffect(() => {
-    window.$scrollTo = (...args) => {
+    window.__scrollTo = (...args) => {
       console.log('$scrollTo call');
       smootherRef.current.scrollTo(args);
     };
+
     return () => {
-      delete window.$scrollTo;
+      window.__scrollTo = undefined;
     };
     return;
     const scrollTo = window.scrollTo;
