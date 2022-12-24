@@ -95,8 +95,8 @@ export default function Form() {
               name="idea"
               index={3}
               currentIndex={index}
-              inputSentenceIndex={1}
-              text={['With an idea of having', 'The project is about']}
+              inputSentenceIndex={0}
+              text={['The project is about']}
               onBlur={handleBlur}
               placeholder="App for aero taxi? Financial literacy service? We are eager to know."
             />

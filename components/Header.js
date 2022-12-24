@@ -259,9 +259,6 @@ export const useHeaderTheme = ({ ref, theme = '' }) => {
       onLeave,
       onEnterBack: onEnter,
       onLeaveBack: onLeave,
-      onRefresh: () => {
-        console.log('refreshed');
-      },
     });
 
     return () => {

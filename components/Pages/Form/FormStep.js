@@ -129,7 +129,6 @@ export default function FormStep({
                   onBlur={(e) => {
                     onBlur(e, index);
                   }}
-                  refIsSet={isUpdated}
                   {...inputProps}
                 />
               </span>
