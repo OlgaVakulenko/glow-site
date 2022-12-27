@@ -76,14 +76,16 @@ export default function ScrollContainer({ children }) {
   }, []);
 
   useEffect(() => {
-    window.__scrollTo = (...args) => {
-      smootherRef.current.scrollTo(args);
-    };
+    if (smootherRef.current) {
+      window.__scrollTo = (...args) => {
+        smootherRef.current.scrollTo(args);
+      };
 
-    return () => {
-      window.__scrollTo = undefined;
-    };
-  }, []);
+      return () => {
+        delete window.__scrollTo;
+      };
+    }
+  }, [media]);
 
   return (
     <div ref={viewportRef}>
