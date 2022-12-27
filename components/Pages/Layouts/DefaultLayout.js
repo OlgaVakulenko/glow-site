@@ -5,7 +5,12 @@ import { ParallaxFooter } from '../../Footer';
 import Header, { BurgerIcon } from '../../Header';
 import ScrollContainer from '../../SmoothScroll/ScrollContainer';
 
-export default function DefaultLayout({ children, footer = true, page = '' }) {
+export default function DefaultLayout({
+  children,
+  footer = true,
+  page = '',
+  showFormButton = true,
+}) {
   const router = useRouter();
   const [history] = useAtom(routerHistory);
   const canGoBack = history.length > 0;
@@ -50,7 +55,7 @@ export default function DefaultLayout({ children, footer = true, page = '' }) {
       />
       <ScrollContainer>
         {children}
-        {footer && <ParallaxFooter />}
+        {footer && <ParallaxFooter showFormButton={showFormButton} />}
       </ScrollContainer>
     </>
   );

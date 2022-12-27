@@ -1,23 +1,18 @@
 import Go from '../../Go';
 import Layout from '../../Layout';
-// import Marquee from '../../Marquee';
 import Section from '../../Section';
-// import ReactMarquee from 'react-fast-marquee';
 import cx from 'clsx';
-
+import gsap, { ScrollTrigger } from '../../../dist/gsap';
 import Image from '../../Image';
 import Client1 from './assets/client-1.svg';
 import Client2 from './assets/client-2.svg';
 import Client3 from './assets/client-3.svg';
 import Client4 from './assets/client-4.svg';
-import Client5 from './assets/client-5.svg';
 import ClientLandflow from './assets/client-lendflow.svg';
 import ClientLiquidSpace from './assets/client-liquidspace.svg';
 import Noise from './assets/noise.png';
 import SectionLink from '../../SectionLink';
-import { useEffect, useMemo, useState } from 'react';
-import { atom } from 'jotai';
-import { useSetAtom } from 'jotai';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useAtom } from 'jotai';
 import { mediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
@@ -45,16 +40,9 @@ const chunk = (arr, per) => {
     return resultArray;
   }, []);
 };
-// const result =
-// const marqueeMounted = atom(false);
 
 export default function OurClients() {
   const [media] = useAtom(mediaAtom);
-  // const setMarqueeMounted = useSetAtom(marqueeMounted);
-
-  useEffect(() => {
-    // setMarqueeMounted(true);
-  }, []);
 
   return (
     <Section
@@ -72,13 +60,7 @@ export default function OurClients() {
           </>
         }
       />
-      <Layout>
-        {/* <Section.Title>Our clients</Section.Title>
-        <Section.Description>
-          Our approach is to integrate in our client’s team and always keep in
-          touch; we support our partners even after our work is done.
-        </Section.Description> */}
-      </Layout>
+      <Layout></Layout>
       <div className="mb-[56px] mt-[59px] md:mt-[64px] md:mb-[152px] xl:mt-[80px]">
         <Layout className="md:-mb-4 md:flex md:flex-wrap md:justify-around xl:justify-between">
           {media === 'mobile'
@@ -117,28 +99,83 @@ export default function OurClients() {
       <div className="mb-[80px] flex items-center justify-center md:hidden">
         <Go />
       </div>
-      <Layout>
-        <div className="md:flex md:justify-center">
-          <div className="relative mx-[36px] mb-[40px] flex items-center justify-center pb-[100%] md:static md:mb-0 md:mr-0 md:w-1/2 md:max-w-[448px] md:justify-end md:pb-0">
-            <div className="md:relative md:h-auto md:w-full md:max-w-[448px] md:pb-[100%] xl:max-w-[534px]">
-              <Image className="absolute inset-0" src={Noise} alt="" />
-              <Ill2 />
-            </div>
-          </div>
+      <Illustration />
+    </Section>
+  );
+}
 
-          <div className="md:flex md:justify-center ">
-            <div className="md:flex md:items-center md:justify-start md:pl-[32px] md:pr-[81px] xl:pl-[136px]">
-              <Animated delay={200}>
-                <div className="text-center text-lg italic leading-[133%] md:max-w-[328px] md:text-left md:text-xl md:leading-[27px] xl:text-[22px] xl:leading-[28px]">
-                  We’ve built long-lasting partnerships with the&nbsp;most
-                  ambitious brands across the globe
-                </div>
-              </Animated>
+function Illustration() {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const trigger = {
+        trigger: ref.current,
+        markers: true,
+        start: 'top 25%',
+        end: 'bottom 25%',
+        scrub: true,
+        pin: true,
+      };
+
+      gsap.fromTo(
+        '.__word',
+        {
+          y: '100%',
+        },
+        {
+          y: '0%',
+          scrollTrigger: trigger,
+          stagger: 0.3,
+        }
+      );
+    }, ref);
+
+    return () => {
+      ctx.revert();
+    };
+  }, []);
+
+  return (
+    <Layout>
+      <div ref={ref} className="md:flex md:justify-center">
+        <div className="relative mx-[20px] mb-[40px] flex items-center justify-center pb-[90%] md:static md:mb-0 md:mr-0 md:w-1/2 md:max-w-[448px] md:justify-end md:pb-0">
+          <div className="md:relative md:h-auto md:w-full md:max-w-[448px] md:pb-[100%] xl:max-w-[534px]">
+            <Image className="absolute inset-0" src={Noise} alt="" />
+            <Ill2 />
+          </div>
+        </div>
+
+        <div className="md:flex md:justify-center ">
+          <div className="md:flex md:items-center md:justify-start md:pl-[32px] md:pr-[81px] xl:pl-[136px]">
+            <div className="__text text-center text-lg italic leading-[133%] md:max-w-[328px] md:text-left md:text-xl md:leading-[27px] xl:text-[22px] xl:leading-[28px]">
+              <RevealTextAnimation>
+                We’ve built long-lasting partnerships with the most ambitious
+                brands across the globe
+              </RevealTextAnimation>
             </div>
           </div>
         </div>
-      </Layout>
-    </Section>
+      </div>
+    </Layout>
+  );
+}
+
+function RevealTextAnimation({ children }) {
+  const words = useMemo(() => {
+    return children.split(' ');
+  }, [children]);
+
+  return (
+    <div className="flex flex-wrap justify-center md:justify-start">
+      {words.map((w, i) => (
+        <div key={i} className="overflow-hidden">
+          <span className="__word inline-block translate-y-full whitespace-pre">
+            {w}{' '}
+          </span>
+        </div>
+      ))}
+    </div>
   );
 }
 
@@ -194,10 +231,6 @@ function Ill2() {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      {/* <path
-        d="M200.928 151.999C200.928 177.869 179.864 198.844 153.876 198.844C127.888 198.844 106.824 177.869 106.824 151.999C106.824 126.13 127.888 105.155 153.876 105.155C179.864 105.155 200.928 126.13 200.928 151.999Z"
-        stroke="#19191B"
-      /> */}
       <path
         d="M0.5 152C0.5 235.671 68.3288 303.5 152 303.5C235.671 303.5 303.5 235.671 303.5 152C303.5 68.3288 235.671 0.5 152 0.5C68.3288 0.5 0.5 68.3288 0.5 152Z"
         stroke="#19191B"
@@ -210,247 +243,6 @@ function Ill2() {
           total={range.length}
         />
       ))}
-      {/* <circle
-        cx="181.905"
-        cy="115.453"
-        r="6.2295"
-        fill="#19191B"
-        stroke="#19191B"
-      /> */}
-    </svg>
-  );
-}
-
-function Illustration() {
-  return (
-    <svg
-      className="absolute inset-0"
-      width="100%"
-      viewBox="0 0 304 304"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M200.928 152C200.928 177.869 179.864 198.844 153.876 198.844C127.888 198.844 106.824 177.869 106.824 152C106.824 126.131 127.888 105.156 153.876 105.156C179.864 105.156 200.928 126.131 200.928 152Z"
-        stroke="#19191B"
-      ></path>
-      <path
-        d="M303.5 152C303.5 235.671 235.671 303.5 152 303.5C68.3288 303.5 0.5 235.671 0.5 152C0.5 68.3292 68.3288 0.500488 152 0.500488C235.671 0.500488 303.5 68.3292 303.5 152Z"
-        stroke="#19191B"
-      >
-        {/* <animateTransform
-          attributeName="transform"
-          type="scale"
-          begin="-0.5s"
-          dur="10s"
-          values="1 1; -1 1"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keySplines="0.64 0 0.36 1"
-        /> */}
-      </path>
-      <path
-        opacity="0.833333"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M152 0.000488398C151.998 0.000488398 151.996 0.000488281 151.995 0.000488281C76.7919 0.000488281 15.8281 68.0531 15.8281 152C15.8281 235.947 76.7919 304 151.995 304C151.996 304 151.998 304 152 304V303C151.998 303 151.996 303 151.995 303C77.4448 303 16.8281 235.501 16.8281 152C16.8281 68.4991 77.4448 1.00049 151.995 1.00049C151.996 1.00049 151.998 1.00049 152 1.00049V0.000488398Z"
-        fill="#19191B"
-        style={{ transformOrigin: 'center' }}
-      >
-        <animateTransform
-          attributeName="transform"
-          type="scale"
-          begin="-3.0s"
-          dur="10s"
-          values="1 1; -1 1"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keySplines="0.64 0 0.36 1"
-        />
-      </path>
-      <path
-        opacity="0.666667"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M152 0.000488411C85.5441 0.00391536 31.6719 68.0552 31.6719 152C31.6719 235.945 85.5441 303.997 152 304V303C86.3016 302.997 32.6719 235.623 32.6719 152C32.6719 68.3771 86.3016 1.00392 152 1.00049V0.000488411Z"
-        fill="#19191B"
-        style={{ transformOrigin: 'center' }}
-      >
-        <animateTransform
-          attributeName="transform"
-          type="scale"
-          begin="-3.5s"
-          dur="10s"
-          values="1 1; -1 1"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keySplines="0.64 0 0.36 1"
-        />
-      </path>
-      <path
-        opacity="0.5"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M152 0.000488281C152 0.000488281 152 0.000488281 152 0.000488281C94.2862 0.000488281 47.5 68.0531 47.5 152C47.5 235.947 94.2862 304 152 304V303C123.567 303 97.7166 286.238 78.9313 258.914C60.1491 231.594 48.5 193.798 48.5 152C48.5 110.203 60.1491 72.4063 78.9313 45.0867C97.7166 17.7627 123.567 1.00049 152 1.00049C152 1.00049 152 1.00049 152 1.00049V0.000488281Z"
-        fill="#19191B"
-        style={{ transformOrigin: 'center' }}
-      >
-        <animateTransform
-          attributeName="transform"
-          type="scale"
-          begin="-4.0s"
-          dur="10s"
-          values="1 1; -1 1"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keySplines="0.64 0 0.36 1"
-        />
-      </path>
-      <path
-        opacity="0.333333"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M152 0.000488554C151.998 0.000488372 151.996 0.000488281 151.995 0.000488281C103.025 0.000488281 63.3281 68.0531 63.3281 152C63.3281 235.947 103.025 304 151.995 304C151.996 304 151.998 304 152 304V303C151.998 303 151.996 303 151.995 303C128.013 303 106.118 286.329 90.1617 258.976C74.2202 231.648 64.3281 193.829 64.3281 152C64.3281 110.172 74.2202 72.3523 90.1617 45.0241C106.118 17.6712 128.013 1.00049 151.995 1.00049C151.996 1.00049 151.998 1.00049 152 1.00049V0.000488554Z"
-        fill="#19191B"
-        style={{ transformOrigin: 'center' }}
-      >
-        <animateTransform
-          attributeName="transform"
-          type="scale"
-          begin="-4.5s"
-          dur="10s"
-          values="1 1; -1 1"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keySplines="0.64 0 0.36 1"
-        />
-      </path>
-      <path
-        opacity="0.166667"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M152 0.000488646C111.778 0.0062451 79.1719 68.0566 79.1719 152C79.1719 235.944 111.778 303.994 152 304V303C132.495 302.997 114.542 286.463 101.406 259.048C88.3036 231.704 80.1719 193.858 80.1719 152C80.1719 110.143 88.3036 72.2965 101.406 44.9523C114.542 17.5379 132.495 1.00337 152 1.00049V0.000488646Z"
-        fill="#19191B"
-        style={{ transformOrigin: 'center' }}
-      >
-        <animateTransform
-          attributeName="transform"
-          type="scale"
-          begin="-5.0s"
-          dur="10s"
-          values="1 1; -1 1"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keySplines="0.64 0 0.36 1"
-        />
-      </path>
-      <path
-        d="M0.5 152C0.5 235.671 68.3288 303.5 152 303.5C235.671 303.5 303.5 235.671 303.5 152C303.5 68.3292 235.671 0.500488 152 0.500488C68.3288 0.500488 0.5 68.3292 0.5 152Z"
-        stroke="#19191B"
-      />
-      <path
-        opacity="0.833333"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M152 0.000488398C152.001 0.000488398 152.003 0.000488281 152.005 0.000488281C227.208 0.000488281 288.171 68.0531 288.171 152C288.171 235.947 227.208 304 152.005 304C152.003 304 152.001 304 152 304V303C152.001 303 152.003 303 152.005 303C226.555 303 287.171 235.501 287.171 152C287.171 68.4991 226.555 1.00049 152.005 1.00049C152.003 1.00049 152.001 1.00049 152 1.00049V0.000488398Z"
-        fill="#19191B"
-        style={{ transformOrigin: 'center' }}
-      >
-        <animateTransform
-          attributeName="transform"
-          type="scale"
-          begin="-0.5s"
-          dur="10s"
-          values="1 1; -1 1"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keySplines="0.64 0 0.36 1"
-        />
-      </path>
-
-      <path
-        opacity="0.666667"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M152 0.000488411C218.455 0.00391536 272.328 68.0552 272.328 152C272.328 235.945 218.455 303.997 152 304V303C217.698 302.997 271.328 235.623 271.328 152C271.328 68.3771 217.698 1.00392 152 1.00049V0.000488411Z"
-        fill="#19191B"
-        style={{ transformOrigin: 'center' }}
-      >
-        <animateTransform
-          attributeName="transform"
-          type="scale"
-          begin="-1.0s"
-          dur="10s"
-          values="1 1; -1 1"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keySplines="0.64 0 0.36 1"
-        />
-      </path>
-      <path
-        opacity="0.5"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M152 0.000488281C152 0.000488281 152 0.000488281 152 0.000488281C209.713 0.000488281 256.5 68.0531 256.5 152C256.5 235.947 209.713 304 152 304V303C180.432 303 206.283 286.238 225.068 258.914C243.85 231.594 255.5 193.798 255.5 152C255.5 110.203 243.85 72.4063 225.068 45.0867C206.283 17.7627 180.432 1.00049 152 1.00049C152 1.00049 152 1.00049 152 1.00049V0.000488281Z"
-        fill="#19191B"
-        style={{ transformOrigin: 'center' }}
-      >
-        <animateTransform
-          attributeName="transform"
-          type="scale"
-          begin="-1.5s"
-          dur="10s"
-          values="1 1; -1 1"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keySplines="0.64 0 0.36 1"
-        />
-      </path>
-      <path
-        opacity="0.333333"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M152 0.000488554C152.001 0.000488372 152.003 0.000488281 152.005 0.000488281C200.974 0.000488281 240.671 68.0531 240.671 152C240.671 235.947 200.974 304 152.005 304C152.003 304 152.001 304 152 304V303C152.001 303 152.003 303 152.005 303C175.986 303 197.882 286.329 213.838 258.976C229.779 231.648 239.671 193.829 239.671 152C239.671 110.172 229.779 72.3523 213.838 45.0241C197.882 17.6712 175.986 1.00049 152.005 1.00049C152.003 1.00049 152.001 1.00049 152 1.00049V0.000488554Z"
-        fill="#19191B"
-        style={{ transformOrigin: 'center' }}
-      >
-        <animateTransform
-          attributeName="transform"
-          type="scale"
-          begin="-2.0s"
-          dur="10s"
-          values="1 1; -1 1"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keySplines="0.64 0 0.36 1"
-        />
-      </path>
-      <path
-        opacity="0.166667"
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M152 0.000488646C192.222 0.0062451 224.828 68.0566 224.828 152C224.828 235.944 192.222 303.994 152 304V303C171.505 302.997 189.457 286.463 202.593 259.048C215.696 231.704 223.828 193.858 223.828 152C223.828 110.143 215.696 72.2965 202.593 44.9523C189.457 17.5379 171.505 1.00337 152 1.00049V0.000488646Z"
-        fill="#19191B"
-        style={{ transformOrigin: 'center' }}
-      >
-        <animateTransform
-          attributeName="transform"
-          type="scale"
-          begin="-2.5s"
-          dur="10s"
-          values="1 1; -1 1"
-          repeatCount="indefinite"
-          calcMode="spline"
-          keySplines="0.64 0 0.36 1"
-        />
-      </path>
-      <circle
-        cx="181.905"
-        cy="115.454"
-        r="6.2295"
-        fill="#19191B"
-        stroke="#19191B"
-      />
     </svg>
   );
 }

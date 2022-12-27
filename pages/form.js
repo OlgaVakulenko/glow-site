@@ -4,5 +4,9 @@ import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 export default FormPage;
 
 FormPage.getLayout = function getLayout(page) {
-  return <DefaultLayout page="form">{page}</DefaultLayout>;
+  return (
+    <DefaultLayout page="form" showFormButton={false}>
+      {page}
+    </DefaultLayout>
+  );
 };

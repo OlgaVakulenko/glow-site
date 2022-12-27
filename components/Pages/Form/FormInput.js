@@ -1,7 +1,23 @@
-import { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
+import cx from 'clsx';
 
 const FormInput = forwardRef(
-  ({ value, onChange, name, isVisible, _ref, ...props }, ref) => {
+  (
+    {
+      value,
+      onChange,
+      name,
+      isVisible,
+      _ref,
+      isValid = (value) => value.trim(),
+      onBlur,
+      errorText = 'This field is required',
+      ...props
+    },
+    ref
+  ) => {
+    const [isDirty, setIsDirty] = useState(false);
+
     useEffect(() => {
       const node = _ref && _ref.current;
       if (isVisible && node) {
@@ -9,16 +25,40 @@ const FormInput = forwardRef(
       }
     }, [isVisible, _ref]);
 
+    const isError = isDirty && !isValid(value);
+
     return (
-      <div className="w-full">
+      <div className="relative w-full">
         <input
           ref={ref}
           {...props}
-          className="w-full border-b border-black text-center text-body-m !leading-[48px] focus-visible:outline-none"
+          className={cx(
+            'w-full border-b border-black text-center text-body-m !leading-[48px] placeholder:text-black focus-visible:outline-none',
+            {
+              '!border-[#E33230]': isError,
+            }
+          )}
           value={value}
-          onChange={onChange}
+          onChange={(event) => {
+            console.log('on change');
+            if (onChange) {
+              onChange(event);
+            }
+          }}
+          onBlur={(event) => {
+            if (!isDirty) {
+              setIsDirty(true);
+            }
+
+            if (onBlur) {
+              onBlur(event);
+            }
+          }}
           name={name}
         />
+        {isError && (
+          <div className="text-body-m text-[#E33230]">{errorText}</div>
+        )}
       </div>
     );
   }

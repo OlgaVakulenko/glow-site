@@ -20,6 +20,8 @@ const links = [
 ];
 
 function Footer(props) {
+  const { showFormButton = true } = props;
+
   return (
     <footer className="bg-black py-[30px] pt-[61px] text-lblue md:pt-[160px] xl:pt-[176px]">
       <Layout>
@@ -35,11 +37,11 @@ function Footer(props) {
           >
             Discovery Call
           </BigButton>
-          <BigButton href="/form" variant="footer" className="">
-            Fill out the form
-          </BigButton>
-
-          {/* </div> */}
+          {showFormButton && (
+            <BigButton href="/form" variant="footer" className="">
+              Fill out the form
+            </BigButton>
+          )}
         </div>
         <div className="mb-[38px] mt-[68px] font-glow text-[32px] font-medium leading-[100%] md:mb-[112px] md:mt-[110px] md:pl-2 md:text-[60px] xl:mb-[120px] xl:text-[64px]">
           Let’s make

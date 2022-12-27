@@ -1,5 +1,6 @@
 import Animated from './Animated';
 import cx from 'clsx';
+import Head from 'next/head';
 
 export default function PageHeading({ className, children }) {
   return (

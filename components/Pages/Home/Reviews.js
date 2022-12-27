@@ -223,7 +223,7 @@ function ClutchRating({ rating = 5, className = '' }) {
 function ReviewSlide({ review }) {
   return (
     <Layout className="h-full">
-      <div className="flex h-full flex-col">
+      <div className="flex flex-col">
         <div className="mb-9 flex items-center justify-between md:mb-10">
           <div className="flex">
             <div className="relative z-[1] h-[64px] w-[64px] rounded-full bg-black">

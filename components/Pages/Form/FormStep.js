@@ -5,6 +5,7 @@ import TypingAnimation from './TypingAnimation';
 import gsap from '../../../dist/gsap';
 import Typewriter from 'typewriter-effect';
 import { useMountedRef } from '../../../lib/utils';
+import { useMediaAtom } from '../../../lib/agent';
 
 export default function FormStep({
   text,
@@ -18,12 +19,17 @@ export default function FormStep({
   onBlur,
   ...inputProps
 }) {
+  const media = useMediaAtom();
   const [inputRef, setRef, isUpdated] = useMountedRef();
   const isActive = currentIndex >= index;
   const [isInputVisible, setIsInputVisible] = useState(false);
   const [queue, setQueue] = useState({
     0: true,
   });
+
+  const _sentenceIndex = useMemo(() => {
+    return inputSentenceIndex;
+  }, [inputSentenceIndex]);
 
   useEffect(() => {
     if (currentIndex === index + 1) {
@@ -66,6 +72,14 @@ export default function FormStep({
   }, [index, isActive, inputRef, isUpdated]);
 
   const sentences = useMemo(() => {
+    // if (media === 'mobile') {
+    //   if (Array.isArray(text)) {
+    //     return [text.join(' ')];
+    //   }
+
+    //   return [text];
+    // }
+
     if (Array.isArray(text)) {
       return text;
     }
@@ -84,8 +98,8 @@ export default function FormStep({
             ['ml-auto max-w-[1008px]']: flavor === 'right',
           })}
         >
-          <span className="flex w-full flex-wrap whitespace-pre-wrap">
-            <span className="font-glow text-heading-h1">
+          <span className="flex w-full flex-col flex-wrap whitespace-pre-wrap md:flex-row">
+            <span className="font-glow text-3xl md:text-heading-h1">
               <Typewriter
                 options={{
                   cursor: '',
@@ -99,7 +113,7 @@ export default function FormStep({
                         ...q,
                         [i + 1]: true,
                       }));
-                      if (i === inputSentenceIndex) {
+                      if (i === _sentenceIndex) {
                         setIsInputVisible(true);
                       }
                     })
@@ -107,12 +121,12 @@ export default function FormStep({
                 }}
               />
             </span>
-            &nbsp;
-            {inputSentenceIndex === i && (
+            {_sentenceIndex === i && (
               <span
                 className={cx(
-                  'float-right grow pl-4 transition-opacity duration-300',
+                  'float-right  grow transition-opacity duration-300 md:mb-0 md:pl-4',
                   {
+                    'mb-7': _sentenceIndex === sentences.length - 1,
                     ['opacity-0']: !isInputVisible,
                   }
                 )}

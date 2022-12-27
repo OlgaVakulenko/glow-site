@@ -32,7 +32,7 @@ function Disclosure({ title, text }) {
   const [isOpen, setIsOpen] = useState(false);
   const [height, setHeight] = useState(0);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const node = ref.current;
     if (node) {
       node.style.overflow = 'visible';
@@ -53,7 +53,7 @@ function Disclosure({ title, text }) {
           setIsOpen((open) => !open);
         }}
       >
-        <div className="text-left text-xl font-medium leading-[30px]">
+        <div className="pr-4 text-left text-xl font-medium leading-[30px]">
           {title}
         </div>
         <div>
@@ -75,12 +75,12 @@ function Disclosure({ title, text }) {
 }
 
 function P({ children }) {
-  return <p className="mb-6">{children}</p>;
+  return <p className="mb-6 first:mt-4 md:first:mt-0">{children}</p>;
 }
 
 export default function Faq() {
   return (
-    <Layout>
+    <Layout className="!max-w-[1006px]">
       <div className="mb-14 text-center font-glow text-heading-h2">
         Frequently Asked Questions
       </div>
@@ -139,23 +139,6 @@ export default function Faq() {
                 We also perform brainstorming sessions with specialists from
                 other Glow teams to find best solutions for the complex product
                 challenges.
-              </P>
-            </>
-          }
-        />
-        <Disclosure
-          title="How does our cooperation start?"
-          text={
-            <>
-              <P>
-                We start with an intro call. After the call and review of all
-                shared materials, we create a project estimation with determined
-                time range, cost, and team size.
-              </P>
-              <P>
-                After the project is given a green light, we hold an onboarding
-                call with UX Designer and Project manager to get in detail on
-                the work and payment processes.
               </P>
             </>
           }

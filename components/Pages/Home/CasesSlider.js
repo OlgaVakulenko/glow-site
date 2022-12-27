@@ -7,7 +7,7 @@ import { EffectCreative } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
 // import { Swiper, SwiperSlide } from 'swiper/react';
-import { mediaAtom, useMedia } from '../../../lib/agent';
+import { mediaAtom, useMedia, useMediaAtom } from '../../../lib/agent';
 import { addLeadingZero, useIsClient } from '../../../lib/utils';
 import Image from '../../Image';
 import Layout from '../../Layout';
@@ -172,9 +172,47 @@ function CaseSlide({ item, index }) {
 }
 
 function CaseItem({ image, title, columns = [], className = '' }) {
+  const media = useMediaAtom();
+  const ref = useRef(null);
+
+  useEffect(() => {
+    if (media === 'mobile') return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        ref.current,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: ref.current,
+            scrub: true,
+            start: 'top 85%',
+            end: 'bottom 85%',
+          },
+        }
+      );
+    }, ref);
+
+    return () => {
+      ctx.revert();
+    };
+  }, [media]);
+
   return (
-    <Link href="#" className={cx('group pb-10 xl:pb-[88px]', className)}>
-      <div className="mb-8 overflow-hidden rounded-3xl">
+    <Link
+      ref={ref}
+      href="#"
+      className={cx('group pb-10 xl:pb-[88px]', className)}
+    >
+      <div
+        className="mb-8 overflow-hidden rounded-3xl group-hover:rounded-none"
+        style={{
+          transition: 'border-radius .5s',
+        }}
+      >
         <Image
           src={image}
           alt=""
@@ -272,10 +310,10 @@ export function CasesSlider3() {
 
   return (
     <Layout className="mb-[56px] ">
-      <Animated className="-mx-8 flex pb-[64px] xl:-mx-[56px]">
+      <div className="-mx-8 flex pb-[64px] xl:-mx-[56px]">
         <CasesRow cases={c1} />
         <CasesRow cases={c2} className="pt-[113px]" />
-      </Animated>
+      </div>
       <div className="border-b border-black"></div>
       {/* <div className="-mx-8 flex flex-wrap pb-[113px] xl:-mx-[56px]">
 

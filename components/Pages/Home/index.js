@@ -12,7 +12,7 @@ import Niches from './Niches';
 import OurClients from './OurClients';
 import OutProjectsLink from './OurProjectsLink';
 import Reviews from './Reviews';
-import Showreel from './Showreel';
+// import Showreel from './Showreel';
 import Workflow from './Workflow';
 import dynamic from 'next/dynamic';
 import { useSetAtom } from 'jotai';
@@ -93,11 +93,6 @@ function RollingWords({ words, interval = 16500 }) {
     if (!v || !root.current) return;
     if (!showClass) return;
 
-    // if (showClass) {
-    //   console.log(v?.word, vPref?.word);
-    //   console.log('From', v?.width, 'To', vPref?.width);
-    // }
-    // console.log(v.width);
     const ctx = gsap.context(() => {
       const timeline = gsap.fromTo(
         root.current,
@@ -159,8 +154,6 @@ export default function Home() {
   const changeBgRef = useRef(null);
   const trigger = useRef(null);
   const refScrollContainer = useRef(null);
-
-  // useHeaderTheme({ ref: changeBgRef, theme: 'white' });
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -260,9 +253,9 @@ export default function Home() {
         </Layout>
       </div>
       <div ref={changeBgRef} className="bg-white">
-        <div>
+        {/* <div>
           <Showreel />
-        </div>
+        </div> */}
         <Niches />
         {/* <CasesSlider2 /> */}
         <CasesSlider3 />
