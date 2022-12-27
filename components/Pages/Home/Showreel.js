@@ -104,7 +104,6 @@ export default function Showreel() {
             scrub: true,
             start: 'top bottom',
             end: 'bottom bottom',
-            // markers: true,
           },
           yPercent: 0,
           ease: 'linear',

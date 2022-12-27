@@ -43,9 +43,6 @@ export default function FormStep({
   useEffect(() => {
     if (index === 0) return;
     if (!isActive) {
-      if (index === 2) {
-        console.log('not active');
-      }
       return;
     }
     const node = inputRef.current;

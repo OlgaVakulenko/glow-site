@@ -53,9 +53,7 @@ export default function SliderProgress({ className = '', mode = 'progress' }) {
         left = (trackWidth - thumbWidth) * progress;
       }
       if (mode === 'realIndex') {
-        // console.log(swiper.activeIndex);
         left = thumbWidth * swiper.realIndex;
-        // console.log(thumbWidth);
       }
       return left;
     }

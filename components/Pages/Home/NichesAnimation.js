@@ -134,7 +134,6 @@ export default function NichesAnimation() {
           start: 'top 70%',
           end: 'bottom 50%',
           scrub: true,
-          // markers: true,
         },
         ease: 'power2.inOut',
         rotate: '-20deg',
@@ -146,7 +145,6 @@ export default function NichesAnimation() {
           start: 'top 70%',
           end: 'bottom 50%',
           scrub: true,
-          // markers: true,
         },
         ease: 'power2.inOut',
         opacity: 0,
@@ -160,7 +158,6 @@ export default function NichesAnimation() {
           start: 'top 70%',
           end: 'bottom 50%',
           scrub: true,
-          // markers: true,
         },
         ease: 'power2.inOut',
         opacity: 1,
@@ -172,7 +169,6 @@ export default function NichesAnimation() {
         start: 'top 35%',
         end: 'bottom 80%',
         scrub: true,
-        // markers: true,
       };
       gsap.to('.__left-text', {
         scrollTrigger: textTrigger,

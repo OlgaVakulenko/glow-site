@@ -229,7 +229,6 @@ export const useHeaderTheme = ({ ref, theme = '' }) => {
   const setHeaderTheme = useSetAtom(headerTheme);
 
   useEffect(() => {
-    // return;
     const onEnter = () => {
       setHeaderTheme((c) => [...c, theme]);
     };
@@ -284,55 +283,6 @@ export const useHeaderTheme = ({ ref, theme = '' }) => {
   }, []);
 
   return;
-
-  return (
-    <div
-      className="absolute top-0 z-[999] w-full"
-      ref={(node) => {
-        if (!node) return;
-        // console.log('ref init', node);
-        if (!initRef.current) {
-          // console.log('ref init inside');
-          const offsetTop = (node) => {
-            const rect = node.getBoundingClientRect();
-            const distance = rect.top + window.pageYOffset;
-            return distance;
-          };
-          let h;
-
-          const onScroll = () => {
-            console.log('scroll');
-            if (!h) {
-              h = document.querySelector('.first-header');
-            }
-            if (!h) return;
-
-            const h1 = offsetTop(h);
-            const h2 = offsetTop(ref.current);
-            // console.log(h1, h2);
-            const distance = h1 - h2;
-            // console.log('distance', distance);
-            // console.log(node);
-            gsap.to(node, {
-              duration: 0,
-              y: distance,
-              force3D: true,
-            });
-          };
-
-          window.addEventListener('scroll', onScroll);
-
-          onUnmount.current.push(() => {
-            window.removeEventListener('scroll', onScroll);
-          });
-        }
-
-        initRef.current = true;
-      }}
-    >
-      <Header isFixed={false} overrideTheme={theme} />
-    </div>
-  );
 };
 
 export default function Header({
@@ -348,7 +298,6 @@ export default function Header({
   const menuId = useId();
   const { lock, release } = useBodyLock();
   const scrollDirection = useScrollDirection('backward');
-  console.log(scrollDirection);
 
   useEffect(() => {
     if (isOpen) {

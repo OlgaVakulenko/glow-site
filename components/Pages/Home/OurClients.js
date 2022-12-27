@@ -111,7 +111,6 @@ function Illustration() {
     const ctx = gsap.context(() => {
       const trigger = {
         trigger: ref.current,
-        markers: true,
         start: 'top 25%',
         end: 'bottom 25%',
         scrub: true,

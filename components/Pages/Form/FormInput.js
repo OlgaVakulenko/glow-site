@@ -40,7 +40,6 @@ const FormInput = forwardRef(
           )}
           value={value}
           onChange={(event) => {
-            console.log('on change');
             if (onChange) {
               onChange(event);
             }

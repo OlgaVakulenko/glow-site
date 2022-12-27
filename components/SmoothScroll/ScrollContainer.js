@@ -7,12 +7,12 @@ import { useSetAtom } from 'jotai';
 import { smoothScrollAtom } from '../../atoms/scroll';
 import { atom } from 'jotai';
 import { useRouter } from 'next/router';
+import { useMediaAtom } from '../../lib/agent';
 
 export const ScrollSmootherMounted = atom(false);
 
 export default function ScrollContainer({ children }) {
-  const router = useRouter();
-  const [isTransition, setIsTransition] = useState(false);
+  const media = useMediaAtom();
   const setMounted = useSetAtom(ScrollSmootherMounted);
   const updateScrollPosition = useSetAtom(smoothScrollAtom);
   const viewportRef = useRef(null);
@@ -20,6 +20,13 @@ export default function ScrollContainer({ children }) {
   const smootherRef = useRef(null);
 
   useEffect(() => {
+    if (media === 'mobile') {
+      setMounted(true);
+      return () => {
+        setMounted(false);
+      };
+    }
+
     smootherRef.current = new ScrollSmoother({
       wrapper: viewportRef.current,
       content: ref.current,
@@ -39,7 +46,7 @@ export default function ScrollContainer({ children }) {
         smootherRef.current.kill();
       }
     };
-  }, [updateScrollPosition, setMounted]);
+  }, [media, updateScrollPosition, setMounted]);
 
   //scrolltrigger does not sometimes refresh when scrollsmoother is enabled
   useEffect(() => {
@@ -49,7 +56,6 @@ export default function ScrollContainer({ children }) {
         const newHeight = document.body.style.height;
         if (height !== newHeight) {
           ScrollTrigger.refresh();
-          console.log('static refresh');
         }
         height = newHeight;
       }, 100);
@@ -69,89 +75,15 @@ export default function ScrollContainer({ children }) {
     }
   }, []);
 
-  // const defaultPropsRef = useRef(Link.defaultProps);
-  // const hasRun = useRef(false);
-  // if (!hasRun.current) {
-  //   Link.defaultProps = { ...Link.defaultProps, scroll: false };
-  //   hasRun.current = true;
-  // }
-
-  // useEffect(() => {
-  //   const defaultProps = defaultPropsRef.current;
-
-  //   return () => {
-  //     Link.defaultProps = defaultProps;
-  //   };
-  // }, []);
-
   useEffect(() => {
     window.__scrollTo = (...args) => {
-      console.log('$scrollTo call');
       smootherRef.current.scrollTo(args);
     };
 
     return () => {
       window.__scrollTo = undefined;
     };
-    return;
-    const scrollTo = window.scrollTo;
-    window.scrollTo = function (...args) {
-      console.log('native function call', this.caller);
-      if (typeof args[0] === 'number' && typeof args[1] === 'number') {
-        //x, y options
-        smootherRef.current.scrollTo(args[1]);
-        return;
-      } else {
-        if (typeof args[0] === 'object') {
-          const { top = 0 } = args;
-          smootherRef.current.scrollTo(top);
-        }
-        return;
-      }
-
-      //call native function with invalid arguments to trigger appropriate error
-      return scrollTo(args);
-    };
-
-    return () => {
-      window.scrollTo = scrollTo;
-    };
   }, []);
-  // const scrollPositions = useRef([]);
-  // const
-  useEffect(() => {
-    return;
-    let scrollTo = 0;
-    // const onStart = () => {
-    //   // scrollPositions.current.push(window.scrollY);
-    //   // setScrollPositions((sc) => [...sc, window.scrollY]);
-    // };
-
-    const onComplete = () => {
-      if (smootherRef.current) {
-        smootherRef.current.scrollTo(scrollTo);
-        scrollTo = 0;
-      }
-    };
-
-    // router.events.on('routeChangeStart', onStart);
-    router.events.on('routeChangeComplete', onComplete);
-
-    // router.beforePopState((obj) => {
-    //   if (obj.as !== router.asPath) {
-    //     scrollTo = scrollPositions.current[scrollPositions.current.length - 1];
-    //     scrollPositions.current.pop();
-    //   }
-
-    //   return true;
-    // });
-
-    return () => {
-      // router.events.off('routeChangeStart', onStart);
-      router.events.off('routeChangeComplete', onComplete);
-      // router.beforePopState(() => true);
-    };
-  }, [router.events]);
 
   return (
     <div ref={viewportRef}>

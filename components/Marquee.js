@@ -18,7 +18,7 @@ const useSafeEffect = (cb, deps) => {
     try {
       return cb();
     } catch (e) {
-      console.log(e);
+      // console.log(e);
     }
   }, deps);
 };

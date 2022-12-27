@@ -98,8 +98,6 @@ export function ParallaxFooter(props) {
         '.__content',
         {
           yPercent: -80,
-          // translateY: '-80%',
-          // scale: 0.98,
         },
         {
           scrollTrigger: {
@@ -107,11 +105,9 @@ export function ParallaxFooter(props) {
             scrub: true,
             start: 'top bottom',
             end: (e) => {
-              // console.log('E CALL');
               if (wrapperRef.current?.offsetHeight > window.innerHeight) {
                 return '75% bottom';
               }
-              // console.log(wrapperRef.current.offsetHeight, window.innerHeight);
               return 'bottom bottom';
             },
           },

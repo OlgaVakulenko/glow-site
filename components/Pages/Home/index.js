@@ -216,9 +216,7 @@ export default function Home() {
             start: 'top 90%',
             end: '+=300',
             scrub: true,
-            // markers: true,
           },
-          // backgroundColor: '#F3F2F4',
           opacity: 1,
           ease: 'none',
         }
