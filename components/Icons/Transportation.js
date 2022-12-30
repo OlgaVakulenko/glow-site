@@ -2,17 +2,22 @@ import { useEffect, useRef, useState, useId } from 'react';
 import cx from 'clsx';
 import LinearGradient from './animations';
 import { circleProps as cProps, lineProps as lProps } from './animations';
-// import KUTE from 'kute.js';
 
 export function Transportation2({ isReady = true }) {
   const [isMounted, setIsMounted] = useState(false);
 
   const config = {
+    1: {
+      delay: '0.5s',
+    },
+    2: {
+      delay: '0.3s',
+    },
     11: {
-      delay: '1.4s',
+      delay: '1.8s',
     },
     22: {
-      delay: '1.4s',
+      delay: '1.7s',
     },
   };
 
@@ -36,8 +41,10 @@ export function Transportation2({ isReady = true }) {
       offset,
       to,
       delay = 0,
-      duration = '2s',
+      duration = '1.5s',
     } = options || {};
+
+    delay = config[id]?.delay || delay;
 
     return {
       className: cx('svg-line-anim', isReady && 'ready'),
@@ -87,7 +94,7 @@ export function Transportation2({ isReady = true }) {
           array: 400,
           offset: 400,
           to: 325,
-          delay: '1.4s',
+          delay: '1.1s',
           // duration: '5s',
         })}
         d="M10.7782 72.3537C11.4336 76.1531 13.6929 79.189 17.4012 81.253C21.1094 83.3171 26.1788 84.3605 32.2615 84.3116C38.3443 84.2627 45.2964 83.1227 52.6408 80.9698C59.9852 78.8169 67.5481 75.702 74.8106 71.839"
@@ -98,6 +105,10 @@ export function Transportation2({ isReady = true }) {
         stroke="#E4E4E4"
       />
       {/** 1 */}
+      <path
+        d="M98.0798 55.2895C87.4155 43.1132 74.4307 32.9027 61.982 26.9044C49.5332 20.906 38.6401 19.6111 31.6992 23.3044C24.7582 26.9978 22.3379 35.3769 24.9707 46.5985C27.6035 57.82 35.0738 70.9648 45.738 83.1412"
+        stroke="#E4E4E4"
+      />
       <path
         {...lineProps(1, { k: 200 })}
         d="M98.0798 55.2895C87.4155 43.1132 74.4307 32.9027 61.982 26.9044C49.5332 20.906 38.6401 19.6111 31.6992 23.3044C24.7582 26.9978 22.3379 35.3769 24.9707 46.5985C27.6035 57.82 35.0738 70.9648 45.738 83.1412"

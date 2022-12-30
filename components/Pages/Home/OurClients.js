@@ -145,7 +145,7 @@ function Illustration() {
   return (
     <Layout>
       <div ref={ref} className="md:flex md:justify-center">
-        <div className="relative mx-[20px] mb-[40px] flex items-center justify-center pb-[90%] md:static md:mb-0 md:mr-0 md:w-1/2 md:max-w-[448px] md:justify-end md:pb-0">
+        <div className="relative mx-[20px] mb-[40px] flex items-center justify-center pb-[90%] md:static md:mb-0 md:mr-0 md:w-1/2 md:max-w-[448px] md:justify-end md:pb-0 xl:max-w-[534px]">
           <div className="md:relative md:h-auto md:w-full md:max-w-[448px] md:pb-[100%] xl:max-w-[534px]">
             <Image className="absolute inset-0" src={Noise} alt="" />
             <Ill2 />

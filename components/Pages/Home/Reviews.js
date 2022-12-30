@@ -1,26 +1,27 @@
 import cx from 'clsx';
 import { useAtom } from 'jotai';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Autoplay } from 'swiper';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { mediaAtom } from '../../../lib/agent';
 import Layout from '../../Layout';
 import SliderProgress from '../../SliderProgress';
-import Balancer from 'react-wrap-balancer';
+import CursorDrag from './assets/cursor-drag.png';
+import debounce from 'lodash.debounce';
 
 const reviews = [
   {
-    avatar: '/reviews/r_1.png',
-    companyAvatar: '/reviews/rc_1.svg',
-    name: 'Eric Zellhart',
-    company: 'VP Product, LiquidSpace',
+    avatar: '/reviews/r_3.png',
+    companyAvatar: '/reviews/rc_3.svg',
+    name: 'Micha Mazaheri',
+    company: 'Co-Founder, Electric Beast O\u00dc',
     text: (
       <>
-        Glow Design provided UI/UX design for a&nbsp;office space provider and
-        has since expanded their role to include design updates for the
-        site&apos;s front- and backend as well as social media visuals and
-        animations.
+        Glow Design Agency designed an app for a&nbsp;self-service car rental
+        app. They provided a&nbsp;competitor&apos;s analysis, wireframes, and UI
+        concepts for all screens. During the final stages, they presented
+        a&nbsp;prototype.
       </>
     ),
     rating: 5,
@@ -42,31 +43,31 @@ const reviews = [
     link: '#',
   },
   {
-    avatar: '/reviews/r_3.png',
-    companyAvatar: '/reviews/rc_3.svg',
-    name: 'Micha Mazaheri',
-    company: 'Co-Founder, Electric Beast O\u00dc',
+    avatar: '/reviews/r_1.png',
+    companyAvatar: '/reviews/rc_1.svg',
+    name: 'Eric Zellhart',
+    company: 'VP Product, LiquidSpace',
     text: (
       <>
-        Glow Design Agency designed an app for a&nbsp;self-service car rental
-        app. They provided a&nbsp;competitor&apos;s analysis, wireframes, and UI
-        concepts for all screens. During the final stages, they presented
-        a&nbsp;prototype.
+        Glow Design provided UI/UX design for a&nbsp;office space provider and
+        has since expanded their role to include design updates for the
+        site&apos;s front- and backend as well as social media visuals and
+        animations.
       </>
     ),
     rating: 5,
     link: '#',
   },
   {
-    avatar: '/reviews/r_4.png',
-    companyAvatar: '/reviews/rc_4.svg',
-    name: 'Tim Bogza',
-    company: 'CEO & Founder, Digital Agency',
+    avatar: '/reviews/r_10.png',
+    companyAvatar: '/reviews/rc_10.svg',
+    name: 'Max Grollmann',
+    company: 'Managing Director',
     text: (
       <>
-        Glow Design Agency designed the&nbsp;UX/UI of a&nbsp;digital
-        agency&apos;s new SaaS. A&nbsp;team of two worked to design
-        a&nbsp;platform that automates the RFP process.&nbsp;
+        Glow Design Agency provided UI and UX design services for e-cars
+        charging market company. They were tasked with designing the UX and UI
+        of the app&apos;s prototype.
       </>
     ),
     rating: 5,
@@ -109,9 +110,25 @@ const reviews = [
     company: 'CTO, E-Commerce Platform',
     text: (
       <>
-        Glow Design Agency was hired by an e-commerce platform for their UI/UX
-        design services. They redesigned the client&apos;s website and provided
-        support to the internal design team.
+        Glow was hired by an e-commerce platform for their UI/UX design
+        services. They redesigned website and provided support. After the new
+        website was launched, the client saw a significant increase in
+        conversions.
+      </>
+    ),
+    rating: 5,
+    link: '#',
+  },
+  {
+    avatar: '/reviews/r_9.png?v=1',
+    companyAvatar: '/reviews/rc_9.svg',
+    name: 'Jacob Berg',
+    company: 'CTO, Social Curator',
+    text: (
+      <>
+        Glow provides ongoing web design for a social media services firm. The
+        team provided layout prototypes, an admin dashboard. The team
+        communicated effectively despite having different timezones.
       </>
     ),
     rating: 5,
@@ -125,37 +142,25 @@ const reviews = [
     text: (
       <>
         An online education company hired Glow Design Agency to create the
-        designs for a&nbsp;new website and the first version of its platform.
+        designs for a new website and the first version of its platform. The
+        team was responsive to feedback, which was a significant part of why
+        they quickly moved forward.
       </>
     ),
     rating: 5,
     link: '#',
   },
   {
-    avatar: '/reviews/r_9.png?v=1',
-    companyAvatar: '/reviews/rc_9.svg',
-    name: 'Jacob Berg',
-    company: 'CTO, Social Curator',
+    avatar: '/reviews/r_4.png',
+    companyAvatar: '/reviews/rc_4.svg',
+    name: 'Tim Bogza',
+    company: 'CEO & Founder, Digital Agency',
     text: (
       <>
-        Glow Design Agency provides ongoing web design for a&nbsp;social media
-        services firm. The team provided layout prototypes, an admin dashboard,
-        and a&nbsp;custom-built gallery feature.
-      </>
-    ),
-    rating: 5,
-    link: '#',
-  },
-  {
-    avatar: '/reviews/r_10.png',
-    companyAvatar: '/reviews/rc_10.svg',
-    name: 'Max Grollmann',
-    company: 'Managing Director',
-    text: (
-      <>
-        Glow Design Agency provided UI and UX design services for e-cars
-        charging market company. They were tasked with designing the UX and UI
-        of the app&apos;s prototype.
+        Glow Design Agency designed the UX/UI of a digital agency&apos;s new
+        SaaS. A team of two worked to design a platform that automates the RFP
+        process. While the product is still in development, Glow has delivered
+        promising work.
       </>
     ),
     rating: 5,
@@ -252,38 +257,137 @@ function ReviewSlide({ review }) {
   );
 }
 
+function DragCursor({ x, y }) {
+  return (
+    <div
+      className="position pointer-events-none absolute top-0 left-0 z-10 flex h-[140px] w-[140px] items-center justify-between rounded-full bg-brand p-4 text-[14px] font-medium uppercase leading-[19px] tracking-[0.03em]"
+      style={{
+        transform: `translate(${x - 70}px, ${y - 140}px)`,
+      }}
+    >
+      <svg
+        width="11"
+        height="18"
+        viewBox="0 0 11 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M10 17L2 9L10 1" stroke="black" strokeWidth="2" />
+      </svg>
+      DRAG
+      <svg
+        width="11"
+        height="18"
+        viewBox="0 0 11 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M1 1L9 9L1 17" stroke="black" strokeWidth="2" />
+      </svg>
+    </div>
+  );
+}
+
+function DragCursorContainer({ children }) {
+  const ref = useRef();
+  const [show, setShow] = useState(false);
+  const [pos, setPos] = useState({ x: 0, y: 0 });
+  const [offsetTop, setOffsetTop] = useState(0);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
+    const setRect = debounce(() => {
+      const rect = node.getBoundingClientRect();
+      console.log(rect);
+      setOffsetTop(rect.y);
+    }, 250);
+
+    setRect();
+    window.addEventListener('scroll', setRect);
+
+    return () => {
+      window.removeEventListener('scroll', setRect);
+    };
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className="relative cursor-none"
+      onMouseEnter={() => {
+        setShow(true);
+      }}
+      onMouseLeave={() => {
+        setShow(false);
+      }}
+      onMouseMove={(e) => {
+        // if (e.target !== ref.current) return;
+        // console.log(e.target);
+        const x = e.clientX;
+        const y = e.nativeEvent.screenY - offsetTop;
+
+        console.log(x, y, 'top', offsetTop);
+
+        setPos({ x, y });
+      }}
+    >
+      {show && <DragCursor x={pos.x} y={pos.y} />}
+      {children}
+    </div>
+  );
+}
+
+function DragCursorContainer2({ children }) {
+  console.log(`url('${CursorDrag.src}'), pointer`);
+
+  return (
+    <div
+      style={{
+        cursor: `url('${CursorDrag.src}'), pointer`,
+      }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function Reviews() {
   const [media] = useAtom(mediaAtom);
 
   return (
-    <Swiper
-      modules={[Autoplay]}
-      grabCursor={true}
-      autoplay={true}
-      slidesPerView={'auto'}
-      breakpoints={{
-        320: {
-          slidesPerView: 1,
-        },
-        965: {
-          slidesPerView: 2,
-        },
-        1368: {
-          slidesPerView: 2.7,
-        },
-        1500: {
-          slidesPerView: 3.3,
-        },
-      }}
-    >
-      {reviews.map((review, i) => (
-        <SwiperSlide key={i} className="!h-auto">
-          <ReviewSlide review={review} />
-        </SwiperSlide>
-      ))}
-      <Layout>
-        {media === 'mobile' && <SliderProgress mode="realIndex" />}
-      </Layout>
-    </Swiper>
+    <DragCursorContainer>
+      <Swiper
+        modules={[Autoplay]}
+        // grabCursor={true}
+        autoplay={true}
+        slidesPerView={'auto'}
+        touchStartPreventDefault={false}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+          },
+          965: {
+            slidesPerView: 2,
+          },
+          1368: {
+            slidesPerView: 'auto',
+          },
+          // 1500: {
+          //   slidesPerView: 3.3,
+          // },
+        }}
+      >
+        {reviews.map((review, i) => (
+          <SwiperSlide key={i} className="!h-auto xl:max-w-[560px]">
+            <ReviewSlide review={review} />
+          </SwiperSlide>
+        ))}
+        <Layout>
+          {media === 'mobile' && <SliderProgress mode="realIndex" />}
+        </Layout>
+      </Swiper>
+    </DragCursorContainer>
   );
 }
