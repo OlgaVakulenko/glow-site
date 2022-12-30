@@ -1,9 +1,14 @@
+import cx from 'clsx';
+import { useAtom } from 'jotai';
+import { useEffect, useMemo, useRef } from 'react';
+import gsap from '../../../dist/gsap';
+import { mediaAtom } from '../../../lib/agent';
+import Animated from '../../Animated';
 import Go from '../../Go';
+import Image from '../../Image';
 import Layout from '../../Layout';
 import Section from '../../Section';
-import cx from 'clsx';
-import gsap, { ScrollTrigger } from '../../../dist/gsap';
-import Image from '../../Image';
+import SectionLink from '../../SectionLink';
 import Client1 from './assets/client-1.svg';
 import Client2 from './assets/client-2.svg';
 import Client3 from './assets/client-3.svg';
@@ -11,11 +16,6 @@ import Client4 from './assets/client-4.svg';
 import ClientLandflow from './assets/client-lendflow.svg';
 import ClientLiquidSpace from './assets/client-liquidspace.svg';
 import Noise from './assets/noise.png';
-import SectionLink from '../../SectionLink';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { useAtom } from 'jotai';
-import { mediaAtom } from '../../../lib/agent';
-import Animated from '../../Animated';
 
 const clients = [
   Client1,
@@ -70,15 +70,22 @@ export default function OurClients() {
                   className={cx(
                     'mb-7 flex justify-center md:w-full md:justify-between',
                     {
-                      ['px-5']: i > 0,
+                      ['px-3']: i > 0,
                     }
                   )}
                 >
-                  {chunk.map((client, i) => (
+                  {chunk.map((client, k) => (
                     <Animated
-                      delay={i * 100}
-                      key={client.src + i}
-                      className={cx('mr-4', {})}
+                      delay={k * 100}
+                      key={client.src + k}
+                      className={cx(
+                        'mr-4 flex items-center justify-center last:mr-0',
+                        {
+                          'mt-1': i === 0 && k === 2,
+                          'mt-[2px]': i === 1 && k === 2,
+                          'w-[105px]': i === 1 && k === 1,
+                        }
+                      )}
                     >
                       <img className="w-full" src={client.src} alt="" />
                     </Animated>

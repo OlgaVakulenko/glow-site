@@ -4,7 +4,7 @@ import cx from 'clsx';
 import gsap, { ScrollTrigger } from '../../../dist/gsap';
 import { useAtom } from 'jotai';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { mediaAtom } from '../../../lib/agent';
+import { mediaAtom, useMediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
 import { headerTheme, logoColor, useHeaderTheme } from '../../Header';
 import CasesSlider, { CasesSlider2, CasesSlider3 } from './CasesSlider';
@@ -19,6 +19,7 @@ import { useSetAtom } from 'jotai';
 import Star from '../../Star';
 import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
+import DimSection from '../../DimSection';
 
 // const Reviews = dynamic(() => import('./Reviews'));
 
@@ -147,12 +148,50 @@ function RollingWords({ words, interval = 16500 }) {
   );
 }
 
+function TmpBg({ children }) {
+  const media = useMediaAtom();
+  const tmpRef = useRef(null);
+
+  useEffect(() => {
+    if (media === 'mobile') {
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        tmpRef.current,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          scrollTrigger: {
+            trigger: tmpRef.current,
+            start: 'top top',
+            end: 'top top-=300',
+            scrub: true,
+          },
+        }
+      );
+    });
+
+    return () => {
+      ctx.revert();
+    };
+  }, [media]);
+
+  return (
+    <div ref={tmpRef} style={{ paddingTop: media !== 'mobile' ? 200 : 0 }}>
+      {children}
+    </div>
+  );
+}
+
 export default function Home() {
   const setHeaderTheme = useSetAtom(headerTheme);
   const setLogoColor = useSetAtom(logoColor);
   const firstSectionRef = useRef(null);
   const changeBgRef = useRef(null);
-  const trigger = useRef(null);
   const refScrollContainer = useRef(null);
 
   useEffect(() => {
@@ -203,31 +242,6 @@ export default function Home() {
     };
   }, []);
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        trigger.current,
-        {
-          opacity: 0,
-        },
-        {
-          scrollTrigger: {
-            trigger: trigger.current,
-            start: 'top 90%',
-            end: '+=300',
-            scrub: true,
-          },
-          opacity: 1,
-          ease: 'none',
-        }
-      );
-    });
-
-    return () => {
-      ctx.revert();
-    };
-  }, []);
-
   return (
     <div ref={refScrollContainer}>
       <div ref={firstSectionRef} className="bg-brand">
@@ -251,30 +265,23 @@ export default function Home() {
         </Layout>
       </div>
       <div ref={changeBgRef} className="bg-white">
-        {/* <div>
+        {/** tmp */}
+        <TmpBg>
+          {/* <div>
           <Showreel />
         </div> */}
-        <Niches />
-        {/* <CasesSlider2 /> */}
-        <CasesSlider3 />
-        <OutProjectsLink className="hidden md:block" />
-
-        <div
-          ref={trigger}
-          style={
-            {
-              // backgroundColor: 'rgb(255,255,255)',
-              // transition: 'background-color .5s',
-            }
-          }
-          className="bg-dim pb-14"
-        >
+          <Niches />
+          {/* <CasesSlider2 /> */}
+          <CasesSlider3 />
+          <OutProjectsLink className="hidden md:block" />
+        </TmpBg>
+        <DimSection className="pb-14">
           <Workflow />
           <OurClients />
           <Animated>
             <Reviews />
           </Animated>
-        </div>
+        </DimSection>
       </div>
     </div>
   );

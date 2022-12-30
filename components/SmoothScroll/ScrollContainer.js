@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import gsap, { ScrollSmoother, ScrollTrigger } from '../../dist/gsap';
 import Link from 'next/link';
 import throttle from 'lodash.throttle';
@@ -44,6 +44,7 @@ export default function ScrollContainer({ children }) {
       setMounted(false);
       if (smootherRef.current) {
         smootherRef.current.kill();
+        console.log('kill');
       }
     };
   }, [media, updateScrollPosition, setMounted]);
@@ -87,9 +88,25 @@ export default function ScrollContainer({ children }) {
     }
   }, [media]);
 
+  useEffect(() => {
+    // window.globalscr = ScrollTrigger;
+    if (media === 'mobile') {
+      // console.log('refresh');
+    }
+  }, [media]);
+
+  const Wrapper = useMemo(() => {
+    const wrapper = ({ children }) => <div key={media}>{children}</div>;
+    wrapper.displayName = 'Wrapper';
+
+    return wrapper;
+  }, [media]);
+
   return (
     <div ref={viewportRef}>
-      <div ref={ref}>{children}</div>
+      <div ref={ref}>
+        <Wrapper>{children}</Wrapper>
+      </div>
     </div>
   );
 }

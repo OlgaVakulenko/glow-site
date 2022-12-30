@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
 import { forwardRef, useEffect, useRef, useState } from 'react';
+import { useMediaAtom } from '../lib/agent';
 import BigButton from './BigButton';
 import FooterLinks from './Footer/FooterLinks';
 import { useHeaderTheme } from './Header';
@@ -54,6 +55,7 @@ function Footer(props) {
 }
 
 export function ParallaxFooter(props) {
+  const media = useMediaAtom();
   const [scrollMounted] = useAtom(ScrollSmootherMounted);
   const wrapperRef = useRef(null);
 
@@ -70,7 +72,13 @@ export function ParallaxFooter(props) {
       gsap.fromTo(
         '.__content',
         {
-          yPercent: -80,
+          yPercent: () => {
+            if (media === 'mobile') {
+              return -80;
+            }
+
+            return -80;
+          },
         },
         {
           scrollTrigger: {
@@ -94,14 +102,14 @@ export function ParallaxFooter(props) {
     return () => {
       ctx.revert();
     };
-  }, [wrapperRef, scrollMounted]);
+  }, [wrapperRef, scrollMounted, media]);
 
   return (
     <div
       ref={wrapperRef}
       className="relative flex min-h-screen w-full items-end overflow-hidden bg-black"
     >
-      <div className="__content w-full">
+      <div className="__content absolute bottom-0 w-full">
         <Footer {...props} />
       </div>
     </div>

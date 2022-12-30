@@ -37,6 +37,7 @@ specifiers:
   react-dom: 18.2.0
   react-fast-marquee: ^1.3.5
   react-popper: ^2.3.0
+  react-wrap-balancer: ^0.2.4
   sharp: ^0.31.1
   swiper: ^8.4.4
   tailwindcss: ^3.2.1
@@ -63,6 +64,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-fast-marquee: 1.3.5_biqbaboplfbrettd7655fr4n2y
   react-popper: 2.3.0_r6q5zrenym2zg7je7hgi674bti
+  react-wrap-balancer: 0.2.4_react@18.2.0
   swiper: 8.4.4
   typewriter-effect: 2.19.0_biqbaboplfbrettd7655fr4n2y
 
@@ -2456,6 +2458,14 @@ packages:
       react-dom: 18.2.0_react@18.2.0
       react-fast-compare: 3.2.0
       warning: 4.0.3
+    dev: false
+
+  /react-wrap-balancer/0.2.4_react@18.2.0:
+    resolution: {integrity: sha512-MVL9/Tw1X72t0i5Y/2j3YmSx1vkJJ22b5Vb+vZ/IOEdq7r9JPNzTfnfkB8wrl98Jwx+F6VCwJXmU7a1lT5PtCA==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /react/18.2.0:

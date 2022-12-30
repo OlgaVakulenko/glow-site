@@ -10,22 +10,54 @@ import Section from '../../Section';
 const stages = [
   {
     title: 'Investigate',
-    description: 'By working with transportation related companies we deep.',
+    description: (
+      <>
+        <p>Stakeholders Workshop</p>
+        <p>Value Proposition Canvas</p> <p>Competitors Analysis</p>
+        <p>User Interviews/Survey</p> <p>Market Research</p>
+        <p>Jobs To Be Done</p>
+      </>
+    ),
     icon: Investigate,
   },
   {
     title: 'Ideate',
-    description: 'By working with transportation related companies we deep.',
+    description: (
+      <>
+        <p>Customer Journey Map</p>
+        <p>Product Concept</p>
+        <p>MVP Definition</p>
+        <p>Product Roadmap</p>
+        <p>Additional Requirements</p>
+      </>
+    ),
     icon: Ideate,
   },
   {
     title: 'Create',
-    description: 'By working with transportation related companies we deep.',
+    description: (
+      <>
+        <p>Information Architecture</p>
+        <p>Wireframes, Prototypes</p>
+        <p>Visual Concept</p>
+        <p>UI Design</p>
+        <p>Design System</p>
+        <p>Handoff</p>
+      </>
+    ),
     icon: Create,
   },
   {
     title: 'Iterate',
-    description: 'By working with transportation related companies we deep.',
+    description: (
+      <>
+        <p>Design QA</p>
+        <p>Usability Testing</p>
+        <p>A/B Testing</p>
+        <p>Analytics</p>
+        <p>Constant Improvements</p>
+      </>
+    ),
     icon: Iterate,
   },
 ];
@@ -36,7 +68,7 @@ const stats = [
     value: '5+ years',
   },
   {
-    title: 'Rating the Clutch',
+    title: 'Rating on the Clutch',
     value: '5.0',
   },
   {
@@ -50,7 +82,7 @@ const stats = [
     value: '1.5 years',
   },
   {
-    title: 'Quality guarantee',
+    title: 'hours of design experience',
     value: '12k',
   },
   {

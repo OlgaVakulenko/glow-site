@@ -1,8 +1,11 @@
 import { Transition } from '@headlessui/react';
 import cx from 'clsx';
-import { atom, useAtom } from 'jotai';
+import { atom, useAtom, useSetAtom } from 'jotai';
+import throttle from 'lodash.throttle';
 import Link from 'next/link';
-import React, { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useRouter } from 'next/router';
+import React, { useEffect, useId, useRef, useState } from 'react';
+import { ScrollTrigger } from '../dist/gsap';
 import { mediaAtom } from '../lib/agent';
 import { useBodyLock, useScrollDirection } from '../lib/utils';
 import Animated from './Animated';
@@ -10,19 +13,21 @@ import BigButton from './BigButton';
 import Layout from './Layout';
 import Logo from './Logo';
 import RollingText from './RollingText';
-// import { scrollAtom } from '../atoms/scroll';
-import throttle from 'lodash.throttle';
-// import ScrollTrigger from 'gsap/dist/ScrollTrigger';
-import { ScrollTrigger } from '../dist/gsap';
-import { useSetAtom } from 'jotai';
-import { useRouter } from 'next/router';
-import gsap from '../dist/gsap';
-import {
-  scrollAtom,
-  scrollDirection,
-  scrollDirectionAtom,
-  scrollIsTopAtom,
-} from '../atoms/scroll';
+
+const links = [
+  {
+    label: 'Work',
+    href: '#',
+  },
+  {
+    label: 'Team',
+    href: '/about',
+  },
+  {
+    label: 'Services',
+    href: '#',
+  },
+];
 
 export function BurgerIcon({ isOpen = false, theme, size = 40 }) {
   let stroke = '#19191B';
@@ -157,11 +162,11 @@ const BurgerMenu = ({
               <div className="ml-[-68px] hidden md:flex">
                 {links.map((link, i) => (
                   <Link
-                    key={link}
+                    key={i}
                     className="mr-[77px] text-sm last:mr-0"
-                    href="/"
+                    href={link.href}
                   >
-                    <RollingText text={link} height={20} />
+                    <RollingText text={link.label} height={20} />
                     {/* {link} */}
                   </Link>
                 ))}
@@ -190,18 +195,18 @@ const BurgerMenu = ({
             >
               <ul className="text-center">
                 {links.map((item, i) => (
-                  <Animation as="li" key={item} index={i}>
+                  <Animation as="li" key={i} index={i}>
                     {/* <li
                       // key={item}
                       className="mb-[24px] text-[59px] uppercase leading-[80px] last:mb-[0px]"
                     > */}
-                    <a
-                      href="#"
+                    <Link
+                      href={item.href}
                       className="flex items-center justify-center font-medium text-black"
                     >
-                      <RollingText text={item} height={80} />
+                      <RollingText text={item.label} height={80} />
                       {/* {item} */}
-                    </a>
+                    </Link>
                     {/* </li> */}
                   </Animation>
                 ))}
@@ -294,7 +299,7 @@ export default function Header({
   const [color, setColor] = useAtom(logoColor);
   const t = overrideTheme || theme[theme.length - 1];
   const [isOpen, setIsOpen] = useAtom(openAtom);
-  const links = ['Work', 'Team', 'Services'];
+  // const links = ['Work', 'Team', 'Services'];
   const menuId = useId();
   const { lock, release } = useBodyLock();
   const scrollDirection = useScrollDirection('backward');
@@ -407,15 +412,15 @@ export default function Header({
                 {links.map((link, i) => (
                   <Animated
                     as={Link}
-                    href="/"
-                    key={link}
+                    href={link.href}
+                    key={i}
                     delay={(i + 1) * 100}
                     className={cx(
                       'mr-[77px] text-sm last:mr-0',
                       t === 'dark' && 'text-white'
                     )}
                   >
-                    <RollingText text={link} height={20} />
+                    <RollingText text={link.label} height={20} />
                   </Animated>
                 ))}
               </div>
