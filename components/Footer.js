@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import { useMediaAtom } from '../lib/agent';
 import BigButton from './BigButton';
@@ -55,6 +56,7 @@ function Footer(props) {
 }
 
 export function ParallaxFooter(props) {
+  const router = useRouter();
   const media = useMediaAtom();
   const [scrollMounted] = useAtom(ScrollSmootherMounted);
   const wrapperRef = useRef(null);
@@ -103,7 +105,7 @@ export function ParallaxFooter(props) {
     return () => {
       ctx.revert();
     };
-  }, [wrapperRef, scrollMounted, media]);
+  }, [wrapperRef, scrollMounted, media, router.pathname]);
 
   return (
     <div
