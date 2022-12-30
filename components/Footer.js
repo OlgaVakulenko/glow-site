@@ -89,7 +89,6 @@ export function ParallaxFooter(props) {
             },
           },
           yPercent: 0,
-          opacity: 1,
           ease: 'none',
         }
       );
