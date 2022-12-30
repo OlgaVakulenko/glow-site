@@ -69,21 +69,17 @@ export function ParallaxFooter(props) {
     }
 
     const ctx = gsap.context(() => {
+      const scrub = media === 'mobile' ? 0.5 : true;
+      console.log('scrub', scrub);
       gsap.fromTo(
         '.__content',
         {
-          yPercent: () => {
-            if (media === 'mobile') {
-              return -80;
-            }
-
-            return -80;
-          },
+          yPercent: -80,
         },
         {
           scrollTrigger: {
             trigger: wrapperRef.current,
-            scrub: true,
+            scrub,
             start: 'top bottom',
             end: (e) => {
               if (wrapperRef.current?.offsetHeight > window.innerHeight) {
