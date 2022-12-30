@@ -70,16 +70,22 @@ export function ParallaxFooter(props) {
 
     const ctx = gsap.context(() => {
       const scrub = media === 'mobile' ? 0.5 : true;
-      console.log('scrub', scrub);
+
       gsap.fromTo(
         '.__content',
         {
-          yPercent: -80,
+          yPercent: () => {
+            if (media === 'mobile') {
+              return 20;
+            }
+
+            return -80;
+          },
         },
         {
           scrollTrigger: {
             trigger: wrapperRef.current,
-            scrub,
+            scrub: true,
             start: 'top bottom',
             end: (e) => {
               if (wrapperRef.current?.offsetHeight > window.innerHeight) {
@@ -101,11 +107,19 @@ export function ParallaxFooter(props) {
 
   return (
     <div
-      ref={wrapperRef}
-      className="relative flex min-h-screen w-full items-end overflow-hidden bg-black"
+      className="overflow-hidden"
+      style={{
+        clipPath: 'inset(0 0 0 0)',
+        // transform: 'translate3d(0,0,0)',
+      }}
     >
-      <div className="__content absolute bottom-0 w-full">
-        <Footer {...props} />
+      <div
+        ref={wrapperRef}
+        className="relative flex min-h-screen w-full items-end overflow-hidden bg-black"
+      >
+        <div className="__content fixed bottom-0 w-full">
+          <Footer {...props} />
+        </div>
       </div>
     </div>
   );
