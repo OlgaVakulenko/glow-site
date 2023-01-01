@@ -42,6 +42,7 @@ const cases = [
         <br className="hidden md:block" /> predicting the relevant trends
       </>
     ),
+    href: '/cryptogenie',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
@@ -170,7 +171,7 @@ function CaseSlide({ item, index }) {
   );
 }
 
-function CaseItem({ image, title, columns = [], className = '' }) {
+function CaseItem({ image, title, columns = [], className = '', href = '#' }) {
   const media = useMediaAtom();
   const ref = useRef(null);
 
@@ -203,7 +204,7 @@ function CaseItem({ image, title, columns = [], className = '' }) {
   return (
     <Link
       ref={ref}
-      href="#"
+      href={href}
       className={cx('group flex flex-col pb-10 xl:pb-[88px]', className)}
     >
       <div
@@ -238,6 +239,7 @@ function CasesRow({ cases, className = '' }) {
           <CaseItem
             image={caseItem.image}
             title={caseItem.title}
+            href={caseItem.href || '#'}
             columns={[
               {
                 title: 'industry',

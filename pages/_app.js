@@ -1,18 +1,17 @@
-import { useSetAtom } from 'jotai';
+import { atom, useSetAtom } from 'jotai';
+import { useAtomsDebugValue } from 'jotai/devtools';
 import Head from 'next/head';
-import Script from 'next/script';
+import { useRouter } from 'next/router';
 import React, { useEffect, useMemo } from 'react';
 import { nativeScrollAtom } from '../atoms/scroll';
-import Footer, { ParallaxFooter } from '../components/Footer';
-import Header from '../components/Header';
 import LoadingProgress from '../components/LoadingProgress';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
-import ScrollContainer from '../components/SmoothScroll/ScrollContainer';
-import { useKonamiCode, useMedia } from '../lib/agent';
-import { useAtomsDebugValue } from 'jotai/devtools';
+import { useMedia } from '../lib/agent';
 import '../styles/globals.css';
-import { useRouter } from 'next/router';
-import { atom } from 'jotai';
+// import '../styles/globals2.css';
+// import '../components/Pages/Cases/Cryprogenie/global.css';
+// import '../components/Pages/Cases/Cryprogenie/styles.css';
+// import '../styles/cryptogenie.css';
 
 const DebugAtoms = () => {
   useAtomsDebugValue();

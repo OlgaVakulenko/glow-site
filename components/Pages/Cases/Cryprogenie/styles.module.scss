@@ -1,0 +1,560 @@
+.cryptogenie :global {
+  .header.--theme-light .header__logo__big, .header.--theme-light .header__logo__small {
+    opacity: 0
+  }
+
+  .header.--theme-light .g-white, .header.--theme-light .logo-white {
+    opacity: 1
+  }
+
+  .header.--theme-light .g-white {
+    display: block !important
+  }
+
+  .header.--theme-light .scroll .g-white {
+    opacity: 1
+  }
+
+  .header.--theme-light .header__menu-ico div {
+    background-color: #fff
+  }
+
+  .cryptogenie .case-section__image {
+    margin-top: 146px
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .case-section__image {
+      margin-top: 99px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .case-section__image {
+      margin-top: 83px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .case-section__image {
+      margin-top: 54px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-main .welcome__left {
+      margin-bottom: 50px;
+      margin-top: 330px;
+      position: static
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-main .welcome__left {
+      margin-bottom: 15px;
+      margin-top: 183px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-main .welcome__content {
+      flex-direction: column
+    }
+
+    .cryptogenie .cg-main .cg-welcome {
+      height: auto
+    }
+  }
+
+  .cryptogenie .cg-welcome {
+    background: #6237de;
+    overflow: initial
+  }
+
+  .cryptogenie .cg-welcome .title-big {
+    color: #fff
+  }
+
+  .cryptogenie .cg-welcome .cg-welcome-x {
+    bottom: -6.3%;
+    left: 43%;
+    max-width: 835px;
+    max-width: min(835px, 80vh - 30px);
+    position: absolute;
+    width: 48.7%
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-welcome .cg-welcome-x {
+      left: 52%;
+      max-width: 626px;
+      max-width: min(626px, 80vh - 30px)
+    }
+  }
+
+  @media screen and (max-width:1300px) {
+    .cryptogenie .cg-welcome .cg-welcome-x {
+      max-width: 575px;
+      max-width: min(575px, 80vh - 30px)
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-welcome .cg-welcome-x {
+      bottom: auto;
+      display: block;
+      height: auto;
+      left: auto;
+      margin-bottom: -27px;
+      max-width: 100%;
+      position: relative;
+      width: 100%
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-welcome .cg-welcome-x {
+      padding: 0 20px
+    }
+  }
+
+  .cryptogenie .cg-welcome .welcome__scroll {
+    align-items: center;
+    color: #fff;
+    display: flex
+  }
+
+  .cryptogenie .cg-welcome .welcome__scroll .cg-height-container {
+    margin-left: 1ch
+  }
+
+  .cryptogenie .cg-welcome .welcome__scroll span {
+    align-items: center;
+    display: flex;
+    margin-right: 20px
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-welcome .welcome__scroll span {
+      margin-right: 12px
+    }
+  }
+
+  .cryptogenie .cg-welcome .welcome__scroll:before {
+    content: none
+  }
+
+  .cryptogenie .cg-welcome .welcome__scroll svg {
+    height: 18px;
+    width: 24px
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-welcome .welcome__scroll svg {
+      height: 16px;
+      width: 18px
+    }
+  }
+
+  .cryptogenie .cg-welcome .welcome__left {
+    width: 390px
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-welcome .welcome__left {
+      max-width: 350px;
+      width: 100%
+    }
+  }
+
+  .cryptogenie .cg-welcome .cg-welcome-bg1 {
+    bottom: 30px;
+    position: absolute;
+    right: 33.4%;
+    width: 46%;
+    width: 885px
+  }
+
+  .cryptogenie .cg-welcome .cg-welcome-bg1-wrapper {
+    height: 100vh;
+    left: 0;
+    position: relative;
+    top: 0;
+    width: 50%
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-welcome .cg-welcome-bg1-wrapper {
+      height: auto;
+      left: auto;
+      position: static;
+      top: auto;
+      width: auto
+    }
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-welcome .cg-welcome-bg1 {
+      bottom: 103px;
+      position: absolute;
+      right: 24.7%;
+      width: 620px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-welcome .cg-welcome-bg1 {
+      bottom: auto;
+      right: 42%;
+      top: 165px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-welcome .cg-welcome-bg1 {
+      left: -85px;
+      right: auto;
+      top: 83px;
+      width: 400px
+    }
+  }
+
+  .cryptogenie .cg-welcome .cg-welcome-bg2-wrapper {
+    bottom: 0;
+    max-width: 50%;
+    position: absolute;
+    right: 120px;
+    top: 30%
+  }
+
+  .cryptogenie .cg-welcome .cg-welcome-shadow {
+    box-shadow: 12px -12px #000
+  }
+
+  .cryptogenie .cg-welcome .cg-welcome-border {
+    border: 2px solid #000
+  }
+
+  .cryptogenie .cg-one-ai-bg {
+    align-items: center;
+    background: #6237de;
+    display: flex;
+    height: 504px;
+    justify-content: center
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-one-ai-bg {
+      height: 340px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-one-ai-bg {
+      height: 287px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-one-ai-bg {
+      height: 504px
+    }
+  }
+
+  .cryptogenie .cg-one-ai-bg svg {
+    width: 300px
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-one-ai-bg svg {
+      width: 203px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-one-ai-bg svg {
+      width: 171px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-one-ai-bg svg {
+      width: 230px
+    }
+  }
+
+  .cryptogenie .cg-check-this-bg {
+    align-items: center;
+    background: #f0f0f0;
+    display: flex;
+    height: 450px;
+    justify-content: center
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-check-this-bg {
+      height: 304px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-check-this-bg {
+      height: 256px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-check-this-bg {
+      height: 450px
+    }
+  }
+
+  .cryptogenie .cg-check-this-bg svg {
+    width: 400px
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-check-this-bg svg {
+      width: 270px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-check-this-bg svg {
+      width: 228px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-check-this-bg svg {
+      width: 240px
+    }
+  }
+
+  .cryptogenie .cg-do-it-bg {
+    display: flex;
+    flex-wrap: wrap
+  }
+
+  .cryptogenie .cg-do-it-tile {
+    align-items: center;
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    width: 50%
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-do-it-tile {
+      height: 135px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-do-it-tile {
+      height: 114px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-do-it-tile {
+      height: 80px
+    }
+  }
+
+  .cryptogenie .cg-do-it-tile svg {
+    width: 317px
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-do-it-tile svg {
+      width: 214px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-do-it-tile svg {
+      width: 180px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-do-it-tile svg {
+      width: 84%
+    }
+  }
+
+  .cryptogenie .cg-colors-section {
+    margin-bottom: 100px
+  }
+
+  .cryptogenie .cg-colors-label {
+    color: #5e5e5e;
+    font-size: 28px;
+    line-height: 50px;
+    margin-bottom: 74px
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-colors-label {
+      font-size: 19px;
+      line-height: 34px;
+      margin-bottom: 50px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-colors-label {
+      font-size: 28px;
+      line-height: 50px;
+      margin-bottom: 42px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-colors-label {
+      font-size: 16px;
+      line-height: 22px;
+      margin-bottom: 30px
+    }
+  }
+
+  .cryptogenie .cg-colors-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: -30px -20px -30px -30px
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-colors-container {
+      margin: -20px -14px -20px -20px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-colors-container {
+      margin: -17px -11px -17px -17px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-colors-container {
+      justify-content: start;
+      margin: -11px -8px -11px -11px
+    }
+  }
+
+  .cryptogenie .cg-colors-tile-container {
+    padding: 30px;
+    width: 33.3333333%
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-colors-tile-container {
+      padding: 20px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-colors-tile-container {
+      padding: 17px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-colors-tile-container {
+      padding: 11px;
+      width: 50%
+    }
+  }
+
+  .cryptogenie .cg-colors-tile {
+    box-shadow: inset 0 0 0 2px #000;
+    font-size: 24px;
+    line-height: 30px;
+    padding: 28px 24px 22.5%
+  }
+
+  .--color-Black .cryptogenie .cg-colors-tile {
+    box-shadow: inset 0 0 0 2px #fff
+  }
+
+  .cryptogenie .cg-colors-tile.--light {
+    color: #fff
+  }
+
+  .cryptogenie .cg-colors-tile-shadow {
+    box-shadow: 12px -12px;
+    color: #000
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-colors-tile-shadow {
+      box-shadow: 8px -8px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-colors-tile-shadow {
+      box-shadow: 7px -7px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-colors-tile-shadow {
+      box-shadow: 6px -6px
+    }
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-colors-tile {
+      font-size: 20px;
+      line-height: 25px;
+      padding: 24px 20px 22.5%
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-colors-tile {
+      font-size: 16px;
+      line-height: 20px;
+      padding: 20px 16px 22.5%
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-colors-tile {
+      font-size: 14px;
+      line-height: 20px;
+      padding: 16px 16px 27px
+    }
+  }
+
+  .cryptogenie .cg-colors-tile-label {
+    font-weight: 500;
+    line-height: 29px;
+    margin-bottom: 16px
+  }
+
+  @media screen and (max-width:1390px) {
+    .cryptogenie .cg-colors-tile-label {
+      line-height: 20px;
+      margin-bottom: 11px
+    }
+  }
+
+  @media screen and (max-width:1020px) {
+    .cryptogenie .cg-colors-tile-label {
+      line-height: 17px;
+      margin-bottom: 9px
+    }
+  }
+
+  @media screen and (max-width:767px) {
+    .cryptogenie .cg-colors-tile-label {
+      line-height: 20px;
+      margin-bottom: 8px
+    }
+  }
+}
