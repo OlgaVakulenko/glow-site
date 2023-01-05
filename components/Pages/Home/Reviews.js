@@ -1,6 +1,12 @@
 import cx from 'clsx';
 import { useAtom } from 'jotai';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import React, {
+  useDeferredValue,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { Autoplay } from 'swiper';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -257,7 +263,7 @@ function ReviewSlide({ review }) {
   );
 }
 
-function DragCursor({ x, y }) {
+function DragCursor1({ x, y }) {
   return (
     <div
       className="position pointer-events-none absolute top-0 left-0 z-10 flex h-[140px] w-[140px] items-center justify-between rounded-full bg-brand p-4 text-[14px] font-medium uppercase leading-[19px] tracking-[0.03em]"
@@ -288,10 +294,14 @@ function DragCursor({ x, y }) {
   );
 }
 
+const DragCursor = React.memo(DragCursor1);
+
 function DragCursorContainer({ children }) {
   const ref = useRef();
   const [show, setShow] = useState(false);
   const [pos, setPos] = useState({ x: 0, y: 0 });
+  const _x = useDeferredValue(pos.x);
+  const _y = useDeferredValue(pos.y);
   const [offsetTop, setOffsetTop] = useState(0);
 
   useEffect(() => {
@@ -316,7 +326,8 @@ function DragCursorContainer({ children }) {
     <div
       ref={ref}
       className="relative cursor-none"
-      onMouseEnter={() => {
+      onMouseEnter={(e) => {
+        if (!e.currentTarget) return;
         setShow(true);
       }}
       onMouseLeave={() => {
@@ -333,7 +344,7 @@ function DragCursorContainer({ children }) {
         setPos({ x, y });
       }}
     >
-      {show && <DragCursor x={pos.x} y={pos.y} />}
+      {show && <DragCursor x={_x} y={_y} />}
       {children}
     </div>
   );

@@ -1,22 +1,49 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import cx from 'clsx';
 import css from './legacy.module.scss';
 
 export default function LegacyCaseContainer({ children }) {
   const ref = useRef(null);
 
   useEffect(() => {
-    return;
+    // return;
     const node = ref.current;
     if (!node) return;
 
     const elements = Array.from(node.querySelectorAll('.wow'));
-    elements.forEach((element) => {
-      element.style.visibility = 'visible';
+    if (!'IntersectionObserver' in window) {
+      elements.forEach((element) => {
+        element.classList.add('in-viewport');
+      });
+
+      return;
+    }
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-viewport');
+          io.unobserve(entry.target);
+        }
+      });
     });
+
+    elements.forEach((element) => {
+      io.observe(element);
+    });
+
+    return () => {
+      io.disconnect();
+    };
+  }, []);
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
   }, []);
 
   return (
-    <div ref={ref} className={css.legacyRoot}>
+    <div ref={ref} className={cx(css.legacyRoot)}>
       {children}
     </div>
   );

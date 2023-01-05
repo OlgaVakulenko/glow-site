@@ -18,6 +18,7 @@ export default function ScrollContainer({ children }) {
   const viewportRef = useRef(null);
   const ref = useRef(null);
   const smootherRef = useRef(null);
+  const isMobile = media === 'mobile';
 
   useEffect(() => {
     if (media === 'mobile') {
@@ -47,7 +48,7 @@ export default function ScrollContainer({ children }) {
         console.log('kill');
       }
     };
-  }, [media, updateScrollPosition, setMounted]);
+  }, [isMobile, updateScrollPosition, setMounted]);
 
   //scrolltrigger does not sometimes refresh when scrollsmoother is enabled
   useEffect(() => {
@@ -86,21 +87,23 @@ export default function ScrollContainer({ children }) {
         delete window.__scrollTo;
       };
     }
-  }, [media]);
+  }, [isMobile]);
 
-  useEffect(() => {
-    // window.globalscr = ScrollTrigger;
-    if (media === 'mobile') {
-      // console.log('refresh');
-    }
-  }, [media]);
+  // useEffect(() => {
+  //   console.log('media changed', media);
+  //   // window.globalscr = ScrollTrigger;
+  //   if (media === 'mobile') {
+  //     // console.log('refresh');
+  //   }
+  // }, [media]);
 
   const Wrapper = useMemo(() => {
-    const wrapper = ({ children }) => <div key={media}>{children}</div>;
+    const key = media === 'mobile' ? 'mobile' : 'desktop';
+    const wrapper = ({ children }) => <div key={key}>{children}</div>;
     wrapper.displayName = 'Wrapper';
 
     return wrapper;
-  }, [media]);
+  }, [isMobile]);
 
   return (
     <div ref={viewportRef}>

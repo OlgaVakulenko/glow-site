@@ -1,8 +1,10 @@
+import React from 'react';
 import cx from 'clsx';
+import { useHeaderTheme } from '../../../Header';
 import LegacyCaseContainer from '../LegacyCaseContainer';
 import styles from './styles.module.scss';
 
-export default function Cryptogenie() {
+function Cryptogenie() {
   return (
     <LegacyCaseContainer>
       <div className={styles.cryptogenie}>
@@ -1658,3 +1660,5 @@ export default function Cryptogenie() {
     </LegacyCaseContainer>
   );
 }
+
+export default React.memo(Cryptogenie);

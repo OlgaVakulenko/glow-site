@@ -23,6 +23,7 @@ import Case1Image from '../Cases/assets/case_1.png';
 import Case2Image from '../Cases/assets/case_2.png';
 import Case3Image from '../Cases/assets/case_3.png';
 import Case4Image from '../Cases/assets/case_4.png';
+// import CryptogenieImage from '../Cases/assets/'
 import Animated from '../../Animated';
 
 // gsap.registerPlugin(ScrollTrigger);
@@ -47,6 +48,35 @@ const cases = [
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
     image: Case2Image,
+    imageJsx: (props) => (
+      <picture>
+        <source
+          srcset="
+      /img/cg/cg-cover-mobile-w366.webp,
+      /img/cg/cg-cover-mobile-w732.webp 2x
+    "
+          media="(max-width: 767.5px)"
+          type="image/webp"
+        />
+        <source
+          srcset="
+      /img/cg/cg-cover-mobile-w366.png,
+      /img/cg/cg-cover-mobile-w732.png 2x
+    "
+          media="(max-width: 767.5px)"
+        />
+        <source
+          srcset="/img/cg/cg-cover-w1140.webp, /img/cg/cg-cover-w2280.webp 2x"
+          media="(min-width: 768.5px)"
+          type="image/webp"
+        />
+        <source
+          srcset="/img/cg/cg-cover-w1140.png, /img/cg/cg-cover-w2280.png 2x"
+          media="(min-width: 768.5px)"
+        />
+        <img {...props} src="/img/cg/cg-cover-w1440.png" />
+      </picture>
+    ),
   },
   {
     title: 'Beast Tesla Rent',
@@ -171,7 +201,14 @@ function CaseSlide({ item, index }) {
   );
 }
 
-function CaseItem({ image, title, columns = [], className = '', href = '#' }) {
+function CaseItem({
+  image,
+  imageJsx: ImageJsx,
+  title,
+  columns = [],
+  className = '',
+  href = '#',
+}) {
   const media = useMediaAtom();
   const ref = useRef(null);
 
@@ -213,11 +250,15 @@ function CaseItem({ image, title, columns = [], className = '', href = '#' }) {
           transition: 'border-radius .5s',
         }}
       >
-        <Image
-          src={image}
-          alt=""
-          className="min-h-[304px] object-cover transition-transform duration-500 group-hover:scale-105 xl:min-h-[392px]"
-        />
+        {ImageJsx ? (
+          <ImageJsx className="min-h-[304px] object-cover transition-transform duration-500 group-hover:scale-105 xl:min-h-[392px]" />
+        ) : (
+          <Image
+            src={image}
+            alt=""
+            className="min-h-[304px] object-cover transition-transform duration-500 group-hover:scale-105 xl:min-h-[392px]"
+          />
+        )}
       </div>
       <div className="mb-8 font-glow text-heading-h4 xl:text-heading-h3">
         {title}
@@ -237,6 +278,7 @@ function CasesRow({ cases, className = '' }) {
       {cases.map((caseItem, i) => (
         <div key={i} className="mx-8 flex flex-col xl:mx-[56px]">
           <CaseItem
+            imageJsx={caseItem.imageJsx}
             image={caseItem.image}
             title={caseItem.title}
             href={caseItem.href || '#'}
@@ -276,8 +318,10 @@ export function CasesSlider3() {
             <SwiperSlide key={i}>
               <Layout>
                 <CaseItem
+                  imageJsx={caseItem.imageJsx}
                   image={caseItem.image}
                   title={caseItem.title}
+                  href={caseItem.href || '#'}
                   columns={[
                     {
                       title: 'industry',

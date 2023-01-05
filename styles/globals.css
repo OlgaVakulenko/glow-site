@@ -21,6 +21,10 @@
   }
 }
 
+.js .wow {
+  visibility: hidden;
+}
+
 :focus-visible:not(input) {
   outline: 2px solid #ffffff78;
   outline-offset: -2px;
@@ -160,7 +164,7 @@
   transform: none;
 }
 
-.fade-up {
+.fade-up, .fadeInUp {
   transform: translate3d(0, 10px, 0);
 }
 
@@ -169,8 +173,9 @@
 }
 
 .in-viewport {
-  opacity: 1;
-  transform: translateZ(0);
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateZ(0) !important;
 }
 
 .h-scroller {
@@ -249,4 +254,54 @@
 
 .svg-circle.active {
   fill: black;
+}
+
+@keyframes k-iAsmag {
+  0% {
+    background: transparent
+  }
+
+  50% {
+    background: gray
+  }
+
+  100% {
+    width: 100%;
+    background: black;
+  }
+}
+
+@keyframes k-bHvlyS {
+  0% {
+    background: transparent
+  }
+
+  50% {
+    background: gray;
+  }
+
+  100% {
+    width: 100%;
+    background: black;
+  }
+}
+
+.test-line:before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  height: 1px;
+  width: 0px;
+  z-index: 3;
+  animation: 1s ease 0s 1 normal forwards running k-iAsmag;
+}
+
+.test-line:after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  height: 1px;
+  width: 0px;
+  /* z-index: 3; */
+  animation: 1s ease 1s 1 normal forwards running k-bHvlyS;
 }

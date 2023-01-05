@@ -10,6 +10,8 @@ import DimSection from '../../DimSection';
 import Founders from './Founders';
 import HRule from '../../HRule';
 import Team from './Team';
+import Push from './Push';
+import Logos from './Logos';
 
 export default function About() {
   useHeaderTheme({ theme: 'white' });
@@ -40,8 +42,10 @@ export default function About() {
       </Layout>
       <DimSection className="pt-[80px] md:pt-[137px]">
         <Founders />
-        <HRule />
+        <HRule className="mb-14" />
         <Team />
+        <Push />
+        <Logos />
       </DimSection>
     </div>
   );

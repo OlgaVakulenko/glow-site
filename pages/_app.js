@@ -65,12 +65,7 @@ function MyApp({ Component, pageProps }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              document.documentElement.classList.remove('no-js')
-              setTimeout(function() {
-                if (!document.documentElement.classList.contains('y')) {
-                  // document.documentElement.classList.add('force');
-                }
-              }, 500);
+              document.documentElement.className = 'js'
           `,
           }}
         />

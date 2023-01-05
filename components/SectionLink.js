@@ -45,7 +45,12 @@ export default function SectionLink({
           </Animated>
           <Animated
             delay={150}
-            className="text-center text-lg italic leading-6 md:flex-grow md:text-left md:text-xl md:leading-[27px]"
+            className={cx(
+              'text-center text-lg italic leading-6 md:flex-grow md:text-left md:text-xl md:leading-[27px]',
+              {
+                'mb-9': showButtonOnMobile,
+              }
+            )}
           >
             <div className="md:max-w-[440px]">{description}</div>
           </Animated>
@@ -53,8 +58,8 @@ export default function SectionLink({
             <Animated delay={300}>
               <span
                 className={cx(
-                  'min-w-[184px]',
-                  'glow-border-black rolling-text-group flex justify-center whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-center text-button-m shadow-black transition-all duration-500',
+                  'min-w-[144px] md:min-w-[184px]',
+                  'glow-border-black rolling-text-group flex justify-center whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-center text-button-m uppercase shadow-black transition-all duration-500',
                   // 'hover:text-brand'
                   // t === 'white' &&
                   'glow-border-b-b group-hover:!bg-brand group-hover:!text-black'

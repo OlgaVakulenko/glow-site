@@ -7,6 +7,7 @@ import Ideate from '../components/Icons/Ideate';
 import Investigate from '../components/Icons/Investigate';
 import Iterate from '../components/Icons/Iterate';
 import { Transportation2 } from '../components/Icons/Transportation';
+import HRule from '../components/HRule';
 
 export default function IconsDemo() {
   const [isReady, setIsReady] = useState(false);
@@ -41,7 +42,10 @@ export default function IconsDemo() {
         <Fintech />
         <Healthcare />
       </div>
-      <hr className="my-4" />
+      <div key={key2 + 'i'} className="my-4 h-[1px]">
+        <HRule />
+      </div>
+      {/* <hr className="my-4" /> */}
       <div key={key2} className="flex flex-wrap gap-8">
         <Investigate />
         <Ideate isReady={isReady} />
