@@ -34,9 +34,11 @@ function DragCursor({ x, y }) {
 
 export default function DragCursorContainer({ children }) {
   const ref = useRef();
-  const [show, setShow] = useState(false);
+  const [_show, setShow] = useState(false);
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [offsetTop, setOffsetTop] = useState(0);
+
+  const show = _show && pos.x !== 0 && pos.y !== 0;
 
   useEffect(() => {
     const node = ref.current;

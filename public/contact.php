@@ -13,7 +13,7 @@ if ($h === 'localhost:8000') {
   header("Access-Control-Allow-Headers: *");
 }
 
-formHandler();
+emailNotification();
 
 
 function pipeUrl($path) {
@@ -98,14 +98,16 @@ function emailNotification() {
   $email = post('email');
   
   try {
+    $mailer->SMTPDebug = 2;
     $mailer->isSMTP();
     $mailer->CharSet = 'UTF-8';
     $mailer->SMTPAuth = true;
 
     $mailer->Host = 'mail.privateemail.com';
     $mailer->Username = 'hello@glow.team';
-    $mailer->Password = 'Driblosus17';
+    $mailer->Password = '5mKW>4ebgdWM';
     $mailer->Port = 465;
+    $mailer->SMTPSecure = 'ssl';
     $mailer->setFrom('hello@glow.team', 'Glow Team');
     $mailer->addAddress('sergey.bogdan.vi@gmail.com');
     // $mailer->addAddress('hello@glow.team');
@@ -125,6 +127,8 @@ function emailNotification() {
     foreach ($message as $key => $value) {
       $msg .= "<b>$key:</b>$value<br><br>";
     }
+    // var_dump($msg);
+    // die();
     $mailer->Body = $msg;
 
     if ($mailer->send()) {

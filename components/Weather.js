@@ -7,7 +7,8 @@ export default function Weather({ className }) {
 
   useEffect(() => {
     fetch(
-      'https://api.openweathermap.org/data/2.5/weather?q=Odessa,ua&APPID=b2003c8c08870ac73dfae03848ce8a8c&units=metric'
+      'https://api.openweathermap.org/data/2.5/weather?q=Odessa,ua&APPID=b2003c8c08870ac73dfae03848ce8a8c&units=metric',
+      { cache: 'force-cache' }
     )
       .then((res) => res.json())
       .then(({ main }) => {
