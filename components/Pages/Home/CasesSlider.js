@@ -48,35 +48,35 @@ const cases = [
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
     image: Case2Image,
-    imageJsx: (props) => (
-      <picture>
-        <source
-          srcset="
-      /img/cg/cg-cover-mobile-w366.webp,
-      /img/cg/cg-cover-mobile-w732.webp 2x
-    "
-          media="(max-width: 767.5px)"
-          type="image/webp"
-        />
-        <source
-          srcset="
-      /img/cg/cg-cover-mobile-w366.png,
-      /img/cg/cg-cover-mobile-w732.png 2x
-    "
-          media="(max-width: 767.5px)"
-        />
-        <source
-          srcset="/img/cg/cg-cover-w1140.webp, /img/cg/cg-cover-w2280.webp 2x"
-          media="(min-width: 768.5px)"
-          type="image/webp"
-        />
-        <source
-          srcset="/img/cg/cg-cover-w1140.png, /img/cg/cg-cover-w2280.png 2x"
-          media="(min-width: 768.5px)"
-        />
-        <img {...props} src="/img/cg/cg-cover-w1440.png" />
-      </picture>
-    ),
+    // imageJsx: (props) => (
+    //   <picture>
+    //     <source
+    //       srcSet="
+    //   /img/cg/cg-cover-mobile-w366.webp,
+    //   /img/cg/cg-cover-mobile-w732.webp 2x
+    // "
+    //       media="(max-width: 767.5px)"
+    //       type="image/webp"
+    //     />
+    //     <source
+    //       srcSet="
+    //   /img/cg/cg-cover-mobile-w366.png,
+    //   /img/cg/cg-cover-mobile-w732.png 2x
+    // "
+    //       media="(max-width: 767.5px)"
+    //     />
+    //     <source
+    //       srcSet="/img/cg/cg-cover-w1140.webp, /img/cg/cg-cover-w2280.webp 2x"
+    //       media="(min-width: 768.5px)"
+    //       type="image/webp"
+    //     />
+    //     <source
+    //       srcSet="/img/cg/cg-cover-w1140.png, /img/cg/cg-cover-w2280.png 2x"
+    //       media="(min-width: 768.5px)"
+    //     />
+    //     <img {...props} src="/img/cg/cg-cover-w1440.png" />
+    //   </picture>
+    // ),
   },
   {
     title: 'Beast Tesla Rent',

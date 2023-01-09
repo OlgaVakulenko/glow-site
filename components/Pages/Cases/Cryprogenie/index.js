@@ -1,8 +1,102 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import cx from 'clsx';
 import { useHeaderTheme } from '../../../Header';
 import LegacyCaseContainer from '../LegacyCaseContainer';
 import styles from './styles.module.scss';
+
+function Intro() {
+  const ref = useRef();
+  useHeaderTheme({ ref, theme: 'dark' });
+
+  return (
+    <section ref={ref} className="section welcome cg-welcome">
+      <div>
+        <div className="container">
+          <div className="welcome__content">
+            <div className="welcome__left">
+              <h1 className="title-big wow fadeInUp" data-wow-duration="1.2s">
+                CryptoGenie is a tool for&nbsp;predicting
+                <br /> the&nbsp;relevant trends <br />
+                of&nbsp;various crypto assets
+              </h1>
+              <h2
+                className="welcome__scroll wow fadeInUp"
+                data-wow-duration="1.2s"
+              >
+                <span>
+                  <svg
+                    viewBox="0 0 18 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      clipRule="evenodd"
+                      d="M-6.56721e-07 15.024L1.89768 13.1313L7.43164 18.6508L7.43164 3.24847e-07L10.568 4.6194e-07L10.568 18.6512L16.1023 13.1313L18 15.024L9 24.0004L-6.56721e-07 15.024Z"
+                      fill="white"
+                    />
+                  </svg>
+                </span>
+                Start scrolling
+                <span className="cg-height-container">21,595 px</span>
+              </h2>
+            </div>
+            <div className="cg-welcome-bg1-wrapper">
+              <div className="cg-welcome-bg1 wow fadeInUp">
+                <svg
+                  viewBox="0 0 397 300"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M19.6176 241.492L0.109331 260.874L38.8741 299.891L58.3824 280.508L19.6176 241.492ZM189.037 111.931L208.981 92.9981L189.612 72.5942L169.654 92.423L189.037 111.931ZM237.264 162.735L217.32 181.668L236.972 202.37L256.927 181.96L237.264 162.735ZM369 28H396.5V0.5H369V28ZM303.132 0.5H275.632V55.5H303.132V0.5ZM341.5 95.3674V122.867H396.5V95.3674H341.5ZM58.3824 280.508L208.419 131.44L169.654 92.423L19.6176 241.492L58.3824 280.508ZM169.092 130.865L217.32 181.668L257.209 143.802L208.981 92.9981L169.092 130.865ZM256.927 181.96L388.663 47.2254L349.337 8.77465L217.601 143.509L256.927 181.96ZM369 0.5H303.132V55.5H369V0.5ZM341.5 28V95.3674H396.5V28H341.5Z"
+                    fill="url(#paint0_linear_334_9091)"
+                  />
+                  <defs>
+                    <linearGradient
+                      id="paint0_linear_334_9091"
+                      x1="289.856"
+                      y1={28}
+                      x2="203.572"
+                      y2="260.841"
+                      gradientUnits="userSpaceOnUse"
+                    >
+                      <stop stopColor="#51D9B8" />
+                      <stop offset={1} stopColor="#51D9B8" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+            <div className="cg-welcome-x wow fadeInUp" data-wow-duration="1.2s">
+              <picture>
+                <source
+                  srcSet="/img/cg/front-w400.webp, /img/cg/front-w800.webp 2x"
+                  media="(max-width: 767.5px)"
+                  type="image/webp"
+                />
+                <source
+                  srcSet="/img/cg/front-w400.png, /img/cg/front-w800.png 2x"
+                  media="(max-width: 767.5px)"
+                />
+                <source
+                  srcSet="/img/cg/front-w1140.webp, /img/cg/front-w2280.webp 2x"
+                  media="(min-width: 768.5px)"
+                  type="image/webp"
+                />
+                <source
+                  srcSet="/img/cg/front-w1140.png, /img/cg/front-w2280.png 2x"
+                  media="(min-width: 768.5px)"
+                />
+                <img className="" src="/img/cg/front-w1440.png" />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 function Cryptogenie() {
   return (
@@ -10,102 +104,7 @@ function Cryptogenie() {
       <div className={styles.cryptogenie}>
         <main className={cx('cg-main cg-main cryptogenie')}>
           {/* Start window*/}
-          <section className="section welcome cg-welcome">
-            <div>
-              <div className="container">
-                <div className="welcome__content">
-                  <div className="welcome__left">
-                    <h1
-                      className="title-big wow fadeInUp"
-                      data-wow-duration="1.2s"
-                    >
-                      CryptoGenie is a tool for&nbsp;predicting
-                      <br /> the&nbsp;relevant trends <br />
-                      of&nbsp;various crypto assets
-                    </h1>
-                    <h2
-                      className="welcome__scroll wow fadeInUp"
-                      data-wow-duration="1.2s"
-                    >
-                      <span>
-                        <svg
-                          viewBox="0 0 18 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            clipRule="evenodd"
-                            d="M-6.56721e-07 15.024L1.89768 13.1313L7.43164 18.6508L7.43164 3.24847e-07L10.568 4.6194e-07L10.568 18.6512L16.1023 13.1313L18 15.024L9 24.0004L-6.56721e-07 15.024Z"
-                            fill="white"
-                          />
-                        </svg>
-                      </span>
-                      Start scrolling
-                      <span className="cg-height-container">21,595 px</span>
-                    </h2>
-                  </div>
-                  <div className="cg-welcome-bg1-wrapper">
-                    <div className="cg-welcome-bg1 wow fadeInUp">
-                      <svg
-                        viewBox="0 0 397 300"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M19.6176 241.492L0.109331 260.874L38.8741 299.891L58.3824 280.508L19.6176 241.492ZM189.037 111.931L208.981 92.9981L189.612 72.5942L169.654 92.423L189.037 111.931ZM237.264 162.735L217.32 181.668L236.972 202.37L256.927 181.96L237.264 162.735ZM369 28H396.5V0.5H369V28ZM303.132 0.5H275.632V55.5H303.132V0.5ZM341.5 95.3674V122.867H396.5V95.3674H341.5ZM58.3824 280.508L208.419 131.44L169.654 92.423L19.6176 241.492L58.3824 280.508ZM169.092 130.865L217.32 181.668L257.209 143.802L208.981 92.9981L169.092 130.865ZM256.927 181.96L388.663 47.2254L349.337 8.77465L217.601 143.509L256.927 181.96ZM369 0.5H303.132V55.5H369V0.5ZM341.5 28V95.3674H396.5V28H341.5Z"
-                          fill="url(#paint0_linear_334_9091)"
-                        />
-                        <defs>
-                          <linearGradient
-                            id="paint0_linear_334_9091"
-                            x1="289.856"
-                            y1={28}
-                            x2="203.572"
-                            y2="260.841"
-                            gradientUnits="userSpaceOnUse"
-                          >
-                            <stop stopColor="#51D9B8" />
-                            <stop
-                              offset={1}
-                              stopColor="#51D9B8"
-                              stopOpacity={0}
-                            />
-                          </linearGradient>
-                        </defs>
-                      </svg>
-                    </div>
-                  </div>
-                  <div
-                    className="cg-welcome-x wow fadeInUp"
-                    data-wow-duration="1.2s"
-                  >
-                    <picture>
-                      <source
-                        srcSet="/img/cg/front-w400.webp, /img/cg/front-w800.webp 2x"
-                        media="(max-width: 767.5px)"
-                        type="image/webp"
-                      />
-                      <source
-                        srcSet="/img/cg/front-w400.png, /img/cg/front-w800.png 2x"
-                        media="(max-width: 767.5px)"
-                      />
-                      <source
-                        srcSet="/img/cg/front-w1140.webp, /img/cg/front-w2280.webp 2x"
-                        media="(min-width: 768.5px)"
-                        type="image/webp"
-                      />
-                      <source
-                        srcSet="/img/cg/front-w1140.png, /img/cg/front-w2280.png 2x"
-                        media="(min-width: 768.5px)"
-                      />
-                      <img className="" src="/img/cg/front-w1440.png" />
-                    </picture>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <Intro />
           {/* Client info*/}
           <section className="section case-section client-info">
             <div className="container">

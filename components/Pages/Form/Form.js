@@ -50,7 +50,7 @@ export default function Form({ onSubmit }) {
         onSubmit?.();
       }, 500);
 
-      return;
+      // return;
 
       const data = new FormData();
       Object.values(form).forEach((entry) => {

@@ -8,6 +8,7 @@ import Section from '../../Section';
 import SectionLink from '../../SectionLink';
 import profiles from './data';
 import SliderProgress from '../../SliderProgress';
+import React from 'react';
 
 export default function Team() {
   return (
@@ -69,17 +70,17 @@ function ProfileLayout({ profiles }) {
     <Layout>
       <div className="-mr-8 -mb-12 flex flex-wrap xl:-mb-[72px] xl:-mr-[29px]">
         {profiles.map((profile, i) => (
-          <>
+          <React.Fragment key={i}>
             {i === 4 && (
               <>
                 <div className="w-[240px] xl:w-[317px]"></div>
                 <div className="w-[240px] xl:w-[317px]"></div>
               </>
             )}
-            <div key={i} className="mr-8 mb-12 xl:mr-[29px] xl:mb-[72px]">
+            <div className="mr-8 mb-12 xl:mr-[29px] xl:mb-[72px]">
               <Profile {...profile} />
             </div>
-          </>
+          </React.Fragment>
         ))}
       </div>
     </Layout>

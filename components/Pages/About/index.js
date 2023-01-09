@@ -12,6 +12,7 @@ import HRule from '../../HRule';
 import Team from './Team';
 import Push from './Push';
 import Logos from './Logos';
+import BlogPosts from './BlogPosts';
 
 export default function About() {
   useHeaderTheme({ theme: 'white' });
@@ -46,6 +47,8 @@ export default function About() {
         <Team />
         <Push />
         <Logos />
+        <HRule className="mb-14" />
+        <BlogPosts />
       </DimSection>
     </div>
   );

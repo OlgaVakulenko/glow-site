@@ -7,7 +7,11 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useId, useRef, useState } from 'react';
 import { ScrollTrigger } from '../dist/gsap';
 import { mediaAtom } from '../lib/agent';
-import { useBodyLock, useScrollDirection } from '../lib/utils';
+import {
+  createHeaderScrollTrigger,
+  useBodyLock,
+  useScrollDirection,
+} from '../lib/utils';
 import Animated from './Animated';
 import BigButton from './BigButton';
 import Layout from './Layout';
@@ -226,16 +230,25 @@ const BurgerMenu = ({
 
 const defaultTheme = 'brand';
 export const headerTheme = atom([defaultTheme]);
+export const showBackdropAtom = atom(true);
 export const logoColor = atom(null);
 
-//theme: 'white' | 'dark'
-export const useHeaderTheme = ({ ref, theme = '' }) => {
+//theme: 'white' | 'dark' | 'light'
+export const useHeaderTheme = ({
+  ref,
+  theme = '',
+  onEnter: _onEnter,
+  onLeave: _onLeave,
+}) => {
   const router = useRouter();
   const setHeaderTheme = useSetAtom(headerTheme);
 
   useEffect(() => {
     const onEnter = () => {
       setHeaderTheme((c) => [...c, theme]);
+      if (_onEnter) {
+        _onEnter();
+      }
     };
 
     const onLeave = () => {
@@ -246,6 +259,10 @@ export const useHeaderTheme = ({ ref, theme = '' }) => {
         }
         return themes;
       });
+
+      if (_onLeave) {
+        _onLeave;
+      }
     };
 
     if (!ref) {
@@ -254,15 +271,10 @@ export const useHeaderTheme = ({ ref, theme = '' }) => {
       return onLeave;
     }
 
-    const s = ScrollTrigger.create({
-      trigger: ref.current,
-      start: 'top top+=69',
-      end: 'bottom top',
-      refreshPriority: -10,
+    const s = createHeaderScrollTrigger({
+      ref,
       onEnter,
       onLeave,
-      onEnterBack: onEnter,
-      onLeaveBack: onLeave,
     });
 
     return () => {
@@ -299,6 +311,7 @@ export default function Header({
   const [color, setColor] = useAtom(logoColor);
   const t = overrideTheme || theme[theme.length - 1];
   const [isOpen, setIsOpen] = useAtom(openAtom);
+  const [showBackdrop, setShowBackdrop] = useAtom(showBackdropAtom);
   // const links = ['Work', 'Team', 'Services'];
   const menuId = useId();
   const { lock, release } = useBodyLock();
@@ -347,10 +360,12 @@ export default function Header({
               'backdrop pointer-events-none absolute top-0 left-0 h-[96px] w-full -translate-y-full bg-white opacity-0 transition-all duration-300',
               {
                 '!translate-y-0':
+                  showBackdrop &&
                   t !== 'brand' &&
                   t !== 'dark' &&
                   scrollDirection !== 'forward',
                 '!opacity-100':
+                  showBackdrop &&
                   t !== 'brand' &&
                   t !== 'dark' &&
                   scrollDirection !== 'forward',

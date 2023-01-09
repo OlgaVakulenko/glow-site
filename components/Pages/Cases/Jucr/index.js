@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import LegacyCaseContainer from '../LegacyCaseContainer';
 import cx from 'clsx';
 import css from './styles.module.scss';
 import { useMediaAtom, useMediaAtomClient } from '../../../../lib/agent';
+import { showBackdropAtom, useHeaderTheme } from '../../../Header';
+import { createHeaderScrollTrigger } from '../../../../lib/utils';
+import { useSetAtom } from 'jotai';
 
 function Stripes() {
   const [toggle, setToggle] = useState(false);
@@ -105,7 +108,33 @@ function Phone() {
   );
 }
 
-function Jucr() {
+function Intro() {
+  const ref = useRef();
+  const setShowBackdrop = useSetAtom(showBackdropAtom);
+
+  useHeaderTheme({ ref, theme: 'dark' });
+
+  useEffect(() => {
+    const onEnter = () => {
+      setShowBackdrop(false);
+    };
+
+    const onLeave = () => {
+      setShowBackdrop(true);
+    };
+
+    const s = createHeaderScrollTrigger({
+      ref,
+      onEnter,
+      onLeave,
+    });
+
+    return () => {
+      s.kill();
+      onLeave();
+    };
+  }, []);
+
   useEffect(() => {
     let mounted = true;
     const id = setInterval(() => {
@@ -135,68 +164,97 @@ function Jucr() {
   }, []);
 
   return (
+    <section ref={ref} className="section welcome jucr-welcome">
+      <div>
+        <div className="container">
+          <div className="welcome__content">
+            <div className="welcome__left">
+              <h1 className="title-big wow fadeInUp" data-wow-duration="1.2s">
+                Charge your car without
+                <br />
+                worries
+              </h1>
+              <h2
+                className="welcome__scroll wow fadeInUp"
+                data-wow-duration="1.2s"
+              >
+                Start scrolling 20,381 px
+              </h2>
+            </div>
+            <div className="jucr2-first-shot-bg">
+              <picture>
+                <source
+                  srcSet="/img/jucr/first_shot_mobile-w400.webp"
+                  media="(max-width: 767.5px)"
+                  type="image/webp"
+                />
+                <source
+                  srcSet="/img/jucr/first_shot_mobile-w400.png"
+                  media="(max-width: 767.5px)"
+                />
+                <source
+                  srcSet="/img/jucr/first_shot-w1920.webp"
+                  media="(min-width: 768.5px)"
+                  type="image/webp"
+                />
+                <source
+                  srcSet="/img/jucr/first_shot-w1920.png"
+                  media="(min-width: 768.5px)"
+                />
+                <img
+                  className="first_frame_image first_frame_shot"
+                  src="/img/jucr/first_shot-w1920.png"
+                />
+              </picture>
+              <Stripes />
+              <div className="jucr2-stripeX jucr2-stripeX-1" />
+              <div className="jucr2-stripeX jucr2-stripeX-2" />
+              <div className="jucr2-stripeX jucr2-stripeX-3" />
+              <div className="jucr2-stripeX jucr2-stripeX-4" />
+              <div className="jucr2-stripeX jucr2-stripeX-5" />
+              <div className="jucr2-stripeX jucr2-stripeX-6" />
+              <Phone />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ResearchMedia() {
+  const media = useMediaAtom();
+
+  return (
+    <div className="research-media wow fadeInUp">
+      {media === 'mobile' ? (
+        <picture>
+          <source srcSet="/img/jucr/research_mobile-w400.png, /img/jucr/research_mobile-w800.png 2x" />
+          <source
+            srcSet="/img/jucr/research_mobile-w400.webp, /img/jucr/research_mobile-w800.png 2x"
+            type="image/webp"
+          />
+          <img
+            className="visible-xs"
+            src="/img/jucr/research_mobile-w400.png"
+          />
+        </picture>
+      ) : (
+        <video src="/img/jucr/research.mp4" autoPlay loop muted playsInline />
+      )}
+    </div>
+  );
+}
+
+function Jucr() {
+  // useHeaderTheme({ theme: 'dark' });
+
+  return (
     <LegacyCaseContainer>
       <div className={css.jucr}>
         <main className="jucr-main">
           {/* Start window*/}
-          <section className="section welcome jucr-welcome">
-            <div>
-              <div className="container">
-                <div className="welcome__content">
-                  <div className="welcome__left">
-                    <h1
-                      className="title-big wow fadeInUp"
-                      data-wow-duration="1.2s"
-                    >
-                      Charge your car without
-                      <br />
-                      worries
-                    </h1>
-                    <h2
-                      className="welcome__scroll wow fadeInUp"
-                      data-wow-duration="1.2s"
-                    >
-                      Start scrolling 20,381 px
-                    </h2>
-                  </div>
-                  <div className="jucr2-first-shot-bg">
-                    <picture>
-                      <source
-                        srcSet="/img/jucr/first_shot_mobile-w400.webp"
-                        media="(max-width: 767.5px)"
-                        type="image/webp"
-                      />
-                      <source
-                        srcSet="/img/jucr/first_shot_mobile-w400.png"
-                        media="(max-width: 767.5px)"
-                      />
-                      <source
-                        srcSet="/img/jucr/first_shot-w1920.webp"
-                        media="(min-width: 768.5px)"
-                        type="image/webp"
-                      />
-                      <source
-                        srcSet="/img/jucr/first_shot-w1920.png"
-                        media="(min-width: 768.5px)"
-                      />
-                      <img
-                        className="first_frame_image first_frame_shot"
-                        src="/img/jucr/first_shot-w1920.png"
-                      />
-                    </picture>
-                    <Stripes />
-                    <div className="jucr2-stripeX jucr2-stripeX-1" />
-                    <div className="jucr2-stripeX jucr2-stripeX-2" />
-                    <div className="jucr2-stripeX jucr2-stripeX-3" />
-                    <div className="jucr2-stripeX jucr2-stripeX-4" />
-                    <div className="jucr2-stripeX jucr2-stripeX-5" />
-                    <div className="jucr2-stripeX jucr2-stripeX-6" />
-                    <Phone />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+          <Intro />
           {/* Client info*/}
           <section className="section case-section client-info">
             <div className="container">
@@ -310,10 +368,10 @@ function Jucr() {
                       <video
                         style={{ position: 'relative' }}
                         src="/img/jucr/challenge.mp4"
-                        autoPlay=""
-                        loop=""
-                        muted=""
-                        playsInline=""
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
                       />
                       <img
                         className="challenge-phone-mockup"
@@ -398,19 +456,7 @@ function Jucr() {
                   </p>
                 </div>
               </div>
-              <div className="research-media wow fadeInUp">
-                <picture>
-                  <source srcSet="/img/jucr/research_mobile-w400.png, /img/jucr/research_mobile-w800.png 2x" />
-                  <source
-                    srcSet="/img/jucr/research_mobile-w400.webp, /img/jucr/research_mobile-w800.png 2x"
-                    type="image/webp"
-                  />
-                  <img
-                    className="visible-xs"
-                    src="/img/jucr/research_mobile-w400.png"
-                  />
-                </picture>
-              </div>
+              <ResearchMedia />
             </div>
           </section>
           {/* Hi Fidelity Frame */}
@@ -792,7 +838,13 @@ function Jucr() {
                 </div>
               </div>
               <div className="wow fadeInUp">
-                <video src="/img/jucr/smart.mp4" autoPlay="" loop="" muted="" />
+                <video
+                  src="/img/jucr/smart.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
               </div>
             </div>
           </section>
@@ -856,9 +908,10 @@ function Jucr() {
                 <video
                   className="statistic-video"
                   src="/img/jucr/statistic.mp4"
-                  autoPlay=""
-                  loop=""
-                  muted=""
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                 />
               </div>
             </div>

@@ -43,13 +43,23 @@ export function Source(props) {
   );
 }
 
+const isString = (input) => typeof input === 'string';
+
 export default function Image(props) {
   const [width, height] = useMemo(() => {
+    if (isString(props.src)) {
+      return [];
+    }
+
     const ratio = 1140 / props.src.width;
     return [props.src.width * ratio, props.src.height * ratio];
-  }, [props.src.width, props.src.height]);
+  }, [props?.src.width, props?.src.height]);
 
   const ext = props.ext || null;
+
+  if (isString(props.src)) {
+    return <img {...props} />;
+  }
 
   return (
     <picture>

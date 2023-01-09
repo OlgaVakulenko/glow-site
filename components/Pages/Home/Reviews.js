@@ -14,7 +14,7 @@ import { mediaAtom } from '../../../lib/agent';
 import Layout from '../../Layout';
 import SliderProgress from '../../SliderProgress';
 import CursorDrag from './assets/cursor-drag.png';
-import debounce from 'lodash.debounce';
+import DragCursorContainer from '../../DragCursor';
 
 const reviews = [
   {
@@ -260,107 +260,6 @@ function ReviewSlide({ review }) {
         </div>
       </div>
     </Layout>
-  );
-}
-
-function DragCursor1({ x, y }) {
-  return (
-    <div
-      className="position pointer-events-none absolute top-0 left-0 z-10 flex h-[140px] w-[140px] items-center justify-between rounded-full bg-brand p-4 text-[14px] font-medium uppercase leading-[19px] tracking-[0.03em]"
-      style={{
-        transform: `translate(${x - 70}px, ${y - 140}px)`,
-      }}
-    >
-      <svg
-        width="11"
-        height="18"
-        viewBox="0 0 11 18"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M10 17L2 9L10 1" stroke="black" strokeWidth="2" />
-      </svg>
-      DRAG
-      <svg
-        width="11"
-        height="18"
-        viewBox="0 0 11 18"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M1 1L9 9L1 17" stroke="black" strokeWidth="2" />
-      </svg>
-    </div>
-  );
-}
-
-const DragCursor = React.memo(DragCursor1);
-
-function DragCursorContainer({ children }) {
-  const ref = useRef();
-  const [show, setShow] = useState(false);
-  const [pos, setPos] = useState({ x: 0, y: 0 });
-  const _x = useDeferredValue(pos.x);
-  const _y = useDeferredValue(pos.y);
-  const [offsetTop, setOffsetTop] = useState(0);
-
-  useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
-
-    const setRect = debounce(() => {
-      const rect = node.getBoundingClientRect();
-      console.log(rect);
-      setOffsetTop(rect.y);
-    }, 250);
-
-    setRect();
-    window.addEventListener('scroll', setRect);
-
-    return () => {
-      window.removeEventListener('scroll', setRect);
-    };
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className="relative cursor-none"
-      onMouseEnter={(e) => {
-        if (!e.currentTarget) return;
-        setShow(true);
-      }}
-      onMouseLeave={() => {
-        setShow(false);
-      }}
-      onMouseMove={(e) => {
-        // if (e.target !== ref.current) return;
-        // console.log(e.target);
-        const x = e.clientX;
-        const y = e.nativeEvent.screenY - offsetTop;
-
-        console.log(x, y, 'top', offsetTop);
-
-        setPos({ x, y });
-      }}
-    >
-      {show && <DragCursor x={_x} y={_y} />}
-      {children}
-    </div>
-  );
-}
-
-function DragCursorContainer2({ children }) {
-  console.log(`url('${CursorDrag.src}'), pointer`);
-
-  return (
-    <div
-      style={{
-        cursor: `url('${CursorDrag.src}'), pointer`,
-      }}
-    >
-      {children}
-    </div>
   );
 }
 

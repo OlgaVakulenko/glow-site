@@ -6,6 +6,7 @@ import React, { useEffect, useMemo } from 'react';
 import { nativeScrollAtom } from '../atoms/scroll';
 import LoadingProgress from '../components/LoadingProgress';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
+import Tolstoy from '../components/Widgets/Tolstoy';
 import { useMedia } from '../lib/agent';
 import '../styles/globals.css';
 // import '../styles/globals2.css';
@@ -55,6 +56,10 @@ function MyApp({ Component, pageProps }) {
       router.events.off('routeChangeComplete', onRouteChange);
     };
   }, [router.events, setRouterHistory]);
+
+  useEffect(() => {
+    window.tolstoyAppKey = '0634e847-3af8-4889-b83a-68c5c24e0e37';
+  }, []);
 
   return (
     <div>
@@ -163,6 +168,8 @@ function MyApp({ Component, pageProps }) {
 
       <DebugAtoms />
       {getLayout(<Component {...pageProps} />)}
+
+      <Tolstoy />
       {/* <Header />
       <ScrollContainer>
         <ParallaxFooter />

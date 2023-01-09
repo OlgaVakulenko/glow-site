@@ -59,7 +59,7 @@ export default function SectionLink({
               <span
                 className={cx(
                   'min-w-[144px] md:min-w-[184px]',
-                  'glow-border-black rolling-text-group flex justify-center whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-center text-button-m uppercase shadow-black transition-all duration-500',
+                  'glow-border-black rolling-text-group flex justify-center whitespace-pre-wrap rounded-full px-[19px] py-[14px] text-center text-button-m uppercase shadow-black transition-all duration-500',
                   // 'hover:text-brand'
                   // t === 'white' &&
                   'glow-border-b-b group-hover:!bg-brand group-hover:!text-black'
