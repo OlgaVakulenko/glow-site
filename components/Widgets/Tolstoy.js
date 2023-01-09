@@ -45,7 +45,7 @@ export default function Tolstoy() {
     if (router.pathname === '/') {
       setTimeout(() => {
         if (router.pathname === '/') {
-          window?.tolstoyWidget?.start();
+          window?.tolstoyWidget?.show();
         }
       }, 1000);
 
