@@ -68,19 +68,11 @@ function ProfileLayout({ profiles }) {
 
   return (
     <Layout>
-      <div className="-mr-8 -mb-12 flex flex-wrap xl:-mb-[72px] xl:-mr-[29px]">
+      <div className="-mr-8 -mb-12 flex flex-wrap md:justify-center xl:-mb-[72px] xl:-mr-[29px]">
         {profiles.map((profile, i) => (
-          <React.Fragment key={i}>
-            {i === 4 && (
-              <>
-                <div className="w-[240px] xl:w-[317px]"></div>
-                <div className="w-[240px] xl:w-[317px]"></div>
-              </>
-            )}
-            <div className="mr-8 mb-12 xl:mr-[29px] xl:mb-[72px]">
-              <Profile {...profile} />
-            </div>
-          </React.Fragment>
+          <div key={i} className="mr-8 mb-12 xl:mr-[29px] xl:mb-[72px]">
+            <Profile {...profile} />
+          </div>
         ))}
       </div>
     </Layout>

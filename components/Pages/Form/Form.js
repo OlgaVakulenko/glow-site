@@ -179,7 +179,7 @@ export default function Form({ onSubmit }) {
           </FormSection>
           <div
             className={cx(
-              'mt-8 flex flex-col items-start transition-opacity duration-500 md:mt-0 md:flex-row md:items-center md:justify-end',
+              'mt-8 flex flex-col items-start transition-opacity duration-700 md:mt-0 md:flex-row md:items-center md:justify-end',
               {
                 'opacity-0': index < 6,
               }

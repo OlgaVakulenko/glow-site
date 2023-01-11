@@ -269,9 +269,12 @@ export default function Reviews() {
   return (
     <DragCursorContainer>
       <Swiper
+        speed={500}
         modules={[Autoplay]}
         // grabCursor={true}
-        autoplay={true}
+        autoplay={{
+          stopOnLastSlide: true,
+        }}
         slidesPerView={'auto'}
         touchStartPreventDefault={false}
         breakpoints={{

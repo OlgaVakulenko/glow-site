@@ -37,8 +37,6 @@ export default function Analytics() {
       pageview(url);
     };
 
-    onRouterChange();
-
     router.events.on('routeChangeComplete', onRouterChange);
     router.events.on('hashChangeComplete', onRouterChange);
 

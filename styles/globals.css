@@ -305,3 +305,14 @@
   /* z-index: 3; */
   animation: 1s ease 1s 1 normal forwards running k-bHvlyS;
 }
+
+.glow-before-after .before-after-slider__delimiter {
+  background-color: theme('colors.brand') !important;
+  width: 4px !important;
+}
+
+.glow-before-after .before-after-slider__delimiter-icon {
+  background-color: theme('colors.brand') !important;
+  width: 20px !important;
+  height: 20px !important;
+}

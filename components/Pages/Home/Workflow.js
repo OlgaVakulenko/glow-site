@@ -12,10 +12,8 @@ const stages = [
     title: 'Investigate',
     description: (
       <>
-        <p>Stakeholders Workshop</p>
-        <p>Value Proposition Canvas</p> <p>Competitors Analysis</p>
-        <p>User Interviews/Survey</p> <p>Market Research</p>
-        <p>Jobs To Be Done</p>
+        Deep research of your idea. We analyse audiences & competitors to gather
+        insights for future solutions.
       </>
     ),
     icon: Investigate,
@@ -24,11 +22,8 @@ const stages = [
     title: 'Ideate',
     description: (
       <>
-        <p>Customer Journey Map</p>
-        <p>Product Concept</p>
-        <p>MVP Definition</p>
-        <p>Product Roadmap</p>
-        <p>Additional Requirements</p>
+        It is time to use the research data to come up with a strong and
+        competitive product concept.
       </>
     ),
     icon: Ideate,
@@ -37,12 +32,8 @@ const stages = [
     title: 'Create',
     description: (
       <>
-        <p>Information Architecture</p>
-        <p>Wireframes, Prototypes</p>
-        <p>Visual Concept</p>
-        <p>UI Design</p>
-        <p>Design System</p>
-        <p>Handoff</p>
+        Now we are ready to build an efficient but simple UX and create an
+        eye-catching visual concept.
       </>
     ),
     icon: Create,
@@ -51,11 +42,8 @@ const stages = [
     title: 'Iterate',
     description: (
       <>
-        <p>Design QA</p>
-        <p>Usability Testing</p>
-        <p>A/B Testing</p>
-        <p>Analytics</p>
-        <p>Constant Improvements</p>
+        Our work is not over when the design is done. We run tests and gather
+        feedback to make improvements.
       </>
     ),
     icon: Iterate,

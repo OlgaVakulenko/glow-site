@@ -5,6 +5,9 @@ export default function GTag() {
   return (
     <>
       <Script
+        onReady={() => {
+          console.log('gtag ready');
+        }}
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-5NP2XWNRBX"
       />

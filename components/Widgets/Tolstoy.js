@@ -10,15 +10,6 @@ if (typeof window !== 'undefined') {
     stopPreviewLoop: true,
     noCloseOption: true,
   };
-
-  // const l = console.log;
-
-  // console.log = (...args) => {
-  //   if (args[0]) {
-  //     l(args[0]);
-  //   }
-  //   l(...args);
-  // };
 }
 
 export default function Tolstoy() {
@@ -29,13 +20,22 @@ export default function Tolstoy() {
 
   useEffect(() => {
     const onReady = (e) => {
+      console.log('ready');
       setReady(true);
     };
 
+    const onOpen = (e) => {
+      console.log('widget opened', e);
+    };
+
     window.addEventListener('tolstoyWidgetReady', onReady);
+    window.addEventListener('onWidgetOpen', onReady);
+    window.addEventListener('tolstoyWidgetOpen', onReady);
 
     return () => {
       window.removeEventListener('tolstoyWidgetReady', onReady);
+      window.removeEventListener('onWidgetOpen', onReady);
+      window.removeEventListener('tolstoyWidgetOpen', onReady);
     };
   }, []);
 

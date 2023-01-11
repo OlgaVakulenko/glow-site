@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import cx from 'clsx';
 import css from './legacy.module.scss';
 
-export default function LegacyCaseContainer({ children }) {
+export default function LegacyCaseContainer({ className, children }) {
   const ref = useRef(null);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export default function LegacyCaseContainer({ children }) {
   }, []);
 
   return (
-    <div ref={ref} className={cx(css.legacyRoot)}>
+    <div ref={ref} className={cx(css.legacyRoot, className)}>
       {children}
     </div>
   );

@@ -121,7 +121,7 @@ export default function FormStep({
             {_sentenceIndex === i && (
               <span
                 className={cx(
-                  'float-right  grow transition-opacity duration-300 md:mb-0 md:pl-4',
+                  'float-right  grow transition-opacity duration-700 md:mb-0 md:pl-4',
                   {
                     'mb-7': _sentenceIndex === sentences.length - 1,
                     ['opacity-0']: !isInputVisible,

@@ -4,8 +4,9 @@ import cx from 'clsx';
 import css from './styles.module.scss';
 import { useMediaAtom, useMediaAtomClient } from '../../../../lib/agent';
 import { showBackdropAtom, useHeaderTheme } from '../../../Header';
-import { createHeaderScrollTrigger } from '../../../../lib/utils';
+import { createHeaderScrollTrigger, range } from '../../../../lib/utils';
 import { useSetAtom } from 'jotai';
+import Carousel from '../Carousel';
 
 function Stripes() {
   const [toggle, setToggle] = useState(false);
@@ -508,30 +509,34 @@ function Jucr() {
                 </picture>
               </div>
               <div className="owl-carousel owl-carousel-hifi owl-theme">
-                <picture>
-                  <source
-                    srcSet="/img/jucr/hifi_1-w1140.webp, /img/jucr/hifi_1-w2280.webp 2x"
-                    media="(min-width: 768.5px)"
-                    type="image/webp"
-                  />
-                  <source
-                    srcSet="/img/jucr/hifi_1-w1140.png, /img/jucr/hifi_1-w2280.png 2x"
-                    media="(min-width: 768.5px)"
-                  />
-                  <img draggable="false" src="/img/jucr/hifi_1-w1440.png" />
-                </picture>
-                <picture>
-                  <source
-                    srcSet="/img/jucr/hifi_2-w1140.webp, /img/jucr/hifi_2-w2280.webp 2x"
-                    media="(min-width: 768.5px)"
-                    type="image/webp"
-                  />
-                  <source
-                    srcSet="/img/jucr/hifi_2-w1140.png, /img/jucr/hifi_2-w2280.png 2x"
-                    media="(min-width: 768.5px)"
-                  />
-                  <img draggable="false" src="/img/jucr/hifi_2-w1440.png" />
-                </picture>
+                <Carousel
+                  slides={[
+                    <picture key={1}>
+                      <source
+                        srcSet="/img/jucr/hifi_1-w1140.webp, /img/jucr/hifi_1-w2280.webp 2x"
+                        media="(min-width: 768.5px)"
+                        type="image/webp"
+                      />
+                      <source
+                        srcSet="/img/jucr/hifi_1-w1140.png, /img/jucr/hifi_1-w2280.png 2x"
+                        media="(min-width: 768.5px)"
+                      />
+                      <img draggable="false" src="/img/jucr/hifi_1-w1440.png" />
+                    </picture>,
+                    <picture key={2}>
+                      <source
+                        srcSet="/img/jucr/hifi_2-w1140.webp, /img/jucr/hifi_2-w2280.webp 2x"
+                        media="(min-width: 768.5px)"
+                        type="image/webp"
+                      />
+                      <source
+                        srcSet="/img/jucr/hifi_2-w1140.png, /img/jucr/hifi_2-w2280.png 2x"
+                        media="(min-width: 768.5px)"
+                      />
+                      <img draggable="false" src="/img/jucr/hifi_2-w1440.png" />
+                    </picture>,
+                  ]}
+                />
               </div>
             </div>
           </section>
@@ -757,51 +762,55 @@ function Jucr() {
               </div>
               <div id="hammerContainer" className="wow fadeInUp">
                 <div className="owl-carousel owl-carousel-profile owl-theme">
-                  <picture>
-                    <source
-                      srcSet="/img/jucr/profile_1-w1140.webp, /img/jucr/profile_1-w2280.webp 2x"
-                      media="(min-width: 768px)"
-                      type="image/webp"
-                    />
-                    <source
-                      srcSet="/img/jucr/profile_1-w1140.png, /img/jucr/profile_1-w2280.png 2x"
-                      media="(min-width: 768px)"
-                    />
-                    <img
-                      draggable="false"
-                      src="/img/jucr/profile_1-w1440.png"
-                    />
-                  </picture>
-                  <picture>
-                    <source
-                      srcSet="/img/jucr/profile_2-w1140.webp, /img/jucr/profile_2-w2280.webp 2x"
-                      media="(min-width: 768px)"
-                      type="image/webp"
-                    />
-                    <source
-                      srcSet="/img/jucr/profile_2-w1140.png, /img/jucr/profile_2-w2280.png 2x"
-                      media="(min-width: 768px)"
-                    />
-                    <img
-                      draggable="false"
-                      src="/img/jucr/profile_2-w1440.png"
-                    />
-                  </picture>
-                  <picture>
-                    <source
-                      srcSet="/img/jucr/profile_3-w1140.webp, /img/jucr/profile_3-w2280.webp 2x"
-                      media="(min-width: 768px)"
-                      type="image/webp"
-                    />
-                    <source
-                      srcSet="/img/jucr/profile_3-w1140.png, /img/jucr/profile_3-w2280.png 2x"
-                      media="(min-width: 768px)"
-                    />
-                    <img
-                      draggable="false"
-                      src="/img/jucr/profile_3-w1440.png"
-                    />
-                  </picture>
+                  <Carousel
+                    slides={[
+                      <picture key={1}>
+                        <source
+                          srcSet="/img/jucr/profile_1-w1140.webp, /img/jucr/profile_1-w2280.webp 2x"
+                          media="(min-width: 768px)"
+                          type="image/webp"
+                        />
+                        <source
+                          srcSet="/img/jucr/profile_1-w1140.png, /img/jucr/profile_1-w2280.png 2x"
+                          media="(min-width: 768px)"
+                        />
+                        <img
+                          draggable="false"
+                          src="/img/jucr/profile_1-w1440.png"
+                        />
+                      </picture>,
+                      <picture key={2}>
+                        <source
+                          srcSet="/img/jucr/profile_2-w1140.webp, /img/jucr/profile_2-w2280.webp 2x"
+                          media="(min-width: 768px)"
+                          type="image/webp"
+                        />
+                        <source
+                          srcSet="/img/jucr/profile_2-w1140.png, /img/jucr/profile_2-w2280.png 2x"
+                          media="(min-width: 768px)"
+                        />
+                        <img
+                          draggable="false"
+                          src="/img/jucr/profile_2-w1440.png"
+                        />
+                      </picture>,
+                      <picture key={3}>
+                        <source
+                          srcSet="/img/jucr/profile_3-w1140.webp, /img/jucr/profile_3-w2280.webp 2x"
+                          media="(min-width: 768px)"
+                          type="image/webp"
+                        />
+                        <source
+                          srcSet="/img/jucr/profile_3-w1140.png, /img/jucr/profile_3-w2280.png 2x"
+                          media="(min-width: 768px)"
+                        />
+                        <img
+                          draggable="false"
+                          src="/img/jucr/profile_3-w1440.png"
+                        />
+                      </picture>,
+                    ]}
+                  />
                 </div>
               </div>
             </div>
@@ -1233,12 +1242,28 @@ function Jucr() {
                   className="statistic-video onboarding-slider-phone"
                   src="/img/jucr/phone.png"
                 />
-                <div className="statistic-video onboarding-slider-slide">
+                <div
+                  className="statistic-video onboarding-slider-slide z-10"
+                  style={{
+                    clipPath: 'inset(50px 0px 97px)',
+                  }}
+                >
                   <div className="owl-carousel owl-theme owl-carousel-onboarding">
-                    <img className="" src="/img/jucr/onboarding_1.png" />
-                    <img className="" src="/img/jucr/onboarding_2.png" />
-                    <img className="" src="/img/jucr/onboarding_3.png" />
-                    <img className="" src="/img/jucr/onboarding_4.png" />
+                    <Carousel
+                      spaceBetween={0}
+                      resistanceRatio={0}
+                      slides={range(1, 5).map((num) => (
+                        <img
+                          className=""
+                          src={`/img/jucr/onboarding_${num}.png`}
+                          alt=""
+                          key={num}
+                        />
+                      ))}
+                    />
+                    {/* <img className="" src="/img/jucr/onboarding_2.png" /> */}
+                    {/* <img className="" src="/img/jucr/onboarding_3.png" /> */}
+                    {/* <img className="" src="/img/jucr/onboarding_4.png" /> */}
                   </div>
                 </div>
               </div>

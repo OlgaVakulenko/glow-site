@@ -35,6 +35,7 @@ const cases = [
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
     image: Case1Image,
+    href: '/beast',
   },
   {
     title: (

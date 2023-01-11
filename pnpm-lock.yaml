@@ -22,6 +22,7 @@ specifiers:
   framer-motion: ^7.5.3
   fs-extra: ^10.1.0
   gsap: ^3.11.3
+  hammerjs: ^2.0.8
   headroom.js: ^0.12.0
   jotai: ^1.8.5
   kute.js: ^2.2.4
@@ -34,6 +35,7 @@ specifiers:
   prettier-plugin-organize-imports: ^3.1.1
   prettier-plugin-tailwindcss: ^0.1.13
   react: 18.2.0
+  react-before-after-slider-component: ^1.1.6
   react-dom: 18.2.0
   react-fast-marquee: ^1.3.5
   react-popper: ^2.3.0
@@ -54,6 +56,7 @@ dependencies:
   d3-interpolate-path: 2.3.0
   framer-motion: 7.5.3_biqbaboplfbrettd7655fr4n2y
   gsap: 3.11.3
+  hammerjs: 2.0.8
   headroom.js: 0.12.0
   jotai: 1.8.5_react@18.2.0
   kute.js: 2.2.4
@@ -62,6 +65,7 @@ dependencies:
   next: 13.1.1_rbcn5us32xbtikc6xck2r3atzq_3duxcpitbtplz62feflag7fwby
   postcss-mobile-hover: 1.0.2
   react: 18.2.0
+  react-before-after-slider-component: 1.1.6_biqbaboplfbrettd7655fr4n2y
   react-dom: 18.2.0_react@18.2.0
   react-fast-marquee: 1.3.5_biqbaboplfbrettd7655fr4n2y
   react-popper: 2.3.0_r6q5zrenym2zg7je7hgi674bti
@@ -1559,6 +1563,11 @@ packages:
       duplexer: 0.1.2
     dev: false
 
+  /hammerjs/2.0.8:
+    resolution: {integrity: sha512-tSQXBXS/MWQOn/RKckawJ61vvsDpCom87JgxiYdGwHdOa0ht0vzUWDlfioofFCRU0L+6NGDt6XzbgoJvZkMeRQ==}
+    engines: {node: '>=0.8.0'}
+    dev: false
+
   /has-bigints/1.0.2:
     resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}
     dev: true
@@ -2412,6 +2421,16 @@ packages:
       minimist: 1.2.6
       strip-json-comments: 2.0.1
     dev: true
+
+  /react-before-after-slider-component/1.1.6_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-T6MgeomX17ibpxdDcS4GyncUb8IiZPQr9yTt9+ay1m4J5P8AGwgqOnR28Y3bMdcnjg8kIo8bvffLG5vuIWQIcw==}
+    peerDependencies:
+      react: '>=17.0.2'
+      react-dom: '>=17.0.2'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /react-dom/18.2.0_react@18.2.0:
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
