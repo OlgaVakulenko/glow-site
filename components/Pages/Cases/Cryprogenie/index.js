@@ -3,6 +3,7 @@ import cx from 'clsx';
 import { useHeaderTheme } from '../../../Header';
 import LegacyCaseContainer from '../LegacyCaseContainer';
 import styles from './styles.module.scss';
+import NextStudy from '../NextStudy';
 
 function Intro() {
   const ref = useRef();
@@ -1641,19 +1642,10 @@ function Cryptogenie() {
             </div>
           </section>
           {/* Next*/}
-          <section className="section next">
-            <div className="container">
-              <a className="next__body" href="/fleet">
-                <div className="next__left">
-                  <h2>Next Study</h2>
-                  <p>Fleet manager to control your equipment</p>
-                </div>
-                <div className="next__right">
-                  <img src="img/arrow-right-primary.svg" />
-                </div>
-              </a>
-            </div>
-          </section>
+          <NextStudy
+            title="Fleet manager to control your equipment"
+            href="/fleet"
+          />
         </main>
       </div>
     </LegacyCaseContainer>

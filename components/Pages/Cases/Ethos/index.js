@@ -2,6 +2,7 @@ import { range } from '../../../../lib/utils';
 import BeforeAfter from '../BeforeAfter';
 import Carousel from '../Carousel';
 import LegacyCaseContainer from '../LegacyCaseContainer';
+import NextStudy from '../NextStudy';
 
 export default function Ethos() {
   return (
@@ -731,19 +732,7 @@ export default function Ethos() {
           </div>
         </section>
         {/* Next*/}
-        <section className="section next">
-          <div className="container">
-            <a className="next__body" href="/parking">
-              <div className="next__left">
-                <h2>Next Study</h2>
-                <p>Platform for parking in airport</p>
-              </div>
-              <div className="next__right">
-                <img src="img/arrow-right-primary.svg" />
-              </div>
-            </a>
-          </div>
-        </section>
+        <NextStudy title="Platform for parking in airport" href="/parking" />
       </main>
     </LegacyCaseContainer>
   );

@@ -7,6 +7,7 @@ import { showBackdropAtom, useHeaderTheme } from '../../../Header';
 import { createHeaderScrollTrigger, range } from '../../../../lib/utils';
 import { useSetAtom } from 'jotai';
 import Carousel from '../Carousel';
+import NextStudy from '../NextStudy';
 
 function Stripes() {
   const [toggle, setToggle] = useState(false);
@@ -1333,19 +1334,10 @@ function Jucr() {
             </div>
           </section>
           {/* Next*/}
-          <section className="section next">
-            <div className="container">
-              <a className="next__body" href="/fleet">
-                <div className="next__left">
-                  <h2>Next Study</h2>
-                  <p>Fleet manager to control your equipment</p>
-                </div>
-                <div className="next__right">
-                  <img src="img/arrow-right-primary.svg" />
-                </div>
-              </a>
-            </div>
-          </section>
+          <NextStudy
+            title="Fleet manager to control your equipment"
+            href="/fleet"
+          />
         </main>
       </div>
     </LegacyCaseContainer>
