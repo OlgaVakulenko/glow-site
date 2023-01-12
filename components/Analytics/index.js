@@ -4,6 +4,7 @@ import FacebookPixel from './FacebookPixel';
 import GTag from './GTag';
 
 export const pageview = (url) => {
+  console.log('pageview: ', url);
   window.gtag('config', 'G-5NP2XWNRBX', {
     page_path: url,
   });

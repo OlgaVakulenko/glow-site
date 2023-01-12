@@ -574,6 +574,10 @@ export default function Fleet() {
             </div>
           </div>
           <img
+            style={{
+              objectFit: 'cover',
+              objectPosition: 'left',
+            }}
             className="case-section__image wow fadeInUp"
             src="img/fleet/mobile.jpg"
             data-wow-duration="0.7s"

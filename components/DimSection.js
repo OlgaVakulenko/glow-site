@@ -4,7 +4,7 @@ import cx from 'clsx';
 
 export default function DimSection({ className, children }) {
   const ref = useRef(null);
-  console.log('RENDER!!!');
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       const t1 = gsap.fromTo(
