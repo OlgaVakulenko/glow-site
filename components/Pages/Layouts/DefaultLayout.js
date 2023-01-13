@@ -29,6 +29,9 @@ export default function DefaultLayout({
                 }
               }}
               className="flex w-[185px] justify-end"
+              style={{
+                color: 'var(--header-theme)',
+              }}
             >
               <svg
                 width="48"
@@ -43,9 +46,9 @@ export default function DefaultLayout({
                   width="47"
                   height="47"
                   rx="23.5"
-                  stroke="#19191B"
+                  stroke="currentColor"
                 />
-                <path d="M32 17L17 32M32 32L17 17" stroke="black" />
+                <path d="M32 17L17 32M32 32L17 17" stroke="currentColor" />
               </svg>
 
               {/* <BurgerIcon isOpen={true} size={28} /> */}

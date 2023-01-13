@@ -120,7 +120,7 @@ export default function Workflow() {
             </Animated>
             <Animated
               delay={300}
-              className="md:max-w-[270px] md:text-[18px] md:leading-[27px] xl:max-w-[353px] xl:text-[20px] xl:leading-[27px]"
+              className="md:max-w-[348px] md:text-[18px] md:leading-[27px] xl:max-w-[448px] xl:text-[20px] xl:leading-[27px]"
             >
               {stage.description}
             </Animated>

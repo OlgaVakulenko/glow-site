@@ -29,12 +29,11 @@ export default function Team() {
 
 function Profile({ image, name, position }) {
   return (
-    <div className="flex max-w-[208px] flex-col xl:max-w-[288px]">
-      <Image
-        className="mb-8 max-h-[208px] overflow-hidden  rounded-[20px] object-cover xl:max-h-[288px]"
-        src={image}
-        alt=""
-      />
+    <div className="flex w-[208px] flex-col md:w-full xl:max-w-full">
+      <div className="relative mb-8 w-full max-w-[208px] overflow-hidden rounded-3xl pb-[100%] xl:max-w-full">
+        <Image src={image} alt="" className="absolute inset-0 object-cover" />
+      </div>
+
       <div className="mb-2 text-body-heading-m">{name}</div>
       <div className="text-body-s">{position}</div>
     </div>
@@ -70,7 +69,10 @@ function ProfileLayout({ profiles }) {
     <Layout>
       <div className="-mr-8 -mb-12 flex flex-wrap md:justify-center xl:-mb-[72px] xl:-mr-[29px]">
         {profiles.map((profile, i) => (
-          <div key={i} className="mr-8 mb-12 xl:mr-[29px] xl:mb-[72px]">
+          <div
+            key={i}
+            className="mr-8 mb-12 w-[208px] md:w-[calc(25%-32px)] xl:mr-[29px] xl:mb-[72px] xl:w-[calc(25%-29px)]"
+          >
             <Profile {...profile} />
           </div>
         ))}

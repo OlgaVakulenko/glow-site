@@ -18,7 +18,7 @@ const useSafeEffect = (cb, deps) => {
     try {
       return cb();
     } catch (e) {
-      // console.log(e);
+      //
     }
   }, deps);
 };
@@ -53,12 +53,9 @@ export default function Marquee({ children, debug = false }) {
     requestAnimationFrame(animate);
 
     return () => {
-      // console.log('cancel animation frame');
       cancelAnimationFrame(refId.current);
     };
   }, [inView]);
-
-  // console.log(refPrevTime.current);
 
   return (
     <div className="overflow-hidden">

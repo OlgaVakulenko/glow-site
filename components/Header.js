@@ -14,6 +14,7 @@ import {
 } from '../lib/utils';
 import Animated from './Animated';
 import BigButton from './BigButton';
+import { useMounted } from './Icons/animations';
 import Layout from './Layout';
 import Logo from './Logo';
 import RollingText from './RollingText';
@@ -25,7 +26,7 @@ const links = [
   },
   {
     label: 'Team',
-    href: '/about',
+    href: '#',
   },
   {
     label: 'Services',
@@ -237,15 +238,20 @@ export const logoColor = atom(null);
 export const useHeaderTheme = ({
   ref,
   theme = '',
+  disableBackdrop = false,
   onEnter: _onEnter,
   onLeave: _onLeave,
 }) => {
   const router = useRouter();
   const setHeaderTheme = useSetAtom(headerTheme);
+  const setBackdrop = useSetAtom(showBackdropAtom);
 
   useEffect(() => {
     const onEnter = () => {
       setHeaderTheme((c) => [...c, theme]);
+      if (disableBackdrop) {
+        setBackdrop(false);
+      }
       if (_onEnter) {
         _onEnter();
       }
@@ -259,6 +265,10 @@ export const useHeaderTheme = ({
         }
         return themes;
       });
+
+      if (disableBackdrop) {
+        setBackdrop(true);
+      }
 
       if (_onLeave) {
         _onLeave;
@@ -281,7 +291,7 @@ export const useHeaderTheme = ({
       onLeave();
       s.kill();
     };
-  }, [ref, setHeaderTheme, theme, router.pathname]);
+  }, [ref, setHeaderTheme, theme, router.pathname, disableBackdrop]);
 
   const initRef = useRef(false);
   const onUnmount = useRef([]);
@@ -307,6 +317,9 @@ export default function Header({
   headerRightSlot = null,
   overrideTheme = '',
 }) {
+  const router = useRouter();
+  const mounted = useMounted();
+  const [isRouteTransition, setIsRouteTransition] = useState();
   const [theme] = useAtom(headerTheme);
   const [color, setColor] = useAtom(logoColor);
   const t = overrideTheme || theme[theme.length - 1];
@@ -336,12 +349,18 @@ export default function Header({
   const offset = 112;
 
   const [isTop, setIsTop] = useState(false);
+  const [isBottom, setIsBottom] = useState(false);
 
   useEffect(() => {
     const offset = 112;
     const onScroll = throttle(() => {
       const isTop = window.scrollY < offset;
       setIsTop(isTop);
+
+      const isBottom =
+        window.innerHeight + window.scrollY >= document.body.offsetHeight - 2;
+
+      setIsBottom(isBottom);
     }, 100);
     onScroll();
     window.addEventListener('scroll', onScroll);
@@ -351,6 +370,36 @@ export default function Header({
     };
   }, []);
 
+  useEffect(() => {
+    let mounted = true;
+    setIsRouteTransition(true);
+
+    setTimeout(() => {
+      if (mounted) {
+        setIsRouteTransition(false);
+      }
+    }, 10);
+
+    return () => {
+      mounted = false;
+    };
+  }, [router.pathname]);
+
+  // const backdropActive =
+  //   showBackdrop &&
+  //   t !== 'brand' &&
+  //   t !== 'dark' &&
+  //   scrollDirection !== 'forward';
+  const backdropActive =
+    mounted &&
+    !isTop &&
+    !isBottom &&
+    scrollDirection !== 'forward' &&
+    t !== 'dark' &&
+    t !== 'brand';
+
+  // console.log('showBackdrop', showBackdrop, t);
+
   return (
     <>
       <div className={cx('fixed top-0 z-10 w-full')}>
@@ -359,56 +408,37 @@ export default function Header({
             className={cx(
               'backdrop pointer-events-none absolute top-0 left-0 h-[96px] w-full -translate-y-full bg-white opacity-0 transition-all duration-300',
               {
-                '!translate-y-0':
-                  showBackdrop &&
-                  t !== 'brand' &&
-                  t !== 'dark' &&
-                  scrollDirection !== 'forward',
-                '!opacity-100':
-                  showBackdrop &&
-                  t !== 'brand' &&
-                  t !== 'dark' &&
-                  scrollDirection !== 'forward',
+                '!translate-y-0': backdropActive,
+                '!opacity-100': backdropActive,
+                '!transition-none': isRouteTransition,
               }
             )}
           ></div>
-          {/* <div
-            className={cx(
-              'backdrop pointer-events-none absolute top-0 left-0 h-[96px] w-full opacity-0 transition-all duration-300',
-              {
-                // '!translate-y-0': t !== 'brand' && t !== 'dark',
-                '!opacity-100': t !== 'brand' && t !== 'dark',
-              }
-            )}
-            style={{
-              backdropFilter: 'saturate(170%) blur(12px)',
-            }}
-          ></div> */}
         </div>
       </div>
       <header
         className={cx(
           'first-header fixed z-10 w-full transition-transform duration-300 md:top-4',
           {
-            'md:-translate-y-4': !isTop,
-            '!-translate-y-full': scrollDirection === 'forward',
-
-            // '!transla': !isTop,
-            // ['first-header fixed']: !isTop,
-            // ['absolute']: !isFixed,
+            'md:-translate-y-4': !isTop && !isBottom,
+            '!-translate-y-full': scrollDirection === 'forward' && !isBottom,
+            // '!transition-none': isRouteTransition,
           }
         )}
-        // style={{
-        //   transform: `translateY(${offsetTop}px)`,
-        // }}
-        // style={{
-        //   backdropFilter:
-        //     t !== 'brand' && t !== 'dark' ? 'saturate(170%) blur(40px)' : null,
-        // }}
       >
         <div className="relative">
           <Layout>
-            <div className="flex items-center justify-between pt-[28px] font-medium  uppercase md:h-[96px]  md:pt-[44px] md:!pt-[28px] md:!pb-[28px]">
+            <div
+              className="flex items-center justify-between pt-[28px] font-medium  uppercase md:h-[96px]  md:!pt-[28px] md:!pb-[28px]"
+              style={{
+                '--header-theme':
+                  t === 'brand' || t === 'white'
+                    ? 'black'
+                    : t === 'dark'
+                    ? 'white'
+                    : 'black',
+              }}
+            >
               <Animated delay={50}>
                 <Link href="/" className="flex items-center justify-center">
                   <Logo

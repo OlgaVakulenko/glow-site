@@ -57,7 +57,7 @@ export default function Form({ onSubmit }) {
         data.append(entry.name, entry.value);
       });
 
-      fetch('http://localhost:8000/contact.php', {
+      fetch('/contact.php', {
         method: 'POST',
         headers: {
           Accept: 'application/json',
@@ -66,14 +66,11 @@ export default function Form({ onSubmit }) {
       })
         .then((res) => res.json())
         .then((res) => {
-          console.log(res);
+          //
         })
-        .catch((error) => {});
-      // setTimeout(() => {
-      //   if (onSubmit) {
-      //     onSubmit();
-      //   }
-      // }, 1000);
+        .catch((error) => {
+          console.error(error);
+        });
     }
   };
 

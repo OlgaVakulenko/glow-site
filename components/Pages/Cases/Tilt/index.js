@@ -7,13 +7,19 @@ import SliderProgress from '../SliderProgress';
 import ReactBeforeSliderComponent from 'react-before-after-slider-component';
 import 'react-before-after-slider-component/dist/build.css';
 import BeforeAfter from '../BeforeAfter';
+import { useRef } from 'react';
+import { useHeaderTheme } from '../../../Header';
 
 export default function Tilt() {
+  const ref = useRef();
+
+  useHeaderTheme({ ref, theme: 'white', disableBackdrop: true });
+
   return (
     <LegacyCaseContainer>
       <main className="tilt">
         {/* Start window*/}
-        <section className="section welcome">
+        <section ref={ref} className="section welcome">
           <div className="container">
             <div className="welcome__content">
               <div className="welcome__left">

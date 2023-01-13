@@ -30,6 +30,7 @@ import Animated from '../../Animated';
 
 const cases = [
   {
+    href: '/beast',
     title: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
@@ -80,19 +81,17 @@ const cases = [
     // ),
   },
   {
-    title: 'Beast Tesla Rent',
+    href: '/tilt',
+    title:
+      'Tilt: a platform that connects students with financial aid opportunities',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
     image: Case3Image,
   },
   {
-    title: (
-      <>
-        CryptoGenie is a tool for
-        <br className="hidden md:block" /> predicting the relevant trends
-      </>
-    ),
+    href: '#',
+    title: <>Liquid Space - workspace rental service</>,
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
@@ -226,7 +225,7 @@ function CaseItem({
           opacity: 1,
           scrollTrigger: {
             trigger: ref.current,
-            scrub: true,
+            scrub: 1,
             start: 'top 85%',
             end: 'bottom 85%',
           },
@@ -351,9 +350,6 @@ export function CasesSlider3() {
   const c1 = cases.filter((_, i) => i % 2 === 0);
   const c2 = cases.filter((_, i) => i % 2 !== 0);
 
-  // console.log('c1', c1);
-  // console.log('c2', c2);
-
   return (
     <Layout className="mb-[56px] ">
       <div className="-mx-8 flex pb-[64px] xl:-mx-[56px]">
@@ -416,15 +412,11 @@ export function CasesSlider2() {
         gsap.to('.h-scroller', {
           scrollTrigger: {
             trigger: '.h-scroller',
-            // pin: true,
             scrub: true,
             start: 'center center',
             end: `center+=${firstAnimationDurationPx} center`,
           },
           width: '90%',
-          // onUpdate: (e) => {
-          //   console.log(e);
-          // },
         });
       }
 
@@ -498,13 +490,11 @@ export function CasesSlider2() {
         }
       );
     }, ref);
-    // console.log('+=' + ref.current.offsetWidth);
+
     return () => {
       ctx.revert();
     };
   }, [media]);
-
-  // console.log('media call', media);
 
   return (
     <div ref={ref}>

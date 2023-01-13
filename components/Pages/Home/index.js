@@ -105,8 +105,6 @@ function RollingWords({ words, interval = 16500 }) {
           maxWidth: vPref.width + 'px',
         }
       );
-
-      // console.log(timeline);
     }, root);
   }, [v, showClass]);
 

@@ -75,7 +75,7 @@ function Disclosure({ title, text }) {
 }
 
 function P({ children }) {
-  return <p className="mb-6 first:mt-4 md:first:mt-0">{children}</p>;
+  return <p className="pb-6 first:pt-4 md:first:pt-0">{children}</p>;
 }
 
 export default function Faq() {

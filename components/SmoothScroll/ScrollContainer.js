@@ -45,7 +45,6 @@ export default function ScrollContainer({ children }) {
       setMounted(false);
       if (smootherRef.current) {
         smootherRef.current.kill();
-        console.log('kill');
       }
     };
   }, [isMobile, updateScrollPosition, setMounted]);
@@ -88,14 +87,6 @@ export default function ScrollContainer({ children }) {
       };
     }
   }, [isMobile]);
-
-  // useEffect(() => {
-  //   console.log('media changed', media);
-  //   // window.globalscr = ScrollTrigger;
-  //   if (media === 'mobile') {
-  //     // console.log('refresh');
-  //   }
-  // }, [media]);
 
   const Wrapper = useMemo(() => {
     const key = media === 'mobile' ? 'mobile' : 'desktop';

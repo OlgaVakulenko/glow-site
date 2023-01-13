@@ -120,8 +120,6 @@ export default function NichesAnimation() {
   const ref = useRef(null);
   const [media] = useAtom(mediaAtom);
 
-  // console.log(media);
-
   useEffect(() => {
     if (media === 'mobile') {
       return;
@@ -189,7 +187,6 @@ export default function NichesAnimation() {
     }, ref);
 
     return () => {
-      // console.log('running destroy effect');
       ctx.revert();
     };
   }, [media]);

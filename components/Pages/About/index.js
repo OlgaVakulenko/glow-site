@@ -5,7 +5,7 @@ import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
 import DefaultLayout from '../Layouts/DefaultLayout';
 import Image from '../../Image';
-import Img from './assets/image-58.png';
+import Img from './assets/team-cover.png';
 import DimSection from '../../DimSection';
 import Founders from './Founders';
 import HRule from '../../HRule';
@@ -89,7 +89,7 @@ function Separator({ className }) {
 
 function Vision() {
   return (
-    <div className="md:flex xl:justify-between">
+    <div className="relative md:flex xl:justify-between">
       <VisionBlock
         heading={'our  mission'}
         text={
@@ -98,13 +98,13 @@ function Vision() {
             products
           </>
         }
-        className="md:pr-10"
+        className="md:pr-10 xl:pr-0"
       />
-      <Separator className="hidden self-center xl:block" />
+      <Separator className="hidden self-end xl:mb-6 xl:-ml-[5.5%] xl:block" />
       <VisionBlock
         heading={'our vision'}
         text="To become leader in enterprise design by creating game changing products"
-        className="md:pl-3 xl:pl-16"
+        className="md:pl-3 xl:pl-0"
       />
     </div>
   );

@@ -46,15 +46,10 @@ export default function FormStep({
       return;
     }
     const node = inputRef.current;
-    if (!node) {
-      if (index === 2) {
-        console.log('no node');
-      }
-    }
     if (!node) return;
     const rect = node.getBoundingClientRect();
     const offsetY = window.innerHeight / 2;
-    console.log(rect.y, offsetY);
+
     if (rect.y < offsetY) {
       return;
     }

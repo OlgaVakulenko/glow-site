@@ -3,8 +3,8 @@ import Animated from '../../Animated';
 import Image from '../../Image';
 import Layout from '../../Layout';
 import Section from '../../Section';
-import Rus from './assets/rus.png';
-import Stas from './assets/stas.png';
+import Rus from './assets/ruslan.png';
+import Stas from './assets/stas-k.png';
 
 export default function Founders() {
   return (
@@ -50,7 +50,7 @@ function Photo({ img, name, position, align = 'left' }) {
     >
       <Image
         src={img}
-        className="mb-6 max-w-[208px] rounded-3xl md:max-w-[360px] xl:max-w-[448px]"
+        className="mb-6 max-w-[208px] overflow-hidden rounded-3xl md:max-w-[360px] xl:max-w-[448px]"
         alt=""
       />
       <div className="mb-[3px] text-body-heading-m md:mb-2">{name}</div>

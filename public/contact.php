@@ -13,7 +13,7 @@ if ($h === 'localhost:8000') {
   header("Access-Control-Allow-Headers: *");
 }
 
-emailNotification();
+formHandler();
 
 
 function pipeUrl($path) {
@@ -81,6 +81,8 @@ function formHandler() {
       'cause' => 'deal id'
     ]);
   }
+
+  emailNotification();
 
   json_respond([
     'status' => 'ok'

@@ -2,7 +2,7 @@ import { atom, useSetAtom } from 'jotai';
 import { useAtomsDebugValue } from 'jotai/devtools';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import React, { useEffect, useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { nativeScrollAtom } from '../atoms/scroll';
 import Analytics from '../components/Analytics';
 import GTag from '../components/Analytics/GTag';
@@ -59,8 +59,33 @@ function MyApp({ Component, pageProps }) {
     };
   }, [router.events, setRouterHistory]);
 
+  const errorsRef = useRef([]);
   useEffect(() => {
-    window.tolstoyAppKey = '0634e847-3af8-4889-b83a-68c5c24e0e37';
+    const onError = (e) => {
+      errorsRef.current.push({
+        message: e?.message,
+        filename: e?.filename,
+        ua: window?.navigator?.userAgent,
+      });
+    };
+
+    const onUnload = () => {
+      if ('sendBeacon' in window?.navigator) {
+        if (!errorsRef.current.length) return;
+        const fd = new FormData();
+        fd.append('err', JSON.stringify(errorsRef.current));
+        errorsRef.current = [];
+        window.navigator.sendBeacon('/err.php', fd);
+      }
+    };
+
+    document.addEventListener('visibilitychange', onUnload);
+    window.addEventListener('error', onError);
+
+    return () => {
+      document.removeEventListener('visibilitychange', onUnload);
+      window.removeEventListener('error', onError);
+    };
   }, []);
 
   return (

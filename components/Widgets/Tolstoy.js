@@ -4,12 +4,12 @@ import { useEffect, useRef, useState } from 'react';
 
 if (typeof window !== 'undefined') {
   window.tolstoyAppKey = '0634e847-3af8-4889-b83a-68c5c24e0e37';
-  window.tolstoySettings = {
-    alwaysShow: false,
-    loadHidden: true,
-    stopPreviewLoop: true,
-    noCloseOption: true,
-  };
+  // window.tolstoySettings = {
+  //   alwaysShow: true,
+  //   loadHidden: true,
+  //   stopPreviewLoop: true,
+  //   noCloseOption: true,
+  // };
 }
 
 export default function Tolstoy() {
@@ -18,42 +18,51 @@ export default function Tolstoy() {
   const pathRef = useRef(router.pathname);
   pathRef.current = router.pathname;
 
+  // useEffect(() => {
+  //   return;
+  //   const onReady = (e) => {
+  //     console.log('ready');
+  //     setReady(true);
+  //   };
+
+  //   const onOpen = (e) => {
+  //     console.log('widget opened', e);
+  //   };
+
+  //   window.addEventListener('tolstoyWidgetReady', onReady);
+  //   window.addEventListener('onWidgetOpen', onReady);
+  //   window.addEventListener('tolstoyWidgetOpen', onReady);
+
+  //   return () => {
+  //     window.removeEventListener('tolstoyWidgetReady', onReady);
+  //     window.removeEventListener('onWidgetOpen', onReady);
+  //     window.removeEventListener('tolstoyWidgetOpen', onReady);
+  //   };
+  // }, []);
+
   useEffect(() => {
-    const onReady = (e) => {
-      console.log('ready');
-      setReady(true);
-    };
-
-    const onOpen = (e) => {
-      console.log('widget opened', e);
-    };
-
-    window.addEventListener('tolstoyWidgetReady', onReady);
-    window.addEventListener('onWidgetOpen', onReady);
-    window.addEventListener('tolstoyWidgetOpen', onReady);
-
-    return () => {
-      window.removeEventListener('tolstoyWidgetReady', onReady);
-      window.removeEventListener('onWidgetOpen', onReady);
-      window.removeEventListener('tolstoyWidgetOpen', onReady);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!ready) return;
-
     if (router.pathname === '/') {
-      setTimeout(() => {
-        if (router.pathname === '/') {
-          window?.tolstoyWidget?.show();
-        }
-      }, 1000);
-
       return () => {
-        window?.tolstoyWidget?.hide();
+        const el = document.getElementById('tolstoyWidgetElement');
+        el?.remove();
       };
     }
-  }, [router.pathname, ready]);
+
+    return;
+    // if (!ready) return;
+
+    // if (router.pathname === '/') {
+    //   setTimeout(() => {
+    //     if (router.pathname === '/') {
+    //       window?.tolstoyWidget?.show();
+    //     }
+    //   }, 1000);
+
+    //   return () => {
+    //     window?.tolstoyWidget?.hide();
+    //   };
+    // }
+  }, [router.pathname]);
 
   if (router.pathname !== '/') return null;
 

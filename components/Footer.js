@@ -57,15 +57,30 @@ function Footer(props) {
 
 export function ParallaxFooter(props) {
   const router = useRouter();
+  const [height, setHeight] = useState(null);
   const media = useMediaAtom();
   const [scrollMounted] = useAtom(ScrollSmootherMounted);
   const wrapperRef = useRef(null);
+  const contentRef = useRef(null);
 
   useHeaderTheme({ ref: wrapperRef, theme: 'dark' });
 
   useEffect(() => {
-    // return;
+    const onResize = () => {
+      const node = contentRef.current;
+      if (!node) return;
+      setHeight(node.offsetHeight);
+    };
 
+    onResize();
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
+  useEffect(() => {
     if (!scrollMounted) {
       return;
     }
@@ -111,15 +126,18 @@ export function ParallaxFooter(props) {
     <div
       className="overflow-hidden"
       style={{
-        clipPath: 'inset(0 0 0 0)',
+        clipPath: 'inset(0px 0px 0px 0px)',
         // transform: 'translate3d(0,0,0)',
       }}
     >
       <div
         ref={wrapperRef}
         className="relative flex min-h-screen w-full items-end overflow-hidden bg-black"
+        style={{
+          height: height != null ? height + 'px' : null,
+        }}
       >
-        <div className="__content fixed bottom-0 w-full">
+        <div ref={contentRef} className="__content fixed bottom-0 w-full">
           <Footer {...props} />
         </div>
       </div>
