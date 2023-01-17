@@ -15,8 +15,6 @@ import Logos from './Logos';
 import BlogPosts from './BlogPosts';
 
 export default function About() {
-  useHeaderTheme({ theme: 'white' });
-
   return (
     <div>
       <Layout className="pt-48 pb-14 md:pt-[241px] xl:pt-[216px]">
@@ -72,12 +70,12 @@ function VisionBlock({ heading, text, className = '' }) {
   );
 }
 
-function Separator({ className }) {
+export function Separator({ className, size = 98 }) {
   return (
     <svg
       className={cx(className)}
-      width="98"
-      height="98"
+      width={size}
+      height={size}
       viewBox="0 0 98 98"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

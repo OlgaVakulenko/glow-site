@@ -26,92 +26,97 @@ import Case4Image from '../Cases/assets/case_4.png';
 // import CryptogenieImage from '../Cases/assets/'
 import Animated from '../../Animated';
 
-// gsap.registerPlugin(ScrollTrigger);
+import casesData from '../Cases/data';
 
-const cases = [
-  {
-    href: '/beast',
-    title: 'Beast Tesla Rent',
-    industry: ['Car Rent'],
-    service: ['User Experience', 'User Interface', 'Branding'],
-    company: ['Funding 30M'],
-    image: Case1Image,
-    href: '/beast',
-  },
-  {
-    title: (
-      <>
-        CryptoGenie is a tool for
-        <br className="hidden md:block" /> predicting the relevant trends
-      </>
-    ),
-    href: '/cryptogenie',
-    industry: ['Car Rent'],
-    service: ['User Experience', 'User Interface', 'Branding'],
-    company: ['Funding 30M'],
-    image: Case2Image,
-    // imageJsx: (props) => (
-    //   <picture>
-    //     <source
-    //       srcSet="
-    //   /img/cg/cg-cover-mobile-w366.webp,
-    //   /img/cg/cg-cover-mobile-w732.webp 2x
-    // "
-    //       media="(max-width: 767.5px)"
-    //       type="image/webp"
-    //     />
-    //     <source
-    //       srcSet="
-    //   /img/cg/cg-cover-mobile-w366.png,
-    //   /img/cg/cg-cover-mobile-w732.png 2x
-    // "
-    //       media="(max-width: 767.5px)"
-    //     />
-    //     <source
-    //       srcSet="/img/cg/cg-cover-w1140.webp, /img/cg/cg-cover-w2280.webp 2x"
-    //       media="(min-width: 768.5px)"
-    //       type="image/webp"
-    //     />
-    //     <source
-    //       srcSet="/img/cg/cg-cover-w1140.png, /img/cg/cg-cover-w2280.png 2x"
-    //       media="(min-width: 768.5px)"
-    //     />
-    //     <img {...props} src="/img/cg/cg-cover-w1440.png" />
-    //   </picture>
-    // ),
-  },
-  {
-    href: '/tilt',
-    title:
-      'Tilt: a platform that connects students with financial aid opportunities',
-    industry: ['Car Rent'],
-    service: ['User Experience', 'User Interface', 'Branding'],
-    company: ['Funding 30M'],
-    image: Case3Image,
-  },
-  {
-    href: '#',
-    title: <>Liquid Space - workspace rental service</>,
-    industry: ['Car Rent'],
-    service: ['User Experience', 'User Interface', 'Branding'],
-    company: ['Funding 30M'],
-    image: Case4Image,
-  },
-  // {
-  //   title: 'Beast Tesla Rent',
-  //   industry: ['Car Rent'],
-  //   service: ['User Experience', 'User Interface', 'Branding'],
-  //   company: ['Funding 30M'],
-  //   image: CaseDesktop,
-  // },
-  // {
-  //   title: 'Beast Tesla Rent',
-  //   industry: ['Car Rent'],
-  //   service: ['User Experience', 'User Interface', 'Branding'],
-  //   company: ['Funding 30M'],
-  //   image: CaseDesktop,
-  // },
-];
+// gsap.registerPlugin(ScrollTrigger);
+const cases = casesData.filter((c) =>
+  ['/jucr', '/beast', '/cryptogenie', '#'].includes(c.href)
+);
+
+// const cases = [
+//   {
+//     href: '/beast',
+//     title: 'Beast Tesla Rent',
+//     industry: ['Car Rent'],
+//     service: ['User Experience', 'User Interface', 'Branding'],
+//     company: ['Funding 30M'],
+//     image: Case1Image,
+//     href: '/beast',
+//   },
+//   {
+//     title: (
+//       <>
+//         CryptoGenie is a tool for
+//         <br className="hidden md:block" /> predicting the relevant trends
+//       </>
+//     ),
+//     href: '/cryptogenie',
+//     industry: ['Car Rent'],
+//     service: ['User Experience', 'User Interface', 'Branding'],
+//     company: ['Funding 30M'],
+//     image: Case2Image,
+//     // imageJsx: (props) => (
+//     //   <picture>
+//     //     <source
+//     //       srcSet="
+//     //   /img/cg/cg-cover-mobile-w366.webp,
+//     //   /img/cg/cg-cover-mobile-w732.webp 2x
+//     // "
+//     //       media="(max-width: 767.5px)"
+//     //       type="image/webp"
+//     //     />
+//     //     <source
+//     //       srcSet="
+//     //   /img/cg/cg-cover-mobile-w366.png,
+//     //   /img/cg/cg-cover-mobile-w732.png 2x
+//     // "
+//     //       media="(max-width: 767.5px)"
+//     //     />
+//     //     <source
+//     //       srcSet="/img/cg/cg-cover-w1140.webp, /img/cg/cg-cover-w2280.webp 2x"
+//     //       media="(min-width: 768.5px)"
+//     //       type="image/webp"
+//     //     />
+//     //     <source
+//     //       srcSet="/img/cg/cg-cover-w1140.png, /img/cg/cg-cover-w2280.png 2x"
+//     //       media="(min-width: 768.5px)"
+//     //     />
+//     //     <img {...props} src="/img/cg/cg-cover-w1440.png" />
+//     //   </picture>
+//     // ),
+//   },
+//   {
+//     href: '/tilt',
+//     title:
+//       'Tilt: a platform that connects students with financial aid opportunities',
+//     industry: ['Car Rent'],
+//     service: ['User Experience', 'User Interface', 'Branding'],
+//     company: ['Funding 30M'],
+//     image: Case3Image,
+//   },
+//   {
+//     href: '#',
+//     title: <>Liquid Space - workspace rental service</>,
+//     industry: ['Car Rent'],
+//     service: ['User Experience', 'User Interface', 'Branding'],
+//     company: ['Funding 30M'],
+//     image: Case4Image,
+//   },
+//   // {
+//   //   title: 'Beast Tesla Rent',
+//   //   industry: ['Car Rent'],
+//   //   service: ['User Experience', 'User Interface', 'Branding'],
+//   //   company: ['Funding 30M'],
+//   //   image: CaseDesktop,
+//   // },
+//   // {
+//   //   title: 'Beast Tesla Rent',
+//   //   industry: ['Car Rent'],
+//   //   service: ['User Experience', 'User Interface', 'Branding'],
+//   //   company: ['Funding 30M'],
+//   //   image: CaseDesktop,
+//   // },
+// ];
 
 function Col2({ title, items, className = '' }) {
   return (
@@ -201,7 +206,7 @@ function CaseSlide({ item, index }) {
   );
 }
 
-function CaseItem({
+export function CaseItem({
   image,
   imageJsx: ImageJsx,
   title,
@@ -242,7 +247,10 @@ function CaseItem({
     <Link
       ref={ref}
       href={href}
-      className={cx('group flex flex-col pb-10 xl:pb-[88px]', className)}
+      className={cx(
+        'group flex flex-col overflow-hidden pb-10 xl:pb-[88px]',
+        className
+      )}
     >
       <div
         className="mb-8 overflow-hidden rounded-3xl group-hover:rounded-none"
@@ -272,7 +280,7 @@ function CaseItem({
   );
 }
 
-function CasesRow({ cases, className = '' }) {
+export function CasesRow({ cases, className = '' }) {
   return (
     <div className={className}>
       {cases.map((caseItem, i) => (
@@ -301,9 +309,6 @@ function CasesRow({ cases, className = '' }) {
       ))}
     </div>
   );
-
-  return;
-  // ));
 }
 
 export function CasesSlider3() {
@@ -357,9 +362,6 @@ export function CasesSlider3() {
         <CasesRow cases={c2} className="pt-[113px]" />
       </div>
       <div className="border-b border-black"></div>
-      {/* <div className="-mx-8 flex flex-wrap pb-[113px] xl:-mx-[56px]">
-
-      </div> */}
     </Layout>
   );
 }

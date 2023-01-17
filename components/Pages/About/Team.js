@@ -31,7 +31,12 @@ function Profile({ image, name, position }) {
   return (
     <div className="flex w-[208px] flex-col md:w-full xl:max-w-full">
       <div className="relative mb-8 w-full max-w-[208px] overflow-hidden rounded-3xl pb-[100%] xl:max-w-full">
-        <Image src={image} alt="" className="absolute inset-0 object-cover" />
+        <Image
+          src={image}
+          alt=""
+          className="absolute inset-0 object-cover"
+          sizes={[[208, 1280], [350]]}
+        />
       </div>
 
       <div className="mb-2 text-body-heading-m">{name}</div>

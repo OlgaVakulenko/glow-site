@@ -45,6 +45,8 @@ export function Source(props) {
 
 const isString = (input) => typeof input === 'string';
 
+const defaultSizes = [[400, 768], [1140]];
+
 export default function Image(props) {
   const [width, height] = useMemo(() => {
     if (isString(props.src)) {
@@ -55,6 +57,24 @@ export default function Image(props) {
     return [props.src.width * ratio, props.src.height * ratio];
   }, [props?.src.width, props?.src.height]);
 
+  const sizes = props.sizes || defaultSizes;
+  const sizesList = useMemo(() => {
+    const media = [];
+
+    sizes.forEach((size) => {
+      const [width, screen] = size;
+
+      const m = screen ? `(max-width: ${screen}px)` : null;
+
+      media.push({
+        media: m,
+        width: width,
+      });
+    });
+
+    return media;
+  }, [sizes.length]);
+
   const ext = props.ext || null;
 
   if (isString(props.src)) {
@@ -63,24 +83,21 @@ export default function Image(props) {
 
   return (
     <picture>
-      <source
-        srcSet={x2(props.src.src, 400, 'webp')}
-        media="(max-width: 767.5px)"
-        type="image/webp"
-      />
-      <source
-        srcSet={x2(props.src.src, 400, ext)}
-        media="(max-width: 767.5px)"
-      />
-      <source
-        srcSet={x2(props.src.src, 1140, 'webp')}
-        media="(min-width: 768.5px)"
-        type="image/webp"
-      />
-      <source
-        srcSet={x2(props.src.src, 1140, ext)}
-        media="(min-width: 768.5px)"
-      />
+      {sizesList.map((item, i) => (
+        <>
+          <source
+            key={i}
+            srcSet={x2(props.src.src, item.width, 'webp')}
+            type="image/webp"
+            media={item.media}
+          />
+          <source
+            key={i + 'ext'}
+            srcSet={x2(props.src.src, item.width, ext)}
+            media={item.media}
+          />
+        </>
+      ))}
       <img
         alt=""
         {...props}

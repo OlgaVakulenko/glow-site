@@ -40,7 +40,6 @@ export default function Founders() {
 }
 
 function Photo({ img, name, position, align = 'left' }) {
-  //xl:ml-[12.8vw]
   return (
     <Animated
       className={cx('mb-[73px] min-w-[256px] last:mb-0 xl:mx-14', {
@@ -52,6 +51,7 @@ function Photo({ img, name, position, align = 'left' }) {
         src={img}
         className="mb-6 max-w-[208px] overflow-hidden rounded-3xl md:max-w-[360px] xl:max-w-[448px]"
         alt=""
+        sizes={[[208, 768], [448]]}
       />
       <div className="mb-[3px] text-body-heading-m md:mb-2">{name}</div>
       <div className="text-body-s">{position}</div>

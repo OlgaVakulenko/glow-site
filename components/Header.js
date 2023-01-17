@@ -22,11 +22,11 @@ import RollingText from './RollingText';
 const links = [
   {
     label: 'Work',
-    href: '#',
+    href: '/work',
   },
   {
     label: 'Team',
-    href: '#',
+    href: '/about',
   },
   {
     label: 'Services',
@@ -229,7 +229,7 @@ const BurgerMenu = ({
   );
 };
 
-const defaultTheme = 'brand';
+const defaultTheme = 'white';
 export const headerTheme = atom([defaultTheme]);
 export const showBackdropAtom = atom(true);
 export const logoColor = atom(null);
@@ -260,8 +260,8 @@ export const useHeaderTheme = ({
     const onLeave = () => {
       setHeaderTheme((c) => {
         const themes = c.filter((v) => v !== theme);
-        if (theme === 'brand') {
-          themes.push('brand');
+        if (theme === defaultTheme) {
+          themes.push(defaultTheme);
         }
         return themes;
       });

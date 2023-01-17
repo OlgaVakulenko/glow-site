@@ -1245,9 +1245,7 @@ function Jucr() {
                 />
                 <div
                   className="statistic-video onboarding-slider-slide z-10"
-                  style={{
-                    clipPath: 'inset(50px 0px 97px)',
-                  }}
+                  style={{}}
                 >
                   <div className="owl-carousel owl-theme owl-carousel-onboarding">
                     <Carousel
@@ -1255,7 +1253,9 @@ function Jucr() {
                       resistanceRatio={0}
                       slides={range(1, 5).map((num) => (
                         <img
-                          className=""
+                          style={{
+                            clipPath: 'inset(45px 0px 8px)',
+                          }}
                           src={`/img/jucr/onboarding_${num}.png`}
                           alt=""
                           key={num}

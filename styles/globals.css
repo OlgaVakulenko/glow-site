@@ -13,6 +13,7 @@
 
   html {
     color: theme('colors.black');
+    -webkit-tap-highlight-color: transparent;
   }
 
 

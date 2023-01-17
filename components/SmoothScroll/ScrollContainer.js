@@ -11,6 +11,14 @@ import { useMediaAtom } from '../../lib/agent';
 
 export const ScrollSmootherMounted = atom(false);
 
+// if (typeof window !== 'undefined') {
+//   const org = window.scrollTo;
+//   window.scrollTo = (...args) => {
+//     console.log('call with', args);
+//     org(...args);
+//   };
+// }
+
 export default function ScrollContainer({ children }) {
   const media = useMediaAtom();
   const setMounted = useSetAtom(ScrollSmootherMounted);
@@ -79,6 +87,8 @@ export default function ScrollContainer({ children }) {
   useEffect(() => {
     if (smootherRef.current) {
       window.__scrollTo = (...args) => {
+        console.log(args?.[0]);
+        // debugger;
         smootherRef.current.scrollTo(args);
       };
 

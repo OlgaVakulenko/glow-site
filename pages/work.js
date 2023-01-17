@@ -1,9 +1,3 @@
-import { CasesSlider3 } from '../components/Pages/Home/CasesSlider';
+import Work from '../components/Pages/Work';
 
-export default function Work() {
-  return (
-    <div className="pt-64">
-      <CasesSlider3 />
-    </div>
-  );
-}
+export default Work;

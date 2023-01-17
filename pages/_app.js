@@ -8,6 +8,7 @@ import Analytics from '../components/Analytics';
 import GTag from '../components/Analytics/GTag';
 import LoadingProgress from '../components/LoadingProgress';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
+import useScrollRestoration from '../components/SmoothScroll/useScrollRestoration';
 import Tolstoy from '../components/Widgets/Tolstoy';
 import { useMedia } from '../lib/agent';
 import '../styles/globals.css';
@@ -87,6 +88,8 @@ function MyApp({ Component, pageProps }) {
       window.removeEventListener('error', onError);
     };
   }, []);
+
+  // useScrollRestoration(router);
 
   return (
     <div>
