@@ -282,7 +282,7 @@ export function CaseItem({
 
 export function CasesRow({ cases, className = '' }) {
   return (
-    <div className={className}>
+    <div className={cx('w-1/2', className)}>
       {cases.map((caseItem, i) => (
         <div key={i} className="mx-8 flex flex-col xl:mx-[56px]">
           <CaseItem

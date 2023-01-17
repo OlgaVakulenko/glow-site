@@ -39,7 +39,7 @@ function FilterBtn({ name, value, children }) {
   return (
     <button
       className={cx(
-        '-ml-4 mb-1 rounded-full p-4 text-sm font-medium uppercase leading-[19px] tracking-[0.03em] transition-transform duration-300 xl:ml-0',
+        '-ml-4 mb-1 whitespace-nowrap rounded-full p-4 text-sm font-medium uppercase leading-[19px] tracking-[0.03em] transition-transform duration-300 xl:ml-0',
         {
           'glow-border-black translate-x-4 xl:translate-x-0': isActive,
         }
@@ -57,26 +57,30 @@ function FilterBtn({ name, value, children }) {
 }
 
 function Filters({ className }) {
+  const categories = useMemo(() => {
+    const c = {};
+    cases.forEach((item) => {
+      item.category.forEach((cat) => {
+        c[cat] = 1;
+      });
+    });
+
+    return Object.keys(c);
+  }, []);
+
   return (
     <Animated className={cx('flex', className)} delay={150}>
-      <div className="mr-[43px] flex flex-col items-start md:mr-[107px] xl:mr-[9vw] xl:flex-row">
+      <div className="mr-[43px] flex flex-col items-start md:mr-[107px] xl:mr-[5vw] xl:flex-row">
         <FilterBtn name="category" value="all">
           All Niche
         </FilterBtn>
-        <FilterBtn name="category" value="transportation">
-          Transportation
-        </FilterBtn>
-        <FilterBtn name="category" value="finance">
-          Finance
-        </FilterBtn>
-        <FilterBtn name="category" value="healthcare">
-          Healthcare
-        </FilterBtn>
-        <FilterBtn name="category" value="other">
-          Other
-        </FilterBtn>
+        {categories.map((cat) => (
+          <FilterBtn key={cat} name="category" value={cat}>
+            {cat}
+          </FilterBtn>
+        ))}
       </div>
-      <div className="hidden xl:mr-[6.1vw] xl:block">
+      <div className="hidden xl:mr-[5vw] xl:block">
         <Separator size={56} />
       </div>
       <div className="flex flex-col items-start xl:flex-row">
