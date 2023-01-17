@@ -6,8 +6,6 @@ import Layout from '../../Layout';
 import Star from '../../Star';
 
 export default function ContactsFooter() {
-  useHeaderTheme({ theme: 'brand' });
-
   return (
     <Layout className="flex min-h-screen flex-col justify-between pb-[24px] pt-[116px] md:pt-[275px] xl:pt-[216px]">
       <div className="mb-[46px] font-glow text-[40px] font-medium leading-10 md:mb-[108px] md:text-[60px] md:leading-[64px] xl:mb-[70px]">

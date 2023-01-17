@@ -10,7 +10,7 @@ export default function Logos() {
         <Clutch className="mb-10 md:mb-16 md:ml-[88px] xl:mb-[136px] xl:ml-0 xl:mr-[104px]" />
         <Dribble className="mb-10 md:mb-16 md:mr-[88px] xl:mb-[136px] xl:mr-20" />
         <Medium className="mb-10 md:mb-16 xl:mb-0 xl:ml-auto" />
-        <Thingy className="md:ml-[308px] xl:mr-[123px] xl:ml-[88px]" />
+        <DesignRush className="md:ml-[308px] xl:mr-[123px] xl:ml-[88px]" />
       </div>
     </Layout>
   );
@@ -41,7 +41,7 @@ function Figma({ className }) {
   return (
     <LinkItem
       className={className}
-      href="https://figma.com"
+      href="https://www.figma.com/@glow_agency"
       title="Top Profile Figma Community"
       subtitle="Open comunity"
       icon={
@@ -349,13 +349,13 @@ function Medium({ className }) {
   );
 }
 
-function Thingy({ className }) {
+function DesignRush({ className }) {
   const media = useMediaAtom();
 
   return (
     <LinkItem
       className={className}
-      href="https://google.com"
+      href="https://www.designrush.com/agency/graphic-design/digital-design"
       title="Top Product  Design Company"
       subtitle="view profile"
       icon={

@@ -22,7 +22,7 @@ export default function Founders() {
           </Section.Description>
         </Section.Header>
       </div>
-      <div className="flex flex-col pb-[81px] md:flex-row md:px-10 md:pb-[136px] xl:justify-between xl:px-20 xl:pb-[153px]">
+      <div className="flex flex-col pb-[81px] md:flex-row md:flex-wrap md:px-10 md:pb-[136px] xl:justify-between xl:px-20 xl:pb-[153px]">
         <Photo
           img={Rus}
           name="Rus Mashatov"

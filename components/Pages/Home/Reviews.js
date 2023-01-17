@@ -284,7 +284,7 @@ export default function Reviews() {
           965: {
             slidesPerView: 2,
           },
-          1368: {
+          1280: {
             slidesPerView: 'auto',
           },
           // 1500: {

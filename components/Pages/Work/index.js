@@ -2,7 +2,7 @@ import { useAtom } from 'jotai';
 import { atom, useSetAtom } from 'jotai';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Layout from '../../Layout';
 import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
@@ -12,6 +12,8 @@ import { CaseItem, CasesRow } from '../Home/CasesSlider';
 import { useMediaAtom } from '../../../lib/agent';
 import { Separator } from '../About';
 import Animated from '../../Animated';
+import { flushSync } from 'react-dom';
+import { usePrevious } from '../../../lib/utils';
 
 const filterAtom = atom({
   category: 'all',
@@ -130,31 +132,33 @@ function Cases() {
   return (
     <div className="pt-12 pb-9 md:pt-20 md:pb-20">
       <Filters className="mb-[70px] md:mb-24" />
-      {media === 'mobile' ? (
-        _cases.map((item, i) => (
-          <CaseItem
-            key={i}
-            className="mb-4"
-            {...item}
-            columns={[
-              {
-                title: 'industry',
-                items: item.industry,
-              },
-              {
-                title: 'service',
-                items: item.service,
-              },
-              {
-                title: 'company',
-                items: item.company,
-              },
-            ]}
-          />
-        ))
-      ) : (
-        <CasesLayout cases={_cases} />
-      )}
+      <div className={cx('opacity-100 transition-opacity duration-500', {})}>
+        {media === 'mobile' ? (
+          _cases.map((item, i) => (
+            <CaseItem
+              key={item.href}
+              className="mb-4"
+              {...item}
+              columns={[
+                {
+                  title: 'industry',
+                  items: item.industry,
+                },
+                {
+                  title: 'service',
+                  items: item.service,
+                },
+                {
+                  title: 'company',
+                  items: item.company,
+                },
+              ]}
+            />
+          ))
+        ) : (
+          <CasesLayout cases={_cases} />
+        )}
+      </div>
     </div>
   );
 }

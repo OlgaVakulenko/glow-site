@@ -192,7 +192,10 @@ export default function Home() {
   const changeBgRef = useRef(null);
   const refScrollContainer = useRef(null);
 
+  useHeaderTheme({ theme: 'brand', ref: firstSectionRef });
+
   useEffect(() => {
+    return;
     const ctx = gsap.context(() => {
       const obj = {
         color: '#19191B',
@@ -205,6 +208,7 @@ export default function Home() {
           scrub: true,
           onUpdate: () => {
             setLogoColor(obj.color);
+            console.log(obj.color);
           },
           onEnterBack: () => {
             setHeaderTheme((c) => c.filter((v) => v !== 'white'));
