@@ -34,6 +34,8 @@ function Footer(props) {
           </div>
           {/* <div className="mb-14 flex flex-col"> */}
           <BigButton
+            href="https://calendly.com/glow-design-agency/meet"
+            target="_blank"
             variant="footer"
             className="mb-4 md:mr-[37px] md:ml-[63px] xl:ml-auto"
           >

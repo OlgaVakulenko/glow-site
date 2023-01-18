@@ -19,20 +19,22 @@ import Layout from './Layout';
 import Logo from './Logo';
 import RollingText from './RollingText';
 
-const links = [
-  {
-    label: 'Work',
-    href: '/work',
-  },
-  {
-    label: 'Team',
-    href: '/about',
-  },
-  {
-    label: 'Services',
-    href: '#',
-  },
-];
+// const links = [
+//   {
+//     label: 'Work',
+//     href: '/work',
+//   },
+//   {
+//     label: 'Team',
+//     href: '/about',
+//   },
+//   {
+//     label: 'Services',
+//     href: '#',
+//   },
+// ];
+
+const links = [];
 
 export function BurgerIcon({ isOpen = false, theme, size = 40 }) {
   let stroke = '#19191B';

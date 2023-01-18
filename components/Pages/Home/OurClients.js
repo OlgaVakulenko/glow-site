@@ -154,7 +154,7 @@ function Illustration() {
 
         <div className="md:flex md:justify-center ">
           <div className="md:flex md:items-center md:justify-start md:pl-[32px] md:pr-[81px] xl:pl-[136px]">
-            <div className="__text text-center text-lg italic leading-[133%] md:max-w-[328px] md:text-left md:text-xl md:leading-[27px] xl:text-[22px] xl:leading-[28px]">
+            <div className="__text text-center text-lg italic leading-[133%] md:max-w-[328px] md:text-left md:text-xl md:leading-[27px] xl:text-[22px] xl:leading-[28px] 2xl:text-[30px] 2xl:leading-[38px]">
               <RevealTextAnimation>
                 We’ve built long-lasting partnerships with the most ambitious
                 brands across the globe

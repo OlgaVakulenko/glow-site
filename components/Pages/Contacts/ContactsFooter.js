@@ -23,6 +23,8 @@ export default function ContactsFooter() {
         </div>
         <div className="mb-[60px] md:mb-[100px] md:flex xl:grow">
           <BigButton
+            href="https://calendly.com/glow-design-agency/meet"
+            target="_blank"
             variant="contacts"
             className="mb-[15px] md:mr-[72px] md:mb-0 md:ml-[120px] xl:ml-[112px]"
           >

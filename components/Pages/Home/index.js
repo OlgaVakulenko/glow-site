@@ -268,15 +268,15 @@ export default function Home() {
       </div>
       <div ref={changeBgRef} className="bg-white">
         {/** tmp */}
-        <TmpBg>
-          {/* <div>
+        {/* <TmpBg> */}
+        {/* <div>
           <Showreel />
         </div> */}
-          <Niches />
-          {/* <CasesSlider2 /> */}
-          <CasesSlider3 />
-          <OutProjectsLink className="hidden md:block" />
-        </TmpBg>
+        <Niches />
+        {/* <CasesSlider2 /> */}
+        <CasesSlider3 />
+        <OutProjectsLink className="hidden md:block" />
+        {/* </TmpBg> */}
         <DimSection className="pb-14">
           <Workflow />
           <OurClients />

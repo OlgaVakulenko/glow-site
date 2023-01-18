@@ -253,7 +253,7 @@ export function CaseItem({
       )}
     >
       <div
-        className="mb-8 overflow-hidden rounded-3xl group-hover:rounded-none"
+        className="mb-8 overflow-hidden rounded-3xl"
         style={{
           transition: 'border-radius .5s',
         }}
