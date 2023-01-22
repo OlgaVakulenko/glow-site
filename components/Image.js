@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 const __DEV__ = process.env.NODE_ENV === 'development';
 
@@ -84,9 +84,9 @@ export default function Image(props) {
   return (
     <picture>
       {sizesList.map((item, i) => (
-        <>
+        <React.Fragment key={i}>
           <source
-            key={i}
+            key={i + 'orig'}
             srcSet={x2(props.src.src, item.width, 'webp')}
             type="image/webp"
             media={item.media}
@@ -96,14 +96,16 @@ export default function Image(props) {
             srcSet={x2(props.src.src, item.width, ext)}
             media={item.media}
           />
-        </>
+        </React.Fragment>
       ))}
       <img
         alt=""
+        loading="lazy"
         {...props}
         src={resolve({ src: props.src.src, width: 1140, type: ext })}
         width={width}
         height={height}
+        decoding="async"
       />
     </picture>
   );

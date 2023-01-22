@@ -54,7 +54,7 @@ export default function SectionLink({
           >
             <div className="md:max-w-[440px]">{description}</div>
           </Animated>
-          {buttonLabel && (media === 'mobile' ? showButtonOnMobile : true) ? (
+          {buttonLabel && (media === 'mobile' ? showButtonOnMobile : true) && (
             <Animated delay={300}>
               <span
                 className={cx(
@@ -69,10 +69,6 @@ export default function SectionLink({
               >
                 <RollingText height={20} text={buttonLabel}></RollingText>
               </span>
-            </Animated>
-          ) : (
-            <Animated delay={300} className="hidden md:block">
-              <LinkArrowCircle />
             </Animated>
           )}
         </div>

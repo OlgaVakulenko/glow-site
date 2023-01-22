@@ -13,6 +13,7 @@ import Team from './Team';
 import Push from './Push';
 import Logos from './Logos';
 import BlogPosts from './BlogPosts';
+import Animated from '../../Animated';
 
 export default function About() {
   return (
@@ -87,7 +88,7 @@ export function Separator({ className, size = 98 }) {
 
 function Vision() {
   return (
-    <div className="relative md:flex xl:justify-between">
+    <Animated className="relative md:flex xl:justify-between">
       <VisionBlock
         heading={'our  mission'}
         text={
@@ -104,7 +105,7 @@ function Vision() {
         text="To become leader in enterprise design by creating game changing products"
         className="md:pl-3 xl:pl-0"
       />
-    </div>
+    </Animated>
   );
 }
 

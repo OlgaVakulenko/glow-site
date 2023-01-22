@@ -50,8 +50,8 @@ export default function OurClients() {
       className="pt-[56px] pb-[56px] md:pt-[84px] md:pb-[160px] xl:pb-[152px] xl:pt-[56px]"
     >
       <SectionLink
-        buttonLabel={'ABOUT US'}
-        href="#"
+        // buttonLabel={'ABOUT US'}
+        // href="#"
         title="Our clients"
         description={
           <>
@@ -104,7 +104,7 @@ export default function OurClients() {
         </Layout>
       </div>
       <div className="mb-[80px] flex items-center justify-center md:hidden">
-        <Go />
+        {/* <Go /> */}
       </div>
       <Illustration />
     </Section>

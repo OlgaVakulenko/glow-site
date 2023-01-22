@@ -8,7 +8,8 @@ import Section from '../../Section';
 import SectionLink from '../../SectionLink';
 import profiles from './data';
 import SliderProgress from '../../SliderProgress';
-import React from 'react';
+import React, { useMemo } from 'react';
+import Animated from '../../Animated';
 
 export default function Team() {
   return (
@@ -27,9 +28,16 @@ export default function Team() {
   );
 }
 
-function Profile({ image, name, position }) {
+function Profile({ image, name, position, animated = true, index = 0 }) {
+  const Wrapper = useMemo(() => {
+    return animated ? Animated : 'div';
+  }, [animated]);
+
   return (
-    <div className="flex w-[208px] flex-col md:w-full xl:max-w-full">
+    <Wrapper
+      delay={index * 50}
+      className="flex w-[208px] flex-col md:w-full xl:max-w-full"
+    >
       <div className="relative mb-8 w-full max-w-[208px] overflow-hidden rounded-3xl pb-[100%] xl:max-w-full">
         <Image
           src={image}
@@ -41,7 +49,7 @@ function Profile({ image, name, position }) {
 
       <div className="mb-2 text-body-heading-m">{name}</div>
       <div className="text-body-s">{position}</div>
-    </div>
+    </Wrapper>
   );
 }
 
@@ -59,7 +67,7 @@ function ProfileLayout({ profiles }) {
                 'pr-4': i === profiles.length - 1,
               })}
             >
-              <Profile {...profile} />
+              <Profile {...profile} animated={false} />
             </div>
           </SwiperSlide>
         ))}
@@ -78,7 +86,7 @@ function ProfileLayout({ profiles }) {
             key={i}
             className="mr-8 mb-12 w-[208px] md:w-[calc(25%-32px)] xl:mr-[29px] xl:mb-[72px] xl:w-[calc(25%-29px)]"
           >
-            <Profile {...profile} />
+            <Profile {...profile} index={i} />
           </div>
         ))}
       </div>

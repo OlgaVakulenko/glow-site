@@ -1,5 +1,6 @@
 import cx from 'clsx';
 import { useMediaAtom } from '../../../lib/agent';
+import Animated from '../../Animated';
 import Layout from '../../Layout';
 
 export default function Logos() {
@@ -18,7 +19,8 @@ export default function Logos() {
 
 function LinkItem({ href, icon, title, subtitle, className }) {
   return (
-    <a
+    <Animated
+      as="a"
       href={href}
       target="_blank"
       rel="noreferrer"
@@ -31,7 +33,7 @@ function LinkItem({ href, icon, title, subtitle, className }) {
         </div>
         <div className="text-button-m uppercase">{subtitle}</div>
       </div>
-    </a>
+    </Animated>
   );
 }
 
@@ -155,7 +157,8 @@ function Clutch({ className }) {
   const media = useMediaAtom();
 
   return (
-    <a
+    <Animated
+      as="a"
       href="https://clutch.co/profile/glow-design-agency"
       target="_blank"
       rel="noreferrer"
@@ -188,7 +191,7 @@ function Clutch({ className }) {
       <div className="text-body-heading-m md:max-w-[236px]">
         Top 30 User Experience Company
       </div>
-    </a>
+    </Animated>
   );
 }
 
@@ -196,7 +199,8 @@ function Dribble({ className }) {
   const media = useMediaAtom();
 
   return (
-    <a
+    <Animated
+      as="a"
       href="https://dribbble.com/glow-team"
       target="_blank"
       rel="noreferrer"
@@ -261,7 +265,7 @@ function Dribble({ className }) {
           <div className="text-body-xs">Followers</div>
         </div>
       </div>
-    </a>
+    </Animated>
   );
 }
 

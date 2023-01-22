@@ -1,6 +1,7 @@
 import Layout from '../../Layout';
 import Balance from 'react-wrap-balancer';
 import { useMediaAtom } from '../../../lib/agent';
+import Animated from '../../Animated';
 
 export default function Push() {
   const media = useMediaAtom();
@@ -13,14 +14,14 @@ export default function Push() {
 
   return (
     <Layout className="pt-36">
-      <div className="mb-[140px] text-[32px] font-medium leading-[40px] md:mb-[128px] xl:mb-[117px]">
+      <Animated className="mb-[140px] text-[32px] font-medium leading-[40px] md:mb-[128px] xl:mb-[117px]">
         {/* <Balance> */}
         We push the transportation industry innovation through product design.
         Digital transformation knocks in the door of every industry and we
         provide the services that will help you to be ahead of time with product
         design decision that last.
         {/* </Balance> */}
-      </div>
+      </Animated>
       <div className="-mb-12 md:-mx-8 md:flex md:flex-wrap md:justify-between">
         <Letter
           width="24%"
@@ -41,6 +42,7 @@ export default function Push() {
           description="By working with transportation related companies we deep"
         />
         <Letter
+          index={1}
           width="25%"
           letter={
             <svg
@@ -59,6 +61,7 @@ export default function Push() {
           description="By working with transportation related companies we deep"
         />
         <Letter
+          index={2}
           width="25%"
           letter={
             <svg
@@ -77,6 +80,7 @@ export default function Push() {
           description="By working with transportation related companies we deep"
         />
         <Letter
+          index={3}
           width="26%"
           letter={
             <svg
@@ -99,8 +103,9 @@ export default function Push() {
   );
 }
 
-function Letter({ letter, title, description, width }) {
+function Letter({ letter, title, description, width, index = 0 }) {
   const media = useMediaAtom();
+  const delay = index * 50;
 
   return (
     <div
@@ -109,14 +114,22 @@ function Letter({ letter, title, description, width }) {
         width: media !== 'mobile' ? width : null,
       }}
     >
-      <div className="relative w-1/2 md:mb-[104px] md:w-full xl:mb-[120px]">
+      <Animated
+        delay={delay}
+        className="relative w-1/2 md:mb-[104px] md:w-full xl:mb-[120px]"
+      >
         {letter}
-      </div>
+      </Animated>
       <div className="w-1/2 md:w-full">
-        <div className="mb-[21px] text-body-heading-m">{title}</div>
-        <div className="max-w-[167px] text-body-s opacity-50 md:max-w-[200px]">
+        <Animated delay={50 + delay} className="mb-[21px] text-body-heading-m">
+          {title}
+        </Animated>
+        <Animated
+          delay={100 + delay}
+          className="max-w-[167px] text-body-s opacity-50 md:max-w-[200px]"
+        >
           {description}
-        </div>
+        </Animated>
       </div>
     </div>
   );

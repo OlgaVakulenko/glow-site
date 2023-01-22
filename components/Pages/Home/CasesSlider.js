@@ -361,7 +361,8 @@ export function CasesSlider3() {
         <CasesRow cases={c1} />
         <CasesRow cases={c2} className="pt-[113px]" />
       </div>
-      <div className="border-b border-black"></div>
+      {/** TODO add after "our projects" link is back */}
+      {/* <div className="border-b border-black"></div> */}
     </Layout>
   );
 }

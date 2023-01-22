@@ -275,7 +275,8 @@ export default function Home() {
         <Niches />
         {/* <CasesSlider2 /> */}
         <CasesSlider3 />
-        <OutProjectsLink className="hidden md:block" />
+        {/** TODO add after "our projects" link is back */}
+        {/* <OutProjectsLink className="hidden md:block" /> */}
         {/* </TmpBg> */}
         <DimSection className="pb-14">
           <Workflow />

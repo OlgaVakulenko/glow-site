@@ -39,13 +39,14 @@ export default function Founders() {
   );
 }
 
-function Photo({ img, name, position, align = 'left' }) {
+function Photo({ img, name, position, align = 'left', delay = 0 }) {
   return (
     <Animated
       className={cx('mb-[73px] min-w-[256px] last:mb-0 xl:mx-14', {
         'ml-auto md:mt-[126px] xl:!mr-auto': align === 'right',
         'xl:!ml-auto': align === 'left',
       })}
+      delay={delay}
     >
       <Image
         src={img}

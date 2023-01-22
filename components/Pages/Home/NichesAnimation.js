@@ -201,11 +201,13 @@ export default function NichesAnimation() {
         <div className="relative">
           <Shape />
           <Image
+            key={1}
             src={Noise}
             alt=""
             className="__noise absolute top-[6.9%] left-[24.1%] h-[440px] w-[440px]"
           />
           <Image
+            key={2}
             src={Noise}
             alt=""
             className="__noise2 absolute top-[6.9%] left-[24.1%] h-[440px] w-[440px] rotate-45 opacity-0"
