@@ -28,7 +28,7 @@ export default function DefaultLayout({
                   router.push('/');
                 }
               }}
-              className="flex w-[185px] justify-end"
+              className="group flex w-[185px] justify-end"
               style={{
                 color: 'var(--header-theme)',
               }}
@@ -48,7 +48,11 @@ export default function DefaultLayout({
                   rx="23.5"
                   stroke="currentColor"
                 />
-                <path d="M32 17L17 32M32 32L17 17" stroke="currentColor" />
+                <path
+                  d="M32 17L17 32M32 32L17 17"
+                  stroke="currentColor"
+                  className="origin-center transition-transform duration-300 group-hover:-rotate-90"
+                />
               </svg>
 
               {/* <BurgerIcon isOpen={true} size={28} /> */}

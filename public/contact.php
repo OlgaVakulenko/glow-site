@@ -13,8 +13,11 @@ if ($h === 'localhost:8000') {
   header("Access-Control-Allow-Headers: *");
 }
 
-formHandler();
+$res = formHandler();
+emailNotification();
 
+echo $res;
+die();
 
 function pipeUrl($path) {
   $company_domain = 'glow-cdac99';
@@ -64,7 +67,7 @@ function formHandler() {
   $dealResponse = request_post(pipeUrl('deals'), [
     'title' => 'Deal for '.$email.' created at '.date('d-m-Y H:i'),
     'person_id' => $contactId,
-    'fb1a3db4b31553291258fde336cc0ea56acb7bcc' => $company_name,
+    '5f1928ff3c467d1c59311369c1bf7ace78f688ed' => $company_name,
     '1f5bcebb4c2edf62c913c8f7a321f59375097dfc' => $project,
     '85590fb260bd65ce96864f3fa06a2bd6b507cb76' => $project_about,
     'bd0449a7ade1fa104321ebfe32832776893aba00' => $budget,
@@ -100,7 +103,6 @@ function emailNotification() {
   $email = post('email');
   
   try {
-    $mailer->SMTPDebug = 2;
     $mailer->isSMTP();
     $mailer->CharSet = 'UTF-8';
     $mailer->SMTPAuth = true;
@@ -111,9 +113,10 @@ function emailNotification() {
     $mailer->Port = 465;
     $mailer->SMTPSecure = 'ssl';
     $mailer->setFrom('hello@glow.team', 'Glow Team');
-    $mailer->addAddress('sergey.bogdan.vi@gmail.com');
-    // $mailer->addAddress('hello@glow.team');
-    // $mailer->addAddress('rusmashatov@gmail.com');
+    // $mailer->addAddress('sergey.bogdan.vi@gmail.com');
+    $mailer->addAddress('hello@glow.team');
+    $mailer->addAddress('rusmashatov@gmail.com');
+    $mailer->addAddress('chr99272@gmail.com');
 
     $mailer->isHTML(true);
     $mailer->Subject = 'Contact form submission';
@@ -176,6 +179,6 @@ function request_post($url, $data) {
 
 function json_respond($data) {
   header('Content-type: application/json');
-  echo json_encode($data);
-  die();
+  return json_encode($data);
+  // die();
 }
