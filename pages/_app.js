@@ -90,10 +90,6 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   useEffect(() => {
-    console.log('HYDRATED!!!');
-  }, []);
-
-  useEffect(() => {
     if (router.isReady) {
       document.documentElement.classList.add('hydrated');
     }

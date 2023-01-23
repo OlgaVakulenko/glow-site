@@ -332,8 +332,6 @@ export default function Header({
   const { lock, release } = useBodyLock();
   const scrollDirection = useScrollDirection('backward');
 
-  console.log('color', color);
-
   useEffect(() => {
     if (isOpen) {
       lock();
