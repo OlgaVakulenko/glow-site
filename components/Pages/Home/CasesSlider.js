@@ -30,7 +30,7 @@ import casesData from '../Cases/data';
 
 // gsap.registerPlugin(ScrollTrigger);
 const cases = casesData.filter((c) =>
-  ['/jucr', '/beast', '/cryptogenie', '#'].includes(c.href)
+  ['/jucr', '/beast', '/cryptogenie', '/tilt'].includes(c.href)
 );
 
 // const cases = [

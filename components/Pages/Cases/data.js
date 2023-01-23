@@ -88,7 +88,7 @@ const cases = [
     href: '/tilt',
     title:
       'Tilt: a platform that connects students with financial aid opportunities',
-    industry: ['Car Rent'],
+    industry: ['Education'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
     image: Case3Image,

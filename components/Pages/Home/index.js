@@ -20,6 +20,7 @@ import Star from '../../Star';
 import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
 import DimSection from '../../DimSection';
+import Button from '../../Button';
 
 // const Reviews = dynamic(() => import('./Reviews'));
 
@@ -275,6 +276,11 @@ export default function Home() {
         <Niches />
         {/* <CasesSlider2 /> */}
         <CasesSlider3 />
+        <div className="mt-10 mb-20 flex justify-center md:mb-48 md:-mt-10">
+          <Button href="/work" theme="white">
+            View all case studies
+          </Button>
+        </div>
         {/** TODO add after "our projects" link is back */}
         {/* <OutProjectsLink className="hidden md:block" /> */}
         {/* </TmpBg> */}
