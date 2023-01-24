@@ -15,7 +15,7 @@ import Animated from '../../Animated';
 import { flushSync } from 'react-dom';
 import { usePrevious } from '../../../lib/utils';
 
-const filterAtom = atom({
+export const filterAtom = atom({
   category: 'all',
   type: 'all',
 });
@@ -60,14 +60,7 @@ function FilterBtn({ name, value, children }) {
 
 function Filters({ className }) {
   const categories = useMemo(() => {
-    const c = {};
-    cases.forEach((item) => {
-      item.category.forEach((cat) => {
-        c[cat] = 1;
-      });
-    });
-
-    return Object.keys(c);
+    return ['transportation', 'fintech', 'healthcare', 'other'];
   }, []);
 
   return (

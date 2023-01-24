@@ -59,7 +59,7 @@ const cases = [
       </>,
     ],
     image: CryptoGenie,
-    category: ['finance'],
+    category: ['fintech'],
   },
   {
     href: '#',
@@ -73,7 +73,7 @@ const cases = [
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 8M'],
     image: LiquidSpace,
-    category: ['Real estate'],
+    category: ['other'],
   },
   {
     href: '/parking',
@@ -92,7 +92,7 @@ const cases = [
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
     image: Case3Image,
-    category: ['Education'],
+    category: ['other'],
   },
   {
     href: '/fleet',

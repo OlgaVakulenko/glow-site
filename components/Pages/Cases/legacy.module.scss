@@ -1,27 +1,27 @@
 @import "./npm/owl.carousel.min.css";
 @import "./npm/owl.theme.default.min.css";
 
-@font-face {
-  font-family: "Sailec";
-  font-weight: 500;
-  font-style: normal;
-  src: url("../../../assets/fonts/sailec/3AA90A_0_0.eot");
-  src: url("../../../assets/fonts/sailec/3AA90A_0_0.eot?#iefix") format("embedded-opentype"),
-    url("../../../assets/fonts/sailec/3AA90A_0_0.woff2") format("woff2"),
-    url("../../../assets/fonts/sailec/3AA90A_0_0.woff") format("woff"),
-    url("../../../assets/fonts/sailec/3AA90A_0_0.ttf") format("truetype");
-}
+// @font-face {
+//   font-family: "Sailec";
+//   font-weight: 500;
+//   font-style: normal;
+//   src: url("../../../assets/fonts/sailec/3AA90A_0_0.eot");
+//   src: url("../../../assets/fonts/sailec/3AA90A_0_0.eot?#iefix") format("embedded-opentype"),
+//     url("../../../assets/fonts/sailec/3AA90A_0_0.woff2") format("woff2"),
+//     url("../../../assets/fonts/sailec/3AA90A_0_0.woff") format("woff"),
+//     url("../../../assets/fonts/sailec/3AA90A_0_0.ttf") format("truetype");
+// }
 
-@font-face {
-  font-family: "Sailec";
-  font-weight: 400;
-  font-style: normal;
-  src: url("../../../assets/fonts/sailec/3AA90A_1_0.eot");
-  src: url("../../../assets/fonts/sailec/3AA90A_1_0.eot?#iefix") format("embedded-opentype"),
-    url("../../../assets/fonts/sailec/3AA90A_1_0.woff2") format("woff2"),
-    url("../../../assets/fonts/sailec/3AA90A_1_0.woff") format("woff"),
-    url("../../../assets/fonts/sailec/3AA90A_1_0.ttf") format("truetype");
-}
+// @font-face {
+//   font-family: "Sailec";
+//   font-weight: 400;
+//   font-style: normal;
+//   src: url("../../../assets/fonts/sailec/3AA90A_1_0.eot");
+//   src: url("../../../assets/fonts/sailec/3AA90A_1_0.eot?#iefix") format("embedded-opentype"),
+//     url("../../../assets/fonts/sailec/3AA90A_1_0.woff2") format("woff2"),
+//     url("../../../assets/fonts/sailec/3AA90A_1_0.woff") format("woff"),
+//     url("../../../assets/fonts/sailec/3AA90A_1_0.ttf") format("truetype");
+// }
 
 @-webkit-keyframes line-anim {
   from {
@@ -582,12 +582,25 @@
     }
   }
 
-  * {
-    font-family: "Sailec", sans-serif;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Glow";
   }
+
+  .welcome__scroll {
+    font-family: "GeneralSans-Variable";
+  }
+
+  // * {
+  //   font-family: "Sailec", sans-serif;
+  //   box-sizing: border-box;
+  //   -webkit-font-smoothing: antialiased;
+  //   -moz-osx-font-smoothing: grayscale;
+  // }
 
   body,
   html {

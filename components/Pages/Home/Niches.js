@@ -9,28 +9,37 @@ import Transportation, { Transportation2 } from '../../Icons/Transportation';
 import Fintech from '../../Icons/Fintech';
 import Healthcare from '../../Icons/Healthcare';
 import { useState } from 'react';
+import cases from '../Cases/data';
+import { useSetAtom } from 'jotai';
+import { filterAtom } from '../Work';
 
 const items = [
   {
+    id: 'transportation',
     title: 'Transportation',
-    count: 12,
+    count: cases.filter((c) => c.category.includes('transportation')).length,
     description:
       'Be it a carsharing app or an internal service for a logistics company – the key to happy users is in comfortable UX that is easy to navigate.',
     icon: Transportation2,
+    href: '#',
   },
   {
+    id: 'fintech',
     title: 'Fintech',
-    count: 3,
+    count: cases.filter((c) => c.category.includes('fintech')).length,
     description:
       'Who said that fintech must be dull? This is an important and well organized field but not everything connected to finances should resemble a spreadsheet.',
     icon: Fintech,
+    href: '#',
   },
   {
+    id: 'healthcare',
     title: 'Healthcare',
-    count: 4,
+    count: cases.filter((c) => c.category.includes('healthcare')).length,
     description:
       'The users of a healthcare service may not be that good with modern technology so the UX must be as user friendly as possible.',
     icon: Healthcare,
+    href: '#',
   },
 ];
 
@@ -51,6 +60,7 @@ function Badge({ children, className = '' }) {
 }
 
 export default function Niches() {
+  const setFilter = useSetAtom(filterAtom);
   const [iconMap, setIconMap] = useState({});
 
   return (
@@ -78,8 +88,14 @@ export default function Niches() {
               className="pb-10 pt-12 md:pb-[56px] md:pt-[72px] xl:pb-[72px]"
             >
               <Link
-                href="#"
+                href="/work"
                 className="group block first:pt-0 md:flex md:items-center md:justify-between"
+                onClick={() => {
+                  setFilter((f) => ({
+                    ...f,
+                    category: item.id,
+                  }));
+                }}
               >
                 <Animated
                   className="md:w-full md:max-w-[25%]"
