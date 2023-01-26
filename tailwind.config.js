@@ -9,7 +9,11 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['GeneralSans-Variable', ...defaultTheme.fontFamily.sans],
+        sans: [
+          'GeneralSans-Variable',
+          'GeneralSans',
+          ...defaultTheme.fontFamily.sans,
+        ],
         glow: [
           'Glow',
           {

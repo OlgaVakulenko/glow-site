@@ -16,6 +16,7 @@ specifiers:
   clsx: ^1.2.1
   critters: 0.0.7
   d3-interpolate-path: ^2.3.0
+  detect-gpu: ^5.0.8
   eslint: 8.24.0
   eslint-config-next: 13.0.0
   eslint-config-prettier: ^8.5.0
@@ -54,6 +55,7 @@ dependencies:
   '@tweenjs/tween.js': 18.6.4
   clsx: 1.2.1
   d3-interpolate-path: 2.3.0
+  detect-gpu: 5.0.8
   framer-motion: 7.5.3_biqbaboplfbrettd7655fr4n2y
   gsap: 3.11.3
   hammerjs: 2.0.8
@@ -911,6 +913,12 @@ packages:
   /defined/1.0.0:
     resolution: {integrity: sha512-Y2caI5+ZwS5c3RiNDJ6u53VhQHv+hHKwhkI1iHvceKUHw9Df6EK2zRLfjejRgMuCuxK7PfSWIMwWecceVvThjQ==}
     dev: true
+
+  /detect-gpu/5.0.8:
+    resolution: {integrity: sha512-55fCEmklMQosC+l/1TKXC1r88ObkLzePKFyXZRPCL0fPVkmIYtpNSGbCeO00STD9uWdYruXNwfKsdXcTL5Yvkg==}
+    dependencies:
+      webgl-constants: 1.1.1
+    dev: false
 
   /detect-libc/2.0.1:
     resolution: {integrity: sha512-463v3ZeIrcWtdgIg6vI6XUncguvr2TnGl4SzDXinkt9mSLpBJKXT3mW6xT3VQdDN11+WVs29pgvivTc4Lp8v+w==}
@@ -2990,6 +2998,10 @@ packages:
     resolution: {integrity: sha512-rpJyN222KWIvHJ/F53XSZv0Zl/accqHR8et1kpaMTD/fLCRxtV8iX8czMzY7sVZupTI3zcUTg8eycS2kNF9l6w==}
     dependencies:
       loose-envify: 1.4.0
+    dev: false
+
+  /webgl-constants/1.1.1:
+    resolution: {integrity: sha512-LkBXKjU5r9vAW7Gcu3T5u+5cvSvh5WwINdr0C+9jpzVB41cjQAP5ePArDtk/WHYdVj0GefCgM73BA7FlIiNtdg==}
     dev: false
 
   /webpack-bundle-analyzer/4.3.0:

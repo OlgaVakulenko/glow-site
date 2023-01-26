@@ -37,11 +37,6 @@ export default function LegacyCaseContainer({ className, children }) {
     };
   }, []);
 
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <div ref={ref} className={cx(css.legacyRoot, className)}>
       {children}

@@ -511,6 +511,7 @@ function Jucr() {
               </div>
               <div className="owl-carousel owl-carousel-hifi owl-theme">
                 <Carousel
+                  activeMedia={['tablet', 'desktop']}
                   slides={[
                     <picture key={1}>
                       <source

@@ -8,6 +8,7 @@ import { smoothScrollAtom } from '../../atoms/scroll';
 import { atom } from 'jotai';
 import { useRouter } from 'next/router';
 import { useMediaAtom } from '../../lib/agent';
+import { getGPUTier } from 'detect-gpu';
 
 export const ScrollSmootherMounted = atom(false);
 
@@ -20,6 +21,7 @@ export const ScrollSmootherMounted = atom(false);
 // }
 
 export default function ScrollContainer({ children }) {
+  const [disabled, setDisabled] = useState(false);
   const media = useMediaAtom();
   const setMounted = useSetAtom(ScrollSmootherMounted);
   const updateScrollPosition = useSetAtom(smoothScrollAtom);
@@ -29,7 +31,7 @@ export default function ScrollContainer({ children }) {
   const isMobile = media === 'mobile';
 
   useEffect(() => {
-    if (media === 'mobile') {
+    if (media === 'mobile' || disabled) {
       setMounted(true);
       return () => {
         setMounted(false);
@@ -50,12 +52,13 @@ export default function ScrollContainer({ children }) {
     setMounted(true);
 
     return () => {
+      console.log('cleanup');
       setMounted(false);
       if (smootherRef.current) {
         smootherRef.current.kill();
       }
     };
-  }, [isMobile, updateScrollPosition, setMounted]);
+  }, [isMobile, updateScrollPosition, setMounted, disabled]);
 
   //scrolltrigger does not sometimes refresh when scrollsmoother is enabled
   useEffect(() => {
@@ -103,6 +106,21 @@ export default function ScrollContainer({ children }) {
 
     return wrapper;
   }, [isMobile]);
+
+  useEffect(() => {
+    let mounted = true;
+    getGPUTier().then((tier) => {
+      if (!mounted) return;
+
+      if (tier?.tier <= 1) {
+        setDisabled(true);
+      }
+    });
+
+    return () => {
+      mounted = false;
+    };
+  }, []);
 
   return (
     <div ref={viewportRef}>

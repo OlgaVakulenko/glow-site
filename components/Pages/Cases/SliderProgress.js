@@ -4,8 +4,13 @@ import { range } from '../../../lib/utils';
 import cx from 'clsx';
 
 export default function SliderProgress() {
+  const [ready, setReady] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
   const swiper = useSwiper();
+
+  useEffect(() => {
+    setReady(true);
+  }, []);
 
   useEffect(() => {
     const onChange = (event) => {
