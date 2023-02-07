@@ -7,6 +7,8 @@ import BeastCover from './assets/beast-cover.png';
 import JucrCover from './assets/jucr-cover.png';
 import CryptoGenie from './assets/cryptogenie-cover.png';
 import LiquidSpace from './assets/ls-cover.png';
+import FleetChaser from './assets/fc-cover.png';
+import Ethos from './assets/ethos-cover.png';
 
 const cases = [
   {
@@ -97,19 +99,24 @@ const cases = [
   {
     href: '/fleet',
     title: 'FleetChaser – fleet management platform',
-    industry: ['Car Rent'],
-    service: ['User Experience', 'User Interface', 'Branding'],
-    company: ['Funding 30M'],
-    image: Case4Image,
+    industry: ['Management', 'Construction'],
+    service: ['Product Design', 'User Experience', 'User Interface'],
+    company: [
+      <>
+        100k predictions <br />
+        at start
+      </>,
+    ],
+    image: FleetChaser,
     category: ['transportation'],
   },
   {
     href: '/ethos',
     title: 'EthosCE: new look at medical platform',
-    industry: ['Car Rent'],
-    service: ['User Experience', 'User Interface', 'Branding'],
-    company: ['Funding 30M'],
-    image: Case4Image,
+    industry: ['Education', 'Medicine'],
+    service: ['User Experience', 'User Interface', 'Product Design'],
+    company: ['Funding 8M'],
+    image: Ethos,
     category: ['healthcare'],
   },
 ];

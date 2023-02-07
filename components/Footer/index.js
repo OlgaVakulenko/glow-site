@@ -85,6 +85,8 @@ export function ParallaxFooter(props) {
 
   const header = useHeaderTheme({ ref: wrapperRef, theme: 'dark' });
 
+  console.log('is scroll mounted', scrollMounted);
+
   useEffect(() => {
     if (!scrollMounted) {
       return;

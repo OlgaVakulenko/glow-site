@@ -79,7 +79,7 @@ export default function Niches() {
         </Section.Header>
       </Layout>
       <NichesAnimation />
-      <Layout className="md:mt-[120px]">
+      <Layout className="pb-16 md:mt-[120px]">
         <ul className="divide-y divide-black md:pb-[12px] xl:pb-[32px]">
           {items.map((item, i) => (
             <Animated

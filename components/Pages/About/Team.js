@@ -36,13 +36,13 @@ function Profile({ image, name, position, animated = true, index = 0 }) {
   return (
     <Wrapper
       delay={index * 50}
-      className="flex w-[208px] flex-col md:w-full xl:max-w-full"
+      className="group flex w-[208px] flex-col md:w-full xl:max-w-full"
     >
-      <div className="relative mb-8 w-full max-w-[208px] overflow-hidden rounded-3xl pb-[100%] xl:max-w-full">
+      <div className="clip-content relative mb-8 w-full max-w-[208px] overflow-hidden rounded-3xl pb-[100%] md:max-w-full">
         <Image
           src={image}
           alt=""
-          className="absolute inset-0 object-cover"
+          className="absolute inset-0 object-cover transition-transform duration-500 group-hover:scale-105"
           sizes={[[208, 1280], [350]]}
         />
       </div>

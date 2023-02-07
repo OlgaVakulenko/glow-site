@@ -10,7 +10,10 @@ import { useHeaderTheme } from './Header';
 import Layout from './Layout';
 import LocalTime from './LocalTime';
 import RollingText from './RollingText';
-import { ScrollSmootherMounted } from './SmoothScroll/ScrollContainer';
+import {
+  ScrollSmootherEnabled,
+  ScrollSmootherMounted,
+} from './SmoothScroll/ScrollContainer';
 import Weather from './Weather';
 
 const links = [
@@ -62,6 +65,7 @@ export function ParallaxFooter(props) {
   const [height, setHeight] = useState(null);
   const media = useMediaAtom();
   const [scrollMounted] = useAtom(ScrollSmootherMounted);
+  const [scrollEnabled] = useAtom(ScrollSmootherEnabled);
   const wrapperRef = useRef(null);
   const contentRef = useRef(null);
 
@@ -98,7 +102,7 @@ export function ParallaxFooter(props) {
               return 20;
             }
 
-            return -80;
+            return scrollEnabled ? -80 : 20;
           },
         },
         {
@@ -122,7 +126,7 @@ export function ParallaxFooter(props) {
     return () => {
       ctx.revert();
     };
-  }, [wrapperRef, scrollMounted, media, router.pathname]);
+  }, [wrapperRef, scrollMounted, scrollEnabled, media, router.pathname]);
 
   return (
     <div

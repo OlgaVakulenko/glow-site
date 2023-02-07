@@ -6,12 +6,14 @@ import Layout from '../../Layout';
 export default function Logos() {
   return (
     <Layout className="pt-[143px] pb-[90px] md:pt-[129px] md:pb-[135px] xl:pt-[158px] xl:pb-[112px]">
-      <div className="md:flex md:flex-wrap">
-        <Figma className="mb-10 md:mb-16 xl:mb-[136px] xl:grow" />
-        <Clutch className="mb-10 md:mb-16 md:ml-[88px] xl:mb-[136px] xl:ml-0 xl:mr-[104px]" />
-        <Dribble className="mb-10 md:mb-16 md:mr-[88px] xl:mb-[136px] xl:mr-20" />
-        <Medium className="mb-10 md:mb-16 xl:mb-0 xl:ml-auto" />
-        <DesignRush className="md:ml-[308px] xl:mr-[123px] xl:ml-[88px]" />
+      <div className="mx-auto max-w-[1440px]">
+        <div className="md:flex md:flex-wrap">
+          <Figma className="mb-10 md:mb-16 xl:mb-[136px] xl:grow" />
+          <Clutch className="mb-10 md:mb-16 md:ml-[88px] xl:mb-[136px] xl:ml-0 xl:mr-[104px]" />
+          <Dribble className="mb-10 md:mb-16 md:mr-[88px] xl:mb-[136px] xl:mr-20" />
+          <Medium className="mb-10 md:mb-16 xl:mb-0 xl:ml-auto" />
+          <DesignRush className="md:ml-[308px] xl:mr-[123px] xl:ml-[88px]" />
+        </div>
       </div>
     </Layout>
   );
@@ -42,7 +44,7 @@ function Figma({ className }) {
 
   return (
     <LinkItem
-      className={className}
+      className={cx(className, 'group')}
       href="https://www.figma.com/@glow_agency"
       title="Top Profile Figma Community"
       subtitle="Open comunity"
@@ -54,6 +56,7 @@ function Figma({ className }) {
             viewBox="0 0 80 80"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="text-[#19191B] group-hover:text-brand"
           >
             <rect
               x="0.5"
@@ -61,8 +64,9 @@ function Figma({ className }) {
               width="79"
               height="79"
               rx="39.5"
-              fill="#19191B"
-              stroke="#19191B"
+              fill="currentColor"
+              stroke="currentColor"
+              className="transition-color duration-500"
             />
             <g clipPath="url(#clip0_815_17)">
               <path
@@ -104,6 +108,7 @@ function Figma({ className }) {
             viewBox="0 0 136 136"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="text-[#19191B] group-hover:text-brand"
           >
             <rect
               x="0.5"
@@ -111,8 +116,9 @@ function Figma({ className }) {
               width="135"
               height="135"
               rx="67.5"
-              fill="#19191B"
-              stroke="#19191B"
+              fill="currentColor"
+              stroke="currentColor"
+              className="transition-color duration-500"
             />
             <g clipPath="url(#clip0_815_17)">
               <path
@@ -162,34 +168,41 @@ function Clutch({ className }) {
       href="https://clutch.co/profile/glow-design-agency"
       target="_blank"
       rel="noreferrer"
-      className={cx('flex items-center', className, {
-        'glow-border-black px-8 py-7 md:rounded-full': media !== 'mobile',
-      })}
+      className={cx('flex', className, {})}
     >
-      <div className="mr-6">
-        <svg
-          width="80"
-          height="80"
-          viewBox="0 0 80 80"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M40 0L57.4 9.86232L74.641 20L74.8 40L74.641 60L57.4 70.1377L40 80L22.6 70.1377L5.35898 60L5.2 40L5.35898 20L22.6 9.86232L40 0Z"
-            fill="#19191B"
-          />
-          <path
-            d="M50.0281 47.7692C47.9192 49.4562 44.9668 50.7215 42.0144 50.7215C35.2661 50.7215 30.6266 45.6603 30.6266 38.912C30.6266 32.1636 35.2661 27.5242 42.0144 27.5242C44.9668 27.5242 47.9192 28.3677 50.0281 30.4766L51.2934 31.7419L58.0417 25.4153L56.3546 24.15C52.5587 20.7758 47.4974 18.667 42.0144 18.667C30.2048 18.667 21.3477 27.5242 21.3477 39.3337C21.3477 51.1433 30.2048 60.0005 42.0144 60.0005C47.4974 60.0005 52.5587 57.8916 56.3546 54.5175L58.0417 53.2522L51.2934 46.5038L50.0281 47.7692Z"
-            fill="#F3F2F4"
-          />
-          <path
-            d="M41.5921 46.0816C45.3191 46.0816 48.3404 43.0603 48.3404 39.3333C48.3404 35.6063 45.3191 32.585 41.5921 32.585C37.8651 32.585 34.8438 35.6063 34.8438 39.3333C34.8438 43.0603 37.8651 46.0816 41.5921 46.0816Z"
-            fill="#F3F2F4"
-          />
-        </svg>
-      </div>
-      <div className="text-body-heading-m md:max-w-[236px]">
-        Top 30 User Experience Company
+      <div
+        className={cx('group flex items-center transition-all duration-500', {
+          'glow-border-black to-brand px-8 py-7 md:rounded-full':
+            media !== 'mobile',
+        })}
+      >
+        <div className="mr-6">
+          <svg
+            width="80"
+            height="80"
+            viewBox="0 0 80 80"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="text-[#19191B] group-hover:text-brand"
+          >
+            <path
+              d="M40 0L57.4 9.86232L74.641 20L74.8 40L74.641 60L57.4 70.1377L40 80L22.6 70.1377L5.35898 60L5.2 40L5.35898 20L22.6 9.86232L40 0Z"
+              fill="currentColor"
+              className="transition-colors duration-500"
+            />
+            <path
+              d="M50.0281 47.7692C47.9192 49.4562 44.9668 50.7215 42.0144 50.7215C35.2661 50.7215 30.6266 45.6603 30.6266 38.912C30.6266 32.1636 35.2661 27.5242 42.0144 27.5242C44.9668 27.5242 47.9192 28.3677 50.0281 30.4766L51.2934 31.7419L58.0417 25.4153L56.3546 24.15C52.5587 20.7758 47.4974 18.667 42.0144 18.667C30.2048 18.667 21.3477 27.5242 21.3477 39.3337C21.3477 51.1433 30.2048 60.0005 42.0144 60.0005C47.4974 60.0005 52.5587 57.8916 56.3546 54.5175L58.0417 53.2522L51.2934 46.5038L50.0281 47.7692Z"
+              fill="#F3F2F4"
+            />
+            <path
+              d="M41.5921 46.0816C45.3191 46.0816 48.3404 43.0603 48.3404 39.3333C48.3404 35.6063 45.3191 32.585 41.5921 32.585C37.8651 32.585 34.8438 35.6063 34.8438 39.3333C34.8438 43.0603 37.8651 46.0816 41.5921 46.0816Z"
+              fill="#F3F2F4"
+            />
+          </svg>
+        </div>
+        <div className="text-body-heading-m md:max-w-[236px]">
+          Top 30 User Experience Company
+        </div>
       </div>
     </Animated>
   );
@@ -204,7 +217,7 @@ function Dribble({ className }) {
       href="https://dribbble.com/glow-team"
       target="_blank"
       rel="noreferrer"
-      className={cx('flex items-center', className)}
+      className={cx('group flex items-center', className)}
     >
       <div className="mr-6">
         {media === 'mobile' ? (
@@ -214,6 +227,7 @@ function Dribble({ className }) {
             viewBox="0 0 80 80"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="text-[#19191B] group-hover:text-brand"
           >
             <rect
               x="0.5"
@@ -221,13 +235,15 @@ function Dribble({ className }) {
               width="79"
               height="79"
               rx="39.5"
-              stroke="#19191B"
+              stroke="currentColor"
+              className="transition-color duration-500"
             />
             <path
               fillRule="evenodd"
               clipRule="evenodd"
               d="M40 20C28.9588 20 20 28.9588 20 40C20 51.0412 28.9588 60 40 60C51.0195 60 60 51.0412 60 40C60 28.9588 51.0195 20 40 20ZM53.2104 29.2191C55.5965 32.1258 57.0282 35.8352 57.0716 39.8482C56.5076 39.7397 50.8677 38.59 45.1844 39.3058C45.0542 39.0239 44.9458 38.7202 44.8156 38.4165C44.4686 37.5922 44.0781 36.7462 43.6876 35.9436C49.9783 33.384 52.8416 29.6963 53.2104 29.2191ZM40 22.9501C44.3384 22.9501 48.308 24.577 51.3232 27.2451C51.0195 27.679 48.4382 31.128 42.3644 33.4056C39.5662 28.2646 36.4642 24.0564 35.987 23.4056C37.2668 23.102 38.6117 22.9501 40 22.9501ZM32.7332 24.5553C33.1887 25.1627 36.2256 29.3926 39.0672 34.4252C31.0846 36.551 24.0347 36.5076 23.2755 36.5076C24.3818 31.2148 27.961 26.8113 32.7332 24.5553ZM22.9067 40.0217C22.9067 39.8482 22.9067 39.6746 22.9067 39.5011C23.6443 39.5228 31.9306 39.6312 40.4555 37.0716C40.9544 38.026 41.41 39.0022 41.8438 39.9783C41.6269 40.0434 41.3883 40.1085 41.1714 40.1735C32.3644 43.0152 27.679 50.7809 27.2885 51.4317C24.577 48.4165 22.9067 44.4035 22.9067 40.0217ZM40 57.0933C36.0521 57.0933 32.4078 55.7484 29.5228 53.4924C29.8265 52.8634 33.2972 46.1822 42.9284 42.82C42.9718 42.7983 42.9935 42.7983 43.0369 42.7766C45.4447 49.0022 46.4208 54.2299 46.6811 55.7267C44.6204 56.616 42.3644 57.0933 40 57.0933ZM49.5228 54.1649C49.3492 53.1236 48.4382 48.1345 46.2039 41.9957C51.5618 41.1497 56.2473 42.538 56.833 42.7332C56.0954 47.4837 53.3622 51.5835 49.5228 54.1649Z"
-              fill="#19191B"
+              fill="currentColor"
+              className="transition-color duration-500"
             />
           </svg>
         ) : (
@@ -237,6 +253,7 @@ function Dribble({ className }) {
             viewBox="0 0 136 136"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="text-[#19191B] group-hover:text-brand"
           >
             <rect
               x="0.5"
@@ -244,13 +261,15 @@ function Dribble({ className }) {
               width="135"
               height="135"
               rx="67.5"
-              stroke="#19191B"
+              stroke="currentColor"
+              className="transition-color duration-500"
             />
             <path
               fillRule="evenodd"
               clipRule="evenodd"
               d="M68 44C54.7506 44 44 54.7506 44 68C44 81.2494 54.7506 92 68 92C81.2234 92 92 81.2494 92 68C92 54.7506 81.2234 44 68 44ZM83.8525 55.0629C86.7158 58.551 88.4338 63.0022 88.4859 67.8178C87.8091 67.6876 81.0412 66.308 74.2213 67.167C74.0651 66.8287 73.9349 66.4642 73.7788 66.0998C73.3623 65.1106 72.8937 64.0954 72.4252 63.1323C79.974 60.0608 83.41 55.6356 83.8525 55.0629ZM68 47.5401C73.2061 47.5401 77.9696 49.4924 81.5878 52.6941C81.2234 53.2148 78.1258 57.3536 70.8373 60.0868C67.4794 53.9176 63.757 48.8677 63.1844 48.0868C64.7202 47.7223 66.3341 47.5401 68 47.5401ZM59.2798 49.4664C59.8265 50.1952 63.4707 55.2712 66.8807 61.3102C57.3015 63.8612 48.8417 63.8091 47.9306 63.8091C49.2581 57.4577 53.5532 52.1735 59.2798 49.4664ZM47.4881 68.026C47.4881 67.8178 47.4881 67.6096 47.4881 67.4013C48.3731 67.4273 58.3167 67.5575 68.5466 64.4859C69.1453 65.6312 69.692 66.8026 70.2126 67.974C69.9523 68.0521 69.6659 68.1302 69.4056 68.2082C58.8373 71.6182 53.2148 80.9371 52.7462 81.718C49.4924 78.0998 47.4881 73.2842 47.4881 68.026ZM68 88.5119C63.2625 88.5119 58.8894 86.898 55.4273 84.1909C55.7918 83.436 59.9566 75.4186 71.5141 71.384C71.5662 71.3579 71.5922 71.3579 71.6443 71.3319C74.5336 78.8026 75.705 85.0759 76.0173 86.872C73.5445 87.9392 70.8373 88.5119 68 88.5119ZM79.4274 84.9979C79.2191 83.7484 78.1258 77.7614 75.4447 70.3948C81.8742 69.3796 87.4967 71.0456 88.1996 71.2798C87.3145 76.9805 84.0347 81.9002 79.4274 84.9979Z"
-              fill="#19191B"
+              fill="currentColor"
+              className="transition-color duration-500"
             />
           </svg>
         )}
@@ -274,7 +293,7 @@ function Medium({ className }) {
 
   return (
     <LinkItem
-      className={className}
+      className={cx(className, 'group')}
       title="Popular Design Blog on Medium"
       subtitle="view topics"
       href="https://medium.com/glow-team"
@@ -286,6 +305,7 @@ function Medium({ className }) {
             viewBox="0 0 80 80"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="text-[#19191B] group-hover:text-brand"
           >
             <rect
               x="0.5"
@@ -293,8 +313,9 @@ function Medium({ className }) {
               width="79"
               height="79"
               rx="39.5"
-              fill="#19191B"
-              stroke="#19191B"
+              fill="currentColor"
+              stroke="currentColor"
+              className="transition-color duration-500"
             />
             <g clipPath="url(#clip0_815_18)">
               <path
@@ -320,6 +341,7 @@ function Medium({ className }) {
             viewBox="0 0 136 136"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="text-[#19191B] group-hover:text-brand"
           >
             <rect
               x="0.5"
@@ -327,8 +349,9 @@ function Medium({ className }) {
               width="135"
               height="135"
               rx="67.5"
-              fill="#19191B"
-              stroke="#19191B"
+              fill="currentColor"
+              stroke="currentColor"
+              className="transition-color duration-500"
             />
             <g clipPath="url(#clip0_815_18)">
               <path
@@ -358,7 +381,7 @@ function DesignRush({ className }) {
 
   return (
     <LinkItem
-      className={className}
+      className={cx(className, 'group')}
       href="https://www.designrush.com/agency/graphic-design/digital-design"
       title="Top Product  Design Company"
       subtitle="view profile"
@@ -370,6 +393,7 @@ function DesignRush({ className }) {
             viewBox="0 0 80 80"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="text-[#19191B] group-hover:text-brand"
           >
             <rect
               x="0.5"
@@ -377,13 +401,15 @@ function DesignRush({ className }) {
               width="79"
               height="79"
               rx="39.5"
-              stroke="#19191B"
+              stroke="currentColor"
+              className="transition-color duration-500"
             />
             <path
               fillRule="evenodd"
               clipRule="evenodd"
               d="M39.1451 17.926C37.3325 20.6441 37.0659 21.9231 37.8675 24.0551C38.4796 25.6827 38.5886 27.0247 38.1438 27.4574C37.1816 28.3937 35.9387 27.7563 35.5184 26.1111L35.2707 25.1418L34.2652 27.0898C32.2365 31.0215 31.947 33.3455 33.1773 35.8275C33.5269 36.5329 34.1663 37.4962 34.5981 37.9677L35.3834 38.8251L35.0911 37.9685C34.9303 37.4975 34.7989 36.5237 34.7989 35.805C34.7989 33.7295 35.3384 32.8744 38.7583 29.5274C40.4851 27.8372 41.8435 26.3329 42.1158 25.8083C43.0453 24.0189 42.5178 20.6725 40.9188 18.2152C40.4839 17.5469 40.0459 17 39.9454 17C39.8449 17 39.4846 17.4167 39.1451 17.926ZM43.3896 23.5003C43.3394 23.747 43.2503 24.299 43.192 24.7269C42.9645 26.394 41.9842 27.8669 39.4298 30.3779C36.548 33.2112 36.094 33.9597 36.0857 35.889C36.0808 37.044 36.1665 37.4057 36.6325 38.1932C37.4904 39.6429 38.4715 40.1813 40.4006 40.261C43.2221 40.3779 45.2757 39.2324 46.4117 36.9084C47.0118 35.6813 47.4181 33.8041 47.3955 32.3656L47.3833 31.5827L47.0321 32.6056C46.8392 33.1684 46.4539 33.9697 46.1761 34.3866C45.6294 35.2072 44.018 36.3783 43.4359 36.3783C42.9253 36.3783 42.2872 35.6811 42.2872 35.1236C42.2872 34.6579 43.3807 33.1271 44.2573 32.3656C45.4298 31.347 45.9148 29.1103 45.4247 26.9828C45.2244 26.1131 43.9193 23.321 43.6302 23.1435C43.5482 23.0932 43.4401 23.2537 43.3896 23.5003ZM24.2448 41.9467C28.4898 47.9886 39.8445 63.9368 39.9461 63.9998C40.0654 64.0738 57.2819 40.2455 57.1814 40.1459C57.0734 40.0385 50.0174 41.1035 49.0806 41.3685C48.5357 41.5228 47.7137 41.9687 47.254 42.3595C46.7942 42.7506 45.0804 44.978 43.4456 47.3092C39.9294 52.3237 40.1006 52.119 39.6925 51.7948C39.5219 51.6592 38.1259 49.7697 36.5906 47.596C33.6849 43.4823 32.4066 42.1053 30.9978 41.5707C30.539 41.3967 28.5518 41.0115 26.5818 40.7145L23 40.1747L24.2448 41.9467ZM35.3901 41.7997C35.3901 41.9093 39.7865 48.0188 39.9475 48.1329C40.076 48.2239 44.4983 41.8367 44.3848 41.7242C44.3495 41.6891 43.3409 41.8917 42.1438 42.1746L39.9668 42.6888L37.6784 42.2024C36.4199 41.935 35.3901 41.7537 35.3901 41.7997Z"
-              fill="#19191B"
+              fill="currentColor"
+              className="transition-color duration-500"
             />
           </svg>
         ) : (
@@ -393,6 +419,7 @@ function DesignRush({ className }) {
             viewBox="0 0 136 136"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            className="text-[#19191B] group-hover:text-brand"
           >
             <rect
               x="0.5"
@@ -400,13 +427,15 @@ function DesignRush({ className }) {
               width="135"
               height="135"
               rx="67.5"
-              stroke="#19191B"
+              stroke="currentColor"
+              className="transition-color duration-500"
             />
             <path
               fillRule="evenodd"
               clipRule="evenodd"
               d="M66.6718 36.3004C64.1265 40.1172 63.7521 41.9132 64.8778 44.9071C65.7373 47.1927 65.8904 49.0772 65.2658 49.6849C63.9145 50.9996 62.1692 50.1046 61.579 47.7944L61.2311 46.4332L59.8193 49.1687C56.9704 54.6897 56.5639 57.9533 58.2915 61.4386C58.7824 62.4292 59.6804 63.7819 60.2867 64.444L61.3894 65.648L60.979 64.4451C60.7532 63.7838 60.5687 62.4163 60.5687 61.407C60.5687 58.4926 61.3263 57.2916 66.1286 52.5917C68.5536 50.2182 70.461 48.1058 70.8435 47.3691C72.1488 44.8563 71.408 40.1571 69.1626 36.7064C68.5519 35.768 67.9367 35 67.7956 35C67.6545 35 67.1486 35.5852 66.6718 36.3004ZM72.6322 44.1281C72.5616 44.4745 72.4366 45.2496 72.3547 45.8505C72.0353 48.1915 70.6586 50.2599 67.0717 53.786C63.0249 57.7647 62.3873 58.8158 62.3757 61.5249C62.3687 63.1469 62.4891 63.6549 63.1436 64.7607C64.3482 66.7964 65.726 67.5525 68.4348 67.6644C72.397 67.8285 75.2808 66.22 76.8761 62.9564C77.7187 61.2333 78.2893 58.5973 78.2575 56.5773L78.2403 55.4778L77.7472 56.9142C77.4763 57.7045 76.9353 58.8298 76.5451 59.4153C75.7775 60.5675 73.5147 62.2121 72.6972 62.2121C71.9802 62.2121 71.0842 61.233 71.0842 60.4502C71.0842 59.7963 72.6198 57.6465 73.8506 56.5773C75.4972 55.1468 76.1782 52.0059 75.49 49.0183C75.2088 47.7971 73.3761 43.8764 72.9701 43.6271C72.855 43.5564 72.7031 43.7818 72.6322 44.1281ZM45.7481 70.0316C51.709 78.516 67.6539 100.911 67.7967 101C67.9641 101.104 92.1405 67.6427 91.9994 67.5028C91.8477 67.3519 81.9393 68.8474 80.6238 69.2196C79.8586 69.4362 78.7044 70.0624 78.0588 70.6113C77.4132 71.1605 75.0065 74.2882 72.7108 77.5619C67.7732 84.6035 68.0137 84.316 67.4406 83.8608C67.2009 83.6703 65.2406 81.017 63.0846 77.9646C59.0043 72.1879 57.2092 70.2542 55.2309 69.5036C54.5867 69.2592 51.7962 68.7183 49.0298 68.3013L44 67.5432L45.7481 70.0316ZM61.3988 69.8251C61.3988 69.9791 67.5726 78.5583 67.7987 78.7186C67.9791 78.8464 74.1891 69.8771 74.0297 69.719C73.9801 69.6698 72.5639 69.9543 70.8828 70.3515L67.8258 71.0736L64.6122 70.3906C62.845 70.0151 61.3988 69.7606 61.3988 69.8251Z"
-              fill="#19191B"
+              fill="currentColor"
+              className="transition-color duration-500"
             />
           </svg>
         )

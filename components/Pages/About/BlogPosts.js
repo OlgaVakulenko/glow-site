@@ -49,7 +49,7 @@ const posts = [
 
 export default function BlogPosts() {
   return (
-    <Section withLayout={false}>
+    <Section withLayout={true}>
       <SectionLink
         title="Insights"
         buttonLabel="Read Blog"

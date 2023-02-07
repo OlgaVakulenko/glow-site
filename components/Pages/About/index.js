@@ -4,8 +4,10 @@ import Layout from '../../Layout';
 import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
 import DefaultLayout from '../Layouts/DefaultLayout';
-import Image from '../../Image';
-import Img from './assets/team-cover.png';
+import Image, { Source } from '../../Image';
+// import Img from './assets/team-cover.png';
+import ImgMobile from './assets/main-cover-mobile.jpg';
+import Img from './assets/main-cover-d.jpg';
 import DimSection from '../../DimSection';
 import Founders from './Founders';
 import HRule from '../../HRule';
@@ -14,6 +16,7 @@ import Push from './Push';
 import Logos from './Logos';
 import BlogPosts from './BlogPosts';
 import Animated from '../../Animated';
+import { useEffect, useRef } from 'react';
 
 export default function About() {
   return (
@@ -30,13 +33,18 @@ export default function About() {
           <br /> Glow design <br className="md:hidden" /> Agency
         </PageHeading>
       </Layout>
-      <div>
+      <Animated>
         <Image
-          src={Img}
-          className="h-[408px] w-full object-cover md:h-[463px] xl:h-[664px]"
+          src={ImgMobile}
+          className="w-full object-contain md:h-[463px] md:object-cover xl:h-[664px] wide:h-[33vw] wide:object-[50%_20%]"
           alt=""
+          loading="eager"
+          sources={[
+            <Source key={1} image={ImgMobile} media="(max-width: 768px)" />,
+            <Source key={2} image={Img} media="(min-width: 769px)" />,
+          ]}
         />
-      </div>
+      </Animated>
       <Layout className="pt-16 pb-24 md:pt-[111px] md:pb-[137px] xl:pt-[103px] xl:pb-[136px]">
         <Vision />
       </Layout>

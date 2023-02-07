@@ -59,6 +59,10 @@
   box-shadow: inset 0 0 0 1.1px theme('colors.black');
 }
 
+.glow-border-black.to-brand:hover {
+  box-shadow: inset 0 0 0 1.1px theme('colors.brand');
+}
+
 .glow-border-b-b:hover, .group:hover .glow-border-b-b {
   box-shadow: inset 0 0 0 1.1px theme('colors.brand');
 }
@@ -316,4 +320,12 @@
   background-color: theme('colors.brand') !important;
   width: 20px !important;
   height: 20px !important;
+}
+
+.clip-content {
+  clip-path: content-box;
+}
+
+.rounded-3xl {
+  border-radius: 26px;
 }

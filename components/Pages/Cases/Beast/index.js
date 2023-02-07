@@ -7,6 +7,7 @@ import { useHeaderTheme } from '../../../Header';
 import LegacyCaseContainer from '../LegacyCaseContainer';
 import SliderProgress from '../SliderProgress';
 import NextStudy from '../NextStudy';
+import Head from 'next/head';
 
 function Intro() {
   const ref = useRef();
@@ -134,11 +135,19 @@ export default function Beast() {
               </div>
             </div>
             <div className="challenge__image-block hidden-xs">
+              <Head>
+                <link
+                  rel="preload"
+                  as="image"
+                  href="img/beast/challenge-phone.png"
+                />
+              </Head>
               <img
                 className="wow fadeInUp"
                 src="img/beast/challenge-phone.png"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
+                alt=""
               />
               <div className="challenge__image-block-right">
                 <h3>Solutions we provided for the Beast:</h3>

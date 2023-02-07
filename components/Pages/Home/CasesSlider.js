@@ -255,7 +255,7 @@ export function CaseItem({
       <div
         className="mb-8 overflow-hidden rounded-3xl"
         style={{
-          transition: 'border-radius .5s',
+          clipPath: 'content-box',
         }}
       >
         {ImageJsx ? (
@@ -271,9 +271,14 @@ export function CaseItem({
       <div className="mb-8 font-glow text-heading-h4 xl:text-heading-h3">
         {title}
       </div>
-      <div className="-mr-10 flex">
+      <div className="-mr-10 flex md:-mr-16 xl:-mr-24">
         {columns.map((col, i) => (
-          <Col2 key={i} title={col.title} items={col.items} className="mr-10" />
+          <Col2
+            key={i}
+            title={col.title}
+            items={col.items}
+            className="mr-10 md:mr-16 xl:mr-24"
+          />
         ))}
       </div>
     </Link>

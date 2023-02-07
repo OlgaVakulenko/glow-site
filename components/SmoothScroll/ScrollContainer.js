@@ -1,29 +1,24 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import gsap, { ScrollSmoother, ScrollTrigger } from '../../dist/gsap';
-import Link from 'next/link';
-import throttle from 'lodash.throttle';
-import debounce from 'lodash.debounce';
-import { useSetAtom } from 'jotai';
-import { smoothScrollAtom } from '../../atoms/scroll';
-import { atom } from 'jotai';
-import { useRouter } from 'next/router';
-import { useMediaAtom } from '../../lib/agent';
 import { getGPUTier } from 'detect-gpu';
+import { atom, useSetAtom } from 'jotai';
+import debounce from 'lodash.debounce';
+import throttle from 'lodash.throttle';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { smoothScrollAtom } from '../../atoms/scroll';
+import { ScrollSmoother, ScrollTrigger } from '../../dist/gsap';
+import { useMediaAtom } from '../../lib/agent';
 
 export const ScrollSmootherMounted = atom(false);
+export const ScrollSmootherEnabled = atom(false);
 
-// if (typeof window !== 'undefined') {
-//   const org = window.scrollTo;
-//   window.scrollTo = (...args) => {
-//     console.log('call with', args);
-//     org(...args);
-//   };
-// }
+if (typeof window !== 'undefined') {
+  window.ScrollTrigger = ScrollTrigger;
+}
 
 export default function ScrollContainer({ children }) {
   const [disabled, setDisabled] = useState(false);
   const media = useMediaAtom();
   const setMounted = useSetAtom(ScrollSmootherMounted);
+  const setEnabled = useSetAtom(ScrollSmootherEnabled);
   const updateScrollPosition = useSetAtom(smoothScrollAtom);
   const viewportRef = useRef(null);
   const ref = useRef(null);
@@ -34,10 +29,10 @@ export default function ScrollContainer({ children }) {
     if (media === 'mobile' || disabled) {
       setMounted(true);
       return () => {
-        setMounted(false);
+        // setMounted(false);
       };
     }
-
+    console.log('new scroll smoother');
     smootherRef.current = new ScrollSmoother({
       wrapper: viewportRef.current,
       content: ref.current,
@@ -50,12 +45,15 @@ export default function ScrollContainer({ children }) {
     });
 
     setMounted(true);
+    setEnabled(true);
 
     return () => {
-      console.log('cleanup');
-      setMounted(false);
+      // setMounted(false);
+      setEnabled(false);
       if (smootherRef.current) {
+        console.log('kill scroll smoother');
         smootherRef.current.kill();
+        ScrollTrigger.refresh();
       }
     };
   }, [isMobile, updateScrollPosition, setMounted, disabled]);
@@ -100,21 +98,24 @@ export default function ScrollContainer({ children }) {
   }, [isMobile]);
 
   const Wrapper = useMemo(() => {
-    const key = media === 'mobile' ? 'mobile' : 'desktop';
+    let key = isMobile ? 'mobile' : 'desktop';
+    key += disabled ? 'disabled' : 'not-disabled';
     const wrapper = ({ children }) => <div key={key}>{children}</div>;
     wrapper.displayName = 'Wrapper';
 
     return wrapper;
-  }, [isMobile]);
+  }, [isMobile, disabled]);
 
   useEffect(() => {
     let mounted = true;
     getGPUTier().then((tier) => {
       if (!mounted) return;
 
+      // setTimeout(() => {
       if (tier?.tier <= 1) {
         setDisabled(true);
       }
+      // }, 1000);
     });
 
     return () => {
