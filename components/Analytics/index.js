@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import FacebookPixel from './FacebookPixel';
 import GTag from './GTag';
+import Linkedin from './Linkedin';
 
 export const pageview = (url) => {
   window.gtag('config', 'G-5NP2XWNRBX', {
@@ -12,6 +13,10 @@ export const pageview = (url) => {
     window.fbq('track', 'PageView');
   } else {
     console.log('no fbq');
+  }
+
+  if ('lintrk' in window) {
+    lintrk('track');
   }
 };
 
@@ -50,6 +55,7 @@ export default function Analytics() {
     <>
       <GTag />
       <FacebookPixel />
+      <Linkedin />
     </>
   );
 }

@@ -64,6 +64,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const onError = (e) => {
       errorsRef.current.push({
+        url: window.location.href,
         message: e?.message,
         filename: e?.filename,
         ua: window?.navigator?.userAgent,
@@ -211,7 +212,6 @@ function MyApp({ Component, pageProps }) {
       <Tolstoy />
     </div>
   );
-  return;
 }
 
 export default MyApp;
