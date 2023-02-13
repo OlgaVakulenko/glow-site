@@ -116,10 +116,9 @@ walk(out, async (err, pathname, dir) => {
         cacheDir,
         image.filename.replace('/_next/static/media/', '')
       );
-      // if (await fileExist(cachePath)) {
-      //   return fs.copyFile(cachePath, image.destination);
-      // }
-      // console.log(image.destination);
+      if (await fileExist(cachePath)) {
+        return fs.copyFile(cachePath, image.destination);
+      }
 
       const s = sharp(image.source).resize({
         width: image.width,
@@ -146,19 +145,18 @@ walk(out, async (err, pathname, dir) => {
         });
       }
 
-      return s.toFormat(image.ext).toFile(image.destination);
-      // .then(() => {
-      //   return fs.copyFile(image.destination, cachePath);
-      // });
-    });
-
-    await Promise.all(
-      promises.map((promise) =>
-        promise.then(() => {
+      return s
+        .toFormat(image.ext)
+        .toFile(image.destination)
+        .then(() => {
           bar.increment();
         })
-      )
-    );
+        .then(() => {
+          return fs.copyFile(image.destination, cachePath);
+        });
+    });
+
+    await Promise.all(promises);
 
     bar.stop();
   })

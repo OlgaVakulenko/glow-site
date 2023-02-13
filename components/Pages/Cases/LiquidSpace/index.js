@@ -6,9 +6,9 @@ import Office from './assets/office.png';
 import cx from 'clsx';
 import InlineVideo from '../InlineVideo';
 import { useMediaAtom } from '../../../../lib/agent';
-import Challenge1 from './assets/challenge-1.png';
-import Challenge2 from './assets/challenge-2.png';
-import Challenge3 from './assets/challenge-3.png';
+import Challenge1 from './assets/challenge-f.png';
+import Challenge2 from './assets/challenge-s.png';
+import Challenge3 from './assets/challenge-t.png';
 import WorkCarousel from './WorkCarousel';
 import { useMemo } from 'react';
 import UserFlowResearchImg from './assets/userflow-research.png';
@@ -234,21 +234,20 @@ function SectionChallenge() {
         title="Challenge"
         description="Our team’s goal was to create an user-friendly office rental service which would help everyone to find and book a workspace in a couple of clicks."
       >
-        {media === 'mobile' ? (
+        <div className="md:hidden">
           <CaseImage src={Challenge3} />
-        ) : (
-          <div className="flex">
-            <CaseImage
-              src={Challenge1}
-              imgClassName="h-full object-cover"
-              className="mr-6 w-1/2"
-            />
-            <div className="flex w-1/2 flex-col">
-              <CaseImage src={Challenge2} className="mb-6" />
-              <CaseImage src={Challenge3} />
-            </div>
+        </div>
+        <div className="hidden: md:flex">
+          <CaseImage
+            src={Challenge1}
+            imgClassName="h-full object-cover"
+            className="mr-6 w-1/2"
+          />
+          <div className="flex w-1/2 flex-col">
+            <CaseImage src={Challenge2} className="mb-6" />
+            <CaseImage src={Challenge3} />
           </div>
-        )}
+        </div>
       </SectionLayout>
     </div>
   );

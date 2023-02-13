@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import cx from 'clsx';
+import { useMediaAtom } from '../../../lib/agent';
 
 const FormInput = forwardRef(
   (
@@ -16,11 +17,13 @@ const FormInput = forwardRef(
     },
     ref
   ) => {
+    const media = useMediaAtom();
+    const mediaRef = useRef(media);
     const [isDirty, setIsDirty] = useState(false);
 
     useEffect(() => {
       const node = _ref && _ref.current;
-      if (isVisible && node) {
+      if (isVisible && node && mediaRef.current !== 'mobile') {
         node.focus();
       }
     }, [isVisible, _ref]);
@@ -51,7 +54,6 @@ const FormInput = forwardRef(
 
             if (onBlur) {
               onBlur(event);
-              alert('!');
             }
           }}
           name={name}

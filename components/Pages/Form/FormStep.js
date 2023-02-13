@@ -22,10 +22,13 @@ export default function FormStep({
   const media = useMediaAtom();
   const [inputRef, setRef, isUpdated] = useMountedRef();
   const isActive = currentIndex >= index;
-  const [isInputVisible, setIsInputVisible] = useState(false);
+  const [_isInputVisible, setIsInputVisible] = useState(false);
+  const isInputVisible = _isInputVisible || media === 'mobile';
   const [queue, setQueue] = useState({
     0: true,
   });
+  const isVisible = (i) =>
+    (isActive && queue[i] === true) || media === 'mobile';
 
   const _sentenceIndex = useMemo(() => {
     return inputSentenceIndex;
@@ -81,8 +84,7 @@ export default function FormStep({
 
   return sentences.map(
     (text, i) =>
-      isActive &&
-      queue[i] === true && (
+      isVisible(i) && (
         <div
           key={i}
           className={cx('mb-4 flex', {
@@ -92,26 +94,30 @@ export default function FormStep({
         >
           <span className="flex w-full flex-col flex-wrap whitespace-pre-wrap md:flex-row">
             <span className="font-glow text-3xl md:text-heading-h1">
-              <Typewriter
-                options={{
-                  cursor: '',
-                  delay: 55,
-                }}
-                onInit={(typewriter) => {
-                  typewriter
-                    .typeString(text)
-                    .callFunction(() => {
-                      setQueue((q) => ({
-                        ...q,
-                        [i + 1]: true,
-                      }));
-                      if (i === _sentenceIndex) {
-                        setIsInputVisible(true);
-                      }
-                    })
-                    .start();
-                }}
-              />
+              {media === 'mobile' ? (
+                <div>{text}</div>
+              ) : (
+                <Typewriter
+                  options={{
+                    cursor: '',
+                    delay: 55,
+                  }}
+                  onInit={(typewriter) => {
+                    typewriter
+                      .typeString(text)
+                      .callFunction(() => {
+                        setQueue((q) => ({
+                          ...q,
+                          [i + 1]: true,
+                        }));
+                        if (i === _sentenceIndex) {
+                          setIsInputVisible(true);
+                        }
+                      })
+                      .start();
+                  }}
+                />
+              )}
             </span>
             {_sentenceIndex === i && (
               <span
