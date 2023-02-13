@@ -13,6 +13,12 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
+  // webpack: (config, context) => {
+  //   console.log('my_config', config);
+  //   console.log('my_context', context);
+
+  //   return config;
+  // },
 };
 
 module.exports = nextConfig;

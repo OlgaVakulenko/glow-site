@@ -9,12 +9,14 @@ import Reviews from '../Home/Reviews';
 import Faq from './Faq';
 import Form from './Form';
 import gsap from '../../../dist/gsap';
+import Linkedin from '../../Analytics/Linkedin';
 
 export default function FormPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   return (
     <div>
+      <Linkedin />
       <HeadTitle title="Let’s Glow up your project" />
       {isSubmitted ? (
         <Layout className="pt-[165px] pb-32 md:pt-[256px]">

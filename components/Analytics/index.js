@@ -14,10 +14,6 @@ export const pageview = (url) => {
   } else {
     console.log('no fbq');
   }
-
-  if ('lintrk' in window) {
-    lintrk('track');
-  }
 };
 
 export const event = ({ action, category, label, value }) => {
@@ -55,7 +51,7 @@ export default function Analytics() {
     <>
       <GTag />
       <FacebookPixel />
-      <Linkedin />
+      {/* <Linkedin /> */}
     </>
   );
 }

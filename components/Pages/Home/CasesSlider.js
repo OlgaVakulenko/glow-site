@@ -195,7 +195,7 @@ function CaseSlide({ item, index }) {
           </div>
           <div className="flex space-x-[56px] pl-[3px] md:space-x-[96px]">
             <Col className="" title="Industry" items={item.industry} />
-            <Col title="Service" items={item.service} />
+            <Col title="Services" items={item.service} />
             {media !== 'mobile' && item.company && (
               <Col title="Company" items={item.company} />
             )}
@@ -301,7 +301,7 @@ export function CasesRow({ cases, className = '' }) {
                 items: caseItem.industry,
               },
               {
-                title: 'service',
+                title: 'services',
                 items: caseItem.service,
               },
               {
@@ -338,7 +338,7 @@ export function CasesSlider3() {
                       items: caseItem.industry,
                     },
                     {
-                      title: 'service',
+                      title: 'services',
                       items: caseItem.service,
                     },
                     {

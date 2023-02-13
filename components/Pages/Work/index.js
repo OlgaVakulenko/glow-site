@@ -138,7 +138,7 @@ function Cases() {
                   items: item.industry,
                 },
                 {
-                  title: 'service',
+                  title: 'services',
                   items: item.service,
                 },
                 {

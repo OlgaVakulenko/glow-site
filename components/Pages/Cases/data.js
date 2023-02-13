@@ -9,6 +9,8 @@ import CryptoGenie from './assets/cryptogenie-cover.png';
 import LiquidSpace from './assets/ls-cover.png';
 import FleetChaser from './assets/fc-cover.png';
 import Ethos from './assets/ethos-cover.png';
+import Parking from './assets/case-parking.png';
+import Tilt from './assets/case-tilt.png';
 
 const cases = [
   {
@@ -83,7 +85,7 @@ const cases = [
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
-    image: Case4Image,
+    image: Parking,
     category: ['transportation'],
   },
   {
@@ -93,7 +95,7 @@ const cases = [
     industry: ['Education'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
-    image: Case3Image,
+    image: Tilt,
     category: ['other'],
   },
   {

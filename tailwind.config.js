@@ -142,6 +142,7 @@ module.exports = {
         // brand: '#d6dbe0', //Dev only
         black: '#19191B',
         lblue: '#F0F6FF',
+        lred: '#FFE7EA',
         dim: '#F3F2F4',
       },
       spacing: {

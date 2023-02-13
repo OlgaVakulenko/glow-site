@@ -18,13 +18,7 @@ if (!existsSync(cacheDir)) {
   mkdirSync(cacheDir, { recursive: true });
 }
 
-const regexp =
-  /\/_next\/static\/media\/(?<path>.+?)\.w-(?<width>.+?)(?<ext>\.(webp|jpeg|jpg|png))/g;
-
-const regexp2 =
-  /\/_next\/static\/media\/(?<path>.+?)\.w-(?<width>\d+?)(?<ext>\..+?)(?:,|\s|'|")/g;
-
-const regexp3 = /\/_next\/static\/media\/(?<path>.+?)(?=,|\s|'|")/g;
+const regexp = /\/_next\/static\/media\/(?<path>.+?)(?=,|\s|'|")/g;
 
 const fileExist = (path) => {
   return fs
@@ -33,12 +27,6 @@ const fileExist = (path) => {
     .catch(() => false);
 };
 
-const toVerify = [];
-
-// const bar = new progress.SingleBar({});
-
-// let total = 0;
-// bar.start(total, 0);
 const images = [];
 
 walk(out, async (err, pathname, dir) => {
@@ -53,7 +41,7 @@ walk(out, async (err, pathname, dir) => {
 
   if (pathname.endsWith('.html')) {
     const content = await (await fs.readFile(pathname)).toString();
-    const matches = content.matchAll(regexp3);
+    const matches = content.matchAll(regexp);
 
     for (const match of matches) {
       const filepath = match[0];
@@ -111,81 +99,28 @@ walk(out, async (err, pathname, dir) => {
       images.push({
         source: fullSource,
         destination: fullpath,
+        filename: filepath,
         width,
         ext,
       });
 
       continue;
-
-      const m = fullpath.match(/\.w-(?<width>\d+)\./);
-
-      console.log(filepath);
-      return;
-      // console.log(path);
-      // return;
-      // const group = match.groups;
-      // const source = path.resolve(out + mediaPath, filename);
-      // const ext = group.ext;
-      console.log(source, ext);
-      return;
-      if (!['.jpg', '.jpeg', '.png'].includes(ext)) {
-        continue;
-      }
-      console.log(match);
-      return;
-      toVerify.push(fullpath);
-
-      if (await fileExist(fullpath)) {
-        // console.log(`File ${fullpath} already exists. Skipped -----`);
-        continue;
-      }
-
-      const exist = (
-        await Promise.all(
-          ['.jpg', '.jpeg', '.png'].map((ext) => {
-            return fileExist(source.replace('.webp', ext));
-          })
-        ).catch(() => false)
-      ).find((v) => v);
-
-      console.log(exist);
-
-      if (!exist) {
-        console.error(`File ${group.path}.* not found`);
-        continue;
-      }
-
-      const originalPath = exist;
-
-      // const width = parseInt(group.width);
-
-      if (isNaN(width) || width <= 0) {
-        console.error(`Width: ${width} is not a valid value`);
-        continue;
-      }
-
-      console.log(fullpath);
-      continue;
-
-      try {
-        await sharp(originalPath)
-          .resize(width)
-          .toFormat(ext.replace('.', ''))
-          .toFile(fullpath);
-        bar.setTotal(total + 1);
-        bar.increment();
-        bar.update();
-        // console.log(`File ${fullpath} successfully created`);
-      } catch (e) {
-        console.error(e);
-      }
     }
   }
 })
   .then(async () => {
     const bar = new progress.SingleBar();
     bar.start(images.length, 0);
-    const promises = images.map((image) => {
+    const promises = images.map(async (image) => {
+      const cachePath = path.join(
+        cacheDir,
+        image.filename.replace('/_next/static/media/', '')
+      );
+      // if (await fileExist(cachePath)) {
+      //   return fs.copyFile(cachePath, image.destination);
+      // }
+      // console.log(image.destination);
+
       const s = sharp(image.source).resize({
         width: image.width,
         withoutEnlargement: true,
@@ -211,18 +146,19 @@ walk(out, async (err, pathname, dir) => {
         });
       }
 
-      return (
-        s
-          // .sharpen()
-          .toFormat(image.ext)
-          .toFile(image.destination)
-          .then(() => {
-            bar.increment();
-          })
-      );
+      return s.toFormat(image.ext).toFile(image.destination);
+      // .then(() => {
+      //   return fs.copyFile(image.destination, cachePath);
+      // });
     });
 
-    await Promise.all(promises);
+    await Promise.all(
+      promises.map((promise) =>
+        promise.then(() => {
+          bar.increment();
+        })
+      )
+    );
 
     bar.stop();
   })
