@@ -134,14 +134,14 @@ function CaseImage({ className, imgClassName, ...props }) {
 
 function SectionHeading({ className, children }) {
   return (
-    <div
+    <Animated
       className={cx(
         className,
         'font-glow text-[32px] font-medium leading-[32px] md:text-[64px] md:leading-[57px]'
       )}
     >
       {children}
-    </div>
+    </Animated>
   );
 }
 
@@ -149,8 +149,9 @@ function List({ data }) {
   return (
     <div className="flex md:mb-[60px] xl:mb-20 xl:w-11/12">
       {data.map((column, i) => (
-        <div
+        <Animated
           key={i}
+          delay={i * 100}
           className="mr-6 last:mr-0"
           style={{ width: 100 / data.length + '%' }}
         >
@@ -158,13 +159,17 @@ function List({ data }) {
             {column.title}
           </div>
           <div className="md:leading-[27px]3 text-sm leading-[26px] md:text-[20px]">
-            {column.values.map((value, i) => (
-              <div key={i} className="md:mb-6 last:md:mb-0">
+            {column.values.map((value, k) => (
+              <Animated
+                delay={i * k * 50}
+                key={k}
+                className="md:mb-6 last:md:mb-0"
+              >
                 {value}
-              </div>
+              </Animated>
             ))}
           </div>
-        </div>
+        </Animated>
       ))}
     </div>
   );
@@ -214,14 +219,14 @@ function CaseVideo({ src, className }) {
   const controls = media === 'mobile' ? true : false;
 
   return (
-    <div
+    <Animated
       className={cx(
         'overflow-hidden rounded-2xl md:rounded-3xl xl:rounded-[32px]',
         className
       )}
     >
       <InlineVideo autoplay={autoplay} controls={controls} src={src} />
-    </div>
+    </Animated>
   );
 }
 
@@ -234,10 +239,10 @@ function SectionChallenge() {
         title="Challenge"
         description="Our team’s goal was to create an user-friendly office rental service which would help everyone to find and book a workspace in a couple of clicks."
       >
-        <div className="md:hidden">
+        <Animated className="md:hidden">
           <CaseImage src={Challenge3} />
-        </div>
-        <div className="hidden: md:flex">
+        </Animated>
+        <Animated className="hidden md:flex">
           <CaseImage
             src={Challenge1}
             imgClassName="h-full object-cover"
@@ -247,7 +252,7 @@ function SectionChallenge() {
             <CaseImage src={Challenge2} className="mb-6" />
             <CaseImage src={Challenge3} />
           </div>
-        </div>
+        </Animated>
       </SectionLayout>
     </div>
   );
@@ -425,55 +430,57 @@ function Results() {
 
 function Review() {
   return (
-    <Layout className="mt-2 pb-16">
-      <div className="border-t border-black pt-10 md:flex md:pt-12">
-        <div className="mb-10">
-          <div className="mb-6 w-[112px] overflow-hidden rounded-[10px] md:mr-[90px] md:mb-8 md:w-[198px] xl:w-[288px]">
-            <Image src={ReviewImg} alt="" />
-          </div>
-          <div className="mb-2 text-xl font-medium leading-[30px]">
-            Eric Zellhart
-          </div>
-          <div className="text-base leading-[22px]">
-            VP of Product at LiquidSpace
-          </div>
-        </div>
-        <div className="md:pt-[60px] xl:flex">
-          <div>
-            <div className="mb-6 text-xl font-medium leading-[30px] md:mb-10">
-              Review
+    <Animated>
+      <Layout className="mt-2 pb-16">
+        <div className="border-t border-black pt-10 md:flex md:pt-12">
+          <div className="mb-10">
+            <div className="mb-6 w-[112px] overflow-hidden rounded-[10px] md:mr-[90px] md:mb-8 md:w-[198px] xl:w-[288px]">
+              <Image src={ReviewImg} alt="" />
             </div>
-            <div className="font-glow text-[22px] font-medium leading-[36px] xl:max-w-[40vw]">
-              Glow Design is very receptive to feedback and process improvements
-              so the client has been able to work effectively and effectively.
-              They are also great communicators and provide good suggestions for
-              improvement.
+            <div className="mb-2 text-xl font-medium leading-[30px]">
+              Eric Zellhart
+            </div>
+            <div className="text-base leading-[22px]">
+              VP of Product at LiquidSpace
             </div>
           </div>
-          <div className="hidden xl:ml-8 xl:block">
-            <svg
-              width="321"
-              height="208"
-              viewBox="0 0 321 208"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <g clipPath="url(#clip0_1045_25762)">
-                <path
-                  d="M-1.58025 208C-1.58025 208.873 -0.872746 209.58 0 209.58C0.872746 209.58 1.58025 208.873 1.58025 208C1.58025 207.127 0.872746 206.42 0 206.42C-0.872746 206.42 -1.58025 207.127 -1.58025 208ZM225.37 94.5771L225.645 94.6883L225.37 94.5771ZM53.5185 8.669L53.6474 8.93579L53.5185 8.669ZM116.333 121.304L116.428 121.023L116.333 121.304ZM0.0342225 208.294C38.2775 203.847 87.5379 193.049 130.802 174.573C174.052 156.102 211.377 129.928 225.645 94.6883L225.096 94.4659C210.919 129.48 173.782 155.573 130.569 174.028C87.3695 192.477 38.167 203.264 -0.0342225 207.706L0.0342225 208.294ZM225.645 94.6883C234.57 72.6441 231.253 54.7426 220.472 40.6792C209.708 26.6371 191.529 16.4535 170.785 9.75199C150.035 3.04855 126.682 -0.182232 105.528 -0.293327C84.3812 -0.404379 65.3933 2.60165 53.3896 8.40222L53.6474 8.93579C65.532 3.19278 84.4141 0.188395 105.524 0.299258C126.627 0.410077 149.918 3.63355 170.603 10.3159C191.294 17.0002 209.342 27.1338 220.002 41.0397C230.645 54.9243 233.948 72.6016 225.096 94.4659L225.645 94.6883ZM53.3896 8.40222C35.4322 17.0798 29.2026 38.0319 38.4297 60.446C47.6568 82.8601 72.3319 106.771 116.239 121.585L116.428 121.023C72.6311 106.247 48.121 82.4308 38.9777 60.2204C29.8344 38.01 36.0493 17.4398 53.6474 8.93579L53.3896 8.40222ZM116.239 121.585C186.483 145.285 265.723 131.461 296.572 121.586L296.391 121.022C265.61 130.875 186.509 144.668 116.428 121.023L116.239 121.585Z"
-                  fill="black"
-                />
-                <circle cx="312.778" cy="114.037" r="8" fill="black" />
-              </g>
-              <defs>
-                <clipPath id="clip0_1045_25762">
-                  <rect width="320.778" height="208" fill="white" />
-                </clipPath>
-              </defs>
-            </svg>
+          <div className="md:pt-[60px] xl:flex">
+            <div>
+              <div className="mb-6 text-xl font-medium leading-[30px] md:mb-10">
+                Review
+              </div>
+              <div className="font-glow text-[22px] font-medium leading-[36px] xl:max-w-[40vw]">
+                Glow Design is very receptive to feedback and process
+                improvements so the client has been able to work effectively and
+                effectively. They are also great communicators and provide good
+                suggestions for improvement.
+              </div>
+            </div>
+            <div className="hidden xl:ml-8 xl:block">
+              <svg
+                width="321"
+                height="208"
+                viewBox="0 0 321 208"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clipPath="url(#clip0_1045_25762)">
+                  <path
+                    d="M-1.58025 208C-1.58025 208.873 -0.872746 209.58 0 209.58C0.872746 209.58 1.58025 208.873 1.58025 208C1.58025 207.127 0.872746 206.42 0 206.42C-0.872746 206.42 -1.58025 207.127 -1.58025 208ZM225.37 94.5771L225.645 94.6883L225.37 94.5771ZM53.5185 8.669L53.6474 8.93579L53.5185 8.669ZM116.333 121.304L116.428 121.023L116.333 121.304ZM0.0342225 208.294C38.2775 203.847 87.5379 193.049 130.802 174.573C174.052 156.102 211.377 129.928 225.645 94.6883L225.096 94.4659C210.919 129.48 173.782 155.573 130.569 174.028C87.3695 192.477 38.167 203.264 -0.0342225 207.706L0.0342225 208.294ZM225.645 94.6883C234.57 72.6441 231.253 54.7426 220.472 40.6792C209.708 26.6371 191.529 16.4535 170.785 9.75199C150.035 3.04855 126.682 -0.182232 105.528 -0.293327C84.3812 -0.404379 65.3933 2.60165 53.3896 8.40222L53.6474 8.93579C65.532 3.19278 84.4141 0.188395 105.524 0.299258C126.627 0.410077 149.918 3.63355 170.603 10.3159C191.294 17.0002 209.342 27.1338 220.002 41.0397C230.645 54.9243 233.948 72.6016 225.096 94.4659L225.645 94.6883ZM53.3896 8.40222C35.4322 17.0798 29.2026 38.0319 38.4297 60.446C47.6568 82.8601 72.3319 106.771 116.239 121.585L116.428 121.023C72.6311 106.247 48.121 82.4308 38.9777 60.2204C29.8344 38.01 36.0493 17.4398 53.6474 8.93579L53.3896 8.40222ZM116.239 121.585C186.483 145.285 265.723 131.461 296.572 121.586L296.391 121.022C265.61 130.875 186.509 144.668 116.428 121.023L116.239 121.585Z"
+                    fill="black"
+                  />
+                  <circle cx="312.778" cy="114.037" r="8" fill="black" />
+                </g>
+                <defs>
+                  <clipPath id="clip0_1045_25762">
+                    <rect width="320.778" height="208" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </div>
           </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </Animated>
   );
 }

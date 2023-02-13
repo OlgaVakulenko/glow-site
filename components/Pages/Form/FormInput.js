@@ -36,7 +36,7 @@ const FormInput = forwardRef(
           ref={ref}
           {...props}
           className={cx(
-            'w-full border-b border-black px-2 text-center text-body-m !leading-[48px] placeholder:text-black focus-visible:outline-none',
+            'w-full border-b border-black px-2 text-center text-body-s !leading-[48px] placeholder:text-black focus-visible:outline-none md:text-body-m',
             {
               '!border-[#E33230]': isError,
             }
