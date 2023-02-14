@@ -67,10 +67,12 @@ export default function Tolstoy() {
 
   if (router.pathname !== '/') return null;
 
-  return <>
-  <Head>
-    <link rel="preconnect" href="https://player.gotolstoy.com" />
-  </Head>
-  <Script src="https://widget.gotolstoy.com/widget/widget.js" strategy='lazyOnload' />
-  </>
+  return (
+    <>
+      <Head>
+        <link rel="preconnect" href="https://player.gotolstoy.com" />
+      </Head>
+      {/* <Script src="https://widget.gotolstoy.com/widget/widget.js" strategy='lazyOnload' /> */}
+    </>
+  );
 }

@@ -9,9 +9,9 @@ export default function FacebookPixel() {
           name="facebook-domain-verification"
           content="n7uzyrtnzbw80d79ypxx55expkshg7"
         />
-        <link rel="preconnect" href="https://connect.facebook.net" />
+        {/* <link rel="preconnect" href="https://connect.facebook.net" /> */}
       </Head>
-      <Script
+      {/* <Script
         onReady={() => {
           console.log('fbpx ready');
         }}
@@ -31,7 +31,7 @@ export default function FacebookPixel() {
           fbq('track', 'PageView');
         `,
         }}
-      />
+      /> */}
       <noscript>
         <img
           height="1"
