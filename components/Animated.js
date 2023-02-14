@@ -30,6 +30,10 @@ if (isClient) {
   document.documentElement.classList.add('y');
 }
 
+if (isClient) {
+  window.__app_mounted = true;
+}
+
 const onInView = (el, cb) => {
   if (io) {
     if (queue.find((r) => r.el === el)) {
@@ -93,12 +97,18 @@ export default function Animated({
     }
   }, []);
 
+  useEffect(() => {
+    if (inViewport) {
+      ref.current?.classList.add('in-viewport');
+    }
+  }, [inViewport]);
+
   return (
     <Component
       ref={ref}
       {...rest}
       className={cx(className, animate, 'to-animate', {
-        'in-viewport': inViewport,
+        'in-viewport': isClient ? window?.__mobile_in_viewport : false,
       })}
     >
       {children}

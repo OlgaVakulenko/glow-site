@@ -187,6 +187,13 @@ function MyApp({ Component, pageProps }) {
           content="/favicons/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#ffffff" />
+        <style>
+          {`.in-viewport {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateZ(0) !important;
+}`}
+        </style>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -198,6 +205,24 @@ function MyApp({ Component, pageProps }) {
             window.addEventListener('resize', updateScreenHeight);
             window.addEventListener('orientationchange', updateScreenHeight);
           `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              setTimeout(function(){
+                console.log('window.__app_mounted', window.__app_mounted);
+                if (!window.__app_mounted) {
+                  var t = document.querySelectorAll('.to-animate');
+                  console.log(t);
+                  for (var i = 0; i < t.length; i++) {
+                    var el = t[i];
+                    el && el.classList && el.classList.add('in-viewport');
+                    window.__mobile_in_viewport = true;
+                  }
+                }
+              },500);
+            `,
           }}
         />
       </Head>

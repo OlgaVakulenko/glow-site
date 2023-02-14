@@ -9,6 +9,7 @@ export default function FacebookPixel() {
           name="facebook-domain-verification"
           content="n7uzyrtnzbw80d79ypxx55expkshg7"
         />
+        <link rel="preconnect" href="https://connect.facebook.net" />
       </Head>
       <Script
         onReady={() => {

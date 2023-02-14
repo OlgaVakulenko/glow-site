@@ -15,6 +15,7 @@ import Layout from '../../Layout';
 import SliderProgress from '../../SliderProgress';
 import CursorDrag from './assets/cursor-drag.png';
 import DragCursorContainer from '../../DragCursor';
+import dynamic from 'next/dynamic';
 
 const reviews = [
   {
