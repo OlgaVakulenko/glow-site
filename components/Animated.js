@@ -54,6 +54,8 @@ const onInView = (el, cb) => {
   }
 };
 
+let run = false;
+
 export default function Animated({
   as = 'div',
   className,
@@ -75,6 +77,10 @@ export default function Animated({
   const enabled = true;
 
   useEffect(() => {
+    if (!run) {
+      console.log('FIRST ANIMATION ADDED', performance.now() - window.__t0);
+      run = true;
+    }
     if (!enabled) {
       return;
     }

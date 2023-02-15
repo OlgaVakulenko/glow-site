@@ -210,6 +210,7 @@ function MyApp({ Component, pageProps }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
+              window.__t0 = performance.now();
               setTimeout(function(){
                 console.log('window.__app_mounted', window.__app_mounted);
                 if (!window.__app_mounted) {
