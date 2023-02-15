@@ -441,7 +441,7 @@ export default function Header({
                     : 'black',
               }}
             >
-              <Animated delay={50}>
+              <Animated delay={50} immediate>
                 <Link href="/" className="flex items-center justify-center">
                   <Logo
                     className={t}
@@ -466,6 +466,7 @@ export default function Header({
                       'mr-[77px] text-sm last:mr-0',
                       t === 'dark' && 'text-white'
                     )}
+                    immediate
                   >
                     <RollingText text={link.label} height={20} />
                   </Animated>
@@ -477,7 +478,7 @@ export default function Header({
                     'hidden transition-opacity duration-500 md:block'
                   )}
                 >
-                  <Animated delay={(links.length + 1) * 100}>
+                  <Animated delay={(links.length + 1) * 100} immediate>
                     <Link
                       href="/contacts"
                       className={cx(
@@ -499,7 +500,7 @@ export default function Header({
               )}
               {headerRightSlot ? null : (
                 <div className="md:hidden">
-                  <Animated delay={150}>
+                  <Animated delay={150} immediate>
                     <BurgerButton
                       theme={t}
                       aria-controls={menuId}

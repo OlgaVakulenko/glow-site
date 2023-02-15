@@ -107,7 +107,8 @@ function MyApp({ Component, pageProps }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              document.documentElement.className = 'js'
+              document.documentElement.classList.remove("no-js");
+              document.documentElement.classList.add("js");
           `,
           }}
         />
@@ -188,11 +189,19 @@ function MyApp({ Component, pageProps }) {
         />
         <meta name="theme-color" content="#ffffff" />
         <style>
-          {`.in-viewport {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateZ(0) !important;
-}`}
+          {`
+  .to-animate {
+    opacity: 0;
+    transition: transform .4s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s, opacity .4s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s;
+  }
+  .fade-up, .fadeInUp {
+    transform: translate3d(0, 10px, 0);
+  }
+  .in-viewport, .ready .immediate {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateZ(0) !important;
+  }`}
         </style>
         <script
           dangerouslySetInnerHTML={{
@@ -207,7 +216,7 @@ function MyApp({ Component, pageProps }) {
           `,
           }}
         />
-        <script
+        {/* <script
           dangerouslySetInnerHTML={{
             __html: `
               window.__t0 = performance.now();
@@ -225,11 +234,21 @@ function MyApp({ Component, pageProps }) {
               },500);
             `,
           }}
-        />
+        /> */}
       </Head>
       <LoadingProgress />
 
       <DebugAtoms />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          setTimeout(() => {
+            console.log('add ready');
+            document.documentElement.classList.add("ready");
+          }, 50);
+          `,
+        }}
+      />
       {getLayout(<Component {...pageProps} />)}
       {/** analytics */}
       <Analytics />

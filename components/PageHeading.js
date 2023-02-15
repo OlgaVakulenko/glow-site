@@ -3,6 +3,7 @@ import cx from 'clsx';
 import Head from 'next/head';
 
 export default function PageHeading({ className, children }) {
+  console.log('render h1');
   return (
     <div
       className={cx(
@@ -10,7 +11,9 @@ export default function PageHeading({ className, children }) {
         className
       )}
     >
-      <Animated as="h1">{children}</Animated>
+      <Animated immediate as="h1">
+        {children}
+      </Animated>
     </div>
   );
 }

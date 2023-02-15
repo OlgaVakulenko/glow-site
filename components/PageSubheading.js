@@ -10,6 +10,7 @@ export default function PageSubheading({ children, className }) {
         className
       )}
       delay={200}
+      immediate
     >
       <div className="absolute left-0 top-[-32px]">
         <Star />

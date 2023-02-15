@@ -2,7 +2,7 @@ import cx from 'clsx';
 import { useEffect, useState } from 'react';
 
 export default function Weather({ className }) {
-  const [temp, setTemp] = useState(0);
+  const [temp, setTemp] = useState(null);
   const [isError, setIsError] = useState(false);
 
   useEffect(() => {
@@ -13,16 +13,21 @@ export default function Weather({ className }) {
       .then((res) => res.json())
       .then(({ main }) => {
         const { temp } = main;
-        setTemp(temp.toFixed(0));
+        let t = temp.toFixed(0);
+        if (t === '-0') {
+          t = 0;
+        }
+        setTemp(t);
       })
       .catch((e) => {
         setIsError(true);
       });
   }, []);
-
   return (
     !isError && (
-      <div className={cx({ invisible: temp <= 0 }, className)}>{temp}°C</div>
+      <div className={cx({ invisible: temp === null }, className)}>
+        {temp}°C
+      </div>
     )
   );
 }

@@ -31,6 +31,7 @@ if (isClient) {
 }
 
 if (isClient) {
+  console.log('FIRST CODE CHECK', performance.now() - window.__t0);
   window.__app_mounted = true;
 }
 
@@ -63,6 +64,7 @@ export default function Animated({
   children,
   delay = 0,
   onViewChange = () => {},
+  immediate = false,
   // onInView = () => {},
   ...rest
 }) {
@@ -77,10 +79,28 @@ export default function Animated({
   const enabled = true;
 
   useEffect(() => {
+    // return;
     if (!run) {
       console.log('FIRST ANIMATION ADDED', performance.now() - window.__t0);
       run = true;
     }
+    if (immediate) {
+      if (delayRef.current > 0) {
+        setTimeout(() => {
+          setInViewport(true);
+          if (onViewChangeRef.current) {
+            onViewChangeRef.current(true);
+          }
+        }, delayRef.current);
+      } else {
+        setInViewport(true);
+        if (onViewChangeRef.current) {
+          onViewChangeRef.current(true);
+        }
+      }
+      return;
+    }
+
     if (!enabled) {
       return;
     }
@@ -101,7 +121,7 @@ export default function Animated({
         }
       });
     }
-  }, []);
+  }, [immediate]);
 
   useEffect(() => {
     if (inViewport) {
@@ -114,6 +134,7 @@ export default function Animated({
       ref={ref}
       {...rest}
       className={cx(className, animate, 'to-animate', {
+        immediate: immediate,
         'in-viewport': isClient ? window?.__mobile_in_viewport : false,
       })}
     >

@@ -23,7 +23,19 @@ export default function ScrollContainer({ children }) {
   const viewportRef = useRef(null);
   const ref = useRef(null);
   const smootherRef = useRef(null);
+  const [isResize, setIsResize] = useState(false);
   const isMobile = media === 'mobile';
+
+  useEffect(() => {
+    const onResize = debounce(() => {
+      setIsResize(true);
+    }, 500);
+
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
 
   useEffect(() => {
     if (media === 'mobile' || disabled) {
@@ -97,25 +109,32 @@ export default function ScrollContainer({ children }) {
     }
   }, [isMobile]);
 
-  const Wrapper = useMemo(() => {
-    let key = isMobile ? 'mobile' : 'desktop';
+  const key = useMemo(() => {
+    let key = 'default';
+    if (isResize) {
+      key = isMobile ? 'mobile' : 'desktop';
+    }
     key += disabled ? 'disabled' : 'not-disabled';
+
+    return key;
+  }, [isMobile, disabled, isResize]);
+
+  const Wrapper = useMemo(() => {
     const wrapper = ({ children }) => <div key={key}>{children}</div>;
     wrapper.displayName = 'Wrapper';
-
     return wrapper;
-  }, [isMobile, disabled]);
+  }, [key]);
+
+  console.log('scroll smoother render');
 
   useEffect(() => {
     let mounted = true;
     getGPUTier().then((tier) => {
       if (!mounted) return;
 
-      // setTimeout(() => {
       if (tier?.tier <= 1) {
         setDisabled(true);
       }
-      // }, 1000);
     });
 
     return () => {
