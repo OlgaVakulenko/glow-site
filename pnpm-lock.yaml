@@ -6,6 +6,7 @@ patchedDependencies:
     path: patches/next@13.1.1.patch
 
 specifiers:
+  '@amplitude/analytics-browser': ^1.8.0
   '@headlessui/react': ^1.7.3
   '@next/bundle-analyzer': ^12.3.1
   '@popperjs/core': ^2.11.6
@@ -49,6 +50,7 @@ specifiers:
   typewriter-effect: ^2.19.0
 
 dependencies:
+  '@amplitude/analytics-browser': 1.8.0
   '@headlessui/react': 1.7.3_biqbaboplfbrettd7655fr4n2y
   '@next/bundle-analyzer': 12.3.1
   '@popperjs/core': 2.11.6
@@ -94,6 +96,46 @@ devDependencies:
   typescript: 4.8.4
 
 packages:
+
+  /@amplitude/analytics-browser/1.8.0:
+    resolution: {integrity: sha512-J9qOY6wo5H6lFND7wlezAQIPQHLxWcQAzugRw7eNCGoQfPRP7ovc4MaF5QONpMydWUDPbZvJQWYvoCY0IVY1HA==}
+    dependencies:
+      '@amplitude/analytics-client-common': 0.5.4
+      '@amplitude/analytics-core': 0.11.4
+      '@amplitude/analytics-types': 0.16.0
+      '@amplitude/ua-parser-js': 0.7.31
+      tslib: 2.5.0
+    dev: false
+
+  /@amplitude/analytics-client-common/0.5.4:
+    resolution: {integrity: sha512-fhZO4ZimdqaR2VB3I8xKwbHA3oBPIxI+O53+U+Ky8SzNsHbDYGk6eCFByB+hB9VXsJAt53sT9YeSUG9Wsutwqg==}
+    dependencies:
+      '@amplitude/analytics-connector': 1.4.6
+      '@amplitude/analytics-core': 0.11.4
+      '@amplitude/analytics-types': 0.16.0
+      tslib: 2.5.0
+    dev: false
+
+  /@amplitude/analytics-connector/1.4.6:
+    resolution: {integrity: sha512-6jD2pOosRD4y8DT8StUCz7yTd5ZDkdOU9/AWnlWKM5qk90Mz7sdZrdZ9H7sA/L3yOJEpQOYZgQplQdWWUzyWug==}
+    dependencies:
+      '@amplitude/ua-parser-js': 0.7.31
+    dev: false
+
+  /@amplitude/analytics-core/0.11.4:
+    resolution: {integrity: sha512-l/ov20SZJoMyHAtu2TZBnHn+IrfiBJnIf9xcPhSr5eyaiHv7h0e/N19nbr3g/cwKtWV/YBvDaUQDK8kmUbRmtg==}
+    dependencies:
+      '@amplitude/analytics-types': 0.16.0
+      tslib: 2.5.0
+    dev: false
+
+  /@amplitude/analytics-types/0.16.0:
+    resolution: {integrity: sha512-GuXW2vhxosy91JMdIPTf+plwtdRlO/4oIUSPHBLCWJCZBJAojGuE+53pw9S4DliL8POH4nTm7b36UfbL5+GrCA==}
+    dev: false
+
+  /@amplitude/ua-parser-js/0.7.31:
+    resolution: {integrity: sha512-+z8UGRaj13Pt5NDzOnkTBy49HE2CX64jeL0ArB86HAtilpnfkPB7oqkigN7Lf2LxscMg4QhFD7mmCfedh3rqTg==}
+    dev: false
 
   /@babel/runtime-corejs3/7.19.1:
     resolution: {integrity: sha512-j2vJGnkopRzH+ykJ8h68wrHnEUmtK//E723jjixiAl/PPf6FhqY/vYRcMVlNydRKQjQsTsYEjpx+DZMIvnGk/g==}
@@ -2911,6 +2953,10 @@ packages:
 
   /tslib/2.4.0:
     resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
+    dev: false
+
+  /tslib/2.5.0:
+    resolution: {integrity: sha512-336iVw3rtn2BUK7ORdIAHTyxHGRIHVReokCR3XjbckJMK7ms8FysBfhLR8IXnAgy7T0PTPNBWKiH514FOW/WSg==}
     dev: false
 
   /tsutils/3.21.0_typescript@4.8.4:

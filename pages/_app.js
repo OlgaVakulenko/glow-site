@@ -6,6 +6,7 @@ import React, { useEffect, useMemo, useRef } from 'react';
 import { nativeScrollAtom } from '../atoms/scroll';
 import Analytics from '../components/Analytics';
 import GTag from '../components/Analytics/GTag';
+import { AnimatedFix } from '../components/Animated';
 import LoadingProgress from '../components/LoadingProgress';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 import useScrollRestoration from '../components/SmoothScroll/useScrollRestoration';
@@ -239,16 +240,7 @@ function MyApp({ Component, pageProps }) {
       <LoadingProgress />
 
       <DebugAtoms />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-          setTimeout(() => {
-            console.log('add ready');
-            document.documentElement.classList.add("ready");
-          }, 50);
-          `,
-        }}
-      />
+      <AnimatedFix />
       {getLayout(<Component {...pageProps} />)}
       {/** analytics */}
       <Analytics />

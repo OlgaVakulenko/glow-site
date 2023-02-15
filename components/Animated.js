@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import cx from 'clsx';
+import { useRouter } from 'next/router';
 
 const globalOn = false;
 
@@ -56,6 +57,35 @@ const onInView = (el, cb) => {
 };
 
 let run = false;
+
+export function AnimatedFix() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const onComplete = () => {
+      document.documentElement.classList.remove('ready');
+    };
+
+    router.events.on('routeChangeStart', onComplete);
+
+    return () => {
+      router.events.off('routeChangeStart', onComplete);
+    };
+  }, [router.events]);
+
+  return (
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
+      setTimeout(() => {
+        console.log('add ready');
+        document.documentElement.classList.add("ready");
+      }, 50);
+      `,
+      }}
+    />
+  );
+}
 
 export default function Animated({
   as = 'div',
