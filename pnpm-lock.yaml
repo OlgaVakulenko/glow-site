@@ -7,6 +7,7 @@ patchedDependencies:
 
 specifiers:
   '@amplitude/analytics-browser': ^1.8.0
+  '@amplitude/plugin-page-view-tracking-browser': ^0.5.7
   '@headlessui/react': ^1.7.3
   '@next/bundle-analyzer': ^12.3.1
   '@popperjs/core': ^2.11.6
@@ -51,6 +52,7 @@ specifiers:
 
 dependencies:
   '@amplitude/analytics-browser': 1.8.0
+  '@amplitude/plugin-page-view-tracking-browser': 0.5.7
   '@headlessui/react': 1.7.3_biqbaboplfbrettd7655fr4n2y
   '@next/bundle-analyzer': 12.3.1
   '@popperjs/core': 2.11.6
@@ -131,6 +133,14 @@ packages:
 
   /@amplitude/analytics-types/0.16.0:
     resolution: {integrity: sha512-GuXW2vhxosy91JMdIPTf+plwtdRlO/4oIUSPHBLCWJCZBJAojGuE+53pw9S4DliL8POH4nTm7b36UfbL5+GrCA==}
+    dev: false
+
+  /@amplitude/plugin-page-view-tracking-browser/0.5.7:
+    resolution: {integrity: sha512-p2z2M1fJjTBEo+UMFZayFynJsqYcU/mLNk6WpBQyqllkul7AGUP85OyQKR+cLp1sJZ4HsN4afMnyx10VXH0kXA==}
+    dependencies:
+      '@amplitude/analytics-client-common': 0.5.4
+      '@amplitude/analytics-types': 0.16.0
+      tslib: 2.5.0
     dev: false
 
   /@amplitude/ua-parser-js/0.7.31:

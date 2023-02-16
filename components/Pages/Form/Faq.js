@@ -3,6 +3,7 @@ import { Transition } from '@headlessui/react';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Layout from '../../Layout';
 import cx from 'clsx';
+import { track } from '@amplitude/analytics-browser';
 
 function StateIcon({ open = false }) {
   return (
@@ -51,6 +52,7 @@ function Disclosure({ title, text }) {
         className="flex w-full items-center justify-between"
         onClick={() => {
           setIsOpen((open) => !open);
+          track('Disclosure opened');
         }}
       >
         <div className="pr-4 text-left text-xl font-medium leading-[30px]">
