@@ -32,7 +32,7 @@ if (isClient) {
 }
 
 if (isClient) {
-  console.log('FIRST CODE CHECK', performance.now() - window.__t0);
+  // console.log('FIRST CODE CHECK', performance.now() - window.__t0);
   window.__app_mounted = true;
 }
 
@@ -78,7 +78,6 @@ export function AnimatedFix() {
       dangerouslySetInnerHTML={{
         __html: `
       setTimeout(() => {
-        console.log('add ready');
         document.documentElement.classList.add("ready");
       }, 50);
       `,
@@ -111,7 +110,6 @@ export default function Animated({
   useEffect(() => {
     // return;
     if (!run) {
-      console.log('FIRST ANIMATION ADDED', performance.now() - window.__t0);
       run = true;
     }
     if (immediate) {

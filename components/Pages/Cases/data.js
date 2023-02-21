@@ -6,13 +6,29 @@ import Case4Image from './assets/case_4.png';
 import BeastCover from './assets/beast-cover.png';
 import JucrCover from './assets/jucr-cover.png';
 import CryptoGenie from './assets/cryptogenie-cover.png';
+// import LiquidSpace from './assets/liquidspace-cover.png';
 import LiquidSpace from './assets/ls-cover.png';
+// import LiquidSpace from './LiquidSpace/assets/challenge-f.png';
 import FleetChaser from './assets/fc-cover.png';
 import Ethos from './assets/ethos-cover.png';
 import Parking from './assets/case-parking.png';
 import Tilt from './assets/case-tilt.png';
 
 const cases = [
+  {
+    href: '/liquidspace',
+    title: (
+      <>
+        Liquid Space - workspace <br />
+        rental service
+      </>
+    ),
+    industry: ['Rental'],
+    service: ['User Experience', 'User Interface', 'Branding'],
+    company: ['Funding 8M'],
+    image: LiquidSpace,
+    category: ['other'],
+  },
   {
     href: '/jucr',
     title: (
@@ -64,20 +80,6 @@ const cases = [
     ],
     image: CryptoGenie,
     category: ['fintech'],
-  },
-  {
-    href: '#',
-    title: (
-      <>
-        Liquid Space - workspace <br />
-        rental service
-      </>
-    ),
-    industry: ['Rental'],
-    service: ['User Experience', 'User Interface', 'Branding'],
-    company: ['Funding 8M'],
-    image: LiquidSpace,
-    category: ['other'],
   },
   {
     href: '/parking',

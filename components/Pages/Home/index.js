@@ -1,26 +1,24 @@
-import Layout from '../../Layout';
 import cx from 'clsx';
+import Layout from '../../Layout';
 // import gsap from 'gsap';
-import gsap, { ScrollTrigger } from '../../../dist/gsap';
 import { useAtom } from 'jotai';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import gsap from '../../../dist/gsap';
 import { mediaAtom, useMediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
 import { headerTheme, logoColor, useHeaderTheme } from '../../Header';
-import CasesSlider, { CasesSlider2, CasesSlider3 } from './CasesSlider';
+import CasesSlider from './CasesSlider';
 import Niches from './Niches';
 import OurClients from './OurClients';
-import OutProjectsLink from './OurProjectsLink';
 import Reviews from './Reviews';
 // import Showreel from './Showreel';
-import Workflow from './Workflow';
-import dynamic from 'next/dynamic';
 import { useSetAtom } from 'jotai';
-import Star from '../../Star';
+import Button from '../../Button';
+import DimSection from '../../DimSection';
 import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
-import DimSection from '../../DimSection';
-import Button from '../../Button';
+import Workflow from './Workflow';
+// import CasesSlider3 from './_CasesSlider';
 
 // const Reviews = dynamic(() => import('./Reviews'));
 
@@ -275,7 +273,7 @@ export default function Home() {
         </div> */}
         <Niches />
         {/* <CasesSlider2 /> */}
-        <CasesSlider3 />
+        <CasesSlider />
         <div className="mt-10 mb-20 flex justify-center md:mb-48 md:-mt-10">
           <Button href="/work" theme="white">
             View all case studies

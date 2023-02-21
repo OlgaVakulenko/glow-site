@@ -40,8 +40,18 @@ export default function About() {
           alt=""
           loading="eager"
           sources={[
-            <Source key={1} image={ImgMobile} media="(max-width: 768px)" />,
-            <Source key={2} image={Img} media="(min-width: 769px)" />,
+            <Source
+              key={1}
+              image={ImgMobile}
+              width={768}
+              media="(max-width: 768px)"
+            />,
+            <Source
+              key={2}
+              image={Img}
+              width={1140}
+              media="(min-width: 769px)"
+            />,
           ]}
         />
       </Animated>

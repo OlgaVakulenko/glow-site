@@ -2,14 +2,15 @@ import Image from '../../../Image';
 import Layout from '../../../Layout';
 import PageHeading from '../../../PageHeading';
 import PageSubheading from '../../../PageSubheading';
-import Office from './assets/office.png';
+// import Office from './assets/office.png';
+import Office from './assets/main-cover.jpg';
 import cx from 'clsx';
 import InlineVideo from '../InlineVideo';
 import { useMediaAtom } from '../../../../lib/agent';
 import Challenge1 from './assets/challenge-f.png';
 import Challenge2 from './assets/challenge-s.png';
 import Challenge3 from './assets/challenge-t.png';
-import WorkCarousel from './WorkCarousel';
+// import WorkCarousel from './WorkCarousel';
 import { useMemo } from 'react';
 import UserFlowResearchImg from './assets/userflow-research.png';
 import CustomerJourneyMapImg from './assets/customer-journey-map.png';
@@ -23,6 +24,9 @@ import MobileVersionImg from './assets/mobver-desktop.png';
 import ReviewImg from './assets/review.png';
 import NextStudy2 from '../NextStudy2';
 import Animated from '../../../Animated';
+import dynamic from 'next/dynamic';
+
+const WorkCarousel = dynamic(() => import('./WorkCarousel'));
 
 export default function LiquidSpace() {
   return (

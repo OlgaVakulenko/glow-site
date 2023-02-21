@@ -3,7 +3,6 @@ import cx from 'clsx';
 import Head from 'next/head';
 
 export default function PageHeading({ className, children }) {
-  console.log('render h1');
   return (
     <div
       className={cx(

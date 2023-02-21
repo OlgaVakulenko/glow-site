@@ -64,10 +64,10 @@ function MyApp({ Component, pageProps }) {
   const errorsRef = useRef([]);
   useEffect(() => {
     const onError = (e) => {
+      console.log(e);
       errorsRef.current.push({
         url: window.location.href,
-        message: e?.message,
-        filename: e?.filename,
+        e: JSON.stringify(e),
         ua: window?.navigator?.userAgent,
       });
     };

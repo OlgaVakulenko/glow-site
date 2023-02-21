@@ -8,12 +8,10 @@ import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
 import cases from '../Cases/data';
 import cx from 'clsx';
-import { CaseItem, CasesRow } from '../Home/CasesSlider';
+import { CaseItem, CasesRow } from '../Home/_CasesSlider';
 import { useMediaAtom } from '../../../lib/agent';
 import { Separator } from '../About';
 import Animated from '../../Animated';
-import { flushSync } from 'react-dom';
-import { usePrevious } from '../../../lib/utils';
 
 export const filterAtom = atom({
   category: 'all',
