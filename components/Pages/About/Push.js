@@ -121,7 +121,7 @@ function Letter({ letter, title, description, width, index = 0 }) {
         {letter}
       </Animated>
       <div className="w-1/2 md:w-full">
-        <Animated delay={50 + delay} className="mb-[21px] text-body-heading-m">
+        <Animated delay={50 + delay} className="mb-4 text-body-heading-m">
           {title}
         </Animated>
         <Animated

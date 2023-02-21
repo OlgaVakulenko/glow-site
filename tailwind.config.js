@@ -154,6 +154,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
     // plugin((api) => {
     //   api.addVariant('phover', ({ container }) => {
     //     const mediaRule = api.postcss.atRule({

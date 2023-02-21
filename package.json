@@ -27,6 +27,8 @@
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "next": "13.1.1",
+    "node-fetch": "^3.3.0",
+    "node-html-parser": "^6.1.5",
     "postcss-mobile-hover": "^1.0.2",
     "react": "18.2.0",
     "react-before-after-slider-component": "^1.1.6",
@@ -35,11 +37,13 @@
     "react-popper": "^2.3.0",
     "react-wrap-balancer": "^0.2.4",
     "sass": "^1.57.1",
+    "slugify": "^1.6.5",
     "swiper": "^8.4.4",
     "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "@root/walk": "^1.1.0",
+    "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.12",
     "cli-progress": "^3.11.2",
     "critters": "0.0.7",

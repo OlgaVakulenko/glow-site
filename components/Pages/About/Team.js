@@ -38,7 +38,7 @@ function Profile({ image, name, position, animated = true, index = 0 }) {
       delay={index * 50}
       className="group flex w-[208px] flex-col md:w-full xl:max-w-full"
     >
-      <div className="clip-content relative mb-8 w-full max-w-[208px] overflow-hidden rounded-3xl pb-[100%] md:max-w-full">
+      <div className="clip-content relative mb-6 w-full max-w-[208px] overflow-hidden rounded-3xl pb-[100%] md:max-w-full">
         <Image
           src={image}
           alt=""
@@ -47,7 +47,7 @@ function Profile({ image, name, position, animated = true, index = 0 }) {
         />
       </div>
 
-      <div className="mb-2 text-body-heading-m">{name}</div>
+      <div className="mb-[6px] text-body-heading-m">{name}</div>
       <div className="text-body-s">{position}</div>
     </Wrapper>
   );
