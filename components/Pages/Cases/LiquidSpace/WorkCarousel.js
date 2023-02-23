@@ -6,6 +6,7 @@ import MarketingAssetsImg from './assets/marketing-assets.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import cx from 'clsx';
+import DragCursorContainer from '../../../DragCursor';
 
 const items = [
   {
@@ -41,22 +42,28 @@ export default function WorkCarousel() {
         }
       >
         <div className="md:mt-20">
-          <Swiper slidesPerView={'auto'} resistanceRatio={0}>
-            {items.map((v, i) => (
-              <SwiperSlide
-                key={i}
-                className={cx(
-                  '!h-auto max-w-[288px] md:max-w-[568px] xl:max-w-[60vw]',
-                  {
-                    'md:max-w-[604px] xl:max-w-[calc(60vw+28px)]':
-                      i === 0 || i === items.length - 1,
-                  }
-                )}
-              >
-                <Item {...v} index={i} total={items.length} />
-              </SwiperSlide>
-            ))}
-          </Swiper>
+          <DragCursorContainer>
+            <Swiper
+              slidesPerView={'auto'}
+              touchStartPreventDefault={false}
+              resistanceRatio={0}
+            >
+              {items.map((v, i) => (
+                <SwiperSlide
+                  key={i}
+                  className={cx(
+                    '!h-auto max-w-[288px] md:max-w-[568px] xl:max-w-[60vw]',
+                    {
+                      'md:max-w-[604px] xl:max-w-[calc(60vw+28px)]':
+                        i === 0 || i === items.length - 1,
+                    }
+                  )}
+                >
+                  <Item {...v} index={i} total={items.length} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </DragCursorContainer>
         </div>
       </SectionLayout>
     </div>

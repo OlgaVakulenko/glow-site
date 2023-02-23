@@ -52,7 +52,7 @@ function Footer(props) {
                 <div className="h-[9px] bg-[#156DD1]"></div>
                 <div className="h-2 bg-[#FFD948]"></div>
               </div>
-              <div>Odessa, Ukraine</div>
+              <div>Odesa, Ukraine</div>
             </div>
             <div className="flex items-center  md:ml-8 md:-mr-8">
               <LocalTime className="mr-7 md:mr-8" />
