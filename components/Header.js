@@ -235,6 +235,7 @@ const defaultTheme = 'white';
 export const headerTheme = atom([defaultTheme]);
 export const showBackdropAtom = atom(true);
 export const logoColor = atom(null);
+export const headerActiveAtom = atom(true);
 
 //theme: 'white' | 'dark' | 'light'
 export const useHeaderTheme = ({
@@ -331,6 +332,7 @@ export default function Header({
   const menuId = useId();
   const { lock, release } = useBodyLock();
   const scrollDirection = useScrollDirection('backward');
+  const [headerActive] = useAtom(headerActiveAtom);
 
   useEffect(() => {
     if (isOpen) {
@@ -394,6 +396,7 @@ export default function Header({
   //   scrollDirection !== 'forward';
   const backdropActive =
     mounted &&
+    headerActive &&
     !isTop &&
     !isBottom &&
     scrollDirection !== 'forward' &&
@@ -423,7 +426,8 @@ export default function Header({
           'first-header fixed z-10 w-full transition-transform duration-300 md:top-4',
           {
             'md:-translate-y-4': !isTop && !isBottom,
-            '!-translate-y-full': scrollDirection === 'forward' && !isBottom,
+            '!-translate-y-full':
+              (scrollDirection === 'forward' && !isBottom) || !headerActive,
             // '!transition-none': isRouteTransition,
           }
         )}

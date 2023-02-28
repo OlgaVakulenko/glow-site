@@ -3,6 +3,7 @@ import { useAtom } from 'jotai';
 import { useEffect, useMemo, useRef } from 'react';
 import gsap from '../../../dist/gsap';
 import { mediaAtom } from '../../../lib/agent';
+import { useIsBrowser } from '../../../lib/utils';
 import Animated from '../../Animated';
 import Go from '../../Go';
 import Image from '../../Image';
@@ -112,9 +113,14 @@ export default function OurClients() {
 }
 
 function Illustration() {
+  const isBadSafari = useIsBrowser('safari', '<15');
   const ref = useRef(null);
 
   useEffect(() => {
+    if (isBadSafari) {
+      return;
+    }
+
     const ctx = gsap.context(() => {
       const trigger = {
         trigger: ref.current,
@@ -140,7 +146,7 @@ function Illustration() {
     return () => {
       ctx.revert();
     };
-  }, []);
+  }, [isBadSafari]);
 
   return (
     <Layout>
@@ -168,6 +174,7 @@ function Illustration() {
 }
 
 function RevealTextAnimation({ children }) {
+  const isBadSafari = useIsBrowser('safari', '<15');
   const words = useMemo(() => {
     return children.split(' ');
   }, [children]);
@@ -176,7 +183,11 @@ function RevealTextAnimation({ children }) {
     <div className="flex flex-wrap justify-center md:justify-start">
       {words.map((w, i) => (
         <div key={i} className="overflow-hidden">
-          <span className="__word inline-block translate-y-full whitespace-pre">
+          <span
+            className={cx('__word inline-block whitespace-pre', {
+              'translate-y-full': !isBadSafari,
+            })}
+          >
             {w}{' '}
           </span>
         </div>

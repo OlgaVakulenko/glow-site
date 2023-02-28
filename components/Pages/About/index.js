@@ -30,7 +30,7 @@ export default function About() {
 
         <PageHeading>
           Hello it’s
-          <br /> Glow design <br className="md:hidden" /> Agency
+          <br /> Glow Design <br className="md:hidden" /> Agency
         </PageHeading>
       </Layout>
       <Animated>

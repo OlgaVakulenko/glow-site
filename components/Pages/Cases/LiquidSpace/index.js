@@ -193,7 +193,12 @@ function SectionBalance() {
             values: ['UX Audit', 'Research', 'Wireframe', 'Prototype'],
           },
           {
-            title: 'Visual Design',
+            title: (
+              <>
+                Visual
+                <br className="md:hidden" /> Design
+              </>
+            ),
             values: ['Art Direction', 'Visual Identity', 'Motion Design'],
           },
           {

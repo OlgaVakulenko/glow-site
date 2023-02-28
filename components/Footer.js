@@ -1,12 +1,14 @@
 import gsap from 'gsap';
+import { useSetAtom } from 'jotai';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { forwardRef, useEffect, useRef, useState } from 'react';
+import { forwardRef, useEffect, useMemo, useRef, useState } from 'react';
 import { useMediaAtom } from '../lib/agent';
+import { useIsClient } from '../lib/utils';
 import BigButton from './BigButton';
 import FooterLinks from './Footer/FooterLinks';
-import { useHeaderTheme } from './Header';
+import { headerActiveAtom, useHeaderTheme } from './Header';
 import Layout from './Layout';
 import LocalTime from './LocalTime';
 import RollingText from './RollingText';
@@ -25,7 +27,24 @@ const links = [
 ];
 
 function Footer(props) {
+  const isClient = useIsClient();
+  const setHeaderActive = useSetAtom(headerActiveAtom);
   const { showFormButton = true } = props;
+
+  const hideHeaderOnHover = useMemo(() => {
+    if (!isClient) return false;
+    return props.height > window.innerHeight;
+  }, [isClient, props.height]);
+
+  const onMouseEnter = () => {
+    if (!hideHeaderOnHover) return;
+    setHeaderActive(false);
+  };
+
+  const onMouseLeave = () => {
+    if (!hideHeaderOnHover) return;
+    setHeaderActive(true);
+  };
 
   return (
     <footer className="bg-black py-[30px] pt-[61px] text-lblue md:pt-[160px] xl:pt-[176px]">
@@ -41,11 +60,19 @@ function Footer(props) {
             target="_blank"
             variant="footer"
             className="mb-4 md:mr-[37px] md:ml-[63px] xl:ml-auto"
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
           >
             Discovery Call
           </BigButton>
           {showFormButton && (
-            <BigButton href="/form" variant="footer" className="">
+            <BigButton
+              href="/form"
+              variant="footer"
+              className=""
+              onMouseEnter={onMouseEnter}
+              onMouseLeave={onMouseLeave}
+            >
               Fill out the form
             </BigButton>
           )}
@@ -144,7 +171,7 @@ export function ParallaxFooter(props) {
         }}
       >
         <div ref={contentRef} className="__content fixed bottom-0 w-full">
-          <Footer {...props} />
+          <Footer height={height} {...props} />
         </div>
       </div>
     </div>

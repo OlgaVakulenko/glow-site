@@ -24,7 +24,7 @@ export default function Work() {
       <Layout className="pt-[186px] md:pt-[241px] xl:pt-[215px]">
         <PageSubheading>These guys are shining with us</PageSubheading>
         <PageHeading className="mt-[106px] md:mt-[125px] xl:mt-[132px]">
-          Explore our <br /> project
+          Explore our <br /> projects
         </PageHeading>
         <Cases />
       </Layout>
