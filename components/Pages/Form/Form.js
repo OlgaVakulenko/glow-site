@@ -7,7 +7,7 @@ import cx from 'clsx';
 import { useHeaderTheme } from '../../Header';
 import { useAtom } from 'jotai';
 import { useMediaAtom } from '../../../lib/agent';
-import { track } from '@amplitude/analytics-browser';
+import { event } from '../../Analytics/MixPanel';
 
 export default function Form({ onSubmit }) {
   const [isChecked, setIsChecked] = useState(false);
@@ -57,7 +57,7 @@ export default function Form({ onSubmit }) {
       Object.values(form).forEach((entry) => {
         data.append(entry.name, entry.value);
       });
-      track('form_submit');
+      event('form_submit');
       fetch('/contact.php', {
         method: 'POST',
         headers: {

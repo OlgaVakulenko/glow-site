@@ -18,6 +18,8 @@ import DimSection from '../../DimSection';
 import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
 import Workflow from './Workflow';
+import OutProjectsLink from './OurProjectsLink';
+import HRule from '../../HRule';
 // import CasesSlider3 from './_CasesSlider';
 
 // const Reviews = dynamic(() => import('./Reviews'));
@@ -274,13 +276,12 @@ export default function Home() {
         <Niches />
         {/* <CasesSlider2 /> */}
         <CasesSlider />
-        <div className="mt-10 mb-20 flex justify-center md:mb-48 md:-mt-10">
+        {/* <div className="mt-10 mb-20 flex justify-center md:mb-48 md:-mt-10">
           <Button href="/work" theme="white">
             View all case studies
           </Button>
-        </div>
-        {/** TODO add after "our projects" link is back */}
-        {/* <OutProjectsLink className="hidden md:block" /> */}
+        </div> */}
+        <OutProjectsLink hasBorder={true} className="hidden md:block" />
         {/* </TmpBg> */}
         <DimSection className="pb-14">
           <Workflow />

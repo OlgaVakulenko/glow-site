@@ -27,6 +27,7 @@ import Case4Image from '../Cases/assets/case_4.png';
 import Animated from '../../Animated';
 
 import casesData from '../Cases/data';
+import HRule from '../../HRule';
 
 // gsap.registerPlugin(ScrollTrigger);
 const cases = casesData.filter((c) =>
@@ -362,7 +363,7 @@ export default function CasesSlider3() {
 
   return (
     <Layout className="mb-[56px] ">
-      <div className="-mx-8 flex pb-[64px] xl:-mx-[56px]">
+      <div className="-mx-8 flex xl:-mx-[56px]">
         <CasesRow cases={c1} />
         <CasesRow cases={c2} className="pt-[113px]" />
       </div>

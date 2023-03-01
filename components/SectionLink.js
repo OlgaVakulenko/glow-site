@@ -16,6 +16,7 @@ export default function SectionLink({
   description,
   href,
   buttonLabel,
+  hasBorder = false,
   showButtonOnMobile = false,
 }) {
   const [media] = useAtom(mediaAtom);
@@ -39,7 +40,14 @@ export default function SectionLink({
   return (
     <Layout className={className}>
       <Wrapper className="rolling-text-container group">
-        <div className="flex flex-col items-center justify-between md:flex-row  md:items-start">
+        <div
+          className={cx(
+            'flex flex-col items-center justify-between md:flex-row  md:items-start',
+            {
+              'border-t border-black pt-16': hasBorder,
+            }
+          )}
+        >
           <Animated className="mb-[15px] font-glow text-xl font-medium leading-[34px] tracking-[0.02em] md:mb-0 md:w-full md:max-w-[240px] md:text-[22px] xl:max-w-[320px] xl:text-2xl xl:leading-10">
             {title}
           </Animated>

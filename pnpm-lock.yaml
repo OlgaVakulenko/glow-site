@@ -33,6 +33,7 @@ specifiers:
   kute.js: ^2.2.4
   lodash.debounce: ^4.0.8
   lodash.throttle: ^4.1.1
+  mixpanel-browser: ^2.45.0
   next: 13.1.1
   node-fetch: ^3.3.0
   node-html-parser: ^6.1.5
@@ -74,6 +75,7 @@ dependencies:
   kute.js: 2.2.4
   lodash.debounce: 4.0.8
   lodash.throttle: 4.1.1
+  mixpanel-browser: 2.45.0
   next: 13.1.1_rbcn5us32xbtikc6xck2r3atzq_3duxcpitbtplz62feflag7fwby
   node-fetch: 3.3.0
   node-html-parser: 6.1.5
@@ -2126,6 +2128,10 @@ packages:
   /minimist/1.2.6:
     resolution: {integrity: sha512-Jsjnk4bw3YJqYzbdyBiNsPWHPfO++UGG749Cxs6peCu5Xg4nrena6OVxOYxrQTqww0Jmwt+Ref8rggumkTLz9Q==}
     dev: true
+
+  /mixpanel-browser/2.45.0:
+    resolution: {integrity: sha512-PQ1DaTk68yyYtLA0iejmzPA9iNDhT4uIZpqZjRTw7HWpYfl123fydHb2laKanaKjm8YDmrGGz3+xZ4Q6joogyg==}
+    dev: false
 
   /mkdirp-classic/0.5.3:
     resolution: {integrity: sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==}

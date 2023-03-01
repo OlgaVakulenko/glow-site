@@ -28,6 +28,7 @@ const cases = [
     company: ['Funding 8M'],
     image: LiquidSpace,
     category: ['other'],
+    type: ['desktop'],
   },
   {
     href: '/jucr',
@@ -42,6 +43,7 @@ const cases = [
     company: ['Funding 30M'],
     image: JucrCover,
     category: ['transportation'],
+    type: ['mobile'],
   },
   {
     href: '/beast',
@@ -61,6 +63,7 @@ const cases = [
     ],
     image: BeastCover,
     category: ['transportation'],
+    type: ['mobile'],
   },
   {
     title: (
@@ -80,6 +83,7 @@ const cases = [
     ],
     image: CryptoGenie,
     category: ['fintech'],
+    type: ['desktop'],
   },
   {
     href: '/parking',
@@ -89,6 +93,7 @@ const cases = [
     company: ['Funding 30M'],
     image: Parking,
     category: ['transportation'],
+    type: ['desktop'],
   },
   {
     href: '/tilt',
@@ -99,6 +104,7 @@ const cases = [
     company: ['Funding 30M'],
     image: Tilt,
     category: ['other'],
+    type: ['desktop'],
   },
   {
     href: '/fleet',
@@ -113,6 +119,7 @@ const cases = [
     ],
     image: FleetChaser,
     category: ['transportation'],
+    type: ['desktop'],
   },
   {
     href: '/ethos',
@@ -122,6 +129,7 @@ const cases = [
     company: ['Funding 8M'],
     image: Ethos,
     category: ['healthcare'],
+    type: ['desktop'],
   },
 ];
 

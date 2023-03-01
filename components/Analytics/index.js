@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import Amplitude from './Amplitude';
-import FacebookPixel from './FacebookPixel';
+// import Amplitude from './Amplitude';
+// import FacebookPixel from './FacebookPixel';
 import GTag from './GTag';
-import Linkedin from './Linkedin';
+// import Linkedin from './Linkedin';
+import MixPanel from './MixPanel';
 
 export const pageview = (url) => {
   window.gtag('config', 'G-5NP2XWNRBX', {
@@ -50,9 +51,10 @@ export default function Analytics() {
 
   return (
     <>
-      <Amplitude />
+      {/* <Amplitude /> */}
       <GTag />
-      <FacebookPixel />
+      {/* <FacebookPixel /> */}
+      <MixPanel />
       {/* <Linkedin /> */}
     </>
   );
