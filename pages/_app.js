@@ -13,6 +13,8 @@ import useScrollRestoration from '../components/SmoothScroll/useScrollRestoratio
 import Tolstoy from '../components/Widgets/Tolstoy';
 import { useMedia } from '../lib/agent';
 import '../styles/globals.css';
+import { isClient, isBrowser } from '../lib/utils';
+import { ScrollTrigger } from '../dist/gsap';
 // import '../styles/globals2.css';
 // import '../components/Pages/Cases/Cryprogenie/global.css';
 // import '../components/Pages/Cases/Cryprogenie/styles.css';
@@ -22,6 +24,10 @@ const DebugAtoms = () => {
   useAtomsDebugValue();
   return null;
 };
+
+if (isClient && isBrowser('Safari')) {
+  ScrollTrigger.normalizeScroll(true);
+}
 
 export const routerHistory = atom([]);
 
