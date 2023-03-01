@@ -1,9 +1,7 @@
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 import dynamic from 'next/dynamic';
-import React, {
-  useMemo
-} from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { Autoplay } from 'swiper';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,7 +12,7 @@ import Layout from '../../Layout';
 // import SliderProgress from '../../SliderProgress';
 
 const SliderProgress = dynamic(() => import('../../SliderProgress'), {
-  ssr: false
+  ssr: false,
 });
 
 const reviews = [
@@ -269,6 +267,10 @@ export default function Reviews() {
   const isClient = useIsClient();
   // const [media] = useAtom(mediaAtom);
 
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, []);
+
   return (
     <DragCursorContainer>
       <Swiper
@@ -301,7 +303,9 @@ export default function Reviews() {
           </SwiperSlide>
         ))}
         <Layout>
-          {media === 'mobile' && isClient && <SliderProgress mode="realIndex" />}
+          {media === 'mobile' && isClient && (
+            <SliderProgress mode="realIndex" />
+          )}
         </Layout>
       </Swiper>
     </DragCursorContainer>

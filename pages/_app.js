@@ -25,9 +25,9 @@ const DebugAtoms = () => {
   return null;
 };
 
-if (isClient && isBrowser('Safari')) {
-  ScrollTrigger.normalizeScroll(true);
-}
+// if (isClient && isBrowser('Safari')) {
+//   ScrollTrigger.normalizeScroll(true);
+// }
 
 export const routerHistory = atom([]);
 
