@@ -491,7 +491,7 @@ export default function Header({
                         t === 'white' &&
                           'glow-border-b-b hover:!bg-brand hover:!text-black',
                         t === 'dark' &&
-                          'glow-border-white-to-r text-white hover:!bg-brand hover:!text-black'
+                          'glow-border-white-to-r bg-black text-white hover:!bg-brand hover:!text-black'
                       )}
                     >
                       <RollingText

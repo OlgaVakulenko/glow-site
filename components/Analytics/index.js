@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 // import Amplitude from './Amplitude';
 // import FacebookPixel from './FacebookPixel';
 import GTag from './GTag';
-// import Linkedin from './Linkedin';
+import Linkedin from './Linkedin';
 import MixPanel from './MixPanel';
 
 export const pageview = (url) => {
@@ -55,7 +55,7 @@ export default function Analytics() {
       <GTag />
       {/* <FacebookPixel /> */}
       <MixPanel />
-      {/* <Linkedin /> */}
+      <Linkedin />
     </>
   );
 }

@@ -14,13 +14,13 @@ export default function Linkedin() {
             window.lintrk.q = [];
         `}
       </Script>
-      {/* <Script
+      <Script
         onReady={() => {
           console.log('linkedin ready');
         }}
         strategy="afterInteractive"
         src="https://snap.licdn.com/li.lms-analytics/insight.min.js"
-      ></Script> */}
+      ></Script>
       <noscript>
         <img
           height="1"

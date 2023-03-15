@@ -15,11 +15,6 @@
     color: theme('colors.black');
     -webkit-tap-highlight-color: transparent;
   }
-
-
-  body {
-    /* background-color: theme('colors.brand'); */
-  }
 }
 
 .js .wow {

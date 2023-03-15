@@ -10,7 +10,6 @@ import { useMediaAtom } from '../../../lib/agent';
 import { event } from '../../Analytics/MixPanel';
 
 export default function Form({ onSubmit }) {
-  const [isChecked, setIsChecked] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
   const media = useMediaAtom();
   const maxIndex = 5;
@@ -44,7 +43,7 @@ export default function Form({ onSubmit }) {
       setIndex((i) => i + 1);
     }
 
-    if (!moved && index > 5 && isChecked) {
+    if (!moved && index > 5) {
       if (isFetching) return;
 
       setTimeout(() => {
@@ -58,6 +57,11 @@ export default function Form({ onSubmit }) {
         data.append(entry.name, entry.value);
       });
       event('form_submit');
+      try {
+        window?.lintrk('track', { conversion_id: 11283746 });
+      } catch (e) {
+        console.error(e);
+      }
       fetch('/contact.php', {
         method: 'POST',
         headers: {
@@ -173,6 +177,8 @@ export default function Form({ onSubmit }) {
               onBlur={handleBlur}
               placeholder="YourEmail@mail.com*"
               errorText="Please enter your email address"
+              required
+              type="email"
             />
           </FormSection>
           <div
@@ -183,19 +189,6 @@ export default function Form({ onSubmit }) {
               }
             )}
           >
-            <div className="mb-4 text-base font-medium leading-[19px] tracking-[0.03em] md:mb-0 md:mr-[168px]">
-              <label className="flex items-center">
-                <input
-                  value={isChecked}
-                  onChange={() => {
-                    setIsChecked((c) => !c);
-                  }}
-                  type="checkbox"
-                  className="mr-2"
-                />
-                I agree with the Privacy Policy
-              </label>
-            </div>
             <Button
               className="!px-[54px] !py-[14px]"
               theme={'white'}

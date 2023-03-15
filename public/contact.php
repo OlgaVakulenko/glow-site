@@ -14,7 +14,6 @@ if ($h === 'localhost:8000') {
 }
 
 $res = formHandler();
-emailNotification();
 
 echo $res;
 die();

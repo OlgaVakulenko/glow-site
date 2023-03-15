@@ -4,13 +4,13 @@ import { useEffect } from 'react';
 export default function GTag() {
   return (
     <>
-      {/* <Script
+      <Script
         onReady={() => {
           console.log('gtag ready');
         }}
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=G-5NP2XWNRBX"
-      /> */}
+      />
       <Script id="google-analytics">
         {`
           window.dataLayer = window.dataLayer || [];

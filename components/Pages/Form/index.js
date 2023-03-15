@@ -27,7 +27,7 @@ export default function FormPage() {
             </PageHeading>
             <div className="mt-6 flex items-end md:mt-0">
               <Button
-                href="/cases"
+                href="/work"
                 className="min-w-[184px] justify-center"
                 theme={'white'}
               >
