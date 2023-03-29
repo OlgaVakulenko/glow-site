@@ -7,7 +7,7 @@ import Linkedin from './Linkedin';
 import MixPanel from './MixPanel';
 
 export const pageview = (url) => {
-  window.gtag('config', 'G-5NP2XWNRBX', {
+  window?.gtag?.('config', 'G-5NP2XWNRBX', {
     page_path: url,
   });
 
