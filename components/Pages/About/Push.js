@@ -1,5 +1,4 @@
 import Layout from '../../Layout';
-import Balance from 'react-wrap-balancer';
 import { useMediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
 
@@ -17,7 +16,7 @@ export default function Push() {
       <Animated className="mb-[140px] text-[32px] font-medium leading-[40px] md:mb-[128px] xl:mb-[117px]">
         {/* <Balance> */}
         We push the transportation industry innovation through product design.
-        Digital transformation knocks in the door of every industry and we
+        Digital&nbsp;transformation knocks in the door of every industry and we
         provide the services that will help you to be ahead of time with product
         design decision that last.
         {/* </Balance> */}

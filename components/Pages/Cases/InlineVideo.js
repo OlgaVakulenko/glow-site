@@ -1,7 +1,40 @@
-export default function InlineVideo({ autoplay = true, ...rest }) {
-  const autoplayProps = autoplay
-    ? { autoPlay: true, loop: true, muted: true, playsInline: true }
-    : {};
+import { useEffect, useRef } from 'react';
 
-  return <video {...autoplayProps} {...rest} />;
+export default function InlineVideo({
+  autoplay = true,
+  controls,
+  src,
+  type,
+  ...rest
+}) {
+  const ref = useRef();
+  const isMountedRef = useRef(false);
+
+  useEffect(() => {
+    if (isMountedRef.current) {
+      return;
+    }
+
+    isMountedRef.current = true;
+    const video = document.createElement('video');
+    video.autoplay = autoplay;
+    video.loop = true;
+    video.defaultMuted = true;
+    video.muted = true;
+    video.controls = controls;
+    video.setAttribute('playsinline', 'true');
+
+    if (type) {
+      const source = document.createElement('source');
+      source.src = src;
+      source.type = type;
+      video.appendChild(source);
+    } else {
+      video.src = src;
+    }
+
+    ref.current.appendChild(video);
+  }, []);
+
+  return <div ref={ref} {...rest} />;
 }

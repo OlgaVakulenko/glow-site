@@ -41,11 +41,6 @@ const profiles = [
     image: NataliK,
   },
   {
-    name: 'Wolf Berkych',
-    position: 'Client Experience',
-    image: WolfB,
-  },
-  {
     name: 'Daria Haman',
     position: 'HR Manager',
     image: DariaH,
@@ -56,19 +51,9 @@ const profiles = [
     image: LiudmylaG,
   },
   {
-    name: 'Artem Illushchenko',
-    position: 'Product Designer',
-    image: ArtemI,
-  },
-  {
     name: 'Ivan Gromov',
     position: 'Brand Designer',
     image: IvanG,
-  },
-  {
-    name: 'Nazar Verhun',
-    position: 'Product Designer',
-    image: NazarV,
   },
   {
     name: 'Oleh Badychka',

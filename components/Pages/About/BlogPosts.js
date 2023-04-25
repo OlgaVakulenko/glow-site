@@ -6,6 +6,10 @@ import BlogImage1 from './assets/blogpost-demo-1.png';
 import BlogImage2 from './assets/blogpost-demo-2.png';
 import BlogImage3 from './assets/blogpost-demo-3.png';
 import BlogAvatar1 from './assets/blogpost-avatar-1.png';
+import { useMedia } from '../../../lib/agent';
+import React, { useEffect, useMemo, useState } from 'react';
+import debounce from 'lodash.debounce';
+import Layout from '../../Layout';
 
 const posts = [
   {
@@ -48,8 +52,26 @@ const posts = [
 ];
 
 export default function BlogPosts() {
+  const [withLayout, setWithLayout] = useState(false);
+  useEffect(() => {
+    const onResize = debounce(() => {
+      setWithLayout(window.innerWidth >= 1920);
+    }, 500);
+
+    window.addEventListener('resize', onResize);
+    onResize();
+
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
+  const Wrapper = useMemo(() => {
+    return withLayout ? Layout : React.Fragment;
+  }, [withLayout]);
+
   return (
-    <Section withLayout={true}>
+    <Section withLayout={false}>
       <SectionLink
         title="Insights"
         buttonLabel="Read Blog"
@@ -58,7 +80,9 @@ export default function BlogPosts() {
         showButtonOnMobile={true}
       />
       <div className="pt-[76px] pb-[76px]">
-        <PostSlider posts={posts} />
+        <Wrapper>
+          <PostSlider withLayout={withLayout} posts={posts} />
+        </Wrapper>
       </div>
     </Section>
   );

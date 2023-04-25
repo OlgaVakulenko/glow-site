@@ -101,7 +101,7 @@ export function SectionLayout({
           {badge && (
             <div
               className={cx(
-                'absolute -right-[30px] -top-[15px] rounded-full bg-brand px-[6px] font-sans text-xs text-lred',
+                'absolute -right-[30px] -top-[15px] rounded-full bg-brand px-[6px] font-sans text-xs text-black',
                 badgeClassname
               )}
             >

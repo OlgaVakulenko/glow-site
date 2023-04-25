@@ -10,7 +10,7 @@ import { AnimatedFix } from '../components/Animated';
 import LoadingProgress from '../components/LoadingProgress';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 import useScrollRestoration from '../components/SmoothScroll/useScrollRestoration';
-import Tolstoy from '../components/Widgets/Tolstoy';
+// import Tolstoy from '../components/Widgets/Tolstoy';
 import { useMedia } from '../lib/agent';
 import '../styles/globals.css';
 import { isClient, isBrowser } from '../lib/utils';
@@ -223,7 +223,7 @@ function MyApp({ Component, pageProps }) {
           `,
           }}
         />
-        {/* <script
+        <script
           dangerouslySetInnerHTML={{
             __html: `
               window.__t0 = performance.now();
@@ -241,7 +241,7 @@ function MyApp({ Component, pageProps }) {
               },500);
             `,
           }}
-        /> */}
+        />
       </Head>
       <LoadingProgress />
 
@@ -252,7 +252,7 @@ function MyApp({ Component, pageProps }) {
       <Analytics />
 
       {/** widgets */}
-      <Tolstoy />
+      {/* <Tolstoy /> */}
     </div>
   );
 }

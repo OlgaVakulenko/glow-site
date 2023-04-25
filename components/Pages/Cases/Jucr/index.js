@@ -8,6 +8,7 @@ import { createHeaderScrollTrigger, range } from '../../../../lib/utils';
 import { useSetAtom } from 'jotai';
 import Carousel from '../Carousel';
 import NextStudy from '../NextStudy';
+import InlineVideo from '../InlineVideo';
 
 function Stripes() {
   const [toggle, setToggle] = useState(false);
@@ -242,7 +243,7 @@ function ResearchMedia() {
           />
         </picture>
       ) : (
-        <video src="/img/jucr/research.mp4" autoPlay loop muted playsInline />
+        <InlineVideo src="/img/jucr/research.mp4" />
       )}
     </div>
   );
@@ -367,13 +368,9 @@ function Jucr() {
                   </picture>
                   <div className="challenge-phone-wrapper">
                     <div className="challenge-phone-wrapper-inner">
-                      <video
+                      <InlineVideo
                         style={{ position: 'relative' }}
                         src="/img/jucr/challenge.mp4"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
                       />
                       <img
                         className="challenge-phone-mockup"
@@ -849,13 +846,7 @@ function Jucr() {
                 </div>
               </div>
               <div className="wow fadeInUp">
-                <video
-                  src="/img/jucr/smart.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                />
+                <InlineVideo src="/img/jucr/smart.mp4" />
               </div>
             </div>
           </section>
@@ -916,13 +907,9 @@ function Jucr() {
                     data-wow-delay="0.2s"
                   />
                 </picture>
-                <video
+                <InlineVideo
                   className="statistic-video"
                   src="/img/jucr/statistic.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
                 />
               </div>
             </div>
@@ -1106,12 +1093,9 @@ function Jucr() {
                     data-wow-delay="0.2s"
                   />
                 </picture>
-                <video
+                <InlineVideo
                   className="statistic-video"
                   src="/img/jucr/charge.mp4"
-                  autoPlay=""
-                  loop=""
-                  muted=""
                 />
               </div>
             </div>
@@ -1175,12 +1159,9 @@ function Jucr() {
                     data-wow-delay="0.2s"
                   />
                 </picture>
-                <video
+                <InlineVideo
                   className="statistic-video"
                   src="/img/jucr/occupied.mp4"
-                  autoPlay=""
-                  loop=""
-                  muted=""
                 />
               </div>
             </div>

@@ -1,30 +1,23 @@
 import cx from 'clsx';
-import Layout from '../../Layout';
 // import gsap from 'gsap';
 import { useAtom } from 'jotai';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import gsap from '../../../dist/gsap';
 import { mediaAtom, useMediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
-import { headerTheme, logoColor, useHeaderTheme } from '../../Header';
+import { headerTheme, logoColor } from '../../Header';
 import CasesSlider from './CasesSlider';
 import Niches from './Niches';
 import OurClients from './OurClients';
 import Reviews from './Reviews';
 // import Showreel from './Showreel';
 import { useSetAtom } from 'jotai';
-import Button from '../../Button';
 import DimSection from '../../DimSection';
-import PageHeading from '../../PageHeading';
-import PageSubheading from '../../PageSubheading';
-import Workflow from './Workflow';
+import IntroSection from './IntroSection';
 import OutProjectsLink from './OurProjectsLink';
-import HRule from '../../HRule';
-// import CasesSlider3 from './_CasesSlider';
+import Workflow from './Workflow';
 
-// const Reviews = dynamic(() => import('./Reviews'));
-
-function RollingWords({ words, interval = 16500 }) {
+export function RollingWords({ words, interval = 16500 }) {
   const [media] = useAtom(mediaAtom);
   const [index, setIndex] = useState(0);
   const [showClass, setShowClass] = useState(false);
@@ -189,84 +182,44 @@ function TmpBg({ children }) {
 export default function Home() {
   const setHeaderTheme = useSetAtom(headerTheme);
   const setLogoColor = useSetAtom(logoColor);
-  const firstSectionRef = useRef(null);
   const changeBgRef = useRef(null);
   const refScrollContainer = useRef(null);
 
-  useHeaderTheme({ theme: 'brand', ref: firstSectionRef });
+  // useEffect(() => {
+  //   return;
+  //   const ctx = gsap.context(() => {
+  //     const obj = {
+  //       color: '#19191B',
+  //     };
+  //     gsap.to(obj, {
+  //       scrollTrigger: {
+  //         trigger: firstSectionRef.current,
+  //         start: '100% center',
+  //         end: '130% center',
+  //         scrub: true,
+  //         onUpdate: () => {
+  //           setLogoColor(obj.color);
+  //           console.log(obj.color);
+  //         },
+  //         onEnterBack: () => {
+  //           setHeaderTheme((c) => c.filter((v) => v !== 'white'));
+  //         },
+  //         onLeave: () => {
+  //           setHeaderTheme((c) => [...c, 'white']);
+  //         },
+  //       },
+  //       color: '#E33230',
+  //     });
+  //   });
 
-  useEffect(() => {
-    return;
-    const ctx = gsap.context(() => {
-      const obj = {
-        color: '#19191B',
-      };
-      gsap.to(obj, {
-        scrollTrigger: {
-          trigger: firstSectionRef.current,
-          start: '100% center',
-          end: '130% center',
-          scrub: true,
-          onUpdate: () => {
-            setLogoColor(obj.color);
-            console.log(obj.color);
-          },
-          onEnterBack: () => {
-            setHeaderTheme((c) => c.filter((v) => v !== 'white'));
-          },
-          onLeave: () => {
-            setHeaderTheme((c) => [...c, 'white']);
-          },
-        },
-        color: '#E33230',
-      });
-    });
-
-    return () => {
-      ctx.revert();
-    };
-  }, []);
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.to(firstSectionRef.current, {
-        scrollTrigger: {
-          trigger: firstSectionRef.current,
-          start: '100% center',
-          end: '130% center',
-          scrub: true,
-        },
-        backgroundColor: 'white',
-      });
-    });
-
-    return () => {
-      ctx.revert();
-    };
-  }, []);
+  //   return () => {
+  //     ctx.revert();
+  //   };
+  // }, []);
 
   return (
     <div ref={refScrollContainer}>
-      <div ref={firstSectionRef} className="bg-brand">
-        <Layout>
-          <div className="relative flex min-h-[calc(var(--lvh)*100)] flex-col justify-between pb-[48px] pt-[155px] md:min-h-screen md:pt-[280px]">
-            <PageSubheading>
-              Your trusted design team <br />
-              for&nbsp;
-              <RollingWords
-                words={['transportation', 'healthcare', 'fintech']}
-                interval={2200}
-              />{' '}
-              <div className="inline-flex">challenges.</div>
-            </PageSubheading>
-
-            <PageHeading>
-              Simple design
-              <br className="hidden md:block" /> for&nbsp;complex products
-            </PageHeading>
-          </div>
-        </Layout>
-      </div>
+      <IntroSection />
       <div ref={changeBgRef} className="bg-white">
         {/** tmp */}
         {/* <TmpBg> */}

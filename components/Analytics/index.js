@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 // import Amplitude from './Amplitude';
 // import FacebookPixel from './FacebookPixel';
 import GTag from './GTag';
+import Hotjar from './Hotjar';
 import Linkedin from './Linkedin';
 import MixPanel from './MixPanel';
 
@@ -52,6 +53,7 @@ export default function Analytics() {
   return (
     <>
       {/* <Amplitude /> */}
+      <Hotjar />
       <GTag />
       {/* <FacebookPixel /> */}
       <MixPanel />

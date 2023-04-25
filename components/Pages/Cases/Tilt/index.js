@@ -9,6 +9,7 @@ import 'react-before-after-slider-component/dist/build.css';
 import BeforeAfter from '../BeforeAfter';
 import { useRef } from 'react';
 import { useHeaderTheme } from '../../../Header';
+import InlineVideo from '../InlineVideo';
 
 export default function Tilt() {
   const ref = useRef();
@@ -491,19 +492,12 @@ export default function Tilt() {
                 </p>
               </div>
             </div>
-            <video
+            <InlineVideo
               className="case-section__image wow fadeInUp"
-              data-wow-duration="0.7s"
-              data-wow-delay="0.2s"
               width="100%"
               height="auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="video/tilt/dashboard.mp4" type="video/mp4" />
-            </video>
+              src="video/tilt/dashboard.mp4"
+            />
           </div>
         </section>
         {/* Colleges*/}
@@ -533,19 +527,12 @@ export default function Tilt() {
                 </p>
               </div>
             </div>
-            <video
+            <InlineVideo
               className="case-section__image wow fadeInUp"
-              data-wow-duration="0.7s"
-              data-wow-delay="0.2s"
               width="100%"
               height="auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="video/tilt/search.mp4" type="video/mp4" />
-            </video>
+              src="video/tilt/search.mp4"
+            />
           </div>
         </section>
         {/* Details*/}
@@ -577,19 +564,12 @@ export default function Tilt() {
                 </p>
               </div>
             </div>
-            <video
+            <InlineVideo
               className="case-section__image wow fadeInUp"
-              data-wow-duration="0.7s"
-              data-wow-delay="0.2s"
               width="100%"
               height="auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="video/tilt/detailed.mp4" type="video/mp4" />
-            </video>
+              src="video/tilt/detailed.mp4"
+            />
           </div>
         </section>
         {/* Mobile*/}

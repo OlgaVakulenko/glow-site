@@ -94,7 +94,6 @@ export default function Animated({
   delay = 0,
   onViewChange = () => {},
   immediate = false,
-  // onInView = () => {},
   ...rest
 }) {
   const ref = useRef(null);
@@ -163,7 +162,9 @@ export default function Animated({
       {...rest}
       className={cx(className, animate, 'to-animate', {
         immediate: immediate,
-        'in-viewport': isClient ? window?.__mobile_in_viewport : false,
+        'in-viewport': isClient
+          ? window?.__mobile_in_viewport || inViewport
+          : inViewport,
       })}
     >
       {children}

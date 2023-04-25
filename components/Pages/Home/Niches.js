@@ -49,7 +49,7 @@ function Badge({ children, className = '' }) {
   return (
     <div
       className={cx(
-        'rounded-full bg-brand text-xs leading-[18px] text-white',
+        'rounded-full bg-brand text-xs leading-[18px] text-black',
         padding,
         className
       )}

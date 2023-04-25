@@ -39,11 +39,11 @@ export default function Form({ onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const moved = moveIndex();
-    if (!moved && index === 5) {
+    if (media !== 'mobile' && !moved && index === 5) {
       setIndex((i) => i + 1);
     }
 
-    if (!moved && index > 5) {
+    if (media === 'mobile' || (!moved && index > 5)) {
       if (isFetching) return;
 
       setTimeout(() => {

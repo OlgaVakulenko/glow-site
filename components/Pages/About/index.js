@@ -73,12 +73,7 @@ export default function About() {
 
 function VisionBlock({ heading, text, className = '' }) {
   return (
-    <div
-      className={cx(
-        'mb-[79px] last:mb-[0px] md:mb-0 md:w-1/2 xl:w-2/5',
-        className
-      )}
-    >
+    <div className={cx('mb-[79px] last:mb-[0px] md:mb-0 md:w-1/2', className)}>
       <div className="mb-8 text-body-heading-s uppercase opacity-50">
         {heading}
       </div>
@@ -117,11 +112,12 @@ function Vision() {
         }
         className="md:pr-10 xl:pr-0"
       />
-      <Separator className="hidden self-end xl:mb-6 xl:-ml-[5.5%] xl:block" />
+      {/** self-end xl:mb-6 xl:-ml-[5.5%] */}
+      <Separator className="absolute top-[60%] left-[46.5%] hidden -translate-x-1/2 -translate-y-1/2 xl:block" />
       <VisionBlock
         heading={'our vision'}
         text="To become leader in enterprise design by creating game changing products"
-        className="md:pl-3 xl:pl-0"
+        className="md:pl-10 xl:pl-40"
       />
     </Animated>
   );

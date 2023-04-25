@@ -141,6 +141,7 @@ export default function Showreel() {
       })}
     >
       <div className="overflow-hidden">
+        {/** todo add muted property properly */}
         <video
           ref={videoRef}
           src="/video/video_test.mp4"

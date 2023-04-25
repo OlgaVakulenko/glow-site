@@ -4,6 +4,8 @@ import Title from '../../Footer/Title';
 import { useHeaderTheme } from '../../Header';
 import Layout from '../../Layout';
 import Star from '../../Star';
+import DiscoveryCallButton from './DiscoveryCallButton';
+import FillFormButton from './FillFormButton';
 
 export default function ContactsFooter() {
   return (
@@ -22,17 +24,22 @@ export default function ContactsFooter() {
           in-house team.
         </div>
         <div className="mb-[60px] md:mb-[100px] md:flex xl:grow">
-          <BigButton
+          <DiscoveryCallButton
+            variant="contacts"
+            className="mb-[15px] md:mr-[72px] md:mb-0 md:ml-[120px] xl:ml-[112px]"
+          />
+          <FillFormButton variant="contacts" />
+          {/* <BigButton
             href="https://calendly.com/glow-design-agency/meet"
             target="_blank"
             variant="contacts"
             className="mb-[15px] md:mr-[72px] md:mb-0 md:ml-[120px] xl:ml-[112px]"
           >
             Discovery Call
-          </BigButton>
-          <BigButton href="/form" variant="contacts">
-            Fill out the form
-          </BigButton>
+          </BigButton> */}
+          {/* <BigButton href="/form" variant="contacts">
+            Fill out the brief
+          </BigButton> */}
         </div>
       </div>
 

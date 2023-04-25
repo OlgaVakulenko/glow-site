@@ -17,7 +17,10 @@ export default function Team() {
       <SectionLink
         title="Our team"
         buttonLabel="Career"
-        href="#"
+        href="https://jobs.dou.ua/companies/glow/vacancies/"
+        linkProps={{
+          target: '_blank',
+        }}
         description="Our talented and diverse team works together for one purpose—to unlock the potential of those around us."
         showButtonOnMobile={true}
       />
@@ -80,7 +83,7 @@ function ProfileLayout({ profiles }) {
 
   return (
     <Layout>
-      <div className="-mr-8 -mb-12 flex flex-wrap md:justify-center xl:-mb-[72px] xl:-mr-[29px]">
+      <div className="-mr-8 -mb-12 flex flex-wrap xl:-mb-[72px] xl:-mr-[29px]">
         {profiles.map((profile, i) => (
           <div
             key={i}

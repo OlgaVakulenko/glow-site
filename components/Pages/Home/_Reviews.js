@@ -1,15 +1,12 @@
 import cx from 'clsx';
-import { useAtom } from 'jotai';
 import dynamic from 'next/dynamic';
 import React, { useEffect, useMemo } from 'react';
-import { Autoplay } from 'swiper';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { mediaAtom, useMediaAtom } from '../../../lib/agent';
+import { useMediaAtom } from '../../../lib/agent';
 import { useIsClient } from '../../../lib/utils';
 import DragCursorContainer from '../../DragCursor';
 import Layout from '../../Layout';
-// import SliderProgress from '../../SliderProgress';
 
 const SliderProgress = dynamic(() => import('../../SliderProgress'), {
   ssr: false,
@@ -275,7 +272,6 @@ export default function Reviews() {
     <DragCursorContainer>
       <Swiper
         speed={500}
-        modules={[Autoplay]}
         // grabCursor={true}
         autoplay={{
           stopOnLastSlide: true,

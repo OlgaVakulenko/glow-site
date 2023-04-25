@@ -5,17 +5,20 @@ import throttle from 'lodash.throttle';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useId, useRef, useState } from 'react';
-import { ScrollTrigger } from '../dist/gsap';
 import { mediaAtom } from '../lib/agent';
 import {
   createHeaderScrollTrigger,
   useBodyLock,
+  useIsClient,
   useScrollDirection,
 } from '../lib/utils';
 import Animated from './Animated';
 import BigButton from './BigButton';
+import HeaderLink from './HeaderLink';
+import HeaderSubMenu from './HeaderSubMenu';
 import { useMounted } from './Icons/animations';
 import Layout from './Layout';
+import links from './links-data';
 import Logo from './Logo';
 import RollingText from './RollingText';
 
@@ -31,10 +34,36 @@ import RollingText from './RollingText';
 //   {
 //     label: 'Services',
 //     href: '#',
+//     children: [
+//       {
+//         title: 'MVP',
+//         text: 'We define your goals, get to know your audience, and understand the context.',
+//         icon: (
+//           <svg
+//             width="64"
+//             height="48"
+//             viewBox="0 0 64 48"
+//             fill="none"
+//             xmlns="http://www.w3.org/2000/svg"
+//           >
+//             <rect x="13.5" y="28.5" width="15" height="15" stroke="#19191B" />
+//             <rect x="29.5" y="5.5" width="15" height="15" stroke="#19191B" />
+//             <rect
+//               x="28.5"
+//               y="28.5"
+//               width="23"
+//               height="15"
+//               fill="#19191B"
+//               stroke="#19191B"
+//             />
+//           </svg>
+//         ),
+//       },
+//     ],
 //   },
 // ];
 
-const links = [];
+// const links = [];
 
 export function BurgerIcon({ isOpen = false, theme, size = 40 }) {
   let stroke = '#19191B';
@@ -168,14 +197,15 @@ const BurgerMenu = ({
               </Link>
               <div className="ml-[-68px] hidden md:flex">
                 {links.map((link, i) => (
-                  <Link
-                    key={i}
-                    className="mr-[77px] text-sm last:mr-0"
-                    href={link.href}
-                  >
-                    <RollingText text={link.label} height={20} />
-                    {/* {link} */}
-                  </Link>
+                  <HeaderLink key={i} href={link.href} label={link.label} />
+                  // <Link
+                  //   key={i}
+                  //   className="mr-[77px] text-sm last:mr-0"
+                  //   href={link.href}
+                  // >
+                  //   <RollingText text={link.label} height={20} />
+                  //   {/* {link} */}
+                  // </Link>
                 ))}
               </div>
               <div className="hidden md:block">
@@ -236,11 +266,14 @@ export const headerTheme = atom([defaultTheme]);
 export const showBackdropAtom = atom(true);
 export const logoColor = atom(null);
 export const headerActiveAtom = atom(true);
+export const isFooterAtom = atom(true);
+export const subMenuOpenAtom = atom(false);
 
 //theme: 'white' | 'dark' | 'light'
 export const useHeaderTheme = ({
   ref,
   theme = '',
+  isFooter = false,
   disableBackdrop = false,
   onEnter: _onEnter,
   onLeave: _onLeave,
@@ -248,6 +281,11 @@ export const useHeaderTheme = ({
   const router = useRouter();
   const setHeaderTheme = useSetAtom(headerTheme);
   const setBackdrop = useSetAtom(showBackdropAtom);
+  const setIsFooter = useSetAtom(isFooterAtom);
+
+  // useEffect(() => {
+  //   setIsFooter(isFooter);
+  // }, [isFooter, setIsFooter]);
 
   useEffect(() => {
     const onEnter = () => {
@@ -258,6 +296,8 @@ export const useHeaderTheme = ({
       if (_onEnter) {
         _onEnter();
       }
+
+      setIsFooter(isFooter);
     };
 
     const onLeave = () => {
@@ -276,6 +316,8 @@ export const useHeaderTheme = ({
       if (_onLeave) {
         _onLeave;
       }
+
+      setIsFooter(false);
     };
 
     if (!ref) {
@@ -294,7 +336,7 @@ export const useHeaderTheme = ({
       onLeave();
       s.kill();
     };
-  }, [ref, setHeaderTheme, theme, router.pathname, disableBackdrop]);
+  }, [ref, setHeaderTheme, theme, router.pathname, disableBackdrop, isFooter]);
 
   const initRef = useRef(false);
   const onUnmount = useRef([]);
@@ -322,10 +364,11 @@ export default function Header({
 }) {
   const router = useRouter();
   const mounted = useMounted();
+  const rootRef = useRef(null);
   const [isRouteTransition, setIsRouteTransition] = useState();
+  const isClient = useIsClient();
   const [theme] = useAtom(headerTheme);
   const [color, setColor] = useAtom(logoColor);
-  const t = overrideTheme || theme[theme.length - 1];
   const [isOpen, setIsOpen] = useAtom(openAtom);
   const [showBackdrop, setShowBackdrop] = useAtom(showBackdropAtom);
   // const links = ['Work', 'Team', 'Services'];
@@ -333,6 +376,15 @@ export default function Header({
   const { lock, release } = useBodyLock();
   const scrollDirection = useScrollDirection('backward');
   const [headerActive] = useAtom(headerActiveAtom);
+  const [isFooter] = useAtom(isFooterAtom);
+  const [subMenuItems, setSubMenuItems] = useState([]);
+  const subMenuActive = !!subMenuItems?.length;
+  const t =
+    overrideTheme ||
+    (subMenuActive &&
+      ((theme[theme.length - 1] === 'brand' && 'brand') ||
+        (theme[theme.length - 1] === 'white' && 'white'))) ||
+    theme[theme.length - 1];
 
   useEffect(() => {
     if (isOpen) {
@@ -389,11 +441,6 @@ export default function Header({
     };
   }, [router.pathname]);
 
-  // const backdropActive =
-  //   showBackdrop &&
-  //   t !== 'brand' &&
-  //   t !== 'dark' &&
-  //   scrollDirection !== 'forward';
   const backdropActive =
     mounted &&
     headerActive &&
@@ -403,16 +450,40 @@ export default function Header({
     t !== 'dark' &&
     t !== 'brand';
 
-  // console.log('showBackdrop', showBackdrop, t);
+  useEffect(() => {
+    setSubMenuItems([]);
+  }, [router.pathname]);
+
+  useEffect(() => {
+    const handleClick = (e) => {
+      const target = e.target;
+
+      if (!rootRef.current.contains(target)) {
+        setSubMenuItems((v) => {
+          if (v.length) return [];
+
+          return v;
+        });
+      }
+    };
+
+    document.addEventListener('click', handleClick);
+
+    return () => {
+      document.removeEventListener('click', handleClick);
+    };
+  }, []);
 
   return (
-    <>
+    <div ref={rootRef}>
       <div className={cx('fixed top-0 z-10 w-full')}>
         <div className="relative">
           <div
             className={cx(
               'backdrop pointer-events-none absolute top-0 left-0 h-[96px] w-full -translate-y-full bg-white opacity-0 transition-all duration-300',
               {
+                // 'duration-300': !subMenuActive,
+                // 'duration-[0s]': subMenuActive,
                 '!translate-y-0': backdropActive,
                 '!opacity-100': backdropActive,
                 '!transition-none': isRouteTransition,
@@ -427,7 +498,8 @@ export default function Header({
           {
             'md:-translate-y-4': !isTop && !isBottom,
             '!-translate-y-full':
-              (scrollDirection === 'forward' && !isBottom) || !headerActive,
+              (scrollDirection === 'forward' && !isBottom && !subMenuActive) ||
+              !headerActive,
             // '!transition-none': isRouteTransition,
           }
         )}
@@ -460,48 +532,64 @@ export default function Header({
                   'ml-[-32px] hidden transition-opacity duration-500 md:flex'
                 )}
               >
-                {links.map((link, i) => (
-                  <Animated
-                    as={Link}
-                    href={link.href}
-                    key={i}
-                    delay={(i + 1) * 100}
-                    className={cx(
-                      'mr-[77px] text-sm last:mr-0',
-                      t === 'dark' && 'text-white'
-                    )}
-                    immediate
-                  >
-                    <RollingText text={link.label} height={20} />
-                  </Animated>
-                ))}
+                {!isFooter &&
+                  links.map((link, i) => (
+                    <HeaderLink
+                      key={i}
+                      index={i}
+                      href={link.href}
+                      label={link.label}
+                      theme={t}
+                      subItems={link.children}
+                      onSubMenuClick={(items) => {
+                        setSubMenuItems((current) => {
+                          if (current?.length) return [];
+                          return items;
+                        });
+                      }}
+                    />
+                    // <Animated
+                    //   as={Link}
+                    //   href={link.href}
+                    //   key={i}
+                    //   delay={(i + 1) * 100}
+                    //   className={cx(
+                    //     'mr-[77px] text-sm last:mr-0',
+                    //     t === 'dark' && 'text-white'
+                    //   )}
+                    //   immediate
+                    // >
+                    //   <RollingText text={link.label} height={20} />
+                    // </Animated>
+                  ))}
               </div>
-              {headerRightSlot || (
-                <div
-                  className={cx(
-                    'hidden transition-opacity duration-500 md:block'
-                  )}
-                >
-                  <Animated delay={(links.length + 1) * 100} immediate>
-                    <Link
-                      href="/contacts"
-                      className={cx(
-                        'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-all duration-500 hover:bg-black',
-                        'hover:text-brand',
-                        t === 'white' &&
-                          'glow-border-b-b hover:!bg-brand hover:!text-black',
-                        t === 'dark' &&
-                          'glow-border-white-to-r bg-black text-white hover:!bg-brand hover:!text-black'
-                      )}
-                    >
-                      <RollingText
-                        height={20}
-                        text={`Let's get in touch`}
-                      ></RollingText>
-                    </Link>
-                  </Animated>
-                </div>
-              )}
+              {headerRightSlot ||
+                (!isFooter && (
+                  <div
+                    className={cx(
+                      'hidden transition-opacity duration-200 md:block'
+                    )}
+                  >
+                    <Animated delay={(links.length + 1) * 100} immediate>
+                      <Link
+                        href="/contacts"
+                        className={cx(
+                          'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-all duration-500 hover:bg-black',
+                          'hover:text-brand',
+                          t === 'white' &&
+                            'glow-border-b-b hover:!bg-brand hover:!text-black',
+                          t === 'dark' &&
+                            'glow-border-white-to-r bg-black text-white hover:!bg-brand hover:!text-black'
+                        )}
+                      >
+                        <RollingText
+                          height={20}
+                          text={`Let's get in touch`}
+                        ></RollingText>
+                      </Link>
+                    </Animated>
+                  </div>
+                ))}
               {headerRightSlot ? null : (
                 <div className="md:hidden">
                   <Animated delay={150} immediate>
@@ -520,6 +608,7 @@ export default function Header({
         </div>
       </header>
       <BurgerMenu menuId={menuId} links={links} />
-    </>
+      {isClient && <HeaderSubMenu subItems={subMenuItems} />}
+    </div>
   );
 }

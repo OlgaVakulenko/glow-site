@@ -18,6 +18,7 @@ export default function SectionLink({
   buttonLabel,
   hasBorder = false,
   showButtonOnMobile = false,
+  linkProps = {},
 }) {
   const [media] = useAtom(mediaAtom);
 
@@ -25,7 +26,7 @@ export default function SectionLink({
     if (href) {
       return function Wrapper({ children, ...props }) {
         return (
-          <Link href={href} {...props}>
+          <Link href={href} {...linkProps} {...props}>
             {children}
           </Link>
         );

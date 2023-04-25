@@ -44,7 +44,6 @@ export default function ScrollContainer({ children }) {
         // setMounted(false);
       };
     }
-    console.log('new scroll smoother');
     smootherRef.current = new ScrollSmoother({
       wrapper: viewportRef.current,
       content: ref.current,
@@ -63,7 +62,6 @@ export default function ScrollContainer({ children }) {
       // setMounted(false);
       setEnabled(false);
       if (smootherRef.current) {
-        console.log('kill scroll smoother');
         smootherRef.current.kill();
         ScrollTrigger.refresh();
       }
@@ -124,8 +122,6 @@ export default function ScrollContainer({ children }) {
     wrapper.displayName = 'Wrapper';
     return wrapper;
   }, [key]);
-
-  console.log('scroll smoother render');
 
   useEffect(() => {
     let mounted = true;

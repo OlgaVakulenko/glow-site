@@ -8,6 +8,7 @@ import LegacyCaseContainer from '../LegacyCaseContainer';
 import SliderProgress from '../SliderProgress';
 import NextStudy from '../NextStudy';
 import Head from 'next/head';
+import InlineVideo from '../InlineVideo';
 
 function Intro() {
   const ref = useRef();
@@ -549,34 +550,19 @@ export default function Beast() {
                 </p>
               </div>
             </div>
-            <video
+            <InlineVideo
               className="hidden-xs case-section__image wow fadeInUp"
-              data-wow-duration="0.7s"
-              data-wow-delay="0.2s"
               width="100%"
               height="auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="video/beast/search.mp4" type="video/mp4" />
-            </video>
+              src="video/beast/search.mp4"
+            />
           </div>
           <div className="case-section__video-mobile case-section__image">
-            <video
-              className="wow fadeInUp"
-              data-wow-duration="0.7s"
-              data-wow-delay="0.2s"
+            <InlineVideo
               width="1000px"
               height="auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="video/beast/search.mp4" type="video/mp4" />
-            </video>
+              src="video/beast/search.mp4"
+            />
           </div>
         </section>
         {/* Radar*/}
@@ -616,34 +602,19 @@ export default function Beast() {
                 </p>
               </div>
             </div>
-            <video
+            <InlineVideo
               className="hidden-xs case-section__image wow fadeInUp"
-              data-wow-duration="0.7s"
-              data-wow-delay="0.2s"
               width="100%"
               height="auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="video/beast/radar.mp4" type="video/mp4" />
-            </video>
+              src="video/beast/radar.mp4"
+            />
           </div>
           <div className="case-section__video-mobile case-section__image">
-            <video
-              className="wow fadeInUp"
-              data-wow-duration="0.7s"
-              data-wow-delay="0.2s"
+            <InlineVideo
               width="1000px"
               height="auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="video/beast/radar.mp4" type="video/mp4" />
-            </video>
+              src="video/beast/radar.mp4"
+            />
           </div>
         </section>
         {/* Statistics*/}
@@ -729,34 +700,19 @@ export default function Beast() {
                 </p>
               </div>
             </div>
-            <video
-              className="hidden-xs case-section__image wow fadeInUp"
-              data-wow-duration="0.7s"
-              data-wow-delay="0.2s"
+            <InlineVideo
               width="100%"
               height="auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="video/beast/damage.mp4" type="video/mp4" />
-            </video>
+              className="hidden-xs case-section__image wow fadeInUp"
+              src="video/beast/damage.mp4"
+            />
           </div>
           <div className="case-section__video-mobile case-section__image">
-            <video
-              className="wow fadeInUp"
-              data-wow-duration="0.7s"
-              data-wow-delay="0.2s"
+            <InlineVideo
+              src="video/beast/damage.mp4"
               width="1000px"
               height="auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="video/beast/damage.mp4" type="video/mp4" />
-            </video>
+            />
           </div>
         </section>
         {/* Components*/}

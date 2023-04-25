@@ -13,8 +13,10 @@ export default function BigButton({
   children,
   className = '',
   hideLink = false,
+  customHoverArrow = null,
   border = true,
   href = null,
+  textHeight = 20,
   ...props
 }) {
   const Component = useMemo(() => {
@@ -30,7 +32,7 @@ export default function BigButton({
       href={href}
       type={href ? null : 'button'}
       className={cx(
-        'rolling-text-group flex w-full items-center justify-between rounded-full px-6 py-14 text-left text-sm font-medium uppercase tracking-[0.03em] transition-colors duration-500 md:aspect-square md:max-w-[320px] md:pr-[20px]',
+        'rolling-text-group group flex w-full items-center justify-between rounded-full px-6 py-14 text-left text-sm font-medium uppercase tracking-[0.03em] transition-colors duration-500 md:aspect-square md:max-w-[320px] md:pr-[20px]',
         {
           ['glow-border']: border,
           [activeHeader]: variant === 'header',
@@ -43,12 +45,23 @@ export default function BigButton({
       )}
       {...props}
     >
-      <RollingText height={20} text={children}></RollingText>
+      <RollingText height={textHeight} text={children}></RollingText>
       {/* {children} */}
       {!hideLink && (
-        <span>
-          <LinkArrow />
-        </span>
+        <div className="relative">
+          <div className="opacity-0 duration-300 group-hover:opacity-100">
+            {customHoverArrow}
+          </div>
+          {
+            <span
+              className={cx(
+                customHoverArrow && 'opacity-100 group-hover:opacity-0'
+              )}
+            >
+              <LinkArrow />
+            </span>
+          }
+        </div>
       )}
     </Component>
   );

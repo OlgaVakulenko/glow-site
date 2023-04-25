@@ -1,6 +1,7 @@
 import { range } from '../../../../lib/utils';
 import BeforeAfter from '../BeforeAfter';
 import Carousel from '../Carousel';
+import InlineVideo from '../InlineVideo';
 import LegacyCaseContainer from '../LegacyCaseContainer';
 import NextStudy from '../NextStudy';
 
@@ -395,19 +396,6 @@ export default function Ethos() {
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
-            <video
-              className="case-section__image wow fadeInUp hidden"
-              data-wow-duration="0.7s"
-              data-wow-delay="0.2s"
-              width="100%"
-              height="auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="video/tilt/detailed.mp4" type="video/mp4" />
-            </video>
           </div>
         </section>
         {/* Search*/}
@@ -443,19 +431,6 @@ export default function Ethos() {
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
-            <video
-              className="case-section__image wow fadeInUp hidden"
-              data-wow-duration="0.7s"
-              data-wow-delay="0.2s"
-              width="100%"
-              height="auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="video/tilt/detailed.mp4" type="video/mp4" />
-            </video>
           </div>
         </section>
         {/* Page*/}
@@ -491,19 +466,6 @@ export default function Ethos() {
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
-            <video
-              className="case-section__image wow fadeInUp hidden"
-              data-wow-duration="0.7s"
-              data-wow-delay="0.2s"
-              width="100%"
-              height="auto"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="video/tilt/detailed.mp4" type="video/mp4" />
-            </video>
           </div>
         </section>
         {/* Learning*/}
