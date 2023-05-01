@@ -14,6 +14,7 @@ const links = [
       {
         title: 'MVP',
         text: 'We define your goals, get to know your audience, and understand the context.',
+        href: '#1',
         icon: (
           <svg
             width="64"
@@ -50,9 +51,10 @@ const links = [
       {
         title: 'Redesign',
         text: 'We define your goals, get to know your audience, and understand the context.',
+        href: '#2',
         icon: (
           <svg
-            width="44"
+            width="64"
             height="44"
             viewBox="0 0 44 44"
             fill="none"
@@ -80,6 +82,7 @@ const links = [
       {
         title: 'Long term',
         text: 'We define your goals, get to know your audience, and understand the context.',
+        href: '#3',
         icon: (
           <svg
             width="64"
@@ -105,6 +108,7 @@ const links = [
       {
         title: 'Startup',
         text: 'We define your goals, get to know your audience, and understand the context.',
+        href: '#4',
         icon: (
           <svg
             width="64"

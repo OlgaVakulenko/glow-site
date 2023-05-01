@@ -13,7 +13,7 @@ import useScrollRestoration from '../components/SmoothScroll/useScrollRestoratio
 // import Tolstoy from '../components/Widgets/Tolstoy';
 import { useMedia } from '../lib/agent';
 import '../styles/globals.css';
-import { isClient, isBrowser } from '../lib/utils';
+import { isClient, isBrowser, setScrollbarWidth } from '../lib/utils';
 import { ScrollTrigger } from '../dist/gsap';
 // import '../styles/globals2.css';
 // import '../components/Pages/Cases/Cryprogenie/global.css';
@@ -41,6 +41,10 @@ function MyApp({ Component, pageProps }) {
       Component.getLayout || ((page) => <DefaultLayout>{page}</DefaultLayout>)
     );
   }, [Component]);
+
+  useEffect(() => {
+    setScrollbarWidth();
+  }, []);
 
   useEffect(() => {
     const onScroll = () => {
@@ -231,7 +235,6 @@ function MyApp({ Component, pageProps }) {
                 console.log('window.__app_mounted', window.__app_mounted);
                 if (!window.__app_mounted) {
                   var t = document.querySelectorAll('.to-animate');
-                  console.log(t);
                   for (var i = 0; i < t.length; i++) {
                     var el = t[i];
                     el && el.classList && el.classList.add('in-viewport');

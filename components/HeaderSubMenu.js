@@ -4,16 +4,30 @@ import { useMounted } from './Icons/animations';
 import Layout from './Layout';
 import cx from 'clsx';
 import { Transition } from '@headlessui/react';
-import { subMenuOpenAtom } from './Header';
+import { subMenuOpenAtom, subMenuParentAtom } from './Header';
 import { useSetAtom } from 'jotai';
+import { atom } from 'jotai';
+import { useAtom } from 'jotai';
 
-function Item({ icon, title, text, href }) {
+const hoveredItemAtom = atom(null);
+
+function Item({ index, icon, title, text, href }) {
+  const [hoveredItem, setHoveredItem] = useAtom(hoveredItemAtom);
+
   return (
     <Link
       href={href}
-      className="flex transition-colors duration-300 hover:text-brand"
+      className={cx('flex transition-opacity duration-300', {
+        'opacity-50': hoveredItem !== null && hoveredItem !== index,
+      })}
+      onMouseEnter={() => {
+        setHoveredItem(index);
+      }}
+      onMouseLeave={() => {
+        setHoveredItem(null);
+      }}
     >
-      <div className="mr-6">{icon}</div>
+      <div className="mr-6 w-16">{icon}</div>
       <div className="pt-2">
         <div className="mb-2 text-body-heading-m">{title}</div>
         <div className="max-w-[208px] text-body-s opacity-50">{text}</div>
@@ -22,12 +36,14 @@ function Item({ icon, title, text, href }) {
   );
 }
 
-export default function HeaderSubMenu({ subItems }) {
+export default function HeaderSubMenuContainer() {
+  const [subMenuParent] = useAtom(subMenuParentAtom);
+  const subItems = subMenuParent?.children;
   const setSubMenuOpen = useSetAtom(subMenuOpenAtom);
   const show = !!subItems?.length;
   const prevItemsRef = useRef(subItems);
   const items = useMemo(() => {
-    if (!subItems.length) {
+    if (!subItems?.length) {
       return prevItemsRef.current;
     }
 
@@ -53,20 +69,26 @@ export default function HeaderSubMenu({ subItems }) {
       leaveTo="opacity-0"
       className="fixed top-0 z-[9] w-full bg-white pt-24 pb-[70px]"
     >
-      <div className="border-t border-[#B3B3B3] pt-14">
-        <Layout className="flex justify-between xl:!px-[48px]">
-          {items.map((item) => (
-            <Item
-              key={item.title}
-              title={item.title}
-              icon={item.icon}
-              text={item.text}
-              href={'#'}
-            />
-            // <div key={item.title}>{item.title}</div>
-          ))}
-        </Layout>
-      </div>
+      <HeaderSubMenu subMenuItems={items} />
     </Transition>
+  );
+}
+
+export function HeaderSubMenu({ subMenuItems: items }) {
+  return (
+    <div className="border-t border-[#B3B3B3] pt-14">
+      <Layout className="flex flex-col justify-between md:flex-row xl:!px-[48px]">
+        {items.map((item, idx) => (
+          <Item
+            index={idx}
+            key={item.title}
+            title={item.title}
+            icon={item.icon}
+            text={item.text}
+            href={'#'}
+          />
+        ))}
+      </Layout>
+    </div>
   );
 }

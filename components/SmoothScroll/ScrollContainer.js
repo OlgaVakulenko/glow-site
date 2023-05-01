@@ -68,7 +68,7 @@ export default function ScrollContainer({ children }) {
     };
   }, [isMobile, updateScrollPosition, setMounted, disabled]);
 
-  //scrolltrigger does not sometimes refresh when scrollsmoother is enabled
+  //scrolltrigger sometimes does not refresh when scrollsmoother is enabled
   useEffect(() => {
     if ('MutationObserver' in window) {
       let height = 0;

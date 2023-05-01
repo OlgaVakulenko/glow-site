@@ -4,18 +4,19 @@ import { atom, useAtom, useSetAtom } from 'jotai';
 import throttle from 'lodash.throttle';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useEffect, useId, useRef, useState } from 'react';
-import { mediaAtom } from '../lib/agent';
+import React, { useCallback, useEffect, useId, useRef, useState } from 'react';
+import { mediaAtom, useMediaAtom } from '../lib/agent';
 import {
   createHeaderScrollTrigger,
   useBodyLock,
   useIsClient,
+  usePrevious,
   useScrollDirection,
 } from '../lib/utils';
 import Animated from './Animated';
-import BigButton from './BigButton';
 import HeaderLink from './HeaderLink';
-import HeaderSubMenu from './HeaderSubMenu';
+import HeaderMobileMenu from './HeaderMobileMenu';
+import HeaderSubMenuContainer from './HeaderSubMenu';
 import { useMounted } from './Icons/animations';
 import Layout from './Layout';
 import links from './links-data';
@@ -135,7 +136,7 @@ const BurgerButton = ({ isOpen, className, theme, ...props }) => {
 
 const openAtom = atom(false);
 
-const Animation = ({ index, children, ...props }) => {
+export const Animation = ({ index, children, ...props }) => {
   return (
     <Transition.Child
       unmount={false}
@@ -145,7 +146,7 @@ const Animation = ({ index, children, ...props }) => {
       leave="transition ease-in-out duration-300 transform"
       leaveFrom="opacity-1"
       leaveTo="opacity-0"
-      className="mb-[24px] text-[59px] uppercase leading-[80px] last:mb-[0px]"
+      className="mb-3 py-[10px] text-[38px] uppercase leading-[51px] last:mb-[0px]"
       {...props}
       style={{
         transitionDelay: (1 + index) * 100 + 'ms',
@@ -156,13 +157,8 @@ const Animation = ({ index, children, ...props }) => {
   );
 };
 
-const BurgerMenu = ({
-  // transitionOpen,
-  // isOpen,
-  menuId,
-  links,
-  // onBurgerClick,
-}) => {
+const BurgerMenu = ({ menuId, links }) => {
+  const [subMenuParent, setSubMenuParent] = useAtom(subMenuParentAtom);
   const router = useRouter();
   const [isOpen, setIsOpen] = useAtom(openAtom);
   const [media] = useAtom(mediaAtom);
@@ -186,26 +182,24 @@ const BurgerMenu = ({
       leave="transition-opacity duration-300"
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
-      className="fixed top-0 left-0 z-10 h-[150vh] w-full bg-brand"
+      className={cx(
+        'fixed top-0 left-0 z-10 h-[150vh] w-full transition-colors duration-100',
+        {
+          'bg-brand': !subMenuParent,
+          'bg-white': subMenuParent,
+        }
+      )}
     >
-      <div className="">
+      <div className="overflow-y-auto">
         <Layout>
-          <div className={'flex h-screenx flex-col justify-between'}>
+          <div className={'flex h-screenx flex-col md:justify-between'}>
             <div className="flex items-center justify-between py-[28px] font-medium uppercase text-black">
               <Link href="/" className="flex items-center justify-center">
                 <Logo />
               </Link>
               <div className="ml-[-68px] hidden md:flex">
                 {links.map((link, i) => (
-                  <HeaderLink key={i} href={link.href} label={link.label} />
-                  // <Link
-                  //   key={i}
-                  //   className="mr-[77px] text-sm last:mr-0"
-                  //   href={link.href}
-                  // >
-                  //   <RollingText text={link.label} height={20} />
-                  //   {/* {link} */}
-                  // </Link>
+                  <HeaderLink key={i} item={link} />
                 ))}
               </div>
               <div className="hidden md:block">
@@ -216,44 +210,20 @@ const BurgerMenu = ({
                   Let&apos;s get in touch
                 </Link>
               </div>
-              <BurgerButton
-                className="md:hidden"
-                aria-controls={menuId}
-                isOpen={isOpen}
-                onClick={() => setIsOpen((v) => !v)}
-                aria-expanded={isOpen}
-              />
+              {!subMenuParent && (
+                <BurgerButton
+                  className="md:hidden"
+                  aria-controls={menuId}
+                  isOpen={isOpen}
+                  onClick={() => {
+                    setIsOpen((v) => !v);
+                    setSubMenuParent(null);
+                  }}
+                  aria-expanded={isOpen}
+                />
+              )}
             </div>
-            <nav
-              aria-label="Main menu"
-              role="navigation"
-              id={menuId}
-              className="flex flex-col"
-            >
-              <ul className="text-center">
-                {links.map((item, i) => (
-                  <Animation as="li" key={i} index={i}>
-                    {/* <li
-                      // key={item}
-                      className="mb-[24px] text-[59px] uppercase leading-[80px] last:mb-[0px]"
-                    > */}
-                    <Link
-                      href={item.href}
-                      className="flex items-center justify-center font-medium text-black"
-                    >
-                      <RollingText text={item.label} height={80} />
-                      {/* {item} */}
-                    </Link>
-                    {/* </li> */}
-                  </Animation>
-                ))}
-              </ul>
-            </nav>
-            <Animation index={links.length}>
-              <Link href="/contacts">
-                <BigButton className="mb-[60px]">let’s get in touch</BigButton>
-              </Link>
-            </Animation>
+            <HeaderMobileMenu links={links} menuId={menuId} />
           </div>
         </Layout>
       </div>
@@ -268,6 +238,7 @@ export const logoColor = atom(null);
 export const headerActiveAtom = atom(true);
 export const isFooterAtom = atom(true);
 export const subMenuOpenAtom = atom(false);
+export const subMenuParentAtom = atom(null);
 
 //theme: 'white' | 'dark' | 'light'
 export const useHeaderTheme = ({
@@ -364,6 +335,8 @@ export default function Header({
 }) {
   const router = useRouter();
   const mounted = useMounted();
+  const media = useMediaAtom();
+  const prevMedia = usePrevious(media);
   const rootRef = useRef(null);
   const [isRouteTransition, setIsRouteTransition] = useState();
   const isClient = useIsClient();
@@ -378,7 +351,8 @@ export default function Header({
   const [headerActive] = useAtom(headerActiveAtom);
   const [isFooter] = useAtom(isFooterAtom);
   const [subMenuItems, setSubMenuItems] = useState([]);
-  const subMenuActive = !!subMenuItems?.length;
+  const [subMenuParent, setSubMenuParent] = useAtom(subMenuParentAtom);
+  const subMenuActive = !!subMenuParent;
   const t =
     overrideTheme ||
     (subMenuActive &&
@@ -451,19 +425,23 @@ export default function Header({
     t !== 'brand';
 
   useEffect(() => {
-    setSubMenuItems([]);
-  }, [router.pathname]);
+    setSubMenuParent(null);
+  }, [router.pathname, setSubMenuParent]);
+
+  const resetSubMenuItems = useCallback(() => {
+    setSubMenuParent((v) => {
+      if (v) return null;
+
+      return v;
+    });
+  }, []);
 
   useEffect(() => {
     const handleClick = (e) => {
       const target = e.target;
 
       if (!rootRef.current.contains(target)) {
-        setSubMenuItems((v) => {
-          if (v.length) return [];
-
-          return v;
-        });
+        resetSubMenuItems();
       }
     };
 
@@ -472,7 +450,13 @@ export default function Header({
     return () => {
       document.removeEventListener('click', handleClick);
     };
-  }, []);
+  }, [resetSubMenuItems]);
+
+  useEffect(() => {
+    if (media !== prevMedia && media === 'mobile') {
+      resetSubMenuItems();
+    }
+  }, [media, prevMedia, resetSubMenuItems]);
 
   return (
     <div ref={rootRef}>
@@ -537,30 +521,18 @@ export default function Header({
                     <HeaderLink
                       key={i}
                       index={i}
-                      href={link.href}
-                      label={link.label}
+                      item={link}
+                      // href={link.href}
+                      // label={link.label}
                       theme={t}
-                      subItems={link.children}
-                      onSubMenuClick={(items) => {
-                        setSubMenuItems((current) => {
-                          if (current?.length) return [];
-                          return items;
-                        });
-                      }}
+                      // subItems={link.children}
+                      // onSubMenuClick={(items) => {
+                      //   setSubMenuItems((current) => {
+                      //     if (current?.length) return [];
+                      //     return items;
+                      //   });
+                      // }}
                     />
-                    // <Animated
-                    //   as={Link}
-                    //   href={link.href}
-                    //   key={i}
-                    //   delay={(i + 1) * 100}
-                    //   className={cx(
-                    //     'mr-[77px] text-sm last:mr-0',
-                    //     t === 'dark' && 'text-white'
-                    //   )}
-                    //   immediate
-                    // >
-                    //   <RollingText text={link.label} height={20} />
-                    // </Animated>
                   ))}
               </div>
               {headerRightSlot ||
@@ -608,7 +580,7 @@ export default function Header({
         </div>
       </header>
       <BurgerMenu menuId={menuId} links={links} />
-      {isClient && <HeaderSubMenu subItems={subMenuItems} />}
+      {isClient && media !== 'mobile' && <HeaderSubMenuContainer />}
     </div>
   );
 }
