@@ -5,16 +5,13 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { nativeScrollAtom } from '../atoms/scroll';
 import Analytics from '../components/Analytics';
-import GTag from '../components/Analytics/GTag';
 import { AnimatedFix } from '../components/Animated';
 import LoadingProgress from '../components/LoadingProgress';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
-import useScrollRestoration from '../components/SmoothScroll/useScrollRestoration';
 // import Tolstoy from '../components/Widgets/Tolstoy';
 import { useMedia } from '../lib/agent';
+import { setScrollbarWidth } from '../lib/utils';
 import '../styles/globals.css';
-import { isClient, isBrowser, setScrollbarWidth } from '../lib/utils';
-import { ScrollTrigger } from '../dist/gsap';
 // import '../styles/globals2.css';
 // import '../components/Pages/Cases/Cryprogenie/global.css';
 // import '../components/Pages/Cases/Cryprogenie/styles.css';
@@ -199,21 +196,6 @@ function MyApp({ Component, pageProps }) {
           content="/favicons/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#ffffff" />
-        <style>
-          {`
-  .to-animate {
-    opacity: 0;
-    transition: transform .4s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s, opacity .4s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s;
-  }
-  .fade-up, .fadeInUp {
-    transform: translate3d(0, 10px, 0);
-  }
-  .in-viewport, .ready .immediate {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateZ(0) !important;
-  }`}
-        </style>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -227,10 +209,24 @@ function MyApp({ Component, pageProps }) {
           `,
           }}
         />
+        <style id="my-styles">
+          {`
+            .to-animate {
+              opacity: 0;
+              transition: transform .4s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s, opacity .4s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s;
+            }
+            .fade-up, .fadeInUp {
+              transform: translate3d(0, 10px, 0);
+            }
+            .in-viewport, .ready .immediate {
+              opacity: 1 !important;
+              visibility: visible !important;
+              transform: translateZ(0) !important;
+          `}
+        </style>
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.__t0 = performance.now();
               setTimeout(function(){
                 console.log('window.__app_mounted', window.__app_mounted);
                 if (!window.__app_mounted) {
@@ -238,10 +234,10 @@ function MyApp({ Component, pageProps }) {
                   for (var i = 0; i < t.length; i++) {
                     var el = t[i];
                     el && el.classList && el.classList.add('in-viewport');
-                    window.__mobile_in_viewport = true;
+                    // window.__mobile_in_viewport = true;
                   }
                 }
-              },500);
+              }, 500);
             `,
           }}
         />
@@ -249,11 +245,25 @@ function MyApp({ Component, pageProps }) {
       <LoadingProgress />
 
       <DebugAtoms />
-      <AnimatedFix />
       {getLayout(<Component {...pageProps} />)}
-      {/** analytics */}
-      <Analytics />
+      {(() => {
+        const l =
+          typeof window !== 'undefined' && document.querySelector('.test');
+        console.log('logo', l, l.className);
 
+        setTimeout(() => {
+          const l2 =
+            typeof window !== 'undefined' && document.querySelector('.test');
+          console.log('logo2', l, l.className, l === l2);
+        }, 1000);
+      })()}
+      {/* {(() => {
+        debugger;
+        return null;
+      })()} */}
+      {/** analytics */}
+      <AnimatedFix />
+      <Analytics />
       {/** widgets */}
       {/* <Tolstoy /> */}
     </div>

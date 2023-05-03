@@ -210,18 +210,18 @@ const BurgerMenu = ({ menuId, links }) => {
                   Let&apos;s get in touch
                 </Link>
               </div>
-              {!subMenuParent && (
-                <BurgerButton
-                  className="md:hidden"
-                  aria-controls={menuId}
-                  isOpen={isOpen}
-                  onClick={() => {
-                    setIsOpen((v) => !v);
-                    setSubMenuParent(null);
-                  }}
-                  aria-expanded={isOpen}
-                />
-              )}
+              <BurgerButton
+                className={cx('transition-opacity duration-200 md:hidden', {
+                  'pointer-events-none opacity-0': subMenuParent,
+                })}
+                aria-controls={menuId}
+                isOpen={isOpen}
+                onClick={() => {
+                  setIsOpen((v) => !v);
+                  setSubMenuParent(null);
+                }}
+                aria-expanded={isOpen}
+              />
             </div>
             <HeaderMobileMenu links={links} menuId={menuId} />
           </div>
@@ -562,19 +562,22 @@ export default function Header({
                     </Animated>
                   </div>
                 ))}
-              {headerRightSlot ? null : (
-                <div className="md:hidden">
-                  <Animated delay={150} immediate>
-                    <BurgerButton
-                      theme={t}
-                      aria-controls={menuId}
-                      isOpen={isOpen}
-                      onClick={onBurgerClick}
-                      aria-expanded={isOpen}
-                    />
-                  </Animated>
-                </div>
-              )}
+              {/* {headerRightSlot ? null : ( */}
+              <div className="md:hidden">
+                <Animated delay={50} immediate className="test">
+                  <BurgerButton
+                    theme={t}
+                    aria-controls={menuId}
+                    isOpen={isOpen}
+                    onClick={onBurgerClick}
+                    aria-expanded={isOpen}
+                  />
+                </Animated>
+                {/* {(() => {
+                    debugger;
+                  })()} */}
+              </div>
+              {/* )} */}
             </div>
           </Layout>
         </div>

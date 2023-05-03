@@ -77,9 +77,9 @@ export function AnimatedFix() {
     <script
       dangerouslySetInnerHTML={{
         __html: `
-      setTimeout(() => {
-        document.documentElement.classList.add("ready");
-      }, 50);
+          setTimeout(function() {
+            document.documentElement.classList.add("ready");
+          }, 20000);
       `,
       }}
     />
@@ -150,11 +150,18 @@ export default function Animated({
     }
   }, [immediate]);
 
-  useEffect(() => {
-    if (inViewport) {
-      ref.current?.classList.add('in-viewport');
-    }
-  }, [inViewport]);
+  // useEffect(() => {
+  //   if (inViewport) {
+  //     ref.current?.classList.add('in-viewport');
+  //   }
+  // }, [inViewport]);
+
+  let _inViewport = inViewport;
+
+  // if (children && children.props?.['aria-controls']) {
+  //   console.log('needle.inViewport', inViewport);
+  //   _inViewport = false;
+  // }
 
   return (
     <Component
@@ -163,8 +170,8 @@ export default function Animated({
       className={cx(className, animate, 'to-animate', {
         immediate: immediate,
         'in-viewport': isClient
-          ? window?.__mobile_in_viewport || inViewport
-          : inViewport,
+          ? window?.__mobile_in_viewport || _inViewport
+          : _inViewport,
       })}
     >
       {children}

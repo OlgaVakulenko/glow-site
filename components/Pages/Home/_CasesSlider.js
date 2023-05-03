@@ -363,7 +363,7 @@ export default function CasesSlider3() {
 
   return (
     <Layout className="mb-[56px] ">
-      <div className="-mx-8 flex xl:-mx-[56px]">
+      <div className="flex md:-mx-8 xl:-mx-[56px]">
         <CasesRow cases={c1} />
         <CasesRow cases={c2} className="pt-[113px]" />
       </div>
