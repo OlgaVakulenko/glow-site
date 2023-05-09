@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai';
-import { forwardRef, useEffect, useRef } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import { RollingWords } from '.';
 import { subMenuOpenAtom, useHeaderTheme } from '../../Header';
 import Layout from '../../Layout';
@@ -7,8 +7,16 @@ import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
 import cx from 'clsx';
 import gsap from '../../../dist/gsap';
+import dynamic from 'next/dynamic';
+// import Scene from '../../3d';
+// import Scene2 from '../../3d/Scene2';
+const Scene = dynamic(() => import('../../3d/index'));
+const Scene2 = dynamic(() => import('../../3d/Scene2'));
+
+// const Scene = import()
 
 function IntroSection(props) {
+  const [scene, setScene] = useState(null);
   const ref = useRef(null);
   const [subMenuOpen] = useAtom(subMenuOpenAtom);
 
@@ -38,6 +46,12 @@ function IntroSection(props) {
     };
   }, [subMenuOpen]);
 
+  useEffect(() => {
+    if (window?.location?.search?.includes('v1')) {
+      setScene('v1');
+    }
+  }, []);
+
   return (
     <div ref={ref} className={cx('relative bg-brand')}>
       <div
@@ -45,7 +59,9 @@ function IntroSection(props) {
           'opacity-100': subMenuOpen,
         })}
       ></div>
-      <Layout>
+      {scene === 'v1' && <Scene />}
+
+      <Layout className="pointer-events-none">
         <div className="relative flex min-h-[calc(var(--lvh)*100)] flex-col justify-between pb-[48px] pt-[155px] md:min-h-screen md:pt-[280px]">
           <PageSubheading>
             Your trusted design team <br />

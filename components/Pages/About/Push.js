@@ -22,14 +22,11 @@ export default function Push() {
           trigger: ref.current,
           start: 'top 50%',
           end: 'bottom 50%',
-          markers: true,
+          // markers: true,
           onToggle: (e) => {
             if (e.isActive) {
               gsap
                 .to(window, {
-                  onStart: () => {
-                    document.body.classList.add('scroll-lock');
-                  },
                   scrollTo: {
                     y: descRef.current,
                     offsetY: 100,
@@ -39,9 +36,8 @@ export default function Push() {
                   gsap.to('.letter', {
                     opacity: 1,
                     duration: 1,
-                    stagger: 1,
+                    stagger: 0.7,
                     onComplete: () => {
-                      document.body.classList.remove('scroll-lock');
                       setActivated(true);
                     },
                   });
@@ -49,8 +45,8 @@ export default function Push() {
                   gsap.to('.letter-desc', {
                     opacity: 1,
                     translateY: 0,
-                    duration: 0.3,
-                    stagger: 1,
+                    duration: 1,
+                    stagger: 0.7,
                   });
                 });
             }

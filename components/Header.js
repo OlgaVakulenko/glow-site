@@ -197,11 +197,11 @@ const BurgerMenu = ({ menuId, links }) => {
               <Link href="/" className="flex items-center justify-center">
                 <Logo />
               </Link>
-              <div className="ml-[-68px] hidden md:flex">
+              {/* <div className="ml-[-68px] hidden md:flex">
                 {links.map((link, i) => (
                   <HeaderLink key={i} item={link} />
                 ))}
-              </div>
+              </div> */}
               <div className="hidden md:block">
                 <Link
                   href="/contacts"
@@ -518,21 +518,7 @@ export default function Header({
               >
                 {!isFooter &&
                   links.map((link, i) => (
-                    <HeaderLink
-                      key={i}
-                      index={i}
-                      item={link}
-                      // href={link.href}
-                      // label={link.label}
-                      theme={t}
-                      // subItems={link.children}
-                      // onSubMenuClick={(items) => {
-                      //   setSubMenuItems((current) => {
-                      //     if (current?.length) return [];
-                      //     return items;
-                      //   });
-                      // }}
-                    />
+                    <HeaderLink key={i} index={i} item={link} theme={t} />
                   ))}
               </div>
               {headerRightSlot ||
@@ -562,22 +548,22 @@ export default function Header({
                     </Animated>
                   </div>
                 ))}
-              {/* {headerRightSlot ? null : ( */}
-              <div className="md:hidden">
-                <Animated delay={50} immediate className="test">
-                  <BurgerButton
-                    theme={t}
-                    aria-controls={menuId}
-                    isOpen={isOpen}
-                    onClick={onBurgerClick}
-                    aria-expanded={isOpen}
-                  />
-                </Animated>
-                {/* {(() => {
+              {headerRightSlot ? null : (
+                <div className="md:hidden">
+                  <Animated delay={50} immediate className="test">
+                    <BurgerButton
+                      theme={t}
+                      aria-controls={menuId}
+                      isOpen={isOpen}
+                      onClick={onBurgerClick}
+                      aria-expanded={isOpen}
+                    />
+                  </Animated>
+                  {/* {(() => {
                     debugger;
                   })()} */}
-              </div>
-              {/* )} */}
+                </div>
+              )}
             </div>
           </Layout>
         </div>

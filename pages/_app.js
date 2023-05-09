@@ -8,14 +8,8 @@ import Analytics from '../components/Analytics';
 import { AnimatedFix } from '../components/Animated';
 import LoadingProgress from '../components/LoadingProgress';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
-// import Tolstoy from '../components/Widgets/Tolstoy';
 import { useMedia } from '../lib/agent';
-import { setScrollbarWidth } from '../lib/utils';
 import '../styles/globals.css';
-// import '../styles/globals2.css';
-// import '../components/Pages/Cases/Cryprogenie/global.css';
-// import '../components/Pages/Cases/Cryprogenie/styles.css';
-// import '../styles/cryptogenie.css';
 
 const DebugAtoms = () => {
   useAtomsDebugValue();
@@ -40,7 +34,7 @@ function MyApp({ Component, pageProps }) {
   }, [Component]);
 
   useEffect(() => {
-    setScrollbarWidth();
+    // setScrollbarWidth();
   }, []);
 
   useEffect(() => {
@@ -74,7 +68,14 @@ function MyApp({ Component, pageProps }) {
       console.log(e);
       errorsRef.current.push({
         url: window.location.href,
-        e: JSON.stringify(e),
+        e: {
+          message: e?.message,
+          filename: e?.filename,
+          lineno: e?.lineno,
+          colno: e?.colno,
+          error: e?.error,
+        },
+        // e: JSON.stringify(e),
         ua: window?.navigator?.userAgent,
       });
     };
@@ -83,7 +84,14 @@ function MyApp({ Component, pageProps }) {
       if ('sendBeacon' in window?.navigator) {
         if (!errorsRef.current.length) return;
         const fd = new FormData();
-        fd.append('err', JSON.stringify(errorsRef.current));
+        try {
+          fd.append('err', JSON.stringify(errorsRef.current));
+        } catch (e) {
+          fd.append(
+            'err',
+            JSON.stringify({ status: "Couldn't stringify payload" })
+          );
+        }
         errorsRef.current = [];
         window.navigator.sendBeacon('/err.php', fd);
       }
@@ -234,7 +242,7 @@ function MyApp({ Component, pageProps }) {
                   for (var i = 0; i < t.length; i++) {
                     var el = t[i];
                     el && el.classList && el.classList.add('in-viewport');
-                    // window.__mobile_in_viewport = true;
+                    window.__mobile_in_viewport = true;
                   }
                 }
               }, 500);
@@ -246,22 +254,6 @@ function MyApp({ Component, pageProps }) {
 
       <DebugAtoms />
       {getLayout(<Component {...pageProps} />)}
-      {(() => {
-        const l =
-          typeof window !== 'undefined' && document.querySelector('.test');
-        console.log('logo', l, l.className);
-
-        setTimeout(() => {
-          const l2 =
-            typeof window !== 'undefined' && document.querySelector('.test');
-          console.log('logo2', l, l.className, l === l2);
-        }, 1000);
-      })()}
-      {/* {(() => {
-        debugger;
-        return null;
-      })()} */}
-      {/** analytics */}
       <AnimatedFix />
       <Analytics />
       {/** widgets */}
