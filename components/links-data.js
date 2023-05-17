@@ -130,6 +130,10 @@ const links = [
       },
     ],
   },
+  {
+    label: 'Blog',
+    href: '/blog',
+  },
 ];
 
 export default links;

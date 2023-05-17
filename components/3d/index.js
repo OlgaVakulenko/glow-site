@@ -1,7 +1,5 @@
-import { PerspectiveCamera } from '@react-three/drei';
-import { OrthographicCamera } from '@react-three/drei';
-import { ContactShadows } from '@react-three/drei';
-import { CameraControls } from '@react-three/drei';
+import { Float } from '@react-three/drei';
+import { MeshDistortMaterial } from '@react-three/drei';
 import {
   AccumulativeShadows,
   Center,
@@ -15,12 +13,10 @@ import {
   Text3D,
   useGLTF,
 } from '@react-three/drei';
-import { Canvas, useFrame, useLoader } from '@react-three/fiber';
-import { Leva } from 'leva';
-import { useControls } from 'leva';
+import { Canvas, useFrame, useLoader, useThree } from '@react-three/fiber';
+import { Leva, useControls } from 'leva';
 import { easing } from 'maath';
-import { useEffect, useMemo, useRef } from 'react';
-import * as THREE from 'three';
+import { Suspense, useMemo, useRef } from 'react';
 import { MeshBasicMaterial, MeshPhysicalMaterial } from 'three';
 import { RGBELoader } from 'three-stdlib';
 
@@ -97,8 +93,96 @@ function Light() {
   );
 }
 
+function Lightformers({ positions = [2, 0, 2, 0, 2, 0, 2, 0] }) {
+  const group = useRef();
+  useFrame(
+    (state, delta) =>
+      (group.current.position.z += delta * 10) > 20 &&
+      (group.current.position.z = -60)
+  );
+  return (
+    <>
+      {/* Ceiling */}
+      <Lightformer
+        intensity={0.75}
+        rotation-x={Math.PI / 2}
+        position={[0, 5, -9]}
+        scale={[10, 10, 1]}
+      />
+      <group rotation={[0, 0.5, 0]}>
+        <group ref={group}>
+          {positions.map((x, i) => (
+            <Lightformer
+              key={i}
+              form="circle"
+              intensity={2}
+              rotation={[Math.PI / 2, 0, 0]}
+              position={[x, 4, i * 4]}
+              scale={[3, 1, 1]}
+            />
+          ))}
+        </group>
+      </group>
+      {/* Sides */}
+      <Lightformer
+        intensity={4}
+        rotation-y={Math.PI / 2}
+        position={[-5, 1, -1]}
+        scale={[20, 0.1, 1]}
+      />
+      <Lightformer
+        rotation-y={Math.PI / 2}
+        position={[-5, -1, -1]}
+        scale={[20, 0.5, 1]}
+      />
+      <Lightformer
+        rotation-y={-Math.PI / 2}
+        position={[10, 1, 0]}
+        scale={[20, 1, 1]}
+      />
+      {/* Accent (red) */}
+      <Float speed={5} floatIntensity={2} rotationIntensity={2}>
+        <Lightformer
+          form="ring"
+          color="red"
+          intensity={1}
+          scale={10}
+          position={[-15, 4, -18]}
+          target={[0, 0, 0]}
+        />
+      </Float>
+      {/* Background */}
+      <mesh scale={100}>
+        <sphereGeometry args={[1, 64, 64]} />
+        {/* <LayerMaterial side={THREE.BackSide}>
+          <Color color="#444" alpha={1} mode="normal" />
+          <Depth colorA="blue" colorB="black" alpha={0.5} mode="normal" near={0} far={300} origin={[100, 100, 100]} />
+        </LayerMaterial> */}
+      </mesh>
+    </>
+  );
+}
+
+function Bg() {
+  return (
+    <Environment background preset="night" resolution={256} blur={0}>
+      <group>
+        <Lightformer
+          intensity={5}
+          form="ring"
+          color="#E33230"
+          rotation-y={Math.PI / 2}
+          position={[3, 2, -1]}
+          scale={[10, 10, 1]}
+        />
+      </group>
+    </Environment>
+  );
+}
+
 function Camera() {
   useFrame((state, delta) => {
+    // return;
     easing.damp3(
       state.camera.position,
       [
@@ -109,7 +193,7 @@ function Camera() {
       0.5,
       delta
     );
-    state.camera.lookAt(0, 0, -20);
+    state.camera.lookAt(0, 0.5, 0);
   });
 
   return null;
@@ -118,80 +202,54 @@ function Camera() {
 export default function Scene() {
   return (
     <div className="absolute inset-0">
-      <Leva hidden />
-      <Canvas
-        shadows
-        orthographic
-        dpr={[1, 2]}
-        camera={{ position: [0, 0, 0], zoom: 80, rotation: [0, 5, 0] }}
-        // camera={{ position: [0, 0, 0], zoom: 1 }}
-        // camera={{ position: [0, 0, 4], fov: 40 }}
-      >
-        {/* <PerspectiveCamera position={[0, 25, 0]} zoom={1} makeDefault /> */}
-
-        {/* <axesHelper scale={80} /> */}
-        {/* <CameraControls /> */}
-        <Camera />
-        <Light />
-        <Env />
-        {/* <fog attach="fog" color="blue" near={100} far={220} /> */}
-        {/* <color attach="background" args={['red']} /> */}
-        {/* <group rotation={[Math.PI / 5, -Math.PI / 5, Math.PI / 2]}>
-          <Bounds fit clip observe margin={1.25}> */}
-        {/* <Caustics
-          backfaces
-          color={[1, 0.8, 0.8]}
-          focus={[0, -1.2, 0]}
-          lightSource={[-2, 2.5, -2.5]}
-          frustum={1.75}
-          intensity={0.005}
-          worldRadius={0.66 / 10}
-          ior={0.6}
-          backfaceIor={1.26}
-        > */}
-        <Text />
-        {/* </Caustics> */}
-        {/* <Cursor scale={[0.5, 1, 0.5]} /> */}
-        {/* </Bounds> */}
-        {/* <OrbitControls
-          // autoRotate={true}
-          autoRotateSpeed={-0.1}
-          zoomSpeed={0.25}
-          minZoom={40}
-          maxZoom={140}
-          enablePan={false}
-          dampingFactor={0.05}
-          minPolarAngle={Math.PI / 3}
-          maxPolarAngle={Math.PI / 3}
-        /> */}
-
-        <AccumulativeShadows
-          frames={100}
-          alphaTest={0.7}
-          opacity={0.7}
-          color="#941209"
-          scale={10}
-          position={[1, -0.005, 0]}
+      <Suspense>
+        <Leva />
+        <Canvas
+          shadows
+          // orthographic
+          dpr={[1, 2]}
+          // camera={{ position: [0, 0, 0], zoom: 80, rotation: [0, 5, 0] }}
+          camera={{
+            position: [0.2, 19, 62],
+            zoom: 4,
+          }}
+          // camera={{ position: [0, 0, 0], zoom: 1 }}
+          // camera={{ position: [0, 0, 4], fov: 40 }}
         >
-          <RandomizedLight
-            amount={8}
-            radius={10}
-            ambient={0.2}
-            intensity={1}
-            position={[-1.5, 2.5, -2.5]}
-            bias={0.001}
-          />
-        </AccumulativeShadows>
-        {/* <gridHelper /> */}
-        {/* <Grid /> */}
-        {/* <gridHelper
-          args={[5, 30, '#101010', '#050505']}
-          position={[0.1, 0, 1]}
-          rotation={[0, 0.4, 0]}
-          scale={4}
-        /> */}
-        {/* </group> */}
-      </Canvas>
+          {/* <color attach="background" args={['#FFF']} /> */}
+
+          {/* <Bg /> */}
+          {/* <Environment frames={Infinity} resolution={256} background blur={1}>
+            <Lightformers />
+          </Environment> */}
+          {/* <OrbitControls /> */}
+          {/* <PerspectiveCamera position={[0, 25, 0]} zoom={1} makeDefault /> */}
+
+          {/* <axesHelper scale={80} /> */}
+          {/* <CameraControls /> */}
+          <Camera />
+          {/* <Light /> */}
+          <Env />
+          <Text />
+          <AccumulativeShadows
+            frames={100}
+            alphaTest={0.7}
+            opacity={0.7}
+            color="#941209"
+            scale={10}
+            position={[1, -0.005, 0]}
+          >
+            <RandomizedLight
+              amount={8}
+              radius={10}
+              ambient={0.2}
+              intensity={1}
+              position={[-1.5, 2.5, -2.5]}
+              bias={0.001}
+            />
+          </AccumulativeShadows>
+        </Canvas>
+      </Suspense>
     </div>
   );
 }
@@ -277,7 +335,7 @@ function Text({}) {
       backside: true,
       backsideThickness: { value: 0.32, min: 0, max: 2 },
       samples: { value: 16, min: 1, max: 32, step: 1 },
-      resolution: { value: 1024, min: 64, max: 2048, step: 64 },
+      resolution: { value: 128, min: 64, max: 2048, step: 64 },
       transmission: { value: 1, min: 0, max: 1 },
       clearcoat: { value: 0.1, min: 0.1, max: 1 },
       clearcoatRoughness: { value: 1, min: 0, max: 1 },
@@ -300,6 +358,16 @@ function Text({}) {
   //   'https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/aerodynamics_workshop_1k.hdr'
   // );
 
+  useThree(({ camera }) => {
+    // camera.lookAt(0, -2, 0);
+  });
+
+  useFrame(({ camera }) => {
+    // if (Math.random() < 0.05) {
+    //   console.log('camera', camera.position, camera.zoom);
+    // }
+  });
+
   const material = useMemo(() => {
     return new MeshPhysicalMaterial({
       color: '#fff',
@@ -309,30 +377,6 @@ function Text({}) {
     });
   }, []);
   console.log(config);
-
-  const vec = useMemo(() => {
-    return new THREE.Vector3();
-  }, []);
-
-  useFrame((state) => {
-    // const mouse = state.mouse;
-    // const camera = state.camera;
-    // camera.position.lerp(
-    //   vec.set(mouse.x / 10, mouse.y / 5, camera.position.z),
-    //   0.02
-    // );
-    // console.log(state.mouse.x);
-    // state.camera.position.x = state.mouse.x;
-    // state.camera.position.y = state.mouse.y;
-  });
-
-  const ref = useRef();
-  useEffect(() => {
-    const mesh = ref.current;
-    console.log(mesh.geometry);
-    // mesh.geometry.applyMatrix(new THREE.Matrix4().makeTranslation(0, 0, 10));
-    // console.log(ref.current);
-  }, []);
 
   return (
     <group>
@@ -345,32 +389,28 @@ function Text({}) {
         position={[0, 0, 0]}
       >
         <Text3D
-          ref={ref}
           font="/Almaz_Bold.json"
           castShadow
           bevelEnabled
-          scale={5}
+          scale={1.6}
           height={0.2}
           bevelSize={0.0}
           bevelSegments={10}
           curveSegments={128}
           bevelThickness={0.01}
         >
-          g{/* <meshMatcapMaterial matcap={matcapTexture} /> */}
-          {/* <meshPhysicalMaterial
-            // attach="material"
-            {...config}
-          /> */}
+          g
           <MeshTransmissionMaterial {...config} background={texture} />
-          {/* <MeshTransmissionMaterial {...config} toneMapped={false} /> */}
-          {/* <MeshTransmissionMaterial
-            {...config}
-            color="#fff"
-            // opacity={0.6}
-            // transparent={true}
-            toneMapped={false}
-            background={texture}
+          {/* <sphereBufferGeometry args={[1, 64, 64]} /> */}
+          {/* <meshStandardMaterial
+            // {...config}
+            roughness={0}
+            color={'#202020'}
+            envMapIntensity={1}
+            clearcoat={1}
+            clearcoatRoughness={1}
           /> */}
+          {/* <meshNormalMaterial /> */}
         </Text3D>
       </Center>
     </group>

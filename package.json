@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build && next export && node scripts/image.js",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "blog:run": "node scripts/fetch-medium.mjs"
   },
   "dependencies": {
     "@amplitude/analytics-browser": "^1.8.0",

@@ -288,14 +288,18 @@ function Dribble({ className }) {
   );
 }
 
-function Medium({ className }) {
+export function Medium({
+  className,
+  title = 'Popular Design Blog on Medium',
+  subtitle = 'subscribe',
+}) {
   const media = useMediaAtom();
 
   return (
     <LinkItem
       className={cx(className, 'group')}
-      title="Popular Design Blog on Medium"
-      subtitle="view topics"
+      title={title}
+      subtitle={subtitle}
       href="https://medium.com/glow-team"
       icon={
         media === 'mobile' ? (
