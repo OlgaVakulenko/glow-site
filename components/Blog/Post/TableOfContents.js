@@ -1,9 +1,13 @@
-import { useAtom } from 'jotai';
-import { activeAtom } from '../PostPage';
 import cx from 'clsx';
+import { useAtom, useSetAtom } from 'jotai';
+import { useEffect, useRef } from 'react';
+import gsap from '../../../dist/gsap';
+import { activeAtom, isTransitionAtom } from '../PostPage';
 
 export default function TableOfContents({ paragraphs }) {
-  const [active] = useAtom(activeAtom);
+  const scrollRef = useRef(null);
+  const [active, setActive] = useAtom(activeAtom);
+  const setIsTransition = useSetAtom(isTransitionAtom);
 
   if (!paragraphs?.length) {
     return null;
@@ -12,9 +16,13 @@ export default function TableOfContents({ paragraphs }) {
   return (
     <div className="mb-10">
       <div className="mb-8 text-button-s uppercase">Table of contents</div>
-      <div className="max-h-[calc(100vh-608px)] overflow-y-auto">
+      <div
+        ref={scrollRef}
+        className="max-h-[calc(100vh-608px)] overflow-y-auto"
+      >
         {paragraphs.map((p, i) => (
-          <div
+          <a
+            href={`#${p.id}`}
             key={i}
             className={cx(
               'relative mb-6 flex items-center pl-6 text-body-xs transition-colors last:mb-0',
@@ -22,6 +30,25 @@ export default function TableOfContents({ paragraphs }) {
                 'text-brand': active === i,
               }
             )}
+            onClick={(e) => {
+              e.preventDefault();
+              gsap.to(window, {
+                duration: 0.3,
+                scrollTo: {
+                  y: '#' + p.id,
+                  offsetY: window.innerHeight / 2 - 25,
+                },
+                onStart: () => {
+                  setActive(i);
+                  setIsTransition(true);
+                },
+                onComplete: () => {
+                  setTimeout(() => {
+                    setIsTransition(false);
+                  }, 200);
+                },
+              });
+            }}
           >
             {active === i && (
               <div className="absolute left-0 top-1/2 -translate-y-1/2">
@@ -39,8 +66,8 @@ export default function TableOfContents({ paragraphs }) {
                 </svg>
               </div>
             )}
-            {p}
-          </div>
+            {p.text}
+          </a>
         ))}
       </div>
     </div>

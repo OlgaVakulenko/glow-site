@@ -1,23 +1,24 @@
 import cx from 'clsx';
-import { useSetAtom, useAtom, atom, Provider } from 'jotai';
+import { atom, Provider, useAtom } from 'jotai';
+import Head from 'next/head';
 // import { useAtom } from 'jotai';
 // import { atom } from 'jotai';
-import throttle from 'lodash.throttle';
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { useMediaAtom } from '../../lib/agent';
+import { useEffect, useRef } from 'react';
+import { ScrollTrigger } from '../../dist/gsap';
+import { useMedia } from '../../lib/agent';
+import { getFullTitle } from '../HeadTitle';
 import Layout from '../Layout';
-import Card from './Card';
-import gsap, { ScrollTrigger } from '../../dist/gsap';
-import Progress from './Post/Progress';
 import Author from './Post/Author';
-import Content from './Post/Content';
-import Tags from './Post/Tags';
-import MoreTopics from './Post/MoreTopics';
-import TableOfContents from './Post/TableOfContents';
-import Share from './Post/Share';
 import Breadcrumbs from './Post/Breadcrumbs';
+import Content from './Post/Content';
+import MoreTopics from './Post/MoreTopics';
+import Progress from './Post/Progress';
+import Share from './Post/Share';
+import TableOfContents from './Post/TableOfContents';
+import Tags from './Post/Tags';
 
 export const activeAtom = atom(0);
+export const isTransitionAtom = atom(false);
 export const progressAtom = atom(0);
 export const progressNodeYAtom = atom(null);
 
@@ -41,11 +42,16 @@ function createDot(x, y, id = null) {
 }
 
 export default function PostPage({ post, relatedPosts = [] }) {
+  const media = useMedia();
   const [progressNodeY] = useAtom(progressNodeYAtom);
   const triggerRef = useRef();
   const stickyRef = useRef();
 
   useEffect(() => {
+    if (media === 'mobile') {
+      return;
+    }
+
     const st = new ScrollTrigger({
       trigger: triggerRef.current,
       pin: stickyRef.current,
@@ -70,10 +76,16 @@ export default function PostPage({ post, relatedPosts = [] }) {
     return () => {
       st.kill();
     };
-  }, []);
+  }, [media]);
 
   return (
     <div className="pt-[142px] pb-20 md:pt-[176px]">
+      <Head>
+        <title>{getFullTitle(post.title)}</title>
+        <meta property="og:title" content={post.title}></meta>
+        <meta property="og:type" content="article"></meta>
+        <meta property="og:image" content={post.image}></meta>
+      </Head>
       <Layout>
         <Provider>
           <div className={columnClx}>
@@ -101,20 +113,22 @@ export default function PostPage({ post, relatedPosts = [] }) {
               </div>
               <Tags tags={post.tags} className="mb-20" />
             </div>
-            <aside className="hidden md:col-span-4 md:block">
-              <div className="stickyref" ref={stickyRef}>
-                <div className="mb-12">
-                  <Author
-                    name={post.author_name}
-                    image={post.author_image}
-                    position="Product Designer"
-                  />
+            {media !== 'mobile' && (
+              <aside className="hidden md:col-span-4 md:block">
+                <div className="stickyref" ref={stickyRef}>
+                  <div className="mb-12">
+                    <Author
+                      name={post.author_name}
+                      image={post.author_image}
+                      position="Product Designer"
+                    />
+                  </div>
+                  <TableOfContents paragraphs={post.paragraphs} />
+                  <Progress minutes={post.read_minutes} />
+                  <Share />
                 </div>
-                <TableOfContents paragraphs={post.paragraphs} />
-                <Progress minutes={post.read_minutes} />
-                <Share />
-              </div>
-            </aside>
+              </aside>
+            )}
           </div>
         </Provider>
         <MoreTopics posts={relatedPosts} />

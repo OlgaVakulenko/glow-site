@@ -37,7 +37,7 @@ function Item({ index, icon, title, text, href }) {
 }
 
 export default function HeaderSubMenuContainer() {
-  const [subMenuParent] = useAtom(subMenuParentAtom);
+  const [subMenuParent, setSubMenuParent] = useAtom(subMenuParentAtom);
   const subItems = subMenuParent?.children;
   const setSubMenuOpen = useSetAtom(subMenuOpenAtom);
   const show = !!subItems?.length;
@@ -58,19 +58,52 @@ export default function HeaderSubMenuContainer() {
     setSubMenuOpen(show);
   }, [show, setSubMenuOpen]);
 
+  useEffect(() => {
+    if (!show) return;
+    let active = true;
+    const handleScroll = () => {
+      console.log('handling scroll');
+
+      if (!active) return;
+      active = false;
+      setSubMenuParent(null);
+      window.removeEventListener('scroll', handleScroll);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [show, setSubMenuParent]);
+
   return (
-    <Transition
-      show={show}
-      enter="transition-opacity duration-300"
-      enterFrom="opacity-0"
-      enterTo="opacity-100"
-      leave="transition-opacity duration-300"
-      leaveFrom="opacity-100"
-      leaveTo="opacity-0"
-      className="fixed top-0 z-[9] w-full bg-white pt-24 pb-[70px]"
-    >
-      <HeaderSubMenu subMenuItems={items} />
-    </Transition>
+    <div>
+      <div
+        className={cx(
+          'pointer-events-none fixed inset-0 z-[9] bg-black opacity-50 transition-opacity duration-300',
+          {
+            '!pointer-events-auto': show,
+            '!opacity-0': !show,
+          }
+        )}
+        onClick={() => setSubMenuParent(null)}
+      ></div>
+      <Transition
+        show={show}
+        enter="transition-opacity duration-300"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="transition-opacity duration-300"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+        className="fixed top-0 z-[9] w-full bg-white pt-24 pb-[70px]"
+      >
+        {/* <div className="fixed top-0 z-[9] w-full bg-white pt-24 pb-[70px]"> */}
+        <HeaderSubMenu subMenuItems={items} />
+        {/* </div> */}
+      </Transition>
+    </div>
   );
 }
 

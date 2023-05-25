@@ -1,14 +1,21 @@
 import Link from 'next/link';
+import { AuthorImage } from './Post/Author';
 
 function Author({ name, image, date, minutes }) {
   return (
     <div className="flex md:mt-auto">
       <div className="mr-[18px]">
-        <img
+        <AuthorImage
+          name={name}
           src={image}
           alt=""
           className="mt-[2px] max-h-[40px] w-full max-w-[40px] rounded-full object-cover"
         />
+        {/* <img
+          src={image}
+          alt=""
+          className="mt-[2px] max-h-[40px] w-full max-w-[40px] rounded-full object-cover"
+        /> */}
       </div>
       <div>
         <div className="text-base leading-7">{name}</div>
@@ -28,8 +35,10 @@ export default function Card({ post }) {
         alt=""
         className="mb-6 min-h-[190px] w-full rounded-3xl object-cover md:h-full md:max-h-[223px]"
       />
-      <div className="mb-3 text-body-heading-m md:mb-2">{post.title}</div>
-      <div className="mb-6 text-body-s opacity-50 md:mb-7">
+      <div className="mb-3 text-body-heading-m md:mb-2 md:max-w-[80%]">
+        {post.title}
+      </div>
+      <div className="mb-6 max-w-[90%] text-body-s opacity-50 md:mb-7 md:max-w-[80%]">
         {post.description}
       </div>
       <Author

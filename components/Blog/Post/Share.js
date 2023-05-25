@@ -1,6 +1,8 @@
 import { useIsClient } from '../../../lib/utils';
+import CopyLink from './Share/CopyLink';
 import Facebook from './Share/Facebook';
 import LinkedIn from './Share/LinkedIn';
+import Twitter from './Share/Twitter';
 
 export default function Share() {
   const isClient = useIsClient();
@@ -15,7 +17,8 @@ export default function Share() {
       <div className="inline-grid grid-cols-4 gap-4 opacity-50">
         <Facebook />
         <LinkedIn />
-        <button>
+        <Twitter />
+        {/* <button>
           <svg
             width="48"
             height="48"
@@ -48,8 +51,9 @@ export default function Share() {
               </clipPath>
             </defs>
           </svg>
-        </button>
-        <button>
+        </button> */}
+        <CopyLink />
+        {/* <button>
           <svg
             width="48"
             height="48"
@@ -82,7 +86,7 @@ export default function Share() {
               </clipPath>
             </defs>
           </svg>
-        </button>
+        </button> */}
       </div>
     </div>
   );

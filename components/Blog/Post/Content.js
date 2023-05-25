@@ -1,10 +1,14 @@
-import { useSetAtom } from 'jotai';
+import { useAtom } from 'jotai';
+import { useSetAtom, useAtomCallback } from 'jotai';
 import throttle from 'lodash.throttle';
-import { useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef } from 'react';
 import { ScrollTrigger } from '../../../dist/gsap';
-import { activeAtom, progressAtom } from '../PostPage';
+import { activeAtom, isTransitionAtom, progressAtom } from '../PostPage';
 
 export default function Content({ html, paragraphs }) {
+  const [isTransitionValue] = useAtom(isTransitionAtom);
+  const isTransitionRef = useRef(false);
+  isTransitionRef.current = isTransitionValue;
   const setActive = useSetAtom(activeAtom);
   const setProgress = useSetAtom(progressAtom);
   const ref = useRef();
@@ -12,9 +16,11 @@ export default function Content({ html, paragraphs }) {
   useEffect(() => {
     const headings = Array.from(ref.current.querySelectorAll('h2'));
     const handleEnter = (self) => {
-      const text = self.trigger.innerText;
+      if (isTransitionRef.current) return;
+
+      const id = self.trigger.id;
       const idx = paragraphs.findIndex((p) => {
-        return text.includes(p);
+        return p.id === id;
       });
       if (idx !== -1) {
         setActive(idx);

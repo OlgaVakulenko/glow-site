@@ -10,7 +10,8 @@ import gsap from '../../../dist/gsap';
 import dynamic from 'next/dynamic';
 // import Scene from '../../3d';
 // import Scene2 from '../../3d/Scene2';
-const Scene = dynamic(() => import('../../3d/index'));
+// const Scene = dynamic(() => import('../../3d/index'));
+const Scene = dynamic(() => import('../../3d/Scene1Aug'));
 const Scene2 = dynamic(() => import('../../3d/Scene2'));
 
 // const Scene = import()
@@ -18,33 +19,33 @@ const Scene2 = dynamic(() => import('../../3d/Scene2'));
 function IntroSection(props) {
   const [scene, setScene] = useState(null);
   const ref = useRef(null);
-  const [subMenuOpen] = useAtom(subMenuOpenAtom);
+  // const [subMenuOpen] = useAtom(subMenuOpenAtom);
 
   useHeaderTheme({ theme: 'brand', ref });
 
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ref.current,
-        {
-          backgroundColor: 'rgb(227, 50, 48)',
-        },
-        {
-          scrollTrigger: {
-            trigger: ref.current,
-            start: '100% center',
-            end: '130% center',
-            scrub: true,
-          },
-          backgroundColor: 'white',
-        }
-      );
-    });
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.fromTo(
+  //       ref.current,
+  //       {
+  //         backgroundColor: 'rgb(227, 50, 48)',
+  //       },
+  //       {
+  //         scrollTrigger: {
+  //           trigger: ref.current,
+  //           start: '100% center',
+  //           end: '130% center',
+  //           scrub: true,
+  //         },
+  //         backgroundColor: 'white',
+  //       }
+  //     );
+  //   });
 
-    return () => {
-      ctx.revert();
-    };
-  }, [subMenuOpen]);
+  //   return () => {
+  //     ctx.revert();
+  //   };
+  // }, [subMenuOpen]);
 
   useEffect(() => {
     if (window?.location?.search?.includes('v1')) {
@@ -54,11 +55,11 @@ function IntroSection(props) {
 
   return (
     <div ref={ref} className={cx('relative bg-brand')}>
-      <div
+      {/* <div
         className={cx('absolute inset-0 bg-white opacity-0 duration-300', {
           'opacity-100': subMenuOpen,
         })}
-      ></div>
+      ></div> */}
       {scene === 'v1' && <Scene />}
 
       <Layout className="pointer-events-none">

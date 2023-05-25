@@ -7,6 +7,8 @@ import { useMemo, useState, Fragment } from 'react';
 import { atom, useAtom } from 'jotai';
 import { useMediaAtom } from '../../lib/agent';
 import { useIsClient } from '../../lib/utils';
+import Head from 'next/head';
+import { getFullTitle } from '../HeadTitle';
 
 const TAG_ALL = 'All Topics';
 const filterAtom = atom(TAG_ALL);
@@ -26,6 +28,9 @@ export default function BlogPage({ posts, tags = [] }) {
 
   return (
     <div>
+      <Head>
+        <title>{getFullTitle('Blog')}</title>
+      </Head>
       <div className="pt-[177px]">
         <Layout>
           <div className="mb-[71px] flex">
@@ -41,7 +46,7 @@ export default function BlogPage({ posts, tags = [] }) {
             We write about <br className="hidden md:block" /> business & design
           </PageHeading>
         </Layout>
-        <div className="mb-12 md:mb-[72px]">
+        <div className="mb-8 md:mb-[72px]">
           <Tags tags={tags} />
         </div>
         <Layout>
@@ -67,7 +72,7 @@ function Tags({ tags }) {
   }, [media]);
   return (
     <TagsWrapper>
-      <div className="flex overflow-y-scroll md:overflow-y-hidden">
+      <div className="flex overflow-y-scroll pb-4 md:overflow-y-hidden md:pb-0">
         {_tags.map((tag) => (
           <button
             type="button"

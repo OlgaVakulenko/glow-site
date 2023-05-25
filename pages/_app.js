@@ -112,6 +112,10 @@ function MyApp({ Component, pageProps }) {
     }
   }, [router.isReady]);
 
+  useEffect(() => {
+    window.__app_hydrated = true;
+  }, []);
+
   // useScrollRestoration(router);
 
   return (

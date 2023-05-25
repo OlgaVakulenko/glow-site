@@ -41,12 +41,12 @@ fetch(url)
             const article = filterContent(
               removeArticleHeader(root.querySelector('article'))
             );
+            const paragraphs = getParagraphs(article);
             const text = filterRawHtml(article.innerHTML);
             const tags = root
               .querySelectorAll('a')
               .filter((link) => link.getAttribute('href').startsWith('/tag'))
               .map((link) => link.innerText);
-            const paragraphs = getParagraphs(article);
 
             return {
               ...post,
@@ -121,32 +121,51 @@ function getPostDataFromHtml(root) {
 }
 
 function getParagraphs(root) {
-  const possibleHeadings = ['h1, h2, p > string'];
+  const possibleHeadings = ['h1', 'h2', 'p > strong'];
   const p = [];
 
   possibleHeadings.forEach((selector) => {
+    console.log(selector, p.length);
     if (!p.length) {
       p.push(...root.querySelectorAll(selector));
     }
   });
 
+  p.forEach((node) => {
+    node.rawTagName = 'h2';
+    node.id = 'p' + Math.random() * 100_000;
+    node.setAttribute('id', node.id.toString().replaceAll('.', ''));
+  });
+
   return p
     .map((node) => {
-      return node.innerText;
+      return {
+        text: node.innerText,
+        id: node.id,
+      };
     })
-    .filter((text) => {
+    .filter(({ text }) => {
       const blocklist = ['Thanks for reading'];
+      const result = blocklist.every((needle) => {
+        return !text.includes(needle);
+      });
 
-      return blocklist.every((needle) => !text.includes(needle));
+      return result;
     })
-    .map((text) => {
+    .map(({ text, ...rest }) => {
       const regexp = [/^\d\.?/];
 
-      return regexp.reduce((text, r) => {
-        return text.replace(r, '');
-      }, text);
+      return {
+        ...rest,
+        text: regexp.reduce((text, r) => {
+          return text.replace(r, '');
+        }, text),
+      };
     })
-    .map((text) => text.trim());
+    .map(({ text, ...rest }) => ({
+      ...rest,
+      text: text.trim(),
+    }));
 }
 
 function removeArticleHeader(article) {
@@ -190,7 +209,6 @@ function filterRawHtml(html) {
 }
 
 function transformTags(tags) {
-  console.log(tags, 'before');
   const map = [
     ['Case Study', 'Case'],
     ['Hr Trends', 'HR'],
@@ -216,7 +234,6 @@ function transformTags(tags) {
 
     return t;
   });
-  console.log(tags, 'after');
 
   return [...new Set(tags)];
 }

@@ -32,7 +32,7 @@ export default function Progress({ minutes }) {
 
   useEffect(() => {
     const rect = rootRef.current.getBoundingClientRect();
-    console.log(rect.y);
+
     setProgressNodeY(rect.y);
   }, [setProgressNodeY]);
 
