@@ -83,8 +83,10 @@ export default function PostPage({ post, relatedPosts = [] }) {
       <Head>
         <title>{getFullTitle(post.title)}</title>
         <meta property="og:title" content={post.title}></meta>
+        <meta property="og:description" content={post.description}></meta>
         <meta property="og:type" content="article"></meta>
         <meta property="og:image" content={post.image}></meta>
+        <meta name="twitter:card" content="summary"></meta>
       </Head>
       <Layout>
         <Provider>
