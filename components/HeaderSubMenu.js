@@ -4,10 +4,11 @@ import { useMounted } from './Icons/animations';
 import Layout from './Layout';
 import cx from 'clsx';
 import { Transition } from '@headlessui/react';
-import { subMenuOpenAtom, subMenuParentAtom } from './Header';
+import { isTopAtom, subMenuOpenAtom, subMenuParentAtom } from './Header';
 import { useSetAtom } from 'jotai';
 import { atom } from 'jotai';
 import { useAtom } from 'jotai';
+import { useAtomValue } from 'jotai';
 
 const hoveredItemAtom = atom(null);
 
@@ -38,6 +39,7 @@ function Item({ index, icon, title, text, href }) {
 
 export default function HeaderSubMenuContainer() {
   const [subMenuParent, setSubMenuParent] = useAtom(subMenuParentAtom);
+  const isTop = useAtomValue(isTopAtom);
   const subItems = subMenuParent?.children;
   const setSubMenuOpen = useSetAtom(subMenuOpenAtom);
   const show = !!subItems?.length;
@@ -97,11 +99,15 @@ export default function HeaderSubMenuContainer() {
         leave="transition-opacity duration-300"
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
-        className="fixed top-0 z-[9] w-full bg-white pt-24 pb-[70px]"
+        className={cx('fixed top-0 z-[9] w-full bg-white')}
       >
-        {/* <div className="fixed top-0 z-[9] w-full bg-white pt-24 pb-[70px]"> */}
-        <HeaderSubMenu subMenuItems={items} />
-        {/* </div> */}
+        <div
+          className={cx('pt-24 pb-[70px]', {
+            '!pt-[120px]': isTop,
+          })}
+        >
+          <HeaderSubMenu subMenuItems={items} />
+        </div>
       </Transition>
     </div>
   );
@@ -109,7 +115,7 @@ export default function HeaderSubMenuContainer() {
 
 export function HeaderSubMenu({ subMenuItems: items }) {
   return (
-    <div className="border-t border-[#B3B3B3] pt-14">
+    <div className={cx('border-t border-[#B3B3B3] pt-14')}>
       <Layout className="flex flex-col justify-between md:flex-row xl:!px-[48px]">
         {items.map((item, idx) => (
           <Item

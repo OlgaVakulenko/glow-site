@@ -151,19 +151,19 @@ module.exports = {
       borderWidth: {
         ['1.5']: '1.5px',
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: '#000',
+            '--tw-prose-headings': '#000',
+            '--tw-prose-counters': '#000',
+            '--tw-prose-quotes': '#000',
+            '--tw-prose-bold': '#000',
+            '--tw-prose-captions': '#000',
+          },
+        },
+      }),
     },
   },
-  plugins: [
-    require('@tailwindcss/typography'),
-    // plugin((api) => {
-    //   api.addVariant('phover', ({ container }) => {
-    //     const mediaRule = api.postcss.atRule({
-    //       name: 'media',
-    //       params: '(hover: hover)',
-    //     });
-    //     mediaRule.append(container.nodes);
-    //     container.append(mediaRule);
-    //   });
-    // }),
-  ],
+  plugins: [require('@tailwindcss/typography')],
 };

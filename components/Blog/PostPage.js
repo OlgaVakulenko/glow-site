@@ -92,7 +92,7 @@ export default function PostPage({ post, relatedPosts = [] }) {
         <Provider>
           <div className={columnClx}>
             <Breadcrumbs current={post.title} slug={post.href} />
-            <h1 className="mb-10 font-glow text-heading-h3 leading-[37px] md:max-w-[800px] md:text-heading-h2">
+            <h1 className="color-[#000] mb-10 font-glow text-heading-h3 leading-[37px] md:max-w-[800px] md:text-heading-h2">
               {post.title}
             </h1>
             <div className="md:hidden">

@@ -328,6 +328,9 @@ export const useHeaderTheme = ({
   return;
 };
 
+export const isTopAtom = atom(false);
+export const isBottomAtom = atom(false);
+
 export default function Header({
   isFixed = true,
   headerRightSlot = null,
@@ -378,8 +381,8 @@ export default function Header({
 
   const offset = 112;
 
-  const [isTop, setIsTop] = useState(false);
-  const [isBottom, setIsBottom] = useState(false);
+  const [isTop, setIsTop] = useAtom(isTopAtom);
+  const [isBottom, setIsBottom] = useAtom(isBottomAtom);
 
   useEffect(() => {
     const offset = 112;
@@ -398,7 +401,7 @@ export default function Header({
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
-  }, []);
+  }, [setIsTop, setIsBottom]);
 
   useEffect(() => {
     let mounted = true;
