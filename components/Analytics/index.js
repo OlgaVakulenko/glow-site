@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 // import Amplitude from './Amplitude';
@@ -5,7 +6,8 @@ import { useEffect } from 'react';
 import GTag from './GTag';
 import Hotjar from './Hotjar';
 import Linkedin from './Linkedin';
-import MixPanel from './MixPanel';
+// import MixPanel from './MixPanel';
+const MixPanel = dynamic(() => import('./MixPanel'));
 
 export const pageview = (url) => {
   window?.gtag?.('config', 'G-5NP2XWNRBX', {

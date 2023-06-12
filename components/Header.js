@@ -23,49 +23,6 @@ import links from './links-data';
 import Logo from './Logo';
 import RollingText from './RollingText';
 
-// const links = [
-//   {
-//     label: 'Work',
-//     href: '/work',
-//   },
-//   {
-//     label: 'Team',
-//     href: '/about',
-//   },
-//   {
-//     label: 'Services',
-//     href: '#',
-//     children: [
-//       {
-//         title: 'MVP',
-//         text: 'We define your goals, get to know your audience, and understand the context.',
-//         icon: (
-//           <svg
-//             width="64"
-//             height="48"
-//             viewBox="0 0 64 48"
-//             fill="none"
-//             xmlns="http://www.w3.org/2000/svg"
-//           >
-//             <rect x="13.5" y="28.5" width="15" height="15" stroke="#19191B" />
-//             <rect x="29.5" y="5.5" width="15" height="15" stroke="#19191B" />
-//             <rect
-//               x="28.5"
-//               y="28.5"
-//               width="23"
-//               height="15"
-//               fill="#19191B"
-//               stroke="#19191B"
-//             />
-//           </svg>
-//         ),
-//       },
-//     ],
-//   },
-// ];
-
-// const links = [];
-
 export function BurgerIcon({ isOpen = false, theme, size = 40 }) {
   let stroke = '#19191B';
 
@@ -167,11 +124,11 @@ const BurgerMenu = ({ menuId, links }) => {
     if (media !== 'mobile') {
       setIsOpen(false);
     }
-  }, [media]);
+  }, [media, setIsOpen]);
 
   useEffect(() => {
     setIsOpen(false);
-  }, [router.pathname]);
+  }, [router.pathname, setIsOpen]);
 
   return (
     <Transition
@@ -197,11 +154,6 @@ const BurgerMenu = ({ menuId, links }) => {
               <Link href="/" className="flex items-center justify-center">
                 <Logo />
               </Link>
-              {/* <div className="ml-[-68px] hidden md:flex">
-                {links.map((link, i) => (
-                  <HeaderLink key={i} item={link} />
-                ))}
-              </div> */}
               <div className="hidden md:block">
                 <Link
                   href="/contacts"
@@ -253,10 +205,6 @@ export const useHeaderTheme = ({
   const setHeaderTheme = useSetAtom(headerTheme);
   const setBackdrop = useSetAtom(showBackdropAtom);
   const setIsFooter = useSetAtom(isFooterAtom);
-
-  // useEffect(() => {
-  //   setIsFooter(isFooter);
-  // }, [isFooter, setIsFooter]);
 
   useEffect(() => {
     const onEnter = () => {
