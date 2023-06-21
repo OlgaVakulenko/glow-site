@@ -11,47 +11,47 @@ import React, { useEffect, useMemo, useState } from 'react';
 import debounce from 'lodash.debounce';
 import Layout from '../../Layout';
 
-const posts = [
-  {
-    title:
-      'Why perform a UI/UX audit: benefits and techniques for a good start.',
-    authorAvatar: BlogAvatar1,
-    authorName: 'Stas Kovalsky',
-    authorPosition: 'Co-Founder & Designer',
-    image: BlogImage3,
-    isFeatured: true,
-  },
-  {
-    title: 'A product design agency is too costly for me',
-    authorAvatar: BlogAvatar1,
-    authorName: 'Stas Kovalsky',
-    authorPosition: 'Co-Founder & Designer',
-    image: BlogImage1,
-  },
-  {
-    title: 'UI/UX Case Study: Automation of Parking Lots at Airports',
-    authorAvatar: BlogAvatar1,
-    authorName: 'Stas Kovalsky',
-    authorPosition: 'Co-Founder & Designer',
-    image: BlogImage2,
-  },
-  {
-    title: 'A product design agency is too costly for me',
-    authorAvatar: BlogAvatar1,
-    authorName: 'Stas Kovalsky',
-    authorPosition: 'Co-Founder & Designer',
-    image: BlogImage1,
-  },
-  {
-    title: 'UI/UX Case Study: Automation of Parking Lots at Airports',
-    authorAvatar: BlogAvatar1,
-    authorName: 'Stas Kovalsky',
-    authorPosition: 'Co-Founder & Designer',
-    image: BlogImage2,
-  },
-];
+// const posts = [
+//   {
+//     title:
+//       'Why perform a UI/UX audit: benefits and techniques for a good start.',
+//     authorAvatar: BlogAvatar1,
+//     authorName: 'Stas Kovalsky',
+//     authorPosition: 'Co-Founder & Designer',
+//     image: BlogImage3,
+//     isFeatured: true,
+//   },
+//   {
+//     title: 'A product design agency is too costly for me',
+//     authorAvatar: BlogAvatar1,
+//     authorName: 'Stas Kovalsky',
+//     authorPosition: 'Co-Founder & Designer',
+//     image: BlogImage1,
+//   },
+//   {
+//     title: 'UI/UX Case Study: Automation of Parking Lots at Airports',
+//     authorAvatar: BlogAvatar1,
+//     authorName: 'Stas Kovalsky',
+//     authorPosition: 'Co-Founder & Designer',
+//     image: BlogImage2,
+//   },
+//   {
+//     title: 'A product design agency is too costly for me',
+//     authorAvatar: BlogAvatar1,
+//     authorName: 'Stas Kovalsky',
+//     authorPosition: 'Co-Founder & Designer',
+//     image: BlogImage1,
+//   },
+//   {
+//     title: 'UI/UX Case Study: Automation of Parking Lots at Airports',
+//     authorAvatar: BlogAvatar1,
+//     authorName: 'Stas Kovalsky',
+//     authorPosition: 'Co-Founder & Designer',
+//     image: BlogImage2,
+//   },
+// ];
 
-export default function BlogPosts() {
+export default function BlogPosts({ posts }) {
   const [withLayout, setWithLayout] = useState(false);
   useEffect(() => {
     const onResize = debounce(() => {
@@ -75,7 +75,7 @@ export default function BlogPosts() {
       <SectionLink
         title="Insights"
         buttonLabel="Read Blog"
-        href="#"
+        href="/blog"
         description="We share our knowledge. Not only with other designers, but also with businesses. Our processes help optimize your work. "
         showButtonOnMobile={true}
       />

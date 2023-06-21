@@ -50,7 +50,7 @@ export default function BlogPage({ posts, tags = [] }) {
           <Tags tags={tags} />
         </div>
         <Layout>
-          <div className="grid gap-y-10 pb-20 md:grid-cols-2 md:gap-7 md:gap-y-10 xl:grid-cols-3">
+          <div className="grid gap-y-10 pb-20 md:grid-cols-2 md:gap-7 md:gap-y-20 xl:grid-cols-3">
             {_posts.map((post) => (
               <Card key={post.title} post={post} />
             ))}

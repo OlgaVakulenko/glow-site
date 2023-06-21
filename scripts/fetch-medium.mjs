@@ -53,7 +53,9 @@ fetch(url)
               text,
               tags: transformTags(tags),
               paragraphs,
-              href: slugify(post.title).toLowerCase().replaceAll(':', ''),
+              href: slugify(post.title, { remove: /[*+~.()'"!:@\?]/g })
+                .toLowerCase()
+                .replaceAll(':', ''),
             };
           });
       });
@@ -125,7 +127,6 @@ function getParagraphs(root) {
   const p = [];
 
   possibleHeadings.forEach((selector) => {
-    console.log(selector, p.length);
     if (!p.length) {
       p.push(...root.querySelectorAll(selector));
     }

@@ -18,7 +18,7 @@ import BlogPosts from './BlogPosts';
 import Animated from '../../Animated';
 import { useEffect, useRef } from 'react';
 
-export default function About() {
+export default function About({ posts }) {
   return (
     <div>
       <Layout className="pt-48 pb-14 md:pt-[241px] xl:pt-[216px]">
@@ -65,7 +65,7 @@ export default function About() {
         <Push />
         <Logos />
         <HRule className="mb-14" />
-        <BlogPosts />
+        <BlogPosts posts={posts} />
       </DimSection>
     </div>
   );

@@ -1,4 +1,4 @@
-import { getBlogPosts, getPostPreviewData } from '../../blog/util';
+import { getBlogPosts, getPostPreviewData, withAuthor } from '../../blog/util';
 import PostPage from '../../components/Blog/PostPage';
 
 export default PostPage;
@@ -29,7 +29,10 @@ export async function getStaticProps({ params }) {
 
   return {
     props: {
-      post,
+      post: {
+        ...post,
+        ...withAuthor(post),
+      },
       relatedPosts: relatedPosts.map(getPostPreviewData),
     },
   };

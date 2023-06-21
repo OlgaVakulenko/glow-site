@@ -9,8 +9,24 @@ export async function getBlogPosts() {
   return JSON.parse(data).data;
 }
 
-export function getPostPreviewData({ text, paragraphs, ...post }) {
+const positionMap = {
+  'Kovalsky Stanislav': 'Co-Founder & Big Shot',
+  'Daria Haman': 'HR Manager',
+  'Liudmyla Gramatyk': 'Content Manager',
+};
+
+export function withAuthor(post) {
   return {
     ...post,
+    author_position: positionMap[post.author_name] || 'Product Designer',
+  };
+}
+
+export function getPostPreviewData({ text, paragraphs, ...post }) {
+  console.log('author', post);
+
+  return {
+    ...post,
+    ...withAuthor(post),
   };
 }

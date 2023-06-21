@@ -99,7 +99,7 @@ export default function PostPage({ post, relatedPosts = [] }) {
               <Author
                 name={post.author_name}
                 image={post.author_image}
-                position="Product Designer"
+                position={post.author_position}
               />
             </div>
           </div>
@@ -122,7 +122,7 @@ export default function PostPage({ post, relatedPosts = [] }) {
                     <Author
                       name={post.author_name}
                       image={post.author_image}
-                      position="Product Designer"
+                      position={post.author_position}
                     />
                   </div>
                   <TableOfContents paragraphs={post.paragraphs} />

@@ -29,12 +29,17 @@ function Author({ name, image, date, minutes }) {
 
 export default function Card({ post }) {
   return (
-    <Link href={`/blog/${post.href}`} className="block md:flex md:flex-col">
-      <img
-        src={post.image}
-        alt=""
-        className="mb-6 min-h-[190px] w-full rounded-3xl object-cover md:h-full md:max-h-[223px]"
-      />
+    <Link
+      href={`/blog/${post.href}`}
+      className="group block overflow-hidden md:flex md:flex-col"
+    >
+      <div className="mb-6 overflow-hidden rounded-3xl">
+        <img
+          src={post.image}
+          alt=""
+          className="h-[223px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
       <div className="mb-3 text-body-heading-m md:mb-2 md:max-w-[80%]">
         {post.title}
       </div>
