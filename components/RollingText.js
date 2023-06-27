@@ -1,6 +1,9 @@
 import { useMemo } from 'react';
+import { useMediaAtom } from '../lib/agent';
 
 export default function RollingText({ text = '', height }) {
+  const media = useMediaAtom();
+
   const sentences = useMemo(() => {
     if (Array.isArray(text)) {
       return text.map((t) => t.split(''));
@@ -8,6 +11,10 @@ export default function RollingText({ text = '', height }) {
 
     return [text.split('')];
   }, [text]);
+
+  if (media === 'mobile') {
+    return <div>{text}</div>;
+  }
 
   return (
     <div>

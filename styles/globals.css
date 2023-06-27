@@ -129,9 +129,12 @@
   white-space: break-spaces;
 }
 
-.rolling-text-container:hover .rolling-letter,
-.rolling-text-group:hover .rolling-letter {
-  transform: translateY(-100%) translateZ(0);
+@media (hover: hover) {
+
+  .rolling-text-container:hover .rolling-letter,
+  .rolling-text-group:hover .rolling-letter {
+    transform: translateY(-100%) translateZ(0);
+  }
 }
 
 .rolling-word {

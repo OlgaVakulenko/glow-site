@@ -15,11 +15,13 @@ const hoveredItemAtom = atom(null);
 function Item({ index, icon, title, text, href }) {
   const [hoveredItem, setHoveredItem] = useAtom(hoveredItemAtom);
 
+  const active = hoveredItem === index;
+
   return (
     <Link
       href={href}
       className={cx('flex transition-opacity duration-300', {
-        'opacity-50': hoveredItem !== null && hoveredItem !== index,
+        // 'opacity-50': hoveredItem !== null && !active,
       })}
       onMouseEnter={() => {
         setHoveredItem(index);
@@ -28,7 +30,13 @@ function Item({ index, icon, title, text, href }) {
         setHoveredItem(null);
       }}
     >
-      <div className="mr-6 w-16">{icon}</div>
+      <div
+        className={cx('mr-6 w-16 transition-colors duration-300', {
+          'text-brand': active,
+        })}
+      >
+        {icon}
+      </div>
       <div className="pt-2">
         <div className="mb-2 text-body-heading-m">{title}</div>
         <div className="max-w-[208px] text-body-s opacity-50">{text}</div>

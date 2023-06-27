@@ -58,7 +58,7 @@ export default function About({ posts }) {
       <Layout className="pt-16 pb-24 md:pt-[111px] md:pb-[137px] xl:pt-[103px] xl:pb-[136px]">
         <Vision />
       </Layout>
-      <DimSection className="pt-[80px] md:pt-[137px]">
+      <DimSection className="pt-[80px] md:pt-[160px]">
         <Founders />
         <HRule className="mb-14" />
         <Team />

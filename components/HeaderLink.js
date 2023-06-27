@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Animated from './Animated';
 import RollingText from './RollingText';
 import cx from 'clsx';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { useAtom } from 'jotai';
 import { subMenuParentAtom } from './Header';
 
@@ -18,6 +18,7 @@ export default function HeaderLink({
   const subItems = item.children;
   const { href, label } = item;
   const [subMenuParent, setSubMenuParent] = useAtom(subMenuParentAtom);
+  const debounceRef = useRef(false);
 
   const props = useMemo(() => {
     if (subItems?.length) {
@@ -37,14 +38,22 @@ export default function HeaderLink({
   return (
     <Animated
       {...props}
-      onClick={() => {
+      onMouseEnter={() => {
         if (subItems?.length) {
-          // onSubMenuClick(subItems);
           setSubMenuParent((it) => {
-            console.log('needle.set.item', item);
-            if (it) {
-              return null;
-            }
+            if (it) return it;
+            return item;
+          });
+          debounceRef.current = true;
+          setTimeout(() => {
+            debounceRef.current = false;
+          }, 300);
+        }
+      }}
+      onClick={() => {
+        if (subItems?.length && !debounceRef.current) {
+          setSubMenuParent((it) => {
+            if (it) return null;
 
             return item;
           });

@@ -9,6 +9,7 @@ import { useMediaAtom } from '../../lib/agent';
 import { useIsClient } from '../../lib/utils';
 import Head from 'next/head';
 import { getFullTitle } from '../HeadTitle';
+import RollingText from '../RollingText';
 
 const TAG_ALL = 'All Topics';
 const filterAtom = atom(TAG_ALL);
@@ -70,6 +71,7 @@ function Tags({ tags }) {
   const TagsWrapper = useMemo(() => {
     return media === 'mobile' ? Fragment : Layout;
   }, [media]);
+
   return (
     <TagsWrapper>
       <div className="flex overflow-y-scroll pb-4 md:overflow-y-hidden md:pb-0">
@@ -87,7 +89,7 @@ function Tags({ tags }) {
               setFilter(tag);
             }}
           >
-            {tag}
+            <RollingText text={tag} height={18} />
           </button>
         ))}
       </div>
