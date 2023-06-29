@@ -55,6 +55,7 @@ fetch(url)
               paragraphs,
               href: slugify(post.title, { remove: /[*+~.()'"!:@\?]/g })
                 .toLowerCase()
+                .replaceAll('/', '-')
                 .replaceAll(':', ''),
             };
           });
