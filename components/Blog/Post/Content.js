@@ -1,7 +1,8 @@
-import { useAtom } from 'jotai';
-import { useSetAtom, useAtomCallback } from 'jotai';
+import { useAtom, useSetAtom } from 'jotai';
 import throttle from 'lodash.throttle';
-import { useCallback, useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+import Swiper from 'swiper';
+import 'swiper/css';
 import { ScrollTrigger } from '../../../dist/gsap';
 import { activeAtom, isTransitionAtom, progressAtom } from '../PostPage';
 
@@ -60,6 +61,41 @@ export default function Content({ html, paragraphs }) {
       st.kill();
     };
   }, [setProgress]);
+
+  useEffect(() => {
+    if (!ref.current) return;
+
+    const sliderContainer = ref.current.querySelector(
+      'div > figure + figure + figure'
+    )?.parentElement;
+
+    if (!sliderContainer) return;
+    sliderContainer.classList.add('swiper');
+
+    const originalHTML = sliderContainer.innerHTML;
+    const newHTML = `<div class="swiper-wrapper">${originalHTML}</div>`;
+    sliderContainer.innerHTML = newHTML;
+    Array.from(sliderContainer.querySelectorAll('figure')).forEach((el) => {
+      el.classList.add('swiper-slide');
+      const img = el.querySelector('img');
+      if (!img) return;
+      img.style.marginLeft = 'auto';
+      img.style.marginRight = 'auto';
+    });
+
+    const swiper = new Swiper(sliderContainer, {
+      slidesPerView: 1.75,
+      loop: true,
+      centeredSlides: true,
+    });
+
+    return () => {
+      swiper.destroy();
+      if (sliderContainer) {
+        sliderContainer.innerHTML = originalHTML;
+      }
+    };
+  }, []);
 
   return (
     <article

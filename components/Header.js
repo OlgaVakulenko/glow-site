@@ -485,10 +485,11 @@ export default function Header({
                         className={cx(
                           'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-all duration-500 hover:bg-black',
                           'hover:text-brand',
-                          t === 'white' &&
+                          (t === 'white' || subMenuActive) &&
                             'glow-border-b-b hover:!bg-brand hover:!text-black',
                           t === 'dark' &&
-                            'glow-border-white-to-r bg-black text-white hover:!bg-brand hover:!text-black'
+                            !subMenuActive &&
+                            'glow-border-white-to-r bg-transparent text-white hover:!bg-brand hover:!text-black'
                         )}
                       >
                         <RollingText

@@ -87,6 +87,10 @@
   color: white;
 }
 
+.header-logo.submenu path {
+  color: theme('colors.brand');
+}
+
 .header-logo.white path {
   color: theme('colors.brand');
 }

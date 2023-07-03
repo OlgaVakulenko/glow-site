@@ -180,7 +180,7 @@ function removeArticleHeader(article) {
 }
 
 function filterContent(node) {
-  const badAttrs = ['class', 'id'];
+  const badAttrs = ['class', 'id', 'role', 'tabIndex', 'tabindex'];
   badAttrs.forEach((attr) => {
     node?.removeAttribute?.(attr);
   });

@@ -62,7 +62,7 @@ export default function HeaderLink({
       delay={(index + 1) * 100}
       className={cx(
         'mr-[77px] flex items-center justify-center text-sm uppercase last:mr-0',
-        theme === 'dark' && 'text-white'
+        theme === 'dark' && !subMenuParent && 'text-white'
       )}
       immediate
     >
@@ -76,13 +76,17 @@ export default function HeaderLink({
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path d="M14 7L-2.7314e-08 7" stroke="#19191B" strokeWidth="2" />
+            <path
+              d="M14 7L-2.7314e-08 7"
+              stroke="currentColor"
+              strokeWidth="2"
+            />
             <path
               className={cx('opacity-100 transition-opacity duration-200', {
                 '!opacity-0': subMenuParent,
               })}
               d="M7 14L7 -2.73145e-08"
-              stroke="#19191B"
+              stroke="currentColor"
               strokeWidth="2"
             />
           </svg>

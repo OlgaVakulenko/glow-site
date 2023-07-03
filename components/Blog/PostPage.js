@@ -111,7 +111,11 @@ export default function PostPage({ post, relatedPosts = [] }) {
                 <img src={post.image} alt="" className="md:rounded-3xl" />
               </div>
               <div ref={triggerRef}>
-                <Content html={post.text} paragraphs={post.paragraphs} />
+                <Content
+                  key={post.href}
+                  html={post.text}
+                  paragraphs={post.paragraphs}
+                />
               </div>
               <Tags tags={post.tags} className="mb-20" />
             </div>

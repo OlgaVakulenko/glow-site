@@ -1,6 +1,10 @@
 import cx from 'clsx';
+import { useAtom } from 'jotai';
+import { subMenuParentAtom } from './Header';
 
 export default function Logo({ className = '', style = {} }) {
+  const [subMenuParent] = useAtom(subMenuParentAtom);
+
   return (
     <svg
       width="78"
@@ -8,7 +12,11 @@ export default function Logo({ className = '', style = {} }) {
       viewBox="0 0 78 32"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cx(className, !style.color && 'header-logo')}
+      className={cx(
+        className,
+        !style.color && 'header-logo',
+        subMenuParent && 'submenu'
+      )}
       style={style}
     >
       <path
