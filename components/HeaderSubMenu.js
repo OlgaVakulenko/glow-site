@@ -10,31 +10,13 @@ import { atom } from 'jotai';
 import { useAtom } from 'jotai';
 import { useAtomValue } from 'jotai';
 
-const hoveredItemAtom = atom(null);
-
 function Item({ index, icon, title, text, href }) {
-  const [hoveredItem, setHoveredItem] = useAtom(hoveredItemAtom);
-
-  const active = hoveredItem === index;
-
   return (
     <Link
       href={href}
-      className={cx('flex transition-opacity duration-300', {
-        // 'opacity-50': hoveredItem !== null && !active,
-      })}
-      onMouseEnter={() => {
-        setHoveredItem(index);
-      }}
-      onMouseLeave={() => {
-        setHoveredItem(null);
-      }}
+      className={cx('group flex transition-opacity duration-300')}
     >
-      <div
-        className={cx('mr-6 w-16 transition-colors duration-300', {
-          'text-brand': active,
-        })}
-      >
+      <div className={cx('mr-6 w-16 transition-colors duration-300')}>
         {icon}
       </div>
       <div className="pt-2">

@@ -23,8 +23,6 @@ export function withAuthor(post) {
 }
 
 export function getPostPreviewData({ text, paragraphs, ...post }) {
-  console.log('author', post);
-
   return {
     ...post,
     ...withAuthor(post),

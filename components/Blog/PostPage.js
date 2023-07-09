@@ -55,7 +55,6 @@ export default function PostPage({ post, relatedPosts = [] }) {
     const st = new ScrollTrigger({
       trigger: triggerRef.current,
       pin: stickyRef.current,
-      // markers: true,
       start: 'top center+=120',
       end: () => {
         const node = document.querySelector('.progress-node');
@@ -76,7 +75,7 @@ export default function PostPage({ post, relatedPosts = [] }) {
     return () => {
       st.kill();
     };
-  }, [media]);
+  }, [media, post.href]);
 
   return (
     <div className="pt-[142px] pb-20 md:pt-[176px]">
@@ -88,7 +87,7 @@ export default function PostPage({ post, relatedPosts = [] }) {
         <meta property="og:image" content={post.image}></meta>
         <meta name="twitter:card" content="summary"></meta>
       </Head>
-      <Layout>
+      <Layout key={post.href}>
         <Provider>
           <div className={columnClx}>
             <Breadcrumbs current={post.title} slug={post.href} />
@@ -111,11 +110,7 @@ export default function PostPage({ post, relatedPosts = [] }) {
                 <img src={post.image} alt="" className="md:rounded-3xl" />
               </div>
               <div ref={triggerRef}>
-                <Content
-                  key={post.href}
-                  html={post.text}
-                  paragraphs={post.paragraphs}
-                />
+                <Content html={post.text} paragraphs={post.paragraphs} />
               </div>
               <Tags tags={post.tags} className="mb-20" />
             </div>

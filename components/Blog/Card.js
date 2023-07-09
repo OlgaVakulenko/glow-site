@@ -37,7 +37,7 @@ export default function Card({ post }) {
         <img
           src={post.image}
           alt=""
-          className="h-[223px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-[223px] w-full object-cover transition-transform duration-500 group-hover:scale-105 md:h-[255px]"
         />
       </div>
       <div className="mb-3 text-body-heading-m md:mb-2 md:max-w-[80%]">
