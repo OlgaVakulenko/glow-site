@@ -1,7 +1,6 @@
 import Script from 'next/script';
-import { useEffect } from 'react';
 
-export default function GTag() {
+export default function GTag({ ids }) {
   return (
     <>
       <Script
@@ -9,15 +8,19 @@ export default function GTag() {
           console.log('gtag ready');
         }}
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-5NP2XWNRBX"
+        src={`https://www.googletagmanager.com/gtag/js?id=${ids[0]}`}
       />
-      <Script id="google-analytics">
+      <Script id={`google-analytics`}>
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'G-5NP2XWNRBX');
+          ${ids
+            .map((id) => {
+              return `gtag('config', '${id}');`;
+            })
+            .join('')}
         `}
       </Script>
     </>

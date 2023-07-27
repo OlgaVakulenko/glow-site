@@ -54,7 +54,8 @@ export default function Analytics() {
     <>
       {/* <Amplitude /> */}
       <Hotjar />
-      <GTag />
+      <GTag ids={['G-5NP2XWNRBX', 'GTM-MW59PP8']} />
+      {/* <GTag id="GTM-MW59PP8" /> */}
       {/* <FacebookPixel /> */}
       <MixPanel />
       <Linkedin />
