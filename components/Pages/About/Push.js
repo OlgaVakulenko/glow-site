@@ -67,12 +67,12 @@ export default function Push() {
           ref={descRef}
           className="mb-[140px] text-[32px] font-medium leading-[40px] md:mb-[128px] xl:mb-[117px]"
         >
-          {/* <Balance> */}
-          We push the transportation industry innovation through product design.
-          Digital&nbsp;transformation knocks in the door of every industry and
-          we provide the services that will help you to be ahead of time with
-          product design decision that last.
-          {/* </Balance> */}
+          <h2>
+            We push the transportation industry innovation through product
+            design. Digital&nbsp;transformation knocks in the door of every
+            industry and we provide the services that will help you to be ahead
+            of time with product design decision that last.
+          </h2>
         </div>
         <div
           ref={lettersRef}

@@ -25,12 +25,21 @@ import ReviewImg from './assets/review.png';
 import NextStudy2 from '../NextStudy2';
 import Animated from '../../../Animated';
 import dynamic from 'next/dynamic';
+import Head from 'next/head';
+import { getFullDescription, getFullTitle } from '../../../HeadTitle';
 
 const WorkCarousel = dynamic(() => import('./WorkCarousel'));
 
 export default function LiquidSpace() {
   return (
     <div>
+      <Head>
+        <title>{getFullTitle('LiquidSpace - workspace rental service')}</title>
+        <meta
+          name="description"
+          content={getFullDescription('LiquidSpace - workspace rental service')}
+        />
+      </Head>
       <Layout className="pb-10">
         <div className="pt-[144px] md:pt-[194px]">
           <PageSubheading className={'xl:!mr-[79px] xl:max-w-[566px]'}>

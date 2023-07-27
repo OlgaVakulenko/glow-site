@@ -31,7 +31,7 @@ export default function Founders() {
         <Photo
           img={Stas}
           name="Stas Kovalsky"
-          position="Co-Founder & Big Shot"
+          position="Co-Founder"
           align="right"
         />
       </div>

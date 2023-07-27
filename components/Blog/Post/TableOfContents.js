@@ -1,6 +1,6 @@
 import cx from 'clsx';
 import { useAtom, useSetAtom } from 'jotai';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from '../../../dist/gsap';
 import { activeAtom, isTransitionAtom } from '../PostPage';
 
@@ -8,6 +8,30 @@ export default function TableOfContents({ paragraphs }) {
   const scrollRef = useRef(null);
   const [active, setActive] = useAtom(activeAtom);
   const setIsTransition = useSetAtom(isTransitionAtom);
+  const [hasScrollbar, setHasScrollbar] = useState(false);
+
+  useEffect(() => {
+    if (!scrollRef.current) return;
+
+    setHasScrollbar(
+      scrollRef.current.scrollHeight > scrollRef.current.clientHeight
+    );
+  }, [paragraphs]);
+
+  useEffect(() => {
+    if (!scrollRef.current || !hasScrollbar) {
+      return;
+    }
+
+    const currentEl = scrollRef.current.querySelector(
+      `[data-element-index="${active}"]`
+    );
+    currentEl?.scrollIntoView({
+      block: 'nearest',
+      inline: 'nearest',
+    });
+    console.log('scrolling into view');
+  }, [active, hasScrollbar]);
 
   if (!paragraphs?.length) {
     return null;
@@ -24,6 +48,7 @@ export default function TableOfContents({ paragraphs }) {
           <a
             href={`#${p.id}`}
             key={i}
+            data-element-index={i}
             className={cx(
               'relative mb-6 flex items-center pl-6 text-body-xs transition-colors last:mb-0',
               {

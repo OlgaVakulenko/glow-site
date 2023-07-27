@@ -10,6 +10,8 @@ import BeforeAfter from '../BeforeAfter';
 import { useRef } from 'react';
 import { useHeaderTheme } from '../../../Header';
 import InlineVideo from '../InlineVideo';
+import Head from 'next/head';
+import { getFullDescription, getFullTitle } from '../../../HeadTitle';
 
 export default function Tilt() {
   const ref = useRef();
@@ -18,6 +20,19 @@ export default function Tilt() {
 
   return (
     <LegacyCaseContainer>
+      <Head>
+        <title>
+          {getFullTitle(
+            'Tilt: a platform that connects students with financial aid'
+          )}
+        </title>
+        <meta
+          name="description"
+          content={getFullDescription(
+            'Tilt: a platform that connects students with financial aid'
+          )}
+        />
+      </Head>
       <main className="tilt">
         {/* Start window*/}
         <section ref={ref} className="section welcome">
@@ -125,8 +140,8 @@ export default function Tilt() {
                 <div className="anytime__image-block">
                   <div className="g-before-after" id="before-after">
                     <BeforeAfter
-                      before="img/tilt/challenge-1.png"
-                      after="img/tilt/challenge-2.png"
+                      before="/img/tilt/challenge-1.png"
+                      after="/img/tilt/challenge-2.png"
                     />
                   </div>
                 </div>
@@ -136,7 +151,7 @@ export default function Tilt() {
         </section>
         {/* Research*/}
         <section className="section case-section research">
-          <img className="research__background" src="img/tilt/how.svg" />
+          <img className="research__background" src="/img/tilt/how.svg" />
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
@@ -247,38 +262,38 @@ export default function Tilt() {
             </div>
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/tilt/website.png"
+              src="/img/tilt/website.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/tilt/mobile.jpg"
+              src="/img/tilt/mobile.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
           </div>
           <img
             className="hidden-xs visible-sm case-section__image wow fadeInUp"
-            src="img/tilt/website-tablet.jpg"
+            src="/img/tilt/website-tablet.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
           <img
             className="hidden-xs visible-sm case-section__image wow fadeInUp"
-            src="img/tilt/mobile-tablet.jpg"
+            src="/img/tilt/mobile-tablet.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
           <img
             className="visible-xs case-section__image wow fadeInUp"
-            src="img/tilt/website-mobile.jpg"
+            src="/img/tilt/website-mobile.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
           <img
             className="visible-xs case-section__image wow fadeInUp"
-            src="img/tilt/mobile-mobile.jpg"
+            src="/img/tilt/mobile-mobile.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
@@ -313,7 +328,7 @@ export default function Tilt() {
             <div className="colors__wrapper">
               <img
                 className="case-section__image wow fadeInUp"
-                src="img/tilt/colors.jpg"
+                src="/img/tilt/colors.jpg"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
@@ -352,19 +367,19 @@ export default function Tilt() {
             />
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/tilt/typography.jpg"
+              src="/img/tilt/typography.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm hidden-xs case-section__image wow fadeInUp"
-              src="img/tilt/typography-tablet.jpg"
+              src="/img/tilt/typography-tablet.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-xs case-section__image wow fadeInUp"
-              src="img/tilt/typography-mobile.jpg"
+              src="/img/tilt/typography-mobile.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -397,19 +412,19 @@ export default function Tilt() {
             </div>
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/tilt/icons.jpg"
+              src="/img/tilt/icons.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm hidden-xs case-section__image wow fadeInUp"
-              src="img/tilt/icons-tablet.jpg"
+              src="/img/tilt/icons-tablet.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-xs case-section__image wow fadeInUp"
-              src="img/tilt/icons-mobile.jpg"
+              src="/img/tilt/icons-mobile.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -450,16 +465,16 @@ export default function Tilt() {
             >
               <div className="ilustrations__image-wrapper">
                 <div className="item">
-                  <img src="img/tilt/card-1.svg" />
+                  <img src="/img/tilt/card-1.svg" />
                 </div>
                 <div className="item">
-                  <img src="img/tilt/card-2.svg" />
+                  <img src="/img/tilt/card-2.svg" />
                 </div>
                 <div className="item">
-                  <img src="img/tilt/card-3.svg" />
+                  <img src="/img/tilt/card-3.svg" />
                 </div>
                 <div className="item">
-                  <img src="img/tilt/card-4.svg" />
+                  <img src="/img/tilt/card-4.svg" />
                 </div>
               </div>
             </div>
@@ -496,7 +511,7 @@ export default function Tilt() {
               className="case-section__image wow fadeInUp"
               width="100%"
               height="auto"
-              src="video/tilt/dashboard.mp4"
+              src="/video/tilt/dashboard.mp4"
             />
           </div>
         </section>
@@ -531,7 +546,7 @@ export default function Tilt() {
               className="case-section__image wow fadeInUp"
               width="100%"
               height="auto"
-              src="video/tilt/search.mp4"
+              src="/video/tilt/search.mp4"
             />
           </div>
         </section>
@@ -568,7 +583,7 @@ export default function Tilt() {
               className="case-section__image wow fadeInUp"
               width="100%"
               height="auto"
-              src="video/tilt/detailed.mp4"
+              src="/video/tilt/detailed.mp4"
             />
           </div>
         </section>
@@ -609,7 +624,7 @@ export default function Tilt() {
                   {range(1, 4).map((num) => (
                     <SwiperSlide key={num}>
                       <div>
-                        <img src={`img/tilt/mobile-card-${num}.png`} alt="" />
+                        <img src={`/img/tilt/mobile-card-${num}.png`} alt="" />
                       </div>
                     </SwiperSlide>
                   ))}
@@ -651,8 +666,8 @@ export default function Tilt() {
               data-wow-duration="1.2s"
               data-wow-delay="0.1s"
             >
-              <img className="hidden-xs" src="img/tilt/ds.jpg" />
-              <img className="visible-xs" src="img/tilt/ds-mobile.jpg" />
+              <img className="hidden-xs" src="/img/tilt/ds.jpg" />
+              <img className="visible-xs" src="/img/tilt/ds-mobile.jpg" />
             </div>
           </div>
         </section>
@@ -694,7 +709,7 @@ export default function Tilt() {
                               >
                                 <img
                                   className="testimonials__start"
-                                  src="img/audit/stars.png"
+                                  src="/img/audit/stars.png"
                                 />
                               </a>
                             </div>
@@ -713,7 +728,7 @@ export default function Tilt() {
                           >
                             <img
                               className="testimonials__start"
-                              src="img/audit/stars.png"
+                              src="/img/audit/stars.png"
                             />
                           </a>
                         </div>

@@ -12,6 +12,8 @@ import { CaseItem, CasesRow } from '../Home/_CasesSlider';
 import { useMediaAtom } from '../../../lib/agent';
 import { Separator } from '../About';
 import Animated from '../../Animated';
+import Head from 'next/head';
+import { getFullTitle } from '../../HeadTitle';
 
 export const filterAtom = atom({
   category: 'all',
@@ -21,6 +23,13 @@ export const filterAtom = atom({
 export default function Work() {
   return (
     <div>
+      <Head>
+        <title>{getFullTitle('Explore our projects')}</title>
+        <meta
+          name="description"
+          content="View our case studies ➜ to learn more about how we help brands transform through ✔ digital products ✔ branding ✔ eCommerce"
+        ></meta>
+      </Head>
       <Layout className="pt-[186px] md:pt-[241px] xl:pt-[215px]">
         <PageSubheading>These guys are shining with us</PageSubheading>
         <PageHeading className="mt-[106px] md:mt-[125px] xl:mt-[132px]">

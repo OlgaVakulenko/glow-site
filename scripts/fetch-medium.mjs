@@ -3,9 +3,16 @@ import { parse } from 'node-html-parser';
 import slugify from 'slugify';
 import fs from 'fs/promises';
 import path from 'path';
+import { decodeHTML } from 'entities';
 
 const url = 'https://medium.com/glow-team';
 const blogPath = path.resolve(process.cwd(), 'blog/index.json');
+
+function decodeString(str) {
+  return decodeHTML(str)
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\u00A0/g, ' ');
+}
 
 fetch(url)
   .then((res) => res.text())
@@ -112,8 +119,8 @@ function getPostDataFromHtml(root) {
     .split('?')[0];
 
   return {
-    title,
-    description,
+    title: decodeString(title),
+    description: decodeString(description),
     image,
     author_name,
     author_image,
@@ -142,7 +149,7 @@ function getParagraphs(root) {
   return p
     .map((node) => {
       return {
-        text: node.innerText,
+        text: decodeHTML(node.innerText),
         id: node.id,
       };
     })

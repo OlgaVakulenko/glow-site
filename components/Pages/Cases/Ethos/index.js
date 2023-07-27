@@ -1,4 +1,6 @@
+import Head from 'next/head';
 import { range } from '../../../../lib/utils';
+import { getFullDescription, getFullTitle } from '../../../HeadTitle';
 import BeforeAfter from '../BeforeAfter';
 import Carousel from '../Carousel';
 import InlineVideo from '../InlineVideo';
@@ -8,6 +10,13 @@ import NextStudy from '../NextStudy';
 export default function Ethos() {
   return (
     <LegacyCaseContainer>
+      <Head>
+        <title>{getFullTitle('EthosCE: new look at medical platform')}</title>
+        <meta
+          name="description"
+          content={getFullDescription('EthosCE: new look at medical platform')}
+        />
+      </Head>
       <main className="ethos">
         {/* Start window*/}
         <section className="section welcome">
@@ -109,8 +118,8 @@ export default function Ethos() {
                 <div className="anytime__image-block">
                   <div className="g-before-after" id="before-after">
                     <BeforeAfter
-                      before="img/ethos/challenge-2.png"
-                      after="img/ethos/challenge-1.png"
+                      before="/img/ethos/challenge-2.png"
+                      after="/img/ethos/challenge-1.png"
                     />
                   </div>
                 </div>
@@ -123,15 +132,15 @@ export default function Ethos() {
           <div className="container">
             <img
               className="research__background research__background--desk"
-              src="img/ethos/how.png"
+              src="/img/ethos/how.png"
             />
             <img
               className="research__background research__background--tablet"
-              src="img/ethos/how-tablet.png"
+              src="/img/ethos/how-tablet.png"
             />
             <img
               className="research__background research__background--mobile"
-              src="img/ethos/how-mobile.png"
+              src="/img/ethos/how-mobile.png"
             />
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
@@ -248,7 +257,7 @@ export default function Ethos() {
             >
               <img
                 className="wow fadeInUp"
-                src="img/ethos/white-label.png"
+                src="/img/ethos/white-label.png"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
@@ -260,7 +269,7 @@ export default function Ethos() {
           >
             <img
               className="wow fadeInUp"
-              src="img/ethos/white-label.png"
+              src="/img/ethos/white-label.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -295,19 +304,19 @@ export default function Ethos() {
             <div className="colors__wrapper">
               <img
                 className="hidden-sm case-section__image wow fadeInUp"
-                src="img/ethos/colors.jpg"
+                src="/img/ethos/colors.jpg"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
               <img
                 className="hidden-xs visible-sm case-section__image wow fadeInUp"
-                src="img/ethos/colors-tablet.jpg"
+                src="/img/ethos/colors-tablet.jpg"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
               <img
                 className="visible-xs case-section__image wow fadeInUp"
-                src="img/ethos/colors-mobile.jpg"
+                src="/img/ethos/colors-mobile.jpg"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
@@ -346,19 +355,19 @@ export default function Ethos() {
             />
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/ethos/typography.jpg"
+              src="/img/ethos/typography.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm hidden-xs case-section__image wow fadeInUp"
-              src="img/ethos/typography-tablet.jpg"
+              src="/img/ethos/typography-tablet.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-xs case-section__image wow fadeInUp"
-              src="img/ethos/typography-mobile.jpg"
+              src="/img/ethos/typography-mobile.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -392,7 +401,7 @@ export default function Ethos() {
             </div>
             <img
               className="case-section__image wow fadeInUp"
-              src="img/ethos/test.png"
+              src="/img/ethos/test.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -427,7 +436,7 @@ export default function Ethos() {
             </div>
             <img
               className="case-section__image wow fadeInUp"
-              src="img/ethos/search.png"
+              src="/img/ethos/search.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -462,7 +471,7 @@ export default function Ethos() {
             </div>
             <img
               className="case-section__image wow fadeInUp"
-              src="img/ethos/page.png"
+              src="/img/ethos/page.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -497,7 +506,7 @@ export default function Ethos() {
             </div>
             <img
               className="case-section__image wow fadeInUp"
-              src="img/ethos/learning.png"
+              src="/img/ethos/learning.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -539,7 +548,7 @@ export default function Ethos() {
                 <Carousel
                   slides={range(1, 5).map((i) => (
                     <div key={i}>
-                      <img src={`img/ethos/other-card-${i}.png`} alt="" />
+                      <img src={`/img/ethos/other-card-${i}.png`} alt="" />
                     </div>
                   ))}
                 />
@@ -582,7 +591,7 @@ export default function Ethos() {
                 <Carousel
                   slides={range(1, 3).map((num) => (
                     <div key={num}>
-                      <img src={`img/ethos/mobile-card-${num}.png`} alt="" />
+                      <img src={`/img/ethos/mobile-card-${num}.png`} alt="" />
                     </div>
                   ))}
                 />
@@ -621,8 +630,8 @@ export default function Ethos() {
               data-wow-duration="1.2s"
               data-wow-delay="0.1s"
             >
-              <img className="hidden-xs" src="img/ethos/ds.jpg" />
-              <img className="visible-xs" src="img/ethos/ds-mobile.jpg" />
+              <img className="hidden-xs" src="/img/ethos/ds.jpg" />
+              <img className="visible-xs" src="/img/ethos/ds-mobile.jpg" />
             </div>
           </div>
         </section>
@@ -664,7 +673,7 @@ export default function Ethos() {
                               >
                                 <img
                                   className="testimonials__start"
-                                  src="img/audit/stars.png"
+                                  src="/img/audit/stars.png"
                                 />
                               </a>
                             </div>
@@ -681,7 +690,7 @@ export default function Ethos() {
                           >
                             <img
                               className="testimonials__start"
-                              src="img/audit/stars.png"
+                              src="/img/audit/stars.png"
                             />
                           </a>
                         </div>

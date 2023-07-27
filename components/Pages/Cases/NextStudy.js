@@ -10,7 +10,7 @@ export default function NextStudy({ title, href }) {
             <p>{title}</p>
           </div>
           <div className="next__right">
-            <img src="img/arrow-right-primary.svg" />
+            <img src="/img/arrow-right-primary.svg" />
           </div>
         </Link>
       </div>

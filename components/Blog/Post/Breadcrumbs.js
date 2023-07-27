@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import React, { useMemo } from 'react';
 import cx from 'clsx';
+import StructuredData from '../../StructuredData';
 
 const crumbs = [
   { href: '/', label: 'Glow Team' },
@@ -22,6 +23,42 @@ export default function Breadcrumbs({ current, slug }) {
 
   return (
     <div className="mb-12 flex overflow-hidden text-button-s uppercase">
+      <StructuredData
+        id="breadcrumbs"
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: links.map((l, idx) => {
+            const isLast = idx === links.length - 1;
+
+            return {
+              '@type': 'ListItem',
+              position: idx + 1,
+              name: l.label,
+              item: !isLast ? `https://glow.team${l.href}` : undefined,
+            };
+          }),
+          // itemListElement: [
+          //   {
+          //     '@type': 'ListItem',
+          //     position: 1,
+          //     name: 'Books',
+          //     item: 'https://example.com/books',
+          //   },
+          //   {
+          //     '@type': 'ListItem',
+          //     position: 2,
+          //     name: 'Science Fiction',
+          //     item: 'https://example.com/books/sciencefiction',
+          //   },
+          //   {
+          //     '@type': 'ListItem',
+          //     position: 3,
+          //     name: 'Award Winners',
+          //   },
+          // ],
+        }}
+      />
       {links.map((l, idx) => (
         <React.Fragment key={l.href}>
           <Link

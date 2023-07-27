@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
-const defaultTitle = 'Glow Design Agency';
-const separator = '::';
+const defaultTitle = 'Glow Team';
+const separator = '-';
 
 function replaceNbsps(str) {
   var re = new RegExp(String.fromCharCode(160), 'g');
@@ -14,6 +14,10 @@ export function getFullTitle(title) {
     : defaultTitle;
 
   return replaceNbsps(fullTitle);
+}
+
+export function getFullDescription(description) {
+  return description + ' ' + '➥ from  Glow team experts';
 }
 
 export default function HeadTitle({ title }) {

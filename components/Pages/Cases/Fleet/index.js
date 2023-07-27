@@ -1,9 +1,20 @@
+import Head from 'next/head';
+import { getFullDescription, getFullTitle } from '../../../HeadTitle';
 import LegacyCaseContainer from '../LegacyCaseContainer';
 import NextStudy from '../NextStudy';
 
 export default function Fleet() {
   return (
     <LegacyCaseContainer>
+      <Head>
+        <title>{getFullTitle('FleetChaser – fleet management platform')}</title>
+        <meta
+          name="description"
+          content={getFullDescription(
+            'FleetChaser – fleet management platform'
+          )}
+        />
+      </Head>
       <main className="fleet">
         {/* Start window*/}
         <section className="section welcome">
@@ -96,7 +107,7 @@ export default function Fleet() {
                 </p>
               </div>
             </div>
-            <img className="challenge__image" src="img/fleet/challenge.jpg" />
+            <img className="challenge__image" src="/img/fleet/challenge.jpg" />
           </div>
         </section>
         {/* Research*/}
@@ -178,9 +189,9 @@ export default function Fleet() {
             </div>
             <div className="case-section__photo-group-wrapper">
               <div className="case-section__photo-group">
-                <img src="img/fleet/client-1.jpg" />
-                <img src="img/fleet/client-2.jpg" />
-                <img src="img/fleet/client-3.jpg" />
+                <img src="/img/fleet/client-1.jpg" />
+                <img src="/img/fleet/client-2.jpg" />
+                <img src="/img/fleet/client-3.jpg" />
               </div>
             </div>
           </div>
@@ -214,19 +225,19 @@ export default function Fleet() {
             <div className="case-section__photo-group-wrapper">
               <div className="case-section__photo-group">
                 <div className="case-section__photo-item">
-                  <img src="img/fleet/how-1.jpg" />
+                  <img src="/img/fleet/how-1.jpg" />
                   <h4>Call FC team</h4>
                   <p>
                     Team of FC specialists arrives at company’s parking area
                   </p>
                 </div>
                 <div className="case-section__photo-item">
-                  <img src="img/fleet/how-2.jpg" />
+                  <img src="/img/fleet/how-2.jpg" />
                   <h4>Connect devices</h4>
                   <p>FleetChaser devices connect to vehicles of the fleet</p>
                 </div>
                 <div className="case-section__photo-item">
-                  <img src="img/fleet/how-3.jpg" />
+                  <img src="/img/fleet/how-3.jpg" />
                   <h4>Manage your fleet</h4>
                   <p>
                     Dispatchers and managers can see all vehicles inside the app
@@ -264,7 +275,7 @@ export default function Fleet() {
             <div className="colors__wrapper hidden-xs">
               <img
                 className="case-section__image wow fadeInUp"
-                src="img/fleet/colors.jpg"
+                src="/img/fleet/colors.jpg"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
@@ -273,7 +284,7 @@ export default function Fleet() {
           <div className="colors__wrapper visible-xs">
             <img
               className="case-section__image wow fadeInUp"
-              src="img/fleet/colors-m.jpg"
+              src="/img/fleet/colors-m.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -309,19 +320,19 @@ export default function Fleet() {
               <div>
                 <img
                   className="hidden-sm wow fadeInUp"
-                  src="img/fleet/typography.jpg"
+                  src="/img/fleet/typography.jpg"
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
                 <img
                   className="visible-sm hidden-xs wow fadeInUp"
-                  src="img/fleet/typography-tablet.jpg"
+                  src="/img/fleet/typography-tablet.jpg"
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
                 <img
                   className="visible-xs wow fadeInUp"
-                  src="img/fleet/typography-mobile.jpg"
+                  src="/img/fleet/typography-mobile.jpg"
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
@@ -329,13 +340,13 @@ export default function Fleet() {
               <div className="typography__fonts">
                 <img
                   className="hidden-xs wow fadeInUp"
-                  src="img/fleet/font.jpg"
+                  src="/img/fleet/font.jpg"
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
                 <img
                   className="visible-xs wow fadeInUp"
-                  src="img/fleet/font-mobile.jpg"
+                  src="/img/fleet/font-mobile.jpg"
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
@@ -371,7 +382,7 @@ export default function Fleet() {
             </div>
             <img
               className="case-section__image wow fadeInUp"
-              src="img/fleet/ds.jpg"
+              src="/img/fleet/ds.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -404,7 +415,7 @@ export default function Fleet() {
             </div>
             <img
               className="case-section__image wow fadeInUp"
-              src="img/fleet/travel.jpg"
+              src="/img/fleet/travel.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -437,7 +448,7 @@ export default function Fleet() {
             </div>
             <img
               className="case-section__image wow fadeInUp"
-              src="img/fleet/reports.jpg"
+              src="/img/fleet/reports.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -470,7 +481,7 @@ export default function Fleet() {
             </div>
             <img
               className="case-section__image wow fadeInUp"
-              src="img/fleet/track.jpg"
+              src="/img/fleet/track.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -505,7 +516,7 @@ export default function Fleet() {
             </div>
             <img
               className="case-section__image wow fadeInUp"
-              src="img/fleet/vehicle.jpg"
+              src="/img/fleet/vehicle.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -539,7 +550,7 @@ export default function Fleet() {
             </div>
             <img
               className="case-section__image wow fadeInUp"
-              src="img/fleet/dashboard.jpg"
+              src="/img/fleet/dashboard.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -579,7 +590,7 @@ export default function Fleet() {
               objectPosition: 'left',
             }}
             className="case-section__image wow fadeInUp"
-            src="img/fleet/mobile.jpg"
+            src="/img/fleet/mobile.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
@@ -615,14 +626,14 @@ export default function Fleet() {
             <div className="website__photo-scroll hidden-sm case-section__image">
               <img
                 className="wow fadeInUp"
-                src="img/fleet/website.jpg"
+                src="/img/fleet/website.jpg"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
             </div>
             <img
               className="visible-sm case-section__image wow fadeInUp"
-              src="img/fleet/website-m.jpg"
+              src="/img/fleet/website-m.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -716,7 +727,7 @@ export default function Fleet() {
                               >
                                 <img
                                   className="testimonials__start"
-                                  src="img/audit/stars.png"
+                                  src="/img/audit/stars.png"
                                 />
                               </a>
                             </div>
@@ -735,7 +746,7 @@ export default function Fleet() {
                           >
                             <img
                               className="testimonials__start"
-                              src="img/audit/stars.png"
+                              src="/img/audit/stars.png"
                             />
                           </a>
                         </div>

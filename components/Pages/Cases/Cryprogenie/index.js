@@ -4,6 +4,8 @@ import { useHeaderTheme } from '../../../Header';
 import LegacyCaseContainer from '../LegacyCaseContainer';
 import styles from './styles.module.scss';
 import NextStudy from '../NextStudy';
+import Head from 'next/head';
+import { getFullDescription, getFullTitle } from '../../../HeadTitle';
 
 function Intro() {
   const ref = useRef();
@@ -11,6 +13,19 @@ function Intro() {
 
   return (
     <section ref={ref} className="section welcome cg-welcome">
+      <Head>
+        <title>
+          {getFullTitle(
+            'CryptoGenie is a tool for predicting the relevant trends of various crypto assets'
+          )}
+        </title>
+        <meta
+          name="description"
+          content={getFullDescription(
+            'CryptoGenie is a tool for predicting the relevant trends of various crypto assets'
+          )}
+        />
+      </Head>
       <div>
         <div className="container">
           <div className="welcome__content">

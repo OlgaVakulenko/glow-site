@@ -1,9 +1,18 @@
+import Head from 'next/head';
+import { getFullDescription, getFullTitle } from '../../../HeadTitle';
 import LegacyCaseContainer from '../LegacyCaseContainer';
 import NextStudy from '../NextStudy';
 
 export default function Parking() {
   return (
     <LegacyCaseContainer>
+      <Head>
+        <title>{getFullTitle('Platform for parking in airport')}</title>
+        <meta
+          name="description"
+          content={getFullDescription('Platform for parking in airport')}
+        />
+      </Head>
       <main className="parking">
         {/* Start window*/}
         <section className="section welcome">
@@ -171,7 +180,7 @@ export default function Parking() {
               </div>
               <img
                 className="challenge__image wow fadeInUp"
-                src="img/parking/challenge.png"
+                src="/img/parking/challenge.png"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
@@ -202,7 +211,7 @@ export default function Parking() {
               </div>
               <img
                 className="challenge__image wow fadeInUp"
-                src="img/parking/challenge-m.png"
+                src="/img/parking/challenge-m.png"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
@@ -270,13 +279,13 @@ export default function Parking() {
             </div>
             <img
               className="hidden-sm research__image-first wow fadeInUp"
-              src="img/parking/research-1.png"
+              src="/img/parking/research-1.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm research__image-first wow fadeInUp"
-              src="img/parking/research-1-m.png"
+              src="/img/parking/research-1-m.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -300,13 +309,13 @@ export default function Parking() {
             </div>
             <img
               className="hidden-sm research__image-second wow fadeInUp"
-              src="img/parking/research-2.png"
+              src="/img/parking/research-2.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm research__image-second wow fadeInUp"
-              src="img/parking/research-2-m.png"
+              src="/img/parking/research-2-m.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -341,13 +350,13 @@ export default function Parking() {
             </div>
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/parking/wireframes.png"
+              src="/img/parking/wireframes.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm case-section__image wow fadeInUp"
-              src="img/parking/wireframes-m.png"
+              src="/img/parking/wireframes-m.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -383,7 +392,7 @@ export default function Parking() {
             <div className="colors__wrapper">
               <img
                 className="case-section__image wow fadeInUp"
-                src="img/parking/colors.png"
+                src="/img/parking/colors.png"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
@@ -422,13 +431,13 @@ export default function Parking() {
             />
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/parking/typography.png"
+              src="/img/parking/typography.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm case-section__image wow fadeInUp"
-              src="img/parking/typography-m.png"
+              src="/img/parking/typography-m.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -461,13 +470,13 @@ export default function Parking() {
             </div>
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/parking/icons.png"
+              src="/img/parking/icons.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm case-section__image wow fadeInUp"
-              src="img/parking/icons-m.png"
+              src="/img/parking/icons-m.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -508,8 +517,8 @@ export default function Parking() {
             <div className="container">
               <div className="g-before-after" id="before-after">
                 <img
-                  src="img/parking/anytime-black.png"
-                  data-aftersrc="img/parking/anytime-white.png"
+                  src="/img/parking/anytime-black.png"
+                  data-aftersrc="/img/parking/anytime-white.png"
                 />
               </div>
             </div>
@@ -550,13 +559,13 @@ export default function Parking() {
             />
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/parking/bookings.png"
+              src="/img/parking/bookings.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm case-section__image wow fadeInUp"
-              src="img/parking/bookings-m.png"
+              src="/img/parking/bookings-m.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -593,13 +602,13 @@ export default function Parking() {
             </div>
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/parking/details.png"
+              src="/img/parking/details.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm case-section__image wow fadeInUp"
-              src="img/parking/details-m.png"
+              src="/img/parking/details-m.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -636,13 +645,13 @@ export default function Parking() {
             </div>
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/parking/schedule.png"
+              src="/img/parking/schedule.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm case-section__image wow fadeInUp"
-              src="img/parking/schedule-m.png"
+              src="/img/parking/schedule-m.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -680,13 +689,13 @@ export default function Parking() {
             </div>
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/parking/space.png"
+              src="/img/parking/space.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm case-section__image wow fadeInUp"
-              src="img/parking/space-m.png"
+              src="/img/parking/space-m.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -719,13 +728,13 @@ export default function Parking() {
             </div>
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/parking/grid.png"
+              src="/img/parking/grid.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm case-section__image wow fadeInUp"
-              src="img/parking/grid-m.png"
+              src="/img/parking/grid-m.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -763,13 +772,13 @@ export default function Parking() {
             </div>
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/parking/space.png"
+              src="/img/parking/space.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm case-section__image wow fadeInUp"
-              src="img/parking/space-m.png"
+              src="/img/parking/space-m.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -808,13 +817,13 @@ export default function Parking() {
             />
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/parking/components.png"
+              src="/img/parking/components.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm case-section__image wow fadeInUp"
-              src="img/parking/components-m.png"
+              src="/img/parking/components-m.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />

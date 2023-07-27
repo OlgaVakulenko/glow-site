@@ -3,11 +3,12 @@ import { atom, Provider, useAtom } from 'jotai';
 import Head from 'next/head';
 // import { useAtom } from 'jotai';
 // import { atom } from 'jotai';
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
 import { ScrollTrigger } from '../../dist/gsap';
 import { useMedia } from '../../lib/agent';
 import { getFullTitle } from '../HeadTitle';
 import Layout from '../Layout';
+import StructuredData from '../StructuredData';
 import Author from './Post/Author';
 import Breadcrumbs from './Post/Breadcrumbs';
 import Content from './Post/Content';
@@ -77,16 +78,35 @@ export default function PostPage({ post, relatedPosts = [] }) {
     };
   }, [media, post.href]);
 
+  const isoDate = useMemo(() => {
+    return new Date(`${post.date} 2023`).toISOString();
+  }, [post.date]);
+
   return (
     <div className="pt-[142px] pb-20 md:pt-[176px]">
       <Head>
         <title>{getFullTitle(post.title)}</title>
+        <meta
+          name="description"
+          content={`${post.title} ➥ from Glow team experts`}
+        ></meta>
         <meta property="og:title" content={post.title}></meta>
         <meta property="og:description" content={post.description}></meta>
         <meta property="og:type" content="article"></meta>
         <meta property="og:image" content={post.image}></meta>
         <meta name="twitter:card" content="summary"></meta>
       </Head>
+      <StructuredData
+        id="blog-post"
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'NewsArticle',
+          headline: post.title,
+          image: [post.image],
+          datePublished: isoDate,
+          dateModified: isoDate,
+        }}
+      />
       <Layout key={post.href}>
         <Provider>
           <div className={columnClx}>

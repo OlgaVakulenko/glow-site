@@ -10,7 +10,7 @@ export async function getBlogPosts() {
 }
 
 const positionMap = {
-  'Kovalsky Stanislav': 'Co-Founder & Big Shot',
+  'Kovalsky Stanislav': 'Co-Founder',
   'Daria Haman': 'HR Manager',
   'Liudmyla Gramatyk': 'Content Manager',
 };

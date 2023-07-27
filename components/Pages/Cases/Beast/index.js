@@ -9,6 +9,7 @@ import SliderProgress from '../SliderProgress';
 import NextStudy from '../NextStudy';
 import Head from 'next/head';
 import InlineVideo from '../InlineVideo';
+import { getFullDescription, getFullTitle } from '../../../HeadTitle';
 
 function Intro() {
   const ref = useRef();
@@ -16,6 +17,13 @@ function Intro() {
 
   return (
     <section ref={ref} className="section welcome">
+      <Head>
+        <title>{getFullTitle('Beast - Zero-emissions car rental')}</title>
+        <meta
+          name="description"
+          content={getFullDescription('Beast - Zero-emissions car rental')}
+        />
+      </Head>
       <div className="container">
         <div className="welcome__content">
           <div className="welcome__left">
@@ -140,12 +148,12 @@ export default function Beast() {
                 <link
                   rel="preload"
                   as="image"
-                  href="img/beast/challenge-phone.png"
+                  href="/img/beast/challenge-phone.png"
                 />
               </Head>
               <img
                 className="wow fadeInUp"
-                src="img/beast/challenge-phone.png"
+                src="/img/beast/challenge-phone.png"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
                 alt=""
@@ -173,7 +181,7 @@ export default function Beast() {
           <div className="challenge__image-block visible-xs">
             <img
               className="wow fadeInUp"
-              src="img/beast/challenge-phone.png"
+              src="/img/beast/challenge-phone.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -278,7 +286,7 @@ export default function Beast() {
             <div className="research__increase-block">
               <div>
                 <img
-                  src="img/beast/increase-1.png"
+                  src="/img/beast/increase-1.png"
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
@@ -289,7 +297,7 @@ export default function Beast() {
               </div>
               <div>
                 <img
-                  src="img/beast/increase-2.png"
+                  src="/img/beast/increase-2.png"
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
@@ -298,7 +306,7 @@ export default function Beast() {
               </div>
               <div>
                 <img
-                  src="img/beast/increase-3.png"
+                  src="/img/beast/increase-3.png"
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
@@ -351,14 +359,14 @@ export default function Beast() {
             </div>
             <img
               className="hidden-xs case-section__image wow fadeInUp"
-              src="img/beast/wireframes.jpg"
+              src="/img/beast/wireframes.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
           </div>
           <img
             className="visible-xs case-section__image wow fadeInUp"
-            src="img/beast/wireframes-m.jpg"
+            src="/img/beast/wireframes-m.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
@@ -392,14 +400,14 @@ export default function Beast() {
             </div>
             <img
               className="hidden-xs case-section__image wow fadeInUp"
-              src="img/beast/customer.jpg"
+              src="/img/beast/customer.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
           </div>
           <img
             className="visible-xs case-section__image wow fadeInUp"
-            src="img/beast/customer-m.jpg"
+            src="/img/beast/customer-m.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
@@ -433,13 +441,13 @@ export default function Beast() {
             </div>
             <img
               className="hidden-xs case-section__image case-section__image--desc-right wow fadeInUp"
-              src="img/beast/colors.jpg"
+              src="/img/beast/colors.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-xs case-section__image wow fadeInUp"
-              src="img/beast/colors-m.jpg"
+              src="/img/beast/colors-m.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -472,14 +480,14 @@ export default function Beast() {
             </div>
             <img
               className="hidden-xs case-section__image wow fadeInUp"
-              src="img/beast/typography.jpg"
+              src="/img/beast/typography.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
           </div>
           <img
             className="visible-xs case-section__image wow fadeInUp"
-            src="img/beast/typography-m.jpg"
+            src="/img/beast/typography-m.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
@@ -512,14 +520,14 @@ export default function Beast() {
             </div>
             <img
               className="hidden-xs case-section__image wow fadeInUp"
-              src="img/beast/icons.jpg"
+              src="/img/beast/icons.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
           </div>
           <img
             className="visible-xs case-section__image wow fadeInUp"
-            src="img/beast/icons-m.jpg"
+            src="/img/beast/icons-m.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
@@ -554,14 +562,14 @@ export default function Beast() {
               className="hidden-xs case-section__image wow fadeInUp"
               width="100%"
               height="auto"
-              src="video/beast/search.mp4"
+              src="/video/beast/search.mp4"
             />
           </div>
           <div className="case-section__video-mobile case-section__image">
             <InlineVideo
               width="1000px"
               height="auto"
-              src="video/beast/search.mp4"
+              src="/video/beast/search.mp4"
             />
           </div>
         </section>
@@ -606,14 +614,14 @@ export default function Beast() {
               className="hidden-xs case-section__image wow fadeInUp"
               width="100%"
               height="auto"
-              src="video/beast/radar.mp4"
+              src="/video/beast/radar.mp4"
             />
           </div>
           <div className="case-section__video-mobile case-section__image">
             <InlineVideo
               width="1000px"
               height="auto"
-              src="video/beast/radar.mp4"
+              src="/video/beast/radar.mp4"
             />
           </div>
         </section>
@@ -658,14 +666,14 @@ export default function Beast() {
             </div>
             <img
               className="hidden-xs case-section__image wow fadeInUp"
-              src="img/beast/statistics.jpg"
+              src="/img/beast/statistics.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
           </div>
           <img
             className="visible-xs case-section__image wow fadeInUp"
-            src="img/beast/statistics-m.jpg"
+            src="/img/beast/statistics-m.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
@@ -704,12 +712,12 @@ export default function Beast() {
               width="100%"
               height="auto"
               className="hidden-xs case-section__image wow fadeInUp"
-              src="video/beast/damage.mp4"
+              src="/video/beast/damage.mp4"
             />
           </div>
           <div className="case-section__video-mobile case-section__image">
             <InlineVideo
-              src="video/beast/damage.mp4"
+              src="/video/beast/damage.mp4"
               width="1000px"
               height="auto"
             />
@@ -742,13 +750,13 @@ export default function Beast() {
             </div>
             <img
               className="hidden-sm case-section__image wow fadeInUp"
-              src="img/beast/components.jpg"
+              src="/img/beast/components.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
               className="visible-sm case-section__image wow fadeInUp"
-              src="img/beast/components-m.jpg"
+              src="/img/beast/components-m.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
@@ -791,14 +799,14 @@ export default function Beast() {
             </div>
             <img
               className="hidden-xs case-section__image wow fadeInUp"
-              src="img/beast/branding-1.jpg"
+              src="/img/beast/branding-1.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
           </div>
           <img
             className="visible-xs case-section__image wow fadeInUp"
-            src="img/beast/branding-1.jpg"
+            src="/img/beast/branding-1.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
@@ -813,20 +821,20 @@ export default function Beast() {
             </div>
             <img
               className="hidden-xs case-section__image wow fadeInUp"
-              src="img/beast/branding-2.jpg"
+              src="/img/beast/branding-2.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <div className="case-section__two-images hidden-xs">
               <img
                 className="wow fadeInUp"
-                src="img/beast/branding-3.jpg"
+                src="/img/beast/branding-3.jpg"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
               <img
                 className="wow fadeInUp"
-                src="img/beast/branding-4.jpg"
+                src="/img/beast/branding-4.jpg"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
@@ -834,19 +842,19 @@ export default function Beast() {
           </div>
           <img
             className="visible-xs mg-b-10 case-section__image wow fadeInUp"
-            src="img/beast/branding-2.jpg"
+            src="/img/beast/branding-2.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
           <img
             className="visible-xs mg-b-10 wow fadeInUp"
-            src="img/beast/branding-3.jpg"
+            src="/img/beast/branding-3.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
           <img
             className="visible-xs wow fadeInUp"
-            src="img/beast/branding-4.jpg"
+            src="/img/beast/branding-4.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
@@ -889,7 +897,7 @@ export default function Beast() {
                               >
                                 <img
                                   className="testimonials__start"
-                                  src="img/audit/stars.png"
+                                  src="/img/audit/stars.png"
                                 />
                               </a>
                             </div>
@@ -907,7 +915,7 @@ export default function Beast() {
                           >
                             <img
                               className="testimonials__start"
-                              src="img/audit/stars.png"
+                              src="/img/audit/stars.png"
                             />
                           </a>
                         </div>
@@ -958,19 +966,19 @@ function System() {
         </div>
         <img
           className="hidden-sm case-section__image wow fadeInUp"
-          src="img/beast/system-1.jpg"
+          src="/img/beast/system-1.jpg"
           data-wow-duration="0.7s"
           data-wow-delay="0.2s"
         />
         <img
           className="visible-sm hidden-xs case-section__image wow fadeInUp"
-          src="img/beast/system-1-t.jpg"
+          src="/img/beast/system-1-t.jpg"
           data-wow-duration="0.7s"
           data-wow-delay="0.2s"
         />
         <img
           className="visible-xs case-section__image wow fadeInUp"
-          src="img/beast/system-1-m.jpg"
+          src="/img/beast/system-1-m.jpg"
           data-wow-duration="0.7s"
           data-wow-delay="0.2s"
         />
@@ -987,7 +995,7 @@ function System() {
         {media !== 'mobile' ? (
           <img
             className="hidden-xs case-section__image wow fadeInUp"
-            src="img/beast/research.jpg"
+            src="/img/beast/research.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
@@ -1002,7 +1010,7 @@ function System() {
                 {range(1, 7).map((num) => (
                   <SwiperSlide key={num}>
                     <div className="">
-                      <img src={`img/beast/mobile-card-${num}.png`} alt="" />
+                      <img src={`/img/beast/mobile-card-${num}.png`} alt="" />
                     </div>
                   </SwiperSlide>
                 ))}
@@ -1010,19 +1018,19 @@ function System() {
               </Swiper>
               {/* 
               <div className="item">
-                <img src="img/beast/mobile-card-2.png" />
+                <img src="/img/beast/mobile-card-2.png" />
               </div>
               <div className="item">
-                <img src="img/beast/mobile-card-3.png" />
+                <img src="/img/beast/mobile-card-3.png" />
               </div>
               <div className="item">
-                <img src="img/beast/mobile-card-4.png" />
+                <img src="/img/beast/mobile-card-4.png" />
               </div>
               <div className="item">
-                <img src="img/beast/mobile-card-5.png" />
+                <img src="/img/beast/mobile-card-5.png" />
               </div>
               <div className="item">
-                <img src="img/beast/mobile-card-6.png" />
+                <img src="/img/beast/mobile-card-6.png" />
               </div> */}
             </div>
           </div>

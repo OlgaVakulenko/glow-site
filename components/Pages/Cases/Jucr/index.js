@@ -9,6 +9,8 @@ import { useSetAtom } from 'jotai';
 import Carousel from '../Carousel';
 import NextStudy from '../NextStudy';
 import InlineVideo from '../InlineVideo';
+import Head from 'next/head';
+import { getFullDescription, getFullTitle } from '../../../HeadTitle';
 
 function Stripes() {
   const [toggle, setToggle] = useState(false);
@@ -168,6 +170,13 @@ function Intro() {
 
   return (
     <section ref={ref} className="section welcome jucr-welcome">
+      <Head>
+        <title>{getFullTitle('Jucr - Charge you car without worries')}</title>
+        <meta
+          name="description"
+          content={getFullDescription('Jucr - Charge you car without worries')}
+        />
+      </Head>
       <div>
         <div className="container">
           <div className="welcome__content">

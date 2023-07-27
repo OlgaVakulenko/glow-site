@@ -2,6 +2,7 @@ import DariaH from '../Pages/About/assets/daria-h.png';
 import LiudmylaG from '../Pages/About/assets/liudmyla-g.png';
 import OlehB from '../Pages/About/assets/oleh-b.png';
 import StasK from '../Pages/About/assets/stas-k2.png';
+import RusM from '../Pages/About/assets/rus-2.png';
 
 const data = [
   {
@@ -19,6 +20,10 @@ const data = [
   {
     author: 'Kovalsky Stanislav',
     image: StasK,
+  },
+  {
+    author: 'Ruslan Mashatov',
+    image: RusM,
   },
 ];
 

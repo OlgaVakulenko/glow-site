@@ -10,6 +10,7 @@ import { useIsClient } from '../../lib/utils';
 import Head from 'next/head';
 import { getFullTitle } from '../HeadTitle';
 import RollingText from '../RollingText';
+import StructuredData from '../StructuredData';
 
 const TAG_ALL = 'All Topics';
 const filterAtom = atom(TAG_ALL);
@@ -30,7 +31,7 @@ export default function BlogPage({ posts, tags = [] }) {
   return (
     <div>
       <Head>
-        <title>{getFullTitle('Blog')}</title>
+        <title>{getFullTitle('We write about business & design')}</title>
       </Head>
       <div className="pt-[177px]">
         <Layout>

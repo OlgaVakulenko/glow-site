@@ -78,7 +78,7 @@ function VisionBlock({ heading, text, className = '' }) {
         {heading}
       </div>
       <div className="text-[32px] font-medium leading-[40px] xl:text-[36px] xl:leading-[48px]">
-        {text}
+        <h3>{text}</h3>
       </div>
     </div>
   );

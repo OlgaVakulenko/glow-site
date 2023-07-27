@@ -2,7 +2,7 @@ import DmitryZ from './assets/dmitriy-z.png';
 import PavelD from './assets/pavel-d.png';
 import JuliaK from './assets/julia-k.png';
 import MaxP from './assets/max-p.png';
-import NataliK from './assets/natali-k.png';
+import NataliK from './assets/natalia-h.png';
 import WolfB from './assets/wolf-b.png';
 import DariaH from './assets/daria-h.png';
 import LiudmylaG from './assets/liudmyla-g.png';

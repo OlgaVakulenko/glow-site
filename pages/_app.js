@@ -8,6 +8,7 @@ import Analytics from '../components/Analytics';
 import { AnimatedFix } from '../components/Animated';
 import LoadingProgress from '../components/LoadingProgress';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
+import StructuredData from '../components/StructuredData';
 import { useMedia } from '../lib/agent';
 import '../styles/globals.css';
 
@@ -123,7 +124,12 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Glow Design Agency</title>
+        <title>Glow Team Design Agency</title>
+        <meta
+          name="description"
+          content="We design ✔ digital products ✔ services ✔ eCommerce experiences ➜ Glow
+          Team - Simple design for complex products"
+        ></meta>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -255,7 +261,15 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <LoadingProgress />
-
+      <StructuredData
+        id="organization-schema"
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          url: 'https://glow.team',
+          logo: 'https://glow.team/favicons/ms-icon-144x144.png',
+        }}
+      />
       <DebugAtoms />
       {getLayout(<Component {...pageProps} />)}
       <AnimatedFix />
