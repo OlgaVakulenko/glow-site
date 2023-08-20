@@ -13,6 +13,7 @@ const positionMap = {
   'Kovalsky Stanislav': 'Co-Founder',
   'Daria Haman': 'HR Manager',
   'Liudmyla Gramatyk': 'Content Manager',
+  'Ruslan Mashatov': 'Co-Founder',
 };
 
 export function withAuthor(post) {

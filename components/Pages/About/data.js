@@ -26,7 +26,7 @@ const profiles = [
     image: PavelD,
   },
   {
-    name: 'Julia Kuznecova',
+    name: 'Julia Kuznetsova',
     position: 'Product Designer',
     image: JuliaK,
   },
@@ -36,7 +36,7 @@ const profiles = [
     image: MaxP,
   },
   {
-    name: 'Natali Korneliuk',
+    name: 'Natalia Korneliuk',
     position: 'Product Designer',
     image: NataliK,
   },

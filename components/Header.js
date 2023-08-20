@@ -188,7 +188,7 @@ export const headerTheme = atom([defaultTheme]);
 export const showBackdropAtom = atom(true);
 export const logoColor = atom(null);
 export const headerActiveAtom = atom(true);
-export const isFooterAtom = atom(true);
+export const isFooterAtom = atom(false);
 export const subMenuOpenAtom = atom(false);
 export const subMenuParentAtom = atom(null);
 
