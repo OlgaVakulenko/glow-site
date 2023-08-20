@@ -4,6 +4,7 @@ import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
 import Subheading from '../../Typography/Subheading';
 import NextStep from './NextStep';
+import OurExperience from './OurExperience';
 
 function IntroSection() {
   return (
@@ -181,14 +182,13 @@ function IconsSection() {
   );
 }
 
-
-
 export default function Home2() {
   return (
     <div>
       <IntroSection />
       <IconsSection />
       <NextStep />
+      <OurExperience />
     </div>
   );
 }

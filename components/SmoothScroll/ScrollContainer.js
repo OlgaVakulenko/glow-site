@@ -44,11 +44,12 @@ export default function ScrollContainer({ children }) {
         // setMounted(false);
       };
     }
+    console.log('create');
     smootherRef.current = new ScrollSmoother({
       wrapper: viewportRef.current,
       content: ref.current,
       effects: true,
-      smoothTouch: 0.1,
+      // smoothTouch: 0.1,
       onUpdate: throttle((e) => {
         const scrollTop = Math.round(Math.abs(e.scrollTop()));
         updateScrollPosition(scrollTop);
@@ -98,6 +99,7 @@ export default function ScrollContainer({ children }) {
   useEffect(() => {
     if (smootherRef.current) {
       window.__scrollTo = (...args) => {
+        console.log('__scrollTo call', ...args);
         smootherRef.current.scrollTo(args);
       };
 
