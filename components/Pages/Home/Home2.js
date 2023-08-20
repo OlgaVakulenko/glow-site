@@ -3,6 +3,7 @@ import Layout from '../../Layout';
 import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
 import Subheading from '../../Typography/Subheading';
+import NextStep from './NextStep';
 
 function IntroSection() {
   return (
@@ -180,11 +181,14 @@ function IconsSection() {
   );
 }
 
+
+
 export default function Home2() {
   return (
     <div>
       <IntroSection />
       <IconsSection />
+      <NextStep />
     </div>
   );
 }

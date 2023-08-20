@@ -1,5 +1,4 @@
 import { atom, useSetAtom } from 'jotai';
-import { useAtomsDebugValue } from 'jotai/devtools';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useMemo, useRef } from 'react';
@@ -12,14 +11,6 @@ import StructuredData from '../components/StructuredData';
 import { useMedia } from '../lib/agent';
 import '../styles/globals.css';
 
-const DebugAtoms = () => {
-  useAtomsDebugValue();
-  return null;
-};
-
-// if (isClient && isBrowser('Safari')) {
-//   ScrollTrigger.normalizeScroll(true);
-// }
 
 export const routerHistory = atom([]);
 
@@ -270,7 +261,6 @@ function MyApp({ Component, pageProps }) {
           logo: 'https://glow.team/favicons/ms-icon-144x144.png',
         }}
       />
-      <DebugAtoms />
       {getLayout(<Component {...pageProps} />)}
       <AnimatedFix />
       <Analytics />

@@ -1,3 +1,8 @@
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: true,
+  openAnalyzer: true,
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -14,12 +19,6 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
-  // webpack: (config, context) => {
-  //   console.log('my_config', config);
-  //   console.log('my_context', context);
-
-  //   return config;
-  // },
 };
 
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);
