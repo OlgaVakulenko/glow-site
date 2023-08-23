@@ -1,28 +1,37 @@
 import { RollingWords } from './index';
-import Layout from '../../Layout';
-import PageHeading from '../../PageHeading';
-import PageSubheading from '../../PageSubheading';
-import Subheading from '../../Typography/Subheading';
+// import Layout2 from '../../Layout2';
+import PageHeading, { PageHeading2 } from '../../PageHeading';
+import Subheading, { Subheading2 } from '../../Typography/Subheading';
 import NextStep from './NextStep';
 import OurExperience from './OurExperience';
+import TrialBanner from './TrialBanner';
+import Services from './Services';
+import Solutions from './Solutions';
+import Reviews from './Reviews2';
+import CasesSlider, { CasesSlider2 } from './CasesSlider';
+import LogoCarousel from './LogoCarousel';
+import BgImage from './assets/bg.png';
+import BgImageTablet from './assets/bg-tablet.png';
+import { Layout2 } from '../../Layout';
 
 function IntroSection() {
   return (
     <div>
-      <Layout>
-        <Subheading className="mb-8 pt-48">
-          Your trusted design team <br />
-          for&nbsp;
+      <Layout2 className="flex flex-col">
+        <Subheading2 className="mb-8 pt-48 md:mb-[87px] md:ml-auto md:mr-8 md:pt-[240px] xl:pt-[272px]">
+          Your trusted design team for
+          <br />
           <RollingWords
             words={['transportation', 'ai', 'fintech']}
             interval={2200}
           />{' '}
           <div className="inline-flex">challenges.</div>
-        </Subheading>
-        <PageHeading className="mb-8">
-          Simple design for&nbsp;complex products
-        </PageHeading>
-      </Layout>
+        </Subheading2>
+        <PageHeading2 className="mb-8 md:mb-16">
+          Simple design
+          <br /> for&nbsp;complex products
+        </PageHeading2>
+      </Layout2>
     </div>
   );
 }
@@ -163,10 +172,13 @@ const items = [
 function IconsSection() {
   return (
     <div className="pb-5">
-      <Layout>
-        <div className="grid gap-10">
+      <Layout2>
+        <div className="grid gap-10 md:grid-cols-3 xl:flex xl:justify-between xl:gap-0">
           {items.map((item, index) => (
-            <div key={index} className="flex">
+            <div
+              key={index}
+              className="flex md:last:col-span-3 md:last:mx-auto xl:last:mx-0"
+            >
               <div className="mr-6">
                 <item.icon></item.icon>
               </div>
@@ -177,18 +189,44 @@ function IconsSection() {
             </div>
           ))}
         </div>
-      </Layout>
+      </Layout2>
+    </div>
+  );
+}
+
+function Bg() {
+  return (
+    <div
+      className="pointer-events-none absolute left-0 right-0 top-0 z-[-1] h-screen"
+      style={
+        {
+          // boxShadow: 'inset 0 0 0 21px red',
+        }
+      }
+    >
+      <picture>
+        <source srcSet={BgImageTablet.src} media="(min-width: 820px)" />
+        <source srcSet={BgImage.src} />
+        <img src={BgImageTablet.src} alt="" className="w-full" />
+      </picture>
     </div>
   );
 }
 
 export default function Home2() {
   return (
-    <div>
+    <div className="relative">
+      <Bg />
       <IntroSection />
+      <LogoCarousel />
+      <CasesSlider2 />
       <IconsSection />
       <NextStep />
       <OurExperience />
+      <TrialBanner />
+      <Services />
+      <Solutions />
+      <Reviews />
     </div>
   );
 }

@@ -35,13 +35,24 @@ function post($key) {
 
 function formHandler() {
   $name = post('name');
-  $company_name = post('company_name');
-  $project = post('project');
-  $project_about = post('project_about');
-  $budget = post('budget');
   $email = post('email');
+  $service = post('service');
+  $budget = post('budget');
+  $project_about = post('project-about');
+
   //honeypot
   $phonenumber = post('phonenumber');
+
+  return json_respond([
+    'your fields' => [
+      'name' => $name,
+      'email' => $email,
+      'service' => $service,
+      'budget' => $budget,
+      'Project about' => $project_about, 
+    ]
+  ]);
+  die();
 
   $contactResponse = request_post(pipeUrl('persons'), [
     'name' => $name,
@@ -87,10 +98,7 @@ function emailNotification() {
   $mailer = new \PHPMailer\PHPMailer\PHPMailer();
 
   $name = post('name');
-  $company_name = post('company_name');
-  $project = post('project');
   $project_about = post('project_about');
-  $budget = post('budget');
   $email = post('email');
   
   try {
@@ -114,10 +122,7 @@ function emailNotification() {
     $message = [
       'Name' => $name,
       'Email' => $email,
-      'Company Name' => $company_name,
-      'Project Type' => $project,
       'Project About' => $project_about,
-      'Budget' => $budget,
     ];
     $msg = '';
     foreach ($message as $key => $value) {

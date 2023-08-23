@@ -2,6 +2,7 @@ import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
 import { routerHistory } from '../../../pages/_app';
 import { ParallaxFooter } from '../../Footer';
+import Footer2 from '../../Footer2';
 import Header, { BurgerIcon } from '../../Header';
 import ScrollContainer from '../../SmoothScroll/ScrollContainer';
 
@@ -54,15 +55,14 @@ export default function DefaultLayout({
                   className="origin-center transition-transform duration-300 group-hover:-rotate-90"
                 />
               </svg>
-
-              {/* <BurgerIcon isOpen={true} size={28} /> */}
             </button>
           )
         }
       />
       <ScrollContainer>
         {children}
-        {footer && <ParallaxFooter showFormButton={showFormButton} />}
+        {/* {footer && <ParallaxFooter showFormButton={showFormButton} />} */}
+        {footer && <Footer2 />}
       </ScrollContainer>
     </>
   );

@@ -99,7 +99,6 @@ export default function ScrollContainer({ children }) {
   useEffect(() => {
     if (smootherRef.current) {
       window.__scrollTo = (...args) => {
-        console.log('__scrollTo call', ...args);
         smootherRef.current.scrollTo(args);
       };
 

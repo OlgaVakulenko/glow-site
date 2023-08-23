@@ -332,3 +332,7 @@
 .rounded-3xl {
   border-radius: 26px;
 }
+
+.swiper-container-free-mode>.swiper-wrapper {
+  transition-timing-function: linear;
+}

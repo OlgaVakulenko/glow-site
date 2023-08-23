@@ -30,6 +30,7 @@ module.exports = {
         'body-xs': ['14px', '19px'],
         'body-s': ['16px', '22px'],
         'body-m': ['20px', '27px'],
+        'body-m2': ['18px', '26px'],
         'body-l': ['24px', '36px'],
         'body-heading-s': [
           '12px',
@@ -96,6 +97,14 @@ module.exports = {
             lineHeight: '64px',
           },
         ],
+        'heading-h1-2': [
+          '72px',
+          {
+            fontWeight: '500',
+            lineHeight: '67px',
+            tracking: '-2px',
+          },
+        ],
         'heading-h2': [
           '48px',
           {
@@ -103,11 +112,19 @@ module.exports = {
             lineHeight: '64px',
           },
         ],
+        'heading-h2-2': [
+          '56px',
+          {
+            fontWeight: '500',
+            lineHeight: '56px',
+            tracking: '-2px',
+          },
+        ],
         'heading-h3': [
           '32px',
           {
             fontWeight: '500',
-            lineHeight: '44px',
+            lineHeight: '37px',
           },
         ],
         'heading-h4': [
@@ -121,7 +138,7 @@ module.exports = {
         'subtitle-s': [
           '20px',
           {
-            lineHeight: '32px',
+            lineHeight: '27px',
           },
         ],
         'subtitle-m': [
@@ -144,6 +161,7 @@ module.exports = {
         lblue: '#F0F6FF',
         lred: '#FFE7EA',
         dim: '#F3F2F4',
+        'checkbox-dark': 'rgba(240, 246, 255, 0.15)',
       },
       spacing: {
         screenx: 'calc(var(--vh, 1vh) * 100);',
@@ -163,6 +181,10 @@ module.exports = {
           },
         },
       }),
+      gridTemplateColumns: {
+        'description-list': 'repeat(auto-fill, 152px)',
+        24: 'repeat(24, minmax(0, 1fr))',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

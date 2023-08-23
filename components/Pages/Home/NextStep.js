@@ -4,6 +4,9 @@ import Healthcare from '../../Icons/Healthcare';
 import Fintech from '../../Icons/Fintech';
 import { useState } from 'react';
 import Animated from '../../Animated';
+import cx from 'clsx';
+import Sphere from './assets/sphere-tablet.png';
+import Image from '../../Image';
 
 const items = [
   {
@@ -30,14 +33,26 @@ export default function NextStep() {
   const [iconMap, setIconMap] = useState({});
 
   return (
-    <Layout>
-      <div className="border-b pb-[50px]">
-        <h3 className="mb-[60px] font-glow text-5xl font-medium tracking-[-3px]">
-          The next step of your digital product starts here
+    <Layout className="relative overflow-hidden pt-[100px] md:pt-[120px]">
+      <div className="pointer-events-none absolute -left-[150px] -right-[150px] top-0 opacity-60 md:left-0 md:right-0 md:top-20 md:opacity-90 xl:left-[16%] xl:right-[16%] xl:opacity-95">
+        <Image className="xl:w-full" src={Sphere} alt="" />
+      </div>
+      <div className="border-b pb-[50px] md:pb-[78px] xl:pb-[104px]">
+        <h3 className="mb-[60px] text-center font-glow text-5xl font-medium tracking-[-3px] md:mb-[66px] md:text-[99px] md:leading-[100px] xl:mb-0 xl:text-[112px] xl:leading-[106px]">
+          The next step of <br className="hidden md:block xl:hidden" /> your
+          digital product
+          <br className="mb:block hidden" /> starts here
         </h3>
-        <div className="grid gap-y-14">
+        <div className="grid gap-y-14 md:flex md:justify-between">
           {items.map((item, index) => (
-            <div key={index} className="">
+            <div
+              key={index}
+              className={cx('md:last:pt-[76px]', {
+                'md:!pt-[356px] xl:!pt-[371px]': index === 2,
+                'md:order-2 md:!pt-[189px] xl:!pt-[91px]': index === 1,
+                'md:order-1': index === 2,
+              })}
+            >
               <Animated
                 onViewChange={(inView) => {
                   setIconMap((map) => ({
@@ -45,7 +60,7 @@ export default function NextStep() {
                     [index]: inView,
                   }));
                 }}
-                className="mb-9"
+                className="mb-12 md:mb-9 xl:mb-6"
               >
                 <item.icon isReady={iconMap[index] === true} />
               </Animated>
@@ -55,7 +70,10 @@ export default function NextStep() {
               >
                 {item.title}
               </Animated>
-              <Animated delay={200} className="text-lg leading-[26px]">
+              <Animated
+                delay={200}
+                className="text-lg leading-[26px] md:max-w-[280px]"
+              >
                 {item.description}
               </Animated>
             </div>

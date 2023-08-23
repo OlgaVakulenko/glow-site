@@ -8,7 +8,7 @@ import PageHeading from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
 import cases from '../Cases/data';
 import cx from 'clsx';
-import { CaseItem, CasesRow } from '../Home/_CasesSlider';
+import { CaseItem, CasesRow } from '../Home/CasesSlider';
 import { useMediaAtom } from '../../../lib/agent';
 import { Separator } from '../About';
 import Animated from '../../Animated';
@@ -130,7 +130,7 @@ function Cases() {
   }, [category, type]);
 
   return (
-    <div className="pt-12 pb-9 md:pt-20 md:pb-20">
+    <div className="pb-9 pt-12 md:pb-20 md:pt-20">
       <Filters className="mb-[70px] md:mb-24" />
       <div className={cx('opacity-100 transition-opacity duration-500', {})}>
         {media === 'mobile' ? (

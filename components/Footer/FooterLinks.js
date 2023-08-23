@@ -27,15 +27,15 @@ export default function FooterLinks({ className = '' }) {
           </div>
           <div>Odesa, Ukraine</div>
         </div>
-        <div className="flex items-center  md:ml-8 md:-mr-8">
+        <div className="flex items-center  md:-mr-8 md:ml-8">
           <LocalTime className="mr-7 md:mr-8" />
           <Weather className="md:mr-8" />
         </div>
       </div>
-      <div className="mr-[-40px] hidden md:flex xl:mr-[-56px]">
+      <div className="hidden md:flex md:space-x-10 xl:space-x-[56px]">
         {links.map((link) => (
           <a
-            className="mr-[40px] whitespace-nowrap xl:mr-[56px]"
+            className="whitespace-nowrap"
             key={link.href}
             href={link.href}
             target="_blank"

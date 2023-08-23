@@ -188,7 +188,7 @@ function ReviewAvatar({ image }) {
   return <img className="ml-[-16px] max-w-[64px]" src={image} alt="" />;
 }
 
-function ClutchRating({ rating = 5, className = '' }) {
+export function ClutchRating({ rating = 5, className = '' }) {
   const stars = useMemo(() => {
     const stars = [];
     for (let i = 0; i < rating; i++) {
@@ -235,7 +235,7 @@ function ReviewSlide({ review }) {
         <div className="mb-9 flex items-center justify-between md:mb-10">
           <div className="flex">
             <div className="relative z-[1] h-[64px] w-[64px] rounded-full bg-black">
-              <div className="absolute top-1/2 left-1/2 w-full max-w-[55px] -translate-y-1/2 -translate-x-1/2">
+              <div className="absolute left-1/2 top-1/2 w-full max-w-[55px] -translate-x-1/2 -translate-y-1/2">
                 <img src={review.companyAvatar} alt="" className="mx-auto" />
               </div>
             </div>
@@ -247,7 +247,7 @@ function ReviewSlide({ review }) {
         <div className="grow border-b border-black pb-[43px] text-body-m md:pb-6 md:text-body-l xl:pb-11">
           {review.text}
         </div>
-        <div className="pt-7 pb-9 md:flex md:items-center md:justify-between md:pb-16">
+        <div className="pb-9 pt-7 md:flex md:items-center md:justify-between md:pb-16">
           <div>
             <div className="mb-2 text-body-m">{review.name}</div>
             <div className="text-body-s">{review.company}</div>
