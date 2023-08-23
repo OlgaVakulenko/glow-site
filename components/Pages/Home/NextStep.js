@@ -39,9 +39,11 @@ export default function NextStep() {
       </div>
       <div className="border-b pb-[50px] md:pb-[78px] xl:pb-[104px]">
         <h3 className="mb-[60px] text-center font-glow text-5xl font-medium tracking-[-3px] md:mb-[66px] md:text-[99px] md:leading-[100px] xl:mb-0 xl:text-[112px] xl:leading-[106px]">
-          The next step of <br className="hidden md:block xl:hidden" /> your
+          The next step of <br className="hidden md:block xl:hidden" /> your{' '}
+          <br className="hidden xl:block" />
           digital product
-          <br className="mb:block hidden" /> starts here
+          <br className="mb:block hidden" /> starts
+          <br className="hidden xl:block" /> here
         </h3>
         <div className="grid gap-y-14 md:flex md:justify-between">
           {items.map((item, index) => (

@@ -144,7 +144,7 @@ export default function FooterForm() {
           />
         </div>
         <div className="md:mt-8 md:flex md:justify-between">
-          <div className="md:max-w-[385px]">
+          <div className="md:max-w-[385px] xl:max-w-[315px]">
             By sending this form I confirm that I have read and accept the{' '}
             <Link href="/privacy-policy" className="text-brand">
               Privacy Policy
