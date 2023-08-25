@@ -493,7 +493,7 @@ export default function Header({
                             'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-3 text-button-m shadow-black transition-all duration-500 hover:bg-black',
                             'hover:text-brand',
                             (t === 'white' || subMenuActive) &&
-                              'glow-border-b-b hover:!bg-brand hover:!text-white',
+                              'glow-border-b-b hover:!bg-brand hover:!text-black',
                             t === 'dark' &&
                               !subMenuActive &&
                               'glow-border-white-to-r bg-transparent text-white hover:!bg-brand hover:!text-white'
@@ -512,7 +512,7 @@ export default function Header({
                       <Link
                         href="/trial"
                         className={cx(
-                          'glow-border-brand rolling-text-group flex whitespace-pre-wrap rounded-full bg-brand px-[19px] py-3 text-button-m text-white transition-all duration-500'
+                          'glow-border-brand rolling-text-group flex whitespace-pre-wrap rounded-full bg-brand px-[19px] py-3 text-button-m text-black transition-all duration-500'
                         )}
                       >
                         <RollingText
