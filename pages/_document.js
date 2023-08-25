@@ -2,7 +2,7 @@ import { Head, Html, Main, NextScript } from 'next/document';
 
 export default function Document() {
   return (
-    <Html lang="en" className="no-js">
+    <Html lang="en" className="no-js l scroll-pt-4 xl:scroll-pt-14">
       <Head />
       <body>
         <noscript>

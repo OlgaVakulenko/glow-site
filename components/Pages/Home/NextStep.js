@@ -5,7 +5,10 @@ import Fintech from '../../Icons/Fintech';
 import { useState } from 'react';
 import Animated from '../../Animated';
 import cx from 'clsx';
-import Sphere from './assets/sphere-tablet.png';
+// import Sphere from './assets/sphere-tablet.png';
+import Sphere from './assets/sphere-solid.png';
+import SphereMobile from './assets/sphere-solid-mobile.png';
+
 import Image from '../../Image';
 
 const items = [
@@ -34,8 +37,12 @@ export default function NextStep() {
 
   return (
     <Layout className="relative overflow-hidden pt-[100px] md:pt-[120px]">
-      <div className="pointer-events-none absolute -left-[150px] -right-[150px] top-0 opacity-60 md:left-0 md:right-0 md:top-20 md:opacity-90 xl:left-[16%] xl:right-[16%] xl:opacity-95">
-        <Image className="xl:w-full" src={Sphere} alt="" />
+      <div className="pointer-events-none absolute -top-12 left-1/2 z-[-1] w-[200%] max-w-[780px] -translate-x-1/2 opacity-90 md:top-20 md:max-w-[970px] md:opacity-90 xl:opacity-95">
+        <picture>
+          <source srcSet={Sphere.src} media="(min-width: 820px)" />
+          <source srcSet={SphereMobile.src} />
+          <img className="w-full" src={Sphere.src} />
+        </picture>
       </div>
       <div className="border-b pb-[50px] md:pb-[78px] xl:pb-[104px]">
         <h3 className="mb-[60px] text-center font-glow text-5xl font-medium tracking-[-3px] md:mb-[66px] md:text-[99px] md:leading-[100px] xl:mb-0 xl:text-[112px] xl:leading-[106px]">

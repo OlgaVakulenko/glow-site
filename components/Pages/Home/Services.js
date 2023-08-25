@@ -3,7 +3,7 @@ import Ideate from '../../Icons/Ideate';
 import Investigate from '../../Icons/Investigate';
 import Iterate from '../../Icons/Iterate';
 import Animated from '../../Animated';
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SliderProgress from '../../SliderProgress';
 import { useMedia, useMediaAtom } from '../../../lib/agent';

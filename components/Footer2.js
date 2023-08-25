@@ -4,7 +4,7 @@ import Layout from './Layout';
 
 export default function Footer2() {
   return (
-    <footer>
+    <footer id="footer">
       <Layout>
         <div className="rounded-3xl bg-black px-6 pb-[48px] pt-[44px] text-lblue md:px-12 md:pb-20 md:pt-16 xl:p-20">
           <div className="xl:grid xl:grid-flow-row xl:grid-cols-12 xl:gap-8">

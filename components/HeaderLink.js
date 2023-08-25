@@ -61,7 +61,7 @@ export default function HeaderLink({
       }}
       delay={(index + 1) * 100}
       className={cx(
-        'mr-[77px] flex items-center justify-center text-sm uppercase last:mr-0',
+        'mr-12 flex items-center justify-center text-sm uppercase last:mr-0',
         theme === 'dark' && !subMenuParent && 'text-white'
       )}
       immediate

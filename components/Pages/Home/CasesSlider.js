@@ -17,6 +17,7 @@ import Case2Img from '../Home/assets/case-temp-2.png';
 import Case3Img from '../Home/assets/case-temp-3.png';
 
 import casesData from '../Cases/data';
+import DragCursorContainer from '../../DragCursor';
 
 const cases = casesData.filter((c) =>
   ['/liquidspace', '/jucr', '/beast', '/cryptogenie'].includes(c.href)
@@ -398,15 +399,17 @@ export function CasesSlider2() {
             {cases.map((item, i) => (
               <SwiperSlide
                 key={i}
-                className="px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[80vw]"
+                className="px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[80vw] xl:first:pl-14"
               >
-                <div className={cx('', {})}>
-                  <CaseSlide item={item} index={i} />
-                </div>
+                <Link href={item.href}>
+                  <div className={cx('', {})}>
+                    <CaseSlide item={item} index={i} />
+                  </div>
+                </Link>
               </SwiperSlide>
             ))}
-            <SwiperSlide className="md:!w-[736px]">
-              <div className="flex h-full min-h-[456px] items-center justify-center rounded-3xl md:grid md:min-h-[688px] md:w-fit md:grid-cols-2 md:gap-6 md:px-6">
+            <SwiperSlide className="md:!w-[736px] xl:!w-[778px] xl:pr-14">
+              <div className="flex h-full min-h-[456px] items-center justify-center rounded-3xl md:grid md:min-h-[688px] md:w-fit md:grid-cols-2 md:gap-6 md:pl-6">
                 {media !== 'mobile' && (
                   <>
                     <div className="w-[332px]">
@@ -423,25 +426,31 @@ export function CasesSlider2() {
 
                 <Link
                   href="/work"
-                  className="md:flex md:flex-col md:items-center md:justify-center"
+                  className="group md:flex md:flex-col md:items-center md:justify-center"
                 >
-                  <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="168"
-                      height="168"
-                      viewBox="0 0 168 168"
-                      fill="none"
-                    >
-                      <circle cx="84" cy="84" r="84" fill="#E33230" />
-                      <path
-                        d="M84 77L90.9007 84.0711M90.9007 84.0711L84 91.1421M90.9007 84.0711H77.0993"
-                        stroke="#19191B"
-                      />
-                    </svg>
+                  <div className="glow-border-black relative flex h-[168px] w-[168px] items-center justify-center rounded-full">
+                    <div className="absolute-center opacity-0 transition-opacity group-hover:opacity-100">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="168"
+                        height="168"
+                        viewBox="0 0 168 168"
+                        fill="none"
+                      >
+                        <circle cx="84" cy="84" r="84" fill="#E33230" />
+                        <path
+                          d="M84 77L90.9007 84.0711M90.9007 84.0711L84 91.1421M90.9007 84.0711H77.0993"
+                          stroke="#19191B"
+                        />
+                      </svg>
+                    </div>
+
+                    <div className="absolute-center rotate-[-30deg] transition-opacity group-hover:opacity-0">
+                      show more
+                    </div>
                   </div>
                   <div className="mt-4 text-center">
-                    View all {casesData.length} cases
+                    <div>View all {casesData.length} cases</div>
                   </div>
                 </Link>
               </div>

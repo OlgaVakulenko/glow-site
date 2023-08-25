@@ -30,7 +30,6 @@ export default function TableOfContents({ paragraphs }) {
       block: 'nearest',
       inline: 'nearest',
     });
-    console.log('scrolling into view');
   }, [active, hasScrollbar]);
 
   if (!paragraphs?.length) {

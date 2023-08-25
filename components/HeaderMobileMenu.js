@@ -1,6 +1,7 @@
 import { useAtom } from 'jotai';
 import Link from 'next/link';
 import { useMemo, useState } from 'react';
+import { useHandleFooterFormClick } from '../lib/utils';
 import BigButton from './BigButton';
 import { Animation, subMenuOpenAtom, subMenuParentAtom } from './Header';
 import HeaderLinkMobile from './HeaderLinkMobile';
@@ -8,6 +9,7 @@ import { HeaderSubMenu } from './HeaderSubMenu';
 
 export default function HeaderMobileMenu({ menuId, links }) {
   const [activeParent, setActiveParent] = useAtom(subMenuParentAtom);
+  const handleFooterFormClick = useHandleFooterFormClick();
 
   const _links = useMemo(() => {
     if (activeParent) return links.filter((item) => item === activeParent);
@@ -54,11 +56,11 @@ export default function HeaderMobileMenu({ menuId, links }) {
       {!activeParent && (
         <Animation index={links.length} className="mt-[55px]">
           <BigButton
-            href="https://calendly.com/glow-design-agency/meet"
-            target="_blank"
+            href="#footer"
             className="mb-4 !py-[41px]"
+            onClick={handleFooterFormClick}
           >
-            Discovery Call
+            Let’s get in touch
           </BigButton>
           <BigButton href="/form" className="mb-4 !py-[41px]">
             Fill out the brief

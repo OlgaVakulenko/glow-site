@@ -44,7 +44,6 @@ export default function ScrollContainer({ children }) {
         // setMounted(false);
       };
     }
-    console.log('create');
     smootherRef.current = new ScrollSmoother({
       wrapper: viewportRef.current,
       content: ref.current,

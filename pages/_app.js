@@ -11,7 +11,6 @@ import StructuredData from '../components/StructuredData';
 import { useMedia } from '../lib/agent';
 import '../styles/globals.css';
 
-
 export const routerHistory = atom([]);
 
 function MyApp({ Component, pageProps }) {
@@ -237,6 +236,7 @@ function MyApp({ Component, pageProps }) {
           dangerouslySetInnerHTML={{
             __html: `
               setTimeout(function(){
+                return;
                 console.log('window.__app_mounted', window.__app_mounted);
                 if (!window.__app_mounted) {
                   var t = document.querySelectorAll('.to-animate');

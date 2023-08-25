@@ -4,6 +4,7 @@ import SliderProgress from '../../SliderProgress';
 import { ClutchRating } from './_Reviews';
 import casesData from '../Cases/data';
 import { useMediaAtom } from '../../../lib/agent';
+import DragCursorContainer from '../../DragCursor';
 
 const reviews = [
   {
@@ -217,7 +218,7 @@ function ReviewCard({
 
   return (
     <div className="px-4 xl:px-14">
-      <div className="rounded-3xl border border-black px-6 pb-[52px] pt-8 md:grid md:grid-cols-8 md:gap-8 md:px-0 md:py-16 xl:grid-cols-12 xl:py-20">
+      <div className="rounded-3xl border border-black px-6 pb-[52px] pt-8 md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 md:px-0 md:py-16 xl:grid-cols-12 xl:py-20">
         <div className="hidden flex-col justify-between xl:col-span-3 xl:flex xl:pl-20">
           <div>
             <div className="mb-12">
@@ -305,27 +306,29 @@ export default function Reviews() {
 
   return (
     <div className="pb-14 pt-6 md:pt-10 xl:pb-4 xl:pt-16">
-      <Swiper>
-        {reviews.map((review, index) => (
-          <SwiperSlide key={index}>
-            <ReviewCard
-              avatar={review.avatar}
-              companyAvatar={review.companyAvatar}
-              name={review.name}
-              company={review.company}
-              text={review.text}
-              rating={review.rating}
-              dataService={review.data_service}
-              dataCompany={review.data_company}
-            />
-          </SwiperSlide>
-        ))}
-        {media !== 'desktop' && (
-          <Layout className="pt-5 md:max-w-[544px]">
-            <SliderProgress />
-          </Layout>
-        )}
-      </Swiper>
+      <DragCursorContainer>
+        <Swiper touchStartPreventDefault={false}>
+          {reviews.map((review, index) => (
+            <SwiperSlide key={index}>
+              <ReviewCard
+                avatar={review.avatar}
+                companyAvatar={review.companyAvatar}
+                name={review.name}
+                company={review.company}
+                text={review.text}
+                rating={review.rating}
+                dataService={review.data_service}
+                dataCompany={review.data_company}
+              />
+            </SwiperSlide>
+          ))}
+          {media !== 'desktop' && (
+            <Layout className="pt-5 md:max-w-[544px]">
+              <SliderProgress />
+            </Layout>
+          )}
+        </Swiper>
+      </DragCursorContainer>
     </div>
   );
 }

@@ -54,8 +54,6 @@ export default function HeaderSubMenuContainer() {
     if (!show) return;
     let active = true;
     const handleScroll = () => {
-      console.log('handling scroll');
-
       if (!active) return;
       active = false;
       setSubMenuParent(null);
@@ -92,7 +90,7 @@ export default function HeaderSubMenuContainer() {
         className={cx('fixed top-0 z-[9] w-full bg-white')}
       >
         <div
-          className={cx('pt-24 pb-[70px]', {
+          className={cx('pb-[70px] pt-24', {
             '!pt-[120px]': isTop,
           })}
         >

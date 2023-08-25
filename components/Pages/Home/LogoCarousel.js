@@ -7,6 +7,8 @@ import Client3 from './assets/client-3.svg';
 import Client4 from './assets/client-4.svg';
 import ClientLandflow from './assets/client-lendflow.svg';
 import ClientLiquidSpace from './assets/client-liquidspace.svg';
+import ClientNissan from './assets/client-nissan.svg';
+import ClientRiptide from './assets/client-riptide.svg';
 import Layout from '../../Layout';
 
 const slides = [
@@ -15,7 +17,9 @@ const slides = [
   Client3,
   Client4,
   ClientLandflow,
-  ClientLiquidSpace,
+  ClientNissan,
+  ClientRiptide,
+  // ClientLiquidSpace,
 ];
 
 export default function LogoCarousel() {

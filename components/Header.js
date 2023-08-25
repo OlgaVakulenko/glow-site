@@ -9,6 +9,7 @@ import { mediaAtom, useMediaAtom } from '../lib/agent';
 import {
   createHeaderScrollTrigger,
   useBodyLock,
+  useHandleFooterFormClick,
   useIsClient,
   usePrevious,
   useScrollDirection,
@@ -91,7 +92,7 @@ const BurgerButton = ({ isOpen, className, theme, ...props }) => {
   );
 };
 
-const openAtom = atom(false);
+export const openAtom = atom(false);
 
 export const Animation = ({ index, children, ...props }) => {
   return (
@@ -140,7 +141,7 @@ const BurgerMenu = ({ menuId, links }) => {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
       className={cx(
-        'fixed top-0 left-0 z-10 h-[150vh] w-full transition-colors duration-100',
+        'fixed left-0 top-0 z-10 h-[150vh] w-full transition-colors duration-100',
         {
           'bg-brand': !subMenuParent,
           'bg-white': subMenuParent,
@@ -330,7 +331,7 @@ export default function Header({
   const offset = 112;
 
   const [isTop, setIsTop] = useAtom(isTopAtom);
-  const [isBottom, setIsBottom] = useAtom(isBottomAtom);
+  // const [isBottom, setIsBottom] = useAtom(isBottomAtom);
 
   useEffect(() => {
     const offset = 112;
@@ -338,10 +339,10 @@ export default function Header({
       const isTop = window.scrollY < offset;
       setIsTop(isTop);
 
-      const isBottom =
-        window.innerHeight + window.scrollY >= document.body.offsetHeight - 2;
+      // const isBottom =
+      //   window.innerHeight + window.scrollY >= document.body.offsetHeight - 2;
 
-      setIsBottom(isBottom);
+      // setIsBottom(isBottom);
     }, 100);
     onScroll();
     window.addEventListener('scroll', onScroll);
@@ -349,7 +350,7 @@ export default function Header({
     return () => {
       window.removeEventListener('scroll', onScroll);
     };
-  }, [setIsTop, setIsBottom]);
+  }, [setIsTop]);
 
   useEffect(() => {
     let mounted = true;
@@ -370,7 +371,7 @@ export default function Header({
     mounted &&
     headerActive &&
     !isTop &&
-    !isBottom &&
+    // !isBottom &&
     scrollDirection !== 'forward' &&
     t !== 'dark' &&
     t !== 'brand';
@@ -409,13 +410,15 @@ export default function Header({
     }
   }, [media, prevMedia, resetSubMenuItems]);
 
+  const handleFooterFormClick = useHandleFooterFormClick();
+
   return (
     <div ref={rootRef}>
       <div className={cx('fixed top-0 z-10 w-full')}>
         <div className="relative">
           <div
             className={cx(
-              'backdrop pointer-events-none absolute top-0 left-0 h-[96px] w-full -translate-y-full bg-white opacity-0 transition-all duration-300',
+              'backdrop pointer-events-none absolute left-0 top-0 h-[96px] w-full -translate-y-full bg-white opacity-0 transition-all duration-300',
               {
                 // 'duration-300': !subMenuActive,
                 // 'duration-[0s]': subMenuActive,
@@ -431,9 +434,12 @@ export default function Header({
         className={cx(
           'first-header fixed z-10 w-full transition-transform duration-300 md:top-4',
           {
-            'md:-translate-y-4': !isTop && !isBottom,
+            'md:-translate-y-4': !isTop,
+            // && !isBottom
             '!-translate-y-full':
-              (scrollDirection === 'forward' && !isBottom && !subMenuActive) ||
+              (scrollDirection === 'forward' &&
+                // && !isBottom
+                !subMenuActive) ||
               !headerActive,
             // '!transition-none': isRouteTransition,
           }
@@ -442,7 +448,7 @@ export default function Header({
         <div className="relative">
           <Layout>
             <div
-              className="flex items-center justify-between pt-[28px] font-medium  uppercase md:h-[96px]  md:!pt-[28px] md:!pb-[28px]"
+              className="flex items-center justify-between pt-[28px] font-medium uppercase md:h-[96px] md:justify-start md:!pb-[28px] md:!pt-[28px]"
               style={{
                 '--header-theme':
                   t === 'brand' || t === 'white'
@@ -464,7 +470,7 @@ export default function Header({
               </Animated>
               <div
                 className={cx(
-                  'ml-[-32px] hidden transition-opacity duration-500 md:flex'
+                  'hidden transition-opacity duration-500 md:ml-[5.15%] md:flex xl:ml-[9.25%]'
                 )}
               >
                 {!isFooter &&
@@ -476,25 +482,42 @@ export default function Header({
                 (!isFooter && (
                   <div
                     className={cx(
-                      'hidden transition-opacity duration-200 md:block'
+                      'hidden transition-opacity duration-200 md:ml-auto md:flex xl:space-x-4'
                     )}
                   >
-                    <Animated delay={(links.length + 1) * 100} immediate>
+                    {media === 'desktop' && (
+                      <Animated delay={(links.length + 1) * 100} immediate>
+                        <Link
+                          href="#footer"
+                          className={cx(
+                            'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-3 text-button-m shadow-black transition-all duration-500 hover:bg-black',
+                            'hover:text-brand',
+                            (t === 'white' || subMenuActive) &&
+                              'glow-border-b-b hover:!bg-brand hover:!text-white',
+                            t === 'dark' &&
+                              !subMenuActive &&
+                              'glow-border-white-to-r bg-transparent text-white hover:!bg-brand hover:!text-white'
+                          )}
+                          onClick={handleFooterFormClick}
+                        >
+                          <RollingText
+                            height={20}
+                            text={`Let's get in touch`}
+                          ></RollingText>
+                        </Link>
+                      </Animated>
+                    )}
+
+                    <Animated delay={(links.length + 2) * 100} immediate>
                       <Link
-                        href="/contacts"
+                        href="/trial"
                         className={cx(
-                          'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-button-m shadow-black transition-all duration-500 hover:bg-black',
-                          'hover:text-brand',
-                          (t === 'white' || subMenuActive) &&
-                            'glow-border-b-b hover:!bg-brand hover:!text-black',
-                          t === 'dark' &&
-                            !subMenuActive &&
-                            'glow-border-white-to-r bg-transparent text-white hover:!bg-brand hover:!text-black'
+                          'glow-border-brand rolling-text-group flex whitespace-pre-wrap rounded-full bg-brand px-[19px] py-3 text-button-m text-white transition-all duration-500'
                         )}
                       >
                         <RollingText
                           height={20}
-                          text={`Let's get in touch`}
+                          text={`Free 3 day’s trial`}
                         ></RollingText>
                       </Link>
                     </Animated>

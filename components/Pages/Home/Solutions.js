@@ -2,6 +2,8 @@ import Image from '../../Image';
 import Layout from '../../Layout';
 import RusM from '../About/assets/rus-2.png';
 import cx from 'clsx';
+import React from 'react';
+import { useMediaAtom } from '../../../lib/agent';
 
 const items = [
   {
@@ -61,6 +63,8 @@ function Card({ className, tag, title, author_description, description }) {
 }
 
 export default function Solutions() {
+  const media = useMediaAtom();
+
   return (
     <Layout className="pb-8 pt-20 xl:pt-[120px]">
       <div className="mb-10 md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:mb-[72px] xl:grid-cols-12">
@@ -75,17 +79,36 @@ export default function Solutions() {
       </div>
       <div className="grid justify-center gap-4 md:-ml-4 md:flex md:flex-wrap md:gap-0">
         {items.map((item, index) => (
-          <Card
-            className={cx('md:mb-4 md:w-1/2 md:pl-4', {
-              'md:w-1/2': index !== items.length - 1,
-              'pr-4 md:w-1/2': index === items.length - 1,
-            })}
-            key={index}
-            tag={item.tag}
-            title={item.title}
-            author_description={item.author_description}
-            description={item.description}
-          />
+          <React.Fragment key={index}>
+            {index === items.length - 1 && media === 'desktop' && (
+              <div
+                className="w-1/4 rounded-[32px]"
+                style={{
+                  background:
+                    'linear-gradient(277deg, rgb(244 243 245) 0%, rgb(244 243 245) 60%, rgba(255, 255, 255, 0) 70%)',
+                }}
+              ></div>
+            )}
+            <Card
+              className={cx('md:mb-4 md:w-1/2 md:pl-4', {
+                'md:w-1/2': index !== items.length - 1,
+                'pr-4 md:w-1/2': index === items.length - 1,
+              })}
+              tag={item.tag}
+              title={item.title}
+              author_description={item.author_description}
+              description={item.description}
+            />
+            {index === items.length - 1 && media === 'desktop' && (
+              <div
+                className="w-1/4 rounded-[32px] opacity-70"
+                style={{
+                  background:
+                    'linear-gradient(97deg, rgb(244 243 245) 0%, rgb(244 243 245) 60%, rgba(255, 255, 255, 0) 70%)',
+                }}
+              ></div>
+            )}
+          </React.Fragment>
         ))}
       </div>
     </Layout>
