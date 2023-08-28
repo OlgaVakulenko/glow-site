@@ -9,6 +9,7 @@ import { useSetAtom } from 'jotai';
 import { atom } from 'jotai';
 import { useAtom } from 'jotai';
 import { useAtomValue } from 'jotai';
+import { useRouter } from 'next/router';
 
 function Item({ index, icon, title, text, href }) {
   return (
@@ -28,6 +29,7 @@ function Item({ index, icon, title, text, href }) {
 }
 
 export default function HeaderSubMenuContainer() {
+  const router = useRouter();
   const [subMenuParent, setSubMenuParent] = useAtom(subMenuParentAtom);
   const isTop = useAtomValue(isTopAtom);
   const subItems = subMenuParent?.children;
@@ -66,6 +68,18 @@ export default function HeaderSubMenuContainer() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [show, setSubMenuParent]);
+
+  useEffect(() => {
+    const onRouteChange = () => {
+      setSubMenuParent(null);
+    };
+
+    router.events.on('hashChangeStart', onRouteChange);
+
+    return () => {
+      router.events.off('hashChangeStart', onRouteChange);
+    };
+  }, [router.events, setSubMenuParent]);
 
   return (
     <div>

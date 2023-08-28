@@ -1,21 +1,24 @@
 import { RollingWords } from './index';
 // import Layout2 from '../../Layout2';
-import PageHeading, { PageHeading2 } from '../../PageHeading';
-import Subheading, { Subheading2 } from '../../Typography/Subheading';
+import cx from 'clsx';
+import { useEffect, useState } from 'react';
+import Animated from '../../Animated';
+import { Layout2 } from '../../Layout';
+import { PageHeading2 } from '../../PageHeading';
+import { Subheading2 } from '../../Typography/Subheading';
+import BgImageTablet from './assets/bg-tablet.png';
+import BgImage from './assets/bg.png';
+import { CasesSlider2 } from './CasesSlider';
+import LogoCarousel from './LogoCarousel';
 import NextStep from './NextStep';
 import OurExperience from './OurExperience';
-import TrialBanner from './TrialBanner';
+import Reviews from './Reviews2';
 import Services from './Services';
 import Solutions from './Solutions';
-import Reviews from './Reviews2';
-import CasesSlider, { CasesSlider2 } from './CasesSlider';
-import LogoCarousel from './LogoCarousel';
-import BgImage from './assets/bg.png';
-import BgImageTablet from './assets/bg-tablet.png';
-import { Layout2 } from '../../Layout';
-import Animated from '../../Animated';
-import { useState } from 'react';
-import cx from 'clsx';
+import TrialBanner from './TrialBanner';
+import { atom } from 'jotai';
+import { useSetAtom } from 'jotai';
+import { useAtom } from 'jotai';
 
 function IntroSection() {
   return (
@@ -106,8 +109,6 @@ const items = [
     title: 'Faster',
     description: 'That recruiting in-house',
     icon: ({ isReady }) => {
-      console.log('needle.isReady', isReady);
-
       return (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -380,16 +381,142 @@ function Bg() {
   );
 }
 
-function Line() {
+const xAtom = atom(0);
+function Cursor({ isHover }) {
+  const [x] = useAtom(xAtom);
+
   return (
-    <div className="absolute top-[170px] w-full">
+    <div
+      className={cx(
+        'pointer-events-none absolute left-0 top-[114px] z-[1] flex h-4 w-96 items-center justify-center bg-brand text-white opacity-0 transition-opacity duration-[300ms] md:top-[160px]',
+        {
+          '!opacity-100 !duration-[1.5s]': isHover,
+        }
+      )}
+      style={{
+        transform: `translateX(${x - 192}px)`,
+        background: 'radial-gradient(rgb(227, 50, 48) 10%, transparent 58%)',
+      }}
+    >
+      {/* Hello */}
+    </div>
+  );
+}
+
+function Line() {
+  const [propertySupport, setPropertySupport] = useState(null);
+  const [height, setHeight] = useState(500);
+  const [isHover, setIsHover] = useState(false);
+  const duration = 'duration-[1s]';
+  const setX = useSetAtom(xAtom);
+
+  useEffect(() => {
+    setPropertySupport('registerProperty' in window?.CSS);
+  }, []);
+
+  useEffect(() => {
+    try {
+      const els = Array.from(
+        document.querySelectorAll('#intro-section, #logo-carousel')
+      );
+      const height = els.reduce((h, c) => h + c.offsetHeight, 0);
+      setHeight(height - 168 + 92);
+    } catch (e) {
+      console.error(e);
+    }
+  }, []);
+
+  console.log(height);
+
+  return (
+    <div>
       <div
-        className="h-[1px] w-full "
+        className={cx(
+          'absolute top-0 h-[122px] w-full opacity-0 transition-shadow md:h-[168px]',
+          duration,
+          {
+            'opacity-100': propertySupport !== null,
+          }
+        )}
         style={{
-          background:
-            'linear-gradient(270deg, rgb(227, 50, 48) 0%, rgb(227, 50, 48) 20%, rgba(255, 255, 255, 255) 100%)',
+          ...(propertySupport
+            ? {
+                transition: '--myColor1 1s, --myColor2 1s, --myColor3 1s',
+                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                '--myColor1': isHover ? '#E33230' : 'transparent',
+                '--myColor2': isHover ? 'transparent' : 'transparent',
+                '--myColor3': isHover ? '100%' : '0%',
+                background:
+                  'linear-gradient(0deg, var(--myColor1) 0%, var(--myColor2) var(--myColor3))',
+              }
+            : {
+                boxShadow: isHover
+                  ? 'inset 0px -160px 84px -75px #e33230'
+                  : null,
+              }),
+
+          //
         }}
       ></div>
+      <div
+        className={cx(
+          'absolute top-[122px] w-full opacity-0 transition-shadow md:top-[168px]',
+          duration,
+          {
+            'opacity-100': propertySupport !== null,
+          }
+        )}
+        style={{
+          height: `${height}px`,
+          ...(propertySupport
+            ? {
+                transition: '--myColor1 1s, --myColor2 1s, --myColor3 1s',
+                transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                '--myColor1': isHover ? '#E33230' : 'transparent',
+                '--myColor2': isHover ? 'white' : 'transparent',
+                '--myColor3': isHover ? '100%' : '0%',
+                background:
+                  'linear-gradient(180deg, var(--myColor1) 0%, var(--myColor2) var(--myColor3))',
+              }
+            : {
+                boxShadow: isHover
+                  ? 'inset 0px 350px 200px -150px #e33230'
+                  : null,
+              }),
+        }}
+      ></div>
+      <div
+        className="absolute top-[82px] z-[1] w-full py-10 md:top-[128px]"
+        onMouseEnter={() => {
+          setIsHover(true);
+        }}
+        onMouseLeave={() => {
+          setIsHover(false);
+        }}
+        onMouseMove={(e) => {
+          setX(e.pageX);
+        }}
+      >
+        <div
+          className={cx('h-[1px] w-full transition-opacity', duration, {
+            'opacity-0': isHover,
+          })}
+          style={{
+            background:
+              'linear-gradient(270deg, rgb(227, 50, 48) 0%, rgb(227, 50, 48) 20%, rgba(255, 255, 255, 255) 100%)',
+          }}
+        ></div>
+        <div
+          className={cx(
+            'mt-[-1px] h-[1px] w-full bg-white opacity-0 transition-opacity',
+            duration,
+            {
+              'opacity-30': isHover,
+            }
+          )}
+        ></div>
+      </div>
+      <Cursor isHover={isHover} />
     </div>
   );
 }
@@ -399,9 +526,15 @@ export default function Home2() {
     <div className="relative">
       <Bg />
       <Line />
-      <IntroSection />
-      <LogoCarousel />
-      <CasesSlider2 />
+      <div id="intro-section">
+        <IntroSection />
+      </div>
+      <div id="logo-carousel">
+        <LogoCarousel />
+      </div>
+      <div id="cases-slider">
+        <CasesSlider2 />
+      </div>
       <IconsSection />
       <NextStep />
       <OurExperience />

@@ -48,6 +48,8 @@ export default function HeaderLink({
           setTimeout(() => {
             debounceRef.current = false;
           }, 300);
+        } else {
+          setSubMenuParent(null);
         }
       }}
       onClick={() => {

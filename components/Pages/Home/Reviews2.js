@@ -5,6 +5,7 @@ import { ClutchRating } from './_Reviews';
 import casesData from '../Cases/data';
 import { useMediaAtom } from '../../../lib/agent';
 import DragCursorContainer from '../../DragCursor';
+import DynamicMedia from '../../DynamicMedia';
 
 const reviews = [
   {
@@ -306,8 +307,15 @@ export default function Reviews() {
 
   return (
     <div className="pb-14 pt-6 md:pt-10 xl:pb-4 xl:pt-16">
-      <DragCursorContainer>
-        <Swiper touchStartPreventDefault={false}>
+      <DynamicMedia desktop="div" tablet={DragCursorContainer}>
+        <Swiper
+          touchStartPreventDefault={false}
+          breakpoints={{
+            1280: {
+              allowTouchMove: false,
+            },
+          }}
+        >
           {reviews.map((review, index) => (
             <SwiperSlide key={index}>
               <ReviewCard
@@ -328,7 +336,7 @@ export default function Reviews() {
             </Layout>
           )}
         </Swiper>
-      </DragCursorContainer>
+      </DynamicMedia>
     </div>
   );
 }
