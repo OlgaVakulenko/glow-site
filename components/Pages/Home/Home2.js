@@ -411,7 +411,7 @@ function Line() {
   const setX = useSetAtom(xAtom);
 
   useEffect(() => {
-    setPropertySupport('registerProperty' in window?.CSS);
+    setPropertySupport('registerProperty' in window?.CSS && false);
   }, []);
 
   useEffect(() => {
