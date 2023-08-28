@@ -523,7 +523,7 @@ function Line() {
 
 export default function Home2() {
   return (
-    <div className="relative">
+    <div className="relative overflow-hidden">
       <Bg />
       <Line />
       <div id="intro-section">
