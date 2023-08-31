@@ -349,20 +349,12 @@
   mask-image: linear-gradient(90deg, white 90%, transparent 100%);
 }
 
-@property --myColor1 {
-  syntax: '<color>';
-  initial-value: #E33230;
-  inherits: false;
+.main-bg {
+  background: linear-gradient(#f2f2f2 46.06%, rgba(255, 255, 255, 0) 100%);
 }
 
-@property --myColor2 {
-  syntax: '<color>';
-  initial-value: transparent;
-  inherits: false;
-}
-
-@property --myColor3 {
-  syntax: '<percentage>';
-  initial-value: 0%;
-  inherits: false;
+@media screen and (min-width: 820px) {
+  .main-bg {
+    background: radial-gradient(closest-side, #f2f2f2 46.06%, rgba(255, 255, 255, 0) 100%);
+  }
 }

@@ -32,16 +32,16 @@ const items = [
 function Card({ className, tag, title, author_description, description }) {
   return (
     <div className={cx(className)}>
-      <div className="rounded-[32px] bg-[#F4F3F5] px-4 pb-4 pt-8 md:px-6 md:pb-6 md:pt-[39px]">
+      <div className="rounded-[32px] bg-[#F4F3F5] px-4 pb-4 pt-8 md:flex md:h-full md:flex-col md:px-6 md:pb-6 md:pt-[39px] xl:px-10 xl:pb-10 xl:pt-12">
         <div>
           <span className="rounded-full bg-brand px-2 py-1 text-body-heading-s uppercase text-lred">
             {tag}
           </span>
         </div>
-        <div className="mb-4 mt-6 font-glow text-[29px] font-medium leading-[37px] md:mb-[27px] md:mt-[34px] xl:text-heading-h3">
+        <div className="mb-4 mt-6 font-glow text-[29px] font-medium leading-[37px] md:mb-[27px] md:mt-[34px] xl:mb-6 xl:text-heading-h3">
           {title}
         </div>
-        <div className="rounded-2xl bg-white p-4 pb-6 md:pb-8 xl:p-8 xl:pb-[37px]">
+        <div className="rounded-2xl bg-white p-4 pb-6 md:h-full md:pb-8 xl:p-8 xl:pb-[37px]">
           <div className="mb-6 flex xl:mb-[27px]">
             <div className="mr-4 shrink-0">
               <Image
@@ -82,17 +82,17 @@ export default function Solutions() {
           <React.Fragment key={index}>
             {index === items.length - 1 && media === 'desktop' && (
               <div
-                className="w-1/4 rounded-[32px]"
+                className="w-1/4 rounded-[32px] 3xl:hidden"
                 style={{
                   background:
-                    'linear-gradient(277deg, rgb(244 243 245) 0%, rgb(244 243 245) 60%, rgba(255, 255, 255, 0) 70%)',
+                    'linear-gradient(287deg, rgb(244 243 245) 0%, rgb(244 243 245) 30%, rgba(255, 255, 255, 0) 70%)',
                 }}
               ></div>
             )}
             <Card
-              className={cx('md:mb-4 md:w-1/2 md:pl-4', {
+              className={cx('md:mb-4 md:w-1/2 md:pl-4 3xl:w-1/3', {
                 'md:w-1/2': index !== items.length - 1,
-                'pr-4 md:w-1/2': index === items.length - 1,
+                'md:w-1/2 md:pr-4': index === items.length - 1,
               })}
               tag={item.tag}
               title={item.title}
@@ -101,10 +101,10 @@ export default function Solutions() {
             />
             {index === items.length - 1 && media === 'desktop' && (
               <div
-                className="w-1/4 rounded-[32px] opacity-70"
+                className="w-1/4 rounded-[32px] opacity-70 3xl:hidden"
                 style={{
                   background:
-                    'linear-gradient(97deg, rgb(244 243 245) 0%, rgb(244 243 245) 60%, rgba(255, 255, 255, 0) 70%)',
+                    'linear-gradient(107deg, rgb(244 243 245) 0%, rgb(244 243 245) 30%, rgba(255, 255, 255, 0) 70%)',
                 }}
               ></div>
             )}

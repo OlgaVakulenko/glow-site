@@ -85,10 +85,10 @@ export default function HeaderSubMenuContainer() {
     <div>
       <div
         className={cx(
-          'pointer-events-none fixed inset-0 z-[9] bg-black opacity-50 transition-opacity duration-300',
+          'pointer-events-none fixed inset-0 z-[9] bg-black opacity-0 transition-opacity duration-300',
           {
             '!pointer-events-auto': show,
-            '!opacity-0': !show,
+            '!opacity-50': show,
           }
         )}
         onClick={() => setSubMenuParent(null)}

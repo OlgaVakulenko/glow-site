@@ -62,8 +62,8 @@ export default function HeaderMobileMenu({ menuId, links }) {
           >
             Let’s get in touch
           </BigButton>
-          <BigButton href="/form" className="mb-4 !py-[41px]">
-            Fill out the brief
+          <BigButton href="/trial" className="mb-4 !py-[41px]">
+            Free 3 day’s trial
           </BigButton>
         </Animation>
       )}

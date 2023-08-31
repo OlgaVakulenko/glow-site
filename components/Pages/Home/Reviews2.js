@@ -1,4 +1,4 @@
-import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from 'swiper/react';
 import Layout from '../../Layout';
 import SliderProgress from '../../SliderProgress';
 import { ClutchRating } from './_Reviews';
@@ -6,6 +6,7 @@ import casesData from '../Cases/data';
 import { useMediaAtom } from '../../../lib/agent';
 import DragCursorContainer from '../../DragCursor';
 import DynamicMedia from '../../DynamicMedia';
+import cx from 'clsx';
 
 const reviews = [
   {
@@ -214,8 +215,16 @@ function ReviewCard({
   rating,
   dataService,
   dataCompany,
+  index,
+  total,
 }) {
   const swiper = useSwiper();
+  const slide = useSwiperSlide();
+
+  const currentIndex = swiper.realIndex;
+
+  const hasPrev = slide.isActive && currentIndex === index && index > 0;
+  const hasNext = slide.isActive && currentIndex === index && index < total - 1;
 
   return (
     <div className="px-4 xl:px-14">
@@ -231,7 +240,10 @@ function ReviewCard({
           </div>
           <div className="flex items-end">
             <button
-              className="mr-4"
+              className={cx('mr-4', {
+                'opacity-50': !hasPrev,
+              })}
+              disabled={!hasPrev}
               onClick={() => {
                 swiper.slidePrev();
               }}
@@ -254,6 +266,10 @@ function ReviewCard({
               </svg>
             </button>
             <button
+              className={cx('mr-4', {
+                'opacity-50': !hasNext,
+              })}
+              disabled={!hasNext}
               onClick={() => {
                 swiper.slideNext();
               }}
@@ -314,10 +330,16 @@ export default function Reviews() {
             1280: {
               allowTouchMove: false,
             },
+            1680: {
+              slidesPerView: 'auto',
+              centeredSlides: true,
+              spaceBetween: 100,
+              allowTouchMove: false,
+            },
           }}
         >
           {reviews.map((review, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className="layout-no-p:max-w-[1680px]">
               <ReviewCard
                 avatar={review.avatar}
                 companyAvatar={review.companyAvatar}
@@ -327,6 +349,8 @@ export default function Reviews() {
                 rating={review.rating}
                 dataService={review.data_service}
                 dataCompany={review.data_company}
+                index={index}
+                total={reviews.length}
               />
             </SwiperSlide>
           ))}

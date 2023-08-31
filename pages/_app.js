@@ -236,8 +236,6 @@ function MyApp({ Component, pageProps }) {
           dangerouslySetInnerHTML={{
             __html: `
               setTimeout(function(){
-                return;
-                console.log('window.__app_mounted', window.__app_mounted);
                 if (!window.__app_mounted) {
                   var t = document.querySelectorAll('.to-animate');
                   for (var i = 0; i < t.length; i++) {

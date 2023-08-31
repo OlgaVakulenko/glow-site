@@ -40,18 +40,11 @@ export default function LogoCarousel() {
     // return;
 
     let id = null;
-    let prevTime = 0;
-    const run = (time) => {
-      const delta = time - prevTime;
-      prevTime = time;
+    const run = () => {
+      let scrollLeft = ref.current.scrollLeft + 1;
 
-      let scrollLeft = ref.current.scrollLeft + ~~(delta / 5);
-
-      // console.log(delta / 5);
       const needle = scrollerRef.current.offsetWidth / 2 + 96 / 2;
       if (scrollLeft >= needle) {
-        // console.log('CURRENT', scrollLeft);
-        // console.log('needle', needle);
         scrollLeft = 0;
       }
 

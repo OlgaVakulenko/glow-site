@@ -113,7 +113,7 @@ export default function FooterForm() {
       >
         <div className="md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 xl:mb-10 xl:flex xl:flex-col xl:gap-0">
           <Switches
-            className="mb-12 md:col-span-4 md:pr-6 xl:mb-10"
+            className="-mr-1 mb-12 md:col-span-4 md:mr-0 md:pr-6 xl:mb-10"
             title="Service"
             name="service"
             selected={selectedService}
@@ -121,7 +121,7 @@ export default function FooterForm() {
             options={services}
           />
           <Switches
-            className="md:col-span-4 "
+            className="-mr-1 md:col-span-4 md:mr-0"
             title="Budget"
             name="budget"
             selected={selectedBudget}
@@ -130,7 +130,7 @@ export default function FooterForm() {
           />
         </div>
 
-        <div className="grid gap-8 pb-6 pt-12 md:grid-flow-row md:grid-cols-8">
+        <div className="grid gap-8 px-6 pb-6 pt-12 md:grid-flow-row md:grid-cols-8 md:px-0">
           <Input
             name="name"
             placeholder="Your Name"
@@ -143,7 +143,7 @@ export default function FooterForm() {
             placeholder="Project details (optional)"
           />
         </div>
-        <div className="md:mt-8 md:flex md:justify-between">
+        <div className="px-6 md:mt-8 md:flex md:justify-between md:px-0">
           <div className="md:max-w-[385px] xl:max-w-[315px]">
             By sending this form I confirm that I have read and accept the{' '}
             <Link href="/privacy-policy" className="text-brand">

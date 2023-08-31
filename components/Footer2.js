@@ -5,8 +5,8 @@ import Layout from './Layout';
 export default function Footer2() {
   return (
     <footer id="footer">
-      <Layout>
-        <div className="rounded-3xl bg-black px-6 pb-[48px] pt-[44px] text-lblue md:px-12 md:pb-20 md:pt-16 xl:p-20">
+      <Layout disableOnMobile={true}>
+        <div className="bg-black px-4 pb-[48px] pt-[44px] text-lblue md:rounded-3xl md:px-12 md:pb-20 md:pt-16 xl:p-20">
           <div className="xl:grid xl:grid-flow-row xl:grid-cols-12 xl:gap-8">
             <div className="mb-8 font-glow text-[32px] leading-[32px] md:mb-[54px] md:max-w-[528px] md:text-[54px] md:leading-[56px] xl:col-span-6 xl:text-heading-h1-2">
               Let’s make <br className="hidden md:block" />
@@ -17,6 +17,8 @@ export default function Footer2() {
             </div>
           </div>
         </div>
+      </Layout>
+      <Layout>
         <div className="py-6">
           <FooterLinks className="!text-black" />
         </div>

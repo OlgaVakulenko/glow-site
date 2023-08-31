@@ -19,7 +19,7 @@ export default function TrialBanner() {
     const ctx = gsap.context(() => {
       gsap.fromTo(
         targetRef.current,
-        { y: 100 },
+        { y: 140 },
         {
           y: 0,
           scrollTrigger: {
@@ -44,7 +44,9 @@ export default function TrialBanner() {
           ref={wrapperRef}
           className="relative overflow-hidden rounded-3xl px-6 py-10 md:flex md:min-h-[328px] md:px-12"
         >
-          <Image className="absolute inset-0 md:hidden" src={Bg} alt="" />
+          <div className="absolute inset-0 md:hidden">
+            <Image className="h-full w-full object-cover" src={Bg} alt="" />
+          </div>
           <Image
             className="absolute inset-0 hidden h-full w-full object-cover md:block"
             src={BgTablet}
@@ -52,7 +54,7 @@ export default function TrialBanner() {
           />
           <div
             ref={targetRef}
-            className="absolute -top-16 bottom-0 left-[-6rem] right-[-5.5rem] md:left-[9%] md:right-[-25%] md:top-[-114%] xl:top-[-120%]"
+            className="absolute bottom-0 left-[-6rem] right-[-5.5rem] top-[-14%] md:left-[9%] md:right-[-25%] md:top-[-114%] xl:top-[-120%]"
           >
             <Image src={Logo} alt="" />
           </div>

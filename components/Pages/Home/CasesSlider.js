@@ -394,12 +394,22 @@ export function CasesSlider2() {
               820: {
                 slidesPerView: 'auto',
               },
+              1920: {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+              },
             }}
           >
             {cases.map((item, i) => (
               <SwiperSlide
                 key={i}
-                className="px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[80vw] xl:first:pl-14"
+                className={cx(
+                  'px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[80vw] xl:first:pl-14',
+                  {
+                    // 'wide:!w-[1440px]': true,
+                    'wide:!w-[1568px] wide:first:pl-0': true,
+                  }
+                )}
               >
                 <Link href={item.href}>
                   <div className={cx('', {})}>

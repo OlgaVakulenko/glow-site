@@ -7,6 +7,9 @@ import React, { useMemo, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SliderProgress from '../../SliderProgress';
 import { useMedia, useMediaAtom } from '../../../lib/agent';
+import InViewport from '../../InViewport';
+import Link from 'next/link';
+import LinkArrowCircle from '../../LinkArrowCircle';
 
 const items = [
   {
@@ -55,65 +58,70 @@ export default function Services() {
           service is exactly what you need.
         </div>
       </Layout>
-      <div className="bg-[#F3F2F4] pb-6 md:mx-4 md:rounded-[32px] md:pb-0 xl:mx-14">
-        {/* <Layout> */}
-        <div className="pt-4 md:pt-0">
-          <Wrapper className="md:grid md:gap-4 md:py-4">
-            {items.map((item, index) => (
-              <SlideWrapper key={index} className="!h-auto">
-                <div className="h-full px-4">
-                  <div className="flex h-full flex-col justify-between rounded-3xl bg-white px-6 py-10 md:grid md:grid-flow-col md:grid-cols-24 md:gap-8 md:px-10 md:py-9">
-                    <Animated
-                      className="md:col-span-6 md:flex md:items-center"
-                      onViewChange={(inView) => {
-                        setIconMap((map) => ({
-                          ...map,
-                          [index]: inView,
-                        }));
-                      }}
-                      delay={100}
-                    >
-                      <item.icon isReady={iconMap[index] === true} />
-                    </Animated>
-                    <div className="mb-7 mt-9 text-2xl font-medium tracking-[0.48px] md:col-span-5 md:mt-6">
-                      {item.title}
+      <Layout disableOnMobile>
+        <div className="bg-[#F3F2F4] pb-6 md:rounded-[32px] md:pb-0">
+          {/* <Layout> */}
+          <div className="pt-4 md:pt-0">
+            <Wrapper className="md:grid md:gap-4 md:py-4">
+              {items.map((item, index) => (
+                <SlideWrapper key={index} className="!h-auto">
+                  <Link href="#" className="group">
+                    <div className="h-full px-4">
+                      <div className="flex h-full flex-col justify-between rounded-3xl bg-white px-6 py-10 md:grid md:grid-flow-col md:grid-cols-24 md:gap-8 md:px-10 md:py-9">
+                        <InViewport
+                          className="md:col-span-6 md:flex md:items-center"
+                          onViewChange={(inView) => {
+                            setIconMap((map) => ({
+                              ...map,
+                              [index]: inView,
+                            }));
+                          }}
+                          delay={100}
+                        >
+                          <item.icon isReady={iconMap[index] === true} />
+                        </InViewport>
+                        <div className="mb-7 mt-9 text-2xl font-medium tracking-[0.48px] md:col-span-5 md:mt-6">
+                          {item.title}
+                        </div>
+                        <div className="mb-[38px] text-body-m2 md:col-span-11 md:mb-1 md:mt-5 md:max-w-[384px] md:pr-5">
+                          {item.description}
+                        </div>
+                        <div className="mt-auto md:col-span-1 md:mt-0 md:flex md:items-center md:justify-center">
+                          <button className="w-full rounded-full border border-black py-3 text-xs font-medium uppercase leading-4 tracking-[0.36px] md:w-fit md:border-none md:p-0">
+                            {media === 'mobile' ? (
+                              'More Details'
+                            ) : (
+                              <LinkArrowCircle />
+                              // <svg
+                              //   xmlns="http://www.w3.org/2000/svg"
+                              //   width="16"
+                              //   height="16"
+                              //   viewBox="0 0 16 16"
+                              //   fill="none"
+                              // >
+                              //   <path
+                              //     d="M7.44531 1L14.346 8.07107M14.346 8.07107L7.44531 15.1421M14.346 8.07107H0.544631"
+                              //     stroke="#19191B"
+                              //   />
+                              // </svg>
+                            )}
+                          </button>
+                        </div>
+                      </div>
                     </div>
-                    <div className="mb-[38px] text-body-m2 md:col-span-11 md:mb-1 md:mt-5 md:max-w-[384px] md:pr-5">
-                      {item.description}
-                    </div>
-                    <div className="mt-auto md:col-span-1 md:mt-0 md:flex md:items-center md:justify-center">
-                      <button className="w-full rounded-full border border-black py-3 text-xs font-medium uppercase leading-4 tracking-[0.36px] md:w-fit md:p-[19px] ">
-                        {media === 'mobile' ? (
-                          'More Details'
-                        ) : (
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            fill="none"
-                          >
-                            <path
-                              d="M7.44531 1L14.346 8.07107M14.346 8.07107L7.44531 15.1421M14.346 8.07107H0.544631"
-                              stroke="#19191B"
-                            />
-                          </svg>
-                        )}
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </SlideWrapper>
-            ))}
-            {media === 'mobile' && (
-              <Layout className="mt-4">
-                <SliderProgress />
-              </Layout>
-            )}
-          </Wrapper>
+                  </Link>
+                </SlideWrapper>
+              ))}
+              {media === 'mobile' && (
+                <Layout className="mt-4">
+                  <SliderProgress />
+                </Layout>
+              )}
+            </Wrapper>
+          </div>
+          {/* </Layout> */}
         </div>
-        {/* </Layout> */}
-      </div>
+      </Layout>
     </div>
   );
 }
