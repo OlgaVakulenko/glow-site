@@ -94,11 +94,11 @@
 }
 
 .header-logo.submenu path {
-  color: theme('colors.brand');
+  color: theme('colors.black');
 }
 
 .header-logo.white path {
-  color: theme('colors.brand');
+  color: theme('colors.black');
 }
 
 /** Niches Animations */
