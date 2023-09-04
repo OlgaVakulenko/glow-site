@@ -23,6 +23,7 @@ const cases = [
         rental service
       </>
     ),
+    title2: 'Liquid Space',
     industry: ['Rental'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 8M'],
@@ -38,6 +39,7 @@ const cases = [
         without worries
       </>
     ),
+    title2: 'Charge your car',
     industry: ['Charge App', 'Electric Vehicles', 'Car rental'],
     service: ['Product Design', 'User Experience', 'User Interface'],
     company: ['Funding 30M'],
@@ -53,6 +55,7 @@ const cases = [
         rental for Tesla
       </>
     ),
+    title2: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: [
@@ -72,6 +75,7 @@ const cases = [
         <br className="hidden md:block" /> predicting the relevant trends
       </>
     ),
+    title2: 'Cryptogenie',
     href: '/cryptogenie',
     industry: ['AI', 'Blockchain'],
     service: ['Product Design', 'User Experience', 'User Interface'],
@@ -88,6 +92,7 @@ const cases = [
   {
     href: '/parking',
     title: 'Platform for parking in airport',
+    title2: 'Platform for parking',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],

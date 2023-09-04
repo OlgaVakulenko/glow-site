@@ -26,7 +26,7 @@ function IntroSection() {
   return (
     <div>
       <Layout2 className="flex flex-col">
-        <Subheading2 className="mb-8 pt-48 md:mb-[87px] md:ml-auto md:mr-8 md:pt-[240px] xl:pt-[272px]">
+        <Subheading2 className="pointer-events-none mb-8 pt-48 md:mb-[87px] md:ml-auto md:mr-8 md:pt-[240px] xl:pt-[272px]">
           Your trusted design team for
           <br />
           <RollingWords
@@ -431,12 +431,13 @@ function Cursor({ isHover }) {
 }
 
 function Line() {
-  const [height, setHeight] = useState(500);
+  const [height, setHeight] = useState(280);
   const [isHover, setIsHover] = useState(false);
   const duration = 'duration-[1s]';
   const setX = useSetAtom(xAtom);
 
   useEffect(() => {
+    return;
     const onResize = debounce(() => {
       try {
         const els = Array.from(
@@ -462,7 +463,7 @@ function Line() {
       {/** top gradient */}
       <div
         className={cx(
-          'pointer-events-none absolute top-0 h-[122px] w-full origin-bottom scale-y-0 opacity-0 md:h-[168px]',
+          'pointer-events-none absolute -top-12 h-[170px] w-full origin-bottom scale-y-0 opacity-0 md:h-[216px]',
           {
             '!scale-y-100': isHover,
             '!opacity-100': isHover,
@@ -472,7 +473,16 @@ function Line() {
           transition: isHover
             ? 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1)'
             : 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s cubic-bezier(0.4, 0, 0.2, 1)',
-          background: 'linear-gradient(0deg, #E33230 0%, transparent 100%)',
+          background: `linear-gradient(
+            0deg,
+            hsl(1deg 76% 54% / 1) 0%,
+            hsl(5deg 83% 62% / 0.74) 26%,
+            hsl(7deg 90% 71% / 0.61) 39%,
+            hsl(8deg 99% 79% / 0.5) 50%,
+            hsl(9deg 100% 86% / 0.39) 61%,
+            hsl(10deg 100% 93% / 0.26) 74%,
+            hsl(0deg 0% 100% / 0) 100%
+          )`,
         }}
       ></div>
       {/** bottom gradient */}
@@ -489,7 +499,17 @@ function Line() {
           transition: isHover
             ? 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1)'
             : 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s cubic-bezier(0.4, 0, 0.2, 1)',
-          background: 'linear-gradient(180deg, #E33230 0%, transparent 100%)',
+          // background: 'linear-gradient(180deg, #E33230 0%, transparent 100%)',
+          background: `linear-gradient(
+            180deg,
+            hsl(1deg 76% 54% / 1) 0%,
+            hsl(5deg 83% 62% / 0.74) 26%,
+            hsl(7deg 90% 71% / 0.61) 39%,
+            hsl(8deg 99% 79% / 0.5) 50%,
+            hsl(9deg 100% 86% / 0.39) 61%,
+            hsl(10deg 100% 93% / 0.26) 74%,
+            hsl(0deg 0% 100% / 0) 100%
+          )`,
         }}
       ></div>
       {/** line */}

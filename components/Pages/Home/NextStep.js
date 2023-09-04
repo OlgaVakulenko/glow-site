@@ -57,7 +57,7 @@ export default function NextStep() {
       gsap.fromTo(
         sphereRef.current,
         {
-          y: 100,
+          y: 180,
         },
         {
           y: 0,
@@ -73,7 +73,7 @@ export default function NextStep() {
 
       gsap.fromTo(
         '.__item',
-        { y: 100, ...withOpacity.from },
+        { y: 150, ...withOpacity.from },
         {
           y: 0,
           ...withOpacity.to,
@@ -99,14 +99,14 @@ export default function NextStep() {
       <Layout className="relative overflow-hidden pt-[100px] md:pt-[120px]">
         <div
           ref={sphereRef}
-          className="pointer-events-none absolute left-1/2 top-20 w-[200%] max-w-[480px] -translate-x-1/2 opacity-90 md:top-44 md:max-w-[890px] md:opacity-100 xl:opacity-95"
+          className="pointer-events-none absolute left-1/2 top-0 w-[200%] max-w-[480px] -translate-x-1/2 opacity-90 md:top-12 md:max-w-[890px] md:opacity-100 xl:opacity-95"
         >
           <Image src={SphereNew} alt="" />
         </div>
         <div className="border-b pb-[50px] md:pb-[78px] xl:pb-[104px]">
           <Animated
             as="h3"
-            className="mb-[84px] text-center font-glow text-5xl font-medium tracking-[-3px] md:mb-[66px] md:text-[99px] md:leading-[100px] xl:mb-0 xl:text-[112px] xl:leading-[106px]"
+            className="mb-[60px] text-center font-glow text-5xl font-medium tracking-[-3px] md:mb-[66px] md:text-[99px] md:leading-[100px] xl:mb-0 xl:text-[112px] xl:leading-[106px]"
           >
             The next step of <br className="hidden md:block xl:hidden" /> your{' '}
             <br className="hidden xl:block" />
@@ -114,7 +114,7 @@ export default function NextStep() {
             <br className="mb:block hidden" /> starts
             <br className="hidden xl:block" /> here
           </Animated>
-          <div className="grid gap-y-14 md:flex md:justify-between">
+          <div className="grid gap-y-14 md:flex md:justify-between xl:-mt-10">
             {items.map((item, index) => (
               <div
                 key={index}

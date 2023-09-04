@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
 import cx from 'clsx';
 import Link from 'next/link';
+import RollingText from '../RollingText';
 
 function Switches({
   className,
@@ -130,7 +131,7 @@ export default function FooterForm() {
           />
         </div>
 
-        <div className="grid gap-8 px-6 pb-6 pt-12 md:grid-flow-row md:grid-cols-8 md:px-0">
+        <div className="grid gap-8 pb-6 pt-12 md:grid-flow-row md:grid-cols-8">
           <Input
             name="name"
             placeholder="Your Name"
@@ -143,7 +144,7 @@ export default function FooterForm() {
             placeholder="Project details (optional)"
           />
         </div>
-        <div className="px-6 md:mt-8 md:flex md:justify-between md:px-0">
+        <div className="md:mt-8 md:flex md:justify-between">
           <div className="md:max-w-[385px] xl:max-w-[315px]">
             By sending this form I confirm that I have read and accept the{' '}
             <Link href="/privacy-policy" className="text-brand">
@@ -152,9 +153,9 @@ export default function FooterForm() {
           </div>
           <button
             type="submit"
-            className="mt-8 w-full rounded-full border border-lblue py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 hover:bg-lblue hover:text-black md:mt-0 md:w-fit md:px-9"
+            className="rolling-text-group mt-8 w-full rounded-full border border-lblue py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 hover:bg-lblue hover:text-black md:mt-0 md:w-fit md:px-9"
           >
-            Make me glow
+            <RollingText text="Make me glow" height={24} />
           </button>
         </div>
       </form>

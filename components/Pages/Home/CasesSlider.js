@@ -16,6 +16,7 @@ import Case1Img from '../Home/assets/case-temp-1.png';
 import Case2Img from '../Home/assets/case-temp-2.png';
 import Case3Img from '../Home/assets/case-temp-3.png';
 
+import CaseImg from '../Home/assets/case-img.png';
 import casesData from '../Cases/data';
 import DragCursorContainer from '../../DragCursor';
 
@@ -74,9 +75,9 @@ function CaseSlide({ item, index }) {
         ></div>
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
-          className="relative px-[40px] pb-[64px] md:px-[96px] md:pb-[105px] md:pt-[282] xl:px-[104px]"
+          className="relative px-6 pb-[50px] md:px-[96px] md:pb-[105px] md:pt-[282] xl:px-[104px]"
         >
-          <div className="relative inline-block pl-[3px] font-glow text-[11px] tracking-[2px]">
+          {/* <div className="relative inline-block pl-[3px] font-glow text-[11px] tracking-[2px]">
             {addLeadingZero(index + 1)}
             &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
             {addLeadingZero(cases.length)}
@@ -94,11 +95,11 @@ function CaseSlide({ item, index }) {
                 />
               </svg>
             </div>
+          </div> */}
+          <div className="mb-[29px] mt-[16px] font-glow text-[26px] font-medium leading-[120%] md:mb-[38px] md:mt-[15px] md:text-[32px]">
+            {item.title2 || item.title}
           </div>
-          <div className="mb-8 mt-[20px] font-glow text-[26px] font-medium leading-[120%] md:mb-[38px] md:mt-[15px] md:text-[32px]">
-            {item.title}
-          </div>
-          <div className="flex space-x-[56px] pl-[3px] md:space-x-[96px]">
+          <div className="flex space-x-[52px] pl-[3px] md:space-x-[96px]">
             <Col className="" title="Industry" items={item.industry} />
             <Col title="Services" items={item.service} />
             {media !== 'mobile' && item.company && (
@@ -434,35 +435,40 @@ export function CasesSlider2() {
                   </>
                 )}
 
-                <Link
-                  href="/work"
-                  className="group md:flex md:flex-col md:items-center md:justify-center"
-                >
-                  <div className="glow-border-black relative flex h-[168px] w-[168px] items-center justify-center rounded-full">
-                    <div className="absolute-center opacity-0 transition-opacity group-hover:opacity-100">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="168"
-                        height="168"
-                        viewBox="0 0 168 168"
-                        fill="none"
-                      >
-                        <circle cx="84" cy="84" r="84" fill="#E33230" />
-                        <path
-                          d="M84 77L90.9007 84.0711M90.9007 84.0711L84 91.1421M90.9007 84.0711H77.0993"
-                          stroke="#19191B"
-                        />
-                      </svg>
-                    </div>
+                <Layout>
+                  {media === 'mobile' && (
+                    <Image className="mb-4" src={CaseImg} alt="" />
+                  )}
+                  <Link
+                    href="/work"
+                    className="group md:flex md:flex-col md:items-center md:justify-center"
+                  >
+                    <div className="glow-border-black relative flex h-[163px] w-full items-center justify-center rounded-3xl md:h-[168px] md:w-[168px] md:rounded-full">
+                      <div className="absolute-center opacity-0 transition-opacity group-hover:md:opacity-100">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="168"
+                          height="168"
+                          viewBox="0 0 168 168"
+                          fill="none"
+                        >
+                          <circle cx="84" cy="84" r="84" fill="#E33230" />
+                          <path
+                            d="M84 77L90.9007 84.0711M90.9007 84.0711L84 91.1421M90.9007 84.0711H77.0993"
+                            stroke="#19191B"
+                          />
+                        </svg>
+                      </div>
 
-                    <div className="absolute-center rotate-[-30deg] transition-opacity group-hover:opacity-0">
-                      show more
+                      <div className="absolute-center rotate-[-30deg] whitespace-nowrap font-medium uppercase transition-opacity group-hover:md:opacity-0">
+                        show more
+                      </div>
                     </div>
-                  </div>
-                  <div className="mt-4 text-center">
-                    <div>View all {casesData.length} cases</div>
-                  </div>
-                </Link>
+                    <div className="mt-4 text-center">
+                      <div>view all {casesData.length} cases</div>
+                    </div>
+                  </Link>
+                </Layout>
               </div>
             </SwiperSlide>
             {media !== 'desktop' && (

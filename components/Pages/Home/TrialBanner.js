@@ -6,6 +6,7 @@ import BgTablet from './assets/trial-bg-tb.png';
 import { useEffect, useRef } from 'react';
 import gsap, { ScrollTrigger } from '../../../dist/gsap';
 import Link from 'next/link';
+import RollingText from '../../RollingText';
 
 export default function TrialBanner() {
   const wrapperRef = useRef();
@@ -21,12 +22,12 @@ export default function TrialBanner() {
         targetRef.current,
         { y: 140 },
         {
-          y: 0,
+          y: -50,
           scrollTrigger: {
             trigger: wrapperRef.current,
             scrub: true,
             start: 'top 100%',
-            end: 'bottom 50%',
+            end: 'bottom 0%',
           },
         }
       );
@@ -69,9 +70,9 @@ export default function TrialBanner() {
                 </div>
                 <button
                   tabIndex="-1"
-                  className="w-full rounded-full bg-brand py-4 text-xs font-medium uppercase leading-4 tracking-[0.36px] text-lred md:w-fit md:px-[34px]"
+                  className="rolling-text-group flex w-full justify-center overflow-hidden whitespace-pre-wrap rounded-full bg-brand py-4 text-xs font-medium uppercase leading-4 tracking-[0.36px] text-lred md:w-fit md:px-[34px] xl:text-sm xl:tracking-[0.42px]"
                 >
-                  Free 3 day’s trial
+                  <RollingText height={19} text="Free 3 day’s trial" />
                 </button>
               </div>
             </div>
