@@ -105,7 +105,7 @@ export function RollingWords({ words, interval = 16500 }) {
   return (
     <span
       ref={root}
-      className="inline-flex h-7 flex-col items-start overflow-hidden"
+      className="inline-flex h-7 flex-col items-start overflow-hidden layout-no-p:h-10"
       // style={{
       //   maxWidth: refWidths.find((r) => r.word === rollingWords[0])?.width,
       // }}

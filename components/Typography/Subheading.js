@@ -19,7 +19,7 @@ export function Subheading2({ children, className, ...props }) {
       as="h3"
       className={cx(
         className,
-        'text-xl italic leading-6 md:text-2xl md:leading-[33px] xl:text-[26px]'
+        'text-xl italic leading-6 md:text-2xl md:leading-[33px] xl:text-[26px] layout-no-p:text-[30px] layout-no-p:leading-[38px]'
       )}
       {...props}
     >

@@ -10,6 +10,7 @@ import { useMedia, useMediaAtom } from '../../../lib/agent';
 import InViewport from '../../InViewport';
 import Link from 'next/link';
 import LinkArrowCircle from '../../LinkArrowCircle';
+import cx from 'clsx';
 
 const items = [
   {
@@ -50,13 +51,17 @@ export default function Services() {
   return (
     <div className="">
       <Layout className="mb-[47px] md:grid md:grid-cols-8 md:gap-8 xl:grid-cols-12">
-        <div className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2">
+        <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 layout-no-p:max-w-[672px] layout-no-p:text-[64px] layout-no-p:leading-[64px]">
           We open to any kind&nbsp;of co-operation
-        </div>
-        <div className="text-subtitle-m italic md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l">
+        </Animated>
+        <div className="layout-no-p:col-span-1"></div>
+        <Animated
+          delay={100}
+          className="text-subtitle-m italic   md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l layout-no-p:col-span-4 layout-no-p:text-[26px]"
+        >
           If you find yourself in one of the situations described below, our
           service is exactly what you need.
-        </div>
+        </Animated>
       </Layout>
       <Layout disableOnMobile>
         <div className="bg-[#F3F2F4] pb-6 md:rounded-[32px] md:pb-0">
@@ -65,7 +70,7 @@ export default function Services() {
             <Wrapper className="md:grid md:gap-4 md:py-4">
               {items.map((item, index) => (
                 <SlideWrapper key={index} className="!h-auto">
-                  <Link href="#" className="group">
+                  <div className="group">
                     <div className="h-full px-4">
                       <div className="flex h-full flex-col justify-between rounded-3xl bg-white px-6 py-10 md:grid md:grid-flow-col md:grid-cols-24 md:gap-8 md:px-10 md:py-9">
                         <InViewport
@@ -83,33 +88,28 @@ export default function Services() {
                         <div className="mb-7 mt-9 text-2xl font-medium tracking-[0.48px] md:col-span-5 md:mt-6">
                           {item.title}
                         </div>
-                        <div className="mb-[38px] text-body-m2 md:col-span-11 md:mb-1 md:mt-5 md:max-w-[384px] md:pr-5">
+                        <div
+                          className={cx(
+                            ' text-body-m2 md:col-span-11  md:mt-5 md:max-w-[384px] md:pr-5',
+                            {
+                              'mb-[38px] md:mb-1': false, //turn on later on
+                            }
+                          )}
+                        >
                           {item.description}
                         </div>
-                        <div className="mt-auto md:col-span-1 md:mt-0 md:flex md:items-center md:justify-center">
+                        {/* <div className="mt-auto md:col-span-1 md:mt-0 md:flex md:items-center md:justify-center">
                           <button className="w-full rounded-full border border-black py-3 text-xs font-medium uppercase leading-4 tracking-[0.36px] md:w-fit md:border-none md:p-0">
                             {media === 'mobile' ? (
                               'More Details'
                             ) : (
                               <LinkArrowCircle />
-                              // <svg
-                              //   xmlns="http://www.w3.org/2000/svg"
-                              //   width="16"
-                              //   height="16"
-                              //   viewBox="0 0 16 16"
-                              //   fill="none"
-                              // >
-                              //   <path
-                              //     d="M7.44531 1L14.346 8.07107M14.346 8.07107L7.44531 15.1421M14.346 8.07107H0.544631"
-                              //     stroke="#19191B"
-                              //   />
-                              // </svg>
                             )}
                           </button>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 </SlideWrapper>
               ))}
               {media === 'mobile' && (

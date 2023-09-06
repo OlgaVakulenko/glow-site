@@ -4,11 +4,12 @@ import RusM from '../About/assets/rus-2.png';
 import cx from 'clsx';
 import React from 'react';
 import { useMediaAtom } from '../../../lib/agent';
+import Animated from '../../Animated';
 
 const items = [
   {
     tag: 'Design',
-    title: 'Designers seem to miss the idea',
+    title: <>Designers seem to miss the&nbsp;idea</>,
     author_description: 'My name is Rus and I will help you with this problem',
     description:
       'We have 40+ UI/UX designers with SaaS design expertise on the team, so we can jump into the project whenever you need us. Plus, we provide a 3-day FREE trial to let you see us in action before signing the contract.',
@@ -29,19 +30,26 @@ const items = [
   },
 ];
 
-function Card({ className, tag, title, author_description, description }) {
+function Card({
+  className,
+  tag,
+  title,
+  author_description,
+  description,
+  index = 0,
+}) {
   return (
-    <div className={cx(className)}>
-      <div className="rounded-[32px] bg-[#F4F3F5] px-4 pb-4 pt-8 md:flex md:h-full md:flex-col md:px-6 md:pb-6 md:pt-[39px] xl:px-10 xl:pb-10 xl:pt-12">
+    <Animated delay={100 * index} className={cx(className)}>
+      <div className="rounded-[32px] bg-[#F4F3F5] px-4 pb-4 pt-8 md:flex md:h-full md:flex-col md:px-6 md:pb-6 md:pt-[39px] xl:px-10 xl:pb-10 xl:pt-12 layout-no-p:px-8 layout-no-p:pb-8 layout-no-p:pt-12">
         <div>
           <span className="rounded-full bg-brand px-2 py-1 text-body-heading-s uppercase text-lred">
             {tag}
           </span>
         </div>
-        <div className="mb-4 mt-6 font-glow text-[29px] font-medium leading-[37px] md:mb-[27px] md:mt-[34px] xl:mb-6 xl:text-heading-h3">
+        <div className="mb-4 mt-6 font-glow text-[29px] font-medium leading-[37px] md:mb-[27px] md:mt-[34px] xl:mb-6 xl:text-heading-h3 layout-no-p:flex layout-no-p:min-h-[64px] layout-no-p:items-center">
           {title}
         </div>
-        <div className="rounded-2xl bg-white p-4 pb-6 md:h-full md:pb-8 xl:p-8 xl:pb-[37px]">
+        <div className="rounded-2xl bg-white p-4 pb-6 md:h-full md:pb-8 xl:p-8 xl:pb-[37px] layout-no-p:px-6 layout-no-p:pb-[50px] layout-no-p:pt-6">
           <div className="mb-6 flex xl:mb-[27px]">
             <div className="mr-4 shrink-0">
               <Image
@@ -58,7 +66,7 @@ function Card({ className, tag, title, author_description, description }) {
           <div className="text-body-m2">{description}</div>
         </div>
       </div>
-    </div>
+    </Animated>
   );
 }
 
@@ -66,30 +74,36 @@ export default function Solutions() {
   const media = useMediaAtom();
 
   return (
-    <Layout className="pb-8 pt-20 xl:pt-[120px]">
+    <Layout className="pb-8 pt-20 xl:pt-[120px] layout-no-p:pb-12 layout-no-p:pt-[145px]">
       <div className="mb-10 md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:mb-[72px] xl:grid-cols-12">
-        <div className=" mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2">
+        <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 layout-no-p:max-w-[672px] layout-no-p:text-[64px] layout-no-p:leading-[64px]">
           We can light
           <br className="hidden md:block" /> your&nbsp;way
-        </div>
-        <div className="text-subtitle-m italic md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l">
+        </Animated>
+        <div className="layout-no-p:col-span-1"></div>
+        <Animated
+          delay={100}
+          className="text-subtitle-m italic   md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l layout-no-p:col-span-4 layout-no-p:text-[26px]"
+        >
           Like a rescue squad for your product, we are ready to swoop in
           whenever you summon us. Let&apos;s take a look at what we can solve.
-        </div>
+        </Animated>
       </div>
       <div className="grid justify-center gap-4 md:-ml-4 md:flex md:flex-wrap md:gap-0">
         {items.map((item, index) => (
           <React.Fragment key={index}>
             {index === items.length - 1 && media === 'desktop' && (
-              <div
+              <Animated
+                delay={250}
                 className="w-1/4 rounded-[32px] 3xl:hidden"
                 style={{
                   background:
                     'linear-gradient(287deg, rgb(244 243 245) 0%, rgb(244 243 245) 30%, rgba(255, 255, 255, 0) 70%)',
                 }}
-              ></div>
+              ></Animated>
             )}
             <Card
+              index={index}
               className={cx('md:mb-4 md:w-1/2 md:pl-4 3xl:w-1/3', {
                 'md:w-1/2': index !== items.length - 1,
                 'md:w-1/2 md:pr-4': index === items.length - 1,
@@ -99,14 +113,16 @@ export default function Solutions() {
               author_description={item.author_description}
               description={item.description}
             />
+
             {index === items.length - 1 && media === 'desktop' && (
-              <div
+              <Animated
+                delay={350}
                 className="w-1/4 rounded-[32px] opacity-70 3xl:hidden"
                 style={{
                   background:
                     'linear-gradient(107deg, rgb(244 243 245) 0%, rgb(244 243 245) 30%, rgba(255, 255, 255, 0) 70%)',
                 }}
-              ></div>
+              ></Animated>
             )}
           </React.Fragment>
         ))}

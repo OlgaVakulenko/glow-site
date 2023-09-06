@@ -1,6 +1,7 @@
-import { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import cx from 'clsx';
 import { useRouter } from 'next/router';
+import InViewport from './InViewport';
 
 const globalOn = false;
 
@@ -86,6 +87,30 @@ export function AnimatedFix() {
   );
 }
 
+const AnimatedContext = React.createContext(null);
+export function AnimatedGroup({ children, ...rest }) {
+  const [isInViewport, setIsInViewport] = useState(false);
+
+  return (
+    <InViewport
+      {...rest}
+      onViewChange={(inViewport) => {
+        if (inViewport) {
+          setIsInViewport(inViewport);
+        }
+      }}
+    >
+      <AnimatedContext.Provider
+        value={{
+          inViewport: isInViewport,
+        }}
+      >
+        {children}
+      </AnimatedContext.Provider>
+    </InViewport>
+  );
+}
+
 export default function Animated({
   as = 'div',
   className,
@@ -96,6 +121,7 @@ export default function Animated({
   immediate = false,
   ...rest
 }) {
+  const groupCtx = useContext(AnimatedContext);
   const ref = useRef(null);
   const onViewChangeRef = useRef(null);
   onViewChangeRef.current = onViewChange;
@@ -103,11 +129,13 @@ export default function Animated({
   delayRef.current = delay;
   const [inViewport, setInViewport] = useState(false);
   const Component = as;
-  // const enabled = isClient ? window.location.search.indexOf('a=') >= 0 : true;
   const enabled = true;
 
   useEffect(() => {
-    // return;
+    if (groupCtx !== null) {
+      return;
+    }
+
     if (!run) {
       run = true;
     }
@@ -128,9 +156,6 @@ export default function Animated({
       return;
     }
 
-    if (!enabled) {
-      return;
-    }
     if (ref.current) {
       return onInView(ref.current, () => {
         if (delayRef.current > 0) {
@@ -148,20 +173,26 @@ export default function Animated({
         }
       });
     }
-  }, [immediate]);
+  }, [immediate, groupCtx]);
 
-  // useEffect(() => {
-  //   if (inViewport) {
-  //     ref.current?.classList.add('in-viewport');
-  //   }
-  // }, [inViewport]);
+  useEffect(() => {
+    if (groupCtx === null) {
+      return;
+    }
+
+    const delay = delayRef.current;
+    const update = () => {
+      setInViewport(groupCtx.inViewport);
+    };
+
+    if (delay === 0) {
+      update();
+    } else {
+      setTimeout(update, delay);
+    }
+  }, [groupCtx]);
 
   let _inViewport = inViewport;
-
-  // if (children && children.props?.['aria-controls']) {
-  //   console.log('needle.inViewport', inViewport);
-  //   _inViewport = false;
-  // }
 
   return (
     <Component

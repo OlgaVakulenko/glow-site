@@ -25,16 +25,20 @@ import debounce from 'lodash.debounce';
 function IntroSection() {
   return (
     <div>
-      <Layout2 className="flex flex-col">
-        <Subheading2 className="pointer-events-none mb-8 pt-48 md:mb-[87px] md:ml-auto md:mr-8 md:pt-[240px] xl:pt-[272px]">
-          Your trusted design team for
-          <br />
-          <RollingWords
-            words={['transportation', 'ai', 'fintech']}
-            interval={2200}
-          />{' '}
-          <div className="inline-flex">challenges.</div>
-        </Subheading2>
+      <Layout2 className="flex flex-col ">
+        <div className="md:grid md:grid-flow-row md:grid-cols-8 md:gap-8 xl:grid-cols-12 layout-no-p:gap-12">
+          <div className="md:col-span-4 lg:col-span-5 xl:col-span-7"></div>
+          <Subheading2 className="pointer-events-none mb-8 pt-48 md:col-span-4 md:mb-[87px] md:ml-0 md:mr-8 md:pt-[240px] lg:col-span-3 xl:col-span-5 xl:pt-[272px] layout-no-p:mb-[158px]">
+            Your trusted design team for
+            <br />
+            <RollingWords
+              words={['transportation', 'ai', 'fintech']}
+              interval={2200}
+            />{' '}
+            <div className="inline-flex">challenges.</div>
+          </Subheading2>
+        </div>
+
         <PageHeading2 className="mb-8 md:mb-16">
           Simple design
           <br /> for&nbsp;complex products
@@ -356,12 +360,16 @@ function IconsSection() {
               //   }, 300);
               // }}
             >
-              <div className="mr-6">
+              <div className="mr-8 md:mr-4 layout-no-p:mr-6">
                 <item.icon isReady={map[index]}></item.icon>
               </div>
               <div>
-                <div className="mb-2 text-body-heading-m">{item.title}</div>
-                <div className="text-body-s opacity-50">{item.description}</div>
+                <div className="mb-2 text-body-heading-m layout-no-p:text-[22px] layout-no-p:leading-[120%]">
+                  {item.title}
+                </div>
+                <div className="text-body-s opacity-50 layout-no-p:text-body-m2">
+                  {item.description}
+                </div>
               </div>
             </Animated>
           ))}

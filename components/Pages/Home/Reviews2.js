@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from 'swiper/react';
+import { EffectFade } from 'swiper/modules';
 import Layout from '../../Layout';
 import SliderProgress from '../../SliderProgress';
 import { ClutchRating } from './_Reviews';
@@ -7,6 +8,7 @@ import { useMediaAtom } from '../../../lib/agent';
 import DragCursorContainer from '../../DragCursor';
 import DynamicMedia from '../../DynamicMedia';
 import cx from 'clsx';
+import 'swiper/css/effect-fade';
 
 const reviews = [
   {
@@ -325,6 +327,7 @@ export default function Reviews() {
     <div className="pb-14 pt-6 md:pt-10 xl:pb-4 xl:pt-16">
       <DynamicMedia desktop="div" tablet={DragCursorContainer}>
         <Swiper
+          className="reviews-slider"
           touchStartPreventDefault={false}
           breakpoints={{
             1280: {
@@ -333,8 +336,9 @@ export default function Reviews() {
             1680: {
               slidesPerView: 'auto',
               centeredSlides: true,
-              spaceBetween: 100,
+              // spaceBetween: 1000,
               allowTouchMove: false,
+              speed: 200,
             },
           }}
         >

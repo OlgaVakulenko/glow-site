@@ -99,11 +99,11 @@ export default function NextStep() {
       <Layout className="relative overflow-hidden pt-[100px] md:pt-[120px]">
         <div
           ref={sphereRef}
-          className="pointer-events-none absolute left-1/2 top-0 w-[200%] max-w-[480px] -translate-x-1/2 opacity-90 md:top-12 md:max-w-[890px] md:opacity-100 xl:opacity-95"
+          className="pointer-events-none absolute left-1/2 top-0 w-[200%] max-w-[480px] -translate-x-1/2 opacity-90 md:top-12 md:max-w-[890px] md:opacity-100 xl:opacity-95 layout-no-p:top-0"
         >
           <Image src={SphereNew} alt="" />
         </div>
-        <div className="border-b pb-[50px] md:pb-[78px] xl:pb-[104px]">
+        <div className="border-b pb-[50px] md:pb-[78px] xl:pb-[104px] layout-no-p:pb-[132px]">
           <Animated
             as="h3"
             className="mb-[60px] text-center font-glow text-5xl font-medium tracking-[-3px] md:mb-[66px] md:text-[99px] md:leading-[100px] xl:mb-0 xl:text-[112px] xl:leading-[106px]"
@@ -112,9 +112,9 @@ export default function NextStep() {
             <br className="hidden xl:block" />
             digital product
             <br className="mb:block hidden" /> starts
-            <br className="hidden xl:block" /> here
+            <br className="hidden xl:block layout-no-p:hidden" /> here
           </Animated>
-          <div className="grid gap-y-14 md:flex md:justify-between xl:-mt-10">
+          <div className="grid gap-y-14 md:flex md:justify-between xl:-mt-10 layout-no-p:mt-8">
             {items.map((item, index) => (
               <div
                 key={index}
@@ -131,19 +131,19 @@ export default function NextStep() {
                       [index]: inView,
                     }));
                   }}
-                  className="mb-12 md:mb-9 xl:mb-6"
+                  className="mb-12 md:mb-9 xl:mb-6 layout-no-p:mb-9"
                 >
                   <item.icon isReady={iconMap[index] === true} />
                 </Animated>
                 <Animated
                   delay={100}
-                  className="mb-4 text-2xl font-medium tracking-[0.48px]"
+                  className="mb-4 text-2xl font-medium tracking-[0.48px] layout-no-p:text-3xl"
                 >
                   {item.title}
                 </Animated>
                 <Animated
                   delay={200}
-                  className="text-lg leading-[26px] md:max-w-[280px]"
+                  className="text-lg leading-[26px] md:max-w-[280px] xl:max-w-[328px] layout-no-p:max-w-[384px] layout-no-p:text-body-l"
                 >
                   {item.description}
                 </Animated>

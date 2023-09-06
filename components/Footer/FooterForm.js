@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
 import cx from 'clsx';
 import Link from 'next/link';
 import RollingText from '../RollingText';
+import { useMediaAtom } from '../../lib/agent';
+import debounce from 'lodash.debounce';
 
 function Switches({
   className,
@@ -79,6 +81,21 @@ function Input({ className, name, value, onChange, ...rest }) {
 }
 
 export default function FooterForm() {
+  const media = useMediaAtom();
+  const [size, setSize] = useState(0);
+
+  useEffect(() => {
+    const onResize = debounce(() => {
+      setSize(window.innerWidth);
+    }, 250);
+
+    onResize();
+    window.addEventListener('resize', onResize);
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
   const [selectedService, setSelectedService] = useState(null);
   const [services, setServices] = useState(() => [
     'Interface Design',
@@ -153,9 +170,20 @@ export default function FooterForm() {
           </div>
           <button
             type="submit"
-            className="rolling-text-group mt-8 w-full rounded-full border border-lblue py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 hover:bg-lblue hover:text-black md:mt-0 md:w-fit md:px-9"
+            className="rolling-text-group mt-8 w-full rounded-full border border-lblue py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 hover:bg-lblue hover:text-black md:mt-0 md:w-fit md:px-9 md:text-xs md:leading-4 layout-no-p:py-4 layout-no-p:text-sm layout-no-p:leading-6"
           >
-            <RollingText text="Make me glow" height={24} />
+            <RollingText
+              text="Make me glow"
+              height={
+                size >= 1680
+                  ? 24
+                  : media === 'mobile'
+                  ? 24
+                  : media === 'tablet' || media === 'desktop'
+                  ? 18
+                  : 24
+              }
+            />
           </button>
         </div>
       </form>
