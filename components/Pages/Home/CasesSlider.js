@@ -441,19 +441,19 @@ export function CasesSlider2() {
             ))}
             <SwiperSlide className="md:!w-[736px] xl:!w-[778px] xl:pr-14">
               <div className="flex h-full min-h-[456px] items-center justify-center rounded-3xl md:grid md:min-h-[688px] md:w-fit md:grid-cols-2 md:gap-6 md:pl-6">
-                {media !== 'mobile' && (
-                  <>
-                    <div className="w-[332px]">
-                      <Image src={Case1Img} alt="" />
-                    </div>
-                    <div className="w-[332px]">
-                      <Image src={Case2Img} alt="" />
-                    </div>
-                    <div className="w-[332px]">
-                      <Image src={Case3Img} alt="" />
-                    </div>
-                  </>
-                )}
+                {/* {media !== 'mobile' && ( */}
+                <>
+                  <div className="hidden w-[332px] md:block">
+                    <Image src={Case1Img} alt="" />
+                  </div>
+                  <div className="hidden w-[332px] md:block">
+                    <Image src={Case2Img} alt="" />
+                  </div>
+                  <div className="hidden w-[332px] md:block">
+                    <Image src={Case3Img} alt="" />
+                  </div>
+                </>
+                {/* )} */}
 
                 <Layout>
                   {media === 'mobile' && (
