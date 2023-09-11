@@ -75,19 +75,6 @@ function CaseSlide({ item, index }) {
             top-0"
         ></div>
         <div
-          className="__slider-item2
-          pointer-events-none
-          absolute
-          bottom-0
-          left-0
-          right-0
-            top-0
-            opacity-0
-            transition-opacity
-            duration-300
-            group-hover:opacity-20"
-        ></div>
-        <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
           className="relative px-6 pb-[50px] md:px-[96px] md:pb-[105px] md:pt-[282] xl:px-[104px]"
         >
