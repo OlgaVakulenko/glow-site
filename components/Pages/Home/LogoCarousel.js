@@ -1,6 +1,7 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Autoplay } from 'swiper/modules';
 
+import ClientH from './assets/client-h.svg';
 import Client1 from './assets/client-1.svg';
 import Client2 from './assets/client-2.svg';
 import Client3 from './assets/client-3.svg';
@@ -16,6 +17,7 @@ import cx from 'clsx';
 import { useInView, useIsInView } from '../../../lib/utils';
 
 const slides = [
+  ClientH,
   Client1,
   Client2,
   Client3,
@@ -62,9 +64,9 @@ export default function LogoCarousel() {
 
   return (
     <div ref={containerRef}>
-      <Layout2
+      <Layout
         className={cx(
-          'mb-6 opacity-0 transition-opacity duration-300 md:mb-14 xl:mb-[72px]',
+          'mb-6 opacity-0 transition-opacity duration-300 md:mb-14 md:!px-4 xl:mb-[72px]',
           {
             '!opacity-100': mounted,
           }
@@ -90,7 +92,7 @@ export default function LogoCarousel() {
             </div>
           </div>
         </div>
-      </Layout2>
+      </Layout>
     </div>
   );
 }

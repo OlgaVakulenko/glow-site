@@ -8,25 +8,30 @@ import Animated from '../../Animated';
 
 const items = [
   {
+    tag: 'Management',
+    title: <>Experience with incompetent design agencies</>,
+    author_description:
+      'My name is Pavel and I will help you with this problem',
+    description: `Our seasoned professionals are dedicated to earning your trust. We are proud of our track record of successful projects, transparent processes, and commitment to clear communication. 
+      You can also see our portfolio of client success stories and their feedback.`,
+  },
+  {
     tag: 'Design',
-    title: <>Designers seem to miss the&nbsp;idea</>,
-    author_description: 'My name is Rus and I will help you with this problem',
-    description:
-      'We have 40+ UI/UX designers with SaaS design expertise on the team, so we can jump into the project whenever you need us. Plus, we provide a 3-day FREE trial to let you see us in action before signing the contract.',
+    title: `Designer disappeared after payment`,
+    author_description: 'My name is Stas and I will help you with this problem',
+    description: `First of all, we establish official partnerships and provide comprehensive project documentation as well as full design support for released projects. 
+      Also, we have a 3-day trial period, if you want to make sure we match ;)`,
   },
   {
-    tag: 'Managment',
-    title: 'Time is running shot',
-    author_description: 'My name is Rus and I will help you with this problem',
-    description:
-      'We have 40+ UI/UX designers with SaaS design expertise on the team, so we can jump into the project whenever you need us. Plus, we provide a 3-day FREE trial to let you see us in action before signing the contract.',
-  },
-  {
-    tag: 'design process',
-    title: 'Tasks are overwhelming',
-    author_description: 'My name is Rus and I will help you with this problem',
-    description:
-      'We have 40+ UI/UX designers with SaaS design expertise on the team, so we can jump into the project whenever you need us. Plus, we provide a 3-day FREE trial to let you see us in action before signing the contract.',
+    tag: 'Business',
+    title: (
+      <>
+        Low business
+        <br className="hidden 3xl:block" /> performance
+      </>
+    ),
+    author_description: 'My name is  Rus and I will help you with this problem',
+    description: `We help with developing a user-centric design as well as implementing usability practices for engaging experiences, thus boosting your product’s performance and customer satisfaction while reducing churn rates.`,
   },
 ];
 
@@ -46,7 +51,7 @@ function Card({
             {tag}
           </span>
         </div>
-        <div className="mb-4 mt-6 font-glow text-[29px] font-medium leading-[37px] md:mb-[27px] md:mt-[34px] xl:mb-6 xl:text-heading-h3 layout-no-p:flex layout-no-p:min-h-[64px] layout-no-p:items-center">
+        <div className="mb-4 mt-6 font-glow text-[29px] font-medium leading-[37px] md:mb-[27px] md:mt-[34px] xl:mb-6 xl:text-heading-h3 3xl:text-[30px] layout-no-p:flex layout-no-p:min-h-[64px] layout-no-p:items-center">
           {title}
         </div>
         <div className="rounded-2xl bg-white p-4 pb-6 md:h-full md:pb-8 xl:p-8 xl:pb-[37px] layout-no-p:px-6 layout-no-p:pb-[50px] layout-no-p:pt-6">

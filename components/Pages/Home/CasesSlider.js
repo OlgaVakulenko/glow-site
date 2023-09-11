@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
 import gsap from '../../../dist/gsap';
@@ -19,6 +19,7 @@ import Case3Img from '../Home/assets/case-temp-3.png';
 import CaseImg from '../Home/assets/case-img.png';
 import casesData from '../Cases/data';
 import DragCursorContainer from '../../DragCursor';
+import throttle from 'lodash.throttle';
 
 const cases = casesData.filter((c) =>
   ['/liquidspace', '/jucr', '/beast', '/cryptogenie'].includes(c.href)
@@ -61,7 +62,7 @@ function CaseSlide({ item, index }) {
     <div className="__slide-wrapper h-full w-full">
       <div className="__slide relative flex min-h-[456px] items-end overflow-hidden rounded-3xl text-lblue md:min-h-[688px]">
         <Image
-          className="__slider-item absolute left-0 top-0 h-full w-full object-cover md:max-h-full"
+          className="absolute left-0 top-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 md:max-h-full"
           src={item.image}
           alt=""
         />
@@ -72,6 +73,19 @@ function CaseSlide({ item, index }) {
             left-0
             right-0
             top-0"
+        ></div>
+        <div
+          className="__slider-item2
+          pointer-events-none
+          absolute
+          bottom-0
+          left-0
+          right-0
+            top-0
+            opacity-0
+            transition-opacity
+            duration-300
+            group-hover:opacity-20"
         ></div>
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
@@ -97,7 +111,7 @@ function CaseSlide({ item, index }) {
             </div>
           </div> */}
           <div className="mb-[29px] mt-[16px] font-glow text-[26px] font-medium leading-[120%] md:mb-[38px] md:mt-[15px] md:text-[32px]">
-            {item.title2 || item.title}
+            {item.title}
           </div>
           <div className="flex space-x-[52px] pl-[3px] md:space-x-[96px]">
             <Col className="" title="Industry" items={item.industry} />
@@ -282,6 +296,25 @@ export function CasesSlider2() {
   const ref = useRef();
   const scrollerRef = useRef();
   const [media] = useAtom(mediaAtom);
+  const [w, setW] = useState(0);
+  const [k, setK] = useState(0);
+
+  useEffect(() => {
+    const onResize = throttle(() => {
+      setW(window.innerWidth > 1800);
+    }, 100);
+
+    onResize();
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    setK((k) => k + 1);
+  }, [media, w]);
 
   // useEffect(() => {
   //   const firstAnimationDurationPx = 600;
@@ -386,7 +419,7 @@ export function CasesSlider2() {
   return (
     <div ref={ref}>
       <Section withLayout={false} className="pb-[80px] md:pb-14 xl:pb-[88px]">
-        <div>
+        <div key={k}>
           <Swiper
             breakpoints={{
               320: {
@@ -395,7 +428,7 @@ export function CasesSlider2() {
               820: {
                 slidesPerView: 'auto',
               },
-              1920: {
+              1800: {
                 slidesPerView: 'auto',
                 centeredSlides: true,
               },
@@ -408,11 +441,11 @@ export function CasesSlider2() {
                   'px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[80vw] xl:first:pl-14',
                   {
                     // 'wide:!w-[1440px]': true,
-                    'wide:!w-[1568px] wide:first:pl-0': true,
+                    'layout-no-p:!w-[1568px] layout-no-p:first:pl-0': true,
                   }
                 )}
               >
-                <Link href={item.href}>
+                <Link href={item.href} className="group">
                   <div className={cx('', {})}>
                     <CaseSlide item={item} index={i} />
                   </div>

@@ -3,7 +3,7 @@ import { RollingWords } from './index';
 import cx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import Animated from '../../Animated';
-import { Layout2 } from '../../Layout';
+import Layout, { Layout2 } from '../../Layout';
 import { PageHeading2 } from '../../PageHeading';
 import { Subheading2 } from '../../Typography/Subheading';
 import BgImageTablet from './assets/bg-tablet.png';
@@ -25,7 +25,7 @@ import debounce from 'lodash.debounce';
 function IntroSection() {
   return (
     <div>
-      <Layout2 className="flex flex-col ">
+      <Layout className="flex flex-col ">
         <div className="md:grid md:grid-flow-row md:grid-cols-8 md:gap-8 xl:grid-cols-12 layout-no-p:gap-12">
           <div className="md:col-span-4 lg:col-span-5 xl:col-span-7"></div>
           <Subheading2 className="pointer-events-none mb-8 pt-48 md:col-span-4 md:mb-[87px] md:ml-0 md:mr-8 md:pt-[240px] lg:col-span-3 xl:col-span-5 xl:pt-[272px] layout-no-p:mb-[158px]">
@@ -43,7 +43,7 @@ function IntroSection() {
           Simple design
           <br /> for&nbsp;complex products
         </PageHeading2>
-      </Layout2>
+      </Layout>
     </div>
   );
 }
@@ -337,7 +337,7 @@ function IconsSection() {
 
   return (
     <div className="pb-5">
-      <Layout2>
+      <Layout>
         <div className="grid gap-10 md:grid-cols-3 xl:flex xl:justify-between xl:gap-0">
           {items.map((item, index) => (
             <Animated
@@ -374,7 +374,7 @@ function IconsSection() {
             </Animated>
           ))}
         </div>
-      </Layout2>
+      </Layout>
     </div>
   );
 }

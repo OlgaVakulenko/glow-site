@@ -333,7 +333,7 @@ export default function Reviews() {
             1280: {
               allowTouchMove: false,
             },
-            1680: {
+            1800: {
               slidesPerView: 'auto',
               centeredSlides: true,
               // spaceBetween: 1000,
