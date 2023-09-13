@@ -60,7 +60,7 @@ function CaseSlide({ item, index }) {
   const [media] = useAtom(mediaAtom);
 
   return (
-    <div className="__slide-wrapper h-full w-full">
+    <div className="__slide-wrapper pointer-events-none h-full w-full">
       <div className="__slide relative flex min-h-[456px] items-end overflow-hidden rounded-3xl text-lblue md:min-h-[688px]">
         <Image
           className="pointer-events-none absolute left-0 top-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 md:max-h-full"
@@ -69,6 +69,7 @@ function CaseSlide({ item, index }) {
         />
         <div
           className="__slider-item
+            pointer-events-none
             absolute
             bottom-0
             left-0
@@ -411,17 +412,21 @@ export function CasesSlider2() {
           <DragCursorContainer showDefaultCursor clickable>
             {({ show }) => (
               <Swiper
-                touchStartPreventDefault={false}
+                // touchStartForcePreventDefault={true}
+                // touchStartPreventDefault={false}
                 breakpoints={{
                   320: {
                     slidesPerView: 1,
+                    // touchStartPreventDefault: false,
                   },
                   820: {
                     slidesPerView: 'auto',
+                    // touchStartPreventDefault: false,
                   },
                   1800: {
                     slidesPerView: 'auto',
                     centeredSlides: true,
+                    // touchStartPreventDefault: false,
                   },
                 }}
               >
@@ -429,7 +434,7 @@ export function CasesSlider2() {
                   <SwiperSlide
                     key={i}
                     className={cx(
-                      'cursor-none px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[80vw] xl:first:pl-14',
+                      'cursor-none select-none px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[80vw] xl:first:pl-14',
                       {
                         // 'wide:!w-[1440px]': true,
                         'layout-no-p:!w-[1568px] layout-no-p:first:pl-0': true,
@@ -438,11 +443,11 @@ export function CasesSlider2() {
                   >
                     <Link
                       href={item.href}
-                      className={cx('group', {
+                      className={cx('group select-none', {
                         'cursor-none': show,
                       })}
                     >
-                      <div className={cx('', {})}>
+                      <div className={cx('pointer-events-none', {})}>
                         <CaseSlide item={item} index={i} />
                       </div>
                     </Link>
