@@ -34,6 +34,7 @@ export default function LogoCarousel() {
   const inView = useIsInView(containerRef);
   const ref = useRef();
   const scrollerRef = useRef();
+  const moveRef = useRef();
 
   useEffect(() => {
     if (!inView || !ref.current || !scrollerRef.current) {
@@ -42,15 +43,29 @@ export default function LogoCarousel() {
     // return;
 
     let id = null;
-    const run = () => {
-      let scrollLeft = ref.current.scrollLeft + 1;
-
+    let scrollLeft = 0;
+    let prevTime = 0;
+    let f = false;
+    const run = (time) => {
+      // if (time == null) {
+      //   return;
+      // }
+      const t = time != null ? time : 0;
+      const delta = t - prevTime;
+      prevTime = t;
+      const d = delta / 20;
+      let prevScrollLeft = scrollLeft;
+      scrollLeft = scrollLeft + d;
+      if (Number.isNaN(scrollLeft)) {
+        console.log(prevScrollLeft, d);
+      }
       const needle = scrollerRef.current.offsetWidth / 2 + 96 / 2;
       if (scrollLeft >= needle) {
         scrollLeft = 0;
       }
 
-      ref.current.scrollLeft = scrollLeft;
+      // ref.current.scrollLeft = scrollLeft;
+      moveRef.current.style.transform = `translateX(-${scrollLeft}px)`;
 
       id = requestAnimationFrame(run);
     };
@@ -78,7 +93,10 @@ export default function LogoCarousel() {
               ref={ref}
               className="relative flex h-20 justify-between overflow-hidden"
             >
-              <div className="absolute top-1/2 flex w-full min-w-[5000px] shrink-0 -translate-y-1/2">
+              <div
+                ref={moveRef}
+                className="absolute top-1/2 flex w-full min-w-[5000px] shrink-0"
+              >
                 <div ref={scrollerRef} className="flex">
                   {[...slides, ...slides].map((image, index) => (
                     <div key={index} className="ml-24 shrink-0 first:ml-0">

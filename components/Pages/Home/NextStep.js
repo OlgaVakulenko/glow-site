@@ -60,7 +60,7 @@ export default function NextStep() {
           y: 180,
         },
         {
-          y: 0,
+          y: -25,
           scrollTrigger: {
             trigger: sphereRef.current,
             scrub: true,
@@ -99,7 +99,7 @@ export default function NextStep() {
       <Layout className="relative overflow-hidden pt-[100px] md:pt-[120px]">
         <div
           ref={sphereRef}
-          className="pointer-events-none absolute left-1/2 top-0 w-[200%] max-w-[480px] -translate-x-1/2 opacity-90 md:top-12 md:max-w-[890px] md:opacity-100 xl:opacity-95 layout-no-p:top-0"
+          className="pointer-events-none absolute left-1/2 top-0 w-[200%] max-w-[480px] -translate-x-1/2 opacity-90 md:-top-8 md:max-w-[890px] md:opacity-100 xl:opacity-95 layout-no-p:top-0"
         >
           <Image src={SphereNew} alt="" />
         </div>
@@ -119,8 +119,8 @@ export default function NextStep() {
               <div
                 key={index}
                 className={cx('__item md:last:pt-[76px]', {
-                  'md:!pt-[356px] xl:!pt-[371px]': index === 2,
-                  'md:order-2 md:!pt-[189px] xl:!pt-[91px]': index === 1,
+                  'md:!pt-[296px] xl:!pt-[271px]': index === 2,
+                  'md:order-2 md:!pt-[149px] xl:!pt-[91px]': index === 1,
                   'md:order-1': index === 2,
                 })}
               >

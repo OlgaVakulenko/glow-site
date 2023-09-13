@@ -562,9 +562,9 @@ export default function Home2() {
   return (
     <div className="relative overflow-hidden">
       <Bg />
-      <Animated>
+      {/* <Animated>
         <Line />
-      </Animated>
+      </Animated> */}
       <div id="intro-section">
         <IntroSection />
       </div>

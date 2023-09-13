@@ -1,6 +1,8 @@
 import Image from '../../Image';
 import Layout from '../../Layout';
 import RusM from '../About/assets/rus-2.png';
+import StasM from '../About/assets/stas-2m.png';
+import PavelM from '../About/assets/pavel-2m.png';
 import cx from 'clsx';
 import React from 'react';
 import { useMediaAtom } from '../../../lib/agent';
@@ -8,6 +10,7 @@ import Animated from '../../Animated';
 
 const items = [
   {
+    image: PavelM,
     tag: 'Management',
     title: <>Experience with incompetent design agencies</>,
     author_description:
@@ -16,13 +19,14 @@ const items = [
       You can also see our portfolio of client success stories and their feedback.`,
   },
   {
+    image: StasM,
     tag: 'Design',
-    title: `Designer disappeared after payment`,
+    title: `Customers choose competitors`,
     author_description: 'My name is Stas and I will help you with this problem',
-    description: `First of all, we establish official partnerships and provide comprehensive project documentation as well as full design support for released projects. 
-      Also, we have a 3-day trial period, if you want to make sure we match ;)`,
+    description: `We investigate your potential users & problems that need to be solved.  By optimizing your product's user interface and experience, we will make it more appealing than competitors' offerings, while maintaining its depth and value.`,
   },
   {
+    image: RusM,
     tag: 'Business',
     title: (
       <>
@@ -36,6 +40,7 @@ const items = [
 ];
 
 function Card({
+  image,
   className,
   tag,
   title,
@@ -54,12 +59,12 @@ function Card({
         <div className="mb-4 mt-6 font-glow text-[29px] font-medium leading-[37px] md:mb-[27px] md:mt-[34px] xl:mb-6 xl:text-heading-h3 3xl:text-[30px] layout-no-p:flex layout-no-p:min-h-[64px] layout-no-p:items-center">
           {title}
         </div>
-        <div className="rounded-2xl bg-white p-4 pb-6 md:h-full md:pb-8 xl:p-8 xl:pb-[37px] layout-no-p:px-6 layout-no-p:pb-[50px] layout-no-p:pt-6">
+        <div className="__card_block rounded-2xl bg-white p-4 pb-6 md:h-full md:pb-8 xl:p-8 xl:pb-[37px] layout-no-p:px-6 layout-no-p:pb-[50px] layout-no-p:pt-6">
           <div className="mb-6 flex xl:mb-[27px]">
             <div className="mr-4 shrink-0">
               <Image
                 className="h-14 w-14 rounded-lg object-cover md:h-16 md:w-16"
-                src={RusM}
+                src={image}
                 alt=""
               />
             </div>
@@ -85,7 +90,7 @@ export default function Solutions() {
           We can light
           <br className="hidden md:block" /> your&nbsp;way
         </Animated>
-        <div className="layout-no-p:col-span-1"></div>
+        <div className="hidden layout-no-p:col-span-1 layout-no-p:block"></div>
         <Animated
           delay={100}
           className="text-subtitle-m italic   md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l layout-no-p:col-span-4 layout-no-p:text-[26px]"
@@ -109,6 +114,7 @@ export default function Solutions() {
             )}
             <Card
               index={index}
+              image={item.image}
               className={cx('md:mb-4 md:w-1/2 md:pl-4 3xl:w-1/3', {
                 'md:w-1/2': index !== items.length - 1,
                 'md:w-1/2 md:pr-4': index === items.length - 1,

@@ -22,8 +22,13 @@ const items = [
   {
     icon: Investigate,
     title: 'Redesign',
-    description:
-      'Whether it is a large public platform or a small internal solution, in 1-3 months we will provide a product prototype while implementing even the most complex requests.',
+    description: (
+      <>
+        Whether it is a large public platform or a small internal solution, in
+        1-3 months we will provide a&nbsp;product prototype while implementing
+        even the&nbsp;most complex requests.
+      </>
+    ),
   },
   {
     icon: Iterate,
@@ -40,12 +45,16 @@ function ServiceCard() {
 export default function Services() {
   const media = useMediaAtom();
   const [iconMap, setIconMap] = useState({});
-  const { Wrapper, SlideWrapper } = useMemo(() => {
+  const { Wrapper, SlideWrapper, WrapperInner } = useMemo(() => {
     if (media !== 'mobile') {
-      return { Wrapper: 'div', SlideWrapper: 'div' };
+      return { Wrapper: 'div', SlideWrapper: 'div', WrapperInner: 'div' };
     }
 
-    return { Wrapper: Swiper, SlideWrapper: SwiperSlide };
+    return {
+      Wrapper: Swiper,
+      SlideWrapper: SwiperSlide,
+      WrapperInner: React.Fragment,
+    };
   }, [media]);
 
   return (
@@ -54,7 +63,7 @@ export default function Services() {
         <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 layout-no-p:max-w-[672px] layout-no-p:text-[64px] layout-no-p:leading-[64px]">
           We open to any kind&nbsp;of co-operation
         </Animated>
-        <div className="layout-no-p:col-span-1"></div>
+        <div className="hidden layout-no-p:col-span-1 layout-no-p:block"></div>
         <Animated
           delay={100}
           className="text-subtitle-m italic   md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l layout-no-p:col-span-4 layout-no-p:text-[26px]"
@@ -66,15 +75,15 @@ export default function Services() {
       <Layout disableOnMobile>
         <div className="bg-[#F3F2F4] pb-6 md:rounded-[32px] md:pb-0">
           {/* <Layout> */}
-          <div className="pt-4 md:pt-0">
-            <Wrapper className="md:grid md:gap-4 md:py-4">
+          <div className="pt-4 md:p-4">
+            <Wrapper className="__card_block md:flex md:justify-between md:gap-16 md:overflow-hidden md:rounded-3xl md:bg-white md:px-10 xl:gap-20 2xl:gap-28 layout-no-p:gap-24">
               {items.map((item, index) => (
-                <SlideWrapper key={index} className="!h-auto">
-                  <div className="group">
-                    <div className="h-full px-4">
-                      <div className="flex h-full flex-col justify-between rounded-3xl bg-white px-6 py-10 md:grid md:grid-flow-col md:grid-cols-24 md:gap-8 md:px-10 md:py-9">
+                <SlideWrapper key={index} className="!h-auto md:w-full">
+                  <div className="group h-full">
+                    <div className="h-full px-4 md:px-0">
+                      <div className="flex h-full flex-col rounded-3xl bg-white px-6 py-10 md:flex md:justify-start md:rounded-none md:px-0 md:py-9">
                         <InViewport
-                          className="md:col-span-6 md:flex md:items-center"
+                          className="md:col-span-6 md:flex md:min-h-[100px] md:items-center"
                           onViewChange={(inView) => {
                             setIconMap((map) => ({
                               ...map,
@@ -83,21 +92,28 @@ export default function Services() {
                           }}
                           delay={100}
                         >
-                          <item.icon isReady={iconMap[index] === true} />
+                          <item.icon
+                            className={cx({
+                              'md:h-full md:w-[100px]':
+                                index < items.length - 1,
+                              'md:h-[100px]': index === items.length - 1,
+                            })}
+                            isReady={iconMap[index] === true}
+                          />
                         </InViewport>
-                        <div className="mb-7 mt-9 text-2xl font-medium tracking-[0.48px] md:col-span-5 md:mt-6">
-                          {item.title}
-                        </div>
-                        <div
-                          className={cx(
-                            ' text-body-m2 md:col-span-11  md:mt-5 md:max-w-[384px] md:pr-5',
-                            {
+                        <div>
+                          <div className="mb-7 mt-9 text-2xl font-medium tracking-[0.48px] md:col-span-5 md:mb-5 md:mt-9">
+                            {item.title}
+                          </div>
+                          <div
+                            className={cx(' text-body-m2 md:col-span-11', {
                               'mb-[38px] md:mb-1': false, //turn on later on
-                            }
-                          )}
-                        >
-                          {item.description}
+                            })}
+                          >
+                            {item.description}
+                          </div>
                         </div>
+
                         {/* <div className="mt-auto md:col-span-1 md:mt-0 md:flex md:items-center md:justify-center">
                           <button className="w-full rounded-full border border-black py-3 text-xs font-medium uppercase leading-4 tracking-[0.36px] md:w-fit md:border-none md:p-0">
                             {media === 'mobile' ? (

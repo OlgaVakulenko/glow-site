@@ -61,7 +61,7 @@ export default function TrialBanner() {
           </div>
           <div className="relative flex w-full items-center">
             <div className="w-full items-center justify-between md:flex md:h-full">
-              <div className="mb-3 pt-[138px] font-glow text-[46px] font-medium leading-[49px] tracking-[-2px] text-white md:mb-0 md:max-w-[307px] md:pt-0 xl:pt-[3%] xl:text-heading-h2-2">
+              <div className="mb-3 pt-[138px] font-glow text-[46px] font-medium leading-[49px] tracking-[-2px] text-lblue text-white md:mb-0 md:max-w-[307px] md:pt-0 xl:pt-[3%] xl:text-heading-h2-2">
                 Free 3 day’s design trial
               </div>
               <div className="md:max-w-[413px] md:self-end md:pb-4 md:pr-10 xl:max-w-[450px]">

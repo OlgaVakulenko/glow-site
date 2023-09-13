@@ -5,7 +5,7 @@ import {
   useMounted,
 } from './animations';
 
-export default function Iterate({ isReady = true }) {
+export default function Iterate({ className, isReady = true }) {
   const [isFinished, setIsFinished] = useState(false);
   const isMounted = useMounted();
 
@@ -49,6 +49,7 @@ export default function Iterate({ isReady = true }) {
       viewBox="0 0 129 129"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <path d="M60 64H79.5" stroke="#DADADA" />
       <path

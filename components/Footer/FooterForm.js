@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { RadioGroup } from '@headlessui/react';
 import cx from 'clsx';
 import Link from 'next/link';
@@ -6,27 +6,96 @@ import RollingText from '../RollingText';
 import { useMediaAtom } from '../../lib/agent';
 import debounce from 'lodash.debounce';
 
+const CheckboxCtx = createContext(null);
+
+function CheckboxGroup({ selected, onChange, children, ...props }) {
+  return (
+    <CheckboxCtx.Provider
+      value={{
+        selected,
+        onChange,
+      }}
+    >
+      <div {...props}>{children}</div>
+    </CheckboxCtx.Provider>
+  );
+}
+
+function CheckboxOption({ value, children, ...props }) {
+  const { selected, onChange } = useContext(CheckboxCtx);
+  const checked = useMemo(() => {
+    return selected.includes(value);
+  }, [selected, value]);
+
+  return (
+    <button
+      {...props}
+      role="checkbox"
+      type="button"
+      tabIndex={0}
+      aria-checked={checked}
+      onClick={() => {
+        if (selected.includes(value)) {
+          onChange(selected.filter((v) => v !== value));
+        } else {
+          onChange([...selected, value]);
+        }
+        // console.log('needle.selected', selected);
+        // console.log('needle.onChange', onChange);
+        // onChange(select)
+      }}
+    >
+      {children({ checked })}
+    </button>
+  );
+}
+
 function Switches({
   className,
   name,
   title,
   selected,
   onChange,
+  multiple = false,
   options = [],
 }) {
+  const RGroup = useMemo(() => {
+    if (!multiple) {
+      return RadioGroup;
+    }
+
+    return CheckboxGroup;
+  }, [multiple]);
+
+  const RGroupLabel = useMemo(() => {
+    if (!multiple) {
+      return RadioGroup.Label;
+    }
+
+    return 'label';
+  }, [multiple]);
+
+  const RGroupOption = useMemo(() => {
+    if (!multiple) {
+      return RadioGroup.Option;
+    }
+
+    return CheckboxOption;
+  }, [multiple]);
+
   return (
-    <RadioGroup
+    <RGroup
       name={name}
       className={className}
       selected={selected}
       onChange={onChange}
     >
-      <RadioGroup.Label className="text-body-heading-m leading-6 ">
+      <RGroupLabel className="text-body-heading-m leading-6 ">
         {title}
-      </RadioGroup.Label>
+      </RGroupLabel>
       <div className="mt-5 flex flex-wrap gap-2 md:mt-[29px]">
         {options.map((option) => (
-          <RadioGroup.Option
+          <RGroupOption
             className="cursor-pointer text-body-heading-s font-medium uppercase"
             key={option}
             value={option}
@@ -43,10 +112,10 @@ function Switches({
                 {option}
               </div>
             )}
-          </RadioGroup.Option>
+          </RGroupOption>
         ))}
       </div>
-    </RadioGroup>
+    </RGroup>
   );
 }
 
@@ -57,7 +126,7 @@ function Input({ className, name, value, onChange, ...rest }) {
     <div className={cx('flex', className)}>
       <input
         className={cx(
-          'w-full border-b border-checkbox-dark bg-transparent pb-[17px] text-xl font-medium leading-6 transition-colors duration-200 placeholder:text-lblue focus:outline-none',
+          'w-full border-b border-checkbox-dark bg-transparent pb-[17px] text-xl font-medium leading-6 text-lblue transition-colors duration-200 placeholder:text-lblue focus:outline-none',
           {
             '!border-lblue': focused,
           }
@@ -96,7 +165,7 @@ export default function FooterForm() {
     };
   }, []);
 
-  const [selectedService, setSelectedService] = useState(null);
+  const [selectedServices, setSelectedServices] = useState([]);
   const [services, setServices] = useState(() => [
     'Interface Design',
     'UX Design',
@@ -117,7 +186,6 @@ export default function FooterForm() {
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(e.target);
           const data = new FormData(e.target);
           fetch('http://localhost:8000/contact2.php', {
             method: 'POST',
@@ -134,9 +202,10 @@ export default function FooterForm() {
             className="-mr-1 mb-12 md:col-span-4 md:mr-0 md:pr-6 xl:mb-10"
             title="Service"
             name="service"
-            selected={selectedService}
-            onChange={setSelectedService}
+            selected={selectedServices}
+            onChange={setSelectedServices}
             options={services}
+            multiple={true}
           />
           <Switches
             className="-mr-1 md:col-span-4 md:mr-0"
@@ -175,7 +244,7 @@ export default function FooterForm() {
             <RollingText
               text="Make me glow"
               height={
-                size >= 1680
+                size >= 1800
                   ? 24
                   : media === 'mobile'
                   ? 24

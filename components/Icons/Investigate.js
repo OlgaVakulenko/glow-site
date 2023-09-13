@@ -4,7 +4,7 @@ import {
   useMounted,
 } from './animations';
 
-export default function Investigate({ isReady }) {
+export default function Investigate({ className, isReady }) {
   const isMounted = useMounted();
 
   const circleProps = (options = {}) => {
@@ -26,6 +26,7 @@ export default function Investigate({ isReady }) {
       viewBox="0 0 153 132"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       <circle cx="65" cy="65" r="64" stroke="#DADADA" />
       <path

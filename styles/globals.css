@@ -365,8 +365,13 @@
   }
 }
 
+@media screen and (min-width: 1600px) {
+  .__card_block {
+    box-shadow: 0px 0.27173px 0.40759px 0px rgba(0, 0, 0, 0.02), 0px 0.75129px 1.12694px 0px rgba(0, 0, 0, 0.03), 0px 1.80882px 2.71324px 0px rgba(0, 0, 0, 0.03), 0px 6px 9px 0px rgba(0, 0, 0, 0.05);
+  }
+}
 
-@media screen and (min-width: 1680px) {
+@media screen and (min-width: 1800px) {
   .reviews-slider .swiper-slide {
     opacity: 0;
     transition: opacity .2s ease-in-out;

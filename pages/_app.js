@@ -262,6 +262,7 @@ function MyApp({ Component, pageProps }) {
       {getLayout(<Component {...pageProps} />)}
       <AnimatedFix />
       <Analytics />
+      <div id="drag-cursor"></div>
       {/** widgets */}
       {/* <Tolstoy /> */}
     </div>

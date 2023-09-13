@@ -18,7 +18,7 @@ const matrixXY = (scaleX = 1, scaleY = 1, cx, cy) => {
   })`;
 };
 
-export default function Ideate({ isReady = true }) {
+export default function Ideate({ className, isReady = true }) {
   const isMounted = useMounted();
   const isActive = isMounted && isReady;
 
@@ -74,6 +74,7 @@ export default function Ideate({ isReady = true }) {
       viewBox="0 0 136 115"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className={className}
     >
       {/** 1 */}
       <path
