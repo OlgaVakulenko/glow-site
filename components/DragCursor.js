@@ -100,11 +100,7 @@ export default function DragCursorContainer({
       onMouseLeave={() => {
         setShow(false);
       }}
-      // onPointerMove={(e) => {
-      //   console.log('needle.pointer.move');
-      // }}
       onPointerMove={(e) => {
-        console.log('needle.move', e.clientX);
         const x = e.clientX;
         const y = e.clientY;
 

@@ -21,7 +21,12 @@ const items = [
   {
     image: StasM,
     tag: 'Design',
-    title: `Customers choose competitors`,
+    title: (
+      <>
+        Customers choose
+        <br className="hidden md:block" /> competitors
+      </>
+    ),
     author_description: 'My name is Stas and I will help you with this problem',
     description: `We investigate your potential users & problems that need to be solved.  By optimizing your product's user interface and experience, we will make it more appealing than competitors' offerings, while maintaining its depth and value.`,
   },
