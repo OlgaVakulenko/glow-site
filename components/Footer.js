@@ -3,6 +3,7 @@ import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
 import { useEffect, useRef, useState } from 'react';
 import { useMediaAtom } from '../lib/agent';
+import { useRem } from '../lib/utils';
 import FooterLinks from './Footer/FooterLinks';
 import { useHeaderTheme } from './Header';
 import Layout from './Layout';
@@ -113,6 +114,8 @@ export function ParallaxFooter(props) {
     };
   }, [wrapperRef, scrollMounted, scrollEnabled, media, router.pathname]);
 
+  const rem = useRem();
+
   return (
     <div
       className="overflow-hidden"
@@ -125,7 +128,7 @@ export function ParallaxFooter(props) {
         ref={wrapperRef}
         className="relative flex min-h-screen w-full items-end overflow-hidden bg-black"
         style={{
-          height: height != null ? height + 'px' : null,
+          height: height != null ? rem(height) : null,
         }}
       >
         <div ref={contentRef} className="__content fixed bottom-0 w-full">

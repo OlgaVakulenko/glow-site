@@ -26,6 +26,14 @@ const cases = casesData.filter((c) =>
   ['/liquidspace', '/jucr', '/beast', '/cryptogenie'].includes(c.href)
 );
 
+const addCases = casesData
+  .filter((c) => {
+    return !['/liquidspace', '/jucr', '/beast', '/cryptogenie'].includes(
+      c.href
+    );
+  })
+  .slice(0, 3);
+
 function Col2({ title, items, className = '' }) {
   return (
     <div className={cx(className)}>
@@ -423,11 +431,11 @@ export function CasesSlider2() {
                     slidesPerView: 'auto',
                     // touchStartPreventDefault: false,
                   },
-                  1800: {
-                    slidesPerView: 'auto',
-                    centeredSlides: true,
-                    // touchStartPreventDefault: false,
-                  },
+                  // 1800: {
+                  //   slidesPerView: 'auto',
+                  //   centeredSlides: true,
+                  //   // touchStartPreventDefault: false,
+                  // },
                 }}
               >
                 {cases.map((item, i) => (
@@ -435,9 +443,10 @@ export function CasesSlider2() {
                     key={i}
                     className={cx(
                       'cursor-none select-none px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[80vw] xl:first:pl-14',
+                      'layout-no-p:first:pl-[120px]',
                       {
                         // 'wide:!w-[1440px]': true,
-                        'layout-no-p:!w-[1568px] layout-no-p:first:pl-0': true,
+                        // 'layout-no-p:!w-[1568px] layout-no-p:first:pl-0': true,
                       }
                     )}
                   >
@@ -453,7 +462,7 @@ export function CasesSlider2() {
                     </Link>
                   </SwiperSlide>
                 ))}
-                <SwiperSlide className="md:!w-[736px] xl:!w-[778px] xl:pr-14">
+                <SwiperSlide className="md:!w-[736px] xl:!w-[778px] xl:pr-14 layout-no-p:!w-[830px] layout-no-p:pr-[120px]">
                   <EndSlide />
                 </SwiperSlide>
                 {media !== 'desktop' && (
@@ -482,11 +491,24 @@ function EndSlide() {
       onMouseLeave={() => {
         setGlobalCursorDisable(false);
       }}
-      className="flex h-full min-h-[456px] items-center justify-center rounded-3xl md:grid md:min-h-[688px] md:w-fit md:grid-cols-2 md:gap-6 md:pl-6"
+      className="flex h-full min-h-[456px] items-center justify-center rounded-3xl md:grid md:min-h-[688px] md:grid-cols-2 md:gap-6 md:pl-6"
     >
       {/* {media !== 'mobile' && ( */}
       <>
-        <div className="hidden w-[332px] md:block">
+        {addCases.map((item) => (
+          <Link
+            href={item.href}
+            key={item.href}
+            className="group hidden h-full w-[332px] overflow-hidden rounded-[32px] md:block"
+          >
+            <Image
+              src={item.image}
+              alt=""
+              className="h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </Link>
+        ))}
+        {/* <div className="hidden w-[332px] md:block">
           <Image src={Case1Img} alt="" />
         </div>
         <div className="hidden w-[332px] md:block">
@@ -494,12 +516,24 @@ function EndSlide() {
         </div>
         <div className="hidden w-[332px] md:block">
           <Image src={Case3Img} alt="" />
-        </div>
+        </div> */}
       </>
       {/* )} */}
 
       <Layout>
-        {media === 'mobile' && <Image className="mb-4" src={CaseImg} alt="" />}
+        {media === 'mobile' && (
+          <Link
+            href={addCases[0].href}
+            key={addCases[0].href}
+            className="group mb-4 block h-full w-full overflow-hidden rounded-3xl"
+          >
+            <Image
+              src={addCases[0].image}
+              alt=""
+              className="h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </Link>
+        )}
         <Link
           href="/work"
           className="group md:flex md:flex-col md:items-center md:justify-center"

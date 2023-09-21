@@ -1,8 +1,10 @@
 import { useMemo } from 'react';
 import { useMediaAtom } from '../lib/agent';
+import { useRem } from '../lib/utils';
 
 export default function RollingText({ text = '', height }) {
   const media = useMediaAtom();
+  const rem = useRem();
 
   const sentences = useMemo(() => {
     if (Array.isArray(text)) {
@@ -22,7 +24,7 @@ export default function RollingText({ text = '', height }) {
         <div
           className="rolling-text-container"
           style={{
-            height: height / sentences.length + 'px',
+            height: rem(height / sentences.length),
           }}
           key={i}
         >

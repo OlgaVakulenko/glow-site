@@ -485,7 +485,7 @@ export default function Header({
                       'hidden transition-opacity duration-200 md:ml-auto md:flex xl:space-x-4'
                     )}
                   >
-                    {media === 'desktop' && (
+                    {/* {media === 'desktop' && (
                       <Animated delay={(links.length + 1) * 100} immediate>
                         <Link
                           href="#footer"
@@ -506,7 +506,7 @@ export default function Header({
                           ></RollingText>
                         </Link>
                       </Animated>
-                    )}
+                    )} */}
 
                     <Animated delay={(links.length + 5) * 100} immediate>
                       <Link

@@ -5,10 +5,12 @@ import SliderProgress from '../../SliderProgress';
 import { ClutchRating } from './_Reviews';
 import casesData from '../Cases/data';
 import { useMediaAtom } from '../../../lib/agent';
-import DragCursorContainer from '../../DragCursor';
+import DragCursorContainer, { cursorGlobalDisableAtom } from '../../DragCursor';
 import DynamicMedia from '../../DynamicMedia';
 import cx from 'clsx';
 import 'swiper/css/effect-fade';
+import { useAtom } from 'jotai';
+import { useSetAtom } from 'jotai';
 
 const reviews = [
   {
@@ -220,6 +222,7 @@ function ReviewCard({
   index,
   total,
 }) {
+  const toggleCursor = useSetAtom(cursorGlobalDisableAtom);
   const swiper = useSwiper();
   const slide = useSwiperSlide();
 
@@ -228,8 +231,16 @@ function ReviewCard({
   const hasPrev = slide.isActive && currentIndex === index && index > 0;
   const hasNext = slide.isActive && currentIndex === index && index < total - 1;
 
+  const handleMouseEnter = () => {
+    toggleCursor(true);
+  };
+
+  const handleMouseLeave = () => {
+    toggleCursor(false);
+  };
+
   return (
-    <div className="px-4 xl:px-14">
+    <div className="px-4 xl:px-14 layout-no-p:px-[120px]">
       <div className="rounded-3xl border border-black px-6 pb-[52px] pt-8 md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 md:px-0 md:py-16 xl:grid-cols-12 xl:py-20">
         <div className="hidden flex-col justify-between xl:col-span-3 xl:flex xl:pl-20">
           <div>
@@ -240,7 +251,11 @@ function ReviewCard({
               <Col title="Company" items={dataCompany} />
             </div>
           </div>
-          <div className="flex items-end">
+          <div
+            className="flex items-end"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
             <button
               className={cx('mr-4', {
                 'opacity-50': !hasPrev,
@@ -324,26 +339,26 @@ export default function Reviews() {
   const media = useMediaAtom();
 
   return (
-    <div className="pb-14 pt-6 md:pt-10 xl:pb-4 xl:pt-16">
-      <DynamicMedia desktop="div" tablet={DragCursorContainer}>
+    <div className="pb-14 pt-4 md:pt-12 xl:pb-4">
+      <DragCursorContainer>
         <Swiper
-          className="reviews-slider"
-          touchStartPreventDefault={false}
+          className=""
+          // touchStartPreventDefault={false}
           breakpoints={{
-            1280: {
-              allowTouchMove: false,
-            },
+            // 1280: {
+            //   allowTouchMove: false,
+            // },
             1800: {
-              slidesPerView: 'auto',
-              centeredSlides: true,
+              // slidesPerView: 'auto',
+              // centeredSlides: true,
               // spaceBetween: 1000,
-              allowTouchMove: false,
+              // allowTouchMove: false,
               speed: 200,
             },
           }}
         >
           {reviews.map((review, index) => (
-            <SwiperSlide key={index} className="layout-no-p:max-w-[1680px]">
+            <SwiperSlide key={index} className="">
               <ReviewCard
                 avatar={review.avatar}
                 companyAvatar={review.companyAvatar}
@@ -364,7 +379,7 @@ export default function Reviews() {
             </Layout>
           )}
         </Swiper>
-      </DynamicMedia>
+      </DragCursorContainer>
     </div>
   );
 }

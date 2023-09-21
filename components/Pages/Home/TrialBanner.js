@@ -39,7 +39,7 @@ export default function TrialBanner() {
   }, []);
 
   return (
-    <Layout className="pb-20 xl:pb-[120px]">
+    <Layout className="pb-24 md:pb-[136px] layout-no-p:pb-[160px]">
       <Link href="/trial">
         <div
           ref={wrapperRef}
@@ -55,9 +55,9 @@ export default function TrialBanner() {
           />
           <div
             ref={targetRef}
-            className="absolute bottom-0 left-[-6rem] right-[-5.5rem] top-[-14%] md:left-[9%] md:right-[-25%] md:top-[-114%] xl:top-[-120%] layout-no-p:top-[-75%]"
+            className="absolute bottom-0 left-[-6rem] right-[-5.5rem] top-[-14%] md:left-[9%] md:right-[-25%] md:top-[-114%] xl:top-[-120%] layout-no-p:top-[-75%] 2k:top-[-95%]"
           >
-            <Image src={Logo} alt="" />
+            <Image src={Logo} alt="" className="2k:w-[70%]" />
           </div>
           <div className="relative flex w-full items-center">
             <div className="w-full items-center justify-between md:flex md:h-full">

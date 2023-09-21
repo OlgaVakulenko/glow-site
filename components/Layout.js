@@ -8,7 +8,8 @@ export default function Layout({
   return (
     <div
       className={cx(
-        'mx-auto w-full md:px-4 xl:px-14 layout-no-p:max-w-[1680px]',
+        'mx-auto w-full md:px-4 xl:px-14 layout-no-p:px-[120px]',
+        '2k:max-w-full',
         {
           'px-4': !disableOnMobile,
         },

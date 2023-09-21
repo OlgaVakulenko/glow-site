@@ -58,7 +58,7 @@ export default function DragCursorContainer({
   clickable = false,
   children,
 }) {
-  const [globalDisable] = useAtom(cursorGlobalDisableAtom);
+  const [globalDisable, setGlobalDisable] = useAtom(cursorGlobalDisableAtom);
   const ref = useRef();
   const [_show, setShow] = useState(true);
   const [pos, setPos] = useState({ x: 0, y: 0 });
@@ -71,6 +71,10 @@ export default function DragCursorContainer({
   }, [children]);
 
   useEffect(() => {
+    if (!clickable) {
+      return;
+    }
+
     if (!show) {
       setIsClicked(false);
       return;
@@ -84,7 +88,17 @@ export default function DragCursorContainer({
     return () => {
       clearTimeout(id);
     };
-  }, [pos, show]);
+  }, [pos, show, clickable]);
+
+  useEffect(() => {
+    try {
+      if (window?.matchMedia('(any-hover: none)')?.matches) {
+        setGlobalDisable(true);
+      }
+    } catch (e) {
+      console.error(e);
+    }
+  }, [setGlobalDisable]);
 
   return (
     <div

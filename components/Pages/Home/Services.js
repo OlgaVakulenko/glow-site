@@ -59,8 +59,8 @@ export default function Services() {
 
   return (
     <div className="">
-      <Layout className="mb-[47px] md:grid md:grid-cols-8 md:gap-8 xl:grid-cols-12">
-        <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 layout-no-p:max-w-[672px] layout-no-p:text-[64px] layout-no-p:leading-[64px]">
+      <Layout className="mb-[47px] md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:grid-cols-12 layout-no-p:mb-14">
+        <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:mb-0 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 layout-no-p:max-w-[672px] layout-no-p:text-[64px] layout-no-p:leading-[64px]">
           We open to any kind&nbsp;of co-operation
         </Animated>
         <div className="hidden layout-no-p:col-span-1 layout-no-p:block"></div>
@@ -81,7 +81,7 @@ export default function Services() {
                 <SlideWrapper key={index} className="!h-auto md:w-full">
                   <div className="group h-full">
                     <div className="h-full px-4 md:px-0">
-                      <div className="flex h-full flex-col rounded-3xl bg-white px-6 py-10 md:flex md:justify-start md:rounded-none md:px-0 md:py-9">
+                      <div className="flex h-full flex-col rounded-3xl bg-white px-6 py-10 pb-[70px] md:flex md:justify-start md:rounded-none md:px-0 md:py-9 md:pb-[68px] xl:pb-[75px] layout-no-p:pb-[93px]">
                         <InViewport
                           className="md:col-span-6 md:flex md:min-h-[100px] md:items-center"
                           onViewChange={(inView) => {
@@ -94,9 +94,9 @@ export default function Services() {
                         >
                           <item.icon
                             className={cx({
-                              'md:h-full md:w-[100px]':
-                                index < items.length - 1,
-                              'md:h-[100px]': index === items.length - 1,
+                              // '':
+                              //   index < items.length - 1,
+                              // '': index === items.length - 1,
                             })}
                             isReady={iconMap[index] === true}
                           />

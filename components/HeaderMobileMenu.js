@@ -55,13 +55,13 @@ export default function HeaderMobileMenu({ menuId, links }) {
       </nav>
       {!activeParent && (
         <Animation index={links.length} className="mt-[55px]">
-          <BigButton
+          {/* <BigButton
             href="#footer"
             className="mb-4 !py-[41px]"
             onClick={handleFooterFormClick}
           >
             Let’s get in touch
-          </BigButton>
+          </BigButton> */}
           <BigButton href="/trial" className="mb-4 !py-[41px]">
             Free 3 day’s trial
           </BigButton>

@@ -45,7 +45,7 @@ export default function WorkCarousel() {
           <DragCursorContainer>
             <Swiper
               slidesPerView={'auto'}
-              touchStartPreventDefault={false}
+              // touchStartPreventDefault={false}
               resistanceRatio={0}
             >
               {items.map((v, i) => (
@@ -83,7 +83,7 @@ function Item({ title, description, image, index, total }) {
     >
       <div>
         <div className="mb-6">
-          <div className="absolute top-[11px] left-0 h-[2px] w-full bg-[#DFDFE3]"></div>
+          <div className="absolute left-0 top-[11px] h-[2px] w-full bg-[#DFDFE3]"></div>
           <div className="relative z-10 h-[24px] w-[24px] rounded-full bg-black"></div>
         </div>
         <div className="mb-2 font-glow text-2xl font-medium leading-[40px]">

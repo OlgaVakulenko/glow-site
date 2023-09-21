@@ -27,6 +27,7 @@ module.exports = {
         layout: '1736px',
         '3xl': '1600px',
         wide: '1920px',
+        '2k': '2000px',
       },
       fontSize: {
         xs: ['12px', '18px'],

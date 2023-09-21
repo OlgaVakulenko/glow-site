@@ -4,9 +4,11 @@ import RusM from '../About/assets/rus-2.png';
 import StasM from '../About/assets/stas-2m.png';
 import PavelM from '../About/assets/pavel-2m.png';
 import cx from 'clsx';
-import React from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useMediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SliderProgress from '../../SliderProgress';
 
 const items = [
   {
@@ -88,10 +90,21 @@ function Card({
 export default function Solutions() {
   const media = useMediaAtom();
 
+  const { Wrapper, CardWrapper } = useMemo(() => {
+    if (media !== 'tablet') {
+      return { Wrapper: 'div', CardWrapper: 'div' };
+    }
+
+    return {
+      Wrapper: Swiper,
+      CardWrapper: SwiperSlide,
+    };
+  }, [media]);
+
   return (
-    <Layout className="pb-8 pt-20 xl:pt-[120px] layout-no-p:pb-12 layout-no-p:pt-[145px]">
-      <div className="mb-10 md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:mb-[72px] xl:grid-cols-12">
-        <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 layout-no-p:max-w-[672px] layout-no-p:text-[64px] layout-no-p:leading-[64px]">
+    <Layout className="md:tp-[128px] pb-8 pt-24 xl:pt-[136px] layout-no-p:pt-[160px]">
+      <div className="mb-10 md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:mb-[72px] xl:grid-cols-12 layout-no-p:mb-14">
+        <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:mb-0 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 layout-no-p:max-w-[672px] layout-no-p:text-[64px] layout-no-p:leading-[64px]">
           We can light
           <br className="hidden md:block" /> your&nbsp;way
         </Animated>
@@ -104,45 +117,37 @@ export default function Solutions() {
           whenever you summon us. Let&apos;s take a look at what we can solve.
         </Animated>
       </div>
-      <div className="grid justify-center gap-4 md:-ml-4 md:flex md:flex-wrap md:gap-0">
+      <Wrapper
+        slidesPerView={2}
+        className="grid justify-center gap-4 md:-ml-4 md:flex md:flex-wrap md:gap-0"
+      >
         {items.map((item, index) => (
-          <React.Fragment key={index}>
-            {index === items.length - 1 && media === 'desktop' && (
-              <Animated
-                delay={250}
-                className="w-1/4 rounded-[32px] 3xl:hidden"
-                style={{
-                  background:
-                    'linear-gradient(287deg, rgb(244 243 245) 0%, rgb(244 243 245) 30%, rgba(255, 255, 255, 0) 70%)',
-                }}
-              ></Animated>
-            )}
+          <CardWrapper
+            key={index}
+            className={cx('!h-auto md:mb-4 md:pl-4 xl:w-1/2 3xl:w-1/3', {
+              'xl:w-1/2': index !== items.length - 1,
+              'xl:w-1/2 xl:pr-4 3xl:pr-0': index === items.length - 1,
+            })}
+          >
             <Card
               index={index}
               image={item.image}
-              className={cx('md:mb-4 md:w-1/2 md:pl-4 3xl:w-1/3', {
-                'md:w-1/2': index !== items.length - 1,
-                'md:w-1/2 md:pr-4': index === items.length - 1,
+              className={cx('h-full', {
+                'xl:hidden 3xl:block': index === items.length - 1,
               })}
               tag={item.tag}
               title={item.title}
               author_description={item.author_description}
               description={item.description}
             />
-
-            {index === items.length - 1 && media === 'desktop' && (
-              <Animated
-                delay={350}
-                className="w-1/4 rounded-[32px] opacity-70 3xl:hidden"
-                style={{
-                  background:
-                    'linear-gradient(107deg, rgb(244 243 245) 0%, rgb(244 243 245) 30%, rgba(255, 255, 255, 0) 70%)',
-                }}
-              ></Animated>
-            )}
-          </React.Fragment>
+          </CardWrapper>
         ))}
-      </div>
+        {media === 'tablet' && (
+          <div className="mx-auto max-w-[512px] pt-4">
+            <SliderProgress />
+          </div>
+        )}
+      </Wrapper>
     </Layout>
   );
 }

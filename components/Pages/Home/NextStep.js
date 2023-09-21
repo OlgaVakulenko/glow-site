@@ -103,7 +103,7 @@ export default function NextStep() {
         >
           <Image src={SphereNew} alt="" />
         </div>
-        <div className="border-b pb-[50px] md:pb-[78px] xl:pb-[104px] layout-no-p:pb-[132px]">
+        <div className="border-b pb-[75px] md:pb-[113px] layout-no-p:pb-[139px]">
           <Animated
             as="h3"
             className="mb-[60px] text-center font-glow text-5xl font-medium tracking-[-3px] md:mb-[66px] md:text-[99px] md:leading-[100px] xl:mb-0 xl:text-[112px] xl:leading-[106px]"
