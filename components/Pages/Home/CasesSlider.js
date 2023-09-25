@@ -546,6 +546,7 @@ function EndSlide() {
                 height="168"
                 viewBox="0 0 168 168"
                 fill="none"
+                className="h-[168px] w-[168px]"
               >
                 <circle cx="84" cy="84" r="84" fill="#E33230" />
                 <path

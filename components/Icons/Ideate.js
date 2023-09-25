@@ -3,6 +3,7 @@ import {
   lineProps as lProps,
   useMounted,
 } from './animations';
+import cx from 'clsx';
 
 const matrix = (scale = 1, cy) => {
   return `matrix(1, 0, 0, ${scale}, 0, ${cy - scale * cy})`;
@@ -74,7 +75,7 @@ export default function Ideate({ className, isReady = true }) {
       viewBox="0 0 136 115"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={cx(className, 'h-[115px] w-[136px]')}
     >
       {/** 1 */}
       <path

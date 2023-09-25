@@ -113,6 +113,7 @@ const items = [
           height="60"
           viewBox="0 0 64 60"
           fill="none"
+          className="h-[60px] w-[64px]"
         >
           <circle
             cx="56"
@@ -175,7 +176,7 @@ const items = [
           height="60"
           viewBox="0 0 60 60"
           fill="none"
-          className="duration-1000"
+          className="h-[60px] w-[60px] duration-1000"
         >
           <circle
             cx="30"
@@ -237,6 +238,7 @@ const items = [
           height="60"
           viewBox="0 0 64 60"
           fill="none"
+          className="h-[60px] w-[64px]"
         >
           <g clipPath="url(#clip0_5043_10377)">
             <path
@@ -321,6 +323,7 @@ const items = [
           height="56"
           viewBox="0 0 56 56"
           fill="none"
+          className="h-[56px] w-[56px]"
         >
           <circle
             cx="28"

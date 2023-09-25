@@ -3,6 +3,7 @@ import {
   lineProps as lProps,
   useMounted,
 } from './animations';
+import cx from 'clsx';
 
 export default function Investigate({ className, isReady }) {
   const isMounted = useMounted();
@@ -26,7 +27,7 @@ export default function Investigate({ className, isReady }) {
       viewBox="0 0 153 132"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={cx(className, 'h-[132px] w-[153px]')}
     >
       <circle cx="65" cy="65" r="64" stroke="#DADADA" />
       <path

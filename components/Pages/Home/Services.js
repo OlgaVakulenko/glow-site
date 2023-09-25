@@ -83,7 +83,7 @@ export default function Services() {
                     <div className="h-full px-4 md:px-0">
                       <div className="flex h-full flex-col rounded-3xl bg-white px-6 py-10 pb-[70px] md:flex md:justify-start md:rounded-none md:px-0 md:py-9 md:pb-[68px] xl:pb-[75px] layout-no-p:pb-[93px]">
                         <InViewport
-                          className="md:col-span-6 md:flex md:min-h-[100px] md:items-center"
+                          className="md:col-span-6 md:flex md:min-h-[130px] md:items-center"
                           onViewChange={(inView) => {
                             setIconMap((map) => ({
                               ...map,

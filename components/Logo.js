@@ -20,6 +20,7 @@ export default function Logo({ className = '', style = {} }) {
       xmlns="http://www.w3.org/2000/svg"
       className={cx(
         className,
+        'h-[40px] w-[32px] md:h-[32px] md:w-[78px]',
         !style.color && 'header-logo',
         subMenuParent && 'submenu'
       )}

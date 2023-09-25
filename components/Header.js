@@ -510,7 +510,9 @@ export default function Header({
 
                     <Animated delay={(links.length + 5) * 100} immediate>
                       <Link
-                        href="/trial"
+                        href="#footer"
+                        // href="/trial"
+                        onClick={handleFooterFormClick}
                         className={cx(
                           'glow-border-brand rolling-text-group flex whitespace-pre-wrap rounded-full bg-brand px-[19px] py-[14px] text-button-m text-black transition-all duration-500 layout-no-p:py-[18px] layout-no-p:text-sm layout-no-p:leading-[19px]'
                         )}

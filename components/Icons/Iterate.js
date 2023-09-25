@@ -4,6 +4,7 @@ import {
   lineProps as lProps,
   useMounted,
 } from './animations';
+import cx from 'clsx';
 
 export default function Iterate({ className, isReady = true }) {
   const [isFinished, setIsFinished] = useState(false);
@@ -49,7 +50,7 @@ export default function Iterate({ className, isReady = true }) {
       viewBox="0 0 129 129"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={className}
+      className={cx(className, 'h-[129px] w-[129px]')}
     >
       <path d="M60 64H79.5" stroke="#DADADA" />
       <path

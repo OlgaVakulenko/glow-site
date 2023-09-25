@@ -82,6 +82,7 @@ export default function Fintech({ isReady = true }) {
       viewBox="0 0 126 120"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      className="h-[120px] w-[126px]"
     >
       <path
         d="M3 80V61C3 45.087 9.32142 29.8258 20.5736 18.5736C31.8258 7.32141 47.087 0.999999 63 1C78.913 1 94.1742 7.32141 105.426 18.5736C116.679 29.8258 123 45.087 123 61V79.5"
