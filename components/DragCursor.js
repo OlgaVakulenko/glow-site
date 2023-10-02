@@ -160,7 +160,7 @@ export default function DragCursorContainer({
         setShow(false);
       }}
       onPointerMove={(e) => {
-        if (e.clientX > window.innerWidth * 0.9) {
+        if (isLast && e.clientX > window.innerWidth * 0.9) {
           setShow(false);
         }
 
