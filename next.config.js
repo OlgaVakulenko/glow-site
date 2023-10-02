@@ -14,6 +14,7 @@ const nextConfig = {
     optimizeCss: true,
     scrollRestoration: true,
   },
+  transpilePackages: ['gsap'],
 };
 
 module.exports = nextConfig;

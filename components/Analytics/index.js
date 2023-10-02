@@ -1,12 +1,16 @@
+import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 // import Amplitude from './Amplitude';
 // import FacebookPixel from './FacebookPixel';
 import GTag from './GTag';
 import Hotjar from './Hotjar';
 import Linkedin from './Linkedin';
-import MixPanel from './MixPanel';
+// import MixPanel from './MixPanel';
+const MixPanel = dynamic(() => import('./MixPanel'), {
+  ssr: false,
+});
 
 export const pageview = (url) => {
   window?.gtag?.('config', 'G-5NP2XWNRBX', {
@@ -33,6 +37,20 @@ export const event = ({ action, category, label, value }) => {
     value,
   });
 };
+
+function WhenIdle({ children }) {
+  const [isIdle, setIsIdle] = useState(false);
+
+  useEffect(() => {
+    const cb = window.requestIdleCallback || ((cb) => setTimeout(cb, 500));
+
+    cb(() => {
+      setIsIdle(true);
+    });
+  }, []);
+
+  return isIdle && children;
+}
 
 export default function Analytics() {
   const router = useRouter();
@@ -74,7 +92,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
       {/* <GTag id="GTM-MW59PP8" /> */}
       {/* <FacebookPixel /> */}
-      <MixPanel />
+      <WhenIdle>
+        <MixPanel />
+      </WhenIdle>
       <Linkedin />
     </>
   );

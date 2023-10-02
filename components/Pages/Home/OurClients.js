@@ -3,7 +3,7 @@ import { useAtom } from 'jotai';
 import { useEffect, useMemo, useRef } from 'react';
 import gsap from '../../../dist/gsap';
 import { mediaAtom } from '../../../lib/agent';
-import { useIsBrowser } from '../../../lib/utils';
+// import { useIsBrowser } from '../../../lib/utils';
 import Animated from '../../Animated';
 import Go from '../../Go';
 import Image from '../../Image';
@@ -48,7 +48,7 @@ export default function OurClients() {
   return (
     <Section
       withLayout={false}
-      className="pt-[56px] pb-[56px] md:pt-[84px] md:pb-[160px] xl:pb-[152px] xl:pt-[56px]"
+      className="pb-[56px] pt-[56px] md:pb-[160px] md:pt-[84px] xl:pb-[152px] xl:pt-[56px]"
     >
       <SectionLink
         // buttonLabel={'ABOUT US'}
@@ -62,7 +62,7 @@ export default function OurClients() {
         }
       />
       <Layout></Layout>
-      <div className="mb-[56px] mt-[59px] md:mt-[64px] md:mb-[152px] xl:mt-[80px]">
+      <div className="mb-[56px] mt-[59px] md:mb-[152px] md:mt-[64px] xl:mt-[80px]">
         <Layout className="md:-mb-4 md:flex md:flex-wrap md:justify-around xl:justify-between">
           {media === 'mobile'
             ? chunk(clients, 3).map((chunk, i) => (
@@ -97,7 +97,7 @@ export default function OurClients() {
                 <Animated
                   key={client.src + i}
                   delay={i * 100}
-                  className="md:mr-4 md:mb-4 md:flex md:items-center md:justify-center last:md:mr-0"
+                  className="md:mb-4 md:mr-4 md:flex md:items-center md:justify-center last:md:mr-0"
                 >
                   <img className="w-full" src={client.src} alt="" />
                 </Animated>
@@ -113,7 +113,8 @@ export default function OurClients() {
 }
 
 function Illustration() {
-  const isBadSafari = useIsBrowser('safari', '<15');
+  const isBadSafari = false;
+  // const isBadSafari = useIsBrowser('safari', '<15');
   const ref = useRef(null);
 
   useEffect(() => {
@@ -174,7 +175,8 @@ function Illustration() {
 }
 
 function RevealTextAnimation({ children }) {
-  const isBadSafari = useIsBrowser('safari', '<15');
+  const isBarSafari = false;
+  // const isBadSafari = useIsBrowser('safari', '<15');
   const words = useMemo(() => {
     return children.split(' ');
   }, [children]);

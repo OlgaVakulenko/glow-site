@@ -115,8 +115,6 @@ export default function ScrollContainer({ children }) {
   }, [isMobile]);
 
   const key = useMemo(() => {
-    return 'default';
-
     let key = 'default';
     if (isResize) {
       key = isMobile ? 'mobile' : 'desktop';

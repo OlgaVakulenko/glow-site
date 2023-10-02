@@ -26,12 +26,12 @@ export default function Founders() {
         <Photo
           img={Rus}
           name="Rus Mashatov"
-          position="Co-Founder & Product Designer"
+          position="Co-Founder & Lead Designer"
         />
         <Photo
           img={Stas}
           name="Stas Kovalsky"
-          position="Co-Founder"
+          position="Co-Founder & Lead Designer"
           align="right"
         />
       </div>

@@ -339,7 +339,7 @@ export default function Reviews() {
   const media = useMediaAtom();
 
   return (
-    <div className="pb-14 pt-4 md:pt-12 xl:pb-4">
+    <div className="pb-6 pt-4 md:pt-12 xl:pb-4">
       <DragCursorContainer>
         <Swiper
           className=""

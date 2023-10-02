@@ -226,7 +226,7 @@ function MyApp({ Component, pageProps }) {
             .fade-up, .fadeInUp {
               transform: translate3d(0, 10px, 0);
             }
-            .in-viewport, .ready .immediate {
+            .in-viewport, [in-viewport], .immediate[in-viewport] {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateZ(0) !important;

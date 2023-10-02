@@ -2,12 +2,11 @@ import { RollingWords } from './index';
 // import Layout2 from '../../Layout2';
 import cx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
+import gsap from '../../../dist/gsap';
 import Animated from '../../Animated';
-import Layout, { Layout2 } from '../../Layout';
+import Layout from '../../Layout';
 import { PageHeading2 } from '../../PageHeading';
 import { Subheading2 } from '../../Typography/Subheading';
-import BgImageTablet from './assets/bg-tablet.png';
-import BgImage from './assets/bg.png';
 import { CasesSlider2 } from './CasesSlider';
 import LogoCarousel from './LogoCarousel';
 import NextStep from './NextStep';
@@ -16,11 +15,6 @@ import Reviews from './Reviews2';
 import Services from './Services';
 import Solutions from './Solutions';
 import TrialBanner from './TrialBanner';
-import { atom } from 'jotai';
-import { useSetAtom } from 'jotai';
-import { useAtom } from 'jotai';
-import gsap from '../../../dist/gsap';
-import debounce from 'lodash.debounce';
 
 function IntroSection() {
   const ref = useRef();
@@ -450,169 +444,169 @@ function Bg() {
   );
 }
 
-const xAtom = atom(0);
-function Cursor({ isHover }) {
-  const ref = useRef(null);
-  const ref2 = useRef(null);
-  const [x] = useAtom(xAtom);
+// const xAtom = atom(0);
+// function Cursor({ isHover }) {
+//   const ref = useRef(null);
+//   const ref2 = useRef(null);
+//   const [x] = useAtom(xAtom);
 
-  useEffect(() => {
-    if (!isHover || !ref.current) {
-      return;
-    }
+//   useEffect(() => {
+//     if (!isHover || !ref.current) {
+//       return;
+//     }
 
-    gsap.to(ref.current, {
-      x: x - 192,
-    });
-  }, [x, isHover]);
+//     gsap.to(ref.current, {
+//       x: x - 192,
+//     });
+//   }, [x, isHover]);
 
-  useEffect(() => {
-    if (!isHover || !ref2.current) {
-      return;
-    }
+//   useEffect(() => {
+//     if (!isHover || !ref2.current) {
+//       return;
+//     }
 
-    gsap.to(ref2.current, {
-      x: x - 700,
-    });
-  }, [x, isHover]);
+//     gsap.to(ref2.current, {
+//       x: x - 700,
+//     });
+//   }, [x, isHover]);
 
-  return (
-    <>
-      <div
-        ref={ref}
-        className={cx(
-          'pointer-events-none absolute left-0 top-[114px] z-[1] flex h-4 w-96 items-center justify-center bg-brand text-white opacity-0 transition-opacity duration-[300ms] md:top-[160px]',
-          {
-            '!opacity-100 !duration-[1.5s]': isHover,
-          }
-        )}
-        style={{
-          background: 'radial-gradient(rgb(227, 50, 48) 10%, transparent 58%)',
-        }}
-      ></div>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <div
+//         ref={ref}
+//         className={cx(
+//           'pointer-events-none absolute left-0 top-[114px] z-[1] flex h-4 w-96 items-center justify-center bg-brand text-white opacity-0 transition-opacity duration-[300ms] md:top-[160px]',
+//           {
+//             '!opacity-100 !duration-[1.5s]': isHover,
+//           }
+//         )}
+//         style={{
+//           background: 'radial-gradient(rgb(227, 50, 48) 10%, transparent 58%)',
+//         }}
+//       ></div>
+//     </>
+//   );
+// }
 
-function Line() {
-  const [height, setHeight] = useState(280);
-  const [isHover, setIsHover] = useState(false);
-  const duration = 'duration-[1s]';
-  const setX = useSetAtom(xAtom);
+// function Line() {
+//   const [height, setHeight] = useState(280);
+//   const [isHover, setIsHover] = useState(false);
+//   const duration = 'duration-[1s]';
+//   const setX = useSetAtom(xAtom);
 
-  useEffect(() => {
-    return;
-    const onResize = debounce(() => {
-      try {
-        const els = Array.from(
-          document.querySelectorAll('#intro-section, #logo-carousel')
-        );
-        const height = els.reduce((h, c) => h + c.offsetHeight, 0);
-        setHeight(height ? height - 168 + 92 : 500);
-      } catch (e) {
-        console.error(e);
-      }
-    }, 250);
+//   useEffect(() => {
+//     return;
+//     const onResize = debounce(() => {
+//       try {
+//         const els = Array.from(
+//           document.querySelectorAll('#intro-section, #logo-carousel')
+//         );
+//         const height = els.reduce((h, c) => h + c.offsetHeight, 0);
+//         setHeight(height ? height - 168 + 92 : 500);
+//       } catch (e) {
+//         console.error(e);
+//       }
+//     }, 250);
 
-    onResize();
-    window.addEventListener('resize', onResize);
+//     onResize();
+//     window.addEventListener('resize', onResize);
 
-    return () => {
-      window.removeEventListener('resize', onResize);
-    };
-  }, []);
+//     return () => {
+//       window.removeEventListener('resize', onResize);
+//     };
+//   }, []);
 
-  return (
-    <div>
-      {/** top gradient */}
-      <div
-        className={cx(
-          'pointer-events-none absolute -top-12 h-[170px] w-full origin-bottom scale-y-0 opacity-0 md:h-[216px]',
-          {
-            '!scale-y-100': isHover,
-            '!opacity-100': isHover,
-          }
-        )}
-        style={{
-          transition: isHover
-            ? 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1)'
-            : 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s cubic-bezier(0.4, 0, 0.2, 1)',
-          background: `linear-gradient(
-            0deg,
-            hsl(1deg 76% 54% / 1) 0%,
-            hsl(5deg 83% 62% / 0.74) 26%,
-            hsl(7deg 90% 71% / 0.61) 39%,
-            hsl(8deg 99% 79% / 0.5) 50%,
-            hsl(9deg 100% 86% / 0.39) 61%,
-            hsl(10deg 100% 93% / 0.26) 74%,
-            hsl(0deg 0% 100% / 0) 100%
-          )`,
-        }}
-      ></div>
-      {/** bottom gradient */}
-      <div
-        className={cx(
-          'pointer-events-none absolute top-[122px] w-full origin-top scale-y-0 opacity-0 transition-shadow md:top-[168px]',
-          {
-            '!scale-y-100': isHover,
-            '!opacity-100': isHover,
-          }
-        )}
-        style={{
-          height: `${height}px`,
-          transition: isHover
-            ? 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1)'
-            : 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s cubic-bezier(0.4, 0, 0.2, 1)',
-          // background: 'linear-gradient(180deg, #E33230 0%, transparent 100%)',
-          background: `linear-gradient(
-            180deg,
-            hsl(1deg 76% 54% / 1) 0%,
-            hsl(5deg 83% 62% / 0.74) 26%,
-            hsl(7deg 90% 71% / 0.61) 39%,
-            hsl(8deg 99% 79% / 0.5) 50%,
-            hsl(9deg 100% 86% / 0.39) 61%,
-            hsl(10deg 100% 93% / 0.26) 74%,
-            hsl(0deg 0% 100% / 0) 100%
-          )`,
-        }}
-      ></div>
-      {/** line */}
-      <div
-        className="absolute top-[82px] z-[1] w-full py-10 md:top-[128px]"
-        onMouseEnter={() => {
-          setIsHover(true);
-        }}
-        onMouseLeave={() => {
-          setIsHover(false);
-        }}
-        onMouseMove={(e) => {
-          setX(e.pageX);
-        }}
-      >
-        <div
-          className={cx('h-[1px] w-full transition-opacity', duration, {
-            'opacity-0': isHover,
-          })}
-          style={{
-            background:
-              'linear-gradient(270deg, rgb(227, 50, 48) 0%, rgb(227, 50, 48) 20%, rgba(255, 255, 255, 255) 100%)',
-          }}
-        ></div>
-        {/** white line */}
-        <div
-          className={cx(
-            'pointer-events-none mt-[-1px] h-[1px] w-full bg-white opacity-0 transition-opacity',
-            duration,
-            {
-              'opacity-30': isHover,
-            }
-          )}
-        ></div>
-      </div>
-      <Cursor isHover={isHover} />
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       {/** top gradient */}
+//       <div
+//         className={cx(
+//           'pointer-events-none absolute -top-12 h-[170px] w-full origin-bottom scale-y-0 opacity-0 md:h-[216px]',
+//           {
+//             '!scale-y-100': isHover,
+//             '!opacity-100': isHover,
+//           }
+//         )}
+//         style={{
+//           transition: isHover
+//             ? 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1)'
+//             : 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s cubic-bezier(0.4, 0, 0.2, 1)',
+//           background: `linear-gradient(
+//             0deg,
+//             hsl(1deg 76% 54% / 1) 0%,
+//             hsl(5deg 83% 62% / 0.74) 26%,
+//             hsl(7deg 90% 71% / 0.61) 39%,
+//             hsl(8deg 99% 79% / 0.5) 50%,
+//             hsl(9deg 100% 86% / 0.39) 61%,
+//             hsl(10deg 100% 93% / 0.26) 74%,
+//             hsl(0deg 0% 100% / 0) 100%
+//           )`,
+//         }}
+//       ></div>
+//       {/** bottom gradient */}
+//       <div
+//         className={cx(
+//           'pointer-events-none absolute top-[122px] w-full origin-top scale-y-0 opacity-0 transition-shadow md:top-[168px]',
+//           {
+//             '!scale-y-100': isHover,
+//             '!opacity-100': isHover,
+//           }
+//         )}
+//         style={{
+//           height: `${height}px`,
+//           transition: isHover
+//             ? 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1)'
+//             : 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s cubic-bezier(0.4, 0, 0.2, 1)',
+//           // background: 'linear-gradient(180deg, #E33230 0%, transparent 100%)',
+//           background: `linear-gradient(
+//             180deg,
+//             hsl(1deg 76% 54% / 1) 0%,
+//             hsl(5deg 83% 62% / 0.74) 26%,
+//             hsl(7deg 90% 71% / 0.61) 39%,
+//             hsl(8deg 99% 79% / 0.5) 50%,
+//             hsl(9deg 100% 86% / 0.39) 61%,
+//             hsl(10deg 100% 93% / 0.26) 74%,
+//             hsl(0deg 0% 100% / 0) 100%
+//           )`,
+//         }}
+//       ></div>
+//       {/** line */}
+//       <div
+//         className="absolute top-[82px] z-[1] w-full py-10 md:top-[128px]"
+//         onMouseEnter={() => {
+//           setIsHover(true);
+//         }}
+//         onMouseLeave={() => {
+//           setIsHover(false);
+//         }}
+//         onMouseMove={(e) => {
+//           setX(e.pageX);
+//         }}
+//       >
+//         <div
+//           className={cx('h-[1px] w-full transition-opacity', duration, {
+//             'opacity-0': isHover,
+//           })}
+//           style={{
+//             background:
+//               'linear-gradient(270deg, rgb(227, 50, 48) 0%, rgb(227, 50, 48) 20%, rgba(255, 255, 255, 255) 100%)',
+//           }}
+//         ></div>
+//         {/** white line */}
+//         <div
+//           className={cx(
+//             'pointer-events-none mt-[-1px] h-[1px] w-full bg-white opacity-0 transition-opacity',
+//             duration,
+//             {
+//               'opacity-30': isHover,
+//             }
+//           )}
+//         ></div>
+//       </div>
+//       <Cursor isHover={isHover} />
+//     </div>
+//   );
+// }
 
 export default function Home2() {
   return (

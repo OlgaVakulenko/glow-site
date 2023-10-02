@@ -24,7 +24,10 @@ import { useSetAtom } from 'jotai';
 
 const featured = ['/beast', '/cryptogenie', '/jucr', '/tilt', '/liquidspace'];
 
-const cases = casesData.filter((c) => featured.includes(c.href));
+const cases = featured.reduce((t, href) => {
+  t.push(casesData.find((item) => item.href === href));
+  return t;
+}, []);
 
 const addCases = casesData
   .filter((c) => {
@@ -173,31 +176,31 @@ export function CaseItem({
   const media = useMediaAtom();
   const ref = useRef(null);
 
-  useEffect(() => {
-    if (media === 'mobile') return;
+  // useEffect(() => {
+  //   if (media === 'mobile') return;
 
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        ref.current,
-        {
-          opacity: 0,
-        },
-        {
-          opacity: 1,
-          scrollTrigger: {
-            trigger: ref.current,
-            scrub: 1,
-            start: 'top 85%',
-            end: 'bottom 85%',
-          },
-        }
-      );
-    }, ref);
+  //   const ctx = gsap.context(() => {
+  //     gsap.fromTo(
+  //       ref.current,
+  //       {
+  //         opacity: 0,
+  //       },
+  //       {
+  //         opacity: 1,
+  //         scrollTrigger: {
+  //           trigger: ref.current,
+  //           scrub: 1,
+  //           start: 'top 85%',
+  //           end: 'bottom 85%',
+  //         },
+  //       }
+  //     );
+  //   }, ref);
 
-    return () => {
-      ctx.revert();
-    };
-  }, [media]);
+  //   return () => {
+  //     ctx.revert();
+  //   };
+  // }, [media]);
 
   return (
     <Link
@@ -368,10 +371,27 @@ function ViewCaseCursor({ x, y }) {
     >
       <div
         ref={rotatedRef}
-        className="rounded-full bg-brand px-[50px] py-[14px]  font-medium text-lred"
+        className="rounded-full bg-brand px-[50px] py-[14px] font-medium  uppercase text-lred"
       >
         View Case
       </div>
+    </div>
+  );
+}
+
+function SlideStateNotifier({ children }) {
+  const slide = useSwiperSlide();
+
+  return (
+    <div
+      onMouseEnter={() => {
+        console.log('needle.mouseEnter', slide);
+      }}
+      onMouseLeave={() => {
+        console.log('needle.mouseLeave', slide);
+      }}
+    >
+      {children}
     </div>
   );
 }
@@ -504,13 +524,10 @@ export function CasesSlider2() {
     <div ref={ref}>
       <Section withLayout={false} className="pb-[80px] md:pb-14 xl:pb-[88px]">
         <div key={k}>
-          <DragCursorContainer
-            showDefaultCursor
-            clickable
-            cursor={ViewCaseCursor}
-          >
-            {({ show }) => (
+          <DragCursorContainer showDefaultCursor cursor={ViewCaseCursor} adhoc>
+            {({ show, swiperOptions }) => (
               <Swiper
+                {...swiperOptions}
                 // touchStartForcePreventDefault={true}
                 // touchStartPreventDefault={false}
                 breakpoints={{
@@ -541,16 +558,22 @@ export function CasesSlider2() {
                       }
                     )}
                   >
-                    <Link
-                      href={item.href}
-                      className={cx('group select-none', {
-                        // 'cursor-none': show,
-                      })}
-                    >
-                      <div className={cx('pointer-events-none', {})}>
-                        <CaseSlide item={item} index={i} total={cases.length} />
-                      </div>
-                    </Link>
+                    <SlideStateNotifier>
+                      <Link
+                        href={item.href}
+                        className={cx('group select-none', {
+                          'cursor-none': show,
+                        })}
+                      >
+                        <div className={cx('pointer-events-none', {})}>
+                          <CaseSlide
+                            item={item}
+                            index={i}
+                            total={cases.length}
+                          />
+                        </div>
+                      </Link>
+                    </SlideStateNotifier>
                   </SwiperSlide>
                 ))}
                 <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-14 4xl:pr-[120px]">

@@ -10,10 +10,10 @@ export async function getBlogPosts() {
 }
 
 const positionMap = {
-  'Kovalsky Stanislav': 'Co-Founder',
+  'Kovalsky Stanislav': 'Co-Founder & Lead Designer',
   'Daria Haman': 'HR Manager',
   'Liudmyla Gramatyk': 'Content Manager',
-  'Ruslan Mashatov': 'Co-Founder',
+  'Ruslan Mashatov': 'Co-Founder & Lead Designer',
 };
 
 export function withAuthor(post) {

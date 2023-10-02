@@ -79,7 +79,7 @@ export default function BlogPosts({ posts }) {
         description="We share our knowledge. Not only with other designers, but also with businesses. Our processes help optimize your work. "
         showButtonOnMobile={true}
       />
-      <div className="pt-[76px] pb-[76px]">
+      <div className="pb-[46px] pt-[76px]">
         <Wrapper>
           <PostSlider withLayout={withLayout} posts={posts} />
         </Wrapper>

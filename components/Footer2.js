@@ -4,7 +4,7 @@ import Layout from './Layout';
 
 export default function Footer2() {
   return (
-    <footer id="footer">
+    <footer id="footer" className="md:mt-8">
       <Layout disableOnMobile={true}>
         <div className="bg-black px-4 pb-[48px] pt-[44px] text-lblue md:rounded-3xl md:px-12 md:pb-20 md:pt-16 xl:p-20 4xl:px-24 4xl:py-[120px]">
           <div className="xl:grid xl:grid-flow-row xl:grid-cols-12 xl:gap-8">

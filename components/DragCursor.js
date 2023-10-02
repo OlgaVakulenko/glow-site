@@ -1,7 +1,14 @@
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 import { atom } from 'jotai';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { createPortal } from 'react-dom';
 import { useMediaAtom } from '../lib/agent';
 import { useMounted } from './Icons/animations';
@@ -59,13 +66,17 @@ export default function DragCursorContainer({
   clickable = false,
   children,
   cursor,
+  adhoc = false,
 }) {
+  const [isDragging, setIsDragging] = useState(false);
+  const [isLast, setIsLast] = useState(false);
   const media = useMediaAtom();
   const [globalDisable, setGlobalDisable] = useAtom(cursorGlobalDisableAtom);
   const ref = useRef();
   const [_show, setShow] = useState(true);
   const [pos, setPos] = useState({ x: 0, y: 0 });
   const [isClicked, setIsClicked] = useState(false);
+  const cursorComponentPrevRef = useRef();
 
   const show = !globalDisable && _show && pos.x !== 0 && pos.y !== 0;
 
@@ -104,10 +115,34 @@ export default function DragCursorContainer({
   }, [setGlobalDisable, media]);
 
   const CursorComponent = useMemo(() => {
-    return cursor || DragCursor;
-  }, [cursor]);
+    if (isDragging) {
+      return cursorComponentPrevRef.current;
+    }
 
-  // show = true;
+    if (cursor && typeof window !== 'undefined') {
+      if (isLast || pos.x < Math.min(1184, window.innerWidth * 0.9)) {
+        return cursor;
+      }
+    }
+
+    return DragCursor;
+  }, [cursor, pos, isDragging, isLast]);
+
+  useLayoutEffect(() => {
+    cursorComponentPrevRef.current = CursorComponent;
+  }, [CursorComponent]);
+
+  const handleTouchStart = useCallback(() => {
+    setIsDragging(true);
+  }, []);
+
+  const handleTouchEnd = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  const onActiveIndexChange = useCallback((swiper) => {
+    setIsLast(swiper.progress > 0.9);
+  }, []);
 
   return (
     <div
@@ -117,6 +152,7 @@ export default function DragCursorContainer({
       })}
       onMouseEnter={(e) => {
         if (!e.currentTarget) return;
+
         setShow(true);
         setPos({ x: e.clientX, y: e.clientY });
       }}
@@ -124,13 +160,42 @@ export default function DragCursorContainer({
         setShow(false);
       }}
       onPointerMove={(e) => {
+        if (e.clientX > window.innerWidth * 0.9) {
+          setShow(false);
+        }
+
         const x = e.clientX;
         const y = e.clientY;
 
         setPos({ x, y });
       }}
     >
-      {child({ show: show })}
+      {/* {adhoc && (
+        <div className="absolute inset-0 ">
+          <div className="relative h-full w-full ">
+            <div
+              onMouseEnter={() => {
+                console.log('needle.enter.red');
+              }}
+              className="absolute bottom-0 left-0 right-[30%] top-0 bg-brand opacity-50"
+            ></div>
+            <div
+              onMouseEnter={() => {
+                console.log('needle.enter.blue');
+              }}
+              className="absolute bottom-0 left-[70%] right-0 top-0 bg-lblue opacity-50"
+            ></div>
+          </div>
+        </div>
+      )} */}
+      {child({
+        show: show && (adhoc ? CursorComponent === DragCursor : true),
+        swiperOptions: {
+          onTouchStart: handleTouchStart,
+          onTouchEnd: handleTouchEnd,
+          onActiveIndexChange,
+        },
+      })}
       {show &&
         createPortal(
           // cursor ? (
