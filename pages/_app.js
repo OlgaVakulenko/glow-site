@@ -221,7 +221,7 @@ function MyApp({ Component, pageProps }) {
           {`
             .to-animate {
               opacity: 0;
-              transition: transform .4s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s, opacity .4s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s;
+              transition: transform .7s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s, opacity .7s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s;
             }
             .fade-up, .fadeInUp {
               transform: translate3d(0, 10px, 0);
@@ -230,24 +230,16 @@ function MyApp({ Component, pageProps }) {
               opacity: 1 !important;
               visibility: visible !important;
               transform: translateZ(0) !important;
+            }
           `}
         </style>
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              setTimeout(function(){
-                if (!window.__app_mounted) {
-                  var t = document.querySelectorAll('.to-animate');
-                  for (var i = 0; i < t.length; i++) {
-                    var el = t[i];
-                    el && el.classList && el.classList.add('in-viewport');
-                    window.__mobile_in_viewport = true;
-                  }
-                }
-              }, 500);
-            `,
+          console.log('needle.init1x');
+          `,
           }}
-        />
+        ></script>
       </Head>
       <LoadingProgress />
       <StructuredData
@@ -260,7 +252,26 @@ function MyApp({ Component, pageProps }) {
         }}
       />
       {getLayout(<Component {...pageProps} />)}
-      <AnimatedFix />
+      {/* <AnimatedFix /> */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+              console.log('needle.init1.5x', window.__app_mounted)
+              setTimeout(function(){
+                console.log('needle.init2x', window.__app_mounted)
+                if (!window.__app_mounted) {
+                  var t = document.querySelectorAll('.to-animate');
+                  console.log('needle.t', t);
+                  for (var i = 0; i < t.length; i++) {
+                    var el = t[i];
+                    el && el.classList && el.setAttribute('in-viewport', true);
+                    window.__mobile_in_viewport = true;
+                  }
+                }
+              }, 500);
+            `,
+        }}
+      />
       <Analytics />
       <div id="drag-cursor"></div>
       {/** widgets */}

@@ -57,16 +57,16 @@ function Card({
 }) {
   return (
     <Animated delay={100 * index} className={cx(className)}>
-      <div className="rounded-[32px] bg-[#F4F3F5] px-4 pb-4 pt-8 md:flex md:h-full md:flex-col md:px-6 md:pb-6 md:pt-[39px] xl:px-10 xl:pb-10 xl:pt-12 layout-no-p:px-8 layout-no-p:pb-8 layout-no-p:pt-12">
+      <div className="rounded-[32px] bg-[#F4F3F5] px-4 pb-4 pt-8 md:flex md:h-full md:flex-col md:px-6 md:pb-6 md:pt-[39px] xl:px-10 xl:pb-10 xl:pt-12 4xl:px-8 4xl:pb-8 4xl:pt-12">
         <div>
           <span className="rounded-full bg-brand px-2 py-1 text-body-heading-s uppercase text-lred">
             {tag}
           </span>
         </div>
-        <div className="mb-4 mt-6 font-glow text-[29px] font-medium leading-[37px] md:mb-[27px] md:mt-[34px] xl:mb-6 xl:text-heading-h3 3xl:text-[30px] layout-no-p:flex layout-no-p:min-h-[64px] layout-no-p:items-center">
+        <div className="mb-4 mt-6 font-glow text-[29px] font-medium leading-[37px] md:mb-[27px] md:mt-[34px] xl:mb-6 xl:text-heading-h3 3xl:text-[30px] 4xl:flex 4xl:min-h-[64px] 4xl:items-center">
           {title}
         </div>
-        <div className="__card_block rounded-2xl bg-white p-4 pb-6 md:h-full md:pb-8 xl:p-8 xl:pb-[37px] layout-no-p:px-6 layout-no-p:pb-[50px] layout-no-p:pt-6">
+        <div className="__card_block rounded-2xl bg-white p-4 pb-6 md:h-full md:pb-8 xl:p-8 xl:pb-[37px] 4xl:px-6 4xl:pb-[50px] 4xl:pt-6">
           <div className="mb-6 flex xl:mb-[27px]">
             <div className="mr-4 shrink-0">
               <Image
@@ -102,16 +102,16 @@ export default function Solutions() {
   }, [media]);
 
   return (
-    <Layout className="md:tp-[128px] pb-8 pt-24 xl:pt-[136px] layout-no-p:pt-[160px]">
-      <div className="mb-10 md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:mb-[72px] xl:grid-cols-12 layout-no-p:mb-14">
-        <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:mb-0 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 layout-no-p:max-w-[672px] layout-no-p:text-[64px] layout-no-p:leading-[64px]">
+    <Layout className="md:tp-[128px] pb-8 pt-24 xl:pt-[136px] 4xl:pt-[160px]">
+      <div className="mb-10 md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:mb-[72px] xl:grid-cols-12 4xl:mb-14">
+        <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:mb-0 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 4xl:max-w-[672px] 4xl:text-[64px] 4xl:leading-[64px]">
           We can light
           <br className="hidden md:block" /> your&nbsp;way
         </Animated>
-        <div className="hidden layout-no-p:col-span-1 layout-no-p:block"></div>
+        <div className="hidden 4xl:col-span-1 4xl:block"></div>
         <Animated
           delay={100}
-          className="text-subtitle-m italic   md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l layout-no-p:col-span-4 layout-no-p:text-[26px]"
+          className="text-subtitle-m italic   md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l 4xl:col-span-4 4xl:text-[26px]"
         >
           Like a rescue squad for your product, we are ready to swoop in
           whenever you summon us. Let&apos;s take a look at what we can solve.

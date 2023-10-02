@@ -47,9 +47,9 @@ function IntroSection() {
   return (
     <div ref={triggerRef}>
       <Layout className="flex flex-col ">
-        <div className="relative md:grid md:grid-flow-row md:grid-cols-8 md:gap-8 xl:grid-cols-12 layout-no-p:gap-12">
+        <div className="relative md:grid md:grid-flow-row md:grid-cols-8 md:gap-8 xl:grid-cols-12 4xl:gap-12">
           <div className="md:col-span-4 lg:col-span-5 xl:col-span-7"></div>
-          <Subheading2 className="pointer-events-none relative mb-8 pt-48 md:col-span-4 md:mb-[87px] md:ml-0 md:mr-8 md:pt-[240px] lg:col-span-3 xl:col-span-5 xl:pt-[272px] layout-no-p:mb-[158px]">
+          <Subheading2 className="pointer-events-none relative mb-8 pt-48 md:col-span-4 md:mb-[87px] md:ml-0 md:mr-8 md:pt-[240px] lg:col-span-3 xl:col-span-5 xl:pt-[272px] 4xl:mb-[158px]">
             <div
               ref={ref}
               className="absolute left-8 top-24 w-[134px] md:top-[184px] xl:top-[216px] xl:w-[188px]"
@@ -416,14 +416,14 @@ function IconsSection() {
               //   }, 300);
               // }}
             >
-              <div className="mr-8 md:mr-4 layout-no-p:mr-6">
+              <div className="mr-8 md:mr-4 4xl:mr-6">
                 <item.icon isReady={map[index]}></item.icon>
               </div>
               <div>
-                <div className="mb-2 text-body-heading-m layout-no-p:text-[22px] layout-no-p:leading-[120%]">
+                <div className="mb-2 text-body-heading-m 4xl:text-[22px] 4xl:leading-[120%]">
                   {item.title}
                 </div>
-                <div className="text-body-s opacity-50 layout-no-p:text-body-m2">
+                <div className="text-body-s opacity-50 4xl:text-body-m2">
                   {item.description}
                 </div>
               </div>

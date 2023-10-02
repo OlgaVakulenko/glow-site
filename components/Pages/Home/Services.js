@@ -59,14 +59,14 @@ export default function Services() {
 
   return (
     <div className="">
-      <Layout className="mb-[47px] md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:grid-cols-12 layout-no-p:mb-14">
-        <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:mb-0 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 layout-no-p:max-w-[672px] layout-no-p:text-[64px] layout-no-p:leading-[64px]">
+      <Layout className="mb-[47px] md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:grid-cols-12 4xl:mb-14">
+        <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:mb-0 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 4xl:max-w-[672px] 4xl:text-[64px] 4xl:leading-[64px]">
           We open to any kind&nbsp;of co-operation
         </Animated>
-        <div className="hidden layout-no-p:col-span-1 layout-no-p:block"></div>
+        <div className="hidden 4xl:col-span-1 4xl:block"></div>
         <Animated
           delay={100}
-          className="text-subtitle-m italic   md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l layout-no-p:col-span-4 layout-no-p:text-[26px]"
+          className="text-subtitle-m italic   md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l 4xl:col-span-4 4xl:text-[26px]"
         >
           If you find yourself in one of the situations described below, our
           service is exactly what you need.
@@ -76,12 +76,12 @@ export default function Services() {
         <div className="bg-[#F3F2F4] pb-6 md:rounded-[32px] md:pb-0">
           {/* <Layout> */}
           <div className="pt-4 md:p-4">
-            <Wrapper className="__card_block md:flex md:justify-between md:gap-16 md:overflow-hidden md:rounded-3xl md:bg-white md:px-10 xl:gap-20 2xl:gap-28 layout-no-p:gap-24">
+            <Wrapper className="__card_block md:flex md:justify-between md:gap-16 md:overflow-hidden md:rounded-3xl md:bg-white md:px-10 xl:gap-20 2xl:gap-28 4xl:gap-24">
               {items.map((item, index) => (
                 <SlideWrapper key={index} className="!h-auto md:w-full">
                   <div className="group h-full">
                     <div className="h-full px-4 md:px-0">
-                      <div className="flex h-full flex-col rounded-3xl bg-white px-6 py-10 pb-[70px] md:flex md:justify-start md:rounded-none md:px-0 md:py-9 md:pb-[68px] xl:pb-[75px] layout-no-p:pb-[93px]">
+                      <div className="flex h-full flex-col rounded-3xl bg-white px-6 py-10 pb-[70px] md:flex md:justify-start md:rounded-none md:px-0 md:py-9 md:pb-[68px] xl:pb-[75px] 4xl:pb-[93px]">
                         <InViewport
                           className="md:col-span-6 md:flex md:min-h-[130px] md:items-center"
                           onViewChange={(inView) => {

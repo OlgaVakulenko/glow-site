@@ -240,7 +240,7 @@ function ReviewCard({
   };
 
   return (
-    <div className="px-4 xl:px-14 layout-no-p:px-[120px]">
+    <div className="px-4 xl:px-14 4xl:px-[120px]">
       <div className="rounded-3xl border border-black px-6 pb-[52px] pt-8 md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 md:px-0 md:py-16 xl:grid-cols-12 xl:py-20">
         <div className="hidden flex-col justify-between xl:col-span-3 xl:flex xl:pl-20">
           <div>

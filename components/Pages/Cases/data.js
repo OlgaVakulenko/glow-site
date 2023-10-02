@@ -3,16 +3,16 @@ import Case2Image from './assets/case_2.png';
 import Case3Image from './assets/case_3.png';
 import Case4Image from './assets/case_4.png';
 
-import BeastCover from './assets/beast-cover.png';
-import JucrCover from './assets/jucr-cover.png';
-import CryptoGenie from './assets/cryptogenie-cover.png';
+import BeastCover from './assets/new/beast-cover.png';
+import JucrCover from './assets/new/jucr-cover.png';
+import CryptoGenie from './assets/new/crypto-cover.png';
 // import LiquidSpace from './assets/liquidspace-cover.png';
-import LiquidSpace from './assets/ls-cover.png';
+import LiquidSpace from './assets/new/liquid-space.png';
 // import LiquidSpace from './LiquidSpace/assets/challenge-f.png';
 import FleetChaser from './assets/fc-cover.png';
 import Ethos from './assets/ethos-cover.png';
 import Parking from './assets/case-parking.png';
-import Tilt from './assets/case-tilt.png';
+import Tilt from './assets/new/tilt-cover.png';
 
 const cases = [
   {
@@ -39,7 +39,7 @@ const cases = [
         without worries
       </>
     ),
-    title2: 'Charge your car',
+    title2: 'JUSP app',
     industry: ['Charge App', 'Electric Vehicles', 'Car rental'],
     service: ['Product Design', 'User Experience', 'User Interface'],
     company: ['Funding 30M'],
@@ -75,7 +75,7 @@ const cases = [
         <br className="hidden md:block" /> predicting the relevant trends
       </>
     ),
-    title2: 'Cryptogenie',
+    title2: 'CryptoGenie',
     href: '/cryptogenie',
     industry: ['AI', 'Blockchain'],
     service: ['Product Design', 'User Experience', 'User Interface'],
@@ -104,6 +104,7 @@ const cases = [
     href: '/tilt',
     title:
       'Tilt: a platform that connects students with financial aid opportunities',
+    title2: 'Tilt',
     industry: ['Education'],
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],

@@ -1,11 +1,11 @@
 import { useAtom } from 'jotai';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
 import gsap from '../../../dist/gsap';
 import cx from 'clsx';
 import Link from 'next/link';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiperSlide } from 'swiper/react';
 import { mediaAtom, useMediaAtom } from '../../../lib/agent';
 import { addLeadingZero, useIsClient } from '../../../lib/utils';
 import Image from '../../Image';
@@ -22,9 +22,9 @@ import DragCursorContainer, { cursorGlobalDisableAtom } from '../../DragCursor';
 import throttle from 'lodash.throttle';
 import { useSetAtom } from 'jotai';
 
-const cases = casesData.filter((c) =>
-  ['/liquidspace', '/jucr', '/beast', '/cryptogenie'].includes(c.href)
-);
+const featured = ['/beast', '/cryptogenie', '/jucr', '/tilt', '/liquidspace'];
+
+const cases = casesData.filter((c) => featured.includes(c.href));
 
 const addCases = casesData
   .filter((c) => {
@@ -64,19 +64,59 @@ export function Col({ title, items, className = '' }) {
   );
 }
 
-function CaseSlide({ item, index }) {
+// function CaseSlide2({ item, index }) {
+//   const [media] = useAtom(mediaAtom);
+
+//   return (
+//     <div className="__slide-wrapper pointer-events-none h-full w-full">
+//       <div className="__slide relative flex min-h-[456px] items-end overflow-hidden rounded-3xl text-lblue md:min-h-[688px]">
+//         <Image
+//           className="pointer-events-none absolute left-0 top-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 md:max-h-full"
+//           src={item.image}
+//           alt=""
+//         />
+//         <div
+//           className="__slider-item
+//             pointer-events-none
+//             absolute
+//             bottom-0
+//             left-0
+//             right-0
+//             top-0"
+//         ></div>
+//         <div
+//           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
+//           className="relative px-6 pb-[50px] md:px-[96px] md:pb-[105px] md:pt-[282] xl:px-[104px]"
+//         >
+//           <div className="mb-[29px] mt-[16px] font-glow text-[26px] font-medium leading-[120%] md:mb-[38px] md:mt-[15px] md:text-[32px]">
+//             {item.title}
+//           </div>
+//           <div className="flex space-x-[52px] pl-[3px] md:space-x-[62px]">
+//             <Col className="" title="Industry" items={item.industry} />
+//             <Col title="Services" items={item.service} />
+//             {media !== 'mobile' && item.company && (
+//               <Col title="Company" items={item.company} />
+//             )}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+function CaseSlide({ item, index, total }) {
   const [media] = useAtom(mediaAtom);
 
   return (
     <div className="__slide-wrapper pointer-events-none h-full w-full">
-      <div className="__slide relative flex min-h-[456px] items-end overflow-hidden rounded-3xl text-lblue md:min-h-[688px]">
+      <div className="__slide relative flex min-h-[456px] items-end overflow-hidden rounded-3xl text-black md:min-h-[688px]">
         <Image
-          className="pointer-events-none absolute left-0 top-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 md:max-h-full"
+          className="pointer-events-none absolute left-0 top-0 h-full w-full origin-[90%_10%] object-cover transition-transform duration-500 group-hover:scale-105 md:max-h-full"
           src={item.image}
           alt=""
         />
         <div
-          className="__slider-item
+          className="__slider-item2
             pointer-events-none
             absolute
             bottom-0
@@ -86,19 +126,16 @@ function CaseSlide({ item, index }) {
         ></div>
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
-          className="relative px-6 pb-[50px] md:px-[96px] md:pb-[105px] md:pt-[282] xl:px-[104px]"
+          className="relative px-6 pb-[50px] md:px-[96px] md:pb-16 md:pt-[282px] xl:px-12"
         >
-          {/* <div className="relative inline-block pl-[3px] font-glow text-[11px] tracking-[2px]">
-            {addLeadingZero(index + 1)}
-            &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
-            {addLeadingZero(cases.length)}
-            <div className="absolute right-[-30px] top-[-20px]">
+          <div className="relative font-glow text-[11px] font-medium uppercase tracking-[2px]">
+            <div className="absolute left-[79px] top-[-18px]">
               <svg
+                xmlns="http://www.w3.org/2000/svg"
                 width="15"
                 height="16"
                 viewBox="0 0 15 16"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
                   d="M8.12343 16L6.46096 10.3846L1.8136 13.9231L-2.01745e-07 11.3846L4.68514 8L-4.97637e-07 4.61539L1.8136 2.03846L6.46096 5.57692L8.12342 5.98588e-07L11.0705 0.961539L9.21914 6.5L15 6.42308L15 9.57692L9.25693 9.5L11.0705 15.0385L8.12343 16Z"
@@ -106,11 +143,13 @@ function CaseSlide({ item, index }) {
                 />
               </svg>
             </div>
-          </div> */}
-          <div className="mb-[29px] mt-[16px] font-glow text-[26px] font-medium leading-[120%] md:mb-[38px] md:mt-[15px] md:text-[32px]">
-            {item.title}
+            {addLeadingZero(index + 1)}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
+            {addLeadingZero(total)}
           </div>
-          <div className="flex space-x-[52px] pl-[3px] md:space-x-[96px]">
+          <div className="mb-[29px] mt-[16px] font-glow text-[26px] font-medium leading-[120%] md:mb-[38px] md:mt-[15px] md:text-[32px]">
+            {item.title2 || item.title}
+          </div>
+          <div className="flex space-x-[52px] pl-[3px] md:space-x-[62px]">
             <Col className="" title="Industry" items={item.industry} />
             <Col title="Services" items={item.service} />
             {media !== 'mobile' && item.company && (
@@ -289,6 +328,54 @@ export default function CasesSlider3() {
   );
 }
 
+function ViewCaseCursor({ x, y }) {
+  const prev = useRef({});
+  const ref = useRef();
+  const rotatedRef = useRef();
+
+  useLayoutEffect(() => {
+    gsap.to(ref.current, {
+      x: x - 120,
+      y: y - 35,
+      // rotate: '-25deg',
+      duration: 0,
+    });
+
+    const rota = prev.current.x < x ? '-20deg' : '-30deg';
+    // console.log('needle.r', rota);
+    gsap.to(rotatedRef.current, {
+      rotate: rota,
+      duration: 0.2,
+      onComplete: (...args) => {
+        gsap.to(rotatedRef.current, {
+          rotate: '-25deg',
+          duration: 0.4,
+        });
+      },
+    });
+
+    prev.current.x = x;
+    prev.current.y = y;
+  }, [x, y]);
+
+  return (
+    <div
+      ref={ref}
+      className="pointer-events-none fixed left-0 top-0 "
+      // style={{
+      //   transform: `translate(${x - 120}px, ${y - 35}px) rotate(-25deg)`,
+      // }}
+    >
+      <div
+        ref={rotatedRef}
+        className="rounded-full bg-brand px-[50px] py-[14px]  font-medium text-lred"
+      >
+        View Case
+      </div>
+    </div>
+  );
+}
+
 export function CasesSlider2() {
   const ref = useRef();
   const scrollerRef = useRef();
@@ -417,7 +504,11 @@ export function CasesSlider2() {
     <div ref={ref}>
       <Section withLayout={false} className="pb-[80px] md:pb-14 xl:pb-[88px]">
         <div key={k}>
-          <DragCursorContainer showDefaultCursor clickable>
+          <DragCursorContainer
+            showDefaultCursor
+            clickable
+            cursor={ViewCaseCursor}
+          >
             {({ show }) => (
               <Swiper
                 // touchStartForcePreventDefault={true}
@@ -442,27 +533,27 @@ export function CasesSlider2() {
                   <SwiperSlide
                     key={i}
                     className={cx(
-                      'cursor-none select-none px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[80vw] xl:first:pl-14',
-                      'layout-no-p:first:pl-[120px]',
+                      'cursor-none select-none px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[1144px] xl:first:!w-[1184px] xl:first:pl-14',
+                      '4xl:first:pl-[120px]',
                       {
                         // 'wide:!w-[1440px]': true,
-                        // 'layout-no-p:!w-[1568px] layout-no-p:first:pl-0': true,
+                        // '4xl:!w-[1568px] 4xl:first:pl-0': true,
                       }
                     )}
                   >
                     <Link
                       href={item.href}
                       className={cx('group select-none', {
-                        'cursor-none': show,
+                        // 'cursor-none': show,
                       })}
                     >
                       <div className={cx('pointer-events-none', {})}>
-                        <CaseSlide item={item} index={i} />
+                        <CaseSlide item={item} index={i} total={cases.length} />
                       </div>
                     </Link>
                   </SwiperSlide>
                 ))}
-                <SwiperSlide className="md:!w-[736px] xl:!w-[778px] xl:pr-14 layout-no-p:!w-[830px] layout-no-p:pr-[120px]">
+                <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-14 4xl:pr-[120px]">
                   <EndSlide />
                 </SwiperSlide>
                 {media !== 'desktop' && (
@@ -491,80 +582,106 @@ function EndSlide() {
       onMouseLeave={() => {
         setGlobalCursorDisable(false);
       }}
-      className="flex h-full min-h-[456px] items-center justify-center rounded-3xl md:grid md:min-h-[688px] md:grid-cols-2 md:gap-6 md:pl-6"
+      className="group flex h-full min-h-[456px] items-center justify-center rounded-3xl transition-all duration-300 md:ml-6 md:flex md:min-h-[688px] md:items-stretch md:rounded-[32px] md:border md:border-black md:hover:border-brand md:hover:bg-brand"
     >
-      {/* {media !== 'mobile' && ( */}
-      <>
-        {addCases.map((item) => (
-          <Link
-            href={item.href}
-            key={item.href}
-            className="group hidden h-full w-[332px] overflow-hidden rounded-[32px] md:block"
-          >
-            <Image
-              src={item.image}
-              alt=""
-              className="h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </Link>
-        ))}
-        {/* <div className="hidden w-[332px] md:block">
-          <Image src={Case1Img} alt="" />
-        </div>
-        <div className="hidden w-[332px] md:block">
-          <Image src={Case2Img} alt="" />
-        </div>
-        <div className="hidden w-[332px] md:block">
-          <Image src={Case3Img} alt="" />
-        </div> */}
-      </>
-      {/* )} */}
-
-      <Layout>
-        {media === 'mobile' && (
-          <Link
-            href={addCases[0].href}
-            key={addCases[0].href}
-            className="group mb-4 block h-full w-full overflow-hidden rounded-3xl"
-          >
-            <Image
-              src={addCases[0].image}
-              alt=""
-              className="h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-          </Link>
-        )}
-        <Link
-          href="/work"
-          className="group md:flex md:flex-col md:items-center md:justify-center"
-        >
-          <div className="glow-border-black relative flex h-[163px] w-full items-center justify-center rounded-3xl md:h-[168px] md:w-[168px] md:rounded-full">
-            <div className="absolute-center opacity-0 transition-opacity group-hover:md:opacity-100">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="168"
-                height="168"
-                viewBox="0 0 168 168"
-                fill="none"
-                className="h-[168px] w-[168px]"
-              >
-                <circle cx="84" cy="84" r="84" fill="#E33230" />
-                <path
-                  d="M84 77L90.9007 84.0711M90.9007 84.0711L84 91.1421M90.9007 84.0711H77.0993"
-                  stroke="#19191B"
-                />
-              </svg>
-            </div>
-
-            <div className="absolute-center rotate-[-30deg] whitespace-nowrap font-medium uppercase transition-opacity group-hover:md:opacity-0">
-              show more
-            </div>
-          </div>
-          <div className="mt-4 text-center">
-            <div>view all {casesData.length} cases</div>
-          </div>
-        </Link>
-      </Layout>
+      {media === 'mobile' ? <LastSlide2 /> : <LastSlide />}
+      {/* {media !== 'mobile' && (
+        <>
+          {addCases.map((item) => (
+            <Link
+              href={item.href}
+              key={item.href}
+              className="group hidden h-full w-[332px] overflow-hidden rounded-[32px] md:block"
+            >
+              <Image
+                src={item.image}
+                alt=""
+                className="h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </Link>
+          ))}
+        </>
+      )} */}
     </div>
+  );
+}
+
+function LastSlide2() {
+  const media = useMediaAtom();
+
+  return (
+    <Layout>
+      {media === 'mobile' && (
+        <Link
+          href={addCases[0].href}
+          key={addCases[0].href}
+          className="group mb-4 block h-full w-full overflow-hidden rounded-3xl"
+        >
+          <Image
+            src={addCases[0].image}
+            alt=""
+            className="h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        </Link>
+      )}
+      <Link
+        href="/work"
+        className="group md:flex md:flex-col md:items-center md:justify-center"
+      >
+        <div className="glow-border-black relative flex h-[163px] w-full items-center justify-center rounded-3xl md:h-[168px] md:w-[168px] md:rounded-full">
+          <div className="absolute-center opacity-0 transition-opacity group-hover:md:opacity-100">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="168"
+              height="168"
+              viewBox="0 0 168 168"
+              fill="none"
+              className="h-[168px] w-[168px]"
+            >
+              <circle cx="84" cy="84" r="84" fill="#E33230" />
+              <path
+                d="M84 77L90.9007 84.0711M90.9007 84.0711L84 91.1421M90.9007 84.0711H77.0993"
+                stroke="#19191B"
+              />
+            </svg>
+          </div>
+
+          <div className="absolute-center rotate-[-30deg] whitespace-nowrap font-medium uppercase transition-opacity group-hover:md:opacity-0">
+            show more
+          </div>
+        </div>
+        <div className="mt-4 text-center">
+          <div>view all {casesData.length} cases</div>
+        </div>
+      </Link>
+    </Layout>
+  );
+}
+
+function LastSlide() {
+  return (
+    <Link
+      href="/work"
+      className="relative flex w-[322px] items-end justify-center p-[30px]"
+    >
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-30deg] font-medium uppercase tracking-[0.48px] transition-opacity duration-300 group-hover:opacity-0">
+        show more
+      </div>
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 ">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="43"
+          height="45"
+          viewBox="0 0 43 45"
+          fill="none"
+        >
+          <path
+            d="M21 1L41.8691 22.3844M41.8691 22.3844L21 43.7688M41.8691 22.3844H0.130864"
+            stroke="#19191B"
+          />
+        </svg>
+      </div>
+      <div>View all {casesData.length} cases</div>
+    </Link>
   );
 }

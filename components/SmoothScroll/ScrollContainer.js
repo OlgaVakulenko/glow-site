@@ -2,7 +2,7 @@ import { getGPUTier } from 'detect-gpu';
 import { atom, useSetAtom } from 'jotai';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { smoothScrollAtom } from '../../atoms/scroll';
 import { ScrollSmoother, ScrollTrigger } from '../../dist/gsap';
 import { useMediaAtom } from '../../lib/agent';
@@ -13,6 +13,8 @@ export const ScrollSmootherEnabled = atom(false);
 if (typeof window !== 'undefined') {
   window.ScrollTrigger = ScrollTrigger;
 }
+
+const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));
 
 export default function ScrollContainer({ children }) {
   const [disabled, setDisabled] = useState(false);
@@ -25,6 +27,11 @@ export default function ScrollContainer({ children }) {
   const smootherRef = useRef(null);
   const [isResize, setIsResize] = useState(false);
   const isMobile = media === 'mobile';
+  const isMobileRef = useRef(isMobile);
+
+  useLayoutEffect(() => {
+    isMobileRef.current = isMobile;
+  }, [isMobile]);
 
   useEffect(() => {
     const onResize = debounce(() => {
@@ -47,7 +54,7 @@ export default function ScrollContainer({ children }) {
     smootherRef.current = new ScrollSmoother({
       wrapper: viewportRef.current,
       content: ref.current,
-      effects: true,
+      effects: false,
       // smoothTouch: 0.1,
       onUpdate: throttle((e) => {
         const scrollTop = Math.round(Math.abs(e.scrollTop()));
@@ -108,6 +115,8 @@ export default function ScrollContainer({ children }) {
   }, [isMobile]);
 
   const key = useMemo(() => {
+    return 'default';
+
     let key = 'default';
     if (isResize) {
       key = isMobile ? 'mobile' : 'desktop';
@@ -123,20 +132,22 @@ export default function ScrollContainer({ children }) {
     return wrapper;
   }, [key]);
 
-  useEffect(() => {
-    let mounted = true;
-    getGPUTier().then((tier) => {
-      if (!mounted) return;
+  // useEffect(() => {
+  //   let mounted = true;
+  //   getGPUTier()
+  //     .then((tier) => sleep(2500).then(() => tier))
+  //     .then((tier) => {
+  //       if (!mounted) return;
 
-      if (tier?.tier <= 1) {
-        setDisabled(true);
-      }
-    });
+  //       if (tier?.tier <= 1 && !isMobileRef.current) {
+  //         setDisabled(true);
+  //       }
+  //     });
 
-    return () => {
-      mounted = false;
-    };
-  }, []);
+  //   return () => {
+  //     mounted = false;
+  //   };
+  // }, []);
 
   return (
     <div ref={viewportRef}>

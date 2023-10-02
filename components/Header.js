@@ -490,7 +490,7 @@ export default function Header({
                         <Link
                           href="#footer"
                           className={cx(
-                            'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[14px] text-button-m shadow-black transition-all duration-500 hover:bg-black layout-no-p:py-[18px] layout-no-p:text-sm layout-no-p:leading-[19px]',
+                            'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[14px] text-button-m shadow-black transition-all duration-500 hover:bg-black 4xl:py-[18px] 4xl:text-sm 4xl:leading-[19px]',
                             'hover:text-brand',
                             (t === 'white' || subMenuActive) &&
                               'glow-border-b-b hover:!bg-brand hover:!text-black',
@@ -508,13 +508,13 @@ export default function Header({
                       </Animated>
                     )} */}
 
-                    <Animated delay={(links.length + 5) * 100} immediate>
+                    <Animated delay={(links.length + 1) * 100} immediate>
                       <Link
                         href="#footer"
                         // href="/trial"
                         onClick={handleFooterFormClick}
                         className={cx(
-                          'glow-border-brand rolling-text-group flex whitespace-pre-wrap rounded-full bg-brand px-[19px] py-[14px] text-button-m text-black transition-all duration-500 layout-no-p:py-[18px] layout-no-p:text-sm layout-no-p:leading-[19px]'
+                          'glow-border-brand rolling-text-group flex whitespace-pre-wrap rounded-full bg-brand px-[19px] py-[14px] text-button-m text-black transition-all duration-500 4xl:px-8 4xl:py-[18px] 4xl:text-sm 4xl:leading-[19px]'
                         )}
                       >
                         <RollingText

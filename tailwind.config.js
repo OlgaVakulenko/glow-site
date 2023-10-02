@@ -23,7 +23,7 @@ module.exports = {
       },
       screens: {
         md: '820px',
-        'layout-no-p': '1800px',
+        '4xl': '1800px',
         layout: '1736px',
         '3xl': '1600px',
         wide: '1920px',

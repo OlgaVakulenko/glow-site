@@ -239,7 +239,7 @@ export default function FooterForm() {
           </div>
           <button
             type="submit"
-            className="rolling-text-group mt-8 w-full rounded-full border border-lblue py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 hover:bg-lblue hover:text-black md:mt-0 md:w-fit md:px-9 md:text-xs md:leading-4 layout-no-p:py-4 layout-no-p:text-sm layout-no-p:leading-6"
+            className="rolling-text-group mt-8 w-full rounded-full border border-lblue py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 hover:bg-lblue hover:text-black md:mt-0 md:w-fit md:px-9 md:text-xs md:leading-4 4xl:py-4 4xl:text-sm 4xl:leading-6"
           >
             <RollingText
               text="Make me glow"
@@ -249,7 +249,7 @@ export default function FooterForm() {
                   : media === 'mobile'
                   ? 24
                   : media === 'tablet' || media === 'desktop'
-                  ? 18
+                  ? 16
                   : 24
               }
             />

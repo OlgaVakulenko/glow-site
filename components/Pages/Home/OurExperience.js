@@ -23,12 +23,12 @@ const items = [
 
 export default function OurExperience() {
   return (
-    <Layout className="pb-16 md:flex md:pt-[71px] xl:grid xl:grid-flow-col xl:grid-cols-8 xl:gap-8 xl:pb-24 xl:pt-14 layout-no-p:pb-[136px] layout-no-p:pt-[52px]">
+    <Layout className="pb-16 md:flex md:pt-[71px] xl:grid xl:grid-flow-col xl:grid-cols-8 xl:gap-8 xl:pb-24 xl:pt-14 4xl:pb-[136px] 4xl:pt-[52px]">
       <div className="mb-[53px] pt-16 md:min-w-[38%] md:pt-0 xl:col-span-3">
-        <div className="mb-[27px] text-body-heading-s uppercase opacity-50 md:mb-8 layout-no-p:mb-7 layout-no-p:text-base">
+        <div className="mb-[27px] text-body-heading-s uppercase opacity-50 md:mb-8 4xl:mb-7 4xl:text-base">
           Our Experience
         </div>
-        <div className="text-xl italic leading-[27px] md:max-w-[248px] xl:max-w-[288px] xl:text-subtitle-l layout-no-p:max-w-[383px]">
+        <div className="text-xl italic leading-[27px] md:max-w-[248px] xl:max-w-[288px] xl:text-subtitle-l 4xl:max-w-[383px]">
           We balance business objectives with customer needs
         </div>
       </div>
@@ -37,7 +37,7 @@ export default function OurExperience() {
           <div key={index1}>
             <Animated
               delay={100 * index1}
-              className="mb-[27px] text-body-heading-s uppercase md:mb-8 layout-no-p:mb-7 layout-no-p:text-base"
+              className="mb-[27px] text-body-heading-s uppercase md:mb-8 4xl:mb-7 4xl:text-base"
             >
               <span className="opacity-50">{item.title}</span>
             </Animated>
@@ -46,7 +46,7 @@ export default function OurExperience() {
                 <Animated
                   delay={100 * (index1 + index2)}
                   key={index2}
-                  className="text-body-m2 layout-no-p:text-body-l"
+                  className="text-body-m2 4xl:text-body-l"
                 >
                   {category}
                 </Animated>

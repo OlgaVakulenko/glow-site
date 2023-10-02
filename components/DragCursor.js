@@ -3,13 +3,14 @@ import { useAtom } from 'jotai';
 import { atom } from 'jotai';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
+import { useMediaAtom } from '../lib/agent';
 import { useMounted } from './Icons/animations';
 
 function DragCursor({ x, y, clicked }) {
   return (
     <div
       className={cx(
-        'position pointer-events-none fixed left-0 top-0 z-10 flex h-[140px] w-[140px] items-center justify-between rounded-full bg-brand p-4 text-[14px] font-medium uppercase leading-[19px] tracking-[0.03em] transition-colors duration-500',
+        'pointer-events-none fixed left-0 top-0 z-10 flex h-[140px] w-[140px] items-center justify-between rounded-full bg-brand p-4 text-[14px] font-medium uppercase leading-[19px] tracking-[0.03em] transition-colors duration-500',
         {
           '!bg-white': clicked,
         }
@@ -57,7 +58,9 @@ export default function DragCursorContainer({
   showDefaultCursor = false,
   clickable = false,
   children,
+  cursor,
 }) {
+  const media = useMediaAtom();
   const [globalDisable, setGlobalDisable] = useAtom(cursorGlobalDisableAtom);
   const ref = useRef();
   const [_show, setShow] = useState(true);
@@ -98,7 +101,13 @@ export default function DragCursorContainer({
     } catch (e) {
       console.error(e);
     }
-  }, [setGlobalDisable]);
+  }, [setGlobalDisable, media]);
+
+  const CursorComponent = useMemo(() => {
+    return cursor || DragCursor;
+  }, [cursor]);
+
+  // show = true;
 
   return (
     <div
@@ -124,7 +133,12 @@ export default function DragCursorContainer({
       {child({ show: show })}
       {show &&
         createPortal(
-          <DragCursor clicked={isClicked} x={pos.x} y={pos.y} />,
+          // cursor ? (
+          //   <cursor x={pos.x} y={pos.y} />
+          // ) : (
+          //   <DragCursor clicked={isClicked} x={pos.x} y={pos.y} />
+          // ),
+          <CursorComponent clicked={isClicked} x={pos.x} y={pos.y} />,
           document.body
         )}
     </div>
