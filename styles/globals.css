@@ -358,11 +358,11 @@
 }
 
 .icons-slider-l {
-  mask-image: linear-gradient(270deg, white 90%, transparent 100%);
+  mask-image: linear-gradient(270deg, white 95%, transparent 100%);
 }
 
 .icons-slider-r {
-  mask-image: linear-gradient(90deg, white 90%, transparent 100%);
+  mask-image: linear-gradient(90deg, white 95%, transparent 100%);
 }
 
 .main-bg {
