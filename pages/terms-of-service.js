@@ -180,11 +180,12 @@ const sections = [
               hello@glow.team
             </a>
           </div>
-          <div className="text-brand">
-            <div className="mt-4">[INSERT BUSINESS ADDRESS]</div>
-            <div>[INSERT BUSINESS PHONE NUMBER]</div>
-            <div>[INSERT BUSINESS REGISTRATION NUMBER]</div>
-            <div>[INSERT VAT NUMBER]</div>
+          <div>
+            <div>Ukraine, Odessa, 65000</div>
+            <div>
+              <a href="tel:+380994751315">+380 99 47 51 315</a>
+            </div>
+            <div>34 68 60 28 13</div>
           </div>
         </div>
       </React.Fragment>,

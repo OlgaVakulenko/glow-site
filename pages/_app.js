@@ -233,13 +233,6 @@ function MyApp({ Component, pageProps }) {
             }
           `}
         </style>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-          console.log('needle.init1x');
-          `,
-          }}
-        ></script>
       </Head>
       <LoadingProgress />
       <StructuredData
@@ -256,12 +249,9 @@ function MyApp({ Component, pageProps }) {
       <script
         dangerouslySetInnerHTML={{
           __html: `
-              console.log('needle.init1.5x', window.__app_mounted)
               setTimeout(function(){
-                console.log('needle.init2x', window.__app_mounted)
                 if (!window.__app_mounted) {
                   var t = document.querySelectorAll('.to-animate');
-                  console.log('needle.t', t);
                   for (var i = 0; i < t.length; i++) {
                     var el = t[i];
                     el && el.classList && el.setAttribute('in-viewport', true);

@@ -120,7 +120,7 @@ export default function DragCursorContainer({
     }
 
     if (cursor && typeof window !== 'undefined') {
-      if (isLast || pos.x < Math.min(1184, window.innerWidth * 0.9)) {
+      if (isLast || pos.x < Math.min(1484, window.innerWidth * 0.9)) {
         return cursor;
       }
     }

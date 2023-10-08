@@ -34,7 +34,7 @@ export default function OurExperience() {
       </div>
       <AnimatedGroup className="grid w-full grid-cols-description-list gap-x-6 gap-y-8 md:flex md:justify-between xl:col-span-5 xl:flex xl:justify-start xl:space-x-[112px]">
         {items.map((item, index1) => (
-          <div key={index1}>
+          <div key={index1} className="last:min-w-[200px]">
             <Animated
               delay={100 * index1}
               className="mb-[27px] text-body-heading-s uppercase md:mb-8 4xl:mb-7 4xl:text-base"

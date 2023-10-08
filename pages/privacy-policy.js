@@ -115,13 +115,21 @@ const sections = [
   {
     title: `Contact us`,
     paragraphs: [
-      `For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e-mail at hello@glow.team. or by mail using the details provided below:
-
-
-      [INSERT BUSINESS ADDRESS]
-      [INSERT BUSINESS PHONE NUMBER]
-      [INSERT BUSINESS REGISTRATION NUMBER]
-      [INSERT VAT NUMBER]`,
+      <div key="info">
+        For more information about our privacy practices, if you have questions,
+        or if you would like to make a complaint, please contact us by e-mail at{' '}
+        <a href="mailto:hello@glow.team" className="text-brand">
+          hello@glow.team
+        </a>
+        . or by mail using the details provided below:
+        <div>
+          <div>Ukraine, Odessa, 65000</div>
+          <div>
+            <a href="tel:+380994751315">+380 99 47 51 315</a>
+          </div>
+          <div>34 68 60 28 13</div>
+        </div>
+      </div>,
     ],
   },
 ];

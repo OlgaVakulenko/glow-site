@@ -7,6 +7,7 @@ import { useEffect, useRef } from 'react';
 import gsap from '../../../dist/gsap';
 import RollingText from '../../RollingText';
 import SphereBg from './assets/sphere-bg.png';
+import { useHandleFooterFormClick } from '../../../lib/utils';
 
 export default function TrialBanner() {
   const wrapperRef = useRef();
@@ -38,9 +39,11 @@ export default function TrialBanner() {
     };
   }, []);
 
+  const handleFooterFormClick = useHandleFooterFormClick();
+
   return (
     <Layout className="pb-24 md:pb-[136px] 4xl:pb-[160px]">
-      <Link href="/trial">
+      <Link href="#footer" onClick={handleFooterFormClick}>
         <div
           ref={wrapperRef}
           className="relative overflow-hidden rounded-3xl px-6 py-10 md:flex md:min-h-[328px] md:px-12 md:py-14 xl:py-16 4xl:min-h-[463px] 4xl:px-24 4xl:py-20"

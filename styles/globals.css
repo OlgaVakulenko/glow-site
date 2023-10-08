@@ -21,6 +21,10 @@
       font-size: 0.833333333vw;
     }
   }
+
+  video {
+    width: 100%;
+  }
 }
 
 .js .wow {

@@ -39,7 +39,7 @@ const cases = [
         without worries
       </>
     ),
-    title2: 'JUSP app',
+    title2: 'JUCR',
     industry: ['Charge App', 'Electric Vehicles', 'Car rental'],
     service: ['Product Design', 'User Experience', 'User Interface'],
     company: ['Funding 30M'],

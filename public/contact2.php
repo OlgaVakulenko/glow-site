@@ -29,30 +29,32 @@ function get($key) {
   return isset($_GET[$key]) ? $_GET[$key] : null;
 }
 
-function post($key) {
-  return isset($_POST[$key]) ? $_POST[$key] : null;
+function post($key, $default = null) {
+  return isset($_POST[$key]) ? $_POST[$key] : $default;
 }
 
 function formHandler() {
   $name = post('name');
-  $email = post('email');
-  $service = post('service');
-  $budget = post('budget');
+  // $company_name = post('company_name');
+  $project = implode(", ", post('services', []));
   $project_about = post('project-about');
-
+  $budget = post('budget');
+  $email = post('email');
   //honeypot
   $phonenumber = post('phonenumber');
 
-  return json_respond([
-    'your fields' => [
-      'name' => $name,
-      'email' => $email,
-      'service' => $service,
-      'budget' => $budget,
-      'Project about' => $project_about, 
-    ]
-  ]);
-  die();
+  // header('content-type: application/json');
+
+  // echo json_encode([
+  //   'name' => $name,
+  //   // 'company_name' => $company_name,
+  //   'project' => $project,
+  //   'project_about' => $project_about,
+  //   'budget' => $budget,
+  //   'email' => $email,
+  // ]);
+
+  // return;
 
   $contactResponse = request_post(pipeUrl('persons'), [
     'name' => $name,
@@ -71,7 +73,7 @@ function formHandler() {
   $dealResponse = request_post(pipeUrl('deals'), [
     'title' => 'Deal for '.$email.' created at '.date('d-m-Y H:i'),
     'person_id' => $contactId,
-    '5f1928ff3c467d1c59311369c1bf7ace78f688ed' => $company_name,
+    // '5f1928ff3c467d1c59311369c1bf7ace78f688ed' => $company_name,
     '1f5bcebb4c2edf62c913c8f7a321f59375097dfc' => $project,
     '85590fb260bd65ce96864f3fa06a2bd6b507cb76' => $project_about,
     'bd0449a7ade1fa104321ebfe32832776893aba00' => $budget,
@@ -96,10 +98,14 @@ function formHandler() {
 
 function emailNotification() {
   $mailer = new \PHPMailer\PHPMailer\PHPMailer();
-
   $name = post('name');
-  $project_about = post('project_about');
+  // $company_name = post('company_name');
+  $project = implode(", ", post('services', []));
+  $project_about = post('project-about');
+  $budget = post('budget');
   $email = post('email');
+  //honeypot
+  $phonenumber = post('phonenumber');
   
   try {
     $mailer->isSMTP();
@@ -122,7 +128,9 @@ function emailNotification() {
     $message = [
       'Name' => $name,
       'Email' => $email,
+      'Project Type' => $project,
       'Project About' => $project_about,
+      'Budget' => $budget,
     ];
     $msg = '';
     foreach ($message as $key => $value) {

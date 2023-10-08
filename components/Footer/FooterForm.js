@@ -5,6 +5,8 @@ import Link from 'next/link';
 import RollingText from '../RollingText';
 import { useMediaAtom } from '../../lib/agent';
 import debounce from 'lodash.debounce';
+import { event } from '../Analytics/MixPanel';
+import PageHeading from '../PageHeading';
 
 const CheckboxCtx = createContext(null);
 
@@ -85,7 +87,7 @@ function Switches({
 
   return (
     <RGroup
-      name={name}
+      name={multiple ? name + '[]' : name}
       className={className}
       selected={selected}
       onChange={onChange}
@@ -152,6 +154,7 @@ function Input({ className, name, value, onChange, ...rest }) {
 export default function FooterForm() {
   const media = useMediaAtom();
   const [size, setSize] = useState(0);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   useEffect(() => {
     const onResize = debounce(() => {
@@ -183,79 +186,98 @@ export default function FooterForm() {
 
   return (
     <div>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          const data = new FormData(e.target);
-          fetch('http://localhost:8000/contact2.php', {
-            method: 'POST',
-            body: data,
-          })
-            .then((response) => response.json())
-            .then((res) => {
-              console.log(res);
+      {isSubmitted ? (
+        <div className="flex-grow items-center justify-center text-xl xl:text-4xl">
+          Thx! We’ll get back to you soon
+        </div>
+      ) : (
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            const data = new FormData(e.target);
+            selectedServices.forEach((service) => {
+              data.append('services[]', service);
             });
-        }}
-      >
-        <div className="md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 xl:mb-10 xl:flex xl:flex-col xl:gap-0">
-          <Switches
-            className="-mr-1 mb-12 md:col-span-4 md:mr-0 md:pr-6 xl:mb-10"
-            title="Service"
-            name="service"
-            selected={selectedServices}
-            onChange={setSelectedServices}
-            options={services}
-            multiple={true}
-          />
-          <Switches
-            className="-mr-1 md:col-span-4 md:mr-0"
-            title="Budget"
-            name="budget"
-            selected={selectedBudget}
-            onChange={setSelectedBudget}
-            options={budgets}
-          />
-        </div>
-
-        <div className="grid gap-8 pb-6 pt-12 md:grid-flow-row md:grid-cols-8">
-          <Input
-            name="name"
-            placeholder="Your Name"
-            className="md:col-span-4"
-          />
-          <Input name="email" placeholder="Email" className="md:col-span-4" />
-          <Input
-            className="md:col-span-8"
-            name="project-about"
-            placeholder="Project details (optional)"
-          />
-        </div>
-        <div className="md:mt-8 md:flex md:justify-between">
-          <div className="md:max-w-[385px] xl:max-w-[315px]">
-            By sending this form I confirm that I have read and accept the{' '}
-            <Link href="/privacy-policy" className="text-brand">
-              Privacy Policy
-            </Link>
-          </div>
-          <button
-            type="submit"
-            className="rolling-text-group mt-8 w-full rounded-full border border-lblue py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 hover:bg-lblue hover:text-black md:mt-0 md:w-fit md:px-9 md:text-xs md:leading-4 4xl:py-4 4xl:text-sm 4xl:leading-6"
-          >
-            <RollingText
-              text="Make me glow"
-              height={
-                size >= 1800
-                  ? 24
-                  : media === 'mobile'
-                  ? 24
-                  : media === 'tablet' || media === 'desktop'
-                  ? 16
-                  : 24
+            fetch('/contact2.php', {
+              method: 'POST',
+              body: data,
+            }).then(() => {
+              setIsSubmitted(true);
+              event('form_submit');
+              try {
+                window?.lintrk('track', { conversion_id: 11283746 });
+              } catch (e) {
+                console.error(e);
               }
+            });
+          }}
+        >
+          <div className="md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 xl:mb-10 xl:flex xl:flex-col xl:gap-0">
+            <Switches
+              className="-mr-1 mb-12 md:col-span-4 md:mr-0 md:pr-6 xl:mb-10"
+              title="Service"
+              name="service"
+              selected={selectedServices}
+              onChange={setSelectedServices}
+              options={services}
+              multiple={true}
             />
-          </button>
-        </div>
-      </form>
+            <Switches
+              className="-mr-1 md:col-span-4 md:mr-0"
+              title="Budget"
+              name="budget"
+              selected={selectedBudget}
+              onChange={setSelectedBudget}
+              options={budgets}
+            />
+          </div>
+
+          <div className="grid gap-8 pb-6 pt-12 md:grid-flow-row md:grid-cols-8">
+            <Input
+              name="name"
+              placeholder="Your Name"
+              className="md:col-span-4"
+            />
+            <Input
+              name="email"
+              placeholder="Email"
+              className="md:col-span-4"
+              type="email"
+              required
+            />
+            <Input
+              className="md:col-span-8"
+              name="project-about"
+              placeholder="Project details (optional)"
+            />
+          </div>
+          <div className="md:mt-8 md:flex md:justify-between">
+            <div className="md:max-w-[385px] xl:max-w-[315px]">
+              By sending this form I confirm that I have read and accept the{' '}
+              <Link href="/privacy-policy" className="text-brand">
+                Privacy Policy
+              </Link>
+            </div>
+            <button
+              type="submit"
+              className="rolling-text-group mt-8 w-full rounded-full border border-lblue py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 hover:bg-lblue hover:text-black md:mt-0 md:w-fit md:px-9 md:text-xs md:leading-4 4xl:py-4 4xl:text-sm 4xl:leading-6"
+            >
+              <RollingText
+                text="Make me glow"
+                height={
+                  size >= 1800
+                    ? 24
+                    : media === 'mobile'
+                    ? 24
+                    : media === 'tablet' || media === 'desktop'
+                    ? 16
+                    : 24
+                }
+              />
+            </button>
+          </div>
+        </form>
+      )}
     </div>
   );
 }

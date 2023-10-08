@@ -114,7 +114,7 @@ export default function NextStep() {
             <br className="mb:block hidden" /> starts
             <br className="hidden xl:block 4xl:hidden" /> here
           </Animated>
-          <div className="grid gap-y-14 md:flex md:justify-between xl:-mt-10 4xl:mt-8">
+          <div className="grid gap-y-20 md:flex md:justify-between xl:-mt-10 4xl:mt-8">
             {items.map((item, index) => (
               <div
                 key={index}
@@ -131,7 +131,7 @@ export default function NextStep() {
                       [index]: inView,
                     }));
                   }}
-                  className="mb-12 md:mb-9 xl:mb-6 4xl:mb-9"
+                  className="mb-8 md:mb-9 xl:mb-6 4xl:mb-9"
                 >
                   <item.icon isReady={iconMap[index] === true} />
                 </Animated>
