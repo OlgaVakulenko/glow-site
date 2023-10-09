@@ -144,6 +144,28 @@ export default function DragCursorContainer({
     setIsLast(swiper.progress > 0.9);
   }, []);
 
+  const options = useMemo(() => {
+    return {
+      show: show && (adhoc ? CursorComponent === DragCursor : true),
+      swiperOptions: {
+        onTouchStart: handleTouchStart,
+        onTouchEnd: handleTouchEnd,
+        onActiveIndexChange,
+      },
+    };
+  }, [
+    show,
+    adhoc,
+    CursorComponent,
+    handleTouchStart,
+    handleTouchEnd,
+    onActiveIndexChange,
+  ]);
+
+  const rendered = useMemo(() => {
+    return child(options);
+  }, [child, options]);
+
   return (
     <div
       ref={ref}
@@ -162,6 +184,8 @@ export default function DragCursorContainer({
       onPointerMove={(e) => {
         if (isLast && e.clientX > window.innerWidth * 0.9) {
           setShow(false);
+        } else {
+          setShow(true);
         }
 
         const x = e.clientX;
@@ -170,39 +194,9 @@ export default function DragCursorContainer({
         setPos({ x, y });
       }}
     >
-      {/* {adhoc && (
-        <div className="absolute inset-0 ">
-          <div className="relative h-full w-full ">
-            <div
-              onMouseEnter={() => {
-                console.log('needle.enter.red');
-              }}
-              className="absolute bottom-0 left-0 right-[30%] top-0 bg-brand opacity-50"
-            ></div>
-            <div
-              onMouseEnter={() => {
-                console.log('needle.enter.blue');
-              }}
-              className="absolute bottom-0 left-[70%] right-0 top-0 bg-lblue opacity-50"
-            ></div>
-          </div>
-        </div>
-      )} */}
-      {child({
-        show: show && (adhoc ? CursorComponent === DragCursor : true),
-        swiperOptions: {
-          onTouchStart: handleTouchStart,
-          onTouchEnd: handleTouchEnd,
-          onActiveIndexChange,
-        },
-      })}
+      {rendered}
       {show &&
         createPortal(
-          // cursor ? (
-          //   <cursor x={pos.x} y={pos.y} />
-          // ) : (
-          //   <DragCursor clicked={isClicked} x={pos.x} y={pos.y} />
-          // ),
           <CursorComponent clicked={isClicked} x={pos.x} y={pos.y} />,
           document.body
         )}

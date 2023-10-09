@@ -15,6 +15,7 @@ import {
   useScrollDirection,
 } from '../lib/utils';
 import Animated from './Animated';
+import AnimatedButton from './AnimatedButton';
 import HeaderLink from './HeaderLink';
 import HeaderMobileMenu from './HeaderMobileMenu';
 import HeaderSubMenuContainer from './HeaderSubMenu';
@@ -418,7 +419,7 @@ export default function Header({
         <div className="relative">
           <div
             className={cx(
-              'backdrop pointer-events-none absolute left-0 top-0 h-[96px] w-full -translate-y-full bg-white opacity-0 transition-all duration-300',
+              'backdrop pointer-events-none absolute left-0 top-0 h-[96px] w-full -translate-y-full bg-white opacity-0 transition-all duration-500',
               {
                 // 'duration-300': !subMenuActive,
                 // 'duration-[0s]': subMenuActive,
@@ -432,7 +433,7 @@ export default function Header({
       </div>
       <header
         className={cx(
-          'first-header fixed z-10 w-full transition-transform duration-300 md:top-4',
+          'first-header fixed z-10 w-full transition-transform duration-500 md:top-4',
           {
             'md:-translate-y-4': !isTop,
             // && !isBottom
@@ -509,7 +510,8 @@ export default function Header({
                     )} */}
 
                     <Animated delay={(links.length + 1) * 100} immediate>
-                      <Link
+                      <AnimatedButton
+                        as={Link}
                         href="#footer"
                         // href="/trial"
                         onClick={handleFooterFormClick}
@@ -521,7 +523,7 @@ export default function Header({
                           height={20}
                           text={`Free 3 day’s trial`}
                         ></RollingText>
-                      </Link>
+                      </AnimatedButton>
                     </Animated>
                   </div>
                 ))}

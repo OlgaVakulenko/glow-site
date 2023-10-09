@@ -1,5 +1,6 @@
 import Head from 'next/head';
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useSwiper } from 'swiper/react';
 
 const __DEV__ = process.env.NODE_ENV === 'development';
 
@@ -48,7 +49,29 @@ const isString = (input) => typeof input === 'string';
 
 const defaultSizes = [[400, 768], [1140]];
 
+const useLoading = (initialLoading = 'lazy') => {
+  const [loading, setLoading] = useState(initialLoading);
+  const swiper = useSwiper();
+
+  useEffect(() => {
+    if (!swiper) return;
+
+    const handleSlideChange = () => {
+      setLoading('eager');
+    };
+
+    swiper.on('slideChange', handleSlideChange);
+
+    return () => {
+      swiper.off('slideChange', handleSlideChange);
+    };
+  }, [swiper]);
+
+  return loading;
+};
+
 export default function Image(props) {
+  const loading = useLoading();
   const [width, height] = useMemo(() => {
     if (isString(props.src)) {
       return [];
@@ -113,7 +136,7 @@ export default function Image(props) {
             ))}
         <img
           alt=""
-          loading="lazy"
+          loading={loading}
           {...props}
           src={resolve({ src: props.src.src, width: 1140, type: ext })}
           width={width}

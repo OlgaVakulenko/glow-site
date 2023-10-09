@@ -619,12 +619,12 @@ export default function Home2() {
         <IntroSection />
       </div>
       <div id="logo-carousel">
-        <Animated>
+        <Animated delay={300}>
           <LogoCarousel />
         </Animated>
       </div>
       <div id="cases-slider">
-        <Animated delay={300}>
+        <Animated delay={600}>
           <CasesSlider2 />
         </Animated>
       </div>

@@ -100,7 +100,7 @@ export default function Content({ html, paragraphs }) {
   return (
     <article
       ref={ref}
-      className="prose prose-headings:mt-[60px] prose-headings:mb-4 prose-headings:text-body-m prose-headings:font-medium prose-p:text-body-s prose-a:font-normal prose-a:text-brand prose-a:no-underline prose-figure:-mx-4 prose-strong:font-medium prose-li:text-body-s md:prose-p:text-body-m md:prose-figure:mx-0 md:prose-li:text-body-m"
+      className="prose prose-headings:mb-4 prose-headings:mt-[60px] prose-headings:text-body-m prose-headings:font-medium prose-p:text-body-s prose-a:font-normal prose-a:text-brand prose-a:no-underline prose-figure:-mx-4 prose-strong:font-medium prose-li:text-body-s md:prose-p:text-body-m md:prose-figure:mx-0 md:prose-li:text-body-m"
     >
       <div
         dangerouslySetInnerHTML={{

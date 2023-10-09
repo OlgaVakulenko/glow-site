@@ -178,9 +178,17 @@ function getParagraphs(root) {
 }
 
 function removeArticleHeader(article) {
-  const p = article.querySelector('p.pw-post-body-paragraph');
-  while (p.previousElementSibling) {
-    p.previousElementSibling.remove();
+  const target = article.querySelector('p.pw-post-body-paragraph');
+
+  while (target.previousElementSibling) {
+    target.previousElementSibling.remove();
+  }
+
+  const parent = target?.parentNode?.parentNode;
+  if (parent) {
+    while (parent.previousElementSibling) {
+      parent.previousElementSibling.remove();
+    }
   }
 
   return article;
@@ -189,6 +197,12 @@ function removeArticleHeader(article) {
 function filterContent(node) {
   const badAttrs = ['class', 'id', 'role', 'tabIndex', 'tabindex'];
   badAttrs.forEach((attr) => {
+    if (attr === 'role') {
+      if (node?.getAttribute?.('role') === 'separator') {
+        return;
+      }
+    }
+
     node?.removeAttribute?.(attr);
   });
 

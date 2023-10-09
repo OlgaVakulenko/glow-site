@@ -1,26 +1,22 @@
+import cx from 'clsx';
 import { useAtom } from 'jotai';
+import Link from 'next/link';
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
-import gsap from '../../../dist/gsap';
-import cx from 'clsx';
-import Link from 'next/link';
 import { Swiper, SwiperSlide, useSwiperSlide } from 'swiper/react';
+import gsap from '../../../dist/gsap';
 import { mediaAtom, useMediaAtom } from '../../../lib/agent';
 import { addLeadingZero, useIsClient } from '../../../lib/utils';
 import Image from '../../Image';
 import Layout from '../../Layout';
 import Section from '../../Section';
 import SliderProgress from '../../SliderProgress';
-import Case1Img from '../Home/assets/case-temp-1.png';
-import Case2Img from '../Home/assets/case-temp-2.png';
-import Case3Img from '../Home/assets/case-temp-3.png';
 
-import CaseImg from '../Home/assets/case-img.png';
-import casesData from '../Cases/data';
-import DragCursorContainer, { cursorGlobalDisableAtom } from '../../DragCursor';
-import throttle from 'lodash.throttle';
 import { useSetAtom } from 'jotai';
+import throttle from 'lodash.throttle';
+import DragCursorContainer, { cursorGlobalDisableAtom } from '../../DragCursor';
+import casesData from '../Cases/data';
 
 const featured = ['/beast', '/cryptogenie', '/jucr', '/tilt', '/liquidspace'];
 
@@ -337,10 +333,12 @@ function ViewCaseCursor({ x, y }) {
   const rotatedRef = useRef();
 
   useLayoutEffect(() => {
+    if (!ref.current) return;
+    if (!rotatedRef.current) return;
+
     gsap.to(ref.current, {
       x: x - 120,
       y: y - 35,
-      // rotate: '-25deg',
       duration: 0,
     });
 
@@ -350,6 +348,7 @@ function ViewCaseCursor({ x, y }) {
       rotate: rota,
       duration: 0.2,
       onComplete: (...args) => {
+        if (!rotatedRef.current) return;
         gsap.to(rotatedRef.current, {
           rotate: '-25deg',
           duration: 0.4,
@@ -362,16 +361,10 @@ function ViewCaseCursor({ x, y }) {
   }, [x, y]);
 
   return (
-    <div
-      ref={ref}
-      className="pointer-events-none fixed left-0 top-0 "
-      // style={{
-      //   transform: `translate(${x - 120}px, ${y - 35}px) rotate(-25deg)`,
-      // }}
-    >
+    <div ref={ref} className="pointer-events-none fixed left-0 top-0 ">
       <div
         ref={rotatedRef}
-        className="rounded-full bg-brand px-[50px] py-[14px] font-medium  uppercase text-lred"
+        className="rounded-full bg-brand px-[50px] py-[14px] font-medium  uppercase text-black"
       >
         View Case
       </div>
@@ -398,7 +391,6 @@ function SlideStateNotifier({ children }) {
 
 export function CasesSlider2() {
   const ref = useRef();
-  const scrollerRef = useRef();
   const [media] = useAtom(mediaAtom);
   const [w, setW] = useState(0);
   const [k, setK] = useState(0);
@@ -420,106 +412,6 @@ export function CasesSlider2() {
     setK((k) => k + 1);
   }, [media, w]);
 
-  // useEffect(() => {
-  //   const firstAnimationDurationPx = 600;
-  //   const clipPathSize =
-  //     {
-  //       mobile: 16,
-  //       tablet: 48,
-  //     }[media] || 56;
-
-  //   const gapSize =
-  //     {
-  //       mobile: 16,
-  //       tablet: 48,
-  //     }[media] || 32 / 2;
-
-  //   const borderRadiusSize =
-  //     {
-  //       mobile: '16px',
-  //     }[media] || '32px';
-
-  //   const ctx = gsap.context(() => {
-  //     const x = media === 'desktop' ? -94.5 : -100;
-
-  //     gsap.to('.__slide-wrapper', {
-  //       xPercent: x * (cases.length - 1),
-  //       ease: 'none',
-  //       scrollTrigger: {
-  //         trigger: '.h-scroller',
-  //         pin: true,
-  //         scrub: 1,
-  //         start: `center+=1 center`,
-  //         end: () => {
-  //           if (media === 'desktop') {
-  //             // return '+=' + scrollerRef.current.offsetWidth * 0.6;
-  //           }
-  //           return '+=' + scrollerRef.current.offsetWidth;
-  //         },
-  //       },
-  //     });
-
-  //     if (media === 'desktop') {
-  //       gsap.to('.h-scroller', {
-  //         scrollTrigger: {
-  //           trigger: '.h-scroller',
-  //           scrub: true,
-  //           start: 'center center',
-  //           end: `center+=${firstAnimationDurationPx} center`,
-  //         },
-  //         width: '90%',
-  //       });
-  //     }
-
-  //     gsap.fromTo(
-  //       '.__slide-wrapper',
-  //       {
-  //         height: '100vh',
-  //         // width: '100%',
-  //       },
-  //       {
-  //         scrollTrigger: {
-  //           trigger: '.h-scroller',
-  //           pin: true,
-  //           scrub: true,
-  //           start: 'center center',
-  //           end: `center+=${firstAnimationDurationPx} center`,
-  //         },
-  //         // width: '50%',
-  //         height: () => {
-  //           if (media === 'mobile') {
-  //             return 456 + clipPathSize * 2;
-  //           }
-
-  //           return 688 + clipPathSize * 2;
-  //         },
-  //         clipPath: (index, s, nodes) => {
-  //           let top = clipPathSize;
-  //           let right = clipPathSize;
-  //           let bottom = clipPathSize;
-  //           let left = clipPathSize;
-
-  //           if (index !== 0 && index !== nodes.length - 1) {
-  //             left = 0;
-  //           }
-
-  //           if (index === nodes.length - 2) {
-  //             right = 0;
-  //           }
-
-  //           return `
-  //           inset(${top}px ${right}px ${bottom}px ${left}px round ${borderRadiusSize})
-  //           `;
-  //         },
-  //       }
-  //     );
-  //   }, ref);
-
-  //   return () => {
-  //     ctx.revert();
-  //   };
-  // }, [media]);
-
   return (
     <div ref={ref}>
       <Section withLayout={false} className="pb-[80px] md:pb-14 xl:pb-[88px]">
@@ -528,22 +420,13 @@ export function CasesSlider2() {
             {({ show, swiperOptions }) => (
               <Swiper
                 {...swiperOptions}
-                // touchStartForcePreventDefault={true}
-                // touchStartPreventDefault={false}
                 breakpoints={{
                   320: {
                     slidesPerView: 1,
-                    // touchStartPreventDefault: false,
                   },
                   820: {
                     slidesPerView: 'auto',
-                    // touchStartPreventDefault: false,
                   },
-                  // 1800: {
-                  //   slidesPerView: 'auto',
-                  //   centeredSlides: true,
-                  //   // touchStartPreventDefault: false,
-                  // },
                 }}
               >
                 {cases.map((item, i) => (
@@ -551,11 +434,7 @@ export function CasesSlider2() {
                     key={i}
                     className={cx(
                       'cursor-none select-none px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[1144px] xl:first:!w-[1184px] xl:first:pl-14',
-                      '4xl:first:pl-[120px]',
-                      {
-                        // 'wide:!w-[1440px]': true,
-                        // '4xl:!w-[1568px] 4xl:first:pl-0': true,
-                      }
+                      '4xl:first:pl-[120px]'
                     )}
                   >
                     <SlideStateNotifier>
