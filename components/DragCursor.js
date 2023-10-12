@@ -172,13 +172,13 @@ export default function DragCursorContainer({
       className={cx('relative', {
         'cursor-none': !showDefaultCursor,
       })}
-      onMouseEnter={(e) => {
+      onPointerEnter={(e) => {
         if (!e.currentTarget) return;
 
         setShow(true);
         setPos({ x: e.clientX, y: e.clientY });
       }}
-      onMouseLeave={() => {
+      onPointerLeave={() => {
         setShow(false);
       }}
       onPointerMove={(e) => {

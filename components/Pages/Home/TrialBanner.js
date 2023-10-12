@@ -65,7 +65,8 @@ export default function TrialBanner() {
           <div className="relative flex w-full items-center">
             <div className="w-full items-center justify-between md:flex md:h-full">
               <div className="mb-3 pt-[138px] font-glow text-[46px] font-medium leading-[49px] tracking-[-2px] text-lblue text-white md:mb-0 md:max-w-[307px] md:pt-0 xl:pt-[3%] xl:text-heading-h2-2">
-                Free 3 day’s design trial
+                Glow Trial <br />
+                Phase
               </div>
               <div className="md:max-w-[413px] md:self-end md:pb-4 md:pr-10 xl:max-w-[450px]">
                 <div className="mb-[41px] text-xl italic leading-[27px] text-lblue opacity-50 md:mb-8 md:text-subtitle-l 4xl:mb-12 4xl:text-[26px]">
@@ -73,9 +74,9 @@ export default function TrialBanner() {
                 </div>
                 <button
                   tabIndex="-1"
-                  className="rolling-text-group flex w-full justify-center overflow-hidden whitespace-pre-wrap rounded-full bg-brand py-4 text-xs font-medium uppercase leading-4 tracking-[0.36px] text-black md:w-fit md:px-[34px] 4xl:py-[18px] 4xl:text-sm 4xl:tracking-[0.42px]"
+                  className="rolling-text-group flex w-full justify-center overflow-hidden whitespace-pre-wrap rounded-full bg-brand py-4 text-sm font-medium uppercase leading-4 tracking-[0.42px] text-black md:w-fit md:px-[44px] 4xl:py-[18px] 4xl:text-sm 4xl:tracking-[0.42px]"
                 >
-                  <RollingText height={19} text="Free 3 day’s trial" />
+                  <RollingText height={19} text="Book free slot" />
                 </button>
               </div>
             </div>

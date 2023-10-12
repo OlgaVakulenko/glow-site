@@ -343,7 +343,6 @@ function ViewCaseCursor({ x, y }) {
     });
 
     const rota = prev.current.x < x ? '-20deg' : '-30deg';
-    // console.log('needle.r', rota);
     gsap.to(rotatedRef.current, {
       rotate: rota,
       duration: 0.2,
@@ -368,23 +367,6 @@ function ViewCaseCursor({ x, y }) {
       >
         View Case
       </div>
-    </div>
-  );
-}
-
-function SlideStateNotifier({ children }) {
-  const slide = useSwiperSlide();
-
-  return (
-    <div
-      onMouseEnter={() => {
-        console.log('needle.mouseEnter', slide);
-      }}
-      onMouseLeave={() => {
-        console.log('needle.mouseLeave', slide);
-      }}
-    >
-      {children}
     </div>
   );
 }
@@ -437,22 +419,16 @@ export function CasesSlider2() {
                       '4xl:first:pl-[120px]'
                     )}
                   >
-                    <SlideStateNotifier>
-                      <Link
-                        href={item.href}
-                        className={cx('group select-none', {
-                          'cursor-none': show,
-                        })}
-                      >
-                        <div className={cx('pointer-events-none', {})}>
-                          <CaseSlide
-                            item={item}
-                            index={i}
-                            total={cases.length}
-                          />
-                        </div>
-                      </Link>
-                    </SlideStateNotifier>
+                    <Link
+                      href={item.href}
+                      className={cx('group select-none', {
+                        'cursor-none': show,
+                      })}
+                    >
+                      <div className={cx('pointer-events-none', {})}>
+                        <CaseSlide item={item} index={i} total={cases.length} />
+                      </div>
+                    </Link>
                   </SwiperSlide>
                 ))}
                 <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-14 4xl:pr-[120px]">

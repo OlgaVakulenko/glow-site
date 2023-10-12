@@ -25,8 +25,8 @@ const cases = [
     ),
     title2: 'Liquid Space',
     industry: ['Rental'],
-    service: ['User Experience', 'User Interface', 'Branding'],
-    company: ['Funding 8M'],
+    service: ['User Experience', 'User Interface', 'Product Design'],
+    company: ['Funding $34.5M'],
     image: LiquidSpace,
     category: ['other'],
     type: ['desktop'],
@@ -42,7 +42,7 @@ const cases = [
     title2: 'JUCR',
     industry: ['Charge App', 'Electric Vehicles', 'Car rental'],
     service: ['Product Design', 'User Experience', 'User Interface'],
-    company: ['Funding 30M'],
+    company: ['Funding €32.7M'],
     image: JucrCover,
     category: ['transportation'],
     type: ['mobile'],
@@ -58,12 +58,7 @@ const cases = [
     title2: 'Beast Tesla Rent',
     industry: ['Car Rent'],
     service: ['User Experience', 'User Interface', 'Branding'],
-    company: [
-      <>
-        50k+ App <br />
-        Downloads
-      </>,
-    ],
+    company: ['20k app downloads'],
     image: BeastCover,
     category: ['transportation'],
     type: ['mobile'],
@@ -106,8 +101,13 @@ const cases = [
       'Tilt: a platform that connects students with financial aid opportunities',
     title2: 'Tilt',
     industry: ['Education'],
-    service: ['User Experience', 'User Interface', 'Branding'],
-    company: ['Funding 30M'],
+    service: ['User Experience', 'User Interface', 'Product Design'],
+    company: [
+      <>
+        72% received <br />
+        financial aid
+      </>,
+    ],
     image: Tilt,
     category: ['other'],
     type: ['desktop'],
@@ -116,13 +116,8 @@ const cases = [
     href: '/fleet',
     title: 'FleetChaser – fleet management platform',
     industry: ['Management', 'Construction'],
-    service: ['Product Design', 'User Experience', 'User Interface'],
-    company: [
-      <>
-        100k predictions <br />
-        at start
-      </>,
-    ],
+    service: ['Product Design', 'User Experience', 'Product Design'],
+    company: ['Funding 30M'],
     image: FleetChaser,
     category: ['transportation'],
     type: ['desktop'],
@@ -131,8 +126,14 @@ const cases = [
     href: '/ethos',
     title: 'EthosCE: new look at medical platform',
     industry: ['Education', 'Medicine'],
-    service: ['User Experience', 'User Interface', 'Product Design'],
-    company: ['Funding 8M'],
+    service: ['User Experience', 'User Interface', 'Web Design'],
+    company: [
+      <>
+        6M Students
+        <br />
+        study online
+      </>,
+    ],
     image: Ethos,
     category: ['healthcare'],
     type: ['desktop'],

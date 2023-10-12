@@ -1,16 +1,11 @@
-import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from 'swiper/react';
-import { EffectFade } from 'swiper/modules';
+import 'swiper/css/effect-fade';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { useMediaAtom } from '../../../lib/agent';
+import DragCursorContainer from '../../DragCursor';
 import Layout from '../../Layout';
 import SliderProgress from '../../SliderProgress';
-import { ClutchRating } from './_Reviews';
 import casesData from '../Cases/data';
-import { useMediaAtom } from '../../../lib/agent';
-import DragCursorContainer, { cursorGlobalDisableAtom } from '../../DragCursor';
-import DynamicMedia from '../../DynamicMedia';
-import cx from 'clsx';
-import 'swiper/css/effect-fade';
-import { useAtom } from 'jotai';
-import { useSetAtom } from 'jotai';
+import { ClutchRating } from './_Reviews';
 
 const reviews = [
   {
@@ -69,7 +64,7 @@ const reviews = [
     companyAvatar: '/reviews/rc_10.svg',
     name: 'Max Grollmann',
     company: 'Managing Director',
-    company_id: '/liquidspace',
+    company_id: '/jucr',
     text: (
       <>
         Glow Design Agency provided UI and UX design services for e-cars
@@ -85,7 +80,7 @@ const reviews = [
     companyAvatar: '/reviews/rc_5.svg',
     name: 'Jon Fry',
     company: 'Founder, FinTech Company',
-    company_id: '/liquidspace',
+    company_id: 'landflow',
     text: (
       <>
         The team was organized and communicative throughout the process,
@@ -101,8 +96,7 @@ const reviews = [
     companyAvatar: '/reviews/rc_6.svg',
     name: 'Scott Kuchinski',
     company: 'Product Manager, IT Company',
-    company_id: '/liquidspace',
-
+    company_id: '/ethos',
     text: (
       <>
         Glow Design Agency handled frontend development for a&nbsp;learning
@@ -118,8 +112,7 @@ const reviews = [
     companyAvatar: '/reviews/rc_7.svg',
     name: 'Vinicius Rodrigues',
     company: 'CTO, E-Commerce Platform',
-    company_id: '/liquidspace',
-
+    company_id: 'chatfood',
     text: (
       <>
         Glow was hired by an e-commerce platform for their UI/UX design
@@ -136,8 +129,7 @@ const reviews = [
     companyAvatar: '/reviews/rc_9.svg',
     name: 'Jacob Berg',
     company: 'CTO, Social Curator',
-    company_id: '/liquidspace',
-
+    company_id: 'sc',
     text: (
       <>
         Glow provides ongoing web design for a social media services firm. The
@@ -153,8 +145,7 @@ const reviews = [
     companyAvatar: '/reviews/rc_8.svg',
     name: 'Sinthuja Nagalingam',
     company: 'CEO at Tilt',
-    company_id: '/liquidspace',
-
+    company_id: '/tilt',
     text: (
       <>
         An online education company hired Glow Design Agency to create the
@@ -171,8 +162,7 @@ const reviews = [
     companyAvatar: '/reviews/rc_4.svg',
     name: 'Tim Bogza',
     company: 'CEO & Founder, Digital Agency',
-    company_id: '/liquidspace',
-
+    company_id: 'bogza',
     text: (
       <>
         Glow Design Agency designed the UX/UI of a digital agency&apos;s new
@@ -185,11 +175,54 @@ const reviews = [
     link: '#',
   },
 ].map((r) => {
-  const needle = casesData.find((c) => c.href === r.company_id);
+  let needle = casesData.find((c) => c.href === r.company_id);
+  if (!needle) {
+    needle = [
+      {
+        id: 'landflow',
+        service: ['User Experience', 'User Interface', 'Product Design'],
+        company: ['Funding $13.5M'],
+      },
+      {
+        id: 'chatfood',
+        service: ['User Experience', 'User Interface', 'Web Design'],
+        company: [
+          <>
+            premium logistic solutions <br />
+            serving over 3,000 venues and <br />
+            leading brands.
+          </>,
+        ],
+      },
+      {
+        id: 'sc',
+        service: ['User Experience', 'User Interface', 'Product Design'],
+        company: [
+          <>
+            social marketing <br />
+            hub
+          </>,
+        ],
+      },
+      {
+        id: 'bogza',
+        service: ['User Experience', 'User Interface', 'Product Design'],
+        company: [
+          <>
+            creative studio producing <br />
+            immersive 3D visuals for <br />
+            innovative real estate projects
+          </>,
+        ],
+      },
+    ].find((c) => c.id === r.company_id);
+    console.log('needle2', needle);
+  }
+
   return {
     ...r,
-    data_service: needle.service,
-    data_company: needle.company,
+    data_service: needle?.service,
+    data_company: needle?.company,
   };
 });
 
@@ -219,26 +252,7 @@ function ReviewCard({
   rating,
   dataService,
   dataCompany,
-  index,
-  total,
 }) {
-  const toggleCursor = useSetAtom(cursorGlobalDisableAtom);
-  const swiper = useSwiper();
-  const slide = useSwiperSlide();
-
-  const currentIndex = swiper.realIndex;
-
-  const hasPrev = slide.isActive && currentIndex === index && index > 0;
-  const hasNext = slide.isActive && currentIndex === index && index < total - 1;
-
-  const handleMouseEnter = () => {
-    toggleCursor(true);
-  };
-
-  const handleMouseLeave = () => {
-    toggleCursor(false);
-  };
-
   return (
     <div className="px-4 xl:px-14 4xl:px-[120px]">
       <div className="rounded-3xl border border-black px-6 pb-[52px] pt-8 md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 md:px-0 md:py-16 xl:grid-cols-12 xl:py-20">
@@ -251,60 +265,8 @@ function ReviewCard({
               <Col title="Company" items={dataCompany} />
             </div>
           </div>
-          <div
-            className="flex items-end"
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-          >
-            <button
-              className={cx('mr-4', {
-                'opacity-50': !hasPrev,
-              })}
-              disabled={!hasPrev}
-              onClick={() => {
-                swiper.slidePrev();
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-              >
-                <path
-                  d="M0.499998 20C0.499999 9.23045 9.23045 0.500001 20 0.500002C30.7696 0.500003 39.5 9.23045 39.5 20C39.5 30.7696 30.7696 39.5 20 39.5C9.23044 39.5 0.499997 30.7696 0.499998 20Z"
-                  stroke="#19191B"
-                />
-                <path
-                  d="M20 27L12.9289 19.9289M12.9289 19.9289L20 12.8579M12.9289 19.9289L27.0711 19.9289"
-                  stroke="#19191B"
-                />
-              </svg>
-            </button>
-            <button
-              className={cx('mr-4', {
-                'opacity-50': !hasNext,
-              })}
-              disabled={!hasNext}
-              onClick={() => {
-                swiper.slideNext();
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                viewBox="0 0 40 40"
-                fill="none"
-              >
-                <circle cx="20" cy="20" r="19.5" stroke="#19191B" />
-                <path
-                  d="M20 13L27.0711 20.0711M27.0711 20.0711L20 27.1421M27.0711 20.0711H12.9289"
-                  stroke="#19191B"
-                />
-              </svg>
-            </button>
+          <div className="hidden md:mt-auto md:block md:w-fit">
+            <ClutchRating rating={rating} className="border border-black" />
           </div>
         </div>
         <div className="md:col-span-3 md:flex md:flex-col md:justify-between md:pl-10 xl:pl-0">
@@ -324,9 +286,6 @@ function ReviewCard({
             <div className="text-body-m2">{name}</div>
             <div className="mb-8 text-body-s opacity-50">{company}</div>
           </div>
-          <div className="hidden md:mt-auto md:block md:w-fit">
-            <ClutchRating rating={rating} className="border border-black" />
-          </div>
         </div>
         <div className="text-2xl font-medium md:col-span-6 md:pr-[75px] md:text-[32px] md:leading-10 xl:pr-20 xl:text-[36px] xl:leading-[44px]">
           {text}
@@ -343,16 +302,8 @@ export default function Reviews() {
       <DragCursorContainer>
         <Swiper
           className=""
-          // touchStartPreventDefault={false}
           breakpoints={{
-            // 1280: {
-            //   allowTouchMove: false,
-            // },
             1800: {
-              // slidesPerView: 'auto',
-              // centeredSlides: true,
-              // spaceBetween: 1000,
-              // allowTouchMove: false,
               speed: 200,
             },
           }}

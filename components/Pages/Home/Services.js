@@ -68,8 +68,8 @@ export default function Services() {
           delay={100}
           className="text-subtitle-m italic   md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l 4xl:col-span-4 4xl:text-[26px]"
         >
-          If you find yourself in one of the situations described below, our
-          service is exactly what you need.
+          Whatever you may need a designer&apos;s help with – we can do&nbsp;it.
+          The most common cases are given below.
         </Animated>
       </Layout>
       <Layout disableOnMobile>

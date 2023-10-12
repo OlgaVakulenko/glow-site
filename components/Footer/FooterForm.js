@@ -1,12 +1,23 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { RadioGroup } from '@headlessui/react';
 import cx from 'clsx';
 import Link from 'next/link';
 import RollingText from '../RollingText';
-import { useMediaAtom } from '../../lib/agent';
+import { useMedia, useMediaAtom } from '../../lib/agent';
 import debounce from 'lodash.debounce';
 import { event } from '../Analytics/MixPanel';
 import PageHeading from '../PageHeading';
+import { useRem } from '../../lib/utils';
+import RusImage from '../Pages/About/assets/rus-2.png';
+import StasImage from '../Pages/About/assets/stas-k.png';
+import Image from '../Image';
 
 const CheckboxCtx = createContext(null);
 
@@ -42,9 +53,6 @@ function CheckboxOption({ value, children, ...props }) {
         } else {
           onChange([...selected, value]);
         }
-        // console.log('needle.selected', selected);
-        // console.log('needle.onChange', onChange);
-        // onChange(select)
       }}
     >
       {children({ checked })}
@@ -155,6 +163,8 @@ export default function FooterForm() {
   const media = useMediaAtom();
   const [size, setSize] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const formRef = useRef(null);
+  const [formHeight, setFormHeight] = useState(504);
 
   useEffect(() => {
     const onResize = debounce(() => {
@@ -184,32 +194,70 @@ export default function FooterForm() {
     'More than 50k',
   ]);
 
+  const rem = useRem();
+
   return (
-    <div>
+    <div className="relative h-full">
       {isSubmitted ? (
-        <div className="flex-grow items-center justify-center text-xl xl:text-4xl">
-          Thx! We’ll get back to you soon
+        <div
+          style={{
+            height: rem(formHeight),
+          }}
+          className="flex h-full flex-grow flex-col items-end justify-end text-right text-xl text-lblue xl:text-4xl"
+        >
+          <div className="mb-6 flex space-x-2">
+            <Image
+              className="h-16 w-16 rounded-[20px] object-cover"
+              src={RusImage}
+              alt=""
+            />
+            <Image
+              className="h-16 w-16 rounded-[20px] object-cover"
+              src={StasImage}
+              alt=""
+            />
+          </div>
+          <div className="mb-1 text-heading-h3">Thank you!</div>
+          <div className="text-subtitle-m italic opacity-50">
+            We will contact you ASAP!
+          </div>
         </div>
       ) : (
         <form
+          ref={formRef}
           onSubmit={(e) => {
             e.preventDefault();
+
+            try {
+              let h = formRef.current?.offsetHeight || 500;
+              if (media === 'mobile') {
+                h = 380;
+              }
+
+              setFormHeight(h);
+            } catch (e) {
+              //
+            }
+
             const data = new FormData(e.target);
             selectedServices.forEach((service) => {
               data.append('services[]', service);
             });
-            fetch('/contact2.php', {
-              method: 'POST',
-              body: data,
-            }).then(() => {
-              setIsSubmitted(true);
-              event('form_submit');
-              try {
-                window?.lintrk('track', { conversion_id: 11283746 });
-              } catch (e) {
-                console.error(e);
-              }
-            });
+            const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
+            sleep(300)
+              // fetch('/contact2.php', {
+              //   method: 'POST',
+              //   body: data,
+              // })
+              .then(() => {
+                setIsSubmitted(true);
+                event('form_submit');
+                try {
+                  window?.lintrk('track', { conversion_id: 11283746 });
+                } catch (e) {
+                  console.error(e);
+                }
+              });
           }}
         >
           <div className="md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 xl:mb-10 xl:flex xl:flex-col xl:gap-0">
