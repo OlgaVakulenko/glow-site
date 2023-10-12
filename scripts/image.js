@@ -39,7 +39,7 @@ walk(out, async (err, pathname, dir) => {
     return true;
   }
 
-  if (pathname.endsWith('.html')) {
+  if (pathname.endsWith('.html') || pathname.endsWith('.js')) {
     const content = await (await fs.readFile(pathname)).toString();
     const matches = content.matchAll(regexp);
 

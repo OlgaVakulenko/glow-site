@@ -198,6 +198,11 @@ export default function FooterForm() {
 
   return (
     <div className="relative h-full">
+      <Image
+        className="hidden h-16 w-16 rounded-[20px] object-cover"
+        src={StasImage}
+        alt=""
+      />
       {isSubmitted ? (
         <div
           style={{
