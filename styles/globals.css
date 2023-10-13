@@ -14,6 +14,11 @@
   html {
     color: theme('colors.black');
     -webkit-tap-highlight-color: transparent;
+    --btn-height: 48px;
+
+    @screen layout {
+      --btn-height: 56px;
+    }
   }
 
   @media screen and (min-width: 2000px) {
@@ -415,21 +420,3 @@
   font-size: 32px;
   transform: translate(-50%, -50%);
 }
-
-/* @keyframes animated-button {
-  from {
-    transform: scale(0);
-  }
-
-  to {
-    transform: scale(1);
-  }
-}
-
-.animated-button {
-  animation: 2s ease-in-out 0s infinite both animated-button;
-} */
-
-/* .to-animate {
-  box-shadow: inset 0 0 0 4px red;
-} */

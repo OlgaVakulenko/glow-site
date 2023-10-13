@@ -2,6 +2,7 @@ module.exports = {
   plugins: {
     tailwindcss: {},
     autoprefixer: {},
+    'tailwindcss/nesting': 'postcss-nesting',
     'postcss-mobile-hover': {},
     'postcss-pxtorem': {
       propList: [

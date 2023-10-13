@@ -189,6 +189,45 @@ module.exports = {
         'description-list': 'repeat(auto-fill, 152px)',
         24: 'repeat(24, minmax(0, 1fr))',
       },
+      transformOrigin: {
+        'left-center': '24px center',
+      },
+      keyframes: {
+        'btn-reveal': {
+          '0%': {
+            transform: 'scale(0)',
+            width: 'var(--btn-height)',
+            height: 'var(--btn-height)',
+          },
+          '40%': {
+            width: 'var(--btn-height)',
+            height: 'var(--btn-height)',
+          },
+          '70%': {
+            transform: 'scale(1)',
+          },
+          '100%': {
+            width: '100%',
+          },
+        },
+        'btn-reveal-txt': {
+          '0%': {
+            transform: 'translateY(200%)',
+          },
+
+          '55%': {
+            transform: 'translateY(200%)',
+          },
+
+          '100%': {
+            transform: 'translateY(0)',
+          },
+        },
+      },
+      animation: {
+        'btn-reveal': '2s ease-in-out 0s btn-reveal',
+        'btn-reveal-txt': '2s ease-in-out 0s btn-reveal-txt',
+      },
     },
   },
   plugins: [require('@tailwindcss/typography')],

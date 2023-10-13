@@ -515,14 +515,15 @@ export default function Header({
                         href="#footer"
                         // href="/trial"
                         onClick={handleFooterFormClick}
-                        className={cx(
-                          'glow-border-brand rolling-text-group flex whitespace-pre-wrap rounded-full bg-brand px-[19px] py-[14px] text-button-m text-black transition-all duration-500 4xl:px-8 4xl:py-[18px] 4xl:text-sm 4xl:leading-[19px]'
-                        )}
+                        // className={cx(
+                        //   'glow-border-brand rolling-text-group flex whitespace-pre-wrap rounded-full bg-brand px-[19px] py-[14px] text-button-m text-black transition-all duration-500 4xl:px-8 4xl:py-[18px] 4xl:text-sm 4xl:leading-[19px]'
+                        // )}
                       >
-                        <RollingText
+                        Let&apos;s to trial
+                        {/* <RollingText
                           height={20}
-                          text={`Free 3 day’s trial`}
-                        ></RollingText>
+                          text={`let’s to trial`}
+                        ></RollingText> */}
                       </AnimatedButton>
                     </Animated>
                   </div>
