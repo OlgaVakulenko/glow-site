@@ -40,6 +40,8 @@ export function PageHeading2({ className, children }) {
     return () => ctx.revert();
   }, []);
 
+  console.log('needle', typeof children);
+
   return (
     <div
       ref={ref}

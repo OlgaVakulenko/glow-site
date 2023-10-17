@@ -199,11 +199,16 @@ module.exports = {
             width: 'var(--btn-height)',
             height: 'var(--btn-height)',
           },
-          '40%': {
+          '35%': {
+            transform: 'scale(0)',
             width: 'var(--btn-height)',
             height: 'var(--btn-height)',
           },
-          '70%': {
+          '50%': {
+            width: 'var(--btn-height)',
+            height: 'var(--btn-height)',
+          },
+          '75%': {
             transform: 'scale(1)',
           },
           '100%': {
@@ -212,6 +217,10 @@ module.exports = {
         },
         'btn-reveal-txt': {
           '0%': {
+            transform: 'translateY(200%)',
+          },
+
+          '35%': {
             transform: 'translateY(200%)',
           },
 
