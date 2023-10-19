@@ -43,19 +43,6 @@ function formHandler() {
   //honeypot
   $phonenumber = post('phonenumber');
 
-  // header('content-type: application/json');
-
-  // echo json_encode([
-  //   'name' => $name,
-  //   // 'company_name' => $company_name,
-  //   'project' => $project,
-  //   'project_about' => $project_about,
-  //   'budget' => $budget,
-  //   'email' => $email,
-  // ]);
-
-  // return;
-
   $contactResponse = request_post(pipeUrl('persons'), [
     'name' => $name,
     'email' => $email,
@@ -73,14 +60,13 @@ function formHandler() {
   $dealResponse = request_post(pipeUrl('deals'), [
     'title' => 'Deal for '.$email.' created at '.date('d-m-Y H:i'),
     'person_id' => $contactId,
-    // '5f1928ff3c467d1c59311369c1bf7ace78f688ed' => $company_name,
-    '1f5bcebb4c2edf62c913c8f7a321f59375097dfc' => $project,
-    '85590fb260bd65ce96864f3fa06a2bd6b507cb76' => $project_about,
     'bd0449a7ade1fa104321ebfe32832776893aba00' => $budget,
+    'dcd8f5c002e8a113ae120c6b678939ae1f2ef26a' => $project . '; ' . $project_about,
     'add_time' => date('Y-m-d H:i:s'),
   ]);
 
   $deal = json_decode($dealResponse, true);
+
   $dealId = (int)$deal['data']['id'];
   if (empty($dealId)) {
     json_respond([
@@ -118,10 +104,10 @@ function emailNotification() {
     $mailer->Port = 465;
     $mailer->SMTPSecure = 'ssl';
     $mailer->setFrom('hello@glow.team', 'Glow Team');
-    // $mailer->addAddress('sergey.bogdan.vi@gmail.com');
-    $mailer->addAddress('hello@glow.team');
-    $mailer->addAddress('rusmashatov@gmail.com');
-    $mailer->addAddress('chr99272@gmail.com');
+    $mailer->addAddress('sergey.bogdan.vi@gmail.com');
+    // $mailer->addAddress('hello@glow.team');
+    // $mailer->addAddress('rusmashatov@gmail.com');
+    // $mailer->addAddress('chr99272@gmail.com');
 
     $mailer->isHTML(true);
     $mailer->Subject = 'Contact form submission';
@@ -134,7 +120,7 @@ function emailNotification() {
     ];
     $msg = '';
     foreach ($message as $key => $value) {
-      $msg .= "<b>$key:</b>$value<br><br>";
+      $msg .= "<b>$key:</b> $value<br><br>";
     }
 
     $mailer->Body = $msg;

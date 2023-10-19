@@ -248,21 +248,23 @@ export default function FooterForm() {
             selectedServices.forEach((service) => {
               data.append('services[]', service);
             });
-            const sleep = (ms) => new Promise((res) => setTimeout(res, ms));
-            sleep(300)
-              // fetch('/contact2.php', {
-              //   method: 'POST',
-              //   body: data,
-              // })
-              .then(() => {
-                setIsSubmitted(true);
-                event('form_submit');
-                try {
-                  window?.lintrk('track', { conversion_id: 11283746 });
-                } catch (e) {
-                  console.error(e);
-                }
-              });
+            Promise.race([
+              fetch('/contact2.php', {
+                method: 'POST',
+                body: data,
+              }),
+              new Promise((res) => {
+                setTimeout(res, 300);
+              }),
+            ]).then(() => {
+              setIsSubmitted(true);
+              event('form_submit');
+              try {
+                window?.lintrk('track', { conversion_id: 11283746 });
+              } catch (e) {
+                console.error(e);
+              }
+            });
           }}
         >
           <div className="md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 xl:mb-10 xl:flex xl:flex-col xl:gap-0">
