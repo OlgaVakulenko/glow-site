@@ -4,15 +4,23 @@ import Case3Image from './assets/case_3.png';
 import Case4Image from './assets/case_4.png';
 
 import BeastCover from './assets/new/beast-cover.png';
+import BeastCoverMobile from './assets/new/beast-cover-mobile.png';
 import JucrCover from './assets/new/jucr-cover.png';
+import JucrCoverMobile from './assets/new/jucr-cover-mobile.png';
 import CryptoGenie from './assets/new/crypto-cover.png';
+import CryptoGenieMobile from './assets/new/crypto-cover-mobile.png';
 // import LiquidSpace from './assets/liquidspace-cover.png';
 import LiquidSpace from './assets/new/liquid-space.png';
+import LiquidSpaceMobile from './assets/new/liquid-space-cover-mobile.png';
 // import LiquidSpace from './LiquidSpace/assets/challenge-f.png';
 import FleetChaser from './assets/fc-cover.png';
+import FleetChaserMobile from './assets/new/fleet-cover-mobile.png';
 import Ethos from './assets/ethos-cover.png';
+import EthosMobile from './assets/new/ethos-cover-mobile.png';
 import Parking from './assets/case-parking.png';
+import ParkingMobile from './assets/new/parking-cover-mobile.png';
 import Tilt from './assets/new/tilt-cover.png';
+import TiltMobile from './assets/new/tilt-cover-mobile.png';
 
 const cases = [
   {
@@ -28,6 +36,7 @@ const cases = [
     service: ['User Experience', 'User Interface', 'Product Design'],
     company: ['Funding $34.5M'],
     image: LiquidSpace,
+    imageMobile: LiquidSpaceMobile,
     category: ['other'],
     type: ['desktop'],
   },
@@ -44,6 +53,7 @@ const cases = [
     service: ['Product Design', 'User Experience', 'User Interface'],
     company: ['Funding €32.7M'],
     image: JucrCover,
+    imageMobile: JucrCoverMobile,
     category: ['transportation'],
     type: ['mobile'],
   },
@@ -60,6 +70,7 @@ const cases = [
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['20k app downloads'],
     image: BeastCover,
+    imageMobile: BeastCoverMobile,
     category: ['transportation'],
     type: ['mobile'],
   },
@@ -81,6 +92,7 @@ const cases = [
       </>,
     ],
     image: CryptoGenie,
+    imageMobile: CryptoGenieMobile,
     category: ['fintech'],
     type: ['desktop'],
   },
@@ -109,6 +121,7 @@ const cases = [
       </>,
     ],
     image: Tilt,
+    imageMobile: TiltMobile,
     category: ['other'],
     type: ['desktop'],
   },

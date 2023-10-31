@@ -15,28 +15,31 @@ import Reviews from './Reviews2';
 import Services from './Services';
 import Solutions from './Solutions';
 import TrialBanner from './TrialBanner';
+import IntroSection from '../../IntroSection';
 
-function IntroSection() {
-  const ref = useRef();
-  const triggerRef = useRef();
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.to(ref.current, {
-        y: 70,
-        scrollTrigger: {
-          trigger: triggerRef.current,
-          scrub: true,
-          start: '10% top',
-          end: '80% top',
-        },
-      });
-    }, ref);
-
-    return () => {
-      ctx.revert();
-    };
-  }, []);
+function IntroSection2() {
+  return (
+    <IntroSection
+      title={
+        <>
+          {' '}
+          Simple design
+          <br /> for&nbsp;complex products
+        </>
+      }
+      subtitle={
+        <>
+          Your trusted design team for
+          <br />
+          <RollingWords
+            words={['transportation', 'ai', 'fintech']}
+            interval={2200}
+          />{' '}
+          <div className="inline-flex">challenges.</div>
+        </>
+      }
+    />
+  );
 
   return (
     <div ref={triggerRef}>
@@ -97,7 +100,7 @@ function IntroSection() {
 
 const items = [
   {
-    title: 'SaaS Design talent',
+    title: 'Top-Notch Design quality and timely delivery',
     description: 'For full-time engagements',
     icon: ({ isReady }) => {
       return (
@@ -160,7 +163,7 @@ const items = [
     },
   },
   {
-    title: 'Faster',
+    title: 'Talented SaaS Design and long-term partnership',
     description: 'That recruiting in-house',
     icon: ({ isReady }) => {
       return (
@@ -222,7 +225,7 @@ const items = [
     },
   },
   {
-    title: 'Top notch design',
+    title: 'Top Quick Onboarding faster than new hires design',
     description: 'Quality and timely delivery',
     icon: ({ isReady }) => {
       return (
@@ -307,7 +310,12 @@ const items = [
     },
   },
   {
-    title: '3-day free trial',
+    title: (
+      <div>
+        3-Day Free Trial
+        <br /> and fixed monthly rate
+      </div>
+    ),
     description: 'and fixed monthly rate',
     icon: ({ isReady }) => {
       return (
@@ -388,11 +396,12 @@ function IconsSection() {
   return (
     <div className="pb-5">
       <Layout>
-        <div className="grid gap-10 md:grid-cols-3 xl:flex xl:justify-between xl:gap-0">
+        <div className="flex flex-wrap items-start justify-between gap-10">
+          {/* <div className="grid gap-10 md:grid-cols-3 xl:flex xl:justify-between xl:gap-0"> */}
           {items.map((item, index) => (
             <Animated
               key={index}
-              className="flex md:last:col-span-3 md:last:mx-auto xl:last:mx-0"
+              className="flex x-920:last:mx-auto x-1400:last:mx-0"
               delay={300 * index}
               onViewChange={(isVisible) => {
                 setMap((c) => ({
@@ -410,16 +419,16 @@ function IconsSection() {
               //   }, 300);
               // }}
             >
-              <div className="mr-8 md:mr-4 4xl:mr-6">
+              <div className="mr-8 min-w-[64px] md:mr-4 4xl:mr-6">
                 <item.icon isReady={map[index]}></item.icon>
               </div>
               <div>
-                <div className="mb-2 text-body-heading-m 4xl:text-[22px] 4xl:leading-[120%]">
+                <div className="mb-2 text-body-heading-m md:max-w-[184px] xl:max-w-[208px] 4xl:text-[22px] 4xl:leading-[120%]">
                   {item.title}
                 </div>
-                <div className="text-body-s opacity-50 4xl:text-body-m2">
+                {/* <div className="text-body-s opacity-50 4xl:text-body-m2">
                   {item.description}
-                </div>
+                </div> */}
               </div>
             </Animated>
           ))}
@@ -429,194 +438,11 @@ function IconsSection() {
   );
 }
 
-function Bg() {
-  return (
-    <div
-      id="Bg"
-      className="main-bg pointer-events-none absolute left-0 right-0 top-[-80vh] z-[-1] h-[140vh] w-full"
-    >
-      {/* <picture>
-        <source srcSet={BgImageTablet.src} media="(min-width: 820px)" />
-        <source srcSet={BgImage.src} />
-        <img src={BgImageTablet.src} alt="" className="w-full" />
-      </picture> */}
-    </div>
-  );
-}
-
-// const xAtom = atom(0);
-// function Cursor({ isHover }) {
-//   const ref = useRef(null);
-//   const ref2 = useRef(null);
-//   const [x] = useAtom(xAtom);
-
-//   useEffect(() => {
-//     if (!isHover || !ref.current) {
-//       return;
-//     }
-
-//     gsap.to(ref.current, {
-//       x: x - 192,
-//     });
-//   }, [x, isHover]);
-
-//   useEffect(() => {
-//     if (!isHover || !ref2.current) {
-//       return;
-//     }
-
-//     gsap.to(ref2.current, {
-//       x: x - 700,
-//     });
-//   }, [x, isHover]);
-
-//   return (
-//     <>
-//       <div
-//         ref={ref}
-//         className={cx(
-//           'pointer-events-none absolute left-0 top-[114px] z-[1] flex h-4 w-96 items-center justify-center bg-brand text-white opacity-0 transition-opacity duration-[300ms] md:top-[160px]',
-//           {
-//             '!opacity-100 !duration-[1.5s]': isHover,
-//           }
-//         )}
-//         style={{
-//           background: 'radial-gradient(rgb(227, 50, 48) 10%, transparent 58%)',
-//         }}
-//       ></div>
-//     </>
-//   );
-// }
-
-// function Line() {
-//   const [height, setHeight] = useState(280);
-//   const [isHover, setIsHover] = useState(false);
-//   const duration = 'duration-[1s]';
-//   const setX = useSetAtom(xAtom);
-
-//   useEffect(() => {
-//     return;
-//     const onResize = debounce(() => {
-//       try {
-//         const els = Array.from(
-//           document.querySelectorAll('#intro-section, #logo-carousel')
-//         );
-//         const height = els.reduce((h, c) => h + c.offsetHeight, 0);
-//         setHeight(height ? height - 168 + 92 : 500);
-//       } catch (e) {
-//         console.error(e);
-//       }
-//     }, 250);
-
-//     onResize();
-//     window.addEventListener('resize', onResize);
-
-//     return () => {
-//       window.removeEventListener('resize', onResize);
-//     };
-//   }, []);
-
-//   return (
-//     <div>
-//       {/** top gradient */}
-//       <div
-//         className={cx(
-//           'pointer-events-none absolute -top-12 h-[170px] w-full origin-bottom scale-y-0 opacity-0 md:h-[216px]',
-//           {
-//             '!scale-y-100': isHover,
-//             '!opacity-100': isHover,
-//           }
-//         )}
-//         style={{
-//           transition: isHover
-//             ? 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1)'
-//             : 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s cubic-bezier(0.4, 0, 0.2, 1)',
-//           background: `linear-gradient(
-//             0deg,
-//             hsl(1deg 76% 54% / 1) 0%,
-//             hsl(5deg 83% 62% / 0.74) 26%,
-//             hsl(7deg 90% 71% / 0.61) 39%,
-//             hsl(8deg 99% 79% / 0.5) 50%,
-//             hsl(9deg 100% 86% / 0.39) 61%,
-//             hsl(10deg 100% 93% / 0.26) 74%,
-//             hsl(0deg 0% 100% / 0) 100%
-//           )`,
-//         }}
-//       ></div>
-//       {/** bottom gradient */}
-//       <div
-//         className={cx(
-//           'pointer-events-none absolute top-[122px] w-full origin-top scale-y-0 opacity-0 transition-shadow md:top-[168px]',
-//           {
-//             '!scale-y-100': isHover,
-//             '!opacity-100': isHover,
-//           }
-//         )}
-//         style={{
-//           height: `${height}px`,
-//           transition: isHover
-//             ? 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1)'
-//             : 'transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 1s cubic-bezier(0.4, 0, 0.2, 1)',
-//           // background: 'linear-gradient(180deg, #E33230 0%, transparent 100%)',
-//           background: `linear-gradient(
-//             180deg,
-//             hsl(1deg 76% 54% / 1) 0%,
-//             hsl(5deg 83% 62% / 0.74) 26%,
-//             hsl(7deg 90% 71% / 0.61) 39%,
-//             hsl(8deg 99% 79% / 0.5) 50%,
-//             hsl(9deg 100% 86% / 0.39) 61%,
-//             hsl(10deg 100% 93% / 0.26) 74%,
-//             hsl(0deg 0% 100% / 0) 100%
-//           )`,
-//         }}
-//       ></div>
-//       {/** line */}
-//       <div
-//         className="absolute top-[82px] z-[1] w-full py-10 md:top-[128px]"
-//         onMouseEnter={() => {
-//           setIsHover(true);
-//         }}
-//         onMouseLeave={() => {
-//           setIsHover(false);
-//         }}
-//         onMouseMove={(e) => {
-//           setX(e.pageX);
-//         }}
-//       >
-//         <div
-//           className={cx('h-[1px] w-full transition-opacity', duration, {
-//             'opacity-0': isHover,
-//           })}
-//           style={{
-//             background:
-//               'linear-gradient(270deg, rgb(227, 50, 48) 0%, rgb(227, 50, 48) 20%, rgba(255, 255, 255, 255) 100%)',
-//           }}
-//         ></div>
-//         {/** white line */}
-//         <div
-//           className={cx(
-//             'pointer-events-none mt-[-1px] h-[1px] w-full bg-white opacity-0 transition-opacity',
-//             duration,
-//             {
-//               'opacity-30': isHover,
-//             }
-//           )}
-//         ></div>
-//       </div>
-//       <Cursor isHover={isHover} />
-//     </div>
-//   );
-// }
-
 export default function Home2() {
   return (
     <div className="relative overflow-hidden">
-      <Bg />
-      {/* <Animated>
-        <Line />
-      </Animated> */}
       <div id="intro-section">
-        <IntroSection />
+        <IntroSection2 />
       </div>
       <div id="logo-carousel">
         <Animated delay={300}>

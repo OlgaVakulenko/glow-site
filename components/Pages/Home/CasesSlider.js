@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide, useSwiperSlide } from 'swiper/react';
 import gsap from '../../../dist/gsap';
 import { mediaAtom, useMediaAtom } from '../../../lib/agent';
 import { addLeadingZero, useIsClient } from '../../../lib/utils';
-import Image from '../../Image';
+import Image, { resolve, Source } from '../../Image';
 import Layout from '../../Layout';
 import Section from '../../Section';
 import SliderProgress from '../../SliderProgress';
@@ -63,71 +63,42 @@ export function Col({ title, items, className = '' }) {
   );
 }
 
-// function CaseSlide2({ item, index }) {
-//   const [media] = useAtom(mediaAtom);
-
-//   return (
-//     <div className="__slide-wrapper pointer-events-none h-full w-full">
-//       <div className="__slide relative flex min-h-[456px] items-end overflow-hidden rounded-3xl text-lblue md:min-h-[688px]">
-//         <Image
-//           className="pointer-events-none absolute left-0 top-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105 md:max-h-full"
-//           src={item.image}
-//           alt=""
-//         />
-//         <div
-//           className="__slider-item
-//             pointer-events-none
-//             absolute
-//             bottom-0
-//             left-0
-//             right-0
-//             top-0"
-//         ></div>
-//         <div
-//           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
-//           className="relative px-6 pb-[50px] md:px-[96px] md:pb-[105px] md:pt-[282] xl:px-[104px]"
-//         >
-//           <div className="mb-[29px] mt-[16px] font-glow text-[26px] font-medium leading-[120%] md:mb-[38px] md:mt-[15px] md:text-[32px]">
-//             {item.title}
-//           </div>
-//           <div className="flex space-x-[52px] pl-[3px] md:space-x-[62px]">
-//             <Col className="" title="Industry" items={item.industry} />
-//             <Col title="Services" items={item.service} />
-//             {media !== 'mobile' && item.company && (
-//               <Col title="Company" items={item.company} />
-//             )}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
+function CaseSlideMobile() {}
 
 function CaseSlide({ item, index, total }) {
   const [media] = useAtom(mediaAtom);
 
   return (
-    <div className="__slide-wrapper pointer-events-none h-full w-full">
-      <div className="__slide relative flex min-h-[456px] items-end overflow-hidden rounded-3xl text-black md:min-h-[688px]">
-        <Image
-          className="pointer-events-none absolute left-0 top-0 h-full w-full origin-[90%_10%] object-cover transition-transform duration-500 group-hover:scale-105 md:max-h-full"
-          src={item.image}
-          alt=""
-        />
-        <div
-          className="__slider-item2
-            pointer-events-none
-            absolute
-            bottom-0
-            left-0
-            right-0
-            top-0"
-        ></div>
+    <div className="__slide-wrapper h-full w-full md:pointer-events-none">
+      <div className="__slide relative flex flex-col overflow-hidden text-black md:min-h-[688px] md:flex-row md:items-end md:rounded-3xl">
+        {item.imageMobile ? (
+          <picture>
+            <Source
+              image={item.image}
+              media="(min-width: 820px)"
+              width="1280"
+            />
+            <Source image={item.imageMobile} width="480" />
+            <img
+              className="h-full min-h-[304px] w-full rounded-3xl object-cover transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none"
+              src={resolve({ src: item.image.src, width: 1440 })}
+              alt=""
+            />
+          </picture>
+        ) : (
+          <Image
+            className="h-full min-h-[304px] w-full rounded-3xl object-cover transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none"
+            src={item.image}
+            alt=""
+          />
+        )}
+
+        <div className="__slider-item2 pointer-events-none absolute inset-0 hidden md:block"></div>
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
-          className="relative px-6 pb-[50px] md:px-[96px] md:pb-16 md:pt-[282px] xl:px-12"
+          className="relative pb-3 md:mt-0 md:px-[96px] md:pb-16 md:pt-[282px] xl:px-12"
         >
-          <div className="relative font-glow text-[11px] font-medium uppercase tracking-[2px]">
+          <div className="relative hidden font-glow text-[11px] font-medium uppercase tracking-[2px] md:block">
             <div className="absolute left-[79px] top-[-18px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -145,15 +116,17 @@ function CaseSlide({ item, index, total }) {
             {addLeadingZero(index + 1)}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
             {addLeadingZero(total)}
           </div>
-          <div className="mb-[29px] mt-[16px] font-glow text-[26px] font-medium leading-[120%] md:mb-[38px] md:mt-[15px] md:text-[32px]">
+          <div className="mb-9 mt-[38px] font-glow text-[26px] font-medium leading-[120%] md:mb-[38px] md:mt-[15px] md:text-[32px]">
             {item.title2 || item.title}
           </div>
-          <div className="flex space-x-[52px] pl-[3px] md:space-x-[62px]">
+          <div className="flex space-x-[40px] pl-[3px] md:space-x-[62px]">
             <Col className="" title="Industry" items={item.industry} />
-            <Col title="Services" items={item.service} />
-            {media !== 'mobile' && item.company && (
-              <Col title="Company" items={item.company} />
-            )}
+            <Col
+              className="min-w-[100px]"
+              title="Services"
+              items={item.service}
+            />
+            {item.company && <Col title="Company" items={item.company} />}
           </div>
         </div>
       </div>
@@ -169,34 +142,7 @@ export function CaseItem({
   className = '',
   href = '#',
 }) {
-  const media = useMediaAtom();
   const ref = useRef(null);
-
-  // useEffect(() => {
-  //   if (media === 'mobile') return;
-
-  //   const ctx = gsap.context(() => {
-  //     gsap.fromTo(
-  //       ref.current,
-  //       {
-  //         opacity: 0,
-  //       },
-  //       {
-  //         opacity: 1,
-  //         scrollTrigger: {
-  //           trigger: ref.current,
-  //           scrub: 1,
-  //           start: 'top 85%',
-  //           end: 'bottom 85%',
-  //         },
-  //       }
-  //     );
-  //   }, ref);
-
-  //   return () => {
-  //     ctx.revert();
-  //   };
-  // }, [media]);
 
   return (
     <Link
@@ -247,7 +193,7 @@ export function CasesRow({ cases, className = '' }) {
         <div key={i} className="mx-8 flex flex-col xl:mx-[56px]">
           <CaseItem
             imageJsx={caseItem.imageJsx}
-            image={caseItem.image}
+            image={caseItem.imageMobile || caseItem.image}
             title={caseItem.title}
             href={caseItem.href || '#'}
             columns={[
@@ -425,7 +371,7 @@ export function CasesSlider2() {
                         'cursor-none': show,
                       })}
                     >
-                      <div className={cx('pointer-events-none', {})}>
+                      <div className={cx('md:pointer-events-none', {})}>
                         <CaseSlide item={item} index={i} total={cases.length} />
                       </div>
                     </Link>
@@ -498,7 +444,7 @@ function LastSlide2() {
           <Image
             src={addCases[0].image}
             alt=""
-            className="h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            className="h-full min-h-[304px] object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </Link>
       )}

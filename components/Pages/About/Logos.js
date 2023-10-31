@@ -5,21 +5,28 @@ import Layout from '../../Layout';
 
 export default function Logos() {
   return (
-    <Layout className="pt-[143px] pb-[90px] md:pt-[129px] md:pb-[135px] xl:pt-[158px] xl:pb-[112px]">
+    <Layout className="pb-[90px] pt-16 md:pb-[135px] md:pt-[129px] xl:pb-[112px] xl:pt-[158px]">
       <div className="mx-auto max-w-[1440px]">
         <div className="md:flex md:flex-wrap">
           <Figma className="mb-10 md:mb-16 xl:mb-[136px] xl:grow" />
           <Clutch className="mb-10 md:mb-16 md:ml-[88px] xl:mb-[136px] xl:ml-0 xl:mr-[104px]" />
           <Dribble className="mb-10 md:mb-16 md:mr-[88px] xl:mb-[136px] xl:mr-20" />
           <Medium className="mb-10 md:mb-16 xl:mb-0 xl:ml-auto" />
-          <DesignRush className="md:ml-[308px] xl:mr-[123px] xl:ml-[88px]" />
+          <DesignRush className="md:ml-[308px] xl:ml-[88px] xl:mr-[123px]" />
         </div>
       </div>
     </Layout>
   );
 }
 
-function LinkItem({ href, icon, title, subtitle, className }) {
+function LinkItem({
+  href,
+  icon,
+  title,
+  subtitle,
+  className,
+  type = 'default',
+}) {
   return (
     <Animated
       as="a"
@@ -29,11 +36,26 @@ function LinkItem({ href, icon, title, subtitle, className }) {
       className={cx('flex', className)}
     >
       <div className="mr-6">{icon}</div>
-      <div className="flex flex-col">
-        <div className="mb-6 text-body-m font-medium md:mb-12 md:max-w-[236px]">
+      <div
+        className={cx('flex flex-col', {
+          'justify-center md:justify-start': type === 'blog',
+        })}
+      >
+        <div
+          className={cx('text-body-m font-medium md:mb-12 md:max-w-[236px]', {
+            'mb-6': type !== 'blog',
+            'mb-0': type === 'blog',
+          })}
+        >
           {title}
         </div>
-        <div className="text-button-m uppercase">{subtitle}</div>
+        <div
+          className={cx('text-button-m uppercase', {
+            'hidden md:block': type === 'blog',
+          })}
+        >
+          {subtitle}
+        </div>
       </div>
     </Animated>
   );
@@ -292,6 +314,7 @@ export function Medium({
   className,
   title = 'Popular Design Blog on Medium',
   subtitle = 'subscribe',
+  type = 'default',
 }) {
   const media = useMediaAtom();
 
@@ -301,6 +324,7 @@ export function Medium({
       title={title}
       subtitle={subtitle}
       href="https://medium.com/glow-team"
+      type={type}
       icon={
         media === 'mobile' ? (
           <svg

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Layout from '../../Layout';
-import PageHeading from '../../PageHeading';
+import PageHeading, { PageHeading2 } from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
 import cases from '../Cases/data';
 import cx from 'clsx';
@@ -14,6 +14,10 @@ import { Separator } from '../About';
 import Animated from '../../Animated';
 import Head from 'next/head';
 import { getFullTitle } from '../../HeadTitle';
+import { Source } from '../../Image';
+import { Subheading2 } from '../../Typography/Subheading';
+import Asterisk from '../../Asterisk';
+import IntroSection from '../../IntroSection';
 
 export const filterAtom = atom({
   category: 'all',
@@ -21,6 +25,8 @@ export const filterAtom = atom({
 });
 
 export default function Work() {
+  const ref = useRef();
+
   return (
     <div>
       <Head>
@@ -30,11 +36,16 @@ export default function Work() {
           content="View our case studies ➜ to learn more about how we help brands transform through ✔ digital products ✔ branding ✔ eCommerce"
         ></meta>
       </Head>
-      <Layout className="pt-[186px] md:pt-[241px] xl:pt-[215px]">
-        <PageSubheading>These guys are shining with us</PageSubheading>
-        <PageHeading className="mt-[106px] md:mt-[125px] xl:mt-[132px]">
-          Explore our <br /> projects
-        </PageHeading>
+      <IntroSection
+        title="Explore our projects"
+        subtitle={
+          <>
+            These guys are shining
+            <br /> with us
+          </>
+        }
+      />
+      <Layout>
         <Cases />
       </Layout>
     </div>
@@ -139,6 +150,7 @@ function Cases() {
               key={item.href}
               className="mb-4"
               {...item}
+              image={item.imageMobile || item.image}
               columns={[
                 {
                   title: 'industry',

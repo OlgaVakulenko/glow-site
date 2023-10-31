@@ -1,5 +1,5 @@
 import Layout from '../Layout';
-import PageHeading from '../PageHeading';
+import PageHeading, { PageHeading2 } from '../PageHeading';
 import { Medium } from '../Pages/About/Logos';
 import Card from './Card';
 import cx from 'clsx';
@@ -11,6 +11,8 @@ import Head from 'next/head';
 import { getFullTitle } from '../HeadTitle';
 import RollingText from '../RollingText';
 import StructuredData from '../StructuredData';
+import IntroBg from '../IntroBg';
+import IntroSection from '../IntroSection';
 
 const TAG_ALL = 'All Topics';
 const filterAtom = atom(TAG_ALL);
@@ -33,21 +35,44 @@ export default function BlogPage({ posts, tags = [] }) {
       <Head>
         <title>{getFullTitle('We write about business & design')}</title>
       </Head>
-      <div className="pt-[177px]">
-        <Layout>
+      <IntroSection
+        asteriskVisible={false}
+        title={
+          <>
+            We write about <br className="hidden md:block" /> business & design
+          </>
+        }
+        subtitleEl={({ children, className, ...props }) => (
+          <div {...props} className={cx(className, 'mb-[75px]')}>
+            {children}
+          </div>
+        )}
+        subtitle={
+          <Medium
+            className="md:ml-auto md:mr-[7%]"
+            title="Popular Design Blog on Medium"
+            subtitle="View Topics"
+            type="blog"
+          />
+        }
+      />
+      <div className="">
+        {/* <Layout>
+          <IntroBg />
           <div className="mb-[71px] flex">
             {isClient && (
               <Medium
                 className="md:ml-auto md:mr-[7%]"
-                title="Our Design Blog on Medium"
-                subtitle="Subscribe"
+                title="Popular Design Blog on Medium"
+                subtitle="View Topics"
+                type="blog"
               />
             )}
           </div>
-          <PageHeading className="mb-12 md:mb-20">
+          <PageHeading2 className="mb-12 md:mb-20">
             We write about <br className="hidden md:block" /> business & design
-          </PageHeading>
-        </Layout>
+          </PageHeading2>
+        </Layout> */}
         <div className="mb-8 md:mb-[72px]">
           <Tags tags={tags} />
         </div>
@@ -81,7 +106,7 @@ function Tags({ tags }) {
             type="button"
             key={tag}
             className={cx(
-              'mr-4 ml-4 shrink-0 rounded-full p-4 text-[14px] font-medium uppercase leading-[19px] tracking-[0.03em] md:ml-0 md:mr-8',
+              'ml-4 mr-4 shrink-0 rounded-full p-4 text-[14px] font-medium uppercase leading-[19px] tracking-[0.03em] md:ml-0 md:mr-8',
               {
                 'glow-border-black': tag === filter,
               }

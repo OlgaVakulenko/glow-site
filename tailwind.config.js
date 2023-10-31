@@ -23,6 +23,8 @@ module.exports = {
       },
       screens: {
         md: '820px',
+        'x-920': '904px',
+        'x-1400': '1440px',
         '4xl': '1800px',
         layout: '1736px',
         '3xl': '1600px',
@@ -188,6 +190,7 @@ module.exports = {
       gridTemplateColumns: {
         'description-list': 'repeat(auto-fill, 152px)',
         24: 'repeat(24, minmax(0, 1fr))',
+        'footer-links': 'repeat(auto-fill, minmax(80px, 1fr));',
       },
       transformOrigin: {
         'left-center': '24px center',

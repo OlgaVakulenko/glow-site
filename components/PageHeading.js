@@ -1,8 +1,8 @@
-import Animated from './Animated';
 import cx from 'clsx';
-import Head from 'next/head';
 import { useEffect, useRef } from 'react';
 import gsap from '../dist/gsap';
+import { useMediaAtom } from '../lib/agent';
+import Animated from './Animated';
 
 export default function PageHeading({ className, children }) {
   return (
@@ -20,9 +20,13 @@ export default function PageHeading({ className, children }) {
 }
 
 export function PageHeading2({ className, children }) {
+  const media = useMediaAtom();
   const ref = useRef();
 
   useEffect(() => {
+    console.log('media', media);
+    if (media === 'mobile') return;
+
     if (!ref.current) return;
 
     const ctx = gsap.context(() => {
@@ -38,7 +42,7 @@ export function PageHeading2({ className, children }) {
     });
 
     return () => ctx.revert();
-  }, []);
+  }, [media]);
 
   console.log('needle', typeof children);
 

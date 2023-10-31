@@ -68,7 +68,7 @@ export default function HeaderMobileMenu({ menuId, links }) {
             // href="/trial"
             className="mb-4 !py-[41px]"
           >
-            let’s to trial
+            Start your trial
           </BigButton>
         </Animation>
       )}

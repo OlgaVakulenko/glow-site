@@ -11,7 +11,7 @@ const nextConfig = {
     // unoptimized: true,
   },
   experimental: {
-    optimizeCss: true,
+    // optimizeCss: true,
     scrollRestoration: true,
   },
   transpilePackages: ['gsap'],

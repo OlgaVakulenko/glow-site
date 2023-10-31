@@ -14,14 +14,6 @@ import {
   ScrollSmootherMounted,
 } from './SmoothScroll/ScrollContainer';
 
-const links = [
-  { href: 'https://www.facebook.com/glow.design.agency', label: 'Facebook' },
-  { href: 'https://medium.com/glow-team', label: 'Medium' },
-  { href: 'https://clutch.co/profile/glow-design-agency', label: 'Clutch' },
-  { href: 'https://instagram.com/glow_dsgn', label: 'Instagram' },
-  { href: 'https://dribbble.com/glow-team', label: 'Dribbble' },
-];
-
 function Footer(props) {
   const { showFormButton = true } = props;
 

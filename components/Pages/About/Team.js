@@ -56,8 +56,17 @@ function Profile({ image, name, position, animated = true, index = 0 }) {
   );
 }
 
-function ProfileLayout({ profiles }) {
+function ProfileLayout({ profiles: _profiles }) {
   const media = useMediaAtom();
+
+  const profiles = useMemo(() => {
+    if (media === 'mobile') return _profiles;
+    const p = [..._profiles, ..._profiles.slice(0, 4)];
+    p.splice(4, 0, null);
+    p.splice(11, 0, null);
+    p.splice(12, 0, null);
+    return p;
+  }, [_profiles, media]);
 
   if (media === 'mobile') {
     return (
@@ -83,13 +92,13 @@ function ProfileLayout({ profiles }) {
 
   return (
     <Layout>
-      <div className="-mr-8 -mb-12 flex flex-wrap xl:-mb-[72px] xl:-mr-[29px]">
+      <div className="-mb-12 -mr-8 flex flex-wrap xl:-mb-[72px] xl:-mr-[29px]">
         {profiles.map((profile, i) => (
           <div
             key={i}
-            className="mr-8 mb-12 w-[208px] md:w-[calc(25%-32px)] xl:mr-[29px] xl:mb-[72px] xl:w-[calc(25%-29px)]"
+            className="mb-12 mr-8 w-[208px] md:w-[calc(25%-32px)] xl:mb-[72px] xl:mr-[29px] xl:w-[calc(25%-29px)]"
           >
-            <Profile {...profile} index={i} />
+            {profile && <Profile {...profile} index={i} />}
           </div>
         ))}
       </div>

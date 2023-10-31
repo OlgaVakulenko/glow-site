@@ -216,7 +216,6 @@ const reviews = [
         ],
       },
     ].find((c) => c.id === r.company_id);
-    console.log('needle2', needle);
   }
 
   return {

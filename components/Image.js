@@ -72,6 +72,9 @@ const useLoading = (initialLoading = 'lazy') => {
 
 export default function Image(props) {
   const loading = useLoading();
+  if (!props.src) {
+    console.log('needle', props);
+  }
   const [width, height] = useMemo(() => {
     if (isString(props.src)) {
       return [];
