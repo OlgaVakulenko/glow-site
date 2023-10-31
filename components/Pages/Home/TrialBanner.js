@@ -8,6 +8,7 @@ import gsap from '../../../dist/gsap';
 import RollingText from '../../RollingText';
 import SphereBg from './assets/sphere-bg.png';
 import { useHandleFooterFormClick } from '../../../lib/utils';
+import AnimatedButton from '../../AnimatedButton';
 
 export default function TrialBanner() {
   const wrapperRef = useRef();
@@ -64,7 +65,7 @@ export default function TrialBanner() {
           </div>
           <div className="relative flex w-full items-center">
             <div className="w-full items-center justify-between md:flex md:h-full">
-              <div className="mb-3 pt-[138px] font-glow text-[46px] font-medium leading-[49px] tracking-[-2px] text-lblue text-white md:mb-0 md:max-w-[307px] md:pt-0 xl:pt-[3%] xl:text-heading-h2-2">
+              <div className="pt-[138px] font-glow text-[46px] font-medium leading-[49px] tracking-[-2px] text-lblue md:mb-0 md:max-w-[307px] md:pt-0  xl:text-heading-h2-2">
                 Glow Trial <br />
                 Phase
               </div>
@@ -72,12 +73,15 @@ export default function TrialBanner() {
                 <div className="mb-[41px] text-xl italic leading-[27px] text-lblue opacity-50 md:mb-8 md:text-subtitle-l 4xl:mb-12 4xl:text-[26px]">
                   Check out how we make ideas glow click-by-click.
                 </div>
-                <button
+                <AnimatedButton className="uppercase md:px-[44px]">
+                  Book free slot
+                </AnimatedButton>
+                {/* <button
                   tabIndex="-1"
-                  className="rolling-text-group flex w-full justify-center overflow-hidden whitespace-pre-wrap rounded-full bg-brand py-4 text-sm font-medium uppercase leading-4 tracking-[0.42px] text-black md:w-fit md:px-[44px] 4xl:py-[18px] 4xl:text-sm 4xl:tracking-[0.42px]"
+                  className="rolling-text-group flex w-full justify-center overflow-hidden whitespace-pre-wrap rounded-full bg-brand px-[19px] py-[14px] text-button-m font-medium uppercase leading-4 tracking-[0.42px] text-black md:w-fit md:px-[44px] 4xl:py-[18px] 4xl:text-sm 4xl:leading-[19px] 4xl:tracking-[0.42px]"
                 >
-                  <RollingText height={19} text="Book free slot" />
-                </button>
+                  <RollingText height={20} text="Book free slot" />
+                </button> */}
               </div>
             </div>
           </div>

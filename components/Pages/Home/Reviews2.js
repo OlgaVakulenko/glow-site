@@ -6,6 +6,7 @@ import Layout from '../../Layout';
 import SliderProgress from '../../SliderProgress';
 import casesData from '../Cases/data';
 import { ClutchRating } from './_Reviews';
+import { Mousewheel } from 'swiper/modules';
 
 const reviews = [
   {
@@ -306,6 +307,12 @@ export default function Reviews() {
               speed: 200,
             },
           }}
+          mousewheel={{
+            invert: true,
+            forceToAxis: true,
+            sensitivity: 0.1,
+          }}
+          modules={[Mousewheel]}
         >
           {reviews.map((review, index) => (
             <SwiperSlide key={index} className="">

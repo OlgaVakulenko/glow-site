@@ -20,6 +20,10 @@ export function withAuthor(post) {
   return {
     ...post,
     author_position: positionMap[post.author_name] || 'Product Designer',
+    author_name:
+      post.author_name === 'Kovalsky Stanislav'
+        ? 'Stanislav Kovalsky'
+        : post.author_name,
   };
 }
 

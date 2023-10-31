@@ -82,8 +82,15 @@ function Filters({ className }) {
   }, []);
 
   return (
-    <Animated className={cx('flex', className)} delay={150}>
-      <div className="mr-[43px] flex flex-col items-start md:mr-[107px] xl:mr-[5vw] xl:flex-row">
+    <Animated
+      className={cx(
+        'relative flex',
+        'xl:grid xl:grid-flow-row xl:grid-cols-12 4xl:gap-12',
+        className
+      )}
+      delay={150}
+    >
+      <div className="mr-[43px] flex flex-col items-start md:mr-[107px] xl:col-span-7 xl:mr-[5vw] xl:flex-row">
         <FilterBtn name="category" value="all">
           All Niche
         </FilterBtn>
@@ -93,10 +100,10 @@ function Filters({ className }) {
           </FilterBtn>
         ))}
       </div>
-      <div className="hidden xl:mr-[5vw] xl:block">
+      <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 xl:mr-[5vw] xl:block">
         <Separator size={56} />
       </div>
-      <div className="flex flex-col items-start xl:flex-row">
+      <div className="flex flex-col items-start xl:col-span-5 xl:flex-row xl:pr-[17%]">
         <FilterBtn name="type" value="all">
           All Projects
         </FilterBtn>
@@ -142,7 +149,7 @@ function Cases() {
 
   return (
     <div className="pb-9 pt-12 md:pb-20 md:pt-20">
-      <Filters className="mb-[70px] md:mb-24" />
+      <Filters className="mb-[70px] md:mb-24 xl:flex xl:justify-between" />
       <div className={cx('opacity-100 transition-opacity duration-500', {})}>
         {media === 'mobile' ? (
           _cases.map((item, i) => (

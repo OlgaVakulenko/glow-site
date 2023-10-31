@@ -18,7 +18,7 @@ const data = [
     image: LiudmylaG,
   },
   {
-    author: 'Kovalsky Stanislav',
+    author: 'Stanislav Kovalsky',
     image: StasK,
   },
   {

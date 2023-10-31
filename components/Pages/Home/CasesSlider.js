@@ -5,6 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
 import { Swiper, SwiperSlide, useSwiperSlide } from 'swiper/react';
+import { Mousewheel } from 'swiper/modules';
 import gsap from '../../../dist/gsap';
 import { mediaAtom, useMediaAtom } from '../../../lib/agent';
 import { addLeadingZero, useIsClient } from '../../../lib/utils';
@@ -348,6 +349,12 @@ export function CasesSlider2() {
             {({ show, swiperOptions }) => (
               <Swiper
                 {...swiperOptions}
+                mousewheel={{
+                  invert: true,
+                  forceToAxis: true,
+                  sensitivity: 0.1,
+                }}
+                modules={[Mousewheel]}
                 breakpoints={{
                   320: {
                     slidesPerView: 1,

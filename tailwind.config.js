@@ -227,7 +227,7 @@ module.exports = {
             transform: 'translateY(200%)',
           },
 
-          '55%': {
+          '65%': {
             transform: 'translateY(200%)',
           },
 
@@ -237,8 +237,8 @@ module.exports = {
         },
       },
       animation: {
-        'btn-reveal': '2s ease-in-out 0s btn-reveal',
-        'btn-reveal-txt': '2s ease-in-out 0s btn-reveal-txt',
+        'btn-reveal': '1.5s ease-in-out 0s btn-reveal',
+        'btn-reveal-txt': '1.5s ease-in-out 0s btn-reveal-txt',
       },
     },
   },

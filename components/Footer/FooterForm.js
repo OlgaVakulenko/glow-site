@@ -18,6 +18,7 @@ import { useRem } from '../../lib/utils';
 import RusImage from '../Pages/About/assets/rus-2.png';
 import StasImage from '../Pages/About/assets/stas-k.png';
 import Image from '../Image';
+import TextareaAutosize from 'react-textarea-autosize';
 
 const CheckboxCtx = createContext(null);
 
@@ -129,16 +130,27 @@ function Switches({
   );
 }
 
-function Input({ className, name, value, onChange, ...rest }) {
+function Input({ as = 'input', className, name, value, onChange, ...rest }) {
   const [focused, setFocused] = useState(false);
+
+  const Element = useMemo(() => {
+    if (as === 'textarea') {
+      return TextareaAutosize;
+    }
+
+    return as;
+  }, [as]);
 
   return (
     <div className={cx('flex', className)}>
-      <input
+      <Element
         className={cx(
           'w-full border-b border-checkbox-dark bg-transparent pb-[17px] text-xl font-medium leading-6 text-lblue transition-colors duration-200 placeholder:text-lblue focus:outline-none',
           {
             '!border-lblue': focused,
+          },
+          {
+            'focus:ring-0 focus:ring-offset-0': as === 'textarea',
           }
         )}
         type="text"
@@ -301,6 +313,7 @@ export default function FooterForm() {
               required
             />
             <Input
+              as="textarea"
               className="md:col-span-8"
               name="project-about"
               placeholder="Project details (optional)"

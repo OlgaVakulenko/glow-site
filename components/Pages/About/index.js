@@ -125,7 +125,7 @@ export function Separator({ className, size = 98 }) {
 function Vision() {
   return (
     <Animated className="relative md:flex md:flex-col">
-      <div className="absolute left-[32%] top-[33%] hidden md:block">
+      <div className="absolute left-[30%] top-[33%] hidden md:block">
         <Image
           src={Sphere2Image}
           alt=""
