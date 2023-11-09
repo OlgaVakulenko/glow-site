@@ -168,6 +168,7 @@ module.exports = {
         lred: '#FFE7EA',
         dim: '#F3F2F4',
         'checkbox-dark': 'rgba(240, 246, 255, 0.15)',
+        'checkbox-light': 'rgba(25, 25, 27, 0.15)',
       },
       spacing: {
         screenx: 'calc(var(--vh, 1vh) * 100);',
@@ -237,8 +238,8 @@ module.exports = {
         },
       },
       animation: {
-        'btn-reveal': '1.5s ease-in-out 0s btn-reveal',
-        'btn-reveal-txt': '1.5s ease-in-out 0s btn-reveal-txt',
+        'btn-reveal': '1.8s ease-in-out 0s btn-reveal',
+        'btn-reveal-txt': '1.9s ease-in-out 0s btn-reveal-txt',
       },
     },
   },

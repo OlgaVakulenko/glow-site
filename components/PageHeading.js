@@ -19,14 +19,13 @@ export default function PageHeading({ className, children }) {
   );
 }
 
-export function PageHeading2({ className, children }) {
+export function PageHeading2({ animate = true, className, children }) {
   const media = useMediaAtom();
   const ref = useRef();
 
   useEffect(() => {
-    console.log('media', media);
+    if (!animate) return;
     if (media === 'mobile') return;
-
     if (!ref.current) return;
 
     const ctx = gsap.context(() => {
@@ -42,9 +41,7 @@ export function PageHeading2({ className, children }) {
     });
 
     return () => ctx.revert();
-  }, [media]);
-
-  console.log('needle', typeof children);
+  }, [media, animate]);
 
   return (
     <div

@@ -11,6 +11,8 @@ export default function DefaultLayout({
   footer = true,
   page = '',
   showFormButton = true,
+  footerSuccess = false,
+  footerProps = {},
 }) {
   const router = useRouter();
   const [history] = useAtom(routerHistory);
@@ -62,7 +64,7 @@ export default function DefaultLayout({
       <ScrollContainer>
         {children}
         {/* {footer && <ParallaxFooter showFormButton={showFormButton} />} */}
-        {footer && <Footer2 />}
+        {footer && <Footer2 {...footerProps} footerSuccess={footerSuccess} />}
       </ScrollContainer>
     </>
   );

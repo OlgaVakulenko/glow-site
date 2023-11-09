@@ -1,6 +1,9 @@
 import FormPage from '../components/Pages/Form';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 
+//Old form
+//TODO remove this
+
 export default FormPage;
 
 FormPage.getLayout = function getLayout(page) {

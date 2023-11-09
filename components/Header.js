@@ -4,7 +4,15 @@ import { atom, useAtom, useSetAtom } from 'jotai';
 import throttle from 'lodash.throttle';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useCallback, useEffect, useId, useRef, useState } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from 'react';
+import { nativeScrollAtom, smoothScrollAtom } from '../atoms/scroll';
 import { mediaAtom, useMediaAtom } from '../lib/agent';
 import {
   createHeaderScrollTrigger,

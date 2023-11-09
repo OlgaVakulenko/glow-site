@@ -130,7 +130,15 @@ function Switches({
   );
 }
 
-function Input({ as = 'input', className, name, value, onChange, ...rest }) {
+function Input({
+  as = 'input',
+  theme = 'footer',
+  className,
+  name,
+  value,
+  onChange,
+  ...rest
+}) {
   const [focused, setFocused] = useState(false);
 
   const Element = useMemo(() => {
@@ -145,11 +153,11 @@ function Input({ as = 'input', className, name, value, onChange, ...rest }) {
     <div className={cx('flex', className)}>
       <Element
         className={cx(
-          'w-full border-b border-checkbox-dark bg-transparent pb-[17px] text-xl font-medium leading-6 text-lblue transition-colors duration-200 placeholder:text-lblue focus:outline-none',
+          'w-full border-b  bg-transparent pb-[17px] text-xl font-medium leading-6 transition-colors duration-200 placeholder:text-current focus:outline-none',
           {
-            '!border-lblue': focused,
-          },
-          {
+            '!border-current': focused,
+            'border-checkbox-dark': theme === 'footer',
+            'border-checkbox-light': theme === 'default',
             'focus:ring-0 focus:ring-offset-0': as === 'textarea',
           }
         )}
@@ -171,10 +179,18 @@ function Input({ as = 'input', className, name, value, onChange, ...rest }) {
   );
 }
 
-export default function FooterForm() {
+export default function FooterForm({
+  isSubmitted,
+  setIsSubmitted,
+  hideToggles = false,
+  theme = 'footer',
+  disablePadding = false,
+  useGrid = true,
+  btnClassName = '',
+  gapSize = '8',
+}) {
   const media = useMediaAtom();
   const [size, setSize] = useState(0);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const formRef = useRef(null);
   const [formHeight, setFormHeight] = useState(504);
 
@@ -208,6 +224,8 @@ export default function FooterForm() {
 
   const rem = useRem();
 
+  console.log('isSubmitted', isSubmitted);
+
   return (
     <div className="relative h-full">
       <Image
@@ -216,27 +234,18 @@ export default function FooterForm() {
         alt=""
       />
       {isSubmitted ? (
-        <div
-          style={{
-            height: rem(formHeight),
-          }}
-          className="flex h-full flex-grow flex-col items-end justify-end text-right text-xl text-lblue xl:text-4xl"
-        >
-          <div className="mb-6 flex space-x-2">
+        <div className="flex h-full flex-grow flex-col items-end justify-end text-right text-xl xl:text-4xl">
+          <div className="flex space-x-6">
             <Image
-              className="h-16 w-16 rounded-[20px] object-cover"
+              className="h-[107px] w-[107px] rounded-[30px] object-cover"
               src={RusImage}
               alt=""
             />
             <Image
-              className="h-16 w-16 rounded-[20px] object-cover"
+              className="h-[107px] w-[107px] rounded-[30px] object-cover"
               src={StasImage}
               alt=""
             />
-          </div>
-          <div className="mb-1 text-heading-h3">Thank you!</div>
-          <div className="text-subtitle-m italic opacity-50">
-            We will contact you ASAP!
           </div>
         </div>
       ) : (
@@ -279,56 +288,85 @@ export default function FooterForm() {
             });
           }}
         >
-          <div className="md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 xl:mb-10 xl:flex xl:flex-col xl:gap-0">
-            <Switches
-              className="-mr-1 mb-12 md:col-span-4 md:mr-0 md:pr-6 xl:mb-10"
-              title="Service"
-              name="service"
-              selected={selectedServices}
-              onChange={setSelectedServices}
-              options={services}
-              multiple={true}
-            />
-            <Switches
-              className="-mr-1 md:col-span-4 md:mr-0"
-              title="Budget"
-              name="budget"
-              selected={selectedBudget}
-              onChange={setSelectedBudget}
-              options={budgets}
-            />
-          </div>
+          {!hideToggles && (
+            <div className="md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 xl:mb-10 xl:flex xl:flex-col xl:gap-0">
+              <Switches
+                className="-mr-1 mb-12 md:col-span-4 md:mr-0 md:pr-6 xl:mb-10"
+                title="Service"
+                name="service"
+                selected={selectedServices}
+                onChange={setSelectedServices}
+                options={services}
+                multiple={true}
+              />
+              <Switches
+                className="-mr-1 md:col-span-4 md:mr-0"
+                title="Budget"
+                name="budget"
+                selected={selectedBudget}
+                onChange={setSelectedBudget}
+                options={budgets}
+              />
+            </div>
+          )}
 
-          <div className="grid gap-8 pb-6 pt-12 md:grid-flow-row md:grid-cols-8">
+          <div
+            className={cx('grid pb-6 md:pb-0', {
+              'text-lblue': theme === 'footer',
+              'md:grid-flow-row md:grid-cols-8': useGrid,
+              'pt-12': !disablePadding,
+              'gap-8': gapSize === '8',
+              'gap-10': gapSize === '10',
+            })}
+          >
             <Input
               name="name"
               placeholder="Your Name"
-              className="md:col-span-4"
+              className={cx({
+                'md:col-span-4': useGrid,
+                'md:col-span-8': !useGrid,
+              })}
+              theme={theme}
             />
             <Input
               name="email"
               placeholder="Email"
-              className="md:col-span-4"
+              className={cx({
+                'md:col-span-4': useGrid,
+                'md:col-span-8': !useGrid,
+              })}
               type="email"
               required
+              theme={theme}
             />
             <Input
               as="textarea"
               className="md:col-span-8"
               name="project-about"
               placeholder="Project details (optional)"
+              theme={theme}
             />
           </div>
-          <div className="md:mt-8 md:flex md:justify-between">
-            <div className="md:max-w-[385px] xl:max-w-[315px]">
-              By sending this form I confirm that I have read and accept the{' '}
+          <div className="md:mt-8 md:flex md:items-start md:justify-between">
+            <div className="text-body-xs md:max-w-[385px] xl:max-w-[315px]">
+              Note that by sending this form you confirm reading and accepting
+              the{' '}
               <Link href="/privacy-policy" className="text-brand">
                 Privacy Policy
               </Link>
             </div>
             <button
               type="submit"
-              className="rolling-text-group mt-8 w-full rounded-full border border-lblue py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 hover:bg-lblue hover:text-black md:mt-0 md:w-fit md:px-9 md:text-xs md:leading-4 4xl:py-4 4xl:text-sm 4xl:leading-6"
+              className={cx(
+                'rolling-text-group mt-8 w-full rounded-full border py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 md:ml-4  md:mt-0 md:w-fit md:px-9 md:text-xs md:leading-4 xl:py-[15px] 4xl:text-sm 4xl:leading-6',
+                {
+                  'border-lblue hover:bg-lblue hover:text-black':
+                    theme === 'footer',
+                  'border-black hover:border-brand hover:bg-brand':
+                    theme === 'default',
+                },
+                btnClassName
+              )}
             >
               <RollingText
                 text="Make me glow"

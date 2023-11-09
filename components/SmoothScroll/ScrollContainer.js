@@ -60,7 +60,7 @@ export default function ScrollContainer({ children }) {
       onUpdate: throttle((e) => {
         const scrollTop = Math.round(Math.abs(e.scrollTop()));
         updateScrollPosition(scrollTop);
-      }, 100),
+      }, 0),
     });
 
     setMounted(true);

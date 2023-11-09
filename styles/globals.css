@@ -420,3 +420,21 @@
   font-size: 32px;
   transform: translate(-50%, -50%);
 }
+
+.trial-ill {
+  /* filter: drop-shadow(0px 0px 24.959999084472656px #FF8280) drop-shadow(0px 0px 49.91999816894531px #FF8280) drop-shadow(0px 0px 174.72000122070312px #FF8280) drop-shadow(0px 0px 349.44000244140625px #FF8280); */
+  /* filter: drop-shadow(0px 0px 24.959999084472656px #FF8280) drop-shadow(0px 0px 49.91999816894531px #FF8280) drop-shadow(0px 0px 174.72000122070312px #FF8280) drop-shadow(0px 0px 349.44000244140625px #FF8280); */
+  box-shadow:
+    0px 0px 24.96px rgba(255, 130, 128, 1),
+    0px 0px 49.92px rgba(255, 130, 128, 1),
+    0px 0px 174.72px rgba(255, 130, 128, 1),
+    0px 0px 349.44px rgba(255, 130, 128, 1),
+    0px 0px 599.04px rgba(255, 130, 128, 1),
+    0px 0px 1048.32px rgba(255, 130, 128, 1);
+
+}
+
+.noise-bg {
+  background: transparent url('/img/Rectangle.png') repeat 0 0;
+  background-repeat: repeat;
+}
