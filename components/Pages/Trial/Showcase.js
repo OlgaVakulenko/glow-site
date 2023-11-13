@@ -15,6 +15,7 @@ import { atom } from 'jotai';
 import { useAtom } from 'jotai';
 import cx from 'clsx';
 import { useSetAtom } from 'jotai';
+import { headerActiveAtom } from '../../Header';
 
 const categories = [
   'Product Design',
@@ -66,7 +67,15 @@ function CategoryItem({ category }) {
   const isActive = currentCategory === category.toLocaleLowerCase();
 
   return (
-    <div className="whitespace-nowrap md:flex md:items-center md:whitespace-normal">
+    <div
+      data-id={category.toLocaleLowerCase()}
+      className={cx(
+        'whitespace-nowrap md:flex md:items-center md:whitespace-normal',
+        {
+          'text-brand': isActive,
+        }
+      )}
+    >
       {media !== 'mobile' && (
         <div
           className={cx('mr-3 opacity-0 transition-opacity duration-200', {
@@ -97,33 +106,63 @@ export default function Showcase() {
   const media = useMediaAtom();
   const triggerRef = useRef();
   const stickyRef = useRef();
-  const setActiveCategory = useSetAtom(currentCategoryAtom);
+  const scrollerRef = useRef();
+  const [activeCategory, setActiveCategory] = useAtom(currentCategoryAtom);
+  const setHeaderActive = useSetAtom(headerActiveAtom);
 
   useEffect(() => {
-    if (media === 'mobile') return;
+    // if (media === 'mobile') return;
     if (!stickyRef.current) return;
     if (!triggerRef.current) return;
+
+    const handleEnter = () => {
+      if (media !== 'mobile') return;
+
+      setHeaderActive(false);
+    };
+
+    const handleLeave = () => {
+      if (media !== 'mobile') return;
+
+      setHeaderActive(true);
+    };
 
     const st = new ScrollTrigger({
       trigger: triggerRef.current,
       pin: stickyRef.current,
-      start: 'top start+=120',
-      end: 'bottom center-=90',
+      pinSpacing: false,
+      start: () => {
+        if (media === 'mobile') {
+          return 'top+=24 top';
+        }
+
+        return 'top start+=120';
+      },
+      end: () => {
+        if (media === 'mobile') {
+          return 'bottom-=88 top';
+        }
+
+        return 'bottom center-=90';
+      },
+      onEnter: handleEnter,
+      onEnterBack: handleEnter,
+      onLeave: handleLeave,
+      onLeaveBack: handleLeave,
     });
 
     return () => {
       st.kill();
     };
-  }, [media]);
+  }, [media, setHeaderActive]);
 
   useEffect(() => {
-    if (media === 'mobile') return;
     const items = Array.from(document.querySelectorAll('.__item'));
-    console.log(items);
 
     const handleEnter = (self) => {
       const id = self.trigger.dataset.id;
       setActiveCategory(id);
+      console.log('needle.active.catchage');
     };
 
     const triggers = items.map((item) => {
@@ -141,16 +180,28 @@ export default function Showcase() {
     };
   }, [setActiveCategory, media]);
 
+  useEffect(() => {
+    if (!scrollerRef.current) return;
+    const el = document.querySelector(`[data-id="${activeCategory}"]`);
+    if (!el) return;
+
+    const pos = el.offsetLeft - scrollerRef.current.offsetLeft - 16;
+    scrollerRef.current.scrollLeft = pos;
+  }, [activeCategory]);
+
   return (
     <Layout className="pb-20">
       <div ref={triggerRef} className="md:flex">
         <div
           ref={stickyRef}
-          className="md:w-[284px] md:shrink-0 md:grow-0 xl:w-[365px]"
+          className="bg-white md:relative md:top-0 md:w-[284px] md:shrink-0 md:grow-0 md:bg-transparent xl:w-[365px]"
         >
           <div className="mb-4 text-body-heading-m md:mb-9">What do we do?</div>
-          <div className="-mx-4 mb-7">
-            <div className="flex space-x-6 overflow-auto px-4 pb-5 text-body-m2 md:grid md:gap-8 md:space-x-0">
+          <div className="-mx-4 mb-7 ">
+            <div
+              ref={scrollerRef}
+              className="flex gap-6 overflow-auto scroll-smooth px-4 pb-5 text-body-m2 md:grid md:gap-8"
+            >
               {categories.map((item) => (
                 <CategoryItem key={item} category={item} />
               ))}
