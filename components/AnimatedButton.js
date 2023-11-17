@@ -25,7 +25,7 @@ export default function AnimatedButton({
   return (
     <Component
       className={cx(
-        'glow-border-brand rolling-text-group relative flex overflow-hidden whitespace-pre-wrap rounded-full px-[19px] py-[14px] text-button-m text-black transition-all duration-500 md:px-8 4xl:px-12 4xl:py-[18px] 4xl:text-sm 4xl:leading-[19px]',
+        'glow-border-brand rolling-text-group relative flex overflow-hidden whitespace-pre-wrap rounded-full px-[19px] py-[14px] text-button-m text-black transition-all duration-500 md:px-[22px] 4xl:px-8 4xl:py-[18px] 4xl:text-sm 4xl:leading-[19px]',
         className
       )}
       {...props}

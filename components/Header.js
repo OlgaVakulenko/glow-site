@@ -519,7 +519,7 @@ export default function Header({
                         //   'glow-border-brand rolling-text-group flex whitespace-pre-wrap rounded-full bg-brand px-[19px] py-[14px] text-button-m text-black transition-all duration-500 4xl:px-8 4xl:py-[18px] 4xl:text-sm 4xl:leading-[19px]'
                         // )}
                       >
-                        Let&apos;s to trial
+                        Start your trial
                         {/* <RollingText
                           height={20}
                           text={`let’s to trial`}
