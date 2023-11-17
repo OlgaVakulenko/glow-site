@@ -8,32 +8,37 @@
     "date": "Dec 27, 2022",
     "read_minutes": "4 min read",
     "href": "why-is-it-important-to-invest-in-your-employees",
-    "tags": ["HR", "Business", "Design"],
+    "tags": [
+      "HR",
+      "Business",
+      "Design"
+    ],
     "paragraphs": [
       {
-        "id": "p6005026515153498",
+        "id": "p3583158074599775",
         "text": "What is Employee Experience?"
       },
       {
-        "id": "p19953409844489255",
+        "id": "p5653382262504825",
         "text": "Main EX components. Why is it important for business?"
       },
       {
-        "id": "p4475090318037966",
+        "id": "p16051798911220438",
         "text": "EX-processes"
       },
       {
-        "id": "p8740125438856761",
+        "id": "p8268239454636017",
         "text": "EX-environment"
       },
       {
-        "id": "p3692815246646983",
+        "id": "p12702478315933318",
         "text": "EX-emotions"
       },
       {
-        "id": "p4914307580190045",
+        "id": "p813053953247229",
         "text": "Steps for positive EX (and happier employees)"
       }
-    ]
+    ],
+    "order": 993
   }
 }

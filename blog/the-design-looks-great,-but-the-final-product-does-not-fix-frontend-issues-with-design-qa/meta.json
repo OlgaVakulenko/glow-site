@@ -8,48 +8,52 @@
     "date": "Jul 18",
     "read_minutes": "6 min read",
     "href": "the-design-looks-great,-but-the-final-product-does-not-fix-frontend-issues-with-design-qa",
-    "tags": ["Process", "Design"],
+    "tags": [
+      "Process",
+      "Design"
+    ],
     "paragraphs": [
       {
-        "id": "p894674281711693",
+        "id": "p4649181920424077",
         "text": "What is Design Quality Assurance and what it has to do with testers?"
       },
       {
-        "id": "p3864741081724148",
+        "id": "p3864863618091417",
         "text": "How to implement Design QA and not make the PM’s life worse?"
       },
       {
-        "id": "p9809268102852625",
+        "id": "p10140777193364569",
         "text": "How to do Design QA step-by-step?"
       },
       {
-        "id": "p11582208343857258",
+        "id": "p9867591297245021",
         "text": "Size and Spacing"
       },
       {
-        "id": "p76755990418312385",
+        "id": "p14119732638905537",
         "text": "Colors"
       },
       {
-        "id": "p659909811683258",
+        "id": "p389922215051971",
         "text": "Missing elements"
       },
       {
-        "id": "p4634568458074617",
+        "id": "p366069107305838",
         "text": "States"
       },
       {
-        "id": "p2621570366137924",
+        "id": "p9891749338090383",
         "text": "Text Styles"
       },
       {
-        "id": "p6835891528726368",
+        "id": "p33243381492153225",
         "text": "UX & Behavior"
       },
       {
-        "id": "p2967845320699385",
+        "id": "p3327206359491126",
         "text": "Bonus: Reduce the Design QA time before the work even started"
       }
-    ]
+    ],
+    "order": 996
   }
 }

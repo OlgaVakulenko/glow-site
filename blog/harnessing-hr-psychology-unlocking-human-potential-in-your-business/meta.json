@@ -8,36 +8,41 @@
     "date": "Sep 12",
     "read_minutes": "3 min read",
     "href": "harnessing-hr-psychology-unlocking-human-potential-in-your-business",
-    "tags": ["HR", "Business", "Process"],
+    "tags": [
+      "HR",
+      "Business",
+      "Process"
+    ],
     "paragraphs": [
       {
-        "id": "p7410142672635613",
+        "id": "p8497327757805931",
         "text": "What is HR Psychology?"
       },
       {
-        "id": "p6690027639467144",
+        "id": "p7180802516964206",
         "text": "Is it worth it for my business?"
       },
       {
-        "id": "p648442946811995",
+        "id": "p5264115224688195",
         "text": "Effective Employee Selection"
       },
       {
-        "id": "p1623764209546028",
+        "id": "p3230839239609278",
         "text": "Training and Development"
       },
       {
-        "id": "p3742718474274744",
+        "id": "p9478348674354282",
         "text": "Performance Management"
       },
       {
-        "id": "p14001504592666292",
+        "id": "p121783777406248",
         "text": "Motivation and Engagement"
       },
       {
-        "id": "p8965892314711268",
+        "id": "p4590471406685655",
         "text": "Organizational Culture"
       }
-    ]
+    ],
+    "order": 998
   }
 }

@@ -8,36 +8,40 @@
     "date": "Oct 3",
     "read_minutes": "4 min read",
     "href": "fintech-without-ai-prepare-to-lose-users-and-profits",
-    "tags": ["Process", "Design"],
+    "tags": [
+      "Process",
+      "Design"
+    ],
     "paragraphs": [
       {
-        "id": "p9470584174653566",
+        "id": "p14296203841669853",
         "text": "The Fintech Landscape: An Era of Innovation"
       },
       {
-        "id": "p10292215174797948",
+        "id": "p32268398743470338",
         "text": "Unleashing the Power of AI in Fintech"
       },
       {
-        "id": "p32161220938543124",
+        "id": "p21122281585322457",
         "text": "Overcoming Challenges with AI Integration"
       },
       {
-        "id": "p4413723212772076",
+        "id": "p3651685984556963",
         "text": "Real-Life Examples and Success Stories"
       },
       {
-        "id": "p7923199767596294",
+        "id": "p293262854441205",
         "text": "Addressing Concerns: Debunking AI Myths"
       },
       {
-        "id": "p21054429551960817",
+        "id": "p8854978032305138",
         "text": "Embrace AI Integration: Stay Ahead of the Curve"
       },
       {
-        "id": "p5698308268680505",
+        "id": "p5824233575937909",
         "text": "Conclusion"
       }
-    ]
+    ],
+    "order": 999
   }
 }

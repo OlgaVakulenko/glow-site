@@ -8,32 +8,37 @@
     "date": "Aug 17",
     "read_minutes": "3 min read",
     "href": "from-brand-recognition-to-market-domination-harnessing-visual-identity-in-product-design",
-    "tags": ["Process", "Business", "Design"],
+    "tags": [
+      "Process",
+      "Business",
+      "Design"
+    ],
     "paragraphs": [
       {
-        "id": "p1214303479529133",
+        "id": "p9919512194001956",
         "text": "Brand Recognition"
       },
       {
-        "id": "p17236765753371365",
+        "id": "p4793203530787937",
         "text": "Appeal and Emotional Impact"
       },
       {
-        "id": "p17407870463646203",
+        "id": "p63234154150381786",
         "text": "Uniformity and Consistency"
       },
       {
-        "id": "p8788138480337364",
+        "id": "p29807125121140743",
         "text": "Differentiate from Competitors"
       },
       {
-        "id": "p4960994363821432",
+        "id": "p5147989310333789",
         "text": "Intuitiveness and Navigation"
       },
       {
-        "id": "p29800484501887237",
+        "id": "p51508525589359786",
         "text": "Identification Chain and Marketing"
       }
-    ]
+    ],
+    "order": 997
   }
 }

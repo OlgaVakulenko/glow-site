@@ -8,36 +8,41 @@
     "date": "Apr 18",
     "read_minutes": "3 min read",
     "href": "how-to-test-a-new-feature-successfully-without-spending-a-cent",
-    "tags": ["Process", "Design", "Business"],
+    "tags": [
+      "Process",
+      "Design",
+      "Business"
+    ],
     "paragraphs": [
       {
-        "id": "p2743869881237382",
+        "id": "p4747338365160729",
         "text": "The major reasons to use hallway testing:"
       },
       {
-        "id": "p3485592076996367",
+        "id": "p13112356402668946",
         "text": "Set clear goals"
       },
       {
-        "id": "p16646590344425593",
+        "id": "p42871644620214625",
         "text": "Get your feature ready for testing"
       },
       {
-        "id": "p5550578822127599",
+        "id": "p34899962927943416",
         "text": "Select your participant"
       },
       {
-        "id": "p10419723305902928",
+        "id": "p8762838639312326",
         "text": "Test it out"
       },
       {
-        "id": "p8470026610331036",
+        "id": "p3925467568651903",
         "text": "Review the feedback"
       },
       {
-        "id": "p6932305633352914",
+        "id": "p8740541170910963",
         "text": "Benefits for a business"
       }
-    ]
+    ],
+    "order": 994
   }
 }

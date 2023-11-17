@@ -61,7 +61,7 @@ fetch(url)
 
         return getPostDataFromHtml(root);
       })
-      .map((post) => {
+      .map((post, index) => {
         const link = post.href;
         return fetch(link)
           .then((res) => res.text())
@@ -94,6 +94,7 @@ fetch(url)
               text,
               tags: transformTags(tags),
               paragraphs,
+              order: 1000 - index,
               href: slugify(post.title, { remove: /[*+~.()'"!:@\?]/g })
                 .toLowerCase()
                 .replaceAll('/', '-')

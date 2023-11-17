@@ -8,24 +8,28 @@
     "date": "Nov 2, 2022",
     "read_minutes": "7 min read",
     "href": "a-product-design-agency-is-too-costly-for-me",
-    "tags": ["Design", "Process"],
+    "tags": [
+      "Design",
+      "Process"
+    ],
     "paragraphs": [
       {
-        "id": "p6796160384677081",
+        "id": "p6916589256557533",
         "text": "Who should I choose?"
       },
       {
-        "id": "p41215458521305416",
+        "id": "p18929481246607204",
         "text": "I want to save time and money"
       },
       {
-        "id": "p9586510886800697",
+        "id": "p4448579477746477",
         "text": "I want my business to grow and bring more profit"
       },
       {
-        "id": "p43230318383572296",
+        "id": "p9029905057534226",
         "text": "Ok, I’ve made my mind. Where should I find specialists?"
       }
-    ]
+    ],
+    "order": 992
   }
 }
