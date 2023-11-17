@@ -4,6 +4,11 @@ import slugify from 'slugify';
 import fs from 'fs/promises';
 import path from 'path';
 import { decodeHTML } from 'entities';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const url = 'https://medium.com/glow-team';
 const blogPath = path.resolve(process.cwd(), 'blog/index.json');
@@ -12,6 +17,35 @@ function decodeString(str) {
   return decodeHTML(str)
     .replace(/&nbsp;/g, ' ')
     .replace(/\u00A0/g, ' ');
+}
+
+function sanitizeFolderName(name) {
+  const illegalRe = /[\/:*?"<>|]/g;
+  return name.replace(illegalRe, '_');
+}
+
+function fileExists(path) {
+  return fs
+    .access(path)
+    .then(() => true)
+    .catch(() => false);
+}
+
+async function createFolder(p) {
+  const folderPath = path.resolve(__dirname, p);
+  const exists = await fileExists(folderPath);
+  console.log('exists', exists);
+  if (!exists) {
+    console.log(folderPath);
+    return fs
+      .mkdir(folderPath)
+      .then(() => {
+        console.log('ok');
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  }
 }
 
 fetch(url)
@@ -70,6 +104,33 @@ fetch(url)
 
     Promise.all(posts)
       .then((posts) => {
+        return Promise.all(
+          posts.map(async (post) => {
+            const folder = path.resolve(__dirname, '../blog/', post.href);
+            await createFolder(folder);
+            const html = post.text;
+            const meta = Object.keys(post)
+              .filter((k) => k !== 'text')
+              .reduce((obj, key) => {
+                obj[key] = post[key];
+                return obj;
+              }, {});
+            await Promise.all([
+              fs.writeFile(
+                path.resolve(folder, 'meta.json'),
+                JSON.stringify(
+                  {
+                    data: meta,
+                  },
+                  null,
+                  2
+                )
+              ),
+              fs.writeFile(path.resolve(folder, 'index.html'), html),
+            ]);
+          })
+        );
+
         return fs.writeFile(
           blogPath,
           JSON.stringify({

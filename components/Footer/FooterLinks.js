@@ -16,14 +16,22 @@ const links = [
     href: 'https://www.linkedin.com/company/glow-team/mycompany/',
     label: 'LinkedIn',
   },
+  {
+    href: 'https://ru.pinterest.com/glow_dsgn/',
+    label: 'Pinterest',
+  },
 ];
 
 export default function FooterLinks({ className = '' }) {
   const width = useInnerWidth();
 
   const _links = useMemo(() => {
-    if (width > 820 && width < 960) {
+    if (width < 1300) {
       return links.slice(0, links.length - 2);
+    }
+
+    if (width > 820 && width < 960) {
+      return links.slice(0, links.length - 3);
     }
 
     return links;
