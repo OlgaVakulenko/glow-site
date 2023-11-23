@@ -225,7 +225,12 @@ export default function CasesSlider3() {
   if (media === 'mobile' && isClient) {
     return (
       <div className="pb-16">
-        <Swiper>
+        <Swiper
+          freeMode={{
+            enabled: true,
+            sticky: true,
+          }}
+        >
           {cases.map((caseItem, i) => (
             <SwiperSlide key={i}>
               <Layout>
