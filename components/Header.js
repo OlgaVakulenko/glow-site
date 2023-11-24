@@ -518,20 +518,8 @@ export default function Header({
                     )} */}
 
                     <Animated delay={(links.length + 1) * 100} immediate>
-                      <AnimatedButton
-                        as={Link}
-                        href="#footer"
-                        // href="/trial"
-                        onClick={handleFooterFormClick}
-                        // className={cx(
-                        //   'glow-border-brand rolling-text-group flex whitespace-pre-wrap rounded-full bg-brand px-[19px] py-[14px] text-button-m text-black transition-all duration-500 4xl:px-8 4xl:py-[18px] 4xl:text-sm 4xl:leading-[19px]'
-                        // )}
-                      >
-                        Start your trial
-                        {/* <RollingText
-                          height={20}
-                          text={`let’s to trial`}
-                        ></RollingText> */}
+                      <AnimatedButton as={Link} href="/trial">
+                        Start free trial
                       </AnimatedButton>
                     </Animated>
                   </div>

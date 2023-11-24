@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 // import FacebookPixel from './FacebookPixel';
 import GTag from './GTag';
 import Hotjar from './Hotjar';
+import Leadfeed from './Leadfeed';
 import Linkedin from './Linkedin';
 // import MixPanel from './MixPanel';
 const MixPanel = dynamic(() => import('./MixPanel'), {
@@ -96,6 +97,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <MixPanel />
       </WhenIdle>
       <Linkedin />
+      <Leadfeed />
     </>
   );
 }

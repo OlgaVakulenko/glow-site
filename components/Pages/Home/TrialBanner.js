@@ -65,16 +65,17 @@ export default function TrialBanner() {
           </div>
           <div className="relative flex w-full items-center">
             <div className="w-full items-center justify-between md:flex md:h-full">
-              <div className="pt-[138px] font-glow text-[46px] font-medium leading-[49px] tracking-[-2px] text-lblue md:mb-0 md:max-w-[307px] md:pt-0  xl:text-heading-h2-2">
-                Glow Trial <br />
-                Phase
+              <div className="mb-3 pt-[78px] font-glow text-[46px] font-medium leading-[49px] tracking-[-2px] text-lblue md:mb-0 md:max-w-[420px] md:pt-0 xl:text-heading-h2-2">
+                Start 3 free
+                <br /> days trial period
               </div>
               <div className="md:max-w-[413px] md:self-end md:pb-4 md:pr-10 xl:max-w-[450px]">
                 <div className="mb-[41px] text-xl italic leading-[27px] text-lblue opacity-50 md:mb-8 md:text-subtitle-l 4xl:mb-12 4xl:text-[26px]">
-                  Check out how we make ideas glow click-by-click.
+                  Let&apos;s explore what we can do for your product during the
+                  trial period.
                 </div>
                 <AnimatedButton className="uppercase md:px-[44px]">
-                  Book free slot
+                  Start free trial
                 </AnimatedButton>
                 {/* <button
                   tabIndex="-1"
