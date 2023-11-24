@@ -54,7 +54,10 @@ export default function Footer2({
                   <div>
                     {footerStyle === 'trial' && (
                       <div>
-                        <SlotsLeftButton className="mb-8 mt-5 md:mb-9 md:mt-0" />
+                        <SlotsLeftButton
+                          type="footer"
+                          className="mb-8 mt-5 md:mb-9 md:mt-0"
+                        />
                       </div>
                     )}
                     {footerStyle === 'trial' ? (
@@ -86,6 +89,7 @@ export default function Footer2({
                 hideToggles={hideToggles}
                 isSubmitted={isSubmitted}
                 setIsSubmitted={setIsSubmitted}
+                footerStyle={footerStyle}
               />
             </div>
           </div>

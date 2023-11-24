@@ -35,6 +35,7 @@ export default function Trial() {
         </div>
         <Animated delay={200} immediate className="text-black md:col-span-4">
           <FooterForm
+            footerStyle="trial"
             hideToggles={true}
             theme="default"
             disablePadding={true}

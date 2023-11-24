@@ -5,6 +5,7 @@ import RollingText from './RollingText';
 export default function AnimatedButton({
   as = 'button',
   className,
+  bgClassName,
   children,
   ...props
 }) {
@@ -30,7 +31,12 @@ export default function AnimatedButton({
       )}
       {...props}
     >
-      <div className="absolute inset-0 origin-left-center animate-btn-reveal rounded-full bg-brand"></div>
+      <div
+        className={cx(
+          'absolute inset-0 origin-left-center animate-btn-reveal rounded-full bg-brand',
+          bgClassName
+        )}
+      ></div>
       <div className="overflow-hidden">
         <div className="relative animate-btn-reveal-txt">
           <Wrapper>{children}</Wrapper>

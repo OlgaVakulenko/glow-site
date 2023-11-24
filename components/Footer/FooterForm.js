@@ -188,6 +188,7 @@ export default function FooterForm({
   useGrid = true,
   btnClassName = '',
   gapSize = '8',
+  footerStyle,
 }) {
   const media = useMediaAtom();
   const [size, setSize] = useState(0);
@@ -364,12 +365,15 @@ export default function FooterForm({
                     theme === 'footer',
                   'border-black hover:border-brand hover:bg-brand':
                     theme === 'default',
+                  'min-w-[200px]': footerStyle === 'trial',
                 },
                 btnClassName
               )}
             >
               <RollingText
-                text="Make me glow"
+                text={
+                  footerStyle === 'trial' ? 'Start free trial' : 'Make me glow'
+                }
                 height={
                   size >= 1800
                     ? 24

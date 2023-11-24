@@ -29,7 +29,10 @@ const items = [
 
 export default function Info() {
   return (
-    <Layout className="pb-20">
+    <Layout className="pb-20 pt-10">
+      <h2 className="mb-9 font-glow text-heading-h3 md:mb-16 md:text-heading-h2-2">
+        Frequently asked questions
+      </h2>
       <div className="grid gap-10 md:grid-cols-2 md:gap-16 xl:grid-cols-3">
         {items.map((item) => (
           <div key={item.q}>
