@@ -21,7 +21,10 @@ export default function SlotsLeftButton({ type = 'default', className }) {
   return (
     <AnimatedButton
       as="div"
-      className={cx(className, 'inline-flex font-sans uppercase !text-brand')}
+      className={cx(
+        className,
+        'inline-flex select-none font-sans uppercase !text-brand'
+      )}
       bgClassName={cx({
         '!bg-lred': type === 'default',
         '!bg-[rgba(227,50,48,0.1)]': type === 'footer',

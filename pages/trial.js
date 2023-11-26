@@ -10,8 +10,11 @@ import Steps from '../components/Pages/Trial/Steps';
 import { Subheading2 } from '../components/Typography/Subheading';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 import SlotsLeftButton from '../components/Pages/Trial/SlotsLeftButton';
+import { useRouter } from 'next/router';
 
 export default function Trial() {
+  const router = useRouter();
+
   return (
     <main className="pt-[135px] md:pt-[168px] xl:pt-[224px]">
       <Layout className="pb-12 md:grid md:grid-flow-col md:grid-cols-8 md:gap-6">
@@ -42,6 +45,9 @@ export default function Trial() {
             useGrid={false}
             btnClassName="md:min-w-[170px]"
             gapSize="10"
+            setIsSubmitted={() => {
+              router.push('/form-success');
+            }}
           />
         </Animated>
       </Layout>

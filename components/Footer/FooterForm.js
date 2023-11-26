@@ -236,17 +236,25 @@ export default function FooterForm({
       />
       {isSubmitted ? (
         <div className="flex h-full flex-grow flex-col items-end justify-end text-right text-xl xl:text-4xl">
-          <div className="flex space-x-6">
+          <div className="mb-6 flex space-x-2 md:mb-9">
             <Image
-              className="h-[107px] w-[107px] rounded-[30px] object-cover"
+              className="h-[64px] w-[64px] rounded-[20px] object-cover md:h-[72px] md:w-[72px]"
               src={RusImage}
               alt=""
             />
             <Image
-              className="h-[107px] w-[107px] rounded-[30px] object-cover"
+              className="h-[64px] w-[64px] rounded-[20px] object-cover md:h-[72px] md:w-[72px]"
               src={StasImage}
               alt=""
             />
+          </div>
+          <div>
+            <h3 className="font-glow text-heading-h3 md:mb-2 md:text-heading-h3">
+              Thank you!
+            </h3>
+            <div className="text-subtitle-m italic opacity-50">
+              We will contact you ASAP!
+            </div>
           </div>
         </div>
       ) : (
