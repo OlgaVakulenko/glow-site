@@ -55,7 +55,7 @@ function Photo({
   return (
     <Animated
       className={cx(
-        'clip-content group mb-[73px] min-w-[256px] overflow-hidden last:mb-0 xl:mx-14',
+        'group mb-[73px] min-w-[256px] overflow-hidden last:mb-0 xl:mx-14',
         {
           'ml-auto md:mt-[126px] xl:!mr-auto': align === 'right',
           'xl:!ml-auto': align === 'left',

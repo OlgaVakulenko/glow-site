@@ -41,7 +41,7 @@ function Profile({ image, name, position, animated = true, index = 0 }) {
       delay={index * 50}
       className="group flex w-[208px] flex-col md:w-full xl:max-w-full"
     >
-      <div className="clip-content relative mb-6 w-full max-w-[208px] overflow-hidden rounded-3xl pb-[100%] md:max-w-full">
+      <div className="relative mb-6 w-full max-w-[208px] overflow-hidden rounded-3xl pb-[100%] md:max-w-full">
         <Image
           src={image}
           alt=""

@@ -354,6 +354,10 @@
   clip-path: content-box;
 }
 
+.bg-dim2 {
+  background: linear-gradient(180deg, #F3F2F4 10.42%, rgba(243, 242, 244, 0.00) 100%);
+}
+
 .rounded-3xl {
   border-radius: 26px;
 }

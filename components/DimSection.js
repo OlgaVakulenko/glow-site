@@ -31,7 +31,7 @@ export default function DimSection({ className, children }) {
   }, []);
 
   return (
-    <div ref={ref} className={cx('bg-dim', className)}>
+    <div ref={ref} className={cx('bg-dim2', className)}>
       {children}
     </div>
   );

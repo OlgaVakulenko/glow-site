@@ -9,6 +9,7 @@ import React, {
   useEffect,
   useId,
   useLayoutEffect,
+  useMemo,
   useRef,
   useState,
 } from 'react';
@@ -421,6 +422,10 @@ export default function Header({
 
   const handleFooterFormClick = useHandleFooterFormClick();
 
+  const isTrialVisible = useMemo(() => {
+    return router.pathname !== '/trial';
+  }, [router.pathname]);
+
   return (
     <div ref={rootRef}>
       <div className={cx('fixed top-0 z-10 w-full')}>
@@ -517,11 +522,24 @@ export default function Header({
                       </Animated>
                     )} */}
 
-                    <Animated delay={(links.length + 1) * 100} immediate>
-                      <AnimatedButton as={Link} href="/trial">
-                        Start free trial
-                      </AnimatedButton>
-                    </Animated>
+                    <div
+                      className={cx(
+                        'opacity-100 transition-opacity delay-500',
+                        {
+                          '!opacity-0 !delay-0': isTrialVisible
+                            ? false
+                            : !isTop
+                            ? false
+                            : true,
+                        }
+                      )}
+                    >
+                      <Animated delay={(links.length + 1) * 100} immediate>
+                        <AnimatedButton as={Link} href="/trial">
+                          Start free trial
+                        </AnimatedButton>
+                      </Animated>
+                    </div>
                   </div>
                 ))}
               {headerRightSlot ? null : (

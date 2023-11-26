@@ -239,7 +239,7 @@ export default function Business() {
                 x2="1.27184"
                 y2="134.971"
                 stroke="black"
-                stroke-width="0.997285"
+                strokeWidth="0.997285"
               />
             </svg>
           </div>
