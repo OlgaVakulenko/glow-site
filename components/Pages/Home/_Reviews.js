@@ -271,6 +271,13 @@ export default function Reviews() {
   return (
     <DragCursorContainer>
       <Swiper
+        // freeMode={{
+        //   enabled: true,
+        //   sticky: true,
+        //   // momentum: false,
+        //   minimumVelocity: 1500,
+        // }}
+        // mousewheel={true}
         speed={500}
         // grabCursor={true}
         autoplay={{

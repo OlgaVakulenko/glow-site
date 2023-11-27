@@ -7,8 +7,9 @@ import Layout from '../../Layout';
 import { useMediaAtom } from '../../../lib/agent';
 import { atom } from 'jotai';
 import { useAtom } from 'jotai';
-import { useEffect, useLayoutEffect, useMemo, useRef } from 'react';
+import { forwardRef, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import { useSetAtom } from 'jotai';
+import Animated from '../../Animated';
 
 const steps = [
   {
@@ -42,8 +43,8 @@ function StepContainer({ className, children }) {
 }
 
 const titleHeightAtom = atom([]);
-function Step({ title, description, index, className }) {
-  const ref = useRef();
+const Step = forwardRef(({ title, description, index, className }, ref) => {
+  const elRef = useRef();
   const [h, setH] = useAtom(titleHeightAtom);
   const refH = useRef(h);
 
@@ -53,8 +54,8 @@ function Step({ title, description, index, className }) {
 
   useEffect(() => {
     const handleResize = () => {
-      if (!ref.current) return;
-      const elHeight = ref.current.offsetHeight;
+      if (!elRef.current) return;
+      const elHeight = elRef.current.offsetHeight;
       setH((heights) => [...heights, elHeight]);
     };
 
@@ -74,6 +75,7 @@ function Step({ title, description, index, className }) {
 
   return (
     <div
+      ref={ref}
       className={cx(
         'h-full rounded-2xl bg-white px-6 pb-8 pt-6 md:h-auto',
         className
@@ -92,14 +94,14 @@ function Step({ title, description, index, className }) {
           minHeight: rem(maxH),
         }}
       >
-        <div ref={ref}>{title}</div>
+        <div ref={elRef}>{title}</div>
       </div>
       <div className="text-body-s" style={{ textWrap: 'balance' }}>
         {description}
       </div>
     </div>
   );
-}
+});
 
 export default function Steps() {
   const setHeight = useSetAtom(titleHeightAtom);
@@ -118,7 +120,7 @@ export default function Steps() {
   }, []);
 
   return (
-    <div className="pb-[77px] md:pb-[120px] xl:pb-[107px]">
+    <Animated className="pb-[77px] md:pb-[120px] xl:pb-[107px]">
       <div className="bg-[#F3F2F4] pb-20 pt-20 md:mx-4 md:rounded-[32px] md:pb-6 md:pt-8 xl:pb-8 xl:pt-10">
         <div className="px-4 md:px-6 xl:px-8">
           <h3 className="mb-6 font-glow text-heading-h3 xl:mb-8">
@@ -152,18 +154,20 @@ export default function Steps() {
           // <Layout>
           <StepContainer className="flex md:space-x-2 md:px-6 xl:space-x-8 xl:px-8">
             {steps.map((step, i) => (
-              <Step
-                key={i}
+              <Animated
+                as={Step}
                 index={i}
                 title={step.title}
                 description={step.description}
                 className="grow basis-0"
-              />
+                key={i}
+                delay={100 * i}
+              ></Animated>
             ))}
           </StepContainer>
           // </Layout>
         )}
       </div>
-    </div>
+    </Animated>
   );
 }

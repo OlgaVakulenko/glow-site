@@ -7,6 +7,7 @@ import SliderProgress from '../../SliderProgress';
 import casesData from '../Cases/data';
 import { ClutchRating } from './_Reviews';
 import { Mousewheel } from 'swiper/modules';
+import { FreeMode } from 'swiper/modules';
 
 const reviews = [
   {
@@ -307,10 +308,16 @@ export default function Reviews() {
               speed: 200,
             },
           }}
+          // mousewheel={{
+          //   invert: true,
+          //   forceToAxis: true,
+          //   sensitivity: 0.1,
+          // }}
           mousewheel={{
             invert: true,
             forceToAxis: true,
             sensitivity: 0.1,
+            thresholdDelta: 10,
           }}
           modules={[Mousewheel]}
         >
