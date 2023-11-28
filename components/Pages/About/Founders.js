@@ -27,16 +27,16 @@ export default function Founders() {
           img={Rus}
           name="Rus Mashatov"
           position="Co-Founder & Lead Designer"
-          linkedin="#"
-          medium="#"
+          linkedin="https://www.linkedin.com/in/ruslan-mashatov-0b794aa9/"
+          medium="https://medium.com/@ruslanmashatov"
         />
         <Photo
           img={Stas}
           name="Stas Kovalsky"
           position="Co-Founder & Lead Designer"
           align="right"
-          linkedin="#"
-          medium="#"
+          linkedin="https://www.linkedin.com/in/staskovalsky/"
+          medium="https://medium.com/@stas_k"
         />
       </div>
     </Section>
