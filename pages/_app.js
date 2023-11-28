@@ -9,6 +9,7 @@ import LoadingProgress from '../components/LoadingProgress';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 import StructuredData from '../components/StructuredData';
 import { useMedia } from '../lib/agent';
+import { useReferrer } from '../lib/utils';
 import '../styles/globals.css';
 
 export const routerHistory = atom([]);
@@ -40,6 +41,8 @@ function MyApp({ Component, pageProps }) {
   }, [updateValue]);
 
   useMedia();
+
+  useReferrer();
 
   useEffect(() => {
     const onRouteChange = (url) => {

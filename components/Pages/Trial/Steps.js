@@ -124,7 +124,7 @@ export default function Steps() {
 
   return (
     <Animated className="pb-[77px] md:pb-[120px] xl:pb-[107px]">
-      <div className="bg-[#F3F2F4] pb-20 pt-20 md:mx-4 md:rounded-[32px] md:pb-6 md:pt-8 xl:pb-8 xl:pt-10">
+      <div className="bg-[#F3F2F4] pb-20 pt-20 md:mx-4 md:rounded-[32px] md:pb-6 md:pt-8 xl:mx-14 xl:pb-8 xl:pt-10 4xl:mx-[120px]">
         <div className="px-4 md:px-6 xl:px-8">
           <h3 className="mb-6 font-glow text-heading-h3 xl:mb-8">
             Step-by-step process for trial period
