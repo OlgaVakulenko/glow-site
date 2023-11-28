@@ -153,7 +153,7 @@ function Input({
     <div className={cx('flex', className)}>
       <Element
         className={cx(
-          'w-full border-b  bg-transparent pb-[17px] text-xl font-medium leading-6 transition-colors duration-200 placeholder:text-current focus:outline-none',
+          'w-full border-b  bg-transparent pb-[17px] text-xl font-medium leading-6 transition-colors duration-200 placeholder:text-current placeholder:transition-opacity focus:outline-none focus:placeholder:opacity-60',
           {
             '!border-current': focused,
             'border-checkbox-dark': theme === 'footer',
