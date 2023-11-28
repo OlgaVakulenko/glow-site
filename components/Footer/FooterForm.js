@@ -356,7 +356,7 @@ export default function FooterForm({
               theme={theme}
             />
           </div>
-          <div className="md:mt-8 md:flex md:items-start md:justify-between">
+          <div className="md:mt-8 md:flex md:items-start md:justify-between md:space-x-4">
             <div className="text-body-xs md:max-w-[385px] xl:max-w-[315px]">
               Note that by sending this form you confirm reading and accepting
               the{' '}
@@ -367,13 +367,15 @@ export default function FooterForm({
             <button
               type="submit"
               className={cx(
-                'rolling-text-group mt-8 w-full rounded-full border py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 md:ml-4  md:mt-0 md:w-fit md:px-9 md:text-xs md:leading-4 xl:py-[15px] 4xl:text-sm 4xl:leading-6',
+                'rolling-text-group mt-8 w-full shrink-0 rounded-full border py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 md:mt-0 md:w-fit md:px-9 md:text-xs md:leading-4 xl:py-[15px] 4xl:text-sm 4xl:leading-6',
                 {
                   'border-lblue hover:bg-lblue hover:text-black':
                     theme === 'footer',
                   'border-black hover:border-brand hover:bg-brand':
                     theme === 'default',
-                  'min-w-[200px]': footerStyle === 'trial',
+                  'min-w-[200px] ': footerStyle === 'trial',
+                  'border-brand bg-brand':
+                    footerStyle === 'trial' && theme === 'default',
                 },
                 btnClassName
               )}

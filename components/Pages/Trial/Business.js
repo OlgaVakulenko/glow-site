@@ -25,8 +25,12 @@ const listItems = [
     items: [
       {
         title: 'Duration',
-        description:
-          '2 weeks = 10 workdays (with the 3 first days out of charge)',
+        description: (
+          <>
+            2 weeks = 10 workdays <br />
+            (with the 3 first days out of charge)
+          </>
+        ),
       },
     ],
   },
@@ -206,7 +210,7 @@ function Illustration() {
 
 function Illustration2() {
   return (
-    <div className="relative -mt-16 md:absolute md:left-1/2 md:right-4 md:top-1/2 md:w-[367px] md:max-w-[380px] md:-translate-x-1/2 md:-translate-y-[35%]">
+    <div className="relative left-[-25%] w-[150%] pb-20 pt-10 md:absolute md:left-1/2 md:right-4 md:top-1/2 md:w-full md:max-w-[576px] md:-translate-x-1/2 md:-translate-y-[35%] md:pb-0 md:pt-0">
       <Image src={TrialIll} alt="" />
     </div>
   );
@@ -218,7 +222,7 @@ function TextSpan({ children }) {
 
 export default function Business() {
   return (
-    <div className="md:pb-20 xl:px-20">
+    <div className="overflow-hidden md:pb-20 xl:px-20">
       <Layout className="relative z-[1]">
         <div className="mb-20 md:mb-28 md:flex md:items-center md:justify-between md:space-x-8 xl:mb-[72px]">
           <div className="mb-8 flex space-x-2 md:mb-0 md:shrink-0 md:space-x-4 xl:space-x-6">
@@ -243,12 +247,11 @@ export default function Business() {
               />
             </svg>
           </div>
-          <div className="text-2xl font-medium leading-8 md:max-w-[600px] md:leading-9">
-            Does <TextSpan>your product</TextSpan> need an additional spark? Or
-            are you just <TextSpan>preparing your startup</TextSpan> to shoot
-            for the stars? Whatever the case, we are eager to{' '}
-            <TextSpan>help you make your product glow</TextSpan> with our{' '}
-            <TextSpan>2-week trial</TextSpan> period.
+          <div className="text-2xl leading-8 md:max-w-[600px] md:leading-9">
+            Does your product need an additional spark? Or are you just
+            preparing your startup to shoot for the stars? Whatever the case, we
+            are eager to help you make your product glow with our 2-week trial
+            period.
           </div>
         </div>
         <div className="md:flex">

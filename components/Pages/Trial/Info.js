@@ -39,7 +39,7 @@ export default function Info() {
             <div className="mb-4 text-2xl font-medium tracking-[0.48px]">
               {item.q}
             </div>
-            <div className="text-body-m2">{item.a}</div>
+            <div className="text-pretty text-body-m2">{item.a}</div>
           </div>
         ))}
       </div>

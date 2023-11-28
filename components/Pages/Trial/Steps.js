@@ -96,7 +96,7 @@ const Step = forwardRef(({ title, description, index, className }, ref) => {
       >
         <div ref={elRef}>{title}</div>
       </div>
-      <div className="text-body-s" style={{ textWrap: 'balance' }}>
+      <div className="text-body-s" style={{ textWrap: 'pretty' }}>
         {description}
       </div>
     </div>

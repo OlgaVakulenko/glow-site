@@ -10,12 +10,13 @@ import LendflowImgXl from './assets/lendflow-xl.png';
 import Image, { resolve, Source } from '../../Image';
 import { useMediaAtom } from '../../../lib/agent';
 import { useEffect, useRef } from 'react';
-import { ScrollTrigger } from '../../../dist/gsap';
+import gsap, { ScrollTrigger } from '../../../dist/gsap';
 import { atom } from 'jotai';
 import { useAtom } from 'jotai';
 import cx from 'clsx';
 import { useSetAtom } from 'jotai';
 import { headerActiveAtom } from '../../Header';
+import { useRefValue } from '../../../lib/utils';
 
 const categories = [
   'Product Design',
@@ -37,7 +38,7 @@ const items = [
     title: 'Lendflow',
     description: `A software development company that provides embedded credit infrastructure.`,
     tags: ['product design', 'ui', 'ux'],
-    id: 'product design',
+    id: 'mobile design',
     image: LendflowImgMobile,
     imageXl: LendflowImgXl,
   },
@@ -45,7 +46,7 @@ const items = [
     title: 'Beast Tesla Rent',
     description: `Latvia's largest digital bank New vision identity, update UX & UI`,
     tags: ['mobile design', 'product design', 'ui', 'ux'],
-    id: 'mobile design',
+    id: 'web design',
     image: BeastImgMobile,
     imageXl: BeastImgXl,
   },
@@ -60,14 +61,21 @@ const items = [
 ];
 
 const currentCategoryAtom = atom(categories[0].toLocaleLowerCase());
+const isTransitionAtom = atom(false);
 
 function CategoryItem({ category }) {
   const media = useMediaAtom();
-  const [currentCategory] = useAtom(currentCategoryAtom);
+  const [currentCategory, setCurrentCategory] = useAtom(currentCategoryAtom);
+  const setIsTransition = useSetAtom(isTransitionAtom);
   const isActive = currentCategory === category.toLocaleLowerCase();
 
   return (
-    <div
+    <button
+      onClick={(e) => {
+        e.preventDefault();
+        setIsTransition(true);
+        setCurrentCategory(category.toLocaleLowerCase());
+      }}
       data-id={category.toLocaleLowerCase()}
       className={cx(
         'whitespace-nowrap md:flex md:items-center md:whitespace-normal',
@@ -98,7 +106,7 @@ function CategoryItem({ category }) {
       )}
 
       {category}
-    </div>
+    </button>
   );
 }
 
@@ -109,6 +117,8 @@ export default function Showcase() {
   const scrollerRef = useRef();
   const [activeCategory, setActiveCategory] = useAtom(currentCategoryAtom);
   const setHeaderActive = useSetAtom(headerActiveAtom);
+  const [isTransition, setIsTransition] = useAtom(isTransitionAtom);
+  const isTransitionRef = useRefValue(isTransition);
 
   useEffect(() => {
     // if (media === 'mobile') return;
@@ -149,6 +159,7 @@ export default function Showcase() {
       onEnterBack: handleEnter,
       onLeave: handleLeave,
       onLeaveBack: handleLeave,
+      // markers: true,
     });
 
     return () => {
@@ -157,9 +168,13 @@ export default function Showcase() {
   }, [media, setHeaderActive]);
 
   useEffect(() => {
+    if (isTransition) return;
+
     const items = Array.from(document.querySelectorAll('.__item'));
 
     const handleEnter = (self) => {
+      if (isTransitionRef.current) return;
+
       const id = self.trigger.dataset.id;
       setActiveCategory(id);
       console.log('needle.active.catchage');
@@ -181,13 +196,32 @@ export default function Showcase() {
   }, [setActiveCategory, media]);
 
   useEffect(() => {
+    if (!isTransition) return;
+
+    console.log('activeCategory', `[data-id="${activeCategory}"]`);
+
+    gsap.to(window, {
+      duration: 0.3,
+      scrollTo: {
+        y: `.__item[data-id="${activeCategory}"]`,
+        offsetY: 60,
+      },
+      onComplete: () => {
+        setTimeout(() => {
+          setIsTransition(false);
+        }, 200);
+      },
+    });
+  }, [isTransition, activeCategory]);
+
+  useEffect(() => {
     if (!scrollerRef.current) return;
     const el = document.querySelector(`[data-id="${activeCategory}"]`);
     if (!el) return;
 
     const pos = el.offsetLeft - scrollerRef.current.offsetLeft - 16;
     scrollerRef.current.scrollLeft = pos;
-  }, [activeCategory]);
+  }, [activeCategory, isTransition]);
 
   return (
     <Layout className="pb-20">

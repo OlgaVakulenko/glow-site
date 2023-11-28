@@ -31,7 +31,7 @@ export default function Footer2({
             {
               '4xl:px-24 4xl:py-[120px]': footerStyle === 'default',
               'xl:pt-14': footerStyle === 'trial',
-              'h-full !pb-8': isSubmitted,
+              'h-full !pb-8 md:!pb-20 xl:!p-20': isSubmitted,
             }
           )}
         >
@@ -76,7 +76,8 @@ export default function Footer2({
               </div>
               {isSubmitted ? (
                 <div className="mt-6 text-subtitle-m italic opacity-50 md:text-body-m xl:text-body-m">
-                  We&apos;ll make you shine
+                  Our team will get back to you within 12-24 hours{' '}
+                  <span className="not-italic">🙌</span>
                 </div>
               ) : null}
             </div>

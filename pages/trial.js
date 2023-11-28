@@ -11,12 +11,16 @@ import { Subheading2 } from '../components/Typography/Subheading';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 import SlotsLeftButton from '../components/Pages/Trial/SlotsLeftButton';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 export default function Trial() {
   const router = useRouter();
 
   return (
     <main className="pt-[135px] md:pt-[168px] xl:pt-[224px]">
+      <Head>
+        <title>First 3 trial days for free! by Glow Team</title>
+      </Head>
       <Layout className="pb-12 md:grid md:grid-flow-col md:grid-cols-8 md:gap-6">
         <div className="pb-10 md:col-span-4">
           <SlotsLeftButton className="mb-9 md:mb-[59px] xl:mb-[54px]" />
@@ -32,7 +36,7 @@ export default function Trial() {
               xlClassName="xl:text-subtitle-m xl:max-w-[410px]"
             >
               Check how our design matches your vision with a&nbsp;2&#8209;week
-              trial period*
+              trial period
             </Subheading2>
           </Animated>
         </div>
