@@ -43,7 +43,10 @@ function StepContainer({ className, children }) {
 }
 
 const titleHeightAtom = atom([]);
-const Step = forwardRef(({ title, description, index, className }, ref) => {
+const Step = forwardRef(function Step(
+  { title, description, index, className },
+  ref
+) {
   const elRef = useRef();
   const [h, setH] = useAtom(titleHeightAtom);
   const refH = useRef(h);
