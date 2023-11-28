@@ -40,6 +40,8 @@ function formHandler() {
   $project_about = post('project-about');
   $budget = post('budget');
   $email = post('email');
+  $source = post('source');
+  $query = post('query');
   //honeypot
   $phonenumber = post('phonenumber');
 
@@ -62,6 +64,8 @@ function formHandler() {
     'person_id' => $contactId,
     'bd0449a7ade1fa104321ebfe32832776893aba00' => $budget,
     'dcd8f5c002e8a113ae120c6b678939ae1f2ef26a' => $project . '; ' . $project_about,
+    '7cf4f42f1176eb222897785f57283aa4103dc48e' => $source,
+    'ae1b7802a994f39f8ae8801ede19c6a6fa15f7eb' => $query,
     'add_time' => date('Y-m-d H:i:s'),
   ]);
 

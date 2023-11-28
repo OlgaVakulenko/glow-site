@@ -3,17 +3,32 @@ import cx from 'clsx';
 import { useIsClient } from '../../../lib/utils';
 import { useEffect, useState } from 'react';
 
+function getNextMonthDate() {
+  var currentDate = new Date();
+  var nextMonth = currentDate.getMonth() + 1;
+  var year = currentDate.getFullYear();
+
+  if (nextMonth > 11) {
+    nextMonth = 0; // January is 0
+    year += 1;
+  }
+
+  return new Date(year, nextMonth, currentDate.getDate());
+}
+
 export default function SlotsLeftButton({ type = 'default', className }) {
   const [text, setText] = useState('');
   const isMounted = useIsClient();
 
   useEffect(() => {
-    const d = new Date();
-    const monthIndex = d.getMonth() + 1;
+    let d = new Date();
+    const day = d.getDate();
+    if (day > 25) {
+      d = getNextMonthDate();
+    }
     const month = d.toLocaleString('en-US', { month: 'long' });
-    const slotsLeft = (monthIndex % 3) + 2;
 
-    setText(`${slotsLeft} slots available in ${month}`);
+    setText(`5 slots available in ${month}`);
   }, []);
 
   if (!isMounted || !text) return null;

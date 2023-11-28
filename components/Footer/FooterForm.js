@@ -280,7 +280,7 @@ export default function FooterForm({
               data.append('services[]', service);
             });
 
-            data.append('referrer', referrerRef.current || '');
+            data.append('source', referrerRef.current || '');
             data.append('query', queryRef.current || '');
 
             Promise.race([
