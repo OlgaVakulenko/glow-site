@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
+import Chat from './Chat';
 // import Amplitude from './Amplitude';
 // import FacebookPixel from './FacebookPixel';
 import GTag from './GTag';
@@ -98,6 +99,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </WhenIdle>
       <Linkedin />
       <Leadfeed />
+      <Chat />
     </>
   );
 }

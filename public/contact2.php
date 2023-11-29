@@ -94,6 +94,8 @@ function emailNotification() {
   $project_about = post('project-about');
   $budget = post('budget');
   $email = post('email');
+  $source = post('source');
+  $query = post('query');
   //honeypot
   $phonenumber = post('phonenumber');
   
@@ -108,7 +110,7 @@ function emailNotification() {
     $mailer->Port = 465;
     $mailer->SMTPSecure = 'ssl';
     $mailer->setFrom('hello@glow.team', 'Glow Team');
-    // $mailer->addAddress('sergey.bogdan.vi@gmail.com');
+    $mailer->addAddress('sergey.bogdan.vi@gmail.com');
     $mailer->addAddress('hello@glow.team');
     $mailer->addAddress('rusmashatov@gmail.com');
     $mailer->addAddress('chr99272@gmail.com');
@@ -121,6 +123,8 @@ function emailNotification() {
       'Project Type' => $project,
       'Project About' => $project_about,
       'Budget' => $budget,
+      'Source' => $source,
+      'Query' => $query,
     ];
     $msg = '';
     foreach ($message as $key => $value) {

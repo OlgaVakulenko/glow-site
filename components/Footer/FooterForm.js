@@ -14,7 +14,7 @@ import { useMedia, useMediaAtom } from '../../lib/agent';
 import debounce from 'lodash.debounce';
 import { event } from '../Analytics/MixPanel';
 import PageHeading from '../PageHeading';
-import { useReferrer, useRem } from '../../lib/utils';
+import { getReferrer, useReferrer, useRem } from '../../lib/utils';
 import RusImage from '../Pages/About/assets/rus-2.png';
 import StasImage from '../Pages/About/assets/stas-k.png';
 import Image from '../Image';
@@ -194,7 +194,10 @@ export default function FooterForm({
   const [size, setSize] = useState(0);
   const formRef = useRef(null);
   const [formHeight, setFormHeight] = useState(504);
-  const [referrerRef, queryRef] = useReferrer();
+  const [referrer, query] = getReferrer();
+
+  console.log('ref', referrer);
+  console.log('q', query);
 
   useEffect(() => {
     const onResize = debounce(() => {
@@ -280,8 +283,8 @@ export default function FooterForm({
               data.append('services[]', service);
             });
 
-            data.append('source', referrerRef.current || '');
-            data.append('query', queryRef.current || '');
+            data.append('source', referrer || 'Direct');
+            data.append('query', query || '');
 
             Promise.race([
               fetch('/contact2.php', {
