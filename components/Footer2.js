@@ -14,8 +14,10 @@ export default function Footer2({
   const router = useRouter();
 
   const setIsSubmitted = useCallback(() => {
-    router.push('/form-success');
-  }, [router]);
+    const u = footerStyle === 'trial' ? '/form-success3' : 'form-success';
+
+    router.push(u);
+  }, [router, footerStyle]);
 
   return (
     <footer

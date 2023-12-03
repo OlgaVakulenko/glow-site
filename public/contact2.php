@@ -37,11 +37,11 @@ function formHandler() {
   $name = post('name');
   // $company_name = post('company_name');
   $project = implode(", ", post('services', []));
-  $project_about = post('project-about');
-  $budget = post('budget');
-  $email = post('email');
-  $source = post('source');
-  $query = post('query');
+  $project_about = post('project-about', '');
+  $budget = post('budget', '');
+  $email = post('email', '');
+  $source = post('source', 'Direct');
+  $query = post('query', '');
   //honeypot
   $phonenumber = post('phonenumber');
 
@@ -69,6 +69,15 @@ function formHandler() {
     'add_time' => date('Y-m-d H:i:s'),
   ]);
 
+  var_dump($dealResponse);
+
+  json_respond(([
+    'res' => $dealResponse,
+  ]));
+
+  return;
+  // var_dump($dealResponse);
+
   $deal = json_decode($dealResponse, true);
 
   $dealId = (int)$deal['data']['id'];
@@ -79,7 +88,7 @@ function formHandler() {
     ]);
   }
 
-  emailNotification();
+  // emailNotification();
 
   json_respond([
     'status' => 'ok'

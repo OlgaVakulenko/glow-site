@@ -287,7 +287,7 @@ export default function FooterForm({
             data.append('query', query || '');
 
             Promise.race([
-              fetch('/contact2.php', {
+              fetch('http://localhost:8000/contact2.php', {
                 method: 'POST',
                 body: data,
               }),

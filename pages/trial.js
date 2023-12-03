@@ -50,7 +50,7 @@ export default function Trial() {
             btnClassName="md:min-w-[170px]"
             gapSize="10"
             setIsSubmitted={() => {
-              router.push('/form-success');
+              router.push('/form-success2');
             }}
           />
         </Animated>
