@@ -59,14 +59,13 @@ function formHandler() {
     ]);
   }
 
-  $dealResponse = request_post(pipeUrl('deals'), [
+  $dealResponse = request_post_json(pipeUrl('leads'), [
     'title' => 'Deal for '.$email.' created at '.date('d-m-Y H:i'),
     'person_id' => $contactId,
     'bd0449a7ade1fa104321ebfe32832776893aba00' => $budget,
-    'dcd8f5c002e8a113ae120c6b678939ae1f2ef26a' => $project . '; ' . $project_about,
+    '20bd831899a494d6d5bc2d538b165d65534d7c5c' => $project . '; ' . $project_about,
     '7cf4f42f1176eb222897785f57283aa4103dc48e' => $source,
     'ae1b7802a994f39f8ae8801ede19c6a6fa15f7eb' => $query,
-    'add_time' => date('Y-m-d H:i:s'),
   ]);
 
 
@@ -158,6 +157,34 @@ function request_post($url, $data) {
   $response = curl_exec($ch);
   curl_close($ch);
 
+  return $response;
+}
+
+function request_post_json($url, $data) {
+  // Initialize cURL session
+  $ch = curl_init();
+
+  // Convert the data array to JSON format
+  $jsonData = json_encode($data);
+
+  // Set cURL options
+  curl_setopt($ch, CURLOPT_URL, $url);
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_POST, true);
+
+  // Attach encoded JSON data
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+
+  // Set the content type to application/json
+  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+  // Execute the request
+  $response = curl_exec($ch);
+
+  // Close the cURL session
+  curl_close($ch);
+
+  // Return the response
   return $response;
 }
 
