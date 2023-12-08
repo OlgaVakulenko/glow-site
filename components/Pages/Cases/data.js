@@ -1,26 +1,26 @@
-import Case1Image from './assets/case_1.png';
-import Case2Image from './assets/case_2.png';
-import Case3Image from './assets/case_3.png';
-import Case4Image from './assets/case_4.png';
-
-import BeastCover from './assets/new/beast-cover.png';
 import BeastCoverMobile from './assets/new/beast-cover-mobile.png';
-import JucrCover from './assets/new/jucr-cover.png';
-import JucrCoverMobile from './assets/new/jucr-cover-mobile.png';
-import CryptoGenie from './assets/new/crypto-cover.png';
+import BeastCover from './assets/new/beast-cover.png';
+import BeastWork from './assets/new/beast-work.png';
 import CryptoGenieMobile from './assets/new/crypto-cover-mobile.png';
+import CryptoGenie from './assets/new/crypto-cover.png';
+import CryptoWork from './assets/new/crypto-work.png';
+import JucrCoverMobile from './assets/new/jucr-cover-mobile.png';
+import JucrCover from './assets/new/jucr-cover.png';
+import JucrWork from './assets/new/jucr-work.png';
 // import LiquidSpace from './assets/liquidspace-cover.png';
-import LiquidSpace from './assets/new/liquid-space.png';
 import LiquidSpaceMobile from './assets/new/liquid-space-cover-mobile.png';
+import LiquidSpace from './assets/new/liquid-space.png';
+import LiquidSpaceWork from './assets/new/ls-work.png';
 // import LiquidSpace from './LiquidSpace/assets/challenge-f.png';
-import FleetChaser from './assets/fc-cover.png';
-import FleetChaserMobile from './assets/new/fleet-cover-mobile.png';
-import Ethos from './assets/ethos-cover.png';
-import EthosMobile from './assets/new/ethos-cover-mobile.png';
 import Parking from './assets/case-parking.png';
-import ParkingMobile from './assets/new/parking-cover-mobile.png';
-import Tilt from './assets/new/tilt-cover.png';
+import Ethos from './assets/ethos-cover.png';
+import EthosWork from './assets/new/ethos-work.png';
+import FleetChaser from './assets/fc-cover.png';
+import FleetChaserWork from './assets/new/fs-work.png';
 import TiltMobile from './assets/new/tilt-cover-mobile.png';
+import Tilt from './assets/new/tilt-cover.png';
+import TiltWork from './assets/new/tilt-work.png';
+import ParkingWork from './assets/new/parking-work.png';
 
 const cases = [
   {
@@ -36,6 +36,7 @@ const cases = [
     service: ['User Experience', 'User Interface', 'Product Design'],
     company: ['Funding $34.5M'],
     image: LiquidSpace,
+    imageWork: LiquidSpaceWork,
     imageMobile: LiquidSpaceMobile,
     category: ['other'],
     type: ['desktop'],
@@ -53,6 +54,7 @@ const cases = [
     service: ['Product Design', 'User Experience', 'User Interface'],
     company: ['Funding €32.7M'],
     image: JucrCover,
+    imageWork: JucrWork,
     imageMobile: JucrCoverMobile,
     category: ['transportation'],
     type: ['mobile'],
@@ -70,6 +72,7 @@ const cases = [
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['20k app downloads'],
     image: BeastCover,
+    imageWork: BeastWork,
     imageMobile: BeastCoverMobile,
     category: ['transportation'],
     type: ['mobile'],
@@ -92,6 +95,7 @@ const cases = [
       </>,
     ],
     image: CryptoGenie,
+    imageWork: CryptoWork,
     imageMobile: CryptoGenieMobile,
     category: ['fintech'],
     type: ['desktop'],
@@ -104,6 +108,7 @@ const cases = [
     service: ['User Experience', 'User Interface', 'Branding'],
     company: ['Funding 30M'],
     image: Parking,
+    imageWork: ParkingWork,
     category: ['transportation'],
     type: ['desktop'],
   },
@@ -122,6 +127,7 @@ const cases = [
     ],
     image: Tilt,
     imageMobile: TiltMobile,
+    imageWork: TiltWork,
     category: ['other'],
     type: ['desktop'],
   },
@@ -132,6 +138,7 @@ const cases = [
     service: ['Product Design', 'User Experience', 'Product Design'],
     company: ['Funding 30M'],
     image: FleetChaser,
+    imageWork: FleetChaserWork,
     category: ['transportation'],
     type: ['desktop'],
   },
@@ -148,6 +155,7 @@ const cases = [
       </>,
     ],
     image: Ethos,
+    imageWork: EthosWork,
     category: ['healthcare'],
     type: ['desktop'],
   },

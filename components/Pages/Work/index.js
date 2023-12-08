@@ -8,7 +8,7 @@ import PageHeading, { PageHeading2 } from '../../PageHeading';
 import PageSubheading from '../../PageSubheading';
 import cases from '../Cases/data';
 import cx from 'clsx';
-import { CaseItem, CasesRow } from '../Home/CasesSlider';
+import { CaseItem, CaseSlide, CasesRow } from '../Home/CasesSlider';
 import { useMediaAtom } from '../../../lib/agent';
 import { Separator } from '../About';
 import Animated from '../../Animated';
@@ -18,6 +18,8 @@ import { Source } from '../../Image';
 import { Subheading2 } from '../../Typography/Subheading';
 import Asterisk from '../../Asterisk';
 import IntroSection from '../../IntroSection';
+import gsap, { ScrollTrigger } from '../../../dist/gsap';
+import { useControls } from 'leva';
 
 export const filterAtom = atom({
   category: 'all',
@@ -118,6 +120,112 @@ function Filters({ className }) {
   );
 }
 
+function lerp(value1, value2, t) {
+  return (1 - t) * value1 + t * value2;
+}
+
+function mapValue(
+  oldValue,
+  oldRangeStart,
+  oldRangeEnd,
+  newRangeStart,
+  newRangeEnd
+) {
+  return (
+    newRangeStart +
+    ((newRangeEnd - newRangeStart) * (oldValue - oldRangeStart)) /
+      (oldRangeEnd - oldRangeStart)
+  );
+}
+
+function AnimationWrapper({ children, index, lastIndex }) {
+  const router = useRouter();
+  const ref = useRef();
+  const frameRef = useRef();
+  const { y, scale, top } = useControls({
+    y: { value: -150, step: 10 },
+    scale: { value: 0.05, min: 0, max: 0.2 },
+    top: { value: 16, min: 0, max: 200 },
+  });
+
+  useEffect(() => {
+    if (lastIndex === index) return;
+    if (!ref.current) return;
+    if (!frameRef.current) return;
+
+    const e = (value, defaultVal) => (lastIndex === index ? defaultVal : value);
+
+    const ctx = gsap.context(() => {
+      gsap.to(ref.current, {
+        scale: Math.max(0, 1 - (lastIndex - index) * scale),
+        rotateX: '-10deg',
+        y: y - index,
+        immediateRender: true,
+        scrollTrigger: {
+          pin: ref.current,
+          pinSpacing: false,
+          trigger: ref.current,
+          endTrigger: () => {
+            return `.el-${lastIndex}`;
+          },
+          start: () => {
+            return `top top+=${60 + (index + 1) * top}`;
+          },
+          end: () => {
+            if (lastIndex === index) {
+              return 'bottom bottom';
+            }
+
+            return 'bottom bottom';
+          },
+          scrub: true,
+          // markers: index === 0 ? true : false,
+          onUpdate: (e) => {
+            if (lastIndex === index) return;
+            const i = lastIndex - index;
+            const s = mapValue(e.progress, 0, 1, 0, i);
+
+            frameRef.current.style.opacity = lerp(0, 0.7, Math.min(1, s));
+          },
+        },
+      });
+    });
+
+    // const st = new ScrollTrigger({
+    //   trigger: '.outer',
+    //   pin: ref.current,
+    //   pinSpacing: false,
+    //   markers: true,
+    // });
+
+    return () => {
+      ctx.revert();
+      // st.kill();
+    };
+  }, [index, lastIndex, y, scale, top]);
+
+  useEffect(() => {
+    const url = new URL(window.location);
+    url.searchParams.set('y', y);
+    url.searchParams.set('scale', scale);
+    url.searchParams.set('top', top);
+    window.history.pushState(null, '', url.toString());
+  }, [router, y, scale, top]);
+
+  return (
+    <div
+      ref={ref}
+      className={cx('relative origin-top', `el-${index}`)}
+      style={{
+        perspective: '200px',
+      }}
+    >
+      {children}
+      <div ref={frameRef} className="absolute inset-0 bg-white opacity-0"></div>
+    </div>
+  );
+}
+
 function Cases() {
   const media = useMediaAtom();
   const [filter] = useAtom(filterAtom);
@@ -150,33 +258,45 @@ function Cases() {
   return (
     <div className="pb-9 pt-12 md:pb-20 md:pt-20">
       <Filters className="mb-[70px] md:mb-24 xl:flex xl:justify-between" />
-      <div className={cx('opacity-100 transition-opacity duration-500', {})}>
-        {media === 'mobile' ? (
-          _cases.map((item, i) => (
-            <CaseItem
-              key={item.href}
-              className="mb-4"
-              {...item}
-              image={item.imageMobile || item.image}
-              columns={[
-                {
-                  title: 'industry',
-                  items: item.industry,
-                },
-                {
-                  title: 'services',
-                  items: item.service,
-                },
-                {
-                  title: 'company',
-                  items: item.company,
-                },
-              ]}
-            />
-          ))
-        ) : (
-          <CasesLayout cases={_cases} />
+      <div
+        key={category + type}
+        className={cx(
+          'outer grid gap-20 opacity-100 transition-opacity duration-500',
+          {}
         )}
+        style={
+          {
+            // perspective: '900px',
+          }
+        }
+      >
+        {_cases.map((item, i) => (
+          <AnimationWrapper key={i} index={i} lastIndex={_cases.length - 1}>
+            <Link href={item.href}>
+              <CaseSlide type="work" item={item} index={i} />
+            </Link>
+          </AnimationWrapper>
+          // <CaseItem
+          //   key={item.href}
+          //   className="mb-4"
+          //   {...item}
+          //   image={item.imageMobile || item.image}
+          //   columns={[
+          //     {
+          //       title: 'industry',
+          //       items: item.industry,
+          //     },
+          //     {
+          //       title: 'services',
+          //       items: item.service,
+          //     },
+          //     {
+          //       title: 'company',
+          //       items: item.company,
+          //     },
+          //   ]}
+          // />
+        ))}
       </div>
     </div>
   );

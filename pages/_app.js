@@ -18,9 +18,28 @@ import HeadTitle, {
 
 export const routerHistory = atom([]);
 
-function MyApp({ Component, pageProps }) {
+function SyncRouterHistory() {
   const router = useRouter();
   const setRouterHistory = useSetAtom(routerHistory);
+
+  useEffect(() => {
+    const onRouteChange = (url) => {
+      setRouterHistory((h) => [...h, url]);
+    };
+
+    router.events.on('routeChangeComplete', onRouteChange);
+
+    return () => {
+      router.events.off('routeChangeComplete', onRouteChange);
+    };
+  }, [router.events, setRouterHistory]);
+
+  return null;
+}
+
+function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+  // const setRouterHistory = useSetAtom(routerHistory);
   const updateValue = useSetAtom(nativeScrollAtom);
 
   const getLayout = useMemo(() => {
@@ -48,17 +67,17 @@ function MyApp({ Component, pageProps }) {
 
   useReferrer();
 
-  useEffect(() => {
-    const onRouteChange = (url) => {
-      setRouterHistory((h) => [...h, url]);
-    };
+  // useEffect(() => {
+  //   const onRouteChange = (url) => {
+  //     setRouterHistory((h) => [...h, url]);
+  //   };
 
-    router.events.on('routeChangeComplete', onRouteChange);
+  //   router.events.on('routeChangeComplete', onRouteChange);
 
-    return () => {
-      router.events.off('routeChangeComplete', onRouteChange);
-    };
-  }, [router.events, setRouterHistory]);
+  //   return () => {
+  //     router.events.off('routeChangeComplete', onRouteChange);
+  //   };
+  // }, [router.events, setRouterHistory]);
 
   const errorsRef = useRef([]);
   useEffect(() => {
@@ -286,6 +305,7 @@ function MyApp({ Component, pageProps }) {
           `}
         </style>
       </Head>
+      <SyncRouterHistory />
       <LoadingProgress />
       <StructuredData
         id="organization-schema"

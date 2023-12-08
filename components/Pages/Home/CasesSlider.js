@@ -66,7 +66,7 @@ export function Col({ title, items, className = '' }) {
 
 function CaseSlideMobile() {}
 
-function CaseSlide({ item, index, total }) {
+export function CaseSlide({ type = 'default', item, index, total }) {
   const [media] = useAtom(mediaAtom);
 
   return (
@@ -75,7 +75,7 @@ function CaseSlide({ item, index, total }) {
         {item.imageMobile ? (
           <picture>
             <Source
-              image={item.image}
+              image={(type === 'work' && item.imageWork) || item.image}
               media="(min-width: 820px)"
               width="1280"
             />
@@ -89,7 +89,7 @@ function CaseSlide({ item, index, total }) {
         ) : (
           <Image
             className="h-full min-h-[304px] w-full rounded-3xl object-cover transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none"
-            src={item.image}
+            src={(type === 'work' && item.imageWork) || item.image}
             alt=""
           />
         )}
@@ -114,8 +114,13 @@ function CaseSlide({ item, index, total }) {
                 />
               </svg>
             </div>
-            {addLeadingZero(index + 1)}&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
-            {addLeadingZero(total)}
+            {addLeadingZero(index + 1)}
+            {total && (
+              <>
+                &nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;
+                {addLeadingZero(total)}
+              </>
+            )}
           </div>
           <div className="mb-9 mt-[38px] font-glow text-[26px] font-medium leading-[120%] md:mb-[38px] md:mt-[15px] md:text-[32px]">
             {item.title2 || item.title}

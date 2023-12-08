@@ -15,52 +15,10 @@ export default function DefaultLayout({
   footerProps = {},
 }) {
   const router = useRouter();
-  const [history] = useAtom(routerHistory);
-  const canGoBack = history.length > 0;
 
   return (
     <>
-      <Header
-        headerRightSlot={
-          (page === 'clients' || page === 'form') && (
-            <button
-              onClick={() => {
-                if (canGoBack) {
-                  router.back();
-                } else {
-                  router.push('/');
-                }
-              }}
-              className="group flex w-[185px] justify-end"
-              style={{
-                color: 'var(--header-theme)',
-              }}
-            >
-              <svg
-                width="48"
-                height="48"
-                viewBox="0 0 48 48"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <rect
-                  x="0.5"
-                  y="0.5"
-                  width="47"
-                  height="47"
-                  rx="23.5"
-                  stroke="currentColor"
-                />
-                <path
-                  d="M32 17L17 32M32 32L17 17"
-                  stroke="currentColor"
-                  className="origin-center transition-transform duration-300 group-hover:-rotate-90"
-                />
-              </svg>
-            </button>
-          )
-        }
-      />
+      <Header />
       <ScrollContainer>
         {children}
         {/* {footer && <ParallaxFooter showFormButton={showFormButton} />} */}
