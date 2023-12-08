@@ -138,22 +138,33 @@ function mapValue(
   );
 }
 
+function getSearchParameters() {
+  var params = new URLSearchParams(window.location.search);
+  var obj = {};
+  for (var key of params.keys()) {
+    obj[key] = params.get(key);
+  }
+  return obj;
+}
+
 function AnimationWrapper({ children, index, lastIndex }) {
+  const [ready, setReady] = useState(false);
   const router = useRouter();
   const ref = useRef();
+  const spacerRef = useRef();
   const frameRef = useRef();
-  const { y, scale, top } = useControls({
-    y: { value: -150, step: 10 },
+  const [{ y, scale, top, perspective }, set] = useControls(() => ({
+    y: { value: -150, step: 10, min: -2000, max: 2000 },
     scale: { value: 0.05, min: 0, max: 0.2 },
     top: { value: 16, min: 0, max: 200 },
-  });
+    perspective: { value: 900, min: 0, max: 2000 },
+  }));
 
   useEffect(() => {
     if (lastIndex === index) return;
     if (!ref.current) return;
     if (!frameRef.current) return;
-
-    const e = (value, defaultVal) => (lastIndex === index ? defaultVal : value);
+    if (!spacerRef.current) return;
 
     const ctx = gsap.context(() => {
       gsap.to(ref.current, {
@@ -164,6 +175,7 @@ function AnimationWrapper({ children, index, lastIndex }) {
         scrollTrigger: {
           pin: ref.current,
           pinSpacing: false,
+          pinSpacer: spacerRef.current,
           trigger: ref.current,
           endTrigger: () => {
             return `.el-${lastIndex}`;
@@ -179,7 +191,6 @@ function AnimationWrapper({ children, index, lastIndex }) {
             return 'bottom bottom';
           },
           scrub: true,
-          // markers: index === 0 ? true : false,
           onUpdate: (e) => {
             if (lastIndex === index) return;
             const i = lastIndex - index;
@@ -205,23 +216,38 @@ function AnimationWrapper({ children, index, lastIndex }) {
   }, [index, lastIndex, y, scale, top]);
 
   useEffect(() => {
+    const params = getSearchParameters();
+
+    set(params);
+
+    setReady(true);
+  }, []);
+
+  useEffect(() => {
+    if (!ready) return;
+
     const url = new URL(window.location);
     url.searchParams.set('y', y);
     url.searchParams.set('scale', scale);
     url.searchParams.set('top', top);
+    url.searchParams.set('perspective', perspective);
     window.history.pushState(null, '', url.toString());
-  }, [router, y, scale, top]);
+  }, [ready, router, y, scale, top, perspective]);
 
   return (
     <div
-      ref={ref}
-      className={cx('relative origin-top', `el-${index}`)}
+      ref={spacerRef}
       style={{
-        perspective: '200px',
+        perspective: perspective + 'px',
       }}
     >
-      {children}
-      <div ref={frameRef} className="absolute inset-0 bg-white opacity-0"></div>
+      <div ref={ref} className={cx('relative origin-top', `el-${index}`)}>
+        {children}
+        <div
+          ref={frameRef}
+          className="absolute inset-0 bg-white opacity-0"
+        ></div>
+      </div>
     </div>
   );
 }

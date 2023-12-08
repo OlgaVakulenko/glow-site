@@ -50,7 +50,6 @@ export default function ScrollContainer({ children }) {
   }, []);
 
   useEffect(() => {
-    // return;
     if (media === 'mobile' || disabled) {
       setMounted(true);
       return () => {
