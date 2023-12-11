@@ -136,7 +136,7 @@ export function Separator({ className, size = 98 }) {
 
 function Vision() {
   return (
-    <Animated className="relative md:grid md:grid-cols-8 md:gap-4 xl:grid-cols-12">
+    <Animated className="relative md:grid md:grid-cols-8 md:gap-8 xl:grid-cols-12">
       <VisionBlock
         heading={'our  mission'}
         text={

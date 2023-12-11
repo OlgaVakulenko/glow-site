@@ -51,6 +51,7 @@ function Photo({
   delay = 0,
   linkedin,
   medium,
+  className,
 }) {
   return (
     <Animated
@@ -59,7 +60,8 @@ function Photo({
         {
           'ml-auto md:mt-[126px] xl:!mr-auto': align === 'right',
           'xl:!ml-auto': align === 'left',
-        }
+        },
+        className
       )}
       delay={delay}
     >

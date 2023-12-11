@@ -1,7 +1,6 @@
 import { useRouter } from 'next/router';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
-import Chat from './Chat';
 import GTag from './GTag';
 import Hotjar from './Hotjar';
 import Leadfeed from './Leadfeed';
@@ -86,7 +85,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </noscript>
       <Linkedin />
       <Leadfeed />
-      <Chat />
     </>
   );
 }
