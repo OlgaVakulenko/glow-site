@@ -153,12 +153,17 @@ function AnimationWrapper({ children, index, lastIndex }) {
   const ref = useRef();
   const spacerRef = useRef();
   const frameRef = useRef();
-  const [{ y, scale, top, perspective }, set] = useControls(() => ({
-    y: { value: -150, step: 10, min: -2000, max: 2000 },
-    scale: { value: 0.05, min: 0, max: 0.2 },
-    top: { value: 16, min: 0, max: 200 },
-    perspective: { value: 900, min: 0, max: 2000 },
-  }));
+  const frameRef2 = useRef();
+  const y = -150;
+  const scale = 0.05;
+  const top = 16;
+  const perspective = 700;
+  // const [{ y, scale, top, perspective }, set] = useControls(() => ({
+  //   y: { value: -150, step: 10, min: -2000, max: 2000 },
+  //   scale: { value: 0.05, min: 0, max: 0.2 },
+  //   top: { value: 16, min: 0, max: 200 },
+  //   perspective: { value: 750, min: 0, max: 2000 },
+  // }));
 
   useEffect(() => {
     if (lastIndex === index) return;
@@ -166,17 +171,40 @@ function AnimationWrapper({ children, index, lastIndex }) {
     if (!frameRef.current) return;
     if (!spacerRef.current) return;
 
+    const isLast = index === lastIndex;
+
+    const e = (val, defaultVal) => (isLast ? defaultVal : val);
+
     const ctx = gsap.context(() => {
+      console.log(index);
+      if (index !== 0) {
+        gsap.fromTo(
+          '.item-shadow',
+          { opacity: 0 },
+          {
+            opacity: 1,
+            immediateRender: true,
+            scrollTrigger: {
+              trigger: ref.current,
+              scrub: true,
+              start: 'top 50%',
+              end: 'bottom 50%',
+            },
+          }
+        );
+      }
+
       gsap.to(ref.current, {
-        scale: Math.max(0, 1 - (lastIndex - index) * scale),
-        rotateX: '-10deg',
+        scale: e(Math.max(0, 1 - (lastIndex - index) * scale), 1),
+        rotateX: e(`${-10 + index}deg`, '0deg'),
         y: y - index,
         immediateRender: true,
         scrollTrigger: {
-          pin: ref.current,
+          pin: !isLast ? ref.current : false,
           pinSpacing: false,
           pinSpacer: spacerRef.current,
           trigger: ref.current,
+          markers: isLast ? true : false,
           endTrigger: () => {
             return `.el-${lastIndex}`;
           },
@@ -184,68 +212,53 @@ function AnimationWrapper({ children, index, lastIndex }) {
             return `top top+=${60 + (index + 1) * top}`;
           },
           end: () => {
-            if (lastIndex === index) {
-              return 'bottom bottom';
+            if (isLast) {
+              return 'bottom 50%';
             }
 
             return 'bottom bottom';
           },
           scrub: true,
           onUpdate: (e) => {
-            if (lastIndex === index) return;
+            if (isLast) return;
             const i = lastIndex - index;
             const s = mapValue(e.progress, 0, 1, 0, i);
 
-            frameRef.current.style.opacity = lerp(0, 0.7, Math.min(1, s));
+            if (frameRef.current) {
+              frameRef.current.style.opacity = lerp(0, 0.7, Math.min(1, s));
+            }
+            // if (frameRef2.current) {
+            //   frameRef2.current.style.opacity = lerp(0, 0.7, Math.min(1, s));
+            // }
           },
         },
       });
-    });
-
-    // const st = new ScrollTrigger({
-    //   trigger: '.outer',
-    //   pin: ref.current,
-    //   pinSpacing: false,
-    //   markers: true,
-    // });
+    }, spacerRef.current);
 
     return () => {
       ctx.revert();
-      // st.kill();
     };
   }, [index, lastIndex, y, scale, top]);
-
-  useEffect(() => {
-    const params = getSearchParameters();
-
-    set(params);
-
-    setReady(true);
-  }, []);
-
-  useEffect(() => {
-    if (!ready) return;
-
-    const url = new URL(window.location);
-    url.searchParams.set('y', y);
-    url.searchParams.set('scale', scale);
-    url.searchParams.set('top', top);
-    url.searchParams.set('perspective', perspective);
-    window.history.pushState(null, '', url.toString());
-  }, [ready, router, y, scale, top, perspective]);
 
   return (
     <div
       ref={spacerRef}
       style={{
         perspective: perspective + 'px',
+        perspectiveOrigin: 'top',
       }}
     >
       <div ref={ref} className={cx('relative origin-top', `el-${index}`)}>
-        {children}
+        <div
+          className="item-shadow pointer-events-none absolute inset-0 mx-auto h-[50%] w-[90%] opacity-0"
+          style={{
+            boxShadow: '0px -30px 200px -30px rgba(0, 0, 0, 0.15)',
+          }}
+        ></div>
+        <div className="relative z-10">{children}</div>
         <div
           ref={frameRef}
-          className="absolute inset-0 bg-white opacity-0"
+          className="pointer-events-none absolute inset-0 z-[10] rounded-3xl bg-white opacity-0"
         ></div>
       </div>
     </div>
