@@ -34,13 +34,12 @@ export default function ScrollContainer({ children }) {
   }, [isMobile]);
 
   useEffect(() => {
-    let w = window.innerWidth;
+    let prevWidth = window.innerWidth;
     const onResize = debounce(() => {
-      if (w !== window.innerWidth) {
+      if (prevWidth !== window.innerWidth) {
         setIsResize(true);
+        window.removeEventListener('resize', onResize);
       }
-
-      window.removeEventListener('resize', onResize);
     }, 500);
 
     window.addEventListener('resize', onResize);
