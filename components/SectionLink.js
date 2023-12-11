@@ -1,14 +1,11 @@
-import Link from 'next/link';
-import { useMemo } from 'react';
-import Animated from './Animated';
-import Go from './Go';
-import Layout from './Layout';
-import LinkArrow from './LinkArrow';
-import LinkArrowCircle from './LinkArrowCircle';
-import RollingText from './RollingText';
 import cx from 'clsx';
 import { useAtom } from 'jotai';
+import Link from 'next/link';
+import { useMemo } from 'react';
 import { mediaAtom } from '../lib/agent';
+import Animated from './Animated';
+import Layout from './Layout';
+import RollingText from './RollingText';
 
 export default function SectionLink({
   className,

@@ -1,9 +1,9 @@
-import { useCallback, useState } from 'react';
+import cx from 'clsx';
+import { useRouter } from 'next/router';
+import { useCallback } from 'react';
 import FooterForm from './Footer/FooterForm';
 import FooterLinks from './Footer/FooterLinks';
 import Layout from './Layout';
-import cx from 'clsx';
-import { useRouter } from 'next/router';
 import SlotsLeftButton from './Pages/Trial/SlotsLeftButton';
 import Button2 from './Button2';
 import Link from 'next/link';

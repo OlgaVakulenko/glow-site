@@ -1,14 +1,13 @@
-import Image from '../../Image';
-import Layout from '../../Layout';
-import Bg from './assets/trial-bg.png';
-import Logo from './assets/trial-logo.png';
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import gsap from '../../../dist/gsap';
-import RollingText from '../../RollingText';
-import SphereBg from './assets/sphere-bg.png';
 import { useHandleFooterFormClick } from '../../../lib/utils';
 import AnimatedButton from '../../AnimatedButton';
+import Image from '../../Image';
+import Layout from '../../Layout';
+import SphereBg from './assets/sphere-bg.png';
+import Bg from './assets/trial-bg.png';
+import Logo from './assets/trial-logo.png';
 
 export default function TrialBanner() {
   const wrapperRef = useRef();

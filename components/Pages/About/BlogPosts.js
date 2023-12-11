@@ -2,13 +2,8 @@ import Section from '../../Section';
 import SectionLink from '../../SectionLink';
 import PostSlider from './PostSlider';
 
-import BlogImage1 from './assets/blogpost-demo-1.png';
-import BlogImage2 from './assets/blogpost-demo-2.png';
-import BlogImage3 from './assets/blogpost-demo-3.png';
-import BlogAvatar1 from './assets/blogpost-avatar-1.png';
-import { useMedia } from '../../../lib/agent';
-import React, { useEffect, useMemo, useState } from 'react';
 import debounce from 'lodash.debounce';
+import React, { useEffect, useMemo, useState } from 'react';
 import Layout from '../../Layout';
 
 // const posts = [

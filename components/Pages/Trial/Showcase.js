@@ -1,22 +1,20 @@
+import cx from 'clsx';
+import { atom, useAtom, useSetAtom } from 'jotai';
+import { useEffect, useRef } from 'react';
+import gsap, { ScrollTrigger } from '../../../dist/gsap';
+import { useMediaAtom } from '../../../lib/agent';
+import { useRefValue } from '../../../lib/utils';
+import { headerActiveAtom } from '../../Header';
+import { resolve, Source } from '../../Image';
 import Layout from '../../Layout';
-import CitadeleImgMobile from './assets/citadele-img.png';
-import CitadeleImgXl from './assets/citadel-xl.png';
 import BeastImgMobile from './assets/beast-img.png';
 import BeastImgXl from './assets/beast-xl.png';
+import CitadeleImgXl from './assets/citadel-xl.png';
+import CitadeleImgMobile from './assets/citadele-img.png';
 import CryptoImgMobile from './assets/crypto-img.png';
 import CryptoImgXl from './assets/crypto-xl.png';
 import LendflowImgMobile from './assets/lendflow-img.png';
 import LendflowImgXl from './assets/lendflow-xl.png';
-import Image, { resolve, Source } from '../../Image';
-import { useMediaAtom } from '../../../lib/agent';
-import { useEffect, useRef } from 'react';
-import gsap, { ScrollTrigger } from '../../../dist/gsap';
-import { atom } from 'jotai';
-import { useAtom } from 'jotai';
-import cx from 'clsx';
-import { useSetAtom } from 'jotai';
-import { headerActiveAtom } from '../../Header';
-import { useRefValue } from '../../../lib/utils';
 
 const categories = [
   'Product Design',

@@ -1,26 +1,22 @@
 import cx from 'clsx';
-import { useHeaderTheme } from '../../Header';
-import Layout from '../../Layout';
-import PageHeading from '../../PageHeading';
-import PageSubheading from '../../PageSubheading';
-import DefaultLayout from '../Layouts/DefaultLayout';
 import Image, { Source } from '../../Image';
+import Layout from '../../Layout';
+import DefaultLayout from '../Layouts/DefaultLayout';
 // import Img from './assets/team-cover.png';
-import ImgMobile from './assets/main-cover-mobile.jpg';
-import Img from './assets/main-cover-d.jpg';
-import DimSection from '../../DimSection';
-import Founders from './Founders';
-import HRule from '../../HRule';
-import Team from './Team';
-import Push from './Push';
-import Logos from './Logos';
-import BlogPosts from './BlogPosts';
 import Animated from '../../Animated';
-import { useEffect, useRef } from 'react';
+import DimSection from '../../DimSection';
+import HRule from '../../HRule';
 import IntroSection from '../../IntroSection';
 import Sphere2Image from './assets/sphere2.png';
 import Head from 'next/head';
 import { getFullDescription, getFullTitle } from '../../HeadTitle';
+import BlogPosts from './BlogPosts';
+import Founders from './Founders';
+import Logos from './Logos';
+import Push from './Push';
+import Team from './Team';
+import Img from './assets/main-cover-d.jpg';
+import ImgMobile from './assets/main-cover-mobile.jpg';
 
 export default function About({ posts }) {
   return (

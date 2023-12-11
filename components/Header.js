@@ -8,12 +8,10 @@ import React, {
   useCallback,
   useEffect,
   useId,
-  useLayoutEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
-import { nativeScrollAtom, smoothScrollAtom } from '../atoms/scroll';
 import { mediaAtom, useMediaAtom } from '../lib/agent';
 import {
   createHeaderScrollTrigger,
@@ -30,9 +28,8 @@ import HeaderMobileMenu from './HeaderMobileMenu';
 import HeaderSubMenuContainer from './HeaderSubMenu';
 import { useMounted } from './Icons/animations';
 import Layout from './Layout';
-import links from './links-data';
 import Logo from './Logo';
-import RollingText from './RollingText';
+import links from './links-data';
 
 export function BurgerIcon({ isOpen = false, theme, size = 40 }) {
   let stroke = '#19191B';

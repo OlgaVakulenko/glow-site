@@ -1,11 +1,10 @@
 import { useAtom } from 'jotai';
 import Link from 'next/link';
-import { useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { useHandleFooterFormClick } from '../lib/utils';
 import BigButton from './BigButton';
-import { Animation, subMenuOpenAtom, subMenuParentAtom } from './Header';
+import { Animation, subMenuParentAtom } from './Header';
 import HeaderLinkMobile from './HeaderLinkMobile';
-import { HeaderSubMenu } from './HeaderSubMenu';
 
 export default function HeaderMobileMenu({ menuId, links }) {
   const [activeParent, setActiveParent] = useAtom(subMenuParentAtom);

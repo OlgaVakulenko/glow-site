@@ -1,4 +1,3 @@
-import { getGPUTier } from 'detect-gpu';
 import { atom, useSetAtom } from 'jotai';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
@@ -125,7 +124,6 @@ export default function ScrollContainer({ children }) {
       key = isMobile ? 'mobile' : 'desktop';
     }
     key += disabled ? 'disabled' : 'not-disabled';
-    console.log('KEY', key);
     return key;
   }, [isMobile, disabled, isResize]);
 

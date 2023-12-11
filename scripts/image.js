@@ -110,8 +110,11 @@ walk(out, async (err, pathname, dir) => {
 })
   .then(async () => {
     const bar = new progress.SingleBar();
-    bar.start(images.length, 0);
-    const promises = images.map(async (image) => {
+    const _images = removeDuplicatesByDestination(images);
+
+    bar.start(_images.length, 0);
+
+    const promises = _images.map(async (image) => {
       const cachePath = path.join(
         cacheDir,
         image.filename.replace('/_next/static/media/', '')
@@ -163,3 +166,15 @@ walk(out, async (err, pathname, dir) => {
   .catch((e) => {
     console.error(e);
   });
+
+function removeDuplicatesByDestination(arr) {
+  let unique = new Map();
+
+  arr.forEach((item) => {
+    if (!unique.has(item.destination)) {
+      unique.set(item.destination, item);
+    }
+  });
+
+  return Array.from(unique.values());
+}

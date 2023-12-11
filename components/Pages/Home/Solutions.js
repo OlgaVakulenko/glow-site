@@ -1,14 +1,14 @@
-import Image from '../../Image';
-import Layout from '../../Layout';
-import RusM from '../About/assets/rus-2.png';
-import StasM from '../About/assets/stas-2m.png';
-import PavelM from '../About/assets/pavel-2m.png';
 import cx from 'clsx';
-import React, { useEffect, useMemo } from 'react';
+import React, { useMemo } from 'react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import Image from '../../Image';
+import Layout from '../../Layout';
 import SliderProgress from '../../SliderProgress';
+import PavelM from '../About/assets/pavel-2m.png';
+import RusM from '../About/assets/rus-2.png';
+import StasM from '../About/assets/stas-2m.png';
 
 const items = [
   {

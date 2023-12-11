@@ -1,6 +1,5 @@
 import cx from 'clsx';
 import { useAtom } from 'jotai';
-import { useMemo } from 'react';
 import { mediaAtom } from '../lib/agent';
 import Animated from './Animated';
 import Layout from './Layout';

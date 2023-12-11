@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import Animated from './Animated';
-import RollingText from './RollingText';
 import cx from 'clsx';
-import { useEffect, useMemo, useRef } from 'react';
 import { useAtom } from 'jotai';
+import Link from 'next/link';
+import { useMemo, useRef } from 'react';
+import Animated from './Animated';
 import { subMenuParentAtom } from './Header';
+import RollingText from './RollingText';
 
 export default function HeaderLink({
   index,

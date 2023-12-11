@@ -3,9 +3,7 @@ import path from 'path';
 import fg from 'fast-glob';
 
 const run = async () => {
-  let images = await fg.glob(
-    '(components/**/*.(png|jpg|jpeg)|assets/**/*.(png|jpg|jpeg))'
-  );
+  let images = await fg.glob('(components/**/*.(png|jpg|jpeg))');
   const files = await fg.glob('(components/**/*.js|pages/**/*.js)');
 
   images = images.map((img) => {
@@ -27,7 +25,7 @@ const run = async () => {
   }
 
   const filtered = images
-    .filter((img) => !img.exists)
+    .filter((img) => img.exists)
     .map((img) => img.originalSrc);
 
   console.log(filtered.length);

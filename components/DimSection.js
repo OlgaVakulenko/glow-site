@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
-import gsap, { ScrollTrigger } from '../dist/gsap';
 import cx from 'clsx';
+import { useEffect, useRef } from 'react';
+import gsap from '../dist/gsap';
 
 export default function DimSection({ className, children }) {
   const ref = useRef(null);

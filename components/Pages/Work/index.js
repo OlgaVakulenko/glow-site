@@ -12,8 +12,8 @@ import IntroSection from '../../IntroSection';
 import Layout from '../../Layout';
 import { Separator } from '../About';
 import cases from '../Cases/data';
-import { CaseSlide, CasesRow } from '../Home/CasesSlider';
 import CaseCard from '../Home/CaseCard';
+import { CasesRow } from '../Home/CasesSlider';
 
 export const filterAtom = atom({
   category: 'all',
@@ -172,7 +172,6 @@ function AnimationWrapper({ children, index, lastIndex }) {
     const e = (val, defaultVal) => (isLast ? defaultVal : val);
 
     const ctx = gsap.context(() => {
-      console.log(index);
       if (index !== 0) {
         gsap.fromTo(
           '.item-shadow',

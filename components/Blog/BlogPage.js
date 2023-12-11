@@ -1,18 +1,17 @@
-import Layout from '../Layout';
-import PageHeading, { PageHeading2 } from '../PageHeading';
-import { Medium } from '../Pages/About/Logos';
-import Card from './Card';
 import cx from 'clsx';
-import { useMemo, useState, Fragment } from 'react';
 import { atom, useAtom } from 'jotai';
+import Head from 'next/head';
+import { Fragment, useMemo } from 'react';
 import { useMediaAtom } from '../../lib/agent';
 import { useIsClient } from '../../lib/utils';
-import Head from 'next/head';
 import { getFullDescription, getFullTitle } from '../HeadTitle';
 import RollingText from '../RollingText';
 import StructuredData from '../StructuredData';
 import IntroBg from '../IntroBg';
 import IntroSection from '../IntroSection';
+import Layout from '../Layout';
+import { Medium } from '../Pages/About/Logos';
+import Card from './Card';
 
 const TAG_ALL = 'All Topics';
 const filterAtom = atom(TAG_ALL);
