@@ -178,6 +178,7 @@ module.exports = {
       colors: {
         brand: '#E33230',
         ['border-gray']: '#D1D1D1',
+        'text-dim': '#6F6F6F',
         // brand: '#d6dbe0', //Dev only
         black: '#19191B',
         lblue: '#F0F6FF',

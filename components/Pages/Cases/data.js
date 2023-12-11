@@ -33,7 +33,7 @@ const cases = [
     ),
     title2: 'Liquid Space',
     industry: ['Rental'],
-    service: ['User Experience', 'User Interface', 'Product Design'],
+    service: ['UI/UX', 'Product Design'],
     company: ['Funding $34.5M'],
     image: LiquidSpace,
     imageWork: LiquidSpaceWork,
@@ -51,7 +51,7 @@ const cases = [
     ),
     title2: 'JUCR',
     industry: ['Charge App', 'Electric Vehicles', 'Car rental'],
-    service: ['Product Design', 'User Experience', 'User Interface'],
+    service: ['Product Design', 'UI/UX'],
     company: ['Funding €32.7M'],
     image: JucrCover,
     imageWork: JucrWork,
@@ -69,7 +69,7 @@ const cases = [
     ),
     title2: 'Beast Tesla Rent',
     industry: ['Car Rent'],
-    service: ['User Experience', 'User Interface', 'Branding'],
+    service: ['UI/UX', 'Branding'],
     company: ['20k app downloads'],
     image: BeastCover,
     imageWork: BeastWork,
@@ -87,13 +87,12 @@ const cases = [
     title2: 'CryptoGenie',
     href: '/cryptogenie',
     industry: ['AI', 'Blockchain'],
-    service: ['Product Design', 'User Experience', 'User Interface'],
+    service: ['Product Design', 'UI/UX'],
     company: [
-      <>
-        100k predictions <br />
-        at start
-      </>,
+      `100k predictions
+        at start`,
     ],
+
     image: CryptoGenie,
     imageWork: CryptoWork,
     imageMobile: CryptoGenieMobile,
@@ -105,7 +104,7 @@ const cases = [
     title: 'Platform for parking in airport',
     title2: 'Platform for parking',
     industry: ['Car Rent'],
-    service: ['User Experience', 'User Interface', 'Branding'],
+    service: ['UI/UX', 'Branding'],
     company: ['Funding 30M'],
     image: Parking,
     imageWork: ParkingWork,
@@ -118,12 +117,12 @@ const cases = [
       'Tilt: a platform that connects students with financial aid opportunities',
     title2: 'Tilt',
     industry: ['Education'],
-    service: ['User Experience', 'User Interface', 'Product Design'],
+    service: ['UI/UX', 'Product Design'],
     company: [
-      <>
-        72% received <br />
+      `
+        72% received
         financial aid
-      </>,
+      `,
     ],
     image: Tilt,
     imageMobile: TiltMobile,
@@ -134,6 +133,7 @@ const cases = [
   {
     href: '/fleet',
     title: 'FleetChaser – fleet management platform',
+    title2: 'FleetChaser',
     industry: ['Management', 'Construction'],
     service: ['Product Design', 'User Experience', 'Product Design'],
     company: ['Funding 30M'],
@@ -145,14 +145,14 @@ const cases = [
   {
     href: '/ethos',
     title: 'EthosCE: new look at medical platform',
+    title2: 'EthosCE',
     industry: ['Education', 'Medicine'],
-    service: ['User Experience', 'User Interface', 'Web Design'],
+    service: ['UI/UX', 'Web Design'],
     company: [
-      <>
+      `
         6M Students
-        <br />
         study online
-      </>,
+      `,
     ],
     image: Ethos,
     imageWork: EthosWork,

@@ -61,10 +61,11 @@ function ProfileLayout({ profiles: _profiles }) {
 
   const profiles = useMemo(() => {
     if (media === 'mobile') return _profiles;
-    const p = [..._profiles, ..._profiles.slice(0, 4)];
+    const p = [..._profiles];
     p.splice(4, 0, null);
     p.splice(11, 0, null);
     p.splice(12, 0, null);
+    p.splice(13, 0, null);
     return p;
   }, [_profiles, media]);
 

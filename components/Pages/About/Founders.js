@@ -3,8 +3,8 @@ import Animated from '../../Animated';
 import Image from '../../Image';
 import Layout from '../../Layout';
 import Section from '../../Section';
-import Rus from './assets/ruslan.png';
-import Stas from './assets/stas-k.png';
+import Rus from './assets/team-new/rus.png';
+import Stas from './assets/team-new/stas.png';
 
 export default function Founders() {
   return (

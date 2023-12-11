@@ -1,18 +1,15 @@
-import DmitryZ from './assets/dmitriy-z.png';
-import PavelD from './assets/pavel-d.png';
-import JuliaK from './assets/julia-k.png';
-import MaxP from './assets/max-p.png';
-import NataliK from './assets/natalia-h.png';
-import WolfB from './assets/wolf-b.png';
-import DariaH from './assets/daria-h.png';
-import LiudmylaG from './assets/liudmyla-g.png';
-import ArtemI from './assets/artem-i.png';
-import IvanG from './assets/ivan-g.png';
-import NazarV from './assets/nazar-v.png';
-import OlehB from './assets/oleh-b.png';
-
-import Image1 from './assets/demo-profile-1.png';
-import Image2 from './assets/demo-profile-2.png';
+import DmitryZ from './assets/team-new/dz.png';
+import PavelD from './assets/team-new/pd.png';
+import JuliaK from './assets/team-new/jk.png';
+import AL from './assets/team-new/al.png';
+import NataliK from './assets/team-new/nk.png';
+import DariaH from './assets/team-new/dh.png';
+import LiudmylaG from './assets/team-new/lg.png';
+import OlehB from './assets/team-new/ob.png';
+import OK from './assets/team-new/ok.png';
+import NN from './assets/team-new/nn.png';
+import KK from './assets/team-new/kk.png';
+import LS from './assets/team-new/ls.png';
 
 const profiles = [
   {
@@ -31,9 +28,9 @@ const profiles = [
     image: JuliaK,
   },
   {
-    name: 'Max Pishchansky',
+    name: 'Anastasiia Lavrentii',
     position: 'Product Designer',
-    image: MaxP,
+    image: AL,
   },
   {
     name: 'Natalia Korneliuk',
@@ -51,14 +48,29 @@ const profiles = [
     image: LiudmylaG,
   },
   {
-    name: 'Ivan Gromov',
-    position: 'Brand Designer',
-    image: IvanG,
-  },
-  {
     name: 'Oleh Badychka',
     position: 'Product Designer',
     image: OlehB,
+  },
+  {
+    name: 'Oleksandr Kryvoshei',
+    position: 'Product Designer',
+    image: OK,
+  },
+  {
+    name: 'Nikita Nanashy',
+    position: 'Project Manager',
+    image: NN,
+  },
+  {
+    name: 'Ksenia Kozhukhar',
+    position: 'UI/UX Designer',
+    image: KK,
+  },
+  {
+    name: 'Liliia Sazhienko',
+    position: 'Financial Manager',
+    image: LS,
   },
 ];
 

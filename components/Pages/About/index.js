@@ -120,29 +120,23 @@ function VisionBlock({ heading, text, className = '' }) {
 
 export function Separator({ className, size = 98 }) {
   return (
-    <svg
-      className={cx(className)}
-      width={size}
-      height={size}
-      viewBox="0 0 98 98"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M97.0845 0.833479L0.917969 97" stroke="black" />
-    </svg>
+    <div className={cx(className)}>
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 98 98"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M97.0845 0.833479L0.917969 97" stroke="black" />
+      </svg>
+    </div>
   );
 }
 
 function Vision() {
   return (
-    <Animated className="relative md:flex md:flex-col">
-      <div className="absolute left-[30%] top-[33%] hidden md:block">
-        <Image
-          src={Sphere2Image}
-          alt=""
-          className="md:w-[234px] xl:w-[286px]"
-        />
-      </div>
+    <Animated className="relative md:grid md:grid-cols-8 md:gap-4 xl:grid-cols-12">
       <VisionBlock
         heading={'our  mission'}
         text={
@@ -151,17 +145,14 @@ function Vision() {
             products
           </>
         }
-        className="md:ml-[25%]"
+        className="md:col-span-4 xl:col-span-5"
       />
+      {/** self-end xl:mb-6 xl:-ml-[5.5%] */}
+      <Separator className="hidden pb-6 xl:col-span-2 xl:flex xl:items-end" />
       <VisionBlock
         heading={'our vision'}
         text="To become leader in enterprise design by creating game changing products"
-        className="md:ml-auto"
-      />
-      <VisionBlock
-        className="md:mt-20"
-        heading={'why us'}
-        text="We're a small team of specialized specialists who really know what they're doing. "
+        className="md:col-span-4 xl:col-span-5"
       />
     </Animated>
   );

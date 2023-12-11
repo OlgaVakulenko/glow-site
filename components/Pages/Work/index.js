@@ -13,6 +13,7 @@ import Layout from '../../Layout';
 import { Separator } from '../About';
 import cases from '../Cases/data';
 import { CaseSlide, CasesRow } from '../Home/CasesSlider';
+import CaseCard from '../Home/CaseCard';
 
 export const filterAtom = atom({
   category: 'all',
@@ -141,6 +142,7 @@ function getSearchParameters() {
 }
 
 function AnimationWrapper({ children, index, lastIndex }) {
+  const media = useMediaAtom();
   const [ready, setReady] = useState(false);
   const router = useRouter();
   const ref = useRef();
@@ -159,6 +161,7 @@ function AnimationWrapper({ children, index, lastIndex }) {
   // }));
 
   useEffect(() => {
+    if (media === 'mobile') return;
     if (lastIndex === index) return;
     if (!ref.current) return;
     if (!frameRef.current) return;
@@ -231,7 +234,7 @@ function AnimationWrapper({ children, index, lastIndex }) {
     return () => {
       ctx.revert();
     };
-  }, [index, lastIndex, y, scale, top]);
+  }, [index, lastIndex, y, scale, top, media]);
 
   return (
     <div
@@ -245,7 +248,7 @@ function AnimationWrapper({ children, index, lastIndex }) {
         <div
           className="item-shadow pointer-events-none absolute inset-0 mx-auto h-[50%] w-[90%] opacity-0"
           style={{
-            boxShadow: '0px -30px 200px -30px rgba(0, 0, 0, 0.15)',
+            boxShadow: '0px -30px 200px -30px rgba(0, 0, 0, 0.3)',
           }}
         ></div>
         <div className="relative z-10">{children}</div>
@@ -293,7 +296,7 @@ function Cases() {
       <div
         key={category + type}
         className={cx(
-          'outer grid gap-20 opacity-100 transition-opacity duration-500',
+          'outer grid gap-10 opacity-100 transition-opacity duration-500 md:gap-20',
           {}
         )}
         style={
@@ -305,7 +308,7 @@ function Cases() {
         {_cases.map((item, i) => (
           <AnimationWrapper key={i} index={i} lastIndex={_cases.length - 1}>
             <Link href={item.href}>
-              <CaseSlide type="work" item={item} index={i} />
+              <CaseCard type="work" item={item} index={i} />
             </Link>
           </AnimationWrapper>
           // <CaseItem
