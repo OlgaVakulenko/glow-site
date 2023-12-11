@@ -200,7 +200,7 @@ function AnimationWrapper({ children, index, lastIndex }) {
           pinSpacing: false,
           pinSpacer: spacerRef.current,
           trigger: ref.current,
-          markers: isLast ? true : false,
+          // markers: true,
           endTrigger: () => {
             return `.el-${lastIndex}`;
           },
@@ -212,7 +212,7 @@ function AnimationWrapper({ children, index, lastIndex }) {
               return 'bottom 50%';
             }
 
-            return 'bottom bottom';
+            return 'bottom 75%';
           },
           scrub: true,
           onUpdate: (e) => {
