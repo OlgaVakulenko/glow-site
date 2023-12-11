@@ -1,9 +1,6 @@
-import { useAtom } from 'jotai';
 import { useRouter } from 'next/router';
-import { routerHistory } from '../../../pages/_app';
-import { ParallaxFooter } from '../../Footer';
 import Footer2 from '../../Footer2';
-import Header, { BurgerIcon } from '../../Header';
+import Header from '../../Header';
 import ScrollContainer from '../../SmoothScroll/ScrollContainer';
 
 export default function DefaultLayout({

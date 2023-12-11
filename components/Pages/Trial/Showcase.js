@@ -114,6 +114,7 @@ export default function Showcase() {
   const media = useMediaAtom();
   const triggerRef = useRef();
   const stickyRef = useRef();
+  const wrapperRef = useRef();
   const scrollerRef = useRef();
   const [activeCategory, setActiveCategory] = useAtom(currentCategoryAtom);
   const setHeaderActive = useSetAtom(headerActiveAtom);
@@ -152,8 +153,15 @@ export default function Showcase() {
         if (media === 'mobile') {
           return 'bottom-=88 top';
         }
+        let h = 420;
+        let offset = 90;
 
-        return 'bottom center-=90';
+        if (window.innerHeight / 2 <= h) {
+          offset = -90;
+        }
+
+        console.log('height', window.innerHeight);
+        return `bottom center-=${offset}`;
       },
       onEnter: handleEnter,
       onEnterBack: handleEnter,
@@ -197,8 +205,6 @@ export default function Showcase() {
 
   useEffect(() => {
     if (!isTransition) return;
-
-    console.log('activeCategory', `[data-id="${activeCategory}"]`);
 
     gsap.to(window, {
       duration: 0.3,

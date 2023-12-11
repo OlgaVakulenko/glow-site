@@ -1,25 +1,18 @@
-import { useAtom } from 'jotai';
-import { atom, useSetAtom } from 'jotai';
+import cx from 'clsx';
+import { atom, useAtom } from 'jotai';
+import Head from 'next/head';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import Layout from '../../Layout';
-import PageHeading, { PageHeading2 } from '../../PageHeading';
-import PageSubheading from '../../PageSubheading';
-import cases from '../Cases/data';
-import cx from 'clsx';
-import { CaseItem, CaseSlide, CasesRow } from '../Home/CasesSlider';
+import gsap from '../../../dist/gsap';
 import { useMediaAtom } from '../../../lib/agent';
-import { Separator } from '../About';
 import Animated from '../../Animated';
-import Head from 'next/head';
 import { getFullTitle } from '../../HeadTitle';
-import { Source } from '../../Image';
-import { Subheading2 } from '../../Typography/Subheading';
-import Asterisk from '../../Asterisk';
 import IntroSection from '../../IntroSection';
-import gsap, { ScrollTrigger } from '../../../dist/gsap';
-import { useControls } from 'leva';
+import Layout from '../../Layout';
+import { Separator } from '../About';
+import cases from '../Cases/data';
+import { CaseSlide, CasesRow } from '../Home/CasesSlider';
 
 export const filterAtom = atom({
   category: 'all',

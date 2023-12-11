@@ -126,7 +126,7 @@ export default function ScrollContainer({ children }) {
       key = isMobile ? 'mobile' : 'desktop';
     }
     key += disabled ? 'disabled' : 'not-disabled';
-
+    console.log('KEY', key);
     return key;
   }, [isMobile, disabled, isResize]);
 
@@ -135,23 +135,6 @@ export default function ScrollContainer({ children }) {
     wrapper.displayName = 'Wrapper';
     return wrapper;
   }, [key]);
-
-  // useEffect(() => {
-  //   let mounted = true;
-  //   getGPUTier()
-  //     .then((tier) => sleep(2500).then(() => tier))
-  //     .then((tier) => {
-  //       if (!mounted) return;
-
-  //       if (tier?.tier <= 1 && !isMobileRef.current) {
-  //         setDisabled(true);
-  //       }
-  //     });
-
-  //   return () => {
-  //     mounted = false;
-  //   };
-  // }, []);
 
   return (
     <div ref={viewportRef}>
