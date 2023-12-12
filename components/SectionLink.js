@@ -16,6 +16,8 @@ export default function SectionLink({
   hasBorder = false,
   showButtonOnMobile = false,
   linkProps = {},
+  withLayout = true,
+  theme,
 }) {
   const [media] = useAtom(mediaAtom);
 
@@ -35,8 +37,12 @@ export default function SectionLink({
     }
   }, [href]);
 
+  const LayoutEl = useMemo(() => {
+    return withLayout ? Layout : 'div';
+  }, [withLayout]);
+
   return (
-    <Layout className={className}>
+    <LayoutEl className={className}>
       <Wrapper className="rolling-text-container group">
         <div
           className={cx(
@@ -68,9 +74,9 @@ export default function SectionLink({
                   'glow-border-black rolling-text-group flex justify-center whitespace-pre-wrap rounded-full px-[19px] py-[14px] text-center text-button-m uppercase shadow-black transition-all duration-500',
                   // 'hover:text-brand'
                   // t === 'white' &&
-                  'glow-border-b-b group-hover:!bg-brand group-hover:!text-black'
-                  // t === 'dark' &&
-                  //   'glow-border-white text-white hover:text-white'
+                  'glow-border-b-b group-hover:!bg-brand group-hover:!text-black',
+                  theme === 'dark' &&
+                    'glow-border-white !text-white hover:!text-white'
                 )}
               >
                 <RollingText height={20} text={buttonLabel}></RollingText>
@@ -79,6 +85,6 @@ export default function SectionLink({
           )}
         </div>
       </Wrapper>
-    </Layout>
+    </LayoutEl>
   );
 }

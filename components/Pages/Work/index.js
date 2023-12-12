@@ -173,25 +173,29 @@ function AnimationWrapper({ children, index, lastIndex }) {
 
     const ctx = gsap.context(() => {
       if (index !== 0) {
-        gsap.fromTo(
-          '.item-shadow',
-          { opacity: 0 },
-          {
-            opacity: 1,
-            immediateRender: true,
-            scrollTrigger: {
-              trigger: ref.current,
-              scrub: true,
-              start: 'top 50%',
-              end: 'bottom 50%',
-            },
-          }
-        );
+        gsap.to('.item-shadow', {
+          opacity: 1,
+          ease: 'none',
+          // duration: 2,
+          keyframes: [
+            { opacity: 0 },
+            { opacity: 1 },
+            { opacity: 1 },
+            { opacity: 0.1 },
+          ],
+          immediateRender: true,
+          scrollTrigger: {
+            trigger: ref.current,
+            scrub: true,
+            start: 'top bottom',
+            end: 'bottom 30%',
+          },
+        });
       }
 
       gsap.to(ref.current, {
         scale: e(Math.max(0, 1 - (lastIndex - index) * scale), 1),
-        rotateX: e(`${-10 + index}deg`, '0deg'),
+        rotateX: e(`${-10 + index * 1.5}deg`, '0deg'),
         y: y - index,
         immediateRender: true,
         scrollTrigger: {

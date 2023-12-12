@@ -83,15 +83,17 @@ export default function About({ posts }) {
       <Layout className="pb-24 pt-16 md:pb-[137px] md:pt-[111px] xl:pb-[136px] xl:pt-[103px]">
         <Vision />
       </Layout>
-      <DimSection className="pt-[80px] md:pt-[160px]">
-        <Founders />
-        <div className="mb-14" />
-        <Team />
-        <Push />
-        <Logos />
-        <HRule className="mb-14" />
-        <BlogPosts posts={posts} />
-      </DimSection>
+      <Layout disableOnMobile>
+        <div className="bg-black px-4 pb-[80px] pt-[80px] text-lred md:rounded-[32px] md:px-12 md:pb-[160px] md:pt-[160px] xl:px-20 xl:pb-[120px] xl:pt-[120px]">
+          <Founders />
+          <div className="mb-14" />
+          <Team />
+        </div>
+      </Layout>
+      <Push />
+      <Logos />
+      <HRule className="mb-14" />
+      <BlogPosts posts={posts} />
     </div>
   );
 }

@@ -15,6 +15,7 @@ export default function Team() {
   return (
     <Section withLayout={false}>
       <SectionLink
+        theme="dark"
         title="Our team"
         buttonLabel="Career"
         href="https://jobs.dou.ua/companies/glow/vacancies/"
@@ -23,6 +24,7 @@ export default function Team() {
         }}
         description="Our talented and diverse team works together for one purpose—to unlock the potential of those around us."
         showButtonOnMobile={true}
+        withLayout={false}
       />
       <div className="pt-[60px]">
         <ProfileLayout profiles={profiles} />
@@ -39,9 +41,9 @@ function Profile({ image, name, position, animated = true, index = 0 }) {
   return (
     <Wrapper
       delay={index * 50}
-      className="group flex w-[208px] flex-col md:w-full xl:max-w-full"
+      className="group flex w-[255px] flex-col md:w-full xl:max-w-full"
     >
-      <div className="relative mb-6 w-full max-w-[208px] overflow-hidden rounded-3xl pb-[100%] md:max-w-full">
+      <div className="relative mb-6 w-full max-w-[255px] overflow-hidden rounded-3xl pb-[100%] md:max-w-full">
         <Image
           src={image}
           alt=""
@@ -92,17 +94,17 @@ function ProfileLayout({ profiles: _profiles }) {
   }
 
   return (
-    <Layout>
-      <div className="-mb-12 -mr-8 flex flex-wrap xl:-mb-[72px] xl:-mr-[29px]">
-        {profiles.map((profile, i) => (
-          <div
-            key={i}
-            className="mb-12 mr-8 w-[208px] md:w-[calc(25%-32px)] xl:mb-[72px] xl:mr-[29px] xl:w-[calc(25%-29px)]"
-          >
-            {profile && <Profile {...profile} index={i} />}
-          </div>
-        ))}
-      </div>
-    </Layout>
+    // <Layout>
+    <div className="-mb-12 -mr-8 flex flex-wrap md:m-0 md:grid md:grid-cols-8 md:gap-8 md:gap-y-10 xl:grid-cols-12">
+      {profiles.map((profile, i) => (
+        <div
+          key={i}
+          className="mb-12 mr-8 w-[208px] md:col-span-2 md:m-0 md:w-full xl:col-span-3"
+        >
+          {profile && <Profile {...profile} index={i} />}
+        </div>
+      ))}
+    </div>
+    // </Layout>
   );
 }

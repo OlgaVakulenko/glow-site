@@ -7,10 +7,10 @@ import Stas from './assets/team-new/stas.png';
 
 export default function Founders() {
   return (
-    <Section>
-      <div className="mb-[88px]">
+    <Section withLayout={false}>
+      <div className="mb-10 md:mb-[88px]">
         <Section.Header>
-          <Section.Title>Meet with founders</Section.Title>
+          <Section.Title>Meet our founders</Section.Title>
           <Section.Description>
             <p className="mb-4">
               Back in 2019 we had a goal to create an agency that will serve the
@@ -21,14 +21,16 @@ export default function Founders() {
           </Section.Description>
         </Section.Header>
       </div>
-      <div className="flex flex-col pb-[81px] md:flex-row md:flex-wrap md:px-10 md:pb-[136px] xl:justify-between xl:px-20 xl:pb-[153px]">
+      <div className="grid grid-cols-4 gap-1 gap-y-12 pb-[81px] md:grid-flow-col md:grid-cols-8 md:gap-8 xl:grid-cols-12">
         <Photo
           img={Rus}
           name="Rus Mashatov"
           position="Co-Founder & Lead Designer"
           linkedin="https://www.linkedin.com/in/ruslan-mashatov-0b794aa9/"
           medium="https://medium.com/@ruslanmashatov"
+          className="col-span-3 md:col-start-2 xl:col-span-4 xl:col-start-3"
         />
+
         <Photo
           img={Stas}
           name="Stas Kovalsky"
@@ -36,6 +38,7 @@ export default function Founders() {
           align="right"
           linkedin="https://www.linkedin.com/in/staskovalsky/"
           medium="https://medium.com/@stas_k"
+          className="col-span-3 col-start-2 md:col-start-5 md:mt-[88px] xl:col-span-4 xl:col-start-8"
         />
       </div>
     </Section>
@@ -53,27 +56,17 @@ function Photo({
   className,
 }) {
   return (
-    <Animated
-      className={cx(
-        'group mb-[73px] min-w-[256px] overflow-hidden last:mb-0 xl:mx-14',
-        {
-          'ml-auto md:mt-[126px] xl:!mr-auto': align === 'right',
-          'xl:!ml-auto': align === 'left',
-        },
-        className
-      )}
-      delay={delay}
-    >
+    <Animated className={cx('group overflow-hidden', className)} delay={delay}>
       <div className="mb-6 overflow-hidden rounded-3xl md:mb-9 xl:mb-8">
         <Image
           src={img}
-          className="max-w-[208px] overflow-hidden rounded-3xl transition-transform duration-500 group-hover:scale-105 md:max-w-[360px] xl:max-w-[448px]"
+          className="w-full overflow-hidden rounded-3xl transition-transform duration-500 group-hover:scale-105"
           alt=""
           sizes={[[208, 768], [448]]}
         />
       </div>
 
-      <div className="md:flex md:justify-between">
+      <div className="md:flex md:items-baseline md:justify-between">
         <div>
           <div className="mb-[3px] text-body-heading-m md:mb-2">{name}</div>
           <div className="text-body-s">{position}</div>
