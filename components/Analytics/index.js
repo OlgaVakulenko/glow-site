@@ -14,7 +14,7 @@ export const pageview = (url) => {
   if ('fbq' in window) {
     window.fbq('track', 'PageView');
   } else {
-    console.log('no fbq');
+    // console.log('no fbq');
   }
 };
 
@@ -83,6 +83,15 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           style={{ display: 'none', visibility: 'hidden' }}
         ></iframe>
       </noscript>
+<<<<<<< HEAD
+=======
+
+      {/* <GTag id="GTM-MW59PP8" /> */}
+      {/* <FacebookPixel /> */}
+      {/* <WhenIdle>
+        <MixPanel />
+      </WhenIdle> */}
+>>>>>>> temp
       <Linkedin />
       <Leadfeed />
     </>
