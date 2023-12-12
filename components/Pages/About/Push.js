@@ -177,7 +177,7 @@ function Letter({ letter, title, description, width, index = 0 }) {
         </div>
         <div
           delay={100 + delay}
-          className="text-body-s opacity-50 md:w-full md:max-w-full"
+          className="text-body-s md:w-full md:max-w-full"
         >
           {description}
         </div>
