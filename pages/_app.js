@@ -123,6 +123,8 @@ function MyApp({ Component, pageProps }) {
           content="We design ✔ digital products ✔ services ✔ eCommerce experiences ➜ Glow
           Team - Simple design for complex products"
         ></meta>
+        <meta property="akey" content="needle-4" />
+        <meta property="og:image" content="/img/og-image.png" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

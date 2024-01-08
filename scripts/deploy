@@ -1,0 +1,7 @@
+#!/bin/bash
+
+rsync -avzh --delete --progress --stats -e "ssh -i /home/tu/.ssh/glow/id_rsa -p 21098" /home/tu/code/glow2/out/ glowdlyq@198.54.115.158:/home/glowdlyq/public_html2/
+
+if [ $? -eq 0 ]; then
+  ssh -i ~/.ssh/glow/id_rsa glowdlyq@198.54.115.158 -p 21098 'mv /home/glowdlyq/public_html /home/glowdlyq/public_html-tpm && mv /home/glowdlyq/public_html2 /home/glowdlyq/public_html && mv /home/glowdlyq/public_html-tpm /home/glowdlyq/public_html2'
+fi
