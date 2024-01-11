@@ -1,3 +1,7 @@
+import { RadioGroup } from '@headlessui/react';
+import cx from 'clsx';
+import debounce from 'lodash.debounce';
+import Link from 'next/link';
 import {
   createContext,
   useContext,
@@ -6,19 +10,13 @@ import {
   useRef,
   useState,
 } from 'react';
-import { RadioGroup } from '@headlessui/react';
-import cx from 'clsx';
-import Link from 'next/link';
-import RollingText from '../RollingText';
-import { useMedia, useMediaAtom } from '../../lib/agent';
-import debounce from 'lodash.debounce';
-import { event } from '../Analytics/MixPanel';
-import PageHeading from '../PageHeading';
-import { getReferrer, useReferrer, useRem } from '../../lib/utils';
+import TextareaAutosize from 'react-textarea-autosize';
+import { useMediaAtom } from '../../lib/agent';
+import { getReferrer, useRem } from '../../lib/utils';
+import Image from '../Image';
 import RusImage from '../Pages/About/assets/rus-2.png';
 import StasImage from '../Pages/About/assets/stas-k.png';
-import Image from '../Image';
-import TextareaAutosize from 'react-textarea-autosize';
+import RollingText from '../RollingText';
 
 const CheckboxCtx = createContext(null);
 
@@ -296,7 +294,7 @@ export default function FooterForm({
               }),
             ]).then(() => {
               setIsSubmitted(true);
-              event('form_submit');
+              // event('form_submit');
               try {
                 window?.lintrk('track', { conversion_id: 11283746 });
               } catch (e) {

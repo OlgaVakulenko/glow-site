@@ -1,7 +1,6 @@
 import cx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import Layout from '../../Layout';
-import { event } from '../../Analytics/MixPanel';
 
 function StateIcon({ open = false }) {
   return (
@@ -50,7 +49,6 @@ function Disclosure({ title, text }) {
         className="flex w-full items-center justify-between"
         onClick={() => {
           setIsOpen((open) => !open);
-          event('Disclosure opened');
         }}
       >
         <div className="pr-4 text-left text-xl font-medium leading-[30px]">
@@ -84,7 +82,7 @@ export default function Faq() {
       <div className="mb-14 text-center font-glow text-heading-h2">
         Frequently Asked Questions
       </div>
-      <div className="divide-y divide-black border-t border-b border-black">
+      <div className="divide-y divide-black border-b border-t border-black">
         <Disclosure
           title="What does your company stand for?"
           text={

@@ -7,7 +7,6 @@ import cx from 'clsx';
 import { useHeaderTheme } from '../../Header';
 import { useAtom } from 'jotai';
 import { useMediaAtom } from '../../../lib/agent';
-import { event } from '../../Analytics/MixPanel';
 
 export default function Form({ onSubmit }) {
   const [isFetching, setIsFetching] = useState(false);
@@ -56,7 +55,6 @@ export default function Form({ onSubmit }) {
       Object.values(form).forEach((entry) => {
         data.append(entry.name, entry.value);
       });
-      event('form_submit');
       try {
         window?.lintrk('track', { conversion_id: 11283746 });
       } catch (e) {

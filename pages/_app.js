@@ -11,6 +11,7 @@ import StructuredData from '../components/StructuredData';
 import { useMedia } from '../lib/agent';
 import { useReferrer } from '../lib/utils';
 import '../styles/globals.css';
+import { useReportWebVitals } from 'next/web-vitals';
 
 export const routerHistory = atom([]);
 
@@ -109,6 +110,12 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     window.__app_hydrated = true;
   }, []);
+
+  useReportWebVitals((metric) => {
+    console.log(
+      `Name: ${metric.name}, Rating: ${metric.rating}, Value: ${metric.value}`
+    );
+  });
 
   // useScrollRestoration(router);
 

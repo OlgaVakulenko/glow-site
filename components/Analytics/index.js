@@ -3,16 +3,10 @@ import { useRouter } from 'next/router';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import Chat from './Chat';
-// import Amplitude from './Amplitude';
-// import FacebookPixel from './FacebookPixel';
 import GTag from './GTag';
 import Hotjar from './Hotjar';
 import Leadfeed from './Leadfeed';
 import Linkedin from './Linkedin';
-// import MixPanel from './MixPanel';
-const MixPanel = dynamic(() => import('./MixPanel'), {
-  ssr: false,
-});
 
 export const pageview = (url) => {
   window?.gtag?.('config', 'G-5NP2XWNRBX', {
@@ -91,12 +85,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           style={{ display: 'none', visibility: 'hidden' }}
         ></iframe>
       </noscript>
-
-      {/* <GTag id="GTM-MW59PP8" /> */}
-      {/* <FacebookPixel /> */}
-      <WhenIdle>
-        <MixPanel />
-      </WhenIdle>
       <Linkedin />
       <Leadfeed />
       <Chat />

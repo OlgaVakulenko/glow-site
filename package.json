@@ -15,6 +15,7 @@
     "@amplitude/plugin-page-view-tracking-browser": "^0.5.7",
     "@headlessui/react": "^1.7.17",
     "@next/bundle-analyzer": "^12.3.1",
+    "@next/third-parties": "^14.0.4",
     "bowser": "^2.11.0",
     "clsx": "^2.0.0",
     "d3-interpolate-path": "^2.3.0",
