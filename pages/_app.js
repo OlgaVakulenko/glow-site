@@ -131,7 +131,7 @@ function MyApp({ Component, pageProps }) {
           Team - Simple design for complex products"
         ></meta>
         <meta property="akey" content="needle-4" />
-        <meta property="og:image" content="/img/og-image.png" />
+        <meta property="og:image" content="/img/og-image.png?v=2" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
