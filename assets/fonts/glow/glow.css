@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Glow';
-  src: url('./Glow-Regular.otf') format('opentype'),
-    url('./Glow-Regular.ttf') format('truetype');
+  src: url('/font/Glow-Regular.otf') format('opentype'),
+    url('/font/Glow-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   /* font-display: swap; */
@@ -11,8 +11,8 @@
 
 @font-face {
   font-family: 'Glow';
-  src: url('./Glow-Medium.otf') format('opentype'),
-    url('./Glow-Medium.ttf') format('truetype');
+  src: url('/font/Glow-Medium.otf') format('opentype'),
+    url('/font/Glow-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   /* font-display: swap; */
@@ -23,8 +23,8 @@
 
 @font-face {
   font-family: 'Glow';
-  src: url('./Glow-Bold.otf') format('opentype'),
-    url('./Glow-Bold.ttf') format('truetype');
+  src: url('/font/Glow-Bold.otf') format('opentype'),
+    url('/font/Glow-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   /* font-display: swap; */
@@ -34,8 +34,8 @@
 
 @font-face {
   font-family: 'Glow';
-  src: url('./Glow-Black.otf') format('opentype'),
-    url('./Glow-Black.ttf') format('truetype');
+  src: url('/font/Glow-Black.otf') format('opentype'),
+    url('/font/Glow-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
   /* font-display: swap; */

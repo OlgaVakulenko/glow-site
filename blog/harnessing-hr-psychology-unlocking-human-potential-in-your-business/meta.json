@@ -5,14 +5,11 @@
     "image": "https://cdn-images-1.medium.com/max/800/1*m_IXhdiamDaxSfQlf6KBoA.png",
     "author_name": "Daria Haman",
     "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/1*pGcITYe8dNOMF_yk-WzD5w.jpeg",
-    "date": "Sep 12",
+    "date": "Sep 12, 2023",
+    "created_at": 1694591983318,
     "read_minutes": "3 min read",
     "href": "harnessing-hr-psychology-unlocking-human-potential-in-your-business",
-    "tags": [
-      "HR",
-      "Business",
-      "Process"
-    ],
+    "tags": ["HR", "Business", "Process"],
     "paragraphs": [
       {
         "id": "p8497327757805931",
@@ -43,6 +40,6 @@
         "text": "Organizational Culture"
       }
     ],
-    "order": 998
+    "order": 996
   }
 }

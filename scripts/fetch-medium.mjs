@@ -24,6 +24,13 @@ function sanitizeFolderName(name) {
   return name.replace(illegalRe, '_');
 }
 
+function postTitle(title) {
+  return slugify(title, { remove: /[*+~.()'"!:@\?]/g })
+    .toLowerCase()
+    .replaceAll('/', '-')
+    .replaceAll(':', '');
+}
+
 function fileExists(path) {
   return fs
     .access(path)
@@ -34,9 +41,7 @@ function fileExists(path) {
 async function createFolder(p) {
   const folderPath = path.resolve(__dirname, p);
   const exists = await fileExists(folderPath);
-  console.log('exists', exists);
   if (!exists) {
-    console.log(folderPath);
     return fs
       .mkdir(folderPath)
       .then(() => {
@@ -50,57 +55,69 @@ async function createFolder(p) {
 
 fetch(url)
   .then((res) => res.text())
-  .then((html) => {
+  .then(async (html) => {
     const root = parse(html);
     const roots = root.querySelectorAll('div[data-post-id]');
-    const posts = roots
-      .map((root) => {
+    const posts = await Promise.all(
+      roots.map((root) => {
         if (root.getAttribute('data-index') === '0') {
           return getPostDataFromHtml(root.parentNode);
         }
 
         return getPostDataFromHtml(root);
       })
-      .map((post, index) => {
-        const link = post.href;
-        return fetch(link)
-          .then((res) => res.text())
-          .then((html) => {
-            const root = parse(html, {
-              lowerCaseTagName: true,
-              comment: false,
-              voidTag: {
-                addClosingSlash: true,
-              },
-              blockTextElements: {
-                script: false,
-                noscript: false,
-                style: false,
-                pre: true,
-              },
-            });
-            const article = filterContent(
-              removeArticleHeader(root.querySelector('article'))
-            );
-            const paragraphs = getParagraphs(article);
-            const text = filterRawHtml(article.innerHTML);
-            const tags = root
-              .querySelectorAll('a')
-              .filter((link) => link.getAttribute('href').startsWith('/tag'))
-              .map((link) => link.innerText);
+    )
+      .then(async (posts) => {
+        const _posts = [];
+        for (const post of posts) {
+          const title = postTitle(post.title);
+          const p = path.resolve(__dirname, '../blog/', title);
+          if (!(await fileExists(p))) {
+            _posts.push(post);
+          }
+        }
 
-            return {
-              ...post,
-              text,
-              tags: transformTags(tags),
-              paragraphs,
-              order: 1000 - index,
-              href: slugify(post.title, { remove: /[*+~.()'"!:@\?]/g })
-                .toLowerCase()
-                .replaceAll('/', '-')
-                .replaceAll(':', ''),
-            };
-          });
+        return _posts;
+      })
+      .then((posts) => {
+        return posts.map((post, index) => {
+          const link = post.href;
+          return fetch(link)
+            .then((res) => res.text())
+            .then((html) => {
+              const root = parse(html, {
+                lowerCaseTagName: true,
+                comment: false,
+                voidTag: {
+                  addClosingSlash: true,
+                },
+                blockTextElements: {
+                  script: false,
+                  noscript: false,
+                  style: false,
+                  pre: true,
+                },
+              });
+              const article = filterContent(
+                removeArticleHeader(root.querySelector('article'))
+              );
+              const paragraphs = getParagraphs(article);
+              const text = filterRawHtml(article.innerHTML);
+              const tags = root
+                .querySelectorAll('a')
+                .filter((link) => link.getAttribute('href').startsWith('/tag'))
+                .map((link) => link.innerText);
+
+              return {
+                ...post,
+                text,
+                tags: transformTags(tags),
+                paragraphs,
+                order: 1000 - index,
+                href: postTitle(post.title),
+              };
+            });
+        });
       });
 
     Promise.all(posts)
@@ -129,13 +146,6 @@ fetch(url)
               ),
               fs.writeFile(path.resolve(folder, 'index.html'), html),
             ]);
-          })
-        );
-
-        return fs.writeFile(
-          blogPath,
-          JSON.stringify({
-            data: posts,
           })
         );
       })
@@ -187,6 +197,9 @@ function getPostDataFromHtml(root) {
     author_name,
     author_image,
     date,
+    created_at: new Date(
+      root.querySelector('time').getAttribute('datetime')
+    ).getTime(),
     read_minutes,
     href,
   };

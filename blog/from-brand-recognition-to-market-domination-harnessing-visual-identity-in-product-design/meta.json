@@ -5,14 +5,11 @@
     "image": "https://cdn-images-1.medium.com/max/800/1*-Jrhulz1vixxsnxI8X85HQ.png",
     "author_name": "Artem Kovalenko",
     "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/0*6eVSKH-Hb6eJSqNn",
-    "date": "Aug 17",
+    "date": "Aug 17, 2023",
+    "created_at": 1692264335106,
     "read_minutes": "3 min read",
     "href": "from-brand-recognition-to-market-domination-harnessing-visual-identity-in-product-design",
-    "tags": [
-      "Process",
-      "Business",
-      "Design"
-    ],
+    "tags": ["Process", "Business", "Design"],
     "paragraphs": [
       {
         "id": "p9919512194001956",
@@ -39,6 +36,6 @@
         "text": "Identification Chain and Marketing"
       }
     ],
-    "order": 997
+    "order": 995
   }
 }

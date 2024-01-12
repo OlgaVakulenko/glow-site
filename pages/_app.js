@@ -216,6 +216,34 @@ function MyApp({ Component, pageProps }) {
           content="/favicons/ms-icon-144x144.png"
         />
         <meta name="theme-color" content="#ffffff" />
+        <link
+          rel="preload"
+          href="/font/GeneralSans-Variable.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/font/GeneralSans-VariableItalic.woff2"
+          as="font"
+          type="font/woff2"
+          crossorigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/font/Glow-Medium.otf"
+          as="font"
+          type="font/otf"
+          crossorigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/font/Glow-Regular.otf"
+          as="font"
+          type="font/otf"
+          crossorigin="anonymous"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -276,8 +304,6 @@ function MyApp({ Component, pageProps }) {
       />
       <Analytics />
       <div id="drag-cursor"></div>
-      {/** widgets */}
-      {/* <Tolstoy /> */}
     </div>
   );
 }

@@ -29,7 +29,17 @@ export async function getBlogPosts() {
     })
   );
 
-  return posts.sort((a, b) => b.order - a.order);
+  return posts.sort((a, b) => {
+    if (!a.created_at) {
+      console.log(a.href, 'MISSING');
+    }
+
+    if (!b.created_at) {
+      console.log(b.href, 'MISSING');
+    }
+
+    return new Date(b.created_at) - new Date(a.created_at);
+  });
 }
 
 const positionMap = {

@@ -5,13 +5,11 @@
     "image": "https://cdn-images-1.medium.com/max/800/1*KMEKkFCTOH1iczvQNK1sGQ.png",
     "author_name": "Kovalsky Stanislav",
     "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/2*5uDfocwzTmm0N9ZJGlTplQ.png",
-    "date": "Jun 27",
+    "date": "Jun 27, 2023",
+    "created_at": 1687938421713,
     "read_minutes": "3 min read",
     "href": "why-product-design-is-the-secret-weapon-for-ai-startups",
-    "tags": [
-      "Design",
-      "Process"
-    ],
+    "tags": ["Design", "Process"],
     "paragraphs": [
       {
         "id": "p3335954113007358",
@@ -38,6 +36,6 @@
         "text": "How do we do it at Glow?"
       }
     ],
-    "order": 995
+    "order": 993
   }
 }

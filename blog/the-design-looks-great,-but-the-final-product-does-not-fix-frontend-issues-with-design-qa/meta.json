@@ -5,13 +5,11 @@
     "image": "https://cdn-images-1.medium.com/max/800/1*uZ3EnwBSVGMTB5GQO9gIjQ.jpeg",
     "author_name": "Ruslan Mashatov",
     "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/0*TZLn6eils9KJ4IoB.",
-    "date": "Jul 18",
+    "date": "Jul 18, 2023",
+    "created_at": 1689679740155,
     "read_minutes": "6 min read",
     "href": "the-design-looks-great,-but-the-final-product-does-not-fix-frontend-issues-with-design-qa",
-    "tags": [
-      "Process",
-      "Design"
-    ],
+    "tags": ["Process", "Design"],
     "paragraphs": [
       {
         "id": "p4649181920424077",
@@ -54,6 +52,6 @@
         "text": "Bonus: Reduce the Design QA time before the work even started"
       }
     ],
-    "order": 996
+    "order": 994
   }
 }

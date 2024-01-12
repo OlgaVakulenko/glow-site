@@ -5,13 +5,11 @@
     "image": "https://cdn-images-1.medium.com/max/800/1*RJ8aLF4P8eD9VqZyDKP5wQ.png",
     "author_name": "Kovalsky Stanislav",
     "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/2*5uDfocwzTmm0N9ZJGlTplQ.png",
-    "date": "Oct 3",
+    "date": "Oct 3, 2023",
+    "created_at": 1696402686793,
     "read_minutes": "4 min read",
     "href": "fintech-without-ai-prepare-to-lose-users-and-profits",
-    "tags": [
-      "Process",
-      "Design"
-    ],
+    "tags": ["Process", "Design"],
     "paragraphs": [
       {
         "id": "p14296203841669853",
@@ -42,6 +40,6 @@
         "text": "Conclusion"
       }
     ],
-    "order": 999
+    "order": 997
   }
 }

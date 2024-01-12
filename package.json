@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "ANALYZE=true next build && next export && node scripts/image.js && next-sitemap",
+    "build": "ANALYZE=true next build && node scripts/image.js && next-sitemap",
     "start": "next start",
     "lint": "next lint",
     "blog:fetch": "node scripts/fetch-medium.mjs",
@@ -27,7 +27,7 @@
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "mixpanel-browser": "^2.45.0",
-    "next": "13.4.19",
+    "next": "14.0.4",
     "next-sitemap": "^4.1.8",
     "node-fetch": "^3.3.0",
     "node-html-parser": "^6.1.5",
@@ -46,7 +46,7 @@
     "@tailwindcss/typography": "^0.5.9",
     "autoprefixer": "^10.4.15",
     "cli-progress": "^3.11.2",
-    "critters": "0.0.7",
+    "critters": "0.0.20",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
     "eslint-config-prettier": "^9.0.0",
@@ -63,7 +63,7 @@
   },
   "pnpm": {
     "patchedDependencies": {
-      "next@13.4.19": "patches/next@13.4.19.patch"
+      "next@14.0.4": "patches/next@14.0.4.patch"
     }
   }
 }

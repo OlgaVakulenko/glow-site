@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: 'export',
   reactStrictMode: true,
   swcMinify: true,
   trailingSlash: true,
@@ -11,14 +12,17 @@ const nextConfig = {
     // unoptimized: true,
   },
   experimental: {
-    // optimizeCss: true,
+    // optimizeCss: {
+    //   fonts: true,
+    //   minimumExternalSize: 10 * 1000 * 1000,
+    // },
     scrollRestoration: true,
   },
   transpilePackages: ['gsap'],
 };
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
+  enabled: process.env.ANALYZE === 'true' && false,
 });
 module.exports = withBundleAnalyzer(nextConfig);
 

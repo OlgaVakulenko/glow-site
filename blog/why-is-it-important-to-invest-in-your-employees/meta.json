@@ -6,13 +6,10 @@
     "author_name": "Daria Haman",
     "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/1*pGcITYe8dNOMF_yk-WzD5w.jpeg",
     "date": "Dec 27, 2022",
+    "created_at": 1672092000000,
     "read_minutes": "4 min read",
     "href": "why-is-it-important-to-invest-in-your-employees",
-    "tags": [
-      "HR",
-      "Business",
-      "Design"
-    ],
+    "tags": ["HR", "Business", "Design"],
     "paragraphs": [
       {
         "id": "p3583158074599775",
@@ -39,6 +36,6 @@
         "text": "Steps for positive EX (and happier employees)"
       }
     ],
-    "order": 993
+    "order": 991
   }
 }

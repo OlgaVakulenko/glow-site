@@ -1,0 +1,17 @@
+diff --git a/dist/client/index.js b/dist/client/index.js
+index 1113d6163c3570cb9335641b1aee657fd44ae7ba..8cd3b82db8c42578155a3a04e13e7e16d320495d 100644
+--- a/dist/client/index.js
++++ b/dist/client/index.js
+@@ -536,7 +536,11 @@ function doRender(input) {
+         if (input.scroll) {
+             const { x, y } = input.scroll;
+             (0, _handlesmoothscroll.handleSmoothScroll)(()=>{
+-                window.scrollTo(x, y);
++                if ('__scrollTo' in window) {
++                    window.__scrollTo(y);
++                } else {
++                    window.scrollTo(x, y);
++                }
+             });
+         }
+     }
