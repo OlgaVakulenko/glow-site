@@ -69,14 +69,6 @@ function formHandler() {
     'add_time' => date('Y-m-d H:i:s'),
   ]);
 
-  var_dump($dealResponse);
-
-  json_respond(([
-    'res' => $dealResponse,
-  ]));
-
-  return;
-  // var_dump($dealResponse);
 
   $deal = json_decode($dealResponse, true);
 
@@ -88,7 +80,7 @@ function formHandler() {
     ]);
   }
 
-  // emailNotification();
+  emailNotification();
 
   json_respond([
     'status' => 'ok'
