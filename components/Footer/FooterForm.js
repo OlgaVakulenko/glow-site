@@ -194,9 +194,6 @@ export default function FooterForm({
   const [formHeight, setFormHeight] = useState(504);
   const [referrer, query] = getReferrer();
 
-  console.log('ref', referrer);
-  console.log('q', query);
-
   useEffect(() => {
     const onResize = debounce(() => {
       setSize(window.innerWidth);
@@ -224,10 +221,6 @@ export default function FooterForm({
     '10k - 50k',
     'More than 50k',
   ]);
-
-  const rem = useRem();
-
-  console.log('isSubmitted', isSubmitted);
 
   return (
     <div className="relative h-full">

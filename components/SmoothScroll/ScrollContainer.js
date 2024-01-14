@@ -39,6 +39,8 @@ export default function ScrollContainer({ children }) {
       if (w !== window.innerWidth) {
         setIsResize(true);
       }
+
+      window.removeEventListener('resize', onResize);
     }, 500);
 
     window.addEventListener('resize', onResize);

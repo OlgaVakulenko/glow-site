@@ -4,14 +4,12 @@ import { useRouter } from 'next/router';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { nativeScrollAtom } from '../atoms/scroll';
 import Analytics from '../components/Analytics';
-import { AnimatedFix } from '../components/Animated';
 import LoadingProgress from '../components/LoadingProgress';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 import StructuredData from '../components/StructuredData';
 import { useMedia } from '../lib/agent';
 import { useReferrer } from '../lib/utils';
 import '../styles/globals.css';
-import { useReportWebVitals } from 'next/web-vitals';
 
 export const routerHistory = atom([]);
 
@@ -111,11 +109,11 @@ function MyApp({ Component, pageProps }) {
     window.__app_hydrated = true;
   }, []);
 
-  useReportWebVitals((metric) => {
-    console.log(
-      `Name: ${metric.name}, Rating: ${metric.rating}, Value: ${metric.value}`
-    );
-  });
+  // useReportWebVitals((metric) => {
+  //   console.log(
+  //     `Name: ${metric.name}, Rating: ${metric.rating}, Value: ${metric.value}`
+  //   );
+  // });
 
   // useScrollRestoration(router);
 
