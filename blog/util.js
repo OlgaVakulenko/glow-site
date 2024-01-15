@@ -50,7 +50,6 @@ const positionMap = {
 };
 
 export function withAuthor(post) {
-  console.log(post.author_name);
   return {
     ...post,
     author_position: positionMap[post.author_name] || 'Product Designer',

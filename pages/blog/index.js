@@ -7,8 +7,6 @@ export default BlogPage;
 export async function getStaticProps() {
   const posts = await getBlogPosts();
 
-  console.log(posts);
-
   return {
     props: {
       posts: posts.map(getPostPreviewData),
