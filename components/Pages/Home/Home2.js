@@ -16,6 +16,10 @@ import Services from './Services';
 import Solutions from './Solutions';
 import TrialBanner from './TrialBanner';
 import IntroSection from '../../IntroSection';
+// import ThreeBG from './ThreeBG';
+import dynamic from 'next/dynamic';
+import { WhenIdle } from '../../../lib/utils';
+import { useMedia, useMediaAtom, useMediaAtomClient } from '../../../lib/agent';
 
 function IntroSection2() {
   return (
@@ -438,18 +442,34 @@ function IconsSection() {
   );
 }
 
+const ThreeBG = dynamic(() => import('./ThreeBG'));
+
+function BGWrapper() {
+  const media = useMediaAtomClient();
+
+  if (media !== 'mobile') {
+    return <ThreeBG />;
+  }
+
+  return null;
+}
+
 export default function Home2() {
   return (
     <div className="relative overflow-hidden">
       <div id="intro-section">
-        <IntroSection2 />
+        <BGWrapper />
+
+        <div className="pointer-events-none relative z-[1]">
+          <IntroSection2 />
+        </div>
       </div>
-      <div id="logo-carousel">
+      <div id="logo-carousel" className="relative z-[1]">
         <Animated delay={300}>
           <LogoCarousel />
         </Animated>
       </div>
-      <div id="cases-slider">
+      <div id="cases-slider" className="relative z-[1]">
         <Animated delay={600}>
           <CasesSlider2 />
         </Animated>

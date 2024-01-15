@@ -40,7 +40,8 @@
     "sass": "^1.57.1",
     "slugify": "^1.6.5",
     "swiper": "^10.2.0",
-    "typewriter-effect": "^2.19.0"
+    "typewriter-effect": "^2.19.0",
+    "three": "^0.160.0"
   },
   "devDependencies": {
     "@root/walk": "^1.1.0",

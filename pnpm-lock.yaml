@@ -97,6 +97,9 @@ dependencies:
   swiper:
     specifier: ^10.2.0
     version: 10.2.0
+  three:
+    specifier: ^0.160.0
+    version: 0.160.0
   typewriter-effect:
     specifier: ^2.19.0
     version: 2.19.0(react-dom@18.2.0)(react@18.2.0)
@@ -1112,10 +1115,10 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@swc/helpers@0.5.1:
+  /@swc/helpers@0.5.2:
     resolution:
       {
-        integrity: sha512-sJ902EfIzn1Fa+qYmjdQqh8tPsoxyBz+8yBKC2HKUxyezKJFwPGOn7pv4WY6QuQW//ySQi5lJjA/ZT9sNWWNTg==,
+        integrity: sha512-E4KcWTpoLHqwPHLxidpOqQbcrZVgi0rsmmZXUle1jXmJfuIf/UWpczUJ7MZZ5tlxytgJXyp0w4PGkkeLiuIdZw==,
       }
     dependencies:
       tslib: 2.6.2
@@ -1505,15 +1508,6 @@ packages:
       }
     dependencies:
       has-symbols: 1.0.3
-    dev: true
-
-  /atob@2.1.2:
-    resolution:
-      {
-        integrity: sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==,
-      }
-    engines: { node: '>= 4.5.0' }
-    hasBin: true
     dev: true
 
   /attr-accept@2.2.2:
@@ -3742,7 +3736,7 @@ packages:
     dependencies:
       universalify: 2.0.0
     optionalDependencies:
-      graceful-fs: 4.2.10
+      graceful-fs: 4.2.11
     dev: true
 
   /jsx-ast-utils@3.3.5:
@@ -5603,6 +5597,13 @@ packages:
     resolution:
       {
         integrity: sha512-oB7yIimd8SuGptespDAZnNkzIz+NWaJCu2RMsbs4Wmp9zSDUM8Nhi3s2OOcqYuv3mN4hitXc8DVx+LyUmbUDiA==,
+      }
+    dev: false
+
+  /three@0.160.0:
+    resolution:
+      {
+        integrity: sha512-DLU8lc0zNIPkM7rH5/e1Ks1Z8tWCGRq6g8mPowdDJpw1CFBJMU7UoJjC6PefXW7z//SSl0b2+GCw14LB+uDhng==,
       }
     dev: false
 

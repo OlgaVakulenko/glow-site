@@ -32,20 +32,6 @@ export const event = ({ action, category, label, value }) => {
   });
 };
 
-function WhenIdle({ children }) {
-  const [isIdle, setIsIdle] = useState(false);
-
-  useEffect(() => {
-    const cb = window.requestIdleCallback || ((cb) => setTimeout(cb, 500));
-
-    cb(() => {
-      setIsIdle(true);
-    });
-  }, []);
-
-  return isIdle && children;
-}
-
 export default function Analytics() {
   const router = useRouter();
 
