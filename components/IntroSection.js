@@ -5,6 +5,7 @@ import IntroBg from './IntroBg';
 import Layout from './Layout';
 import { PageHeading2 } from './PageHeading';
 import { Subheading2 } from './Typography/Subheading';
+import { useIsClient } from '../lib/utils';
 
 export default function IntroSection({
   title,
@@ -15,6 +16,7 @@ export default function IntroSection({
 }) {
   const ref = useRef();
   const triggerRef = useRef();
+  const isClient = useIsClient();
 
   useEffect(() => {
     if (!asteriskVisible) return;
@@ -39,9 +41,18 @@ export default function IntroSection({
     return subtitleEl || Subheading2;
   }, [subtitleEl]);
 
+  const showBg = useMemo(() => {
+    if (!isClient) return false;
+
+    if (typeof window === 'undefined') {
+      return true;
+    }
+    return !window.location.search.includes('v1');
+  }, [isClient]);
+
   return (
     <div ref={triggerRef}>
-      <IntroBg />
+      {showBg && <IntroBg />}
       <Layout className="flex flex-col ">
         <div className="relative md:grid md:grid-flow-row md:grid-cols-8 md:gap-8 xl:grid-cols-12 4xl:gap-12">
           <div className="md:col-span-4 lg:col-span-5 xl:col-span-7"></div>

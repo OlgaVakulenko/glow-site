@@ -443,12 +443,20 @@ function IconsSection() {
 }
 
 const ThreeBG = dynamic(() => import('./ThreeBG'));
+const ThreeBG2 = dynamic(() => import('./ThreeBG2'));
 
 function BGWrapper() {
   const media = useMediaAtomClient();
 
-  if (media !== 'mobile') {
-    return <ThreeBG />;
+  if (media && media !== 'mobile') {
+    if (
+      typeof window !== 'undefined' &&
+      window?.location?.search?.includes('v1')
+    ) {
+      return <ThreeBG />;
+    }
+
+    return <ThreeBG2 />;
   }
 
   return null;

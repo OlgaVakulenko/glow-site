@@ -837,12 +837,12 @@ class Simulation {
     this.options = {
       iterations_poisson: 8,
       iterations_viscous: 8,
-      mouse_force: 20,
+      mouse_force: 250,
       resolution: 0.5,
-      cursor_size: 120,
-      viscous: 165,
-      isBounce: false,
-      dt: 0.014,
+      cursor_size: 50,
+      viscous: 185,
+      isBounce: true,
+      dt: 0.003,
       isViscous: true,
       BFECC: true,
     };
@@ -1139,8 +1139,8 @@ void main() {
     // Enhanced color mapping
     float intensity = smoothstep(0.0, 1.0, len); // Smooth transition based on velocity length
     vec3 baseColor = vec3(1.0, 1.0, 1.0); // Base color (white)
-    vec3 fluidColor = vec3(0.8901960784313725, 0.19607843137254902, 0.18823529411764706); // Fluid color (reddish)
-    // vec3 fluidColor = vec3(1.0, 1.0, 1.0); // Fluid color (reddish)
+    // vec3 fluidColor = vec3(0.8901960784313725, 0.19607843137254902, 0.18823529411764706); // Fluid color (reddish)
+    vec3 fluidColor = vec3(1.0, 1.0, 1.0); // Fluid color (reddish)
 
     vec3 color = mix(baseColor, fluidColor, intensity); // Blending base and fluid colors
 
@@ -1164,8 +1164,7 @@ void main() {
 
     // Enhanced color mapping
     float intensity = smoothstep(0.0, 1.0, len); // Smooth transition based on velocity length
-    // vec3 fluidColor = vec3(1.0, 1.0, 1.0); // Fluid color (light grey)
-    vec3 fluidColor = vec3(0.8901960784313725, 0.19607843137254902, 0.18823529411764706); // Fluid color (reddish)
+    vec3 fluidColor = vec3(1.0, 1.0, 1.0); // Fluid color (light grey)
 
     // Set alpha based on intensity
     float alpha = intensity; // Alpha is high where the fluid is and low (transparent) where it isn't
@@ -1473,6 +1472,11 @@ export default function ThreeBG() {
         border: '1px solid red',
       }}
     >
+      <img
+        className="absolute z-[1] h-screen w-full"
+        src="/bg-backdrop.png"
+        alt=""
+      />
       <div ref={ref} className="absolute z-[1] h-screen w-full"></div>
     </div>
   );
