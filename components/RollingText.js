@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { useMediaAtom } from '../lib/agent';
 import { useRem } from '../lib/utils';
 
-export default function RollingText({ text = '', height }) {
+export default function RollingText({ wrapperStyle, text = '', height }) {
   const media = useMediaAtom();
   const rem = useRem();
 
@@ -19,7 +19,7 @@ export default function RollingText({ text = '', height }) {
   }
 
   return (
-    <div>
+    <div style={wrapperStyle}>
       {sentences.map((letters, i) => (
         <div
           className="rolling-text-container"

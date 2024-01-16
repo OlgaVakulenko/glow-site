@@ -2,6 +2,9 @@ RewriteEngine on
 
 #example.com/page will display the contents of example.com/page.html
 
+# /trial -> /
+RewriteRule ^trial/?$ / [R=301,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f

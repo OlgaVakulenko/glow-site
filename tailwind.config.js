@@ -52,6 +52,13 @@ module.exports = {
             fontWeight: '500',
           },
         ],
+        'body-heading-m2': [
+          '20px',
+          {
+            lineHeight: '24px',
+            fontWeight: '500',
+          },
+        ],
         'body-list-s': [
           '16px',
           {
@@ -77,6 +84,14 @@ module.exports = {
           {
             lineHeight: '19px',
             letterSpacing: '0.03em',
+            fontWeight: '500',
+          },
+        ],
+        'button-m2': [
+          '14px',
+          {
+            lineHeight: '24px',
+            letterSpacing: '0.42px',
             fontWeight: '500',
           },
         ],
@@ -162,6 +177,7 @@ module.exports = {
       },
       colors: {
         brand: '#E33230',
+        ['border-gray']: '#D1D1D1',
         // brand: '#d6dbe0', //Dev only
         black: '#19191B',
         lblue: '#F0F6FF',
@@ -192,6 +208,9 @@ module.exports = {
         'description-list': 'repeat(auto-fill, 152px)',
         24: 'repeat(24, minmax(0, 1fr))',
         'footer-links': 'repeat(auto-fill, minmax(80px, 1fr));',
+      },
+      boxShadow: {
+        ['btn-focus']: '0px 0px 0px 4px rgba(227, 50, 48, 0.20)',
       },
       transformOrigin: {
         'left-center': '24px center',

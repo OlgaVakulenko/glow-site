@@ -535,8 +535,8 @@ export default function Header({
                       )}
                     >
                       <Animated delay={(links.length + 1) * 100} immediate>
-                        <AnimatedButton as={Link} href="/trial">
-                          Start free trial
+                        <AnimatedButton as={Link} href="/contact-us">
+                          Contact Us
                         </AnimatedButton>
                       </Animated>
                     </div>

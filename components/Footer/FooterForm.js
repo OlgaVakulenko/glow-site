@@ -102,7 +102,7 @@ function Switches({
       <RGroupLabel className="text-body-heading-m leading-6 ">
         {title}
       </RGroupLabel>
-      <div className="mt-5 flex flex-wrap gap-2 md:mt-[29px]">
+      <div className="mt-4 flex flex-wrap gap-2 md:mt-[29px]">
         {options.map((option) => (
           <RGroupOption
             className="cursor-pointer text-body-heading-s font-medium uppercase"
@@ -299,7 +299,7 @@ export default function FooterForm({
           {!hideToggles && (
             <div className="md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 xl:mb-10 xl:flex xl:flex-col xl:gap-0">
               <Switches
-                className="-mr-1 mb-12 md:col-span-4 md:mr-0 md:pr-6 xl:mb-10"
+                className="-mr-1 mb-10 md:col-span-4 md:mr-0 md:pr-6 xl:mb-10"
                 title="Service"
                 name="service"
                 selected={selectedServices}
@@ -322,7 +322,7 @@ export default function FooterForm({
             className={cx('grid pb-6 md:pb-0', {
               'text-lblue': theme === 'footer',
               'md:grid-flow-row md:grid-cols-8': useGrid,
-              'pt-12': !disablePadding,
+              'pt-10': !disablePadding,
               'gap-8': gapSize === '8',
               'gap-10': gapSize === '10',
             })}
@@ -380,9 +380,7 @@ export default function FooterForm({
               )}
             >
               <RollingText
-                text={
-                  footerStyle === 'trial' ? 'Start free trial' : 'Make me glow'
-                }
+                text={`Book free call`}
                 height={
                   size >= 1800
                     ? 24

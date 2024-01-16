@@ -44,7 +44,7 @@ export default function TrialBanner() {
 
   return (
     <Layout className="pb-24 md:pb-[136px] 4xl:pb-[160px]">
-      <Link href="/trial">
+      <Link href="/contact-us">
         <div
           ref={wrapperRef}
           className="relative overflow-hidden rounded-3xl px-6 py-10 md:flex md:min-h-[328px] md:px-12 md:py-14 xl:py-16 4xl:min-h-[463px] 4xl:px-24 4xl:py-20"
