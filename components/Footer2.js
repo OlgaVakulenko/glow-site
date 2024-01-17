@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import SlotsLeftButton from './Pages/Trial/SlotsLeftButton';
 import Button2 from './Button2';
 import Link from 'next/link';
+import FooterFormWrapper from './FooterFormWrapper';
 
 export default function Footer2({
   footerSuccess: isSubmitted,
@@ -29,21 +30,25 @@ export default function Footer2({
         '!mt-0 flex h-screenx flex-col !pt-[120px]': isSubmitted,
       })}
     >
-      {showForm && (
-        <Layout disableOnMobile={true}>
-          <div className="bg-black px-4 py-[204px] md:rounded-[32px] md:py-[164px] xl:py-[142px]">
-            <div className="mb-10 text-center font-glow text-5xl font-medium leading-none tracking-[-2px] text-white md:mb-14 md:text-[99px] md:leading-[100px] md:tracking-[-3px] xl:text-[112px] xl:leading-[106px]">
-              Let’s make
-              <br /> your project
-              <br className="md:hidden" /> glow
+      {isSubmitted ? (
+        <FooterFormWrapper isSubmitted={isSubmitted} />
+      ) : (
+        showForm && (
+          <Layout disableOnMobile={true}>
+            <div className="bg-black px-4 py-[204px] md:rounded-[32px] md:py-[164px] xl:py-[142px]">
+              <div className="mb-10 text-center font-glow text-5xl font-medium leading-none tracking-[-2px] text-white md:mb-14 md:text-[99px] md:leading-[100px] md:tracking-[-3px] xl:text-[112px] xl:leading-[106px]">
+                Let’s make
+                <br /> your project
+                <br className="md:hidden" /> glow
+              </div>
+              <div className="text-center">
+                <Button2 as={Link} href="/contact-us">
+                  Book free call
+                </Button2>
+              </div>
             </div>
-            <div className="text-center">
-              <Button2 as={Link} href="/contact-us">
-                Book free call
-              </Button2>
-            </div>
-          </div>
-        </Layout>
+          </Layout>
+        )
       )}
       <Layout>
         <div className="py-6 md:py-11">
