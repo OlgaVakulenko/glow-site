@@ -15,6 +15,7 @@ import HeadTitle, {
   getFullDescription,
   getFullTitle,
 } from '../components/HeadTitle';
+import CookieBanner from '../components/CookieBanner';
 
 export const routerHistory = atom([]);
 
@@ -252,28 +253,28 @@ function MyApp({ Component, pageProps }) {
           href="/font/GeneralSans-Variable.woff2"
           as="font"
           type="font/woff2"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <link
           rel="preload"
           href="/font/GeneralSans-VariableItalic.woff2"
           as="font"
           type="font/woff2"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <link
           rel="preload"
           href="/font/Glow-Medium.otf"
           as="font"
           type="font/otf"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <link
           rel="preload"
           href="/font/Glow-Regular.otf"
           as="font"
           type="font/otf"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         />
         <script
           dangerouslySetInnerHTML={{
@@ -317,6 +318,7 @@ function MyApp({ Component, pageProps }) {
         }}
       />
       {getLayout(<Component {...pageProps} />)}
+      <CookieBanner />
       {/* <AnimatedFix /> */}
       <script
         dangerouslySetInnerHTML={{
@@ -334,7 +336,7 @@ function MyApp({ Component, pageProps }) {
             `,
         }}
       />
-      <Analytics />
+      {/* <Analytics /> */}
       <div id="drag-cursor"></div>
     </div>
   );

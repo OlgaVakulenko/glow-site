@@ -48,9 +48,6 @@ export default function LogoCarousel() {
     let f = false;
     const run = (time) => {
       if (!scrollerRef.current) return;
-      // if (time == null) {
-      //   return;
-      // }
       const t = time != null ? time : 0;
       const delta = t - prevTime;
       prevTime = t;

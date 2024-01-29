@@ -24,6 +24,7 @@ import { useMedia, useMediaAtom, useMediaAtomClient } from '../../../lib/agent';
 function IntroSection2() {
   return (
     <IntroSection
+      showBg={false}
       title={
         <>
           {' '}
@@ -443,20 +444,33 @@ function IconsSection() {
 }
 
 const ThreeBG = dynamic(() => import('./ThreeBG'));
-const ThreeBG2 = dynamic(() => import('./ThreeBG2'));
 
 function BGWrapper() {
   const media = useMediaAtomClient();
+  const [isIdle, setIsIdle] = useState(false);
 
-  if (media && media !== 'mobile') {
-    if (
-      typeof window !== 'undefined' &&
-      window?.location?.search?.includes('v1')
-    ) {
-      return <ThreeBG />;
+  useEffect(() => {
+    try {
+      const id = requestIdleCallback(() => {
+        setIsIdle(true);
+      });
+
+      return () => {
+        cancelIdleCallback(id);
+      };
+    } catch (e) {
+      const id = setTimeout(() => {
+        setIsIdle(true);
+      }, 500);
+
+      return () => {
+        clearTimeout(id);
+      };
     }
+  }, []);
 
-    return <ThreeBG2 />;
+  if (media && media !== 'mobile' && isIdle) {
+    return <ThreeBG />;
   }
 
   return null;

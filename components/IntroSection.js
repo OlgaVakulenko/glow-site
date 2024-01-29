@@ -8,6 +8,7 @@ import { Subheading2 } from './Typography/Subheading';
 import { useIsClient } from '../lib/utils';
 
 export default function IntroSection({
+  showBg = true,
   title,
   subtitle,
   customSubtitle,
@@ -40,15 +41,6 @@ export default function IntroSection({
   const SubtitleElement = useMemo(() => {
     return subtitleEl || Subheading2;
   }, [subtitleEl]);
-
-  const showBg = useMemo(() => {
-    if (!isClient) return false;
-
-    if (typeof window === 'undefined') {
-      return true;
-    }
-    return !window.location.search.includes('v1');
-  }, [isClient]);
 
   return (
     <div ref={triggerRef}>
