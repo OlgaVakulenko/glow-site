@@ -21,6 +21,7 @@ import { useMediaAtom, useMediaAtomClient } from '../../../lib/agent';
 import CaseCard from './CaseCard';
 import cases from '../Cases/data';
 import Button2 from '../../Button2';
+import Link from 'next/link';
 
 function IntroSection2() {
   return (
@@ -489,7 +490,11 @@ function CasesSliderWrapper() {
             <CaseCard item={cases[1]} />
           </div>
           <div>
-            <Button2 className="h-[56px] !w-full !border !border-black !bg-white">
+            <Button2
+              as={Link}
+              href="/work"
+              className="!w-full !border !border-black !bg-white"
+            >
               <div className="flex justify-center space-x-2">
                 <span>Cases</span>
                 <svg
