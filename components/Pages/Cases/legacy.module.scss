@@ -236,7 +236,8 @@
 
   .fadeInUp {
     opacity: 0;
-    transition: transform 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99) 0.2s,
+    transition:
+      transform 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99) 0.2s,
       opacity 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99) 0.2s;
     -webkit-animation-name: fadeInUp;
     animation-name: fadeInUp;
@@ -1000,12 +1001,18 @@
     -webkit-transform: scaleX(0);
     transform: scaleX(0);
     will-change: transform, opacity;
-    -webkit-transition: 250ms opacity 200ms cubic-bezier(0.19, 1, 0.22, 1),
+    -webkit-transition:
+      250ms opacity 200ms cubic-bezier(0.19, 1, 0.22, 1),
       250ms -webkit-transform 200ms cubic-bezier(0.19, 1, 0.22, 1);
-    transition: 250ms opacity 200ms cubic-bezier(0.19, 1, 0.22, 1),
+    transition:
+      250ms opacity 200ms cubic-bezier(0.19, 1, 0.22, 1),
       250ms -webkit-transform 200ms cubic-bezier(0.19, 1, 0.22, 1);
-    transition: 250ms opacity 200ms cubic-bezier(0.19, 1, 0.22, 1), 250ms transform 200ms cubic-bezier(0.19, 1, 0.22, 1);
-    transition: 250ms opacity 200ms cubic-bezier(0.19, 1, 0.22, 1), 250ms transform 200ms cubic-bezier(0.19, 1, 0.22, 1),
+    transition:
+      250ms opacity 200ms cubic-bezier(0.19, 1, 0.22, 1),
+      250ms transform 200ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition:
+      250ms opacity 200ms cubic-bezier(0.19, 1, 0.22, 1),
+      250ms transform 200ms cubic-bezier(0.19, 1, 0.22, 1),
       250ms -webkit-transform 200ms cubic-bezier(0.19, 1, 0.22, 1);
     width: 44px;
     height: 44px;
@@ -1073,10 +1080,18 @@
   }
 
   .header__menu-ico .line-1:after {
-    -webkit-transition: 200ms opacity, 670ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1) 150ms;
-    transition: 200ms opacity, 670ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1) 150ms;
-    transition: 670ms transform cubic-bezier(0.19, 1, 0.22, 1) 150ms, 200ms opacity;
-    transition: 670ms transform cubic-bezier(0.19, 1, 0.22, 1) 150ms, 200ms opacity,
+    -webkit-transition:
+      200ms opacity,
+      670ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1) 150ms;
+    transition:
+      200ms opacity,
+      670ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1) 150ms;
+    transition:
+      670ms transform cubic-bezier(0.19, 1, 0.22, 1) 150ms,
+      200ms opacity;
+    transition:
+      670ms transform cubic-bezier(0.19, 1, 0.22, 1) 150ms,
+      200ms opacity,
       670ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1) 150ms;
   }
 
@@ -1093,10 +1108,18 @@
   }
 
   .header__menu-ico .line-2:after {
-    -webkit-transition: 200ms opacity, 670ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1) 233ms;
-    transition: 200ms opacity, 670ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1) 233ms;
-    transition: 670ms transform cubic-bezier(0.19, 1, 0.22, 1) 233ms, 200ms opacity;
-    transition: 670ms transform cubic-bezier(0.19, 1, 0.22, 1) 233ms, 200ms opacity,
+    -webkit-transition:
+      200ms opacity,
+      670ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1) 233ms;
+    transition:
+      200ms opacity,
+      670ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1) 233ms;
+    transition:
+      670ms transform cubic-bezier(0.19, 1, 0.22, 1) 233ms,
+      200ms opacity;
+    transition:
+      670ms transform cubic-bezier(0.19, 1, 0.22, 1) 233ms,
+      200ms opacity,
       670ms -webkit-transform cubic-bezier(0.19, 1, 0.22, 1) 233ms;
   }
 
@@ -1674,10 +1697,18 @@
   .menu__list li.inactive-item:hover ~ .inactive-info,
   .menu__list li.inactive-item:active ~ .inactive-info {
     opacity: 1;
-    -webkit-transition: opacity 0.1s, -webkit-transform 8s cubic-bezier(0.29, 0.61, 0.76, 0.48);
-    transition: opacity 0.1s, -webkit-transform 8s cubic-bezier(0.29, 0.61, 0.76, 0.48);
-    transition: opacity 0.1s, transform 8s cubic-bezier(0.29, 0.61, 0.76, 0.48);
-    transition: opacity 0.1s, transform 8s cubic-bezier(0.29, 0.61, 0.76, 0.48),
+    -webkit-transition:
+      opacity 0.1s,
+      -webkit-transform 8s cubic-bezier(0.29, 0.61, 0.76, 0.48);
+    transition:
+      opacity 0.1s,
+      -webkit-transform 8s cubic-bezier(0.29, 0.61, 0.76, 0.48);
+    transition:
+      opacity 0.1s,
+      transform 8s cubic-bezier(0.29, 0.61, 0.76, 0.48);
+    transition:
+      opacity 0.1s,
+      transform 8s cubic-bezier(0.29, 0.61, 0.76, 0.48),
       -webkit-transform 8s cubic-bezier(0.29, 0.61, 0.76, 0.48);
     -webkit-transform: translateX(calc(-100vw - 350px));
     transform: translateX(calc(-100vw - 350px));
@@ -2502,6 +2533,7 @@
   @media (max-width: 1390px) {
     .beast .welcome {
       height: 900px;
+      height: 100vh;
     }
   }
 

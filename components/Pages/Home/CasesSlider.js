@@ -5,7 +5,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
 import { Mousewheel } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from 'swiper/react';
 import gsap from '../../../dist/gsap';
 import { mediaAtom, useMediaAtom } from '../../../lib/agent';
 import { addLeadingZero, useIsClient } from '../../../lib/utils';
@@ -18,6 +18,8 @@ import { useSetAtom } from 'jotai';
 import throttle from 'lodash.throttle';
 import DragCursorContainer, { cursorGlobalDisableAtom } from '../../DragCursor';
 import casesData from '../Cases/data';
+import CaseCard from './CaseCard';
+import CaseNavArrow from './CaseNavArrow';
 
 const featured = ['/beast', '/cryptogenie', '/jucr', '/tilt', '/liquidspace'];
 
@@ -223,67 +225,6 @@ export function CasesRow({ cases, className = '' }) {
   );
 }
 
-export default function CasesSlider3() {
-  const isClient = useIsClient();
-  const [media] = useAtom(mediaAtom);
-
-  if (media === 'mobile' && isClient) {
-    return (
-      <div className="pb-16">
-        <Swiper
-          freeMode={{
-            enabled: true,
-            sticky: true,
-          }}
-        >
-          {cases.map((caseItem, i) => (
-            <SwiperSlide key={i}>
-              <Layout>
-                <CaseItem
-                  imageJsx={caseItem.imageJsx}
-                  image={caseItem.image}
-                  title={caseItem.title}
-                  href={caseItem.href || '#'}
-                  columns={[
-                    {
-                      title: 'industry',
-                      items: caseItem.industry,
-                    },
-                    {
-                      title: 'services',
-                      items: caseItem.service,
-                    },
-                    {
-                      title: 'company',
-                      items: caseItem.company,
-                    },
-                  ]}
-                />
-              </Layout>
-            </SwiperSlide>
-          ))}
-          <Layout>
-            <SliderProgress />
-          </Layout>
-        </Swiper>
-      </div>
-    );
-  }
-  const c1 = cases.filter((_, i) => i % 2 === 0);
-  const c2 = cases.filter((_, i) => i % 2 !== 0);
-
-  return (
-    <Layout className="mb-[56px] ">
-      <div className="flex md:-mx-8 xl:-mx-[56px]">
-        <CasesRow cases={c1} />
-        <CasesRow cases={c2} className="pt-[113px]" />
-      </div>
-      {/** TODO add after "our projects" link is back */}
-      {/* <div className="border-b border-black"></div> */}
-    </Layout>
-  );
-}
-
 function ViewCaseCursor({ x, y }) {
   const prev = useRef({});
   const ref = useRef();
@@ -411,7 +352,147 @@ export function CasesSlider2() {
   );
 }
 
-function EndSlide() {
+function SliderCounter() {
+  const swiper = useSwiper();
+  const [currentSlide, setCurrentSlide] = useState(swiper.activeIndex + 1);
+
+  useEffect(() => {
+    const handleSliderChange = () => {
+      setCurrentSlide(swiper.activeIndex + 1);
+    };
+
+    swiper.on('slideChange', handleSliderChange);
+
+    return () => {
+      swiper.off('slideChange', handleSliderChange);
+    };
+  }, [swiper]);
+
+  return (
+    <div>
+      {addLeadingZero(currentSlide)}/{addLeadingZero(swiper.slides.length - 1)}
+    </div>
+  );
+}
+
+function CasesNavigation() {
+  const swiper = useSwiper();
+
+  return (
+    <div className="flex space-x-4">
+      <CaseNavArrow
+        dir="left"
+        onClick={() => {
+          swiper.slidePrev();
+        }}
+      />
+      <CaseNavArrow
+        dir="right"
+        onClick={() => {
+          swiper.slideNext();
+        }}
+      />
+    </div>
+  );
+}
+
+export function CasesSlider3() {
+  const ref = useRef();
+  const [media] = useAtom(mediaAtom);
+  const [w, setW] = useState(0);
+  const [k, setK] = useState(0);
+  const setGlobalDisable = useSetAtom(cursorGlobalDisableAtom);
+
+  useEffect(() => {
+    const onResize = throttle(() => {
+      setW(window.innerWidth > 1800);
+    }, 100);
+
+    onResize();
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      window.removeEventListener('resize', onResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    setK((k) => k + 1);
+  }, [media, w]);
+
+  return (
+    <div ref={ref}>
+      <Section withLayout={false} className="pb-[80px] md:pb-14 xl:pb-[88px]">
+        <div key={k}>
+          <DragCursorContainer showDefaultCursor cursor={ViewCaseCursor} adhoc>
+            {({ show, swiperOptions }) => (
+              <Swiper
+                {...swiperOptions}
+                mousewheel={{
+                  invert: true,
+                  forceToAxis: true,
+                  sensitivity: 0.1,
+                }}
+                modules={[Mousewheel]}
+                breakpoints={{
+                  320: {
+                    slidesPerView: 1,
+                  },
+                  820: {
+                    slidesPerView: 'auto',
+                  },
+                }}
+              >
+                {cases.map((item, i) => (
+                  <SwiperSlide
+                    key={i}
+                    className={cx(
+                      'cursor-none select-none px-4 md:!w-[85vw] md:pl-4 md:pr-0 xl:!w-[1160px] xl:first:!w-[1200px] xl:first:pl-14',
+                      '4xl:first:pl-[120px]'
+                    )}
+                  >
+                    <Link
+                      href={item.href}
+                      className={cx('group select-none', {
+                        'cursor-none': show,
+                      })}
+                    >
+                      <div className={cx('md:pointer-events-none', {})}>
+                        <CaseCard item={item} index={i} total={cases.length} />
+                        {/* <CaseSlide item={item} index={i} total={cases.length} /> */}
+                      </div>
+                    </Link>
+                  </SwiperSlide>
+                ))}
+                <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-14 4xl:pr-[120px]">
+                  <EndSlide />
+                </SwiperSlide>
+                <div
+                  onPointerEnter={() => {
+                    setGlobalDisable(true);
+                  }}
+                  onPointerLeave={() => {
+                    setGlobalDisable(false);
+                  }}
+                >
+                  <Layout className="pt-5 md:max-w-[736px] md:pt-8 xl:max-w-full xl:pt-10">
+                    <div className="mb-5 flex items-end justify-between">
+                      <CasesNavigation />
+                      <SliderCounter />
+                    </div>
+                    <SliderProgress />
+                  </Layout>
+                </div>
+              </Swiper>
+            )}
+          </DragCursorContainer>
+        </div>
+      </Section>
+    </div>
+  );
+}
+
+function EndSlide({ className }) {
   const setGlobalCursorDisable = useSetAtom(cursorGlobalDisableAtom);
   const media = useMediaAtom();
 
@@ -423,7 +504,9 @@ function EndSlide() {
       onMouseLeave={() => {
         setGlobalCursorDisable(false);
       }}
-      className="group flex h-full min-h-[456px] items-center justify-center rounded-3xl transition-all duration-300 md:ml-6 md:flex md:min-h-[688px] md:items-stretch md:rounded-[32px] md:border md:border-black md:hover:border-brand md:hover:bg-brand"
+      className={cx(
+        'group flex h-full min-h-[382px] items-center justify-center rounded-3xl transition-all duration-300 md:ml-6 md:flex md:min-h-[530px] md:items-stretch md:rounded-[32px] md:border md:border-black md:hover:border-brand md:hover:bg-brand'
+      )}
     >
       {media === 'mobile' ? <LastSlide2 /> : <LastSlide />}
       {/* {media !== 'mobile' && (

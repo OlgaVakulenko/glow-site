@@ -22,7 +22,11 @@ export default function Button2({
       )}
       {...props}
     >
-      <RollingText height={24} text={children} />
+      {typeof children === 'string' ? (
+        <RollingText height={24} text={children} />
+      ) : (
+        children
+      )}
     </Component>
   );
 }

@@ -16,6 +16,7 @@
     "@headlessui/react": "^1.7.17",
     "@next/bundle-analyzer": "^12.3.1",
     "@next/third-parties": "^14.0.4",
+    "@studio-freight/react-lenis": "^0.0.43",
     "bowser": "^2.11.0",
     "clsx": "^2.0.0",
     "d3-interpolate-path": "^2.3.0",
@@ -40,8 +41,8 @@
     "sass": "^1.57.1",
     "slugify": "^1.6.5",
     "swiper": "^10.2.0",
-    "typewriter-effect": "^2.19.0",
-    "three": "^0.160.0"
+    "three": "^0.160.0",
+    "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "@root/walk": "^1.1.0",

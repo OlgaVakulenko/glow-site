@@ -91,9 +91,6 @@ class Common {
     this.width = this.wrapper.offsetWidth; // document.body.clientWidth;
     this.height = this.wrapper.offsetHeight;
 
-    console.log('this.width', this.width);
-    console.log('this.height', this.height);
-
     this.aspect = this.width / this.height;
 
     if (this.renderer) this.renderer.setSize(this.width, this.height);
@@ -843,7 +840,7 @@ class Simulation {
       viscous: 165,
       isBounce: false,
       dt: 0.014,
-      isViscous: true,
+      isViscous: false,
       BFECC: true,
     };
 
@@ -1468,12 +1465,8 @@ export default function ThreeBG() {
   }, []);
 
   return (
-    <div
-      style={{
-        border: '1px solid red',
-      }}
-    >
-      <div ref={ref} className="absolute z-[1] h-screen w-full"></div>
+    <div>
+      <div ref={ref} className="absolute z-[1] h-[150vh] w-full"></div>
     </div>
   );
 }

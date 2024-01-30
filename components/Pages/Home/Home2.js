@@ -1,13 +1,13 @@
 import { RollingWords } from './index';
 // import Layout2 from '../../Layout2';
 import cx from 'clsx';
-import { useEffect, useRef, useState } from 'react';
-import gsap from '../../../dist/gsap';
+import { useEffect, useState } from 'react';
 import Animated from '../../Animated';
+import IntroSection from '../../IntroSection';
 import Layout from '../../Layout';
 import { PageHeading2 } from '../../PageHeading';
 import { Subheading2 } from '../../Typography/Subheading';
-import { CasesSlider2 } from './CasesSlider';
+import { CasesSlider3 } from './CasesSlider';
 import LogoCarousel from './LogoCarousel';
 import NextStep from './NextStep';
 import OurExperience from './OurExperience';
@@ -15,11 +15,12 @@ import Reviews from './Reviews2';
 import Services from './Services';
 import Solutions from './Solutions';
 import TrialBanner from './TrialBanner';
-import IntroSection from '../../IntroSection';
 // import ThreeBG from './ThreeBG';
 import dynamic from 'next/dynamic';
-import { WhenIdle } from '../../../lib/utils';
-import { useMedia, useMediaAtom, useMediaAtomClient } from '../../../lib/agent';
+import { useMediaAtom, useMediaAtomClient } from '../../../lib/agent';
+import CaseCard from './CaseCard';
+import cases from '../Cases/data';
+import Button2 from '../../Button2';
 
 function IntroSection2() {
   return (
@@ -476,6 +477,45 @@ function BGWrapper() {
   return null;
 }
 
+function CasesSliderWrapper() {
+  const media = useMediaAtom();
+
+  return (
+    <Animated delay={600}>
+      {media === 'mobile' && (
+        <Layout className="mb-20">
+          <div className="mb-8 space-y-14">
+            <CaseCard item={cases[0]} />
+            <CaseCard item={cases[1]} />
+          </div>
+          <div>
+            <Button2 className="h-[56px] !w-full !border !border-black !bg-white">
+              <div className="flex justify-center space-x-2">
+                <span>Cases</span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M16.4335 8.7381L6.63137 18.5402L5.5 17.4088L15.3036 7.60527L7.90151 7.62145L7.89811 6.02177L18.0388 6L18.0177 16.1414L16.418 16.138L16.4335 8.7381Z"
+                    fill="#19191B"
+                  />
+                </svg>
+              </div>
+            </Button2>
+          </div>
+        </Layout>
+      )}
+      {media !== 'mobile' && <CasesSlider3 />}
+    </Animated>
+  );
+}
+
 export default function Home2() {
   return (
     <div className="relative overflow-hidden">
@@ -492,9 +532,7 @@ export default function Home2() {
         </Animated>
       </div>
       <div id="cases-slider" className="relative z-[1]">
-        <Animated delay={600}>
-          <CasesSlider2 />
-        </Animated>
+        <CasesSliderWrapper />
       </div>
       <IconsSection />
       <NextStep />

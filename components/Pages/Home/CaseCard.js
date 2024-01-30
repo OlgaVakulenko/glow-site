@@ -74,8 +74,25 @@ export default function CaseCard({ type, item, index, total }) {
               </>
             )}
           </div>
-          <div className="mb-9 mt-[38px] font-glow text-[26px] font-medium leading-[120%] md:mt-6 md:text-[32px] md:leading-10">
-            {item.title2 || item.title}
+          <div className="mb-3 mt-[38px] font-glow text-[26px] font-medium leading-[28px] md:mb-9 md:mt-6 md:text-[32px] md:leading-10">
+            <div className="flex items-center justify-between">
+              <span>{item.title2 || item.title}</span>
+              <svg
+                className="md:hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                width="28"
+                height="28"
+                viewBox="0 0 28 28"
+                fill="none"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M7.96693 21.2829L17.568 11.6818L17.5532 18.7974L19.5529 18.8016L19.5748 8.25936L9.03325 8.28199L9.03749 10.2817L16.1552 10.2661L6.55272 19.8686L7.96693 21.2829Z"
+                  fill="#19191B"
+                />
+              </svg>
+            </div>
           </div>
           <div className="hidden md:mb-8 md:mt-auto md:block">
             {/** temp static data */}
@@ -94,7 +111,13 @@ export default function CaseCard({ type, item, index, total }) {
             <Col2 title="Services" items={item.service} />
             <Col2 title="Company" items={item.company} />
           </div>
-          <div className="flex space-x-[40px] pl-[3px] md:hidden md:space-x-[62px]">
+          <div className="text-text-dim md:hidden md:max-w-[332px] md:text-body-xs">
+            Beast is an ambitious carsharing project from Estonia that presents
+            a range of exclusive Tesla models. Inspired by Tesla, their approach
+            and desire is to serve the mission of reducing carbon dioxide
+            emissions into the environment.
+          </div>
+          <div className="hidden space-x-[40px] pl-[3px] md:hidden md:space-x-[62px]">
             <Col className="" title="Industry" items={item.industry} />
             <Col
               className="min-w-[100px]"
