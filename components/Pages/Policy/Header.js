@@ -1,14 +1,18 @@
-import PolicyLayout from './PolicyLayout';
+import IntroSection from '../../IntroSection';
+import Layout from '../../Layout';
 
 export default function Header({ title }) {
   return (
-    <div className="bg-[#F3F2F4] pt-[184px]">
-      <PolicyLayout>
-        <div className="font-glow text-[56px] font-medium leading-[56px] tracking-[-2px]">
-          {title}
-        </div>
-        <div className="pb-[77px] text-subtitle-l italic">From Glow Team</div>
-      </PolicyLayout>
+    <div className="pb-[100px]">
+      <IntroSection
+        title={title}
+        subtitle={
+          <>
+            These guys are
+            <br /> shining with us
+          </>
+        }
+      />
     </div>
   );
 }

@@ -57,7 +57,7 @@ export default function IntroSection({
               {asteriskVisible && (
                 <div
                   ref={ref}
-                  className="absolute left-8 top-24 w-[134px] md:top-[184px] xl:top-[216px] xl:w-[188px]"
+                  className="absolute left-0 top-24 w-[134px] md:top-[184px] xl:top-[216px] xl:w-[188px]"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
