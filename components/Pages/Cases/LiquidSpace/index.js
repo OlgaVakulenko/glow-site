@@ -34,10 +34,16 @@ export default function LiquidSpace() {
   return (
     <div>
       <Head>
-        <title>{getFullTitle('LiquidSpace - workspace rental service')}</title>
+        <title>
+          {getFullTitle(
+            'Case LiquidSpace: Innovative Workspace Rental Service'
+          )}
+        </title>
         <meta
           name="description"
-          content={getFullDescription('LiquidSpace - workspace rental service')}
+          content={getFullDescription(
+            'Explore LiquidSpace by Glow Team, the user-friendly office rental service revolutionizing the hybrid workplace.'
+          )}
         />
       </Head>
       <Layout className="pb-10">
@@ -190,7 +196,7 @@ function List({ data }) {
 
 function SectionBalance() {
   return (
-    <Layout className="pt-16 pb-16 md:pt-[100px] md:pb-[100px] xl:pb-[150px]">
+    <Layout className="pb-16 pt-16 md:pb-[100px] md:pt-[100px] xl:pb-[150px]">
       <SectionHeading className="mb-6 md:mb-[60px] xl:mb-16">
         We balance business <br className="hidden xl:block" /> objectives with
         customer needs
@@ -300,7 +306,7 @@ function UserFlowResearch() {
 
 function CustomerJourneyMap() {
   return (
-    <div className="pt-8 pb-16 xl:pb-[150px]">
+    <div className="pb-16 pt-8 xl:pb-[150px]">
       <SectionLayout
         badgeClassname="!right-5"
         badge="UX"
@@ -323,7 +329,7 @@ function CustomerJourneyMap() {
 
 function UsabilityTesting() {
   return (
-    <div className="pt-8 pb-16">
+    <div className="pb-16 pt-8">
       <SectionLayout
         badge="UX"
         title={
@@ -452,7 +458,7 @@ function Review() {
       <Layout className="mt-2 pb-16">
         <div className="border-t border-black pt-10 md:flex md:pt-12">
           <div className="mb-10">
-            <div className="mb-6 w-[112px] overflow-hidden rounded-[10px] md:mr-[90px] md:mb-8 md:w-[198px] xl:w-[288px]">
+            <div className="mb-6 w-[112px] overflow-hidden rounded-[10px] md:mb-8 md:mr-[90px] md:w-[198px] xl:w-[288px]">
               <Image src={ReviewImg} alt="" />
             </div>
             <div className="mb-2 text-xl font-medium leading-[30px]">

@@ -3,6 +3,8 @@ import React from 'react';
 import Header from '../components/Pages/Policy/Header';
 import Section from '../components/Pages/Policy/Section';
 import Layout from '../components/Layout';
+import Head from 'next/head';
+import { getFullTitle } from '../components/HeadTitle';
 
 const sections = [
   {
@@ -244,6 +246,9 @@ We reserve the right, at our sole discretion, to update, change or replace any p
 export default function TermsOfService() {
   return (
     <div className="pb-[150px]">
+      <Head>
+        <title>{getFullTitle('Terms of Service')}</title>
+      </Head>
       <Header title="Terms of Service" />
       <Layout className="grid gap-[60px] pt-20">
         {sections.map((section, index) => (

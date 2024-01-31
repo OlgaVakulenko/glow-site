@@ -7,10 +7,14 @@ export default function Parking() {
   return (
     <LegacyCaseContainer>
       <Head>
-        <title>{getFullTitle('Platform for parking in airport')}</title>
+        <title>
+          {getFullTitle('Automated Airport Parking Platform Development')}
+        </title>
         <meta
           name="description"
-          content={getFullDescription('Platform for parking in airport')}
+          content={getFullDescription(
+            'Glow Team developed a user-friendly platform for efficient airport parking management, focusing on automation and intuitive UI design.'
+          )}
         />
       </Head>
       <main className="parking">
@@ -83,13 +87,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Challenge
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -223,13 +227,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Research
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -326,13 +330,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Wireframes
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -367,13 +371,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Colours
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -404,13 +408,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Typography
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -448,13 +452,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Icons
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -487,13 +491,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Anytime anywhere
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -529,13 +533,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   All bookings
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -576,13 +580,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Booking details
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -619,13 +623,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Service schedule
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -662,13 +666,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Parking space overview
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -706,13 +710,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   A one-size-fits-all grid
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -745,13 +749,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Parking space overview
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -789,13 +793,13 @@ export default function Parking() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   A library of components
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p

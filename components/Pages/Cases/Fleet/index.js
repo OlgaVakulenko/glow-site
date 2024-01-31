@@ -7,11 +7,11 @@ export default function Fleet() {
   return (
     <LegacyCaseContainer>
       <Head>
-        <title>{getFullTitle('FleetChaser – fleet management platform')}</title>
+        <title>{getFullTitle('Fleet Management Solutions')}</title>
         <meta
           name="description"
           content={getFullDescription(
-            'FleetChaser – fleet management platform'
+            'Glow Team offers innovative fleet management solutions, optimizing transportation operations for efficiency and cost-effectiveness.'
           )}
         />
       </Head>
@@ -86,13 +86,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Challenge
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -115,13 +115,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   FleetChaser is a construction industry GameChanger
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -166,13 +166,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Real devices, real team
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -201,13 +201,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   How it works
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -252,13 +252,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Colours
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -295,13 +295,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Typography
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -359,13 +359,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Design system: custom upgrade of Material Design
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -392,13 +392,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Travel history
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -425,13 +425,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Reports
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -458,13 +458,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Track your fleet in real time right on the map
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -491,13 +491,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Vehicle details
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -526,13 +526,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Dashboard
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -561,13 +561,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Ready for mobile
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -600,13 +600,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Website
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -644,13 +644,13 @@ export default function Fleet() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Results are impressive
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -696,13 +696,13 @@ export default function Fleet() {
             <div className="inline-header">
               {/* Left*/}
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   <span>Client&apos;s impression on working with us</span>
-                </h1>
+                </h2>
               </div>
               {/* Right*/}
               <div className="inline-header__item inline-header__right">

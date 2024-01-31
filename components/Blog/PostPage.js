@@ -83,15 +83,21 @@ export default function PostPage({ post, relatedPosts = [] }) {
   }, [post.date]);
 
   return (
-    <div className="pt-[142px] pb-20 md:pt-[176px]">
+    <div className="pb-20 pt-[142px] md:pt-[176px]">
       <Head>
-        <title>{getFullTitle(post.title)}</title>
+        <title>{getFullTitle(post.html_title || post.title)}</title>
         <meta
           name="description"
-          content={`${post.title} ➥ from Glow team experts`}
+          content={`${post.html_description || post.description}`}
         ></meta>
-        <meta property="og:title" content={post.title}></meta>
-        <meta property="og:description" content={post.description}></meta>
+        <meta
+          property="og:title"
+          content={post.html_title || post.title}
+        ></meta>
+        <meta
+          property="og:description"
+          content={post.html_description || post.description}
+        ></meta>
         <meta property="og:type" content="article"></meta>
         <meta property="og:image" content={post.image}></meta>
         <meta name="twitter:card" content="summary"></meta>

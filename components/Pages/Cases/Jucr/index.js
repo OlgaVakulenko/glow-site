@@ -171,10 +171,16 @@ function Intro() {
   return (
     <section ref={ref} className="section welcome jucr-welcome">
       <Head>
-        <title>{getFullTitle('Jucr - Charge you car without worries')}</title>
+        <title>
+          {getFullTitle(
+            'Jucr: Streamlining Electric Vehicle Charging Across Europe'
+          )}
+        </title>
         <meta
           name="description"
-          content={getFullDescription('Jucr - Charge you car without worries')}
+          content={getFullDescription(
+            `Glow Team developed Jucr, enhancing EV charging in Europe with a sleek app design for easy access to stations and user-centric features.`
+          )}
         />
       </Head>
       <div>
@@ -317,13 +323,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Challenge
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -441,13 +447,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Research
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -475,7 +481,7 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
@@ -483,7 +489,7 @@ function Jucr() {
                     High Fidelity
                     <br />
                     Wireframes
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -553,13 +559,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle --with-padding">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Colors
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -693,13 +699,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Typography
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -747,13 +753,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Profile
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -831,13 +837,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Smart Notification Center
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -867,13 +873,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Statistics Animation
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -931,13 +937,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Charging Process
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -992,13 +998,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     My Coupons
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -1052,13 +1058,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Charger Animation
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -1117,13 +1123,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Occupied Animation
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -1183,13 +1189,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Onboarding Animation
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -1270,13 +1276,13 @@ function Jucr() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Design System
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p

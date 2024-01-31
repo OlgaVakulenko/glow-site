@@ -22,14 +22,12 @@ export default function Tilt() {
     <LegacyCaseContainer>
       <Head>
         <title>
-          {getFullTitle(
-            'Tilt: a platform that connects students with financial aid'
-          )}
+          {getFullTitle('Connecting Students with Financial Aid Opportunities')}
         </title>
         <meta
           name="description"
           content={getFullDescription(
-            'Tilt: a platform that connects students with financial aid'
+            'Glow Team enhanced Tilt, a platform aiding students in finding colleges and financial aid, with sleek design and user-friendly functionality.'
           )}
         />
       </Head>

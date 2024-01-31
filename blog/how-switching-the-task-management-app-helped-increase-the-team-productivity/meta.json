@@ -1,6 +1,8 @@
 {
   "data": {
     "title": "How switching the task management app helped increase the team productivity",
+    "html_title": "Boosting Productivity with Task Management App Switch - Glow Team",
+    "html_description": "Glow Team's blog shares insights on increasing team productivity by switching to a new task management application.",
     "description": "Measuring productivity in a creative environment is always a challenge. There needs to be a balance between a decent level of organization…",
     "image": "https://cdn-images-1.medium.com/max/800/1*XfOVUBO3Prj7AyzKvVBeVw.jpeg",
     "author_name": "Pavel Dobronosov",
@@ -9,10 +11,7 @@
     "created_at": 1699435173961,
     "read_minutes": "5 min read",
     "href": "how-switching-the-task-management-app-helped-increase-the-team-productivity",
-    "tags": [
-      "Process",
-      "Design"
-    ],
+    "tags": ["Process", "Design"],
     "paragraphs": [],
     "order": 998
   }

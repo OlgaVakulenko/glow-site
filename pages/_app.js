@@ -10,6 +10,11 @@ import StructuredData from '../components/StructuredData';
 import { useMedia } from '../lib/agent';
 import { useReferrer } from '../lib/utils';
 import '../styles/globals.css';
+import HeadTitle, {
+  Title,
+  getFullDescription,
+  getFullTitle,
+} from '../components/HeadTitle';
 
 export const routerHistory = atom([]);
 
@@ -122,11 +127,12 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Glow Team Design Agency</title>
+        <title>{getFullTitle('UX/UI & Branding Product Design Agency')}</title>
         <meta
           name="description"
-          content="We design ✔ digital products ✔ services ✔ eCommerce experiences ➜ Glow
-          Team - Simple design for complex products"
+          content={getFullDescription(
+            `Glow Team specializes in design, transforming businesses through creativity and innovation. Explore our services for success.`
+          )}
         ></meta>
         <meta property="akey" content="needle-4" />
         <meta property="og:image" content="/img/og-image.png?v=2" />

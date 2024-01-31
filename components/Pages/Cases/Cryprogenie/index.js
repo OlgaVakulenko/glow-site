@@ -16,13 +16,13 @@ function Intro() {
       <Head>
         <title>
           {getFullTitle(
-            'CryptoGenie is a tool for predicting the relevant trends of various crypto assets'
+            'CryptoGenie: AI-Powered Cryptocurrency Trend Prediction Tool'
           )}
         </title>
         <meta
           name="description"
           content={getFullDescription(
-            'CryptoGenie is a tool for predicting the relevant trends of various crypto assets'
+            'Glow Team developed CryptoGenie, an AI tool for predicting crypto trends, focusing on intuitive design and user engagement.'
           )}
         />
       </Head>
@@ -170,13 +170,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     CryptoGenie
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -232,13 +232,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Landing Page
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -334,13 +334,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Platform
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -432,13 +432,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Charts &amp; Stats
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -494,13 +494,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     One AI to rule them all
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -900,13 +900,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Isn&apos;t it nice?
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -1009,13 +1009,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Do it like this...
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -1132,13 +1132,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     ... but never like this!
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -1188,13 +1188,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Multiple Cases
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -1244,13 +1244,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle --with-padding">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Colors
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -1484,13 +1484,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Typography
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -1543,13 +1543,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Business Card
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p
@@ -1597,13 +1597,13 @@ function Cryptogenie() {
             <div className="container">
               <div className="inline-header inline-header-midle">
                 <div className="inline-header__item inline-header__left">
-                  <h1
+                  <h2
                     className="title-big wow fadeInUp"
                     data-wow-duration="1.2s"
                     data-wow-delay="0.1s"
                   >
                     Graphic Elements
-                  </h1>
+                  </h2>
                 </div>
                 <div className="inline-header__item inline-header__right">
                   <p

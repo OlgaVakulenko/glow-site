@@ -19,10 +19,21 @@ import Animated from '../../Animated';
 import { useEffect, useRef } from 'react';
 import IntroSection from '../../IntroSection';
 import Sphere2Image from './assets/sphere2.png';
+import Head from 'next/head';
+import { getFullDescription, getFullTitle } from '../../HeadTitle';
 
 export default function About({ posts }) {
   return (
     <div>
+      <Head>
+        <title>{getFullTitle('About Us')}</title>
+        <meta
+          name="description"
+          content={getFullDescription(
+            `Discover the passion and expertise behind Glow Design Agency. With a mission to simplify complex product designs and a vision to lead in enterprise design.`
+          )}
+        />
+      </Head>
       <IntroSection
         title={
           <>

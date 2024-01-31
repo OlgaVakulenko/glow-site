@@ -3,6 +3,8 @@ import cx from 'clsx';
 import FooterFormWrapper from '../components/FooterFormWrapper';
 import Layout from '../components/Layout';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
+import Head from 'next/head';
+import { getFullTitle } from '../components/HeadTitle';
 
 const items = [
   {
@@ -148,6 +150,13 @@ function FAQ() {
 export default function ContactUs() {
   return (
     <div className="pt-[88px] md:pt-[144px]">
+      <Head>
+        <title>{getFullTitle('Contact')}</title>
+        <meta
+          name="description"
+          content={`Have questions or need design solutions? Contact Glow Team's experts for creative and innovative design services.`}
+        ></meta>
+      </Head>
       <div className="mb-20">
         <FooterFormWrapper />
       </div>

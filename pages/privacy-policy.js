@@ -3,6 +3,8 @@ import Layout from '../components/Layout';
 import Header from '../components/Pages/Policy/Header';
 import Section from '../components/Pages/Policy/Section';
 import IntroSection from '../components/IntroSection';
+import Head from 'next/head';
+import { getFullTitle } from '../components/HeadTitle';
 
 const sections = [
   {
@@ -151,6 +153,9 @@ The right to data portability - You have the right to request that our Company t
 export default function Policy() {
   return (
     <div className="pb-[150px]">
+      <Head>
+        <title>{getFullTitle('Privacy Policy')}</title>
+      </Head>
       <Header title="Privacy Policy" />
       <Layout className="grid gap-12 pt-20 xl:gap-[120px]">
         {sections.map((section, index) => (

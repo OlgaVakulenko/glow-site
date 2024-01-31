@@ -30,10 +30,10 @@ export default function Work() {
   return (
     <div>
       <Head>
-        <title>{getFullTitle('Explore our projects')}</title>
+        <title>{`Glow Team Portfolio: Showcasing Our Innovative Design Projects`}</title>
         <meta
           name="description"
-          content="View our case studies ➜ to learn more about how we help brands transform through ✔ digital products ✔ branding ✔ eCommerce"
+          content="Explore Glow Team's diverse portfolio of design and development projects, highlighting our commitment to creative solutions and client success."
         ></meta>
       </Head>
       <IntroSection

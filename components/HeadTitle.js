@@ -17,7 +17,15 @@ export function getFullTitle(title) {
 }
 
 export function getFullDescription(description) {
-  return description + ' ' + '➥ from  Glow team experts';
+  return description;
+}
+
+export function Title({ title }) {
+  const fullTitle = title
+    ? title + ' ' + separator + ' ' + defaultTitle
+    : defaultTitle;
+
+  return <title>{fullTitle}</title>;
 }
 
 export default function HeadTitle({ title }) {

@@ -18,10 +18,12 @@ function Intro() {
   return (
     <section ref={ref} className="section welcome">
       <Head>
-        <title>{getFullTitle('Beast - Zero-emissions car rental')}</title>
+        <title>{getFullTitle('Case Beast: Zero-emissions car rental')}</title>
         <meta
           name="description"
-          content={getFullDescription('Beast - Zero-emissions car rental')}
+          content={getFullDescription(
+            `Glow Team's work for Beast: Designed an innovative app for sustainable Tesla rentals in Estonia, blending user-friendly interfaces with eco-conscious branding.`
+          )}
         />
       </Head>
       <div className="container">

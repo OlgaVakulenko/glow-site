@@ -8,7 +8,7 @@ import { atom, useAtom } from 'jotai';
 import { useMediaAtom } from '../../lib/agent';
 import { useIsClient } from '../../lib/utils';
 import Head from 'next/head';
-import { getFullTitle } from '../HeadTitle';
+import { getFullDescription, getFullTitle } from '../HeadTitle';
 import RollingText from '../RollingText';
 import StructuredData from '../StructuredData';
 import IntroBg from '../IntroBg';
@@ -33,7 +33,15 @@ export default function BlogPage({ posts, tags = [] }) {
   return (
     <div>
       <Head>
-        <title>{getFullTitle('We write about business & design')}</title>
+        <title>
+          {getFullTitle('Our Blog about Business & Design - Glow Team')}
+        </title>
+        <meta
+          name="description"
+          content={getFullDescription(
+            `Explore the Glow Team Blog for expert insights on design, business strategies, HR, and technology trends. Practical advice and industry perspectives.`
+          )}
+        ></meta>
       </Head>
       <IntroSection
         asteriskVisible={false}

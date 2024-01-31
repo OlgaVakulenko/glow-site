@@ -11,10 +11,16 @@ export default function Ethos() {
   return (
     <LegacyCaseContainer>
       <Head>
-        <title>{getFullTitle('EthosCE: new look at medical platform')}</title>
+        <title>
+          {getFullTitle(
+            'EthosCE Redesign by Glow Team: Enhancing Medical Education Platforms'
+          )}
+        </title>
         <meta
           name="description"
-          content={getFullDescription('EthosCE: new look at medical platform')}
+          content={getFullDescription(
+            `Glow Team's revamp of EthosCE focuses on UX/UI design, making medical education more accessible, engaging, and efficient.`
+          )}
         />
       </Head>
       <main className="ethos">
@@ -85,13 +91,13 @@ export default function Ethos() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Challenge
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -144,13 +150,13 @@ export default function Ethos() {
             />
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   EthosCE improves medical education
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -196,13 +202,13 @@ export default function Ethos() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   How it works
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -229,13 +235,13 @@ export default function Ethos() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   White Label Design
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -280,13 +286,13 @@ export default function Ethos() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Colors
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -328,13 +334,13 @@ export default function Ethos() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Typography
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -378,13 +384,13 @@ export default function Ethos() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Course Test
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -412,13 +418,13 @@ export default function Ethos() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Courses Search
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -447,13 +453,13 @@ export default function Ethos() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Course Page
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -482,13 +488,13 @@ export default function Ethos() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Learning Groups
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -517,13 +523,13 @@ export default function Ethos() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Other Relevant Pages
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -561,13 +567,13 @@ export default function Ethos() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Mobile
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -604,13 +610,13 @@ export default function Ethos() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Design system
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -642,13 +648,13 @@ export default function Ethos() {
             <div className="inline-header">
               {/* Left*/}
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   <span>Client’s words about work with Glow</span>
-                </h1>
+                </h2>
               </div>
               {/* Right*/}
               <div className="inline-header__item inline-header__right">
