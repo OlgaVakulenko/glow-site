@@ -157,7 +157,7 @@ export default function Policy() {
         <title>{getFullTitle('Privacy Policy')}</title>
       </Head>
       <Header title="Privacy Policy" />
-      <Layout className="grid gap-12 pt-20 xl:gap-[120px]">
+      <Layout className="grid gap-[60px] pt-0 xl:pt-20">
         {sections.map((section, index) => (
           <Section
             key={index}

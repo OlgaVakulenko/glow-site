@@ -22,6 +22,7 @@ import CaseCard from './CaseCard';
 import cases from '../Cases/data';
 import Button2 from '../../Button2';
 import Link from 'next/link';
+import { SkipRenderOnClient } from '../../SkipRender';
 
 function IntroSection2() {
   return (
@@ -483,8 +484,8 @@ function CasesSliderWrapper() {
 
   return (
     <Animated delay={600}>
-      {media === 'mobile' && (
-        <Layout className="mb-20">
+      <SkipRenderOnClient shouldRenderOnClient={() => window.innerWidth < 820}>
+        <Layout className="mb-20 md:hidden">
           <div className="mb-8 space-y-14">
             <CaseCard item={cases[0]} />
             <CaseCard item={cases[1]} />
@@ -515,8 +516,12 @@ function CasesSliderWrapper() {
             </Button2>
           </div>
         </Layout>
-      )}
-      {media !== 'mobile' && <CasesSlider3 />}
+      </SkipRenderOnClient>
+      <SkipRenderOnClient shouldRenderOnClient={() => window.innerWidth >= 820}>
+        <div className="hidden md:block">
+          <CasesSlider3 />
+        </div>
+      </SkipRenderOnClient>
     </Animated>
   );
 }

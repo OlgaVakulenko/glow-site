@@ -54,7 +54,7 @@ export default function CookieBannerWrapper() {
 function CookieBanner({ onConsent }) {
   return (
     <div className="fixed bottom-0 z-[9] w-full bg-[#f3f3f3]">
-      <Layout className="flex flex-col justify-between py-7 md:flex-row">
+      <Layout className="flex flex-col justify-between pb-2 pt-6 md:flex-row md:py-6 xl:py-6">
         <div className="mb-4 flex md:mb-0">
           <div className="mr-4">
             <svg
@@ -105,8 +105,9 @@ function CookieBanner({ onConsent }) {
             </div>
           </div>
         </div>
-        <div className="ml-4 flex shrink-0 items-center justify-center space-x-4">
+        <div className="flex shrink-0 flex-col items-center justify-center md:ml-4 md:flex-row md:space-x-4">
           <Button2
+            className="order-3 w-full md:order-2 md:w-auto"
             flavor="navigation"
             onClick={() => {
               onConsent(false);
@@ -116,7 +117,7 @@ function CookieBanner({ onConsent }) {
             Decline
           </Button2>
           <Button2
-            className="!bg-black !text-lblue"
+            className="order-2 mb-3 w-full !bg-black !text-lblue md:mb-0 md:w-auto"
             onClick={() => {
               onConsent(true);
             }}

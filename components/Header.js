@@ -532,8 +532,12 @@ export default function Header({
                       )}
                     >
                       <Animated delay={(links.length + 1) * 100} immediate>
-                        <AnimatedButton as={Link} href="/contact-us">
-                          Contact Us
+                        <AnimatedButton
+                          as={Link}
+                          href="/contact-us"
+                          className="!text-white"
+                        >
+                          Let&apos;s talk
                         </AnimatedButton>
                       </Animated>
                     </div>
