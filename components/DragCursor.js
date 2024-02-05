@@ -108,6 +108,8 @@ export default function DragCursorContainer({
     try {
       if (window?.matchMedia('(any-hover: none)')?.matches) {
         setGlobalDisable(true);
+      } else {
+        setGlobalDisable(false);
       }
     } catch (e) {
       console.error(e);

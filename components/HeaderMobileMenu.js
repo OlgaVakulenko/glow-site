@@ -5,6 +5,7 @@ import { useHandleFooterFormClick } from '../lib/utils';
 import BigButton from './BigButton';
 import { Animation, subMenuParentAtom } from './Header';
 import HeaderLinkMobile from './HeaderLinkMobile';
+import texts from './texts';
 
 export default function HeaderMobileMenu({ menuId, links }) {
   const [activeParent, setActiveParent] = useAtom(subMenuParentAtom);
@@ -62,7 +63,7 @@ export default function HeaderMobileMenu({ menuId, links }) {
             Let’s get in touch
           </BigButton> */}
           <BigButton href="/contact-us" className="mb-4 !py-[41px]">
-            Let&apos;s talk
+            {texts.header_cta}
           </BigButton>
         </Animation>
       )}

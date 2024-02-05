@@ -30,6 +30,7 @@ import { useMounted } from './Icons/animations';
 import Layout from './Layout';
 import Logo from './Logo';
 import links from './links-data';
+import texts from './texts';
 
 export function BurgerIcon({ isOpen = false, theme, size = 40 }) {
   let stroke = '#19191B';
@@ -537,7 +538,7 @@ export default function Header({
                           href="/contact-us"
                           className="!text-white"
                         >
-                          Let&apos;s talk
+                          {texts.header_cta}
                         </AnimatedButton>
                       </Animated>
                     </div>

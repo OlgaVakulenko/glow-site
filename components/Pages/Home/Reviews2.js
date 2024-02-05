@@ -257,10 +257,10 @@ function ReviewCard({
   dataCompany,
 }) {
   return (
-    <div className="h-full px-4">
+    <div className="h-full">
       <div className="h-full rounded-3xl border border-black px-6 pb-[52px] pt-8 md:flex md:space-x-16 md:px-0 md:py-16">
         <div className="md:col-span-3 md:flex md:flex-col md:justify-between md:pl-16">
-          <div className="md:flex md:h-full md:flex-col md:items-start md:justify-between">
+          <div className="md:flex md:h-full md:min-w-[296px] md:flex-col md:items-start md:justify-between">
             <div className="">
               <div className="mb-4 flex items-center justify-between  ">
                 <div className="flex">
@@ -323,54 +323,52 @@ export default function Reviews() {
           />
         </div>
       </Layout>
-      <DragCursorContainer>
-        <Swiper
-          onSwiper={(swiper) => {
-            swiperRef.current = swiper;
-          }}
-          className=""
-          breakpoints={{
-            820: {
-              slidesPerView: '1.15',
-            },
-            1440: {
-              slidesPerView: '1.3',
-            },
-          }}
-          // mousewheel={{
-          //   invert: true,
-          //   forceToAxis: true,
-          //   sensitivity: 0.1,
-          // }}
-          mousewheel={{
-            invert: true,
-            forceToAxis: true,
-            sensitivity: 0.1,
-            thresholdDelta: 10,
-          }}
-          modules={[Mousewheel]}
-        >
-          {reviews.map((review, index) => (
-            <SwiperSlide key={index} className="md:!h-auto xl:first:pl-10">
-              <ReviewCard
-                avatar={review.avatar}
-                companyAvatar={review.companyAvatar}
-                name={review.name}
-                company={review.company}
-                text={review.text}
-                rating={review.rating}
-                dataService={review.data_service}
-                dataCompany={review.data_company}
-                index={index}
-                total={reviews.length}
-              />
-            </SwiperSlide>
-          ))}
-          <Layout className="pt-5 md:max-w-[544px] xl:max-w-full">
-            <SliderProgress />
-          </Layout>
-        </Swiper>
-      </DragCursorContainer>
+      <Layout className="overflow-hidden">
+        <DragCursorContainer>
+          <Swiper
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            className="!overflow-visible"
+            spaceBetween="32px"
+            breakpoints={{
+              820: {
+                slidesPerView: '1.15',
+              },
+              1440: {
+                slidesPerView: '1.3',
+              },
+            }}
+            mousewheel={{
+              invert: true,
+              forceToAxis: true,
+              sensitivity: 0.1,
+              thresholdDelta: 10,
+            }}
+            modules={[Mousewheel]}
+          >
+            {reviews.map((review, index) => (
+              <SwiperSlide key={index} className="md:!h-auto">
+                <ReviewCard
+                  avatar={review.avatar}
+                  companyAvatar={review.companyAvatar}
+                  name={review.name}
+                  company={review.company}
+                  text={review.text}
+                  rating={review.rating}
+                  dataService={review.data_service}
+                  dataCompany={review.data_company}
+                  index={index}
+                  total={reviews.length}
+                />
+              </SwiperSlide>
+            ))}
+            <div className="pt-5 md:max-w-[544px] xl:max-w-full">
+              <SliderProgress />
+            </div>
+          </Swiper>
+        </DragCursorContainer>
+      </Layout>
     </div>
   );
 }
