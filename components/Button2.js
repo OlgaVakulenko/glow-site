@@ -17,7 +17,7 @@ export default function Button2({
         {
           'rounded-full bg-brand': flavor === 'primary',
         },
-        'inline-block px-6 py-3 text-button-m2 uppercase text-black focus-visible:shadow-btn-focus md:px-9 md:py-4',
+        'rolling-text-group inline-block px-6 py-3 text-button-m2 uppercase text-black focus-visible:shadow-btn-focus md:px-9 md:py-4',
         className
       )}
       {...props}
