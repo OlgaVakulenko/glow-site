@@ -100,7 +100,8 @@ export default function PostPage({ post, relatedPosts = [] }) {
         ></meta>
         <meta property="og:type" content="article"></meta>
         <meta property="og:image" content={post.image}></meta>
-        <meta name="twitter:card" content="summary"></meta>
+        <meta name="twitter:card" content="summary_large_image"></meta>
+        <meta name="twitter:image" content={post.image} />
       </Head>
       <StructuredData
         id="blog-post"

@@ -163,6 +163,10 @@ function MyApp({ Component, pageProps }) {
           name="p:domain_verify"
           content="6e1fb96305a72b68c37e78ef360a42ff"
         />
+        <meta property="akey" content="needle-4" />
+        <meta property="og:image" content="/img/og-image.png?v=2" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="/img/og-image.png?v=2" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
