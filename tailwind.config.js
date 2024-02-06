@@ -23,6 +23,7 @@ module.exports = {
       },
       screens: {
         md: '820px',
+        'md-safe': '1000px',
         'x-920': '904px',
         'x-1400': '1440px',
         '4xl': '1800px',
@@ -185,6 +186,8 @@ module.exports = {
       },
       colors: {
         brand: '#E33230',
+        'brand-focus-ring': 'rgba(227, 50, 48, 0.2)',
+        'text-dim': '#6F6F6F',
         ['border-gray']: '#D1D1D1',
         'text-dim': '#6F6F6F',
         // brand: '#d6dbe0', //Dev only
@@ -193,6 +196,7 @@ module.exports = {
         lred: '#FFE7EA',
         dim: '#F3F2F4',
         'checkbox-dark': 'rgba(240, 246, 255, 0.15)',
+        'checkbox-dark-hover': 'rgba(240, 246, 255, 0.2)',
         'checkbox-light': 'rgba(25, 25, 27, 0.15)',
       },
       spacing: {

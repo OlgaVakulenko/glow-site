@@ -191,39 +191,40 @@ const links = [
 export default function FooterLinks({ className = '' }) {
   const width = useInnerWidth();
 
-  const _links = useMemo(() => {
-    if (width < 1300) {
-      return links.slice(0, links.length - 2);
-    }
+  let _links = links;
+  // const _links = useMemo(() => {
+  //   if (width < 1300) {
+  //     return links.slice(0, links.length - 2);
+  //   }
 
-    if (width > 820 && width < 960) {
-      return links.slice(0, links.length - 3);
-    }
+  //   if (width > 820 && width < 960) {
+  //     return links.slice(0, links.length - 3);
+  //   }
 
-    return links;
-  }, [width]);
+  //   return links;
+  // }, [width]);
 
   return (
     <div
       className={cx(
-        'flex flex-col items-center justify-between space-y-8 text-sm text-white md:flex-row md:space-y-0 md:text-base',
+        'flex flex-col items-center justify-between space-y-8 text-sm text-white md-safe:flex-row md-safe:space-y-0 md-safe:text-base',
         className
       )}
     >
-      <div className="flex w-full items-center justify-between md:w-auto md:justify-start">
+      <div className="flex w-full items-center justify-between md-safe:w-auto md-safe:justify-start">
         <div className="flex shrink-0 items-center">
-          <div className="styag mr-4 w-[24px] overflow-hidden rounded md:mr-6">
+          <div className="styag mr-4 w-[24px] overflow-hidden rounded md-safe:mr-6">
             <div className="h-[9px] bg-[#156DD1]"></div>
             <div className="h-2 bg-[#FFD948]"></div>
           </div>
           <div>Odesa, Ukraine</div>
         </div>
-        <div className="flex items-center md:-mr-8 md:ml-8 lg:opacity-100">
-          <LocalTime className="mr-7 md:mr-8" />
-          <Weather className="md:mr-8" />
+        <div className="flex items-center md-safe:-mr-8 md-safe:ml-8 lg:opacity-100">
+          <LocalTime className="mr-7 md-safe:mr-8" />
+          <Weather className="md-safe:mr-8" />
         </div>
       </div>
-      <div className="flex w-full justify-between space-x-8 md:w-auto xl:space-x-10">
+      <div className="flex w-full justify-between md-safe:w-auto md-safe:space-x-8 xl:space-x-10">
         {_links.map((link) => (
           <a
             title={link.label}
@@ -237,7 +238,7 @@ export default function FooterLinks({ className = '' }) {
           </a>
         ))}
       </div>
-      <div className="flex w-full shrink-0 justify-between space-x-7 md:w-auto xl:space-x-9">
+      <div className="flex w-full shrink-0 justify-between space-x-7 md-safe:w-auto xl:space-x-9">
         <Link href="/privacy-policy">
           <RollingText text="Privacy Policy" height={24}></RollingText>
         </Link>

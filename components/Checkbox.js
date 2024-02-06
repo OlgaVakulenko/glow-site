@@ -40,9 +40,9 @@ const Checkbox = React.forwardRef(({ className, ...props }, ref) => {
         setIsPressed(false);
       }}
       className={cx(
-        'focus-visible:ring-ring peer h-[14px] w-[14px] shrink-0 rounded-sm shadow-checkbox transition-all focus-visible:outline-none focus-visible:ring-1 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-brand data-[state=checked]:text-white',
+        'peer h-[14px] w-[14px] shrink-0 rounded-sm shadow-checkbox transition-all focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-focus-ring disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-brand data-[state=checked]:text-white',
         'data-[state="checked"]:border-brand data-[state=checked]:bg-brand data-[state=checked]:text-white data-[state=checked]:shadow-checkbox-checked',
-        isPressed && 'scale-90',
+        isPressed && 'scale-95',
         className
       )}
       {...props}

@@ -106,14 +106,14 @@ function Switches({
       <div className="mt-4 flex flex-wrap gap-2 md:mt-[29px]">
         {options.map((option) => (
           <RGroupOption
-            className="cursor-pointer text-body-heading-s font-medium uppercase"
+            className="cursor-pointer rounded-full text-body-heading-s font-medium uppercase focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-focus-ring"
             key={option}
             value={option}
           >
             {({ checked }) => (
               <div
                 className={cx(
-                  'rounded-full bg-checkbox-dark px-4 py-[11px] transition-colors duration-200',
+                  'rounded-full bg-checkbox-dark px-4 py-[11px] transition-colors duration-200 hover:bg-checkbox-dark-hover ',
                   {
                     '!bg-lblue text-black': checked,
                   }
