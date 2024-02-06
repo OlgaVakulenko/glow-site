@@ -24,3 +24,8 @@ RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
 #301 from example.com/page.html to example.com/page
 RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /.*\.html\ HTTP/
 RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+
+# Add CORS headers for CSS, JS, and Font files
+<FilesMatch "\.(css|woff|woff2|ttf|otf|eot|svg)$">
+    Header set Access-Control-Allow-Origin "*"
+</FilesMatch>

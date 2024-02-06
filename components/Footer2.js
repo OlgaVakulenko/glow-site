@@ -8,6 +8,8 @@ import SlotsLeftButton from './Pages/Trial/SlotsLeftButton';
 import Button2 from './Button2';
 import Link from 'next/link';
 import FooterFormWrapper from './FooterFormWrapper';
+import GlwEffect from './Pages/Home/assets/glw-eff.png';
+import Image from './Image';
 
 export default function Footer2({
   footerSuccess: isSubmitted,
@@ -35,7 +37,12 @@ export default function Footer2({
       ) : (
         showForm && (
           <Layout disableOnMobile={true}>
-            <div className="bg-black px-4 py-[204px] md:rounded-[32px] md:py-[164px] xl:py-[142px]">
+            <div className="noise-bg2 relative overflow-hidden bg-black px-4 py-[204px] md:rounded-[32px] md:py-[164px] xl:py-[142px]">
+              <Image
+                className="absolute inset-0 h-full w-full"
+                src={GlwEffect}
+                alt=""
+              />
               <h2 className="mb-10 text-center font-glow text-5xl font-medium leading-none tracking-[-2px] text-white md:mb-14 md:text-[99px] md:leading-[100px] md:tracking-[-3px] xl:text-[112px] xl:leading-[106px]">
                 Let’s make
                 <br /> your project
