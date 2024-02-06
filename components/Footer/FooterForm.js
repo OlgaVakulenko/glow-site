@@ -17,6 +17,7 @@ import Image from '../Image';
 import RusImage from '../Pages/About/assets/rus-2.png';
 import StasImage from '../Pages/About/assets/stas-k.png';
 import RollingText from '../RollingText';
+import { Checkbox } from '../Checkbox';
 
 const CheckboxCtx = createContext(null);
 
@@ -222,6 +223,8 @@ export default function FooterForm({
     'More than 50k',
   ]);
 
+  const [checked, setChecked] = useState(false);
+
   return (
     <div className="relative h-full">
       <Image
@@ -356,12 +359,25 @@ export default function FooterForm({
             />
           </div>
           <div className="md:mt-8 md:flex md:items-start md:justify-between md:space-x-4">
-            <div className="text-body-xs md:max-w-[385px] xl:max-w-[315px]">
-              Note that by sending this form you confirm reading and accepting
-              the{' '}
-              <Link href="/privacy-policy" className="text-brand">
-                Privacy Policy
-              </Link>
+            <div className="flex space-x-4 text-body-xs xl:max-w-[328px]">
+              <div className="pt-[2px] md:pt-[3px]">
+                <Checkbox
+                  id="terms"
+                  checked={checked}
+                  onCheckedChange={setChecked}
+                  required
+                />
+              </div>
+              <label htmlFor="terms">
+                I confirm that I have read and accept the{' '}
+                <Link href="/privacy-policy" className="text-brand">
+                  Privacy&nbsp;Policy
+                </Link>{' '}
+                and{' '}
+                <Link href="/terms-of-service" className="text-brand">
+                  Terms&nbsp;Of&nbsp;Service
+                </Link>
+              </label>
             </div>
             <button
               type="submit"

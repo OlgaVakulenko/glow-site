@@ -211,6 +211,8 @@ module.exports = {
       },
       boxShadow: {
         ['btn-focus']: '0px 0px 0px 4px rgba(227, 50, 48, 0.20)',
+        checkbox: 'inset 0 0 0 1px white',
+        ['checkbox-checked']: 'inset 0 0 0 1px #E33230',
       },
       transformOrigin: {
         'left-center': '24px center',
