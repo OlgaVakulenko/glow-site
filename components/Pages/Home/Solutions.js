@@ -114,14 +114,18 @@ export default function Solutions() {
         <div className="hidden 4xl:col-span-1 4xl:block"></div>
         <Animated
           delay={100}
-          className="text-subtitle-m italic   md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l 4xl:col-span-4 4xl:text-[26px]"
+          className="text-subtitle-m italic md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l 4xl:col-span-4 4xl:text-[26px]"
         >
           Like a rescue squad for your product, we are ready to swoop in
           whenever you summon us. Let&apos;s take a look at what we can solve.
         </Animated>
       </div>
       <Wrapper
-        slidesPerView={2}
+        {...(Wrapper === Swiper
+          ? {
+              slidesPerView: 2,
+            }
+          : {})}
         className="grid justify-center gap-4 md:-ml-4 md:flex md:flex-wrap md:gap-0"
       >
         {items.map((item, index) => (
