@@ -506,8 +506,8 @@ function CasesSliderWrapper() {
                   fill="none"
                 >
                   <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+                    fillRule="evenodd"
+                    clipRule="evenodd"
                     d="M16.4335 8.7381L6.63137 18.5402L5.5 17.4088L15.3036 7.60527L7.90151 7.62145L7.89811 6.02177L18.0388 6L18.0177 16.1414L16.418 16.138L16.4335 8.7381Z"
                     fill="#19191B"
                   />
