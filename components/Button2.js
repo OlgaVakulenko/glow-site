@@ -6,6 +6,8 @@ export default function Button2({
   as = 'button',
   className,
   children,
+  color = 'black',
+  flavor = 'primary',
   ...props
 }) {
   const Component = as;
@@ -13,7 +15,12 @@ export default function Button2({
   return (
     <Component
       className={cx(
-        'inline-block rounded-full bg-brand px-6 py-3 text-button-m2 uppercase text-black focus-visible:shadow-btn-focus md:px-9 md:py-4',
+        {
+          'rounded-full bg-brand': flavor === 'primary',
+          'text-white': color === 'white',
+          'text-black': color === 'black',
+        },
+        'rolling-text-group inline-block px-6 py-3 text-button-m2 uppercase focus-visible:shadow-btn-focus md:px-9 md:py-4',
         className
       )}
       {...props}

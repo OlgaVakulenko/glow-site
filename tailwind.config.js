@@ -122,7 +122,7 @@ module.exports = {
           '72px',
           {
             fontWeight: '500',
-            lineHeight: '67px',
+            lineHeight: '72px',
             tracking: '-2px',
           },
         ],
