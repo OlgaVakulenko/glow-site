@@ -1,17 +1,9 @@
 import cx from 'clsx';
-import { useAtom } from 'jotai';
-import { atom } from 'jotai';
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useState,
-} from 'react';
+import { atom, useAtom } from 'jotai';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { useMediaAtom } from '../lib/agent';
-import { useMounted } from './Icons/animations';
+import { useLayoutSsrEffect } from '../lib/utils';
 
 function DragCursor({ x, y, clicked }) {
   return (
@@ -130,7 +122,7 @@ export default function DragCursorContainer({
     return DragCursor;
   }, [cursor, pos, isDragging, isLast]);
 
-  useLayoutEffect(() => {
+  useLayoutSsrEffect(() => {
     cursorComponentPrevRef.current = CursorComponent;
   }, [CursorComponent]);
 

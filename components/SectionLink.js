@@ -35,7 +35,7 @@ export default function SectionLink({
         return <div {...props}>{children}</div>;
       };
     }
-  }, [href]);
+  }, [href, linkProps]);
 
   const LayoutEl = useMemo(() => {
     return withLayout ? Layout : 'div';

@@ -17,11 +17,13 @@ export default function DefaultLayout({
   return (
     <>
       <Header />
+      {/* <LenisScrollContainer> */}
       <ScrollContainer>
         {children}
         {/* {footer && <ParallaxFooter showFormButton={showFormButton} />} */}
         {footer && <Footer2 {...footerProps} footerSuccess={footerSuccess} />}
       </ScrollContainer>
+      {/* </LenisScrollContainer> */}
     </>
   );
 }

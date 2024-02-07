@@ -107,7 +107,11 @@ export default function Fleet() {
                 </p>
               </div>
             </div>
-            <img className="challenge__image" src="/img/fleet/challenge.jpg" />
+            <img
+              alt=""
+              className="challenge__image"
+              src="/img/fleet/challenge.jpg"
+            />
           </div>
         </section>
         {/* Research*/}
@@ -189,9 +193,9 @@ export default function Fleet() {
             </div>
             <div className="case-section__photo-group-wrapper">
               <div className="case-section__photo-group">
-                <img src="/img/fleet/client-1.jpg" />
-                <img src="/img/fleet/client-2.jpg" />
-                <img src="/img/fleet/client-3.jpg" />
+                <img alt="" src="/img/fleet/client-1.jpg" />
+                <img alt="" src="/img/fleet/client-2.jpg" />
+                <img alt="" src="/img/fleet/client-3.jpg" />
               </div>
             </div>
           </div>
@@ -225,19 +229,19 @@ export default function Fleet() {
             <div className="case-section__photo-group-wrapper">
               <div className="case-section__photo-group">
                 <div className="case-section__photo-item">
-                  <img src="/img/fleet/how-1.jpg" />
+                  <img alt="" src="/img/fleet/how-1.jpg" />
                   <h4>Call FC team</h4>
                   <p>
                     Team of FC specialists arrives at company’s parking area
                   </p>
                 </div>
                 <div className="case-section__photo-item">
-                  <img src="/img/fleet/how-2.jpg" />
+                  <img alt="" src="/img/fleet/how-2.jpg" />
                   <h4>Connect devices</h4>
                   <p>FleetChaser devices connect to vehicles of the fleet</p>
                 </div>
                 <div className="case-section__photo-item">
-                  <img src="/img/fleet/how-3.jpg" />
+                  <img alt="" src="/img/fleet/how-3.jpg" />
                   <h4>Manage your fleet</h4>
                   <p>
                     Dispatchers and managers can see all vehicles inside the app
@@ -274,6 +278,7 @@ export default function Fleet() {
             </div>
             <div className="colors__wrapper hidden-xs">
               <img
+                alt=""
                 className="case-section__image wow fadeInUp"
                 src="/img/fleet/colors.jpg"
                 data-wow-duration="0.7s"
@@ -283,6 +288,7 @@ export default function Fleet() {
           </div>
           <div className="colors__wrapper visible-xs">
             <img
+              alt=""
               className="case-section__image wow fadeInUp"
               src="/img/fleet/colors-m.jpg"
               data-wow-duration="0.7s"
@@ -319,18 +325,21 @@ export default function Fleet() {
             <div className="typography__column">
               <div>
                 <img
+                  alt=""
                   className="hidden-sm wow fadeInUp"
                   src="/img/fleet/typography.jpg"
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
                 <img
+                  alt=""
                   className="visible-sm hidden-xs wow fadeInUp"
                   src="/img/fleet/typography-tablet.jpg"
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
                 <img
+                  alt=""
                   className="visible-xs wow fadeInUp"
                   src="/img/fleet/typography-mobile.jpg"
                   data-wow-duration="0.7s"
@@ -339,12 +348,14 @@ export default function Fleet() {
               </div>
               <div className="typography__fonts">
                 <img
+                  alt=""
                   className="hidden-xs wow fadeInUp"
                   src="/img/fleet/font.jpg"
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
                 <img
+                  alt=""
                   className="visible-xs wow fadeInUp"
                   src="/img/fleet/font-mobile.jpg"
                   data-wow-duration="0.7s"
@@ -381,6 +392,7 @@ export default function Fleet() {
               </div>
             </div>
             <img
+              alt=""
               className="case-section__image wow fadeInUp"
               src="/img/fleet/ds.jpg"
               data-wow-duration="0.7s"
@@ -414,6 +426,7 @@ export default function Fleet() {
               </div>
             </div>
             <img
+              alt=""
               className="case-section__image wow fadeInUp"
               src="/img/fleet/travel.jpg"
               data-wow-duration="0.7s"
@@ -447,6 +460,7 @@ export default function Fleet() {
               </div>
             </div>
             <img
+              alt=""
               className="case-section__image wow fadeInUp"
               src="/img/fleet/reports.jpg"
               data-wow-duration="0.7s"
@@ -480,6 +494,7 @@ export default function Fleet() {
               </div>
             </div>
             <img
+              alt=""
               className="case-section__image wow fadeInUp"
               src="/img/fleet/track.jpg"
               data-wow-duration="0.7s"
@@ -515,6 +530,7 @@ export default function Fleet() {
               </div>
             </div>
             <img
+              alt=""
               className="case-section__image wow fadeInUp"
               src="/img/fleet/vehicle.jpg"
               data-wow-duration="0.7s"
@@ -549,6 +565,7 @@ export default function Fleet() {
               </div>
             </div>
             <img
+              alt=""
               className="case-section__image wow fadeInUp"
               src="/img/fleet/dashboard.jpg"
               data-wow-duration="0.7s"
@@ -585,6 +602,7 @@ export default function Fleet() {
             </div>
           </div>
           <img
+            alt=""
             style={{
               objectFit: 'cover',
               objectPosition: 'left',
@@ -625,6 +643,7 @@ export default function Fleet() {
             </div>
             <div className="website__photo-scroll hidden-sm case-section__image">
               <img
+                alt=""
                 className="wow fadeInUp"
                 src="/img/fleet/website.jpg"
                 data-wow-duration="0.7s"
@@ -632,6 +651,7 @@ export default function Fleet() {
               />
             </div>
             <img
+              alt=""
               className="visible-sm case-section__image wow fadeInUp"
               src="/img/fleet/website-m.jpg"
               data-wow-duration="0.7s"
@@ -726,6 +746,7 @@ export default function Fleet() {
                                 href="https://clutch.co/profile/glow-design-agency"
                               >
                                 <img
+                                  alt=""
                                   className="testimonials__start"
                                   src="/img/audit/stars.png"
                                 />
@@ -745,6 +766,7 @@ export default function Fleet() {
                             href="https://clutch.co/profile/glow-design-agency"
                           >
                             <img
+                              alt=""
                               className="testimonials__start"
                               src="/img/audit/stars.png"
                             />

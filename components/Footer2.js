@@ -2,7 +2,7 @@ import cx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
-import Button2 from './Button2';
+import Button2 from './Button';
 import FooterLinks from './Footer/FooterLinks';
 import FooterFormWrapper from './FooterFormWrapper';
 import Image, { Source, resolve } from './Image';

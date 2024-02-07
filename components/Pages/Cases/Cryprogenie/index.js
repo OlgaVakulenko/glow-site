@@ -104,7 +104,7 @@ function Intro() {
                   srcSet="/img/cg/front-w1140.png, /img/cg/front-w2280.png 2x"
                   media="(min-width: 768.5px)"
                 />
-                <img className="" src="/img/cg/front-w1440.png" />
+                <img alt="" className="" src="/img/cg/front-w1440.png" />
               </picture>
             </div>
           </div>
@@ -215,6 +215,7 @@ function Cryptogenie() {
                       media="(min-width: 768.5px)"
                     />
                     <img
+                      alt=""
                       className="case-section__image wow fadeInUp"
                       src="/img/cg/crypto-genie-w1440.png"
                       data-wow-duration="0.7s"
@@ -275,6 +276,7 @@ function Cryptogenie() {
                       media="(min-width: 768.5px)"
                     />
                     <img
+                      alt=""
                       className="case-section__image wow fadeInUp"
                       src="/img/cg/landing-page-w1440.png"
                       data-wow-duration="0.7s"
@@ -317,6 +319,7 @@ function Cryptogenie() {
                       media="(min-width: 768.5px)"
                     />
                     <img
+                      alt=""
                       className="case-section__image wow fadeInUp"
                       src="/img/cg/landing-page2-w1440.png"
                       data-wow-duration="0.7s"
@@ -386,6 +389,7 @@ function Cryptogenie() {
                       media="(min-width: 768.5px)"
                     />
                     <img
+                      alt=""
                       className="case-section__image wow fadeInUp"
                       src="/img/cg/platform-w1440.png"
                       data-wow-duration="0.7s"
@@ -414,6 +418,7 @@ function Cryptogenie() {
                       media="(min-width: 768.5px)"
                     />
                     <img
+                      alt=""
                       className="case-section__image wow fadeInUp"
                       src="/img/cg/platform2-w1440.png"
                       data-wow-duration="0.7s"
@@ -481,6 +486,7 @@ function Cryptogenie() {
                   media="(min-width: 768.5px)"
                 />
                 <img
+                  alt=""
                   className="case-section__image wow fadeInUp"
                   src="/img/cg/charts-w1440.png"
                   data-wow-duration="0.7s"
@@ -1171,6 +1177,7 @@ function Cryptogenie() {
                     media="(min-width: 768.5px)"
                   />
                   <img
+                    alt=""
                     className="case-section__image wow fadeInUp"
                     src="/img/cg/not-like-this-w1440.png"
                     data-wow-duration="0.7s"
@@ -1230,6 +1237,7 @@ function Cryptogenie() {
                     media="(min-width: 768.5px)"
                   />
                   <img
+                    alt=""
                     className="case-section__image wow fadeInUp"
                     src="/img/cg/multiple-cases-w1440.png"
                     data-wow-duration="0.7s"
@@ -1527,6 +1535,7 @@ function Cryptogenie() {
                   media="(min-width: 768.5px)"
                 />
                 <img
+                  alt=""
                   className="case-section__image wow fadeInUp"
                   src="/img/cg/satoshi-font-w1440.png"
                   data-wow-duration="0.7s"
@@ -1581,6 +1590,7 @@ function Cryptogenie() {
                   media="(min-width: 768.5px)"
                 />
                 <img
+                  alt=""
                   className="case-section__image wow fadeInUp"
                   src="/img/cg/b-card-w1440.png"
                   data-wow-duration="0.7s"
@@ -1648,6 +1658,7 @@ function Cryptogenie() {
                   media="(min-width: 768.5px)"
                 />
                 <img
+                  alt=""
                   className="case-section__image wow fadeInUp"
                   src="/img/cg/graphic-el-w1440.png"
                   data-wow-duration="0.7s"

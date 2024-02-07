@@ -1,9 +1,8 @@
+import cx from 'clsx';
+import { useRouter } from 'next/router';
 import { useState } from 'react';
 import FooterForm from './Footer/FooterForm';
 import Layout from './Layout';
-import SlotsLeftButton from './Pages/Trial/SlotsLeftButton';
-import cx from 'clsx';
-import { useRouter } from 'next/router';
 
 const footerStyle = 'default';
 export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
@@ -41,25 +40,12 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
                 </div>
               ) : (
                 <div>
-                  {footerStyle === 'trial' && (
-                    <div>
-                      <SlotsLeftButton
-                        type="footer"
-                        className="mb-8 mt-5 md:mb-9 md:mt-0"
-                      />
-                    </div>
-                  )}
-                  {footerStyle === 'trial' ? (
-                    <>
-                      Let’s talk
-                      <br className="hidden xl:block" /> about you
-                    </>
-                  ) : (
+                  {
                     <h1>
                       Let’s make <br className="hidden md:block" />
                       your project glow
                     </h1>
-                  )}
+                  }
                 </div>
               )}
             </div>

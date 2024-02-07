@@ -1,4 +1,4 @@
-import { RollingWords } from './index';
+import { RollingWords } from './RollingWords';
 // import Layout2 from '../../Layout2';
 import cx from 'clsx';
 import { useEffect, useState } from 'react';
@@ -20,7 +20,7 @@ import dynamic from 'next/dynamic';
 import { useMediaAtom, useMediaAtomClient } from '../../../lib/agent';
 import CaseCard from './CaseCard';
 import cases from '../Cases/data';
-import Button2 from '../../Button2';
+import Button2 from '../../Button';
 import Link from 'next/link';
 import { SkipRenderOnClient } from '../../SkipRender';
 

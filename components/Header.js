@@ -160,7 +160,11 @@ const BurgerMenu = ({ menuId, links }) => {
         <Layout>
           <div className={'flex h-screenx flex-col md:justify-between'}>
             <div className="flex items-center justify-between py-[28px] font-medium uppercase text-black">
-              <Link href="/" className="flex items-center justify-center">
+              <Link
+                href="/"
+                className="flex items-center justify-center"
+                title="home"
+              >
                 <Logo />
               </Link>
               <div className="hidden md:block">
@@ -182,6 +186,7 @@ const BurgerMenu = ({ menuId, links }) => {
                   setSubMenuParent(null);
                 }}
                 aria-expanded={isOpen}
+                aria-label="Menu"
               />
             </div>
             <HeaderMobileMenu links={links} menuId={menuId} />
@@ -264,23 +269,18 @@ export const useHeaderTheme = ({
       onLeave();
       s.kill();
     };
-  }, [ref, setHeaderTheme, theme, router.pathname, disableBackdrop, isFooter]);
-
-  const initRef = useRef(false);
-  const onUnmount = useRef([]);
-
-  useEffect(() => {
-    return () => {
-      initRef.current = false;
-      onUnmount.current.forEach((cb) => {
-        try {
-          cb();
-        } catch (e) {
-          console.error(e);
-        }
-      });
-    };
-  }, []);
+  }, [
+    ref,
+    setHeaderTheme,
+    theme,
+    router.pathname,
+    disableBackdrop,
+    isFooter,
+    _onEnter,
+    _onLeave,
+    setBackdrop,
+    setIsFooter,
+  ]);
 
   return;
 };
@@ -326,7 +326,7 @@ export default function Header({
     } else {
       release();
     }
-  }, [isOpen]);
+  }, [isOpen, lock, release]);
 
   const onBurgerClick = () => {
     setIsOpen((v) => !v);
@@ -334,7 +334,7 @@ export default function Header({
 
   useEffect(() => {
     setColor(null);
-  }, [t]);
+  }, [t, setColor]);
 
   const offset = 112;
 
@@ -394,7 +394,7 @@ export default function Header({
 
       return v;
     });
-  }, []);
+  }, [setSubMenuParent]);
 
   useEffect(() => {
     const handleClick = (e) => {

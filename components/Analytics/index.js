@@ -51,7 +51,6 @@ export default function Analytics() {
 
   return (
     <>
-      {/* <Amplitude /> */}
       <Hotjar />
       <GTag ids={['G-5NP2XWNRBX']} />
       <Script id="ga-2">

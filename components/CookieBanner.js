@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Button2 from './Button2';
+import Button2 from './Button';
 import Layout from './Layout';
 import Analytics from './Analytics';
 import { useIsClient, useLayoutSsrEffect } from '../lib/utils';

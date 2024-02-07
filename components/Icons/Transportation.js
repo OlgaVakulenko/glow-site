@@ -174,5 +174,3 @@ export function Transportation2({ isReady = true }) {
     </svg>
   );
 }
-
-export default {};

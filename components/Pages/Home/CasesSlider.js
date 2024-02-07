@@ -1,14 +1,14 @@
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
 import { Mousewheel } from 'swiper/modules';
-import { Swiper, SwiperSlide, useSwiper, useSwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import gsap from '../../../dist/gsap';
 import { mediaAtom, useMediaAtom } from '../../../lib/agent';
-import { addLeadingZero, useIsClient } from '../../../lib/utils';
+import { addLeadingZero, useLayoutSsrEffect } from '../../../lib/utils';
 import Image, { Source, resolve } from '../../Image';
 import Layout from '../../Layout';
 import Section from '../../Section';
@@ -230,7 +230,7 @@ function ViewCaseCursor({ x, y }) {
   const ref = useRef();
   const rotatedRef = useRef();
 
-  useLayoutEffect(() => {
+  useLayoutSsrEffect(() => {
     if (!ref.current) return;
     if (!rotatedRef.current) return;
 

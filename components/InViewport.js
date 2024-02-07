@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useLayoutSsrEffect } from '../lib/utils';
 
 export default function InViewport({
   as = 'div',
@@ -8,6 +9,11 @@ export default function InViewport({
 }) {
   const ref = useRef();
   const [inViewport, setInViewport] = useState(false);
+  const onViewChangeRef = useRef(onViewChange);
+
+  useLayoutSsrEffect(() => {
+    onViewChangeRef.current = onViewChange;
+  }, [onViewChange]);
 
   useEffect(() => {
     if (!'IntersectionObserver' in window) {
@@ -21,8 +27,8 @@ export default function InViewport({
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         setInViewport(entry.isIntersecting);
-        if (onViewChange) {
-          onViewChange(entry.isIntersecting);
+        if (onViewChangeRef.current) {
+          onViewChangeRef.current(entry.isIntersecting);
         }
       });
     });

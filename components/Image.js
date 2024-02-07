@@ -82,6 +82,7 @@ export default function Image(props) {
 
     const ratio = 1140 / props.src.width;
     return [props.src.width * ratio, props.src.height * ratio];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props?.src.width, props?.src.height]);
 
   const sizes = props.sizes || defaultSizes;
@@ -100,11 +101,13 @@ export default function Image(props) {
     });
 
     return media;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sizes.length]);
 
   const ext = props.ext || null;
 
   if (isString(props.src)) {
+    // eslint-disable-next-line jsx-a11y/alt-text
     return <img {...props} />;
   }
 

@@ -146,7 +146,7 @@ function CaseImage({ className, imgClassName, ...props }) {
         className
       )}
     >
-      <Image {...props} className={cx(imgClassName, 'w-full')} />
+      <Image alt="" {...props} className={cx(imgClassName, 'w-full')} />
     </div>
   );
 }

@@ -25,11 +25,21 @@ const run = async () => {
   }
 
   const filtered = images
-    .filter((img) => img.exists)
+    .filter((img) => !img.exists)
     .map((img) => img.originalSrc);
+
+  const sizeB = await Promise.all(
+    filtered.map(async (image) => {
+      const stats = await fs.stat(image);
+      return stats.size;
+    })
+  );
+
+  const sizeMb = sizeB.reduce((t, c) => t + c, 0) / (1024 * 1024);
 
   console.log(filtered.length);
   console.log(filtered);
+  console.log('MB SIZE', sizeMb);
 };
 
 run();

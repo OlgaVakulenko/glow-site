@@ -18,7 +18,7 @@ import RusImage from '../Pages/About/assets/rus-2.png';
 import StasImage from '../Pages/About/assets/stas-k.png';
 import RollingText from '../RollingText';
 import { Checkbox } from '../Checkbox';
-import Button2 from '../Button2';
+import Button2 from '../Button';
 
 const CheckboxCtx = createContext(null);
 

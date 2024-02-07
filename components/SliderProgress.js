@@ -59,6 +59,7 @@ export default function SliderProgress({ className = '', mode = 'progress' }) {
     }
 
     return 0;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [trackWidth, thumbWidth, slidesCount, progress, mode, realIndex]);
 
   useEffect(() => {
@@ -163,7 +164,7 @@ export default function SliderProgress({ className = '', mode = 'progress' }) {
           ></div> */}
           <div
             ref={thumbRef}
-            className="absolute top-1/2 left-0 h-[2px] w-full -translate-y-2/4 bg-black"
+            className="absolute left-0 top-1/2 h-[2px] w-full -translate-y-2/4 bg-black"
           ></div>
           {/* <div
             ref={thumbRef2}

@@ -149,7 +149,11 @@ export default function Tilt() {
         </section>
         {/* Research*/}
         <section className="section case-section research">
-          <img className="research__background" src="/img/tilt/how.svg" />
+          <img
+            alt=""
+            className="research__background"
+            src="/img/tilt/how.svg"
+          />
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
@@ -259,12 +263,14 @@ export default function Tilt() {
               </div>
             </div>
             <img
+              alt=""
               className="hidden-sm case-section__image wow fadeInUp"
               src="/img/tilt/website.png"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
+              alt=""
               className="hidden-sm case-section__image wow fadeInUp"
               src="/img/tilt/mobile.jpg"
               data-wow-duration="0.7s"
@@ -272,24 +278,28 @@ export default function Tilt() {
             />
           </div>
           <img
+            alt=""
             className="hidden-xs visible-sm case-section__image wow fadeInUp"
             src="/img/tilt/website-tablet.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
           <img
+            alt=""
             className="hidden-xs visible-sm case-section__image wow fadeInUp"
             src="/img/tilt/mobile-tablet.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
           <img
+            alt=""
             className="visible-xs case-section__image wow fadeInUp"
             src="/img/tilt/website-mobile.jpg"
             data-wow-duration="0.7s"
             data-wow-delay="0.2s"
           />
           <img
+            alt=""
             className="visible-xs case-section__image wow fadeInUp"
             src="/img/tilt/mobile-mobile.jpg"
             data-wow-duration="0.7s"
@@ -325,6 +335,7 @@ export default function Tilt() {
             </div>
             <div className="colors__wrapper">
               <img
+                alt=""
                 className="case-section__image wow fadeInUp"
                 src="/img/tilt/colors.jpg"
                 data-wow-duration="0.7s"
@@ -364,18 +375,21 @@ export default function Tilt() {
               data-wow-delay="0.1s"
             />
             <img
+              alt=""
               className="hidden-sm case-section__image wow fadeInUp"
               src="/img/tilt/typography.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
+              alt=""
               className="visible-sm hidden-xs case-section__image wow fadeInUp"
               src="/img/tilt/typography-tablet.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
+              alt=""
               className="visible-xs case-section__image wow fadeInUp"
               src="/img/tilt/typography-mobile.jpg"
               data-wow-duration="0.7s"
@@ -409,18 +423,21 @@ export default function Tilt() {
               </div>
             </div>
             <img
+              alt=""
               className="hidden-sm case-section__image wow fadeInUp"
               src="/img/tilt/icons.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
+              alt=""
               className="visible-sm hidden-xs case-section__image wow fadeInUp"
               src="/img/tilt/icons-tablet.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
+              alt=""
               className="visible-xs case-section__image wow fadeInUp"
               src="/img/tilt/icons-mobile.jpg"
               data-wow-duration="0.7s"
@@ -463,16 +480,16 @@ export default function Tilt() {
             >
               <div className="ilustrations__image-wrapper">
                 <div className="item">
-                  <img src="/img/tilt/card-1.svg" />
+                  <img alt="" src="/img/tilt/card-1.svg" />
                 </div>
                 <div className="item">
-                  <img src="/img/tilt/card-2.svg" />
+                  <img alt="" src="/img/tilt/card-2.svg" />
                 </div>
                 <div className="item">
-                  <img src="/img/tilt/card-3.svg" />
+                  <img alt="" src="/img/tilt/card-3.svg" />
                 </div>
                 <div className="item">
-                  <img src="/img/tilt/card-4.svg" />
+                  <img alt="" src="/img/tilt/card-4.svg" />
                 </div>
               </div>
             </div>
@@ -622,7 +639,7 @@ export default function Tilt() {
                   {range(1, 4).map((num) => (
                     <SwiperSlide key={num}>
                       <div>
-                        <img src={`/img/tilt/mobile-card-${num}.png`} alt="" />
+                        <img alt="" src={`/img/tilt/mobile-card-${num}.png`} />
                       </div>
                     </SwiperSlide>
                   ))}
@@ -664,8 +681,12 @@ export default function Tilt() {
               data-wow-duration="1.2s"
               data-wow-delay="0.1s"
             >
-              <img className="hidden-xs" src="/img/tilt/ds.jpg" />
-              <img className="visible-xs" src="/img/tilt/ds-mobile.jpg" />
+              <img alt="" className="hidden-xs" src="/img/tilt/ds.jpg" />
+              <img
+                alt=""
+                className="visible-xs"
+                src="/img/tilt/ds-mobile.jpg"
+              />
             </div>
           </div>
         </section>
@@ -706,6 +727,7 @@ export default function Tilt() {
                                 href="https://clutch.co/profile/glow-design-agency"
                               >
                                 <img
+                                  alt=""
                                   className="testimonials__start"
                                   src="/img/audit/stars.png"
                                 />
@@ -725,6 +747,7 @@ export default function Tilt() {
                             href="https://clutch.co/profile/glow-design-agency"
                           >
                             <img
+                              alt=""
                               className="testimonials__start"
                               src="/img/audit/stars.png"
                             />

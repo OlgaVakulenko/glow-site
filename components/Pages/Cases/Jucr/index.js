@@ -86,11 +86,11 @@ function Phone() {
           />
           <source srcSet="/img/jucr/first_phone-w800.png, /img/jucr/first_phone-w1600.png 2x" />
           <img
+            alt=""
             style={{ width: '100%', height: 'auto' }}
             width={730}
             height={772}
             src="/img/jucr/first_phone-w800.png"
-            alt=""
           />
         </picture>
         <picture>
@@ -100,12 +100,12 @@ function Phone() {
           />
           <source srcSet="/img/jucr/first_buttons-w600.png, /img/jucr/first_buttons-w1200.png 2x" />
           <img
+            alt=""
             className="first-frame-phone-buttons"
             src="/img/jucr/first_buttons-w600.png"
             style={{
               transform: btnActive ? 'translate3d(1px, -1px, 0px)' : null,
             }}
-            alt=""
           />
         </picture>
       </div>
@@ -138,7 +138,7 @@ function Intro() {
       s.kill();
       onLeave();
     };
-  }, []);
+  }, [setShowBackdrop]);
 
   useEffect(() => {
     let mounted = true;
@@ -220,6 +220,7 @@ function Intro() {
                   media="(min-width: 768.5px)"
                 />
                 <img
+                  alt=""
                   className="first_frame_image first_frame_shot"
                   src="/img/jucr/first_shot-w1920.png"
                 />
@@ -253,6 +254,7 @@ function ResearchMedia() {
             type="image/webp"
           />
           <img
+            alt=""
             className="visible-xs"
             src="/img/jucr/research_mobile-w400.png"
           />
@@ -353,6 +355,7 @@ function Jucr() {
                     />
                     <source srcSet="/img/jucr/challenge_bg2.png?width=1170" />
                     <img
+                      alt=""
                       className="challenge-wrapper-bg"
                       src="/img/jucr/challenge_bg2.png?width=1170"
                     />
@@ -377,6 +380,7 @@ function Jucr() {
                       media="(min-width: 768.5px)"
                     />
                     <img
+                      alt=""
                       className="challenge-wrapper-sticker"
                       src="/img/jucr/challenge_sticker.png"
                     />
@@ -388,6 +392,7 @@ function Jucr() {
                         src="/img/jucr/challenge.mp4"
                       />
                       <img
+                        alt=""
                         className="challenge-phone-mockup"
                         src="/img/jucr/phone.png"
                       />
@@ -518,7 +523,7 @@ function Jucr() {
                     srcSet="/img/jucr/hifi_mobile-w400.png, /img/jucr/hifi_mobile-w800.png 2x"
                     media="(max-width: 767.5px)"
                   />
-                  <img src="/img/jucr/hifi_mobile-w400.png" />
+                  <img alt="" src="/img/jucr/hifi_mobile-w400.png" />
                 </picture>
               </div>
               <div className="owl-carousel owl-carousel-hifi owl-theme">
@@ -535,7 +540,11 @@ function Jucr() {
                         srcSet="/img/jucr/hifi_1-w1140.png, /img/jucr/hifi_1-w2280.png 2x"
                         media="(min-width: 768.5px)"
                       />
-                      <img draggable="false" src="/img/jucr/hifi_1-w1440.png" />
+                      <img
+                        alt=""
+                        draggable="false"
+                        src="/img/jucr/hifi_1-w1440.png"
+                      />
                     </picture>,
                     <picture key={2}>
                       <source
@@ -547,7 +556,11 @@ function Jucr() {
                         srcSet="/img/jucr/hifi_2-w1140.png, /img/jucr/hifi_2-w2280.png 2x"
                         media="(min-width: 768.5px)"
                       />
-                      <img draggable="false" src="/img/jucr/hifi_2-w1440.png" />
+                      <img
+                        alt=""
+                        draggable="false"
+                        src="/img/jucr/hifi_2-w1440.png"
+                      />
                     </picture>,
                   ]}
                 />
@@ -606,7 +619,7 @@ function Jucr() {
                         srcSet="/img/jucr/colors_primary-w1140.png, /img/jucr/colors_primary-w2280.png 2x"
                         media="(min-width: 768.5px)"
                       />
-                      <img src="/img/jucr/colors_primary-w1140.png" />
+                      <img alt="" src="/img/jucr/colors_primary-w1140.png" />
                     </picture>
                   </div>
                 </div>
@@ -632,7 +645,7 @@ function Jucr() {
                         srcSet="/img/jucr/colors_gray-w1140.png, /img/jucr/colors_gray-w2280.png 2x"
                         media="(min-width: 768.5px)"
                       />
-                      <img src="/img/jucr/colors_gray-w1140.png" />
+                      <img alt="" src="/img/jucr/colors_gray-w1140.png" />
                     </picture>
                   </div>
                 </div>
@@ -658,7 +671,7 @@ function Jucr() {
                         srcSet="/img/jucr/colors_extra-w1140.png, /img/jucr/colors_extra-w2280.png 2x"
                         media="(min-width: 768.5px)"
                       />
-                      <img src="/img/jucr/colors_extra-w1140.png" />
+                      <img alt="" src="/img/jucr/colors_extra-w1140.png" />
                     </picture>
                   </div>
                 </div>
@@ -684,7 +697,7 @@ function Jucr() {
                         srcSet="/img/jucr/colors_gradients-w1140.png, /img/jucr/colors_gradients-w2280.png 2x"
                         media="(min-width: 768.5px)"
                       />
-                      <img src="/img/jucr/colors_gradients-w1140.png" />
+                      <img alt="" src="/img/jucr/colors_gradients-w1140.png" />
                     </picture>
                   </div>
                 </div>
@@ -740,6 +753,7 @@ function Jucr() {
                   media="(min-width: 768.5px)"
                 />
                 <img
+                  alt=""
                   className="case-section__image wow fadeInUp"
                   src="/img/jucr/typography-w1440.png"
                   data-wow-duration="0.7s"
@@ -789,6 +803,7 @@ function Jucr() {
                           media="(min-width: 768px)"
                         />
                         <img
+                          alt=""
                           draggable="false"
                           src="/img/jucr/profile_1-w1440.png"
                         />
@@ -804,6 +819,7 @@ function Jucr() {
                           media="(min-width: 768px)"
                         />
                         <img
+                          alt=""
                           draggable="false"
                           src="/img/jucr/profile_2-w1440.png"
                         />
@@ -819,6 +835,7 @@ function Jucr() {
                           media="(min-width: 768px)"
                         />
                         <img
+                          alt=""
                           draggable="false"
                           src="/img/jucr/profile_3-w1440.png"
                         />
@@ -916,6 +933,7 @@ function Jucr() {
                     media="(min-width: 768px)"
                   />
                   <img
+                    alt=""
                     className="jucr-bg-shot"
                     src="/img/jucr/s_shot-w1440.png"
                     data-wow-duration="0.7s"
@@ -981,6 +999,7 @@ function Jucr() {
                     media="(min-width: 768.5px)"
                   />
                   <img
+                    alt=""
                     className="case-section__image wow fadeInUp"
                     src="/img/jucr/charging_process-w1440.png"
                     data-wow-duration="0.7s"
@@ -1041,6 +1060,7 @@ function Jucr() {
                     media="(min-width: 768px)"
                   />
                   <img
+                    alt=""
                     className="case-section__image wow fadeInUp"
                     src="/img/jucr/my_coupons-w1440.png"
                     data-wow-duration="0.7s"
@@ -1102,6 +1122,7 @@ function Jucr() {
                     media="(min-width: 768.5px)"
                   />
                   <img
+                    alt=""
                     className="jucr-bg-shot"
                     src="/img/jucr/charge_shot-w1440.png"
                     data-wow-duration="0.7s"
@@ -1168,6 +1189,7 @@ function Jucr() {
                     media="(min-width: 768.5px)"
                   />
                   <img
+                    alt=""
                     className="jucr-bg-shot"
                     src="/img/jucr/occupied_shot-w1440.png"
                     data-wow-duration="0.7s"
@@ -1233,10 +1255,11 @@ function Jucr() {
                       srcSet="/img/jucr/onboarding_shot-w1140.png, /img/jucr/onboarding_shot-w2280.png 2x"
                       media="(min-width: 768.5px)"
                     />
-                    <img src="/img/jucr/onboarding_shot-w1140.png" />
+                    <img alt="" src="/img/jucr/onboarding_shot-w1140.png" />
                   </picture>
                 </div>
                 <img
+                  alt=""
                   className="statistic-video onboarding-slider-phone"
                   src="/img/jucr/phone.png"
                 />
@@ -1250,18 +1273,18 @@ function Jucr() {
                       resistanceRatio={0}
                       slides={range(1, 5).map((num) => (
                         <img
+                          alt=""
                           style={{
                             clipPath: 'inset(45px 0px 8px)',
                           }}
                           src={`/img/jucr/onboarding_${num}.png`}
-                          alt=""
                           key={num}
                         />
                       ))}
                     />
-                    {/* <img className="" src="/img/jucr/onboarding_2.png" /> */}
-                    {/* <img className="" src="/img/jucr/onboarding_3.png" /> */}
-                    {/* <img className="" src="/img/jucr/onboarding_4.png" /> */}
+                    {/* <img alt="" className="" src="/img/jucr/onboarding_2.png" /> */}
+                    {/* <img alt="" className="" src="/img/jucr/onboarding_3.png" /> */}
+                    {/* <img alt="" className="" src="/img/jucr/onboarding_4.png" /> */}
                   </div>
                 </div>
               </div>
@@ -1322,6 +1345,7 @@ function Jucr() {
                   media="(min-width: 768px)"
                 />
                 <img
+                  alt=""
                   className="jucr-bg-shot"
                   src="/img/jucr/design-system-w1440.png"
                   data-wow-duration="0.7s"

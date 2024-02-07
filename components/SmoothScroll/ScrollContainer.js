@@ -1,10 +1,11 @@
 import { atom, useSetAtom } from 'jotai';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { smoothScrollAtom } from '../../atoms/scroll';
 import { ScrollSmoother, ScrollTrigger } from '../../dist/gsap';
 import { useMediaAtom } from '../../lib/agent';
+import { useLayoutSsrEffect } from '../../lib/utils';
 
 export const ScrollSmootherMounted = atom(false);
 export const ScrollSmootherEnabled = atom(false);
@@ -28,7 +29,7 @@ export default function ScrollContainer({ children }) {
   const isMobile = media === 'mobile';
   const isMobileRef = useRef(isMobile);
 
-  useLayoutEffect(() => {
+  useLayoutSsrEffect(() => {
     isMobileRef.current = isMobile;
   }, [isMobile]);
 
@@ -77,6 +78,7 @@ export default function ScrollContainer({ children }) {
         ScrollTrigger.refresh();
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isMobile, updateScrollPosition, setMounted, disabled]);
 
   //scrolltrigger sometimes does not refresh when scrollsmoother is enabled

@@ -1,15 +1,12 @@
-import Link from 'next/link';
-import { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import { useMounted } from './Icons/animations';
-import Layout from './Layout';
-import cx from 'clsx';
 import { Transition } from '@headlessui/react';
-import { isTopAtom, subMenuOpenAtom, subMenuParentAtom } from './Header';
-import { useSetAtom } from 'jotai';
-import { atom } from 'jotai';
-import { useAtom } from 'jotai';
-import { useAtomValue } from 'jotai';
+import cx from 'clsx';
+import { useAtom, useAtomValue, useSetAtom } from 'jotai';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { useEffect, useMemo, useRef } from 'react';
+import { useLayoutSsrEffect } from '../lib/utils';
+import { isTopAtom, subMenuOpenAtom, subMenuParentAtom } from './Header';
+import Layout from './Layout';
 
 function Item({ index, icon, title, text, href }) {
   return (
@@ -44,7 +41,7 @@ export default function HeaderSubMenuContainer() {
     return subItems;
   }, [subItems]);
 
-  useLayoutEffect(() => {
+  useLayoutSsrEffect(() => {
     prevItemsRef.current = subItems;
   }, [subItems]);
 

@@ -34,6 +34,7 @@ export default function InlineVideo({
     }
 
     ref.current.appendChild(video);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return <div ref={ref} {...rest} />;

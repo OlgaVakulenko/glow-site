@@ -137,14 +137,17 @@ export default function Ethos() {
         <section className="section case-section research">
           <div className="container">
             <img
+              alt=""
               className="research__background research__background--desk"
               src="/img/ethos/how.png"
             />
             <img
+              alt=""
               className="research__background research__background--tablet"
               src="/img/ethos/how-tablet.png"
             />
             <img
+              alt=""
               className="research__background research__background--mobile"
               src="/img/ethos/how-mobile.png"
             />
@@ -262,6 +265,7 @@ export default function Ethos() {
               id="white-label"
             >
               <img
+                alt=""
                 className="wow fadeInUp"
                 src="/img/ethos/white-label.png"
                 data-wow-duration="0.7s"
@@ -274,6 +278,7 @@ export default function Ethos() {
             id="white-label"
           >
             <img
+              alt=""
               className="wow fadeInUp"
               src="/img/ethos/white-label.png"
               data-wow-duration="0.7s"
@@ -309,18 +314,21 @@ export default function Ethos() {
             </div>
             <div className="colors__wrapper">
               <img
+                alt=""
                 className="hidden-sm case-section__image wow fadeInUp"
                 src="/img/ethos/colors.jpg"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
               <img
+                alt=""
                 className="hidden-xs visible-sm case-section__image wow fadeInUp"
                 src="/img/ethos/colors-tablet.jpg"
                 data-wow-duration="0.7s"
                 data-wow-delay="0.2s"
               />
               <img
+                alt=""
                 className="visible-xs case-section__image wow fadeInUp"
                 src="/img/ethos/colors-mobile.jpg"
                 data-wow-duration="0.7s"
@@ -360,18 +368,21 @@ export default function Ethos() {
               data-wow-delay="0.1s"
             />
             <img
+              alt=""
               className="hidden-sm case-section__image wow fadeInUp"
               src="/img/ethos/typography.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
+              alt=""
               className="visible-sm hidden-xs case-section__image wow fadeInUp"
               src="/img/ethos/typography-tablet.jpg"
               data-wow-duration="0.7s"
               data-wow-delay="0.2s"
             />
             <img
+              alt=""
               className="visible-xs case-section__image wow fadeInUp"
               src="/img/ethos/typography-mobile.jpg"
               data-wow-duration="0.7s"
@@ -406,6 +417,7 @@ export default function Ethos() {
               </div>
             </div>
             <img
+              alt=""
               className="case-section__image wow fadeInUp"
               src="/img/ethos/test.png"
               data-wow-duration="0.7s"
@@ -441,6 +453,7 @@ export default function Ethos() {
               </div>
             </div>
             <img
+              alt=""
               className="case-section__image wow fadeInUp"
               src="/img/ethos/search.png"
               data-wow-duration="0.7s"
@@ -476,6 +489,7 @@ export default function Ethos() {
               </div>
             </div>
             <img
+              alt=""
               className="case-section__image wow fadeInUp"
               src="/img/ethos/page.png"
               data-wow-duration="0.7s"
@@ -511,6 +525,7 @@ export default function Ethos() {
               </div>
             </div>
             <img
+              alt=""
               className="case-section__image wow fadeInUp"
               src="/img/ethos/learning.png"
               data-wow-duration="0.7s"
@@ -554,7 +569,7 @@ export default function Ethos() {
                 <Carousel
                   slides={range(1, 5).map((i) => (
                     <div key={i}>
-                      <img src={`/img/ethos/other-card-${i}.png`} alt="" />
+                      <img alt="" src={`/img/ethos/other-card-${i}.png`} />
                     </div>
                   ))}
                 />
@@ -597,7 +612,7 @@ export default function Ethos() {
                 <Carousel
                   slides={range(1, 3).map((num) => (
                     <div key={num}>
-                      <img src={`/img/ethos/mobile-card-${num}.png`} alt="" />
+                      <img alt="" src={`/img/ethos/mobile-card-${num}.png`} />
                     </div>
                   ))}
                 />
@@ -636,8 +651,12 @@ export default function Ethos() {
               data-wow-duration="1.2s"
               data-wow-delay="0.1s"
             >
-              <img className="hidden-xs" src="/img/ethos/ds.jpg" />
-              <img className="visible-xs" src="/img/ethos/ds-mobile.jpg" />
+              <img alt="" className="hidden-xs" src="/img/ethos/ds.jpg" />
+              <img
+                alt=""
+                className="visible-xs"
+                src="/img/ethos/ds-mobile.jpg"
+              />
             </div>
           </div>
         </section>
@@ -678,6 +697,7 @@ export default function Ethos() {
                                 href="https://clutch.co/profile/glow-design-agency"
                               >
                                 <img
+                                  alt=""
                                   className="testimonials__start"
                                   src="/img/audit/stars.png"
                                 />
@@ -695,6 +715,7 @@ export default function Ethos() {
                             href="https://clutch.co/profile/glow-design-agency"
                           >
                             <img
+                              alt=""
                               className="testimonials__start"
                               src="/img/audit/stars.png"
                             />

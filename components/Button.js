@@ -1,42 +1,40 @@
-import cx from 'clsx';
-import Link from 'next/link';
 import { useMemo } from 'react';
 import RollingText from './RollingText';
+import cx from 'clsx';
 
-export default function Button({
-  href = null,
-  children,
-  theme,
+export default function Button2({
+  as = 'button',
   className,
-  disabled = false,
+  children,
+  color = 'black',
+  flavor = 'primary',
+  compact = false,
   ...props
 }) {
-  const El = useMemo(() => {
-    if (typeof href === 'string') {
-      return Link;
-    }
-
-    return 'button';
-  }, [href]);
+  const Component = as;
 
   return (
-    <span className={cx(disabled && 'cursor-not-allowed opacity-50')}>
-      <El
-        className={cx(
-          disabled && 'pointer-events-none',
-          'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[16px] text-button-m uppercase shadow-black transition-all duration-500 hover:bg-black',
-          'hover:text-brand',
-          theme === 'white' &&
-            'glow-border-b-b hover:!bg-brand hover:!text-black',
-          theme === 'dark' &&
-            'glow-border-white-to-r text-white hover:!bg-brand hover:!text-black',
-          className
-        )}
-        href={href}
-        {...props}
-      >
-        <RollingText height={20} text={children}></RollingText>
-      </El>
-    </span>
+    <Component
+      className={cx(
+        {
+          'bg-brand': flavor === 'primary',
+          'border border-lblue bg-transparent text-white hover:bg-lblue hover:text-black':
+            flavor === 'secondary',
+          'text-white': color === 'white',
+          'text-black': color === 'black',
+          'px-6 py-3 md:px-9 md:py-4': compact === false,
+          'px-6 py-3': compact === true,
+        },
+        'rolling-text-group inline-block rounded-full text-button-m2 uppercase transition-colors duration-200 focus-visible:shadow-btn-focus',
+        className
+      )}
+      {...props}
+    >
+      {typeof children === 'string' ? (
+        <RollingText height={24} text={children} />
+      ) : (
+        children
+      )}
+    </Component>
   );
 }
