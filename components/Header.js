@@ -497,29 +497,6 @@ export default function Header({
                       'hidden transition-opacity duration-200 md:ml-auto md:flex xl:space-x-4'
                     )}
                   >
-                    {/* {media === 'desktop' && (
-                      <Animated delay={(links.length + 1) * 100} immediate>
-                        <Link
-                          href="#footer"
-                          className={cx(
-                            'glow-border-black rolling-text-group flex whitespace-pre-wrap rounded-full px-[19px] py-[14px] text-button-m shadow-black transition-all duration-500 hover:bg-black 4xl:py-[18px] 4xl:text-sm 4xl:leading-[19px]',
-                            'hover:text-brand',
-                            (t === 'white' || subMenuActive) &&
-                              'glow-border-b-b hover:!bg-brand hover:!text-black',
-                            t === 'dark' &&
-                              !subMenuActive &&
-                              'glow-border-white-to-r bg-transparent text-white hover:!bg-brand hover:!text-white'
-                          )}
-                          onClick={handleFooterFormClick}
-                        >
-                          <RollingText
-                            height={20}
-                            text={`Let's get in touch`}
-                          ></RollingText>
-                        </Link>
-                      </Animated>
-                    )} */}
-
                     <div
                       className={cx(
                         'opacity-100 transition-opacity delay-500',
@@ -529,6 +506,7 @@ export default function Header({
                             : !isTop
                             ? false
                             : true,
+                          '!hidden': router.pathname === '/contact-us',
                         }
                       )}
                     >
@@ -555,9 +533,6 @@ export default function Header({
                       aria-expanded={isOpen}
                     />
                   </Animated>
-                  {/* {(() => {
-                    debugger;
-                  })()} */}
                 </div>
               )}
             </div>

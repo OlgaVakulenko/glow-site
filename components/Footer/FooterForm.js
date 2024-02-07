@@ -18,6 +18,7 @@ import RusImage from '../Pages/About/assets/rus-2.png';
 import StasImage from '../Pages/About/assets/stas-k.png';
 import RollingText from '../RollingText';
 import { Checkbox } from '../Checkbox';
+import Button2 from '../Button2';
 
 const CheckboxCtx = createContext(null);
 
@@ -209,18 +210,18 @@ export default function FooterForm({
 
   const [selectedServices, setSelectedServices] = useState([]);
   const [services, setServices] = useState(() => [
-    'Interface Design',
+    'Discovery',
+    'UI Design',
     'UX Design',
-    'Audit',
-    'Identity',
-    'Product Design',
+    'Design Audit',
+    'MVP',
   ]);
 
   const [selectedBudget, setSelectedBudget] = useState(null);
   const [budgets, setBudgets] = useState(() => [
-    'Less than 10k',
-    '10k - 50k',
-    'More than 50k',
+    'Less than $10k',
+    '$10k - $50k',
+    'More than $50k',
   ]);
 
   const [checked, setChecked] = useState(false);
@@ -358,7 +359,7 @@ export default function FooterForm({
               theme={theme}
             />
           </div>
-          <div className="md:mt-8 md:flex md:items-start md:justify-between md:space-x-4">
+          <div className="md:mt-8 md:flex md:items-center md:justify-between md:space-x-4">
             <div className="flex space-x-4 text-body-xs xl:max-w-[328px]">
               <div className="pt-[2px] md:pt-[3px]">
                 <Checkbox
@@ -379,7 +380,15 @@ export default function FooterForm({
                 </Link>
               </label>
             </div>
-            <button
+            <Button2
+              type="submit"
+              flavor="secondary"
+              className="mt-8 w-full shrink-0 md:mt-0 md:w-auto"
+              compact
+            >
+              Book free call
+            </Button2>
+            {/* <button
               type="submit"
               className={cx(
                 'rolling-text-group mt-8 w-full shrink-0 rounded-full border py-3 text-center text-sm font-medium uppercase leading-6 transition-colors duration-200 md:mt-0 md:w-fit md:px-9 md:text-xs md:leading-4 xl:py-[15px] 4xl:text-sm 4xl:leading-6',
@@ -407,7 +416,7 @@ export default function FooterForm({
                     : 24
                 }
               />
-            </button>
+            </button> */}
           </div>
         </form>
       )}

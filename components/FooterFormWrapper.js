@@ -80,7 +80,7 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
                 // hideToggles={hideToggles}
                 isSubmitted={_isSubmitted}
                 setIsSubmitted={() => {
-                  setIsSubmitted(true);
+                  // setIsSubmitted(true);
                   router.push('/form-success');
                 }}
                 footerStyle={footerStyle}

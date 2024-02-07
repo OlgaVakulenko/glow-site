@@ -8,6 +8,7 @@ export default function Button2({
   children,
   color = 'black',
   flavor = 'primary',
+  compact = false,
   ...props
 }) {
   const Component = as;
@@ -16,11 +17,15 @@ export default function Button2({
     <Component
       className={cx(
         {
-          'rounded-full bg-brand': flavor === 'primary',
+          'bg-brand': flavor === 'primary',
+          'border border-lblue bg-transparent text-white hover:bg-lblue hover:text-black':
+            flavor === 'secondary',
           'text-white': color === 'white',
           'text-black': color === 'black',
+          'px-6 py-3 md:px-9 md:py-4': compact === false,
+          'px-6 py-3': compact === true,
         },
-        'rolling-text-group inline-block px-6 py-3 text-button-m2 uppercase focus-visible:shadow-btn-focus md:px-9 md:py-4',
+        'rolling-text-group inline-block rounded-full text-button-m2 uppercase transition-colors duration-200 focus-visible:shadow-btn-focus',
         className
       )}
       {...props}
