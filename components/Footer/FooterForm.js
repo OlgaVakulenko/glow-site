@@ -383,6 +383,7 @@ export default function FooterForm({
             <Button2
               type="submit"
               flavor="secondary"
+              color="white"
               className="mt-8 w-full shrink-0 md:mt-0 md:w-auto"
               compact
             >
