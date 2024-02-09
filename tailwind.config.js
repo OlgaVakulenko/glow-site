@@ -34,11 +34,12 @@ module.exports = {
       },
       fontSize: {
         xs: ['12px', '18px'],
-        'body-xs': ['14px', '19px'],
-        'body-s': ['16px', '22px'],
-        'body-m': ['20px', '27px'],
-        'body-m2': ['18px', '26px'],
-        'body-l': ['24px', '36px'],
+        'body-xs': ['14px', '24px'],
+        'body-s': ['16px', '24px'],
+        'body-m': ['18px', '24px'],
+        'body-m2': ['18px', '24px'],
+        'body-l': ['24px', '32px'],
+        'body-l2': ['24px', '34px'],
         'body-heading-s': [
           '12px',
           {
@@ -69,7 +70,7 @@ module.exports = {
         'body-list-m': [
           '20px',
           {
-            lineHeight: '40px',
+            lineHeight: '32px',
           },
         ],
         'button-s': [

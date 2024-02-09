@@ -258,14 +258,14 @@ function ReviewCard({
 }) {
   return (
     <div className="h-full">
-      <div className="h-full rounded-3xl border border-black px-6 pb-[52px] pt-8 md:flex md:space-x-16 md:px-0 md:py-16">
-        <div className="md:col-span-3 md:flex md:flex-col md:justify-between md:pl-16">
-          <div className="md:flex md:h-full md:min-w-[296px] md:flex-col md:items-start md:justify-between">
+      <div className="h-full rounded-3xl border border-black px-6 pb-8 pt-8 md:flex md:space-x-16 md:px-0 md:py-16">
+        <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-16">
+          <div className="md:flex md:h-full md:max-w-[168px] md:flex-col md:items-start md:justify-between">
             <div className="">
               <div className="mb-4 flex items-center justify-between">
                 <div className="flex">
-                  <div className="relative z-[1] h-[64px] w-[64px] rounded-full bg-black md:-mr-4">
-                    <div className="absolute left-1/2 top-1/2 w-full max-w-[55px] -translate-x-1/2 -translate-y-1/2">
+                  <div className="relative z-[1] h-[64px] w-[64px] rounded-full bg-black shadow-[0_0_0_2px_white] md:-mr-4">
+                    <div className="absolute left-1/2 top-1/2 w-full max-w-[55px] -translate-x-1/2 -translate-y-1/2 ">
                       <img src={companyAvatar} alt="" className="mx-auto" />
                     </div>
                   </div>
@@ -281,19 +281,17 @@ function ReviewCard({
                 />
               </div>
               <div className="text-body-m2 md:mb-1">{name}</div>
-              <div className="mb-6 text-body-s opacity-50">{company}</div>
+              <div className="mb-6 text-body-s opacity-50">
+                {company.split(',').map((text, i) => (
+                  <p key={i}>{text}</p>
+                ))}
+              </div>
             </div>
+            <ClutchRating rating={rating} className="border border-black" />
           </div>
         </div>
         <div className="flex flex-col items-start">
-          <div className="hidden md:mb-4 md:flex md:h-16 md:items-center md:justify-center">
-            <ClutchRating
-              rating={rating}
-              className="hidden border border-black md:flex"
-            />
-          </div>
-
-          <div className="text-body-l md:col-span-6 md:pr-[75px] md:text-2xl xl:pr-20 ">
+          <div className="text-body-l md:col-span-6 md:pr-16 md:text-2xl">
             “{text}”
           </div>
         </div>
@@ -302,7 +300,6 @@ function ReviewCard({
   );
 }
 export default function Reviews() {
-  const media = useMediaAtom();
   const swiperRef = useRef();
 
   return (
@@ -316,7 +313,6 @@ export default function Reviews() {
           <CaseNavArrow
             dir="left"
             onClick={() => {
-              // console.log(swiperRef.current);
               swiperRef.current.slidePrev();
             }}
           />
@@ -341,7 +337,7 @@ export default function Reviews() {
                 slidesPerView: '1.15',
               },
               1440: {
-                slidesPerView: '1.3',
+                slidesPerView: '1.8',
               },
             }}
             mousewheel={{
@@ -368,7 +364,7 @@ export default function Reviews() {
                 />
               </SwiperSlide>
             ))}
-            <div className="pt-5 md:max-w-[544px] xl:max-w-full">
+            <div className="mx-auto pt-5 md:max-w-[544px] xl:max-w-full">
               <SliderProgress />
             </div>
           </Swiper>
