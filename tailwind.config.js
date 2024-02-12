@@ -36,7 +36,7 @@ module.exports = {
         xs: ['12px', '18px'],
         'body-xs': ['14px', '24px'],
         'body-s': ['16px', '24px'],
-        'body-m': ['18px', '24px'],
+        'body-m': ['18px', '26px'],
         'body-m2': ['18px', '24px'],
         'body-l': ['24px', '32px'],
         'body-l2': ['24px', '34px'],
@@ -130,6 +130,13 @@ module.exports = {
         ],
         'heading-h2': [
           '48px',
+          {
+            fontWeight: '500',
+            lineHeight: '56px',
+          },
+        ],
+        'heading-h2-hero': [
+          '56px',
           {
             fontWeight: '500',
             lineHeight: '64px',

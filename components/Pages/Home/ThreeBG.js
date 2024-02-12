@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
+import { useInView } from '../../../lib/utils';
 
 const rectangle_frag = `// rectangle_frag.glsl
 precision highp float;
@@ -1404,6 +1405,7 @@ class CloudRestoration extends ShaderPass {
 class Webgl {
   constructor(props) {
     this.props = props;
+    this.active = true;
 
     Common$1.init(props.$wrapper);
     Mouse$1.init(props.$wrapper);
@@ -1434,8 +1436,9 @@ class Webgl {
   }
 
   loop() {
-    this.render();
-
+    if (this.active) {
+      this.render();
+    }
     this.id = requestAnimationFrame(this.loop);
   }
 
@@ -1455,11 +1458,25 @@ function createBG(wrapper) {
 
 export default function ThreeBG() {
   const ref = useRef();
+  const instanceRef = useRef();
+  useInView(ref, (inView) => {
+    if (inView) {
+      if (instanceRef.current) {
+        instanceRef.current.active = true;
+      }
+    } else {
+      if (instanceRef.current) {
+        instanceRef.current.active = false;
+      }
+    }
+  });
 
   useEffect(() => {
+    console.log('mounted');
     const instance = createBG(ref.current);
-
+    instanceRef.current = instance;
     return () => {
+      console.log('destroyed');
       instance.destroy();
     };
   }, []);
