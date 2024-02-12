@@ -9,7 +9,7 @@ const items = [
   {
     title: 'Discovery',
     categories: [
-      'UI UX audit',
+      'UI UX Audit',
       'Competitor analysis',
       'User interviews',
       'Customer journey map',
@@ -17,11 +17,12 @@ const items = [
     ],
   },
   {
-    title: 'Visual Identity',
+    title: 'Product Design',
     categories: [
-      'Product visual identity',
-      'Design system',
-      'Branding',
+      'UI Design',
+      'UX Design',
+      'Design System',
+      'Motion Design',
       'Illustration',
     ],
   },
@@ -47,12 +48,12 @@ export default function OurExperience() {
             >
               <span className="opacity-50">{item.title}</span>
             </Animated>
-            <div className="grid gap-2">
+            <div className="grid gap-4">
               {item.categories.map((category, index2) => (
                 <Animated
                   delay={100 * (index1 + index2)}
                   key={index2}
-                  className="text-body-m2 4xl:text-body-l"
+                  className="text-body-s 4xl:text-body-l"
                 >
                   {category}
                 </Animated>
