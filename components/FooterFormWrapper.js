@@ -55,10 +55,10 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
                       <br className="hidden xl:block" /> about you
                     </>
                   ) : (
-                    <>
+                    <h1>
                       Let’s make <br className="hidden md:block" />
                       your project glow
-                    </>
+                    </h1>
                   )}
                 </div>
               )}

@@ -40,9 +40,9 @@ export default function Card({ post }) {
           className="h-[223px] w-full object-cover transition-transform duration-500 group-hover:scale-105 md:h-[255px]"
         />
       </div>
-      <div className="mb-3 text-body-heading-m md:mb-2 md:max-w-[80%]">
+      <h2 className="mb-3 text-body-heading-m md:mb-2 md:max-w-[80%]">
         {post.title}
-      </div>
+      </h2>
       <div className="mb-6 max-w-[90%] text-body-s opacity-50 md:mb-7 md:max-w-[80%]">
         {post.description}
       </div>

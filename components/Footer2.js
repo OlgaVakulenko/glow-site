@@ -36,11 +36,11 @@ export default function Footer2({
         showForm && (
           <Layout disableOnMobile={true}>
             <div className="bg-black px-4 py-[204px] md:rounded-[32px] md:py-[164px] xl:py-[142px]">
-              <div className="mb-10 text-center font-glow text-5xl font-medium leading-none tracking-[-2px] text-white md:mb-14 md:text-[99px] md:leading-[100px] md:tracking-[-3px] xl:text-[112px] xl:leading-[106px]">
+              <h2 className="mb-10 text-center font-glow text-5xl font-medium leading-none tracking-[-2px] text-white md:mb-14 md:text-[99px] md:leading-[100px] md:tracking-[-3px] xl:text-[112px] xl:leading-[106px]">
                 Let’s make
                 <br /> your project
                 <br className="md:hidden" /> glow
-              </div>
+              </h2>
               <div className="text-center">
                 <Button2 as={Link} href="/contact-us">
                   Book free call

@@ -114,13 +114,16 @@ function MyApp({ Component, pageProps }) {
     window.__app_hydrated = true;
   }, []);
 
-  // useReportWebVitals((metric) => {
-  //   console.log(
-  //     `Name: ${metric.name}, Rating: ${metric.rating}, Value: ${metric.value}`
-  //   );
-  // });
+  const canonicalUrl = useMemo(() => {
+    let u = 'https://glow.team' + router.asPath;
+    if (u[u.length - 1] !== '/') {
+      u += '/';
+    }
 
-  // useScrollRestoration(router);
+    return u;
+  }, [router.pathname, router.asPath]);
+
+  console.log('url', canonicalUrl);
 
   return (
     <div>
@@ -144,6 +147,7 @@ function MyApp({ Component, pageProps }) {
           `,
           }}
         />
+        <link key="canonical" rel="canonical" href={canonicalUrl} />
         <link
           rel="apple-touch-icon"
           sizes="57x57"

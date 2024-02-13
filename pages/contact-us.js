@@ -67,9 +67,9 @@ function FaqItem({ question, answer }) {
         <Disclosure.Button className="flex w-full justify-between text-left md:grid md:grid-cols-8 md:gap-8 xl:grid-cols-12">
           {({ open }) => (
             <>
-              <div className="text-body-heading-m2 md:col-span-3 md:pr-8 xl:col-span-5">
+              <h3 className="text-body-heading-m2 md:col-span-3 md:pr-8 xl:col-span-5">
                 {question}
-              </div>
+              </h3>
               <div className="flex justify-between text-body-s md:col-span-5 xl:col-span-7">
                 {open ? (
                   <Disclosure.Panel className="hidden whitespace-pre-line md:block">
@@ -135,9 +135,9 @@ function FaqItem({ question, answer }) {
 function FAQ() {
   return (
     <div className="mb-12">
-      <div className="mb-10 font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] xl:text-heading-h2-2">
+      <h2 className="mb-10 font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] xl:text-heading-h2-2">
         Frequently asked questions
-      </div>
+      </h2>
       <div className="divide-y divide-border-gray border-t border-border-gray">
         {items.map((item, idx) => (
           <FaqItem key={idx} question={item.q} answer={item.a} />

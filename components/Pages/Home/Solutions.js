@@ -63,9 +63,9 @@ function Card({
             {tag}
           </span>
         </div>
-        <div className="mb-4 mt-6 font-glow text-[29px] font-medium leading-[37px] md:mb-[27px] md:mt-[34px] xl:mb-6 xl:text-heading-h3 3xl:text-[30px] 4xl:flex 4xl:min-h-[64px] 4xl:items-center">
+        <h3 className="mb-4 mt-6 font-glow text-[29px] font-medium leading-[37px] md:mb-[27px] md:mt-[34px] xl:mb-6 xl:text-heading-h3 3xl:text-[30px] 4xl:flex 4xl:min-h-[64px] 4xl:items-center">
           {title}
-        </div>
+        </h3>
         <div className="__card_block rounded-2xl bg-white p-4 pb-6 md:h-full md:pb-8 xl:p-8 xl:pb-[37px] 4xl:px-6 4xl:pb-[50px] 4xl:pt-6">
           <div className="mb-6 flex xl:mb-[27px]">
             <div className="mr-4 shrink-0">
@@ -104,7 +104,10 @@ export default function Solutions() {
   return (
     <Layout className="md:tp-[128px] pb-8 pt-24 xl:pt-[136px] 4xl:pt-[160px]">
       <div className="mb-10 md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:mb-[72px] xl:grid-cols-12 4xl:mb-14">
-        <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:mb-0 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 4xl:max-w-[672px] 4xl:text-[64px] 4xl:leading-[64px]">
+        <Animated
+          as="h2"
+          className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:mb-0 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 4xl:max-w-[672px] 4xl:text-[64px] 4xl:leading-[64px]"
+        >
           We can light
           <br className="hidden md:block" /> your&nbsp;way
         </Animated>

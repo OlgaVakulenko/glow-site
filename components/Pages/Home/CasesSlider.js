@@ -170,9 +170,9 @@ export function CaseItem({
           />
         )}
       </div>
-      <div className="mb-8 font-glow text-heading-h4 xl:text-heading-h3">
+      <h2 className="mb-8 font-glow text-heading-h4 xl:text-heading-h3">
         {title}
-      </div>
+      </h2>
       <div className="-mr-10 flex md:-mr-16 xl:-mr-24">
         {columns.map((col, i) => (
           <Col2

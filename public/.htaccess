@@ -4,6 +4,13 @@ RewriteEngine on
 
 # /trial -> /
 RewriteRule ^trial/?$ / [R=301,L]
+RewriteRule ^contacts/?$ /contact-us/ [R=301,L]
+RewriteRule ^/icons-temp/?$ / [R=301,L]
+RewriteRule ^form/?$ /contact-us/ [R=301,L]
+RewriteRule ^blog/logotype-case-study-electric-cars-charging-app/?$ /jucr/ [R=301,L]
+RewriteRule ^blog/[id]/?$ /blog/ [R=301,L]
+RewriteRule ^blog/ui-ux-case-study-automation-of-parking-lots-at-airports/?$ /parking/ [R=301,L]
+RewriteRule ^blog/why-perform-a-ui-ux-audit-benefits-and-techniques-for-a-good-start/?$ /jucr/ [R=301,L]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

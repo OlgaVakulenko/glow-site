@@ -60,7 +60,10 @@ export default function Services() {
   return (
     <div className="">
       <Layout className="mb-[47px] md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:grid-cols-12 4xl:mb-14">
-        <Animated className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:mb-0 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 4xl:max-w-[672px] 4xl:text-[64px] 4xl:leading-[64px]">
+        <Animated
+          as="h2"
+          className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:mb-0 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 4xl:max-w-[672px] 4xl:text-[64px] 4xl:leading-[64px]"
+        >
           We open to any kind&nbsp;of co-operation
         </Animated>
         <div className="hidden 4xl:col-span-1 4xl:block"></div>
@@ -102,9 +105,9 @@ export default function Services() {
                           />
                         </InViewport>
                         <div>
-                          <div className="mb-7 mt-9 text-2xl font-medium tracking-[0.48px] md:col-span-5 md:mb-5 md:mt-9">
+                          <h3 className="mb-7 mt-9 text-2xl font-medium tracking-[0.48px] md:col-span-5 md:mb-5 md:mt-9">
                             {item.title}
-                          </div>
+                          </h3>
                           <div
                             className={cx(' text-body-m2 md:col-span-11', {
                               'mb-[38px] md:mb-1': false, //turn on later on

@@ -105,7 +105,7 @@ export default function NextStep() {
         </div>
         <div className="border-b pb-[75px] md:pb-[113px] 4xl:pb-[139px]">
           <Animated
-            as="h3"
+            as="h2"
             className="mb-[60px] text-center font-glow text-5xl font-medium tracking-[-3px] md:mb-[66px] md:text-[99px] md:leading-[100px] xl:mb-0 xl:text-[112px] xl:leading-[106px]"
           >
             The next step of <br className="hidden md:block xl:hidden" /> your{' '}
@@ -136,6 +136,7 @@ export default function NextStep() {
                   <item.icon isReady={iconMap[index] === true} />
                 </Animated>
                 <Animated
+                  as="h3"
                   delay={100}
                   className="mb-4 text-2xl font-medium tracking-[0.48px] 4xl:text-3xl"
                 >

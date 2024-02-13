@@ -1,7 +1,12 @@
+import Head from 'next/head';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 
 export default function FormSuccess() {
-  return null;
+  return (
+    <Head>
+      <meta name="robots" content="noindex" />
+    </Head>
+  );
 }
 
 FormSuccess.getLayout = function (page) {
