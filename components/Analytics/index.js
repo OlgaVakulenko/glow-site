@@ -68,15 +68,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           style={{ display: 'none', visibility: 'hidden' }}
         ></iframe>
       </noscript>
-<<<<<<< HEAD
-=======
-
-      {/* <GTag id="GTM-MW59PP8" /> */}
-      {/* <FacebookPixel /> */}
-      {/* <WhenIdle>
-        <MixPanel />
-      </WhenIdle> */}
->>>>>>> temp
       <Linkedin />
       <Leadfeed />
     </>
