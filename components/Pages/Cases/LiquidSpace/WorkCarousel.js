@@ -76,8 +76,8 @@ function Item({ title, description, image, index, total }) {
       className={cx(
         'relative flex h-full flex-col justify-between px-3 md:px-3 xl:px-7',
         {
-          '!pl-4 md:!pl-[48px] xl:!pl-[56px]': index === 0,
-          '!pr-4 md:!pr-[48px] xl:pr-[56px]': index === total - 1,
+          '!pl-4 md:!pl-[48px] xl:!pl-[64px]': index === 0,
+          '!pr-4 md:!pr-[48px] xl:pr-[64px]': index === total - 1,
         }
       )}
     >

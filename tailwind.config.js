@@ -37,6 +37,7 @@ module.exports = {
         'body-s': ['16px', '22px'],
         'body-m': ['20px', '27px'],
         'body-m2': ['18px', '26px'],
+        'body-m2-2': ['18px', '24px'],
         'body-l': ['24px', '36px'],
         'body-heading-s': [
           '12px',
@@ -48,7 +49,7 @@ module.exports = {
         'body-heading-m': [
           '20px',
           {
-            lineHeight: '30px',
+            lineHeight: '32px',
             fontWeight: '500',
           },
         ],
@@ -141,11 +142,34 @@ module.exports = {
             tracking: '-2px',
           },
         ],
+        'heading-h2-hero': [
+          '56px',
+          {
+            fontWeight: '500',
+            lineHeight: '64px',
+            tracking: '-1px',
+          },
+        ],
         'heading-h3': [
           '32px',
           {
             fontWeight: '500',
             lineHeight: '37px',
+          },
+        ],
+        'heading-h3-2': [
+          '40px',
+          {
+            fontWeight: '500',
+            lineHeight: '48px',
+          },
+        ],
+        'heading-2-h4': [
+          '32px',
+          {
+            fontWeight: '500',
+            lineHeight: '40px',
+            letterSpacing: '-1px',
           },
         ],
         'heading-h4': [

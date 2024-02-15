@@ -10,7 +10,7 @@ import ClientLandflow from './assets/client-lendflow.svg';
 import ClientLiquidSpace from './assets/client-liquidspace.svg';
 import ClientNissan from './assets/client-nissan.svg';
 import ClientRiptide from './assets/client-riptide.svg';
-import Layout, { Layout2 } from '../../Layout';
+import Layout from '../../Layout';
 import { useEffect, useRef } from 'react';
 import { useMounted } from '../../Icons/animations';
 import cx from 'clsx';

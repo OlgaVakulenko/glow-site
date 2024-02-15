@@ -187,7 +187,7 @@ function CasesLayout({ cases }) {
   const c2 = cases.filter((_, i) => i % 2 !== 0);
 
   return (
-    <div className="-mx-8 flex pb-[64px] xl:-mx-[56px]">
+    <div className="-mx-8 flex pb-[64px] xl:-mx-[64px]">
       <CasesRow cases={c1} />
       <CasesRow cases={c2} className="pt-[113px]" />
     </div>

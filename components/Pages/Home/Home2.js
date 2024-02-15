@@ -1,5 +1,4 @@
-import { RollingWords } from './index';
-// import Layout2 from '../../Layout2';
+import { RollingWords } from './RollingWords';
 import cx from 'clsx';
 import { useEffect, useRef, useState } from 'react';
 import gsap from '../../../dist/gsap';
@@ -15,7 +14,36 @@ import Reviews from './Reviews2';
 import Services from './Services';
 import Solutions from './Solutions';
 import TrialBanner from './TrialBanner';
-import IntroSection from '../../IntroSection';
+// import ThreeBG from './ThreeBG';
+import dynamic from 'next/dynamic';
+import { useMediaAtom, useMediaAtomClient } from '../../../lib/agent';
+import CaseCard from './CaseCard';
+import cases from '../Cases/data';
+import Button2 from '../../Button';
+import Link from 'next/link';
+import { SkipRenderOnClient } from '../../SkipRender';
+import Awards from './Awards';
+
+function IntroSection3() {
+  return (
+    <Layout className="pt-[144px] md:flex md:items-end md:justify-between md:space-x-10 md:pt-[456px] xl:pt-[470px]">
+      <div className="mb-6 font-glow text-heading-2-h4 md:mb-0 md:w-[65%] md:text-heading-h2-hero xl:max-w-[642px]">
+        Your Strategic Partner in Design of Successful Digital Products
+      </div>
+      <div className="leading-8 md:w-[35%] md:pb-2 xl:max-w-[389px]">
+        <span className="text-body-m2-2">
+          We help startups and scale-ups
+          <br className="md:hidden xl:block" /> unicorns to{' '}
+          <br className="hidden xl:block" />
+        </span>
+
+        <span className="text-body-heading-m text-brand">
+          [increase sales by 50%]
+        </span>
+      </div>
+    </Layout>
+  );
+}
 
 function IntroSection2() {
   return (
@@ -442,7 +470,11 @@ export default function Home2() {
   return (
     <div className="relative overflow-hidden">
       <div id="intro-section">
-        <IntroSection2 />
+        {/* <BGWrapper /> */}
+
+        <div className="pointer-events-none relative z-[1]">
+          <IntroSection3 />
+        </div>
       </div>
       <div id="logo-carousel">
         <Animated delay={300}>
@@ -456,6 +488,7 @@ export default function Home2() {
       </div>
       <IconsSection />
       <NextStep />
+      <Awards />
       <OurExperience />
       <TrialBanner />
       <Services />

@@ -262,12 +262,10 @@ function ReviewCard({
             <div className="mb-12">
               <Col title="Service" items={dataService} />
             </div>
-            <div className="mb-20">
-              <Col title="Company" items={dataCompany} />
-            </div>
-          </div>
-          <div className="hidden md:mt-auto md:block md:w-fit">
-            <ClutchRating rating={rating} className="border border-black" />
+            <ClutchRating
+              rating={rating}
+              className="hidden border border-black md:flex"
+            />
           </div>
         </div>
         <div className="md:col-span-3 md:flex md:flex-col md:justify-between md:pl-10 xl:pl-0">
