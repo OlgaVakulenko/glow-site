@@ -19,16 +19,16 @@ const items = [
       'Be it a carsharing app or an internal service for a logistics company – the key to happy users is in comfortable UX that is easy to navigate.',
   },
   {
-    icon: Healthcare,
-    title: 'AI tech',
-    description:
-      'To ensure user satisfaction, the UI of fintech products must be user-friendly yet informative, and we can help with that!',
-  },
-  {
     icon: Fintech,
     title: 'Fintech',
     description:
       'We specialize in designing AI-powered applications, combining cutting-edge technology with intuitive design for enhanced user experiences',
+  },
+  {
+    icon: Healthcare,
+    title: 'AI tech',
+    description:
+      'To ensure user satisfaction, the UI of fintech products must be user-friendly yet informative, and we can help with that!',
   },
 ];
 
@@ -103,7 +103,7 @@ export default function NextStep() {
         >
           <Image src={SphereNew} alt="" />
         </div>
-        <div className="border-b pb-[75px] md:pb-[113px] 4xl:pb-[139px]">
+        <div className="pb-[75px] md:pb-[113px] 4xl:pb-[139px]">
           <Animated
             as="h2"
             className="mb-[60px] text-center font-glow text-5xl font-medium tracking-[-3px] md:mb-[66px] md:text-[99px] md:leading-[100px] xl:mb-0 xl:text-[112px] xl:leading-[106px]"
@@ -114,14 +114,17 @@ export default function NextStep() {
             <br className="mb:block hidden" /> starts
             <br className="hidden xl:block 4xl:hidden" /> here
           </Animated>
-          <div className="grid gap-y-20 md:flex md:justify-between xl:-mt-10 4xl:mt-8">
+          <div className="grid gap-y-20 md:grid md:grid-cols-8 md:gap-8 xl:-mt-10 xl:grid-cols-12 4xl:mt-8">
             {items.map((item, index) => (
               <div
                 key={index}
-                className={cx('__item md:last:pt-[76px]', {
-                  'md:!pt-[296px] xl:!pt-[271px]': index === 2,
-                  'md:order-2 md:!pt-[149px] xl:!pt-[91px]': index === 1,
-                  'md:order-1': index === 2,
+                className={cx('__item md:col-span-3 md:last:pt-[76px]', {
+                  'xl:col-span-4': index === 0,
+                  'xl:col-span-5': index === 1,
+                  'xl:!col-span-3': index === 2,
+                  'md:!col-span-2 md:!pt-[149px] xl:!pt-[91px]': index === 2,
+                  'md:!pt-[296px] xl:!pt-[271px]': index === 1,
+                  // 'md:order-1': index === 2,
                 })}
               >
                 <Animated

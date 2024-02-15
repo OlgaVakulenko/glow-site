@@ -1,5 +1,4 @@
 import { RollingWords } from './RollingWords';
-// import Layout2 from '../../Layout2';
 import cx from 'clsx';
 import { useEffect, useState } from 'react';
 import Animated from '../../Animated';
@@ -23,6 +22,28 @@ import cases from '../Cases/data';
 import Button2 from '../../Button';
 import Link from 'next/link';
 import { SkipRenderOnClient } from '../../SkipRender';
+import Awards from './Awards';
+
+function IntroSection3() {
+  return (
+    <Layout className="pt-[144px] md:flex md:items-end md:justify-between md:space-x-10 md:pt-[456px] xl:pt-[470px]">
+      <div className="mb-6 font-glow text-heading-2-h4 md:mb-0 md:w-[65%] md:text-heading-h2-hero xl:max-w-[642px]">
+        Your Strategic Partner in Design of Successful Digital Products
+      </div>
+      <div className="leading-8 md:w-[35%] md:pb-2 xl:max-w-[389px]">
+        <span className="text-body-m2-2">
+          We help startups and scale-ups
+          <br className="md:hidden xl:block" /> unicorns to{' '}
+          <br className="hidden xl:block" />
+        </span>
+
+        <span className="text-body-heading-m text-brand">
+          [increase sales by 50%]
+        </span>
+      </div>
+    </Layout>
+  );
+}
 
 function IntroSection2() {
   return (
@@ -533,7 +554,7 @@ export default function Home2() {
         <BGWrapper />
 
         <div className="pointer-events-none relative z-[1]">
-          <IntroSection2 />
+          <IntroSection3 />
         </div>
       </div>
       <div id="logo-carousel" className="relative z-[1]">
@@ -546,6 +567,7 @@ export default function Home2() {
       </div>
       <IconsSection />
       <NextStep />
+      <Awards />
       <OurExperience />
       <TrialBanner />
       <Services />

@@ -287,7 +287,10 @@ function ReviewCard({
                 ))}
               </div>
             </div>
-            <ClutchRating rating={rating} className="border border-black" />
+            <ClutchRating
+              rating={rating}
+              className="hidden border border-black md:flex"
+            />
           </div>
         </div>
         <div className="flex flex-col items-start">

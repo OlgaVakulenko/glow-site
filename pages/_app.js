@@ -141,9 +141,7 @@ function MyApp({ Component, pageProps }) {
     }
 
     return u;
-  }, [router.pathname, router.asPath]);
-
-  console.log('url', canonicalUrl);
+  }, [router.asPath]);
 
   return (
     <div>

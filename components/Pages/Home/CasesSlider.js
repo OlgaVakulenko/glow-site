@@ -198,7 +198,7 @@ export function CasesRow({ cases, className = '' }) {
   return (
     <div className={cx('w-1/2', className)}>
       {cases.map((caseItem, i) => (
-        <div key={i} className="mx-8 flex flex-col xl:mx-[56px]">
+        <div key={i} className="mx-8 flex flex-col xl:mx-[64px]">
           <CaseItem
             imageJsx={caseItem.imageJsx}
             image={caseItem.imageMobile || caseItem.image}
@@ -319,7 +319,7 @@ export function CasesSlider2() {
                   <SwiperSlide
                     key={i}
                     className={cx(
-                      'cursor-none select-none px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[1144px] xl:first:!w-[1184px] xl:first:pl-14',
+                      'cursor-none select-none px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[1144px] xl:first:!w-[1184px] xl:first:pl-16',
                       '4xl:first:pl-[120px]'
                     )}
                   >
@@ -335,7 +335,7 @@ export function CasesSlider2() {
                     </Link>
                   </SwiperSlide>
                 ))}
-                <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-14 4xl:pr-[120px]">
+                <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-16 4xl:pr-[120px]">
                   <EndSlide />
                 </SwiperSlide>
                 {media !== 'desktop' && (
@@ -447,7 +447,7 @@ export function CasesSlider3() {
                   <SwiperSlide
                     key={i}
                     className={cx(
-                      'cursor-none select-none px-4 md:!w-[85vw] md:pl-4 md:pr-0 xl:!w-[1160px] xl:first:!w-[1200px] xl:first:pl-14',
+                      'cursor-none select-none px-4 md:!w-[85vw] md:pl-4 md:pr-0 xl:!w-[1160px] xl:first:!w-[1200px] xl:first:pl-16',
                       '4xl:first:pl-[120px]'
                     )}
                   >
@@ -464,7 +464,7 @@ export function CasesSlider3() {
                     </Link>
                   </SwiperSlide>
                 ))}
-                <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-14 4xl:pr-[120px]">
+                <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-16 4xl:pr-[120px]">
                   <EndSlide />
                 </SwiperSlide>
                 <div
