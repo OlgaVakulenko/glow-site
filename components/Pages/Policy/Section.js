@@ -20,7 +20,7 @@ export default function Section({
       )}
       <h3
         className={cx(
-          'mb-4 font-glow text-2xl font-medium leading-8 tracking-[0.48px] md:mb-[60px] md:text-heading-h3',
+          'mb-[60px] font-glow text-heading-h4-2 font-medium leading-8 tracking-[0.48px] md:mb-[60px] md:text-2xl md:text-heading-h3',
           {
             'md:max-w-[640px]': true,
           }
@@ -30,7 +30,7 @@ export default function Section({
       </h3>
       <div
         className={cx(
-          'max-w-[975px] space-y-[30px] text-lg leading-[26px]',
+          'max-w-[975px] space-y-[30px] text-body-s leading-[26px] md:text-lg',
           className
         )}
       >

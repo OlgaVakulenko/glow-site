@@ -156,6 +156,14 @@ module.exports = {
             letterSpacing: '0.02em',
           },
         ],
+        'heading-h4-2': [
+          '24px',
+          {
+            fontWeight: '500',
+            lineHeight: '28px',
+            letterSpacing: '0.02em',
+          },
+        ],
         'subtitle-s': [
           '20px',
           {

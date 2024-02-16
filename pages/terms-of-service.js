@@ -250,7 +250,7 @@ export default function TermsOfService() {
         <title>{getFullTitle('Terms of Service')}</title>
       </Head>
       <Header title="Terms of Service" />
-      <Layout className="grid gap-[60px] pt-20">
+      <Layout className="grid gap-[60px] pt-0 xl:pt-20">
         {sections.map((section, index) => (
           <Section
             className="whitespace-break-spaces"
