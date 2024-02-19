@@ -1,6 +1,8 @@
 import { useAtom } from 'jotai';
 import { mediaAtom } from '../../../lib/agent';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import cx from 'clsx';
+import gsap from '../../../dist/gsap';
 
 export function RollingWords({ words, interval = 16500 }) {
   const [media] = useAtom(mediaAtom);

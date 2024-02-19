@@ -15,6 +15,7 @@ import Solutions from './Solutions';
 import TrialBanner from './TrialBanner';
 // import ThreeBG from './ThreeBG';
 import Awards from './Awards';
+import IntroSection from '../../IntroSection';
 
 function IntroSection3() {
   return (
@@ -465,7 +466,7 @@ export default function Home2() {
         {/* <BGWrapper /> */}
 
         <div className="pointer-events-none relative z-[1]">
-          <IntroSection3 />
+          <IntroSection2 />
         </div>
       </div>
       <div id="logo-carousel">

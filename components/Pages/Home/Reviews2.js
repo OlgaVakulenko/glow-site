@@ -8,6 +8,8 @@ import casesData from '../Cases/data';
 import { ClutchRating } from './_Reviews';
 import { Mousewheel } from 'swiper/modules';
 import { FreeMode } from 'swiper/modules';
+import CaseNavArrow from './CaseNavArrow';
+import { useRef } from 'react';
 
 const reviews = [
   {
@@ -255,12 +257,35 @@ function ReviewCard({
   dataCompany,
 }) {
   return (
-    <div className="px-4 xl:px-14 4xl:px-[120px]">
-      <div className="rounded-3xl border border-black px-6 pb-[52px] pt-8 md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 md:px-0 md:py-16 xl:grid-cols-12 xl:py-20">
-        <div className="hidden flex-col justify-between xl:col-span-3 xl:flex xl:pl-20">
-          <div>
-            <div className="mb-12">
-              <Col title="Service" items={dataService} />
+    <div className="h-full">
+      <div className="h-full rounded-3xl border border-black px-6 pb-8 pt-8 md:flex md:space-x-16 md:px-0 md:py-16">
+        <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-16">
+          <div className="md:flex md:h-full md:max-w-[168px] md:flex-col md:items-start md:justify-between">
+            <div className="">
+              <div className="mb-4 flex items-center justify-between">
+                <div className="flex">
+                  <div className="relative z-[1] h-[64px] w-[64px] rounded-full bg-black shadow-[0_0_0_2px_white] md:-mr-4">
+                    <div className="absolute left-1/2 top-1/2 w-full max-w-[55px] -translate-x-1/2 -translate-y-1/2 ">
+                      <img src={companyAvatar} alt="" className="mx-auto" />
+                    </div>
+                  </div>
+                  <img
+                    className="-ml-4 h-[64px] w-[64px] rounded-full md:ml-0"
+                    src={avatar}
+                    alt=""
+                  />
+                </div>
+                <ClutchRating
+                  rating={rating}
+                  className="border border-black md:hidden"
+                />
+              </div>
+              <div className="text-body-m2 md:mb-1">{name}</div>
+              <div className="mb-6 text-body-s opacity-50">
+                {company.split(',').map((text, i) => (
+                  <p key={i}>{text}</p>
+                ))}
+              </div>
             </div>
             <ClutchRating
               rating={rating}
@@ -268,80 +293,86 @@ function ReviewCard({
             />
           </div>
         </div>
-        <div className="md:col-span-3 md:flex md:flex-col md:justify-between md:pl-10 xl:pl-0">
-          <div className="">
-            <div className="mb-5 flex">
-              <div className="relative z-[1] h-[64px] w-[64px] rounded-full bg-black md:-mr-4">
-                <div className="absolute left-1/2 top-1/2 w-full max-w-[55px] -translate-x-1/2 -translate-y-1/2">
-                  <img src={companyAvatar} alt="" className="mx-auto" />
-                </div>
-              </div>
-              <img
-                className="h-[64px] w-[64px] rounded-full"
-                src={avatar}
-                alt=""
-              />
-            </div>
-            <div className="text-body-m2">{name}</div>
-            <div className="mb-8 text-body-s opacity-50">{company}</div>
+        <div className="flex flex-col items-start">
+          <div className="text-body-l md:col-span-6 md:pr-16 md:text-2xl">
+            “{text}”
           </div>
-        </div>
-        <div className="text-2xl font-medium md:col-span-6 md:pr-[75px] md:text-[32px] md:leading-10 xl:pr-20 xl:text-[36px] xl:leading-[44px]">
-          {text}
         </div>
       </div>
     </div>
   );
 }
 export default function Reviews() {
-  const media = useMediaAtom();
+  const swiperRef = useRef();
 
   return (
     <div className="pb-6 pt-4 md:pt-12 xl:pb-4">
-      <DragCursorContainer>
-        <Swiper
-          className=""
-          breakpoints={{
-            1800: {
-              speed: 200,
-            },
-          }}
-          // mousewheel={{
-          //   invert: true,
-          //   forceToAxis: true,
-          //   sensitivity: 0.1,
-          // }}
-          mousewheel={{
-            invert: true,
-            forceToAxis: true,
-            sensitivity: 0.1,
-            thresholdDelta: 10,
-          }}
-          modules={[Mousewheel]}
-        >
-          {reviews.map((review, index) => (
-            <SwiperSlide key={index} className="">
-              <ReviewCard
-                avatar={review.avatar}
-                companyAvatar={review.companyAvatar}
-                name={review.name}
-                company={review.company}
-                text={review.text}
-                rating={review.rating}
-                dataService={review.data_service}
-                dataCompany={review.data_company}
-                index={index}
-                total={reviews.length}
-              />
-            </SwiperSlide>
-          ))}
-          {media !== 'desktop' && (
-            <Layout className="pt-5 md:max-w-[544px]">
+      <Layout className="mb-6 flex items-end justify-between md:mb-14">
+        <div className="font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:max-w-[577px] md:text-heading-h2-2">
+          Discover what our customers <br className="md:hidden" />
+          have to say
+        </div>
+        <div className="hidden space-x-4 pb-[14px] md:flex">
+          <CaseNavArrow
+            dir="left"
+            onClick={() => {
+              swiperRef.current.slidePrev();
+            }}
+          />
+          <CaseNavArrow
+            dir="right"
+            onClick={() => {
+              swiperRef.current.slideNext();
+            }}
+          />
+        </div>
+      </Layout>
+      <Layout className="overflow-hidden">
+        <DragCursorContainer>
+          <Swiper
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            className="!overflow-visible"
+            spaceBetween="32px"
+            breakpoints={{
+              820: {
+                slidesPerView: '1.15',
+              },
+              1440: {
+                slidesPerView: '1.8',
+              },
+            }}
+            mousewheel={{
+              invert: true,
+              forceToAxis: true,
+              sensitivity: 0.1,
+              thresholdDelta: 10,
+            }}
+            modules={[Mousewheel]}
+          >
+            {reviews.map((review, index) => (
+              <SwiperSlide key={index} className="md:!h-auto">
+                <ReviewCard
+                  avatar={review.avatar}
+                  companyAvatar={review.companyAvatar}
+                  name={review.name}
+                  company={review.company}
+                  text={review.text}
+                  rating={review.rating}
+                  dataService={review.data_service}
+                  dataCompany={review.data_company}
+                  index={index}
+                  total={reviews.length}
+                />
+              </SwiperSlide>
+            ))}
+            <div className="mx-auto pt-5 md:max-w-[544px] xl:max-w-full">
               <SliderProgress />
-            </Layout>
-          )}
-        </Swiper>
-      </DragCursorContainer>
+            </div>
+          </Swiper>
+        </DragCursorContainer>
+      </Layout>
     </div>
   );
 }
