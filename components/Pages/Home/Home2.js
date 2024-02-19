@@ -1,7 +1,5 @@
-import { RollingWords } from './RollingWords';
 import cx from 'clsx';
-import { useEffect, useRef, useState } from 'react';
-import gsap from '../../../dist/gsap';
+import { useState } from 'react';
 import Animated from '../../Animated';
 import Layout from '../../Layout';
 import { PageHeading2 } from '../../PageHeading';
@@ -11,17 +9,11 @@ import LogoCarousel from './LogoCarousel';
 import NextStep from './NextStep';
 import OurExperience from './OurExperience';
 import Reviews from './Reviews2';
+import { RollingWords } from './RollingWords';
 import Services from './Services';
 import Solutions from './Solutions';
 import TrialBanner from './TrialBanner';
 // import ThreeBG from './ThreeBG';
-import dynamic from 'next/dynamic';
-import { useMediaAtom, useMediaAtomClient } from '../../../lib/agent';
-import CaseCard from './CaseCard';
-import cases from '../Cases/data';
-import Button2 from '../../Button';
-import Link from 'next/link';
-import { SkipRenderOnClient } from '../../SkipRender';
 import Awards from './Awards';
 
 function IntroSection3() {
