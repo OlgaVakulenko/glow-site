@@ -29,3 +29,5 @@ RewriteRule ^(.*)\.html$ /$1 [R=301,L]
 <FilesMatch "\.(css|woff|woff2|ttf|otf|eot|svg)$">
     Header set Access-Control-Allow-Origin "*"
 </FilesMatch>
+
+ErrorDocument 404 /404/

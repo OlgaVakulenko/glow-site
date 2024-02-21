@@ -1,4 +1,3 @@
-import { RollingWords } from './RollingWords';
 import cx from 'clsx';
 import { useEffect, useState } from 'react';
 import Animated from '../../Animated';
@@ -11,6 +10,7 @@ import LogoCarousel from './LogoCarousel';
 import NextStep from './NextStep';
 import OurExperience from './OurExperience';
 import Reviews from './Reviews2';
+import { RollingWords } from './RollingWords';
 import Services from './Services';
 import Solutions from './Solutions';
 import TrialBanner from './TrialBanner';

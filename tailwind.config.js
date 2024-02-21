@@ -40,6 +40,7 @@ module.exports = {
         'body-m2': ['18px', '26px'],
         'body-m2-2': ['18px', '24px'],
         'body-l': ['24px', '36px'],
+        'body-l2': ['24px', '34px'],
         'body-heading-s': [
           '12px',
           {
@@ -130,6 +131,13 @@ module.exports = {
         ],
         'heading-h2': [
           '48px',
+          {
+            fontWeight: '500',
+            lineHeight: '56px',
+          },
+        ],
+        'heading-h2-hero': [
+          '56px',
           {
             fontWeight: '500',
             lineHeight: '64px',

@@ -359,7 +359,7 @@ export default function FooterForm({
               theme={theme}
             />
           </div>
-          <div className="md:mt-8 md:flex md:items-center md:justify-between md:space-x-4">
+          <div className="md:mt-8 md:flex md:items-start md:justify-between md:space-x-4">
             <div className="flex space-x-4 text-body-xs xl:max-w-[328px]">
               <div className="pt-[2px] md:pt-[3px]">
                 <Checkbox

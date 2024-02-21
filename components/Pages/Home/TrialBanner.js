@@ -1,15 +1,8 @@
+import cx from 'clsx';
 import Link from 'next/link';
-import { useEffect, useRef } from 'react';
-import gsap from '../../../dist/gsap';
-import { useHandleFooterFormClick } from '../../../lib/utils';
-import AnimatedButton from '../../AnimatedButton';
+import Button2 from '../../Button';
 import Image from '../../Image';
 import Layout from '../../Layout';
-import SphereBg from './assets/sphere-bg.png';
-import Bg from './assets/trial-bg.png';
-import Logo from './assets/trial-logo.png';
-import cx from 'clsx';
-import Button2 from '../../Button';
 import LogoG from './assets/logo-g.png';
 import Sphere from './assets/sphere.png';
 

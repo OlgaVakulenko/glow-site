@@ -2,14 +2,14 @@ import cx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
+import { useIsClient } from '../lib/utils';
 import Button2 from './Button';
 import FooterLinks from './Footer/FooterLinks';
 import FooterFormWrapper from './FooterFormWrapper';
-import Image, { Source, resolve } from './Image';
+import { Source, resolve } from './Image';
 import Layout from './Layout';
-import GlwEffect from './Pages/Home/assets/glw-eff.png';
 import GlwEffectM from './Pages/Home/assets/glw-eff-m.png';
-import { useIsClient } from '../lib/utils';
+import GlwEffect from './Pages/Home/assets/glw-eff.png';
 
 function SlotText() {
   const isClient = useIsClient();
