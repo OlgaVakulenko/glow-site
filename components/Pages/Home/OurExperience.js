@@ -39,7 +39,7 @@ export default function OurExperience() {
           We balance business objectives with customer needs
         </div>
       </div>
-      <AnimatedGroup className="grid w-full grid-cols-description-list gap-x-6 gap-y-8 md:col-span-5 md:flex md:justify-between xl:col-span-8 xl:flex xl:justify-start xl:space-x-[112px]">
+      <AnimatedGroup className="grid w-full grid-cols-description-list gap-x-6 gap-y-8 md:col-span-5 md:flex md:justify-between xl:col-span-8 xl:flex xl:space-x-[112px]">
         {items.map((item, index1) => (
           <div key={index1} className="last:min-w-[200px]">
             <Animated

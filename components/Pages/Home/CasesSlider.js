@@ -18,6 +18,8 @@ import { useSetAtom } from 'jotai';
 import throttle from 'lodash.throttle';
 import DragCursorContainer, { cursorGlobalDisableAtom } from '../../DragCursor';
 import casesData from '../Cases/data';
+import CaseNavArrow from './CaseNavArrow';
+import CaseCard from './CaseCard';
 
 const featured = ['/beast', '/cryptogenie', '/jucr', '/tilt', '/liquidspace'];
 
