@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /scene
 Disallow: /cgi-bin
+Disallow: /404
+Disallow: /404/
 Disallow: *?
 
 Sitemap: https://glow.team/sitemap.xml
