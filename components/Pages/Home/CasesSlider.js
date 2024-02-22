@@ -428,12 +428,6 @@ export function CasesSlider3() {
             {({ show, swiperOptions }) => (
               <Swiper
                 {...swiperOptions}
-                mousewheel={{
-                  invert: true,
-                  forceToAxis: true,
-                  sensitivity: 0.1,
-                }}
-                modules={[Mousewheel]}
                 breakpoints={{
                   320: {
                     slidesPerView: 1,
