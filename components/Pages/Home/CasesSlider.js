@@ -498,9 +498,7 @@ function EndSlide({ className }) {
       onMouseLeave={() => {
         setGlobalCursorDisable(false);
       }}
-      className={cx(
-        'group flex h-full min-h-[382px] items-center justify-center rounded-3xl transition-all duration-300 md:ml-6 md:flex md:min-h-[530px] md:items-stretch md:rounded-[32px] md:border md:border-black md:hover:border-brand md:hover:bg-brand'
-      )}
+      className="group flex h-full min-h-[456px] items-center justify-center rounded-3xl transition-all duration-300 md:ml-6 md:flex md:min-h-[688px] md:items-stretch md:rounded-[32px] md:border md:border-black md:hover:border-brand md:hover:bg-brand"
     >
       {media === 'mobile' ? <LastSlide2 /> : <LastSlide />}
       {/* {media !== 'mobile' && (

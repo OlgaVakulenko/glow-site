@@ -5,7 +5,7 @@ import IntroSection from '../../IntroSection';
 import Layout from '../../Layout';
 import { PageHeading2 } from '../../PageHeading';
 import { Subheading2 } from '../../Typography/Subheading';
-import { CasesSlider3 } from './CasesSlider';
+import { CasesSlider2, CasesSlider3 } from './CasesSlider';
 import LogoCarousel from './LogoCarousel';
 import NextStep from './NextStep';
 import OurExperience from './OurExperience';
@@ -551,10 +551,10 @@ export default function Home2() {
   return (
     <div className="relative overflow-hidden">
       <div id="intro-section">
-        <BGWrapper />
+        {/* <BGWrapper /> */}
 
         <div className="pointer-events-none relative z-[1]">
-          <IntroSection3 />
+          <IntroSection2 />
         </div>
       </div>
       <div id="logo-carousel" className="relative z-[1]">
@@ -563,7 +563,8 @@ export default function Home2() {
         </Animated>
       </div>
       <div id="cases-slider" className="relative z-[1]">
-        <CasesSliderWrapper />
+        <CasesSlider2 />
+        {/* <CasesSliderWrapper /> */}
       </div>
       <IconsSection />
       <NextStep />
