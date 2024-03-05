@@ -27,7 +27,7 @@ export default function Button2({
           'px-6 py-3 md:px-9 md:py-4': compact === false,
           'px-6 py-3': compact === true,
         },
-        'rolling-text-group inline-block rounded-full text-button-m2 uppercase transition-colors duration-200 focus-visible:shadow-btn-focus',
+        'rolling-text-group inline-block rounded-full text-button-m2 transition-colors duration-200 focus-visible:shadow-btn-focus',
         className
       )}
       {...props}

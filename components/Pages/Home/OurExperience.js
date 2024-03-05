@@ -7,35 +7,32 @@ const items = [
     categories: ['Product design', 'Web app', 'Mobile app', 'SAAS'],
   },
   {
+    title: 'Product Design',
+    categories: [
+      'UI design',
+      'UX design',
+      'Design system',
+      'Motion design',
+      'Illustration',
+    ],
+  },
+  {
     title: 'Discovery',
     categories: [
-      'UI UX Audit',
+      'UI UX audit',
       'Competitor analysis',
       'User interviews',
       'Customer journey map',
       'Usability testing',
     ],
   },
-  {
-    title: 'Product Design',
-    categories: [
-      'UI Design',
-      'UX Design',
-      'Design System',
-      'Motion Design',
-      'Illustration',
-    ],
-  },
 ];
 
 export default function OurExperience() {
   return (
-    <Layout className="pb-16 md:grid md:grid-cols-8 md:gap-8 md:pt-[71px] xl:grid xl:grid-flow-col xl:grid-cols-12 xl:gap-8 xl:pb-24 xl:pt-14 4xl:pb-[136px] 4xl:pt-[52px]">
-      <div className="mb-[53px] pt-16 md:col-span-3 md:pt-0 xl:col-span-4">
-        <div className="mb-[27px] text-body-heading-s uppercase opacity-50 md:mb-8 4xl:mb-7 4xl:text-base">
-          Our Experience
-        </div>
-        <div className="text-xl italic leading-[27px] md:max-w-[248px] xl:max-w-[288px] xl:text-subtitle-l 4xl:max-w-[383px]">
+    <Layout className="flex pb-[184px] md:pt-[100px] xl:pb-[175px]">
+      <div className="mb-[53px] mr-[72px] flex-shrink-0 pt-16 md:pt-0 xl:mr-[256px]">
+        <div className="w-full  font-satoshi text-[24px] font-medium leading-[32px] md:max-w-[248px] xl:max-w-[304px] xl:text-[32px] xl:leading-[40px] 4xl:max-w-[383px]">
           We balance business objectives with customer needs
         </div>
       </div>
@@ -44,16 +41,18 @@ export default function OurExperience() {
           <div key={index1} className="last:min-w-[200px]">
             <Animated
               delay={100 * index1}
-              className="mb-[27px] text-body-heading-s uppercase md:mb-8 4xl:mb-7 4xl:text-base"
+              className="mb-[27px] flex text-body-heading-s uppercase md:mb-8 4xl:mb-7 4xl:text-base"
             >
-              <span className="opacity-50">{item.title}</span>
+              <span className="shrink-0 rounded-full border border-checkbox-light bg-dim-gray px-[10px] py-[4.5px] font-inter tracking-[0.02em] text-black">
+                {item.title}
+              </span>
             </Animated>
             <div className="grid gap-4">
               {item.categories.map((category, index2) => (
                 <Animated
                   delay={100 * (index1 + index2)}
                   key={index2}
-                  className="text-body-s 4xl:text-body-l"
+                  className="font-inter text-[16px] leading-[160%] xl:text-[18px]"
                 >
                   {category}
                 </Animated>

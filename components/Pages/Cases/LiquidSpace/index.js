@@ -196,7 +196,7 @@ function List({ data }) {
 
 function SectionBalance() {
   return (
-    <Layout className="pb-16 pt-16 md:pb-[100px] md:pt-[100px] xl:pb-[150px]">
+    <Layout className="pb-16 pt-16 md:pb-[100px] md:pt-[100px] xl:pb-[150px] xl:pt-[120px]">
       <SectionHeading className="mb-6 md:mb-[60px] xl:mb-16">
         We balance business <br className="hidden xl:block" /> objectives with
         customer needs

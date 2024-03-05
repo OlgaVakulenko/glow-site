@@ -15,20 +15,17 @@ const items = [
   {
     icon: Transportation2,
     title: 'Transportation',
-    description:
-      'Be it a carsharing app or an internal service for a logistics company – the key to happy users is in comfortable UX that is easy to navigate.',
+    description: `Be it a carsharing app or an internal service for a logistics company – the key to happy users is in comfortable UX that is easy to navigate.`,
   },
   {
     icon: Fintech,
     title: 'Fintech',
-    description:
-      'We specialize in designing AI-powered applications, combining cutting-edge technology with intuitive design for enhanced user experiences',
+    description: `To ensure user satisfaction, the UI of fintech products must be user-friendly yet informative, and we can help with that!`,
   },
   {
     icon: Healthcare,
     title: 'AI tech',
-    description:
-      'To ensure user satisfaction, the UI of fintech products must be user-friendly yet informative, and we can help with that!',
+    description: `We specialize in designing AI-powered applications, combining cutting-edge technology with intuitive design for enhanced user experiences`,
   },
 ];
 
@@ -41,6 +38,7 @@ export default function NextStep() {
   const [iconMap, setIconMap] = useState({});
 
   useEffect(() => {
+    return;
     if (media === 'mobile') {
       return;
     }
@@ -96,34 +94,33 @@ export default function NextStep() {
 
   return (
     <div ref={rootRef}>
-      <Layout className="relative overflow-hidden pt-[100px] md:pt-[120px]">
+      <Layout className="relative pt-[100px] md:pt-[120px] xl:pt-[176px]">
         <div
           ref={sphereRef}
-          className="pointer-events-none absolute left-1/2 top-0 w-[200%] max-w-[480px] -translate-x-1/2 opacity-90 md:-top-8 md:max-w-[890px] md:opacity-100 xl:opacity-95 4xl:top-0"
+          className="pointer-events-none absolute left-1/2 top-[-10%] w-[200%] max-w-[480px] -translate-x-1/2 opacity-30 md:max-w-[890px]"
         >
           <Image src={SphereNew} alt="" />
         </div>
-        <div className="pb-[75px] md:pb-[113px] 4xl:pb-[139px]">
+        <div className="pb-[140px] xl:pb-[176px]">
           <Animated
             as="h2"
-            className="mb-[60px] text-center font-glow text-5xl font-medium tracking-[-3px] md:mb-[66px] md:text-[99px] md:leading-[100px] xl:mb-0 xl:text-[112px] xl:leading-[106px]"
+            className="mb-[60px] text-center font-satoshi text-5xl font-medium tracking-[-3px] md:mb-[136px] md:text-[96px] md:leading-[106px] md:tracking-[-3px] xl:mb-[144px] xl:text-[112px] xl:leading-[120px]"
           >
-            The next step of <br className="hidden md:block xl:hidden" /> your{' '}
-            <br className="hidden xl:block" />
+            The next step of <br className="hidden md:block" /> your{' '}
+            <br className="hidden xl:hidden" />
             digital product
-            <br className="mb:block hidden" /> starts
-            <br className="hidden xl:block 4xl:hidden" /> here
+            <br className="hidden md:block" /> starts here
           </Animated>
-          <div className="grid gap-y-20 md:grid md:grid-cols-8 md:gap-8 xl:-mt-10 xl:grid-cols-12 4xl:mt-8">
+          <div className="grid grid-cols-3 gap-16 font-satoshi">
             {items.map((item, index) => (
               <div
                 key={index}
-                className={cx('__item md:col-span-3 md:last:pt-[76px]', {
-                  'xl:col-span-4': index === 0,
-                  'xl:col-span-5': index === 1,
-                  'xl:!col-span-3': index === 2,
-                  'md:!col-span-2 md:!pt-[149px] xl:!pt-[91px]': index === 2,
-                  'md:!pt-[296px] xl:!pt-[271px]': index === 1,
+                className={cx('__item', {
+                  // 'xl:col-span-4': index === 0,
+                  // 'xl:col-span-5': index === 1,
+                  // 'xl:!col-span-3': index === 2,
+                  // 'md:!col-span-2 md:!pt-[149px] xl:!pt-[91px]': index === 2,
+                  // 'md:!pt-[296px] xl:!pt-[271px]': index === 1,
                   // 'md:order-1': index === 2,
                 })}
               >
@@ -134,20 +131,20 @@ export default function NextStep() {
                       [index]: inView,
                     }));
                   }}
-                  className="mb-8 md:mb-9 xl:mb-6 4xl:mb-9"
+                  className="mb-8 h-[80px] w-[80px] md:mb-8 xl:mb-6 4xl:mb-9"
                 >
                   <item.icon isReady={iconMap[index] === true} />
                 </Animated>
                 <Animated
                   as="h3"
                   delay={100}
-                  className="mb-4 text-2xl font-medium tracking-[0.48px] 4xl:text-3xl"
+                  className="mb-4 text-[28px] font-medium leading-[36px] xl:text-[32px] xl:leading-[40px]"
                 >
                   {item.title}
                 </Animated>
                 <Animated
                   delay={200}
-                  className="text-lg leading-[26px] md:max-w-[280px] xl:max-w-[328px] 4xl:max-w-[384px] 4xl:text-body-l"
+                  className="font-inter text-[16px] leading-[160%] xl:text-[18px]"
                 >
                   {item.description}
                 </Animated>

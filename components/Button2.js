@@ -20,7 +20,7 @@ export default function Button2({
           'text-white': color === 'white',
           'text-black': color === 'black',
         },
-        'rolling-text-group inline-block px-6 py-3 text-button-m2 uppercase focus-visible:shadow-btn-focus md:px-9 md:py-4',
+        'rolling-text-group inline-block px-6 py-3 text-button-m2 focus-visible:shadow-btn-focus md:px-9 md:py-4',
         className
       )}
       {...props}

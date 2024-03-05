@@ -62,7 +62,7 @@ export function Transportation2({ isReady = true }) {
 
   return (
     <svg
-      className="run-animation h-[137px] w-[146px]"
+      className="run-animation h-full w-full"
       width="146"
       height="137"
       viewBox="0 0 146 137"

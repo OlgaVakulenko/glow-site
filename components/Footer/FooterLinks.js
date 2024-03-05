@@ -207,7 +207,7 @@ export default function FooterLinks({ className = '' }) {
   return (
     <div
       className={cx(
-        'flex flex-col items-center justify-between space-y-8 text-sm text-white md-safe:flex-row md-safe:space-y-0 md-safe:text-base',
+        'flex flex-col items-center justify-between space-y-8 font-inter text-sm text-white md-safe:flex-row md-safe:space-y-0',
         className
       )}
     >
@@ -219,8 +219,8 @@ export default function FooterLinks({ className = '' }) {
           </div>
           <div>Odesa, Ukraine</div>
         </div>
-        <div className="flex items-center md-safe:-mr-8 md-safe:ml-8 lg:opacity-100">
-          <LocalTime className="mr-7 md-safe:mr-8" />
+        <div className="flex items-center md-safe:-mr-4 md-safe:ml-4 lg:opacity-100">
+          <LocalTime className="mr-4 md-safe:mr-4" />
           <Weather className="md-safe:mr-8" />
         </div>
       </div>
@@ -238,7 +238,7 @@ export default function FooterLinks({ className = '' }) {
           </a>
         ))}
       </div>
-      <div className="flex w-full shrink-0 justify-between space-x-7 md-safe:w-auto xl:space-x-9">
+      <div className="flex w-full shrink-0 justify-between space-x-4 md-safe:w-auto xl:space-x-9">
         <Link href="/privacy-policy">
           <RollingText text="Privacy Policy" height={24}></RollingText>
         </Link>

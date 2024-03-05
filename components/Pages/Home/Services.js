@@ -59,34 +59,34 @@ export default function Services() {
 
   return (
     <div className="">
-      <Layout className="mb-[47px] md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:grid-cols-12 4xl:mb-14">
+      <Layout className="mb-[47px] md:mb-[64px] md:grid md:grid-cols-8 md:gap-8 xl:mb-[80px] xl:grid-cols-12">
         <Animated
           as="h2"
-          className="mb-[21px] font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] md:col-span-4 md:mb-0 md:text-[46px] md:leading-[49px] xl:col-span-7 xl:max-w-[560px] xl:text-heading-h2-2 4xl:max-w-[672px] 4xl:text-[64px] 4xl:leading-[64px]"
+          className="mb-[21px] font-satoshi font-medium md:col-span-4 md:mb-0 md:text-[48px] md:leading-[56px] md:tracking-[-2px] xl:col-span-7 xl:max-w-[560px] xl:text-[56px] xl:text-heading-h2-2 xl:leading-[64px]"
         >
-          We open to any kind&nbsp;of co-operation
+          We open to any <br /> kind of co-operation
         </Animated>
         <div className="hidden 4xl:col-span-1 4xl:block"></div>
-        <Animated
+        {/* <Animated
           delay={100}
           className="text-subtitle-m italic   md:col-span-4 md:pr-8 xl:col-span-5 xl:text-subtitle-l 4xl:col-span-4 4xl:text-[26px]"
         >
           Whatever you may need a designer&apos;s help with – we can do&nbsp;it.
           The most common cases are given below.
-        </Animated>
+        </Animated> */}
       </Layout>
       <Layout disableOnMobile>
-        <div className="bg-[#F3F2F4] pb-6 md:rounded-[32px] md:pb-0">
+        <div className="pb-6 md:rounded-[32px] md:pb-0">
           {/* <Layout> */}
-          <div className="pt-4 md:p-4">
-            <Wrapper className="__card_block md:flex md:justify-between md:gap-16 md:overflow-hidden md:rounded-3xl md:bg-white md:px-10 xl:gap-20 2xl:gap-28 4xl:gap-24">
+          <div className="">
+            <Wrapper className=" md:flex md:justify-between md:gap-16 md:overflow-hidden md:rounded-3xl md:bg-white xl:gap-20">
               {items.map((item, index) => (
                 <SlideWrapper key={index} className="!h-auto md:w-full">
                   <div className="group h-full">
                     <div className="h-full px-4 md:px-0">
                       <div className="flex h-full flex-col rounded-3xl bg-white px-6 py-10 pb-[70px] md:flex md:justify-start md:rounded-none md:px-0 md:py-9 md:pb-[68px] xl:pb-[75px] 4xl:pb-[93px]">
                         <InViewport
-                          className="md:col-span-6 md:flex md:min-h-[130px] md:items-center"
+                          className="md:col-span-6 md:flex md:h-[80px] md:w-[80px] md:items-center"
                           onViewChange={(inView) => {
                             setIconMap((map) => ({
                               ...map,
@@ -105,13 +105,16 @@ export default function Services() {
                           />
                         </InViewport>
                         <div>
-                          <h3 className="mb-7 mt-9 text-2xl font-medium tracking-[0.48px] md:col-span-5 md:mb-5 md:mt-9">
+                          <h3 className="mb-7 mt-8 font-satoshi text-2xl font-medium tracking-[0.48px] md:col-span-5 md:mb-5 md:mt-8 md:text-[28px] md:leading-[36px] xl:mt-10 xl:text-[32px] xl:leading-[40px]">
                             {item.title}
                           </h3>
                           <div
-                            className={cx(' text-body-m2 md:col-span-11', {
-                              'mb-[38px] md:mb-1': false, //turn on later on
-                            })}
+                            className={cx(
+                              ' font-inter md:col-span-11 md:text-[18px] md:leading-[160%]',
+                              {
+                                'mb-[38px] md:mb-1': false, //turn on later on
+                              }
+                            )}
                           >
                             {item.description}
                           </div>

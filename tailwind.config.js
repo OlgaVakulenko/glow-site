@@ -20,6 +20,8 @@ module.exports = {
             fontFeatureSettings: '"liga"',
           },
         ],
+        inter: ['Inter-Variable'],
+        satoshi: ['Satoshi-Variable'],
       },
       screens: {
         md: '820px',
@@ -230,6 +232,7 @@ module.exports = {
         'checkbox-dark': 'rgba(240, 246, 255, 0.15)',
         'checkbox-dark-hover': 'rgba(240, 246, 255, 0.2)',
         'checkbox-light': 'rgba(25, 25, 27, 0.15)',
+        'dim-gray': 'rgba(25, 25, 27, 0.03)',
       },
       spacing: {
         screenx: 'calc(var(--vh, 1vh) * 100);',

@@ -24,7 +24,7 @@ export default function Healthcare({ isReady = true }) {
       viewBox="0 0 130 129"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="h-[129px] w-[130px]"
+      className="h-full w-full"
     >
       <path
         d="M59.8359 63.6338L80.3359 22.1338M59.8359 63.6338L112.336 51.6338M59.8359 63.6338L101.836 106.634M59.8359 63.6338L47.3359 94.6338M59.8359 63.6338L22.8359 32.6338"

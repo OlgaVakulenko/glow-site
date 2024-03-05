@@ -79,7 +79,7 @@ export default function LogoCarousel() {
     <div ref={containerRef}>
       <Layout
         className={cx(
-          'mb-6 !px-0 opacity-0 transition-opacity duration-300 md:mb-14 xl:mb-[72px]',
+          'mb-6 !px-0 opacity-0 transition-opacity duration-300 md:mb-[100px] md:pt-[50px] xl:mb-[120px]',
           {
             '!opacity-100': mounted,
           }

@@ -63,11 +63,28 @@ const cases = [
     href: '/beast',
     title: (
       <>
-        Zero-emissions car <br />
-        rental for Tesla
+        Beast: zero-emissions
+        <br /> car rental for Tesla
       </>
     ),
-    title2: 'Beast Tesla Rent',
+    icon: (
+      <svg
+        width="48"
+        height="48"
+        viewBox="0 0 48 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          width="48"
+          height="48"
+          rx="13.7143"
+          fill="black"
+          fill-opacity="0.1"
+        />
+      </svg>
+    ),
+    // title2: 'Beast: zero-emissions car rental for Tesla',
     industry: ['Car Rent'],
     service: ['UI/UX', 'Branding'],
     company: ['20k app downloads'],

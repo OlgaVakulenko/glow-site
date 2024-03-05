@@ -20,6 +20,7 @@ import DragCursorContainer, { cursorGlobalDisableAtom } from '../../DragCursor';
 import casesData from '../Cases/data';
 import CaseCard from './CaseCard';
 import CaseNavArrow from './CaseNavArrow';
+import BLogo from './assets/b-logo.png';
 
 const featured = ['/beast', '/cryptogenie', '/jucr', '/tilt', '/liquidspace'];
 
@@ -68,12 +69,20 @@ export function Col({ title, items, className = '' }) {
 
 function CaseSlideMobile() {}
 
+function Tag({ name }) {
+  return (
+    <div className="glow-border-dark rounded-full px-[10px] py-[4px] font-inter uppercase md:text-[12px] md:leading-[160%] md:tracking-[0.02em]">
+      {name}
+    </div>
+  );
+}
+
 export function CaseSlide({ type = 'default', item, index, total }) {
   const [media] = useAtom(mediaAtom);
 
   return (
     <div className="__slide-wrapper h-full w-full md:pointer-events-none">
-      <div className="__slide relative flex flex-col overflow-hidden text-black md:min-h-[688px] md:flex-row md:items-end md:rounded-3xl">
+      <div className="__slide relative flex flex-col overflow-hidden text-black md:min-h-[480px] md:flex-row md:items-end md:rounded-3xl xl:h-[560px]">
         {item.imageMobile ? (
           <picture>
             <Source
@@ -99,9 +108,14 @@ export function CaseSlide({ type = 'default', item, index, total }) {
         <div className="__slider-item2 pointer-events-none absolute inset-0 hidden md:block"></div>
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
-          className="relative pb-3 md:mt-0 md:px-[96px] md:pb-16 md:pt-[282px] xl:px-12"
+          className="relative pb-3 md:mt-0 md:px-[48px] md:pb-[72px] md:pt-[72px] xl:px-12 xl:pb-[114px] xl:pt-[114px]"
         >
-          <div className="relative hidden font-glow text-[11px] font-medium uppercase tracking-[2px] md:block">
+          {/* {item.icon && ( */}
+          <div className="mb-10">
+            <Image src={BLogo} alt="" className="h-[48px] w-[48px]" />
+          </div>
+          {/* )} */}
+          {/* <div className="relative hidden font-glow text-[11px] font-medium uppercase tracking-[2px] md:block">
             <div className="absolute left-[79px] top-[-18px]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -123,11 +137,22 @@ export function CaseSlide({ type = 'default', item, index, total }) {
                 {addLeadingZero(total)}
               </>
             )}
-          </div>
-          <div className="mb-9 mt-[38px] font-glow text-[26px] font-medium leading-[120%] md:mb-[38px] md:mt-[15px] md:text-[32px]">
+          </div> */}
+          <div className="mb-9 mt-[38px] font-satoshi text-[26px] font-medium leading-[120%] md:mb-[24px] md:mt-[15px] md:text-[32px] md:leading-[40px] xl:text-[40px] xl:leading-[48px]">
             {item.title2 || item.title}
           </div>
-          <div className="flex space-x-[40px] pl-[3px] md:space-x-[62px]">
+          <div className="mb-10 max-w-[374px] font-inter md:text-[16px] md:leading-[160%] xl:text-[18px]">
+            Beast is an ambitious carsharing project from Estonia that presents
+            a range of exclusive Tesla models.
+          </div>
+          <div className="flex space-x-2">
+            <Tag name="Product Design" />
+            <Tag name="UI" />
+            <Tag name="UX" />
+            <Tag name="Visual identity" />
+          </div>
+
+          {/* <div className="flex space-x-[40px] pl-[3px] md:space-x-[62px]">
             <Col className="" title="Industry" items={item.industry} />
             <Col
               className="min-w-[100px]"
@@ -135,7 +160,7 @@ export function CaseSlide({ type = 'default', item, index, total }) {
               items={item.service}
             />
             {item.company && <Col title="Company" items={item.company} />}
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -157,7 +182,7 @@ export function CaseItem({
       ref={ref}
       href={href}
       className={cx(
-        'group flex flex-col overflow-hidden pb-10 xl:pb-[88px]',
+        'group flex flex-col overflow-hidden pb-10 xl:pb-[120px]',
         className
       )}
     >
@@ -180,6 +205,10 @@ export function CaseItem({
       <h2 className="mb-8 font-glow text-heading-h4 xl:text-heading-h3">
         {title}
       </h2>
+      <div>
+        Beast is an ambitious carsharing project from Estonia that presents a
+        range of exclusive Tesla models.
+      </div>
       <div className="-mr-10 flex md:-mr-16 xl:-mr-24">
         {columns.map((col, i) => (
           <Col2
@@ -274,6 +303,7 @@ export function CasesSlider2() {
   const [media] = useAtom(mediaAtom);
   const [w, setW] = useState(0);
   const [k, setK] = useState(0);
+  const swiperRef = useRef();
 
   useEffect(() => {
     const onResize = throttle(() => {
@@ -294,11 +324,17 @@ export function CasesSlider2() {
 
   return (
     <div ref={ref}>
-      <Section withLayout={false} className="pb-[80px] md:pb-14 xl:pb-[88px]">
+      <Section
+        withLayout={false}
+        className="pb-[80px] md:pb-[120px] xl:pb-[120px]"
+      >
         <div key={k}>
           <DragCursorContainer showDefaultCursor cursor={ViewCaseCursor} adhoc>
             {({ show, swiperOptions }) => (
               <Swiper
+                onSwiper={(swiper) => {
+                  swiperRef.current = swiper;
+                }}
                 {...swiperOptions}
                 mousewheel={{
                   invert: true,
@@ -335,14 +371,31 @@ export function CasesSlider2() {
                     </Link>
                   </SwiperSlide>
                 ))}
-                <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-16 4xl:pr-[120px]">
+                {/* <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-16 4xl:pr-[120px]">
                   <EndSlide />
-                </SwiperSlide>
-                {media !== 'desktop' && (
-                  <Layout className="mt-5 md:max-w-[544px]">
-                    <SliderProgress />
-                  </Layout>
-                )}
+                </SwiperSlide> */}
+                <Layout className="md:mt-[52px] xl:mt-[48px]">
+                  <div className="hidden items-center space-x-6 md:flex">
+                    <div className="flex shrink-0 space-x-4">
+                      <CaseNavArrow
+                        dir="left"
+                        onClick={() => {
+                          swiperRef.current.slidePrev();
+                        }}
+                      />
+                      <CaseNavArrow
+                        dir="right"
+                        onClick={() => {
+                          swiperRef.current.slideNext();
+                        }}
+                      />
+                    </div>
+
+                    <div className="w-full">
+                      <SliderProgress />
+                    </div>
+                  </div>
+                </Layout>
               </Swiper>
             )}
           </DragCursorContainer>
@@ -422,7 +475,7 @@ export function CasesSlider3() {
 
   return (
     <div ref={ref}>
-      <Section withLayout={false} className="pb-[80px] md:pb-14 xl:pb-[88px]">
+      <Section withLayout={false} className="pb-[80px] md:pb-14 xl:pb-[120px]">
         <div key={k}>
           <DragCursorContainer showDefaultCursor cursor={ViewCaseCursor} adhoc>
             {({ show, swiperOptions }) => (

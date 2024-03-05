@@ -31,6 +31,7 @@ import Layout from './Layout';
 import Logo from './Logo';
 import links from './links-data';
 import texts from './texts';
+import Button2 from './Button';
 
 export function BurgerIcon({ isOpen = false, theme, size = 40 }) {
   let stroke = '#19191B';
@@ -426,7 +427,7 @@ export default function Header({
 
   return (
     <div ref={rootRef}>
-      <div className={cx('fixed top-0 z-10 w-full')}>
+      <div className={cx('fixed top-0 z-10 w-full font-inter')}>
         <div className="relative">
           <div
             className={cx(
@@ -444,7 +445,7 @@ export default function Header({
       </div>
       <header
         className={cx(
-          'first-header fixed z-10 w-full transition-transform duration-500 md:top-4',
+          'first-header fixed z-10 w-full font-inter transition-transform duration-500 md:top-4',
           {
             'md:-translate-y-4': !isTop,
             // && !isBottom
@@ -511,13 +512,13 @@ export default function Header({
                       )}
                     >
                       <Animated delay={(links.length + 1) * 100} immediate>
-                        <AnimatedButton
+                        <Button2
                           as={Link}
                           href="/contact-us"
-                          className="!text-white"
+                          className="!bg-black !px-4 !py-2 font-inter normal-case !text-white"
                         >
                           {texts.header_cta}
-                        </AnimatedButton>
+                        </Button2>
                       </Animated>
                     </div>
                   </div>
