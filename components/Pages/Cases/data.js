@@ -21,8 +21,27 @@ import TiltMobile from './assets/new/tilt-cover-mobile.png';
 import Tilt from './assets/new/tilt-cover.png';
 import TiltWork from './assets/new/tilt-work.png';
 import ParkingWork from './assets/new/parking-work.png';
+import InvoiceMaker from './assets/new/invoice-maker-cover.png';
 
 const cases = [
+  {
+    href: '/invoice-maker/',
+    title: (
+      <>
+        Invoice Maker - <br />
+        everything about invoices
+      </>
+    ),
+    title2: 'Invoice Maker',
+    industry: ['Rental'],
+    service: ['UI/UX', 'Product Design'],
+    company: ['Funding $34.5M'],
+    image: LiquidSpace,
+    imageWork: InvoiceMaker,
+    // imageMobile: LiquidSpaceMobile,
+    category: ['other'],
+    type: ['desktop'],
+  },
   {
     href: '/liquidspace',
     title: (

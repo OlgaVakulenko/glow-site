@@ -306,7 +306,7 @@ export default function Reviews() {
   const swiperRef = useRef();
 
   return (
-    <div className="pt-4 md:pt-12 xl:pb-4">
+    <div className="pt-4 md:pb-[144px] md:pt-12 xl:pb-4">
       <Layout className="mb-6 flex items-end justify-between md:mb-16 xl:mb-20">
         <div className="font-satoshi text-[40px] font-medium leading-[41px] tracking-[-2px] md:max-w-[577px] md:text-[56px] md:leading-[64px] md:tracking-[-2px]">
           Discover what our customers <br className="md:hidden" />

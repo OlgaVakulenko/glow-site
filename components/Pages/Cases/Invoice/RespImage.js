@@ -1,0 +1,25 @@
+import Image, { Source, resolve } from '../../../Image';
+import cx from 'clsx';
+
+export default function RespImage({
+  src,
+  pictureClassname,
+  md,
+  xl,
+  className,
+  ...props
+}) {
+  return (
+    <picture className={pictureClassname}>
+      {xl && <Source image={xl} width="1440" media="(min-width: 1200px)" />}
+      {md && <Source image={md} width="1024" media="(min-width: 820px)" />}
+      <Source image={src} width="480" />
+      <img
+        className={cx('w-full', className)}
+        src={resolve({ src: src.src })}
+        alt=""
+        {...props}
+      />
+    </picture>
+  );
+}

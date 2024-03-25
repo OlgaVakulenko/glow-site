@@ -47,7 +47,7 @@ export default function Footer2({
   return (
     <footer
       id="footer"
-      className={cx('md:mt-[144px]', {
+      className={cx('', {
         '!mt-0 flex h-screenx flex-col !pt-[120px] font-inter': isSubmitted,
       })}
     >

@@ -10,12 +10,13 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
-          'GeneralSans-Variable',
-          'GeneralSans',
+          'Inter-Variable',
+          // 'GeneralSans-Variable',
+          // 'GeneralSans',
           ...defaultTheme.fontFamily.sans,
         ],
         glow: [
-          'Glow',
+          'Satoshi-Variable',
           {
             fontFeatureSettings: '"liga"',
           },
