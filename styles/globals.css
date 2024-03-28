@@ -4,6 +4,8 @@
 
 @import '../assets/fonts/general-sans/general-sans.css';
 @import '../assets/fonts/glow/glow.css';
+@import '../assets/fonts/satoshi/satoshi.css';
+@import '../assets/fonts/inter/inter.css';
 
 @import '../assets/fonts/inter/inter.css';
 @import '../assets/fonts/satoshi/satoshi.css';
@@ -104,6 +106,14 @@
 
 .glow-border-white {
   box-shadow: inset 0 0 0 1.1px theme('colors.white');
+}
+
+.glow-border-light2 {
+  box-shadow: inset 0 0 0 1.1px rgba(255, 255, 255, 0.3);
+}
+
+.glow-border-dark2 {
+  box-shadow: inset 0 0 0 1.1px rgba(0, 0, 0, 0.3);
 }
 
 .glow-border-white-to-r {

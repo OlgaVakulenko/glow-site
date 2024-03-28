@@ -1,5 +1,5 @@
 const texts = {
-  header_cta: `Let's talk`,
+  header_cta: `Book a free call`,
 };
 
 export default texts;

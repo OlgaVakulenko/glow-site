@@ -14,7 +14,7 @@ import Animated from '../../Animated';
 export default function Team() {
   return (
     <Section withLayout={false}>
-      <SectionLink
+      {/* <SectionLink
         theme="dark"
         title="Our team"
         buttonLabel="Career"
@@ -25,8 +25,8 @@ export default function Team() {
         description="Our talented and diverse team works together for one purpose—to unlock the potential of those around us."
         showButtonOnMobile={true}
         withLayout={false}
-      />
-      <div className="pt-[60px]">
+      /> */}
+      <div className="pt-[60px] md:pt-[88px]">
         <ProfileLayout profiles={profiles} />
       </div>
     </Section>
@@ -52,8 +52,8 @@ function Profile({ image, name, position, animated = true, index = 0 }) {
         />
       </div>
 
-      <div className="mb-[6px] text-body-heading-m">{name}</div>
-      <div className="text-body-s">{position}</div>
+      <div className="mb-2 text-[18px] leading-[26px]">{name}</div>
+      <div className="text-base opacity-80">{position}</div>
     </Wrapper>
   );
 }
@@ -62,32 +62,39 @@ function ProfileLayout({ profiles: _profiles }) {
   const media = useMediaAtom();
 
   const profiles = useMemo(() => {
-    if (media === 'mobile') return _profiles;
-    const p = [..._profiles];
-    p.splice(4, 0, null);
-    p.splice(11, 0, null);
-    p.splice(12, 0, null);
-    p.splice(13, 0, null);
-    return p;
+    return _profiles;
+    // if (media === 'mobile') return _profiles;
+    // const p = [..._profiles];
+    // p.splice(4, 0, null);
+    // p.splice(11, 0, null);
+    // p.splice(12, 0, null);
+    // p.splice(13, 0, null);
+    // return p;
   }, [_profiles, media]);
 
   if (media === 'mobile') {
     return (
-      <Swiper slidesPerView={'auto'}>
+      <Swiper
+        slidesPerView={'auto'}
+        spaceBetween={16}
+        style={{
+          overflow: 'visible',
+        }}
+      >
         {profiles.map((profile, i) => (
           <SwiperSlide key={i} style={{ width: 'auto' }}>
             <div
-              className={cx('px-2', {
-                'pl-4': i === 0,
-                'pr-4': i === profiles.length - 1,
+              className={cx('', {
+                // 'pl-4': i === 0,
+                // 'pr-4': i === profiles.length - 1,
               })}
             >
               <Profile {...profile} animated={false} />
             </div>
           </SwiperSlide>
         ))}
-        <Layout className="pt-7">
-          <SliderProgress />
+        <Layout className="pt-10">
+          <SliderProgress theme="dark" />
         </Layout>
       </Swiper>
     );
@@ -95,11 +102,11 @@ function ProfileLayout({ profiles: _profiles }) {
 
   return (
     // <Layout>
-    <div className="-mb-12 -mr-8 flex flex-wrap md:m-0 md:grid md:grid-cols-8 md:gap-8 md:gap-y-10 xl:grid-cols-12">
+    <div className="-mb-12 -mr-8 flex flex-wrap md:m-0 md:grid md:grid-cols-9 md:gap-8 md:gap-y-16 xl:grid-cols-12">
       {profiles.map((profile, i) => (
         <div
           key={i}
-          className="mb-12 mr-8 w-[208px] md:col-span-2 md:m-0 md:w-full xl:col-span-3"
+          className="mb-12 mr-8 w-[208px] md:col-span-3 md:m-0 md:w-full xl:col-span-3"
         >
           {profile && <Profile {...profile} index={i} />}
         </div>

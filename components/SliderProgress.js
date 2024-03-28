@@ -4,7 +4,11 @@ import gsap from '../dist/gsap';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSwiper } from 'swiper/react';
 
-export default function SliderProgress({ className = '', mode = 'progress' }) {
+export default function SliderProgress({
+  className = '',
+  mode = 'progress',
+  theme = 'white',
+}) {
   const ref = useRef(null);
   const thumbRef = useRef(null);
   const thumbRef2 = useRef(null);
@@ -157,14 +161,25 @@ export default function SliderProgress({ className = '', mode = 'progress' }) {
     >
       {slidesCount > 0 && (
         <>
-          <div className="h-[1px] w-full bg-black opacity-20"></div>
+          <div
+            className={cx('h-[1px] w-full bg-black opacity-20', {
+              'bg-black': theme === 'white',
+              'bg-white': theme === 'dark',
+            })}
+          ></div>
           {/* <div
             ref={thumbRef3}
             className="absolute top-1/2 left-0 h-[2px] w-full -translate-y-2/4 bg-black"
           ></div> */}
           <div
             ref={thumbRef}
-            className="absolute left-0 top-1/2 h-[2px] w-full -translate-y-2/4 bg-black"
+            className={cx(
+              'absolute left-0 top-1/2 h-[2px] w-full -translate-y-2/4 ',
+              {
+                'bg-black': theme === 'white',
+                'bg-white': theme === 'dark',
+              }
+            )}
           ></div>
           {/* <div
             ref={thumbRef2}

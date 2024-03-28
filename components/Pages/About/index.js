@@ -7,7 +7,7 @@ import Head from 'next/head';
 import Animated from '../../Animated';
 import HRule from '../../HRule';
 import { getFullDescription, getFullTitle } from '../../HeadTitle';
-import IntroSection from '../../IntroSection';
+import IntroSection2 from '../../IntroSection2';
 import BlogPosts from './BlogPosts';
 import Founders from './Founders';
 import Logos from './Logos';
@@ -28,18 +28,17 @@ export default function About({ posts }) {
           )}
         />
       </Head>
-      <IntroSection
+      <IntroSection2
         title={
           <>
-            Hello it’s
-            <br className="hidden md:block" /> Glow <br className="md:hidden" />
-            Design <br className="hidden md:hidden" /> Agency
+            Hello it’s Glow <br />
+            Design Agency
           </>
         }
         subtitle={
           <>
-            Love for digital product and
-            <br /> deep expertise of the team
+            We help startups, scale-ups and unicorns to improve product metrics
+            through design: Speed up task completion time
           </>
         }
       />
@@ -58,7 +57,7 @@ export default function About({ posts }) {
         <Animated>
           <Image
             src={ImgMobile}
-            className="w-full overflow-hidden rounded-[32px] object-contain md:h-[463px] md:object-cover xl:h-[664px] wide:h-[33vw] wide:object-[50%_20%]"
+            className="aspect-video w-full overflow-hidden rounded-[24px] object-cover object-top  md:h-[473px] md:rounded-[32px] xl:h-[609px] wide:h-[33vw] wide:object-[50%_20%]"
             alt=""
             loading="eager"
             sources={[
@@ -78,13 +77,13 @@ export default function About({ posts }) {
           />
         </Animated>
       </Layout>
-      <Layout className="pb-24 pt-16 md:pb-[137px] md:pt-[111px] xl:pb-[136px] xl:pt-[103px]">
+      <Layout className="py-10 md:py-16 xl:py-20">
         <Vision />
       </Layout>
       <Layout disableOnMobile>
-        <div className="bg-black px-4 pb-[80px] pt-[80px] text-lred md:rounded-[32px] md:px-12 md:pb-[160px] md:pt-[160px] xl:px-20 xl:pb-[120px] xl:pt-[120px]">
+        <div className="overflow-hidden rounded-3xl bg-black px-6 py-10 pb-[56px] text-white md:rounded-[32px] md:px-12 md:pb-20 md:pt-16 xl:px-[86px] xl:pb-[120px] xl:pt-[120px]">
           <Founders />
-          <div className="mb-14" />
+          {/* <div className="mb-14" /> */}
           <Team />
         </div>
       </Layout>
@@ -100,14 +99,21 @@ function VisionBlock({ heading, text, className = '' }) {
   return (
     <div
       className={cx(
-        'mb-[79px] last:mb-[0px] md:mb-0 md:w-[448px] xl:w-[528px]',
+        'mb-10 last:mb-[0px] md:mb-0 md:w-[448px] xl:w-[528px]',
         className
       )}
     >
-      <div className="mb-8 text-body-heading-s uppercase opacity-50">
-        {heading}
+      <div className="glow mb-4 flex text-[12px] font-medium uppercase leading-[160%] xl:mb-6">
+        <div
+          className="glow-border-dark2 rounded-full px-[10px] py-[4.5px]"
+          style={{
+            background: 'rgba(0,0,0,0.04)',
+          }}
+        >
+          {heading}
+        </div>
       </div>
-      <div className="text-[32px] font-medium leading-[40px] xl:text-[36px] xl:leading-[48px]">
+      <div className="font-satoshi text-[20px] font-medium leading-[32px] md:text-[24px] md:leading-[36px] xl:text-[32px] xl:leading-[40px]">
         <h3>{text}</h3>
       </div>
     </div>
@@ -137,7 +143,7 @@ function Vision() {
         heading={'our  mission'}
         text={
           <>
-            Simple design for complex <br className="hidden md:block" />
+            Simple design for complex <br className="hidden xl:block" />
             products
           </>
         }
@@ -147,7 +153,7 @@ function Vision() {
       <Separator className="hidden pb-6 xl:col-span-2 xl:flex xl:items-end" />
       <VisionBlock
         heading={'our vision'}
-        text="To become leader in enterprise design by creating game changing products"
+        text="To become leader in enterprise design by creating game-changing products"
         className="md:col-span-4 xl:col-span-5"
       />
     </Animated>

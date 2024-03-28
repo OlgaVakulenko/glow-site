@@ -3,6 +3,8 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 import FooterForm from './Footer/FooterForm';
 import Layout from './Layout';
+import GlowImg from './Pages/Home/assets/glow555.png';
+import Image from './Image';
 
 const footerStyle = 'default';
 export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
@@ -12,10 +14,10 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
   const _isSubmitted = isSubmitted || showSuccess;
 
   return (
-    <Layout disableOnMobile={true} className="grow">
+    <Layout disableOnMobile={true} className="grow px-2">
       <div
         className={cx(
-          'bg-black px-4 py-10 text-lblue md:rounded-3xl md:px-12 md:pb-20 md:pt-16 xl:rounded-[32px] xl:p-20',
+          'relative overflow-hidden rounded-3xl bg-black p-6 text-white md:rounded-[32px] md:p-12 xl:p-20 xl:px-16 xl:py-[72px]',
           {
             '4xl:px-24 4xl:py-[120px]': footerStyle === 'default',
             'xl:pt-14': footerStyle === 'trial',
@@ -23,17 +25,25 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
           }
         )}
       >
+        <Image
+          className="pointer-events-none absolute inset-0 hidden h-full w-full md:block md:rotate-180 xl:bottom-0 xl:left-0 xl:rotate-0"
+          src={GlowImg}
+          alt=""
+        />
         <div
-          className={cx('xl:grid xl:grid-flow-row xl:grid-cols-12 xl:gap-8', {
-            'flex h-full flex-col justify-between': _isSubmitted,
-          })}
+          className={cx(
+            'relative xl:grid xl:grid-flow-row xl:grid-cols-12 xl:gap-8',
+            {
+              'flex h-full flex-col justify-between': _isSubmitted,
+            }
+          )}
         >
           <div
-            className={cx(' md:max-w-[528px] xl:col-span-6 4xl:max-w-full', {
-              'mb-12 md:mb-[54px]': footerStyle !== 'trial',
+            className={cx(' md:max-w-[600px] xl:col-span-6 4xl:max-w-full', {
+              'mb-8 md:mb-[56px]': footerStyle !== 'trial',
             })}
           >
-            <div className="font-glow text-heading-h3 font-medium md:text-[54px] md:leading-[56px]  xl:text-heading-h1-2  4xl:text-[92px] 4xl:leading-[92px]">
+            <div className="font-glow text-[40px] font-medium leading-[48px] md:text-[56px] md:leading-[64px] xl:text-[72px] xl:leading-[72px]">
               {_isSubmitted ? (
                 <div>
                   <div>Let’s get to work together</div>

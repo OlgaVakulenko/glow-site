@@ -24,7 +24,7 @@ Section.Title = function Title({ children }) {
   return (
     <Animated
       animate={'fade-up'}
-      className="mb-4 font-glow text-[32px] font-medium leading-[32px] md:w-1/2 md:text-[60px] md:leading-[95%]  xl:text-heading-h1"
+      className="mb-6 font-glow text-[40px] font-medium leading-[48px] md:w-1/2 md:text-[48px] md:leading-[56px] xl:text-[56px] xl:leading-[64px]"
     >
       <h2 className="xl:max-w-[440px]">{children}</h2>
     </Animated>
@@ -38,7 +38,7 @@ Section.Description = function Description({ children }) {
   return (
     <Animated
       delay={delay}
-      className="text-lg italic leading-[24px] md:w-1/2 md:pl-10 md:text-subtitle-m xl:pl-40 xl:text-subtitle-l"
+      className="text-[16px] leading-[160%] md:w-1/2 md:pl-10 xl:pl-40 xl:text-[18px]"
     >
       {children}
     </Animated>

@@ -67,7 +67,7 @@ function FaqItem({ question, answer }) {
         <Disclosure.Button className="flex w-full justify-between text-left md:grid md:grid-cols-8 md:gap-8 xl:grid-cols-12">
           {({ open }) => (
             <>
-              <h3 className="text-body-heading-m2 md:col-span-3 md:pr-8 xl:col-span-5">
+              <h3 className="font-satoshi text-[20px] font-medium leading-[130%] md:col-span-3 md:pr-8 xl:col-span-5">
                 {question}
               </h3>
               <div className="flex justify-between text-body-s md:col-span-5 xl:col-span-7">
@@ -122,7 +122,7 @@ function FaqItem({ question, answer }) {
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
-            <Disclosure.Panel className="mt-8 whitespace-pre-line text-body-s ">
+            <Disclosure.Panel className="mt-6 whitespace-pre-line text-[16px] leading-[160%]">
               {answer}
             </Disclosure.Panel>
           </Transition>
@@ -135,10 +135,10 @@ function FaqItem({ question, answer }) {
 function FAQ() {
   return (
     <div className="mb-12">
-      <h2 className="mb-10 font-glow text-[40px] font-medium leading-[41px] tracking-[-2px] xl:text-heading-h2-2">
+      <h2 className="mb-10 font-glow text-[32px] font-medium leading-[40px] tracking-[-2px] md:mb-14 md:text-[48px] md:leading-[56px] xl:text-[56px] xl:leading-[64px]">
         Frequently asked questions
       </h2>
-      <div className="divide-y divide-border-gray border-t border-border-gray">
+      <div className="divide-border-black border-border-black divide-y border-t">
         {items.map((item, idx) => (
           <FaqItem key={idx} question={item.q} answer={item.a} />
         ))}
@@ -157,7 +157,7 @@ export default function ContactUs() {
           content={`Have questions or need design solutions? Contact Glow Team's experts for creative and innovative design services.`}
         ></meta>
       </Head>
-      <div className="mb-20">
+      <div className="mb-10 md:mb-14 xl:mb-20">
         <FooterFormWrapper />
       </div>
       <Layout>

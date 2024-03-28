@@ -101,20 +101,20 @@ function Switches({
       selected={selected}
       onChange={onChange}
     >
-      <RGroupLabel className="text-body-heading-m leading-6 ">
+      <RGroupLabel className="text-[16px] leading-[26px] md:text-[18px] xl:font-medium ">
         {title}
       </RGroupLabel>
-      <div className="mt-4 flex flex-wrap gap-2 md:mt-[29px]">
+      <div className="mt-4 flex flex-wrap gap-4 md:mt-[29px]">
         {options.map((option) => (
           <RGroupOption
-            className="cursor-pointer rounded-full text-body-heading-s font-medium uppercase focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-focus-ring"
+            className="cursor-pointer rounded-full text-xs font-medium uppercase leading-[160%] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-focus-ring"
             key={option}
             value={option}
           >
             {({ checked }) => (
               <div
                 className={cx(
-                  'rounded-full bg-checkbox-dark px-4 py-[11px] transition-colors duration-200 hover:bg-checkbox-dark-hover ',
+                  'glow-border-light2 rounded-full px-4 py-2 transition-colors duration-200 hover:bg-checkbox-dark-hover ',
                   {
                     '!bg-lblue text-black': checked,
                   }
@@ -153,7 +153,7 @@ function Input({
     <div className={cx('flex', className)}>
       <Element
         className={cx(
-          'w-full border-b  bg-transparent pb-[17px] text-xl font-medium leading-6 transition-colors duration-200 placeholder:text-current placeholder:transition-opacity focus:outline-none focus:placeholder:opacity-60',
+          'w-full border-b bg-transparent pb-4 text-[16px] leading-[26px] transition-colors duration-200 placeholder:text-current placeholder:transition-opacity focus:outline-none focus:placeholder:opacity-60 md:text-[18px] xl:font-medium',
           {
             '!border-current': focused,
             'border-checkbox-dark': theme === 'footer',
@@ -301,9 +301,9 @@ export default function FooterForm({
           }}
         >
           {!hideToggles && (
-            <div className="md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 xl:mb-10 xl:flex xl:flex-col xl:gap-0">
+            <div className="md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 xl:mb-0 xl:flex xl:flex-col xl:gap-0">
               <Switches
-                className="-mr-1 mb-10 md:col-span-4 md:mr-0 md:pr-6 xl:mb-10"
+                className="-mr-1 mb-8 md:col-span-4 md:mb-0 md:mr-0 md:pr-6 xl:mb-8"
                 title="Service"
                 name="service"
                 selected={selectedServices}
@@ -323,10 +323,10 @@ export default function FooterForm({
           )}
 
           <div
-            className={cx('grid pb-6 md:pb-0', {
+            className={cx('grid pb-10 md:pb-0', {
               'text-lblue': theme === 'footer',
               'md:grid-flow-row md:grid-cols-8': useGrid,
-              'pt-10': !disablePadding,
+              'pt-12 xl:pt-14': !disablePadding,
               'gap-8': gapSize === '8',
               'gap-10': gapSize === '10',
             })}
@@ -359,8 +359,8 @@ export default function FooterForm({
               theme={theme}
             />
           </div>
-          <div className="md:mt-8 md:flex md:items-start md:justify-between md:space-x-4">
-            <div className="flex space-x-4 text-body-xs xl:max-w-[328px]">
+          <div className="md:mt-10 md:flex md:items-center md:justify-between md:space-x-4 xl:mt-14">
+            <div className="flex space-x-4 text-body-xs leading-[160%] xl:max-w-[428px] xl:text-[16px]">
               <div className="pt-[2px] md:pt-[3px]">
                 <Checkbox
                   id="terms"
@@ -384,7 +384,7 @@ export default function FooterForm({
               type="submit"
               flavor="secondary"
               color="white"
-              className="mt-8 w-full shrink-0 md:mt-0 md:w-auto"
+              className="mt-8 w-full shrink-0 !bg-white !text-black md:mt-0 md:w-auto"
               compact
             >
               Book free call

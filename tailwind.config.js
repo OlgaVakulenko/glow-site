@@ -11,18 +11,12 @@ module.exports = {
       fontFamily: {
         sans: [
           'Inter-Variable',
-          // 'GeneralSans-Variable',
-          // 'GeneralSans',
+          'GeneralSans',
           ...defaultTheme.fontFamily.sans,
         ],
-        glow: [
-          'Satoshi-Variable',
-          {
-            fontFeatureSettings: '"liga"',
-          },
-        ],
-        inter: ['Inter-Variable'],
-        satoshi: ['Satoshi-Variable'],
+        glow: ['Satoshi-Variable'],
+        satoshi: 'Satoshi-Variable',
+        inter: 'Inter-Variable',
       },
       screens: {
         md: '820px',
@@ -230,7 +224,7 @@ module.exports = {
         lblue: '#F0F6FF',
         lred: '#FFE7EA',
         dim: '#F3F2F4',
-        'checkbox-dark': 'rgba(240, 246, 255, 0.15)',
+        'checkbox-dark': 'rgba(255, 255, 255, 0.3)',
         'checkbox-dark-hover': 'rgba(240, 246, 255, 0.2)',
         'checkbox-light': 'rgba(25, 25, 27, 0.15)',
         'dim-gray': 'rgba(25, 25, 27, 0.03)',
