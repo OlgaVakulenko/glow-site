@@ -258,7 +258,7 @@ function ReviewCard({
 }) {
   return (
     <div className="h-full font-inter">
-      <div className="h-full rounded-[32px] bg-dim-gray px-6 pb-8 pt-8 md:flex md:space-x-16 md:px-0 md:py-10">
+      <div className="h-full rounded-[32px] bg-dim-gray px-6 pb-8 pt-8 md:flex md:space-x-16 md:px-0 md:py-10 xl:py-12">
         <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-10">
           <div className="md:flex md:h-full md:max-w-[168px] md:flex-col md:items-start md:justify-between">
             <div className="">
@@ -280,7 +280,7 @@ function ReviewCard({
                   className="border border-checkbox-light md:hidden"
                 />
               </div>
-              <div className="text-body-m2 md:mb-1">{name}</div>
+              <div className="text-body-m2 font-medium md:mb-1">{name}</div>
               <div className="mb-6 text-body-s opacity-80">
                 {company.split(',').map((text, i) => (
                   <p key={i}>{text}</p>
@@ -306,13 +306,14 @@ export default function Reviews() {
   const swiperRef = useRef();
 
   return (
-    <div className="pt-4 md:pb-[144px] md:pt-12 xl:pb-4">
-      <Layout className="mb-6 flex items-end justify-between md:mb-16 xl:mb-20">
-        <div className="font-satoshi text-[40px] font-medium leading-[41px] tracking-[-2px] md:max-w-[577px] md:text-[56px] md:leading-[64px] md:tracking-[-2px]">
-          Discover what our customers <br className="md:hidden" />
-          have to say
-        </div>
-        {/* <div className="hidden space-x-4 pb-[14px] md:flex">
+    <div className="overflow-hidden">
+      <div className="pt-4 md:pb-[144px] md:pt-12 xl:pb-[176px]">
+        <Layout className="mb-6 flex items-end justify-between md:mb-16 xl:mb-20">
+          <div className="font-satoshi text-[40px] font-medium leading-[41px] tracking-[-2px] md:max-w-[577px] md:text-[56px] md:leading-[64px] md:tracking-[-2px]">
+            Discover what our customers <br className="md:hidden" />
+            have to say
+          </div>
+          {/* <div className="hidden space-x-4 pb-[14px] md:flex">
           <CaseNavArrow
             dir="left"
             onClick={() => {
@@ -326,73 +327,74 @@ export default function Reviews() {
             }}
           />
         </div> */}
-      </Layout>
-      <Layout className="overflow-hidden">
-        <DragCursorContainer>
-          <Swiper
-            onSwiper={(swiper) => {
-              swiperRef.current = swiper;
-            }}
-            className="!overflow-visible"
-            spaceBetween="32px"
-            breakpoints={{
-              820: {
-                slidesPerView: '1.15',
-              },
-              1440: {
-                slidesPerView: '1.8',
-              },
-            }}
-            mousewheel={{
-              invert: true,
-              forceToAxis: true,
-              sensitivity: 0.1,
-              thresholdDelta: 10,
-            }}
-            modules={[Mousewheel]}
-          >
-            {reviews.map((review, index) => (
-              <SwiperSlide key={index} className="md:!h-auto">
-                <ReviewCard
-                  avatar={review.avatar}
-                  companyAvatar={review.companyAvatar}
-                  name={review.name}
-                  company={review.company}
-                  text={review.text}
-                  rating={review.rating}
-                  dataService={review.data_service}
-                  dataCompany={review.data_company}
-                  index={index}
-                  total={reviews.length}
-                />
-              </SwiperSlide>
-            ))}
-            <div className="pt-10">
-              <div className="hidden items-center space-x-6 md:flex">
-                <div className="flex shrink-0 space-x-4">
-                  <CaseNavArrow
-                    dir="left"
-                    onClick={() => {
-                      swiperRef.current.slidePrev();
-                    }}
+        </Layout>
+        <Layout className="">
+          <DragCursorContainer>
+            <Swiper
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+              className="!overflow-visible"
+              spaceBetween="32px"
+              breakpoints={{
+                820: {
+                  slidesPerView: '1.15',
+                },
+                1440: {
+                  slidesPerView: '1.5',
+                },
+              }}
+              mousewheel={{
+                invert: true,
+                forceToAxis: true,
+                sensitivity: 0.1,
+                thresholdDelta: 10,
+              }}
+              modules={[Mousewheel]}
+            >
+              {reviews.map((review, index) => (
+                <SwiperSlide key={index} className="md:!h-auto">
+                  <ReviewCard
+                    avatar={review.avatar}
+                    companyAvatar={review.companyAvatar}
+                    name={review.name}
+                    company={review.company}
+                    text={review.text}
+                    rating={review.rating}
+                    dataService={review.data_service}
+                    dataCompany={review.data_company}
+                    index={index}
+                    total={reviews.length}
                   />
-                  <CaseNavArrow
-                    dir="right"
-                    onClick={() => {
-                      swiperRef.current.slideNext();
-                    }}
-                  />
-                </div>
+                </SwiperSlide>
+              ))}
+              <div className="pt-10">
+                <div className="hidden items-center space-x-6 md:flex">
+                  <div className="flex shrink-0 space-x-4">
+                    <CaseNavArrow
+                      dir="left"
+                      onClick={() => {
+                        swiperRef.current.slidePrev();
+                      }}
+                    />
+                    <CaseNavArrow
+                      dir="right"
+                      onClick={() => {
+                        swiperRef.current.slideNext();
+                      }}
+                    />
+                  </div>
 
-                <div className="w-full">
-                  <SliderProgress />
+                  <div className="w-full">
+                    <SliderProgress />
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* <div className="mx-auto pt-5 md:max-w-[544px] xl:max-w-full"></div> */}
-          </Swiper>
-        </DragCursorContainer>
-      </Layout>
+              {/* <div className="mx-auto pt-5 md:max-w-[544px] xl:max-w-full"></div> */}
+            </Swiper>
+          </DragCursorContainer>
+        </Layout>
+      </div>
     </div>
   );
 }

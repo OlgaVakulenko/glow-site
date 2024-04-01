@@ -323,84 +323,88 @@ export function CasesSlider2() {
   }, [media, w]);
 
   return (
-    <div ref={ref}>
-      <Section
-        withLayout={false}
-        className="pb-[80px] md:pb-[120px] xl:pb-[120px]"
-      >
-        <div key={k}>
-          <DragCursorContainer showDefaultCursor cursor={ViewCaseCursor} adhoc>
-            {({ show, swiperOptions }) => (
-              <Swiper
-                onSwiper={(swiper) => {
-                  swiperRef.current = swiper;
-                }}
-                {...swiperOptions}
-                mousewheel={{
-                  invert: true,
-                  forceToAxis: true,
-                  sensitivity: 0.1,
-                }}
-                modules={[Mousewheel]}
-                breakpoints={{
-                  320: {
-                    slidesPerView: 1,
-                  },
-                  820: {
-                    slidesPerView: 'auto',
-                  },
-                }}
-              >
-                {cases.map((item, i) => (
-                  <SwiperSlide
-                    key={i}
-                    className={cx(
-                      'cursor-none select-none px-4 md:!w-[90vw] md:pl-4 md:pr-0 xl:!w-[1144px] xl:first:!w-[1184px] xl:first:pl-16',
-                      '4xl:first:pl-[120px]'
-                    )}
+    <div ref={ref} className="overflow-hidden">
+      <Layout>
+        <Section
+          withLayout={false}
+          className="pb-[80px] md:pb-[120px] xl:pb-[120px]"
+        >
+          <div key={k}>
+            {/* <DragCursorContainer showDefaultCursor cursor={ViewCaseCursor} adhoc> */}
+            {/* {({ show, swiperOptions }) => ( */}
+            <Swiper
+              className="!overflow-visible"
+              onSwiper={(swiper) => {
+                swiperRef.current = swiper;
+              }}
+              spaceBetween="24px"
+              // {...swiperOptions}
+              mousewheel={{
+                invert: true,
+                forceToAxis: true,
+                sensitivity: 0.1,
+              }}
+              modules={[Mousewheel]}
+              breakpoints={{
+                320: {
+                  slidesPerView: 1,
+                },
+                820: {
+                  slidesPerView: 'auto',
+                },
+              }}
+            >
+              {cases.map((item, i) => (
+                <SwiperSlide
+                  key={i}
+                  className={cx(
+                    'cursor-none select-none md:!w-[90vw] xl:!w-[1200px]'
+                    // '4xl:first:pl-[120px]'
+                  )}
+                >
+                  <Link
+                    href={item.href}
+                    className={cx('group select-none', {
+                      // 'cursor-none': show,
+                    })}
                   >
-                    <Link
-                      href={item.href}
-                      className={cx('group select-none', {
-                        'cursor-none': show,
-                      })}
-                    >
-                      <div className={cx('md:pointer-events-none', {})}>
-                        <CaseSlide item={item} index={i} total={cases.length} />
-                      </div>
-                    </Link>
-                  </SwiperSlide>
-                ))}
-                {/* <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-16 4xl:pr-[120px]">
+                    <div className={cx('md:pointer-events-none', {})}>
+                      <CaseSlide item={item} index={i} total={cases.length} />
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              ))}
+              {/* <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-16 4xl:pr-[120px]">
                   <EndSlide />
                 </SwiperSlide> */}
-                <Layout className="md:mt-[52px] xl:mt-[48px]">
-                  <div className="hidden items-center space-x-6 md:flex">
-                    <div className="flex shrink-0 space-x-4">
-                      <CaseNavArrow
-                        dir="left"
-                        onClick={() => {
-                          swiperRef.current.slidePrev();
-                        }}
-                      />
-                      <CaseNavArrow
-                        dir="right"
-                        onClick={() => {
-                          swiperRef.current.slideNext();
-                        }}
-                      />
-                    </div>
-
-                    <div className="w-full">
-                      <SliderProgress />
-                    </div>
+              <div className="md:mt-[52px] xl:mt-[48px]">
+                <div className="hidden items-center space-x-6 md:flex">
+                  <div className="flex shrink-0 space-x-4">
+                    <CaseNavArrow
+                      dir="left"
+                      onClick={() => {
+                        swiperRef.current.slidePrev();
+                      }}
+                    />
+                    <CaseNavArrow
+                      dir="right"
+                      onClick={() => {
+                        swiperRef.current.slideNext();
+                      }}
+                    />
                   </div>
-                </Layout>
-              </Swiper>
-            )}
-          </DragCursorContainer>
-        </div>
-      </Section>
+
+                  <div className="w-full">
+                    <SliderProgress />
+                  </div>
+                </div>
+              </div>
+            </Swiper>
+            {/* )} */}
+            {/* </DragCursorContainer> */}
+          </div>
+        </Section>
+      </Layout>
     </div>
   );
 }

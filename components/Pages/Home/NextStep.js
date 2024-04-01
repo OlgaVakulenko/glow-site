@@ -97,7 +97,7 @@ export default function NextStep() {
       <Layout className="relative pt-[100px] md:pt-[120px] xl:pt-[176px]">
         <div
           ref={sphereRef}
-          className="pointer-events-none absolute left-1/2 top-[-10%] w-[200%] max-w-[480px] -translate-x-1/2 opacity-30 md:max-w-[890px]"
+          className="pointer-events-none absolute left-1/2 top-[-10%] w-[200%] max-w-[480px] -translate-x-1/2 opacity-30 md:max-w-[890px] xl:top-[-4%] xl:scale-125"
         >
           <Image src={SphereNew} alt="" />
         </div>

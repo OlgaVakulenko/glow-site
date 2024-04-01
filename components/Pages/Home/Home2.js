@@ -2,6 +2,7 @@ import cx from 'clsx';
 import { useEffect, useState } from 'react';
 import Animated from '../../Animated';
 import IntroSection from '../../IntroSection';
+import IntroSection2 from '../../IntroSection2';
 import Layout from '../../Layout';
 import { PageHeading2 } from '../../PageHeading';
 import { Subheading2 } from '../../Typography/Subheading';
@@ -45,9 +46,10 @@ function IntroSection3() {
   );
 }
 
-function IntroSection2() {
+function IntroSection5() {
   return (
-    <IntroSection
+    <IntroSection2
+      className="!pt-[448px]"
       showBg={false}
       title={
         <>
@@ -57,13 +59,18 @@ function IntroSection2() {
       }
       subtitle={
         <>
-          Your trusted design team for
+          We help startups, scale-ups and unicorns to improve product metrics
+          through design:
           <br />
           <RollingWords
-            words={['transportation', 'ai', 'fintech']}
+            words={[
+              'Increase conversion rate',
+              'Speed up task completion time',
+              'Reduce number of errors',
+              'Boost sales and revenue',
+            ]}
             interval={2200}
-          />{' '}
-          <div className="inline-flex">challenges.</div>
+          />
         </>
       }
     />
@@ -794,7 +801,8 @@ export default function Home2() {
   return (
     <div className="relative overflow-hidden">
       <div id="intro-section">
-        <IntroSection2 />
+        <IntroSection5 />
+        {/* <IntroSection2 /> */}
       </div>
       <div id="logo-carousel" className="relative z-[1]">
         <Animated delay={300}>

@@ -32,16 +32,19 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
         />
         <div
           className={cx(
-            'relative xl:grid xl:grid-flow-row xl:grid-cols-12 xl:gap-8',
+            'relative xl:grid xl:grid-flow-row xl:grid-cols-24 xl:gap-8',
             {
               'flex h-full flex-col justify-between': _isSubmitted,
             }
           )}
         >
           <div
-            className={cx(' md:max-w-[600px] xl:col-span-6 4xl:max-w-full', {
-              'mb-8 md:mb-[56px]': footerStyle !== 'trial',
-            })}
+            className={cx(
+              ' md:max-w-[600px] xl:col-span-12 xl:max-w-full 4xl:max-w-full',
+              {
+                'mb-8 md:mb-[56px]': footerStyle !== 'trial',
+              }
+            )}
           >
             <div className="font-glow text-[40px] font-medium leading-[48px] md:text-[56px] md:leading-[64px] xl:text-[72px] xl:leading-[72px]">
               {_isSubmitted ? (
@@ -68,7 +71,7 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
           </div>
           {
             <div
-              className={cx('xl:col-span-6', {
+              className={cx('xl:col-span-11 xl:col-start-[14]', {
                 'self-end': footerStyle === 'trial',
               })}
             >

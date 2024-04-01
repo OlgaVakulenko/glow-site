@@ -17,24 +17,22 @@ const items = [
     icon: Ideate,
     title: 'MVP',
     description:
-      'We help visualize even the wildest ideas into doable and elegant design.',
+      'We assist in transforming bold ideas into impactful products. Launch fast, iterate often, focus on the essentials, and win big.',
   },
   {
     icon: Investigate,
     title: 'Redesign',
     description: (
       <>
-        Whether it is a large public platform or a small internal solution, in
-        1-3 months we will provide a&nbsp;product prototype while implementing
-        even the&nbsp;most complex requests.
+        Whether it is a large public platform or a small internal solution, we
+        revamp its design to reach new goals and speed up its growth.
       </>
     ),
   },
   {
     icon: Iterate,
-    title: 'Long-Term',
-    description:
-      'We integrate into your team to build your business stronger and maximize the potential of your ideas.',
+    title: 'Team extension',
+    description: `Need more resources and expertise? We seamlessly integrate with your team to unlock the full potential of your product.`,
   },
 ];
 

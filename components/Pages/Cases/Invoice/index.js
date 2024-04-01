@@ -25,13 +25,14 @@ import ProblemsSolutions from './ProblemsSolutions';
 import Generating from './Generating';
 import Branding from './Branding';
 import RespImage from './RespImage';
+import IntroSection from '../../../IntroSection2';
 
 export default function InvoiceMaker() {
   return (
     <div>
       <Header
-        title="Invoice Maker - application about invoices"
-        subtitle="The app is easy to navigate, with clear prompts and simple instructions that guide you through the invoice creation process."
+        title="Invoice Maker - everything about invoices"
+        subtitle="InvoiceMaker is designed to saves all of your invoicing information, making it simple to generate repeat invoices for regular clients."
       />
       <RespImage src={Frame1} md={Frame1md} xl={Frame1xl} />
       <Objectives />

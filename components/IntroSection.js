@@ -48,7 +48,7 @@ export default function IntroSection({
       <Layout className="flex items-end justify-between pt-[448px]">
         <PageHeading2 className="shrink-0">{title}</PageHeading2>
 
-        <div className="max-w-[372px] pb-[2px] font-inter text-[18px] leading-[160%]">
+        <div className="max-w-[372px] pb-[2px] font-inter text-[18px] leading-[160%] xl:text-[20px]">
           We help startups, scale-ups and unicorns to improve product metrics
           through design: Speed up task completion time
         </div>
