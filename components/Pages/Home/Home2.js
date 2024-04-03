@@ -817,7 +817,9 @@ export default function Home2() {
       <NextStep />
       <Awards />
       <OurExperience />
-      <TrialBanner />
+      <Layout className="mb-[72px] font-inter md:mb-[144px] xl:mb-[176px]">
+        <TrialBanner />
+      </Layout>
       <Services />
       {/* <Solutions /> */}
       <Reviews />

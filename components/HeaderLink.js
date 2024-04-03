@@ -63,12 +63,12 @@ export default function HeaderLink({
       }}
       delay={(index + 1) * 100}
       className={cx(
-        'mr-12 flex items-center justify-center text-sm uppercase last:mr-0 4xl:text-lg 4xl:leading-6',
+        'mr-12 flex items-center justify-center text-[16px] leading-[24px] last:mr-0',
         theme === 'dark' && !subMenuParent && 'text-white'
       )}
       immediate
     >
-      <RollingText text={label} height={20} />
+      <RollingText text={label} height={24} />
       {!!subItems?.length && (
         <div className="ml-2">
           <svg

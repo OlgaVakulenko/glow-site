@@ -6,20 +6,31 @@ import SliderProgress from '../../SliderProgress';
 import { useMediaAtom } from '../../../lib/agent';
 import Link from 'next/link';
 import { AuthorImage } from '../../Blog/Post/Author';
+import CaseNavArrow from '../Home/CaseNavArrow';
+import { useRef } from 'react';
 
 export default function PostSlider({ posts = [], withLayout = false }) {
-  const media = useMediaAtom();
+  const swiperRef = useRef();
 
   return (
     <div className="overflow-hidden">
       <Layout>
         <Swiper
-          slidesPerView="auto"
-          spaceBetween={32}
+          slidesPerView="1.2"
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+          breakpoints={{
+            820: {
+              slidesPerView: 'auto',
+              spaceBetween: 32,
+            },
+          }}
+          spaceBetween={24}
           className="!overflow-visible"
         >
           {posts.map((post, i) => (
-            <SwiperSlide key={i} style={{ width: 'auto' }} className="!h-auto">
+            <SwiperSlide key={i} className="!h-auto md:!w-auto">
               <div
                 className={cx('h-full max-w-[528px]', {
                   // 'mx-2 md:mx-5': !withLayout,
@@ -30,36 +41,37 @@ export default function PostSlider({ posts = [], withLayout = false }) {
                   // 'xl:!mr-[240px]': post.isFeatured && !withLayout,
                 })}
               >
-                <Link href={`/blog/${post.href}`} className="group h-full">
-                  <div className="mb-6 overflow-hidden rounded-3xl">
+                <Link
+                  href={`/blog/${post.href}`}
+                  className="group block h-full"
+                >
+                  <div className="mb-4 overflow-hidden rounded-3xl">
                     <Image
                       src={post.image}
                       alt=""
-                      className="h-[264px] w-full rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="h-[164px] w-full rounded-2xl object-cover transition-transform duration-500 group-hover:scale-105 md:h-[264px]"
                     />
                   </div>
 
-                  <div className="flex flex-col justify-between xl:min-h-[188px]">
-                    <div className="mb-8 text-body-heading-m">{post.title}</div>
-                    <div className="flex">
-                      <AuthorImage
-                        className="mr-[18px] mt-[2px] h-[40px] w-[40px] rounded-full"
-                        name={post.author_name}
-                        src={post.author_image}
-                      />
-
-                      {/* <img
-                  src={post.author_image}
-                  alt=""
-                  className="mr-[18px] mt-[2px] h-[40px] w-[40px] rounded-full"
-                /> */}
+                  <div className="flex flex-col justify-between">
+                    <div className="mb-6 font-satoshi text-[20px] font-medium leading-[32px] md:mb-8">
+                      {post.title}
                     </div>
-                    <div>
-                      <div className="text-[16px] leading-[28px]">
-                        {post.author_name}
+                    <div className="flex items-center">
+                      <div className="flex">
+                        <AuthorImage
+                          className="mr-[18px] mt-[2px] h-[48px] w-[48px] rounded-full"
+                          name={post.author_name}
+                          src={post.author_image}
+                        />
                       </div>
-                      <div className="mt-[-5px] text-[14px] leading-[27px] opacity-50">
-                        {post.author_position}
+                      <div>
+                        <div className="text-[16px] font-medium leading-[160%] tracking-[-0.01em]">
+                          {post.author_name}
+                        </div>
+                        <div className="mt-[-5px] text-[14px] leading-[27px] tracking-[-0.01em] opacity-50">
+                          {post.author_position}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -67,11 +79,30 @@ export default function PostSlider({ posts = [], withLayout = false }) {
               </div>
             </SwiperSlide>
           ))}
-          {media !== 'desktop' && (
-            <Layout className="pt-12">
-              <SliderProgress />
-            </Layout>
-          )}
+          {
+            <div className="md:mt-[52px] xl:mt-[48px]">
+              <div className="hidden items-center space-x-6 md:flex">
+                <div className="flex shrink-0 space-x-4">
+                  <CaseNavArrow
+                    dir="left"
+                    onClick={() => {
+                      swiperRef.current.slidePrev();
+                    }}
+                  />
+                  <CaseNavArrow
+                    dir="right"
+                    onClick={() => {
+                      swiperRef.current.slideNext();
+                    }}
+                  />
+                </div>
+
+                <div className="w-full">
+                  <SliderProgress />
+                </div>
+              </div>
+            </div>
+          }
         </Swiper>
       </Layout>
     </div>

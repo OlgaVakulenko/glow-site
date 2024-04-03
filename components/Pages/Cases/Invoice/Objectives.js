@@ -11,8 +11,8 @@ function Col({ className, title, items = [] }) {
     >
       <div className="mb-3 opacity-30 md:mb-10">{title}</div>
       <div className="md:grid md:gap-3">
-        {items.map((item) => (
-          <div key={item} className="flex min-h-[48px] items-center">
+        {items.map((item, index) => (
+          <div key={index} className="flex min-h-[48px] items-center">
             {item}
           </div>
         ))}
@@ -52,10 +52,10 @@ export default function Objectives() {
           customer needs
         </div>
         <div className="grid grid-cols-4 gap-x-4 gap-y-[38px] md:grid-cols-8 xl:grid-cols-12">
-          {cols.map((col) => (
+          {cols.map((col, index) => (
             <Col
               className="col-span-2 last:col-span-4 md:col-span-2 md:last:col-span-2 xl:col-span-3 xl:last:col-span-3"
-              key={col.title}
+              key={index}
               title={col.title}
               items={col.items}
             />

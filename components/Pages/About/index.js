@@ -15,6 +15,7 @@ import Push from './Push';
 import Team from './Team';
 import Img from './assets/main-cover-d.jpg';
 import ImgMobile from './assets/main-cover-mobile.jpg';
+import TrialBanner from '../Home/TrialBanner';
 
 export default function About({ posts }) {
   return (
@@ -81,15 +82,17 @@ export default function About({ posts }) {
         <Vision />
       </Layout>
       <Layout disableOnMobile>
-        <div className="overflow-hidden rounded-3xl bg-black px-6 py-10 pb-[56px] text-white md:rounded-[32px] md:px-12 md:pb-20 md:pt-16 xl:px-[86px] xl:pb-[120px] xl:pt-[120px]">
+        <div className="overflow-hidden rounded-[24px] bg-black px-6 py-10 pb-[56px] text-white md:rounded-[32px] md:px-16 md:pb-20 md:pt-16 xl:p-20 xl:pb-[120px]">
           <Founders />
           {/* <div className="mb-14" /> */}
           <Team />
         </div>
       </Layout>
       <Push />
+      <Layout className="pt-14 md:pt-16 xl:pt-[120px]">
+        <TrialBanner />
+      </Layout>
       <Logos />
-      <HRule className="mb-14" />
       <BlogPosts posts={posts} />
     </div>
   );
@@ -105,7 +108,7 @@ function VisionBlock({ heading, text, className = '' }) {
     >
       <div className="glow mb-4 flex text-[12px] font-medium uppercase leading-[160%] xl:mb-6">
         <div
-          className="glow-border-dark2 rounded-full px-[10px] py-[4.5px]"
+          className="glow-border-dark2 rounded-full px-[10px] py-[4px]"
           style={{
             background: 'rgba(0,0,0,0.04)',
           }}

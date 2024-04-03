@@ -113,7 +113,7 @@ export const Animation = ({ index, children, ...props }) => {
       leave="transition ease-in-out duration-300 transform"
       leaveFrom="opacity-1"
       leaveTo="opacity-0"
-      className="mb-3 py-[10px] text-[38px] uppercase leading-[51px] last:mb-[0px]"
+      className="mb-3 py-[10px] text-[38px] leading-[51px] last:mb-[0px]"
       {...props}
       style={{
         transitionDelay: (1 + index) * 100 + 'ms',
@@ -160,7 +160,7 @@ const BurgerMenu = ({ menuId, links }) => {
       <div className="overflow-y-auto">
         <Layout>
           <div className={'flex h-screenx flex-col md:justify-between'}>
-            <div className="flex items-center justify-between py-[28px] font-medium uppercase text-black">
+            <div className="flex items-center justify-between py-[28px] font-medium text-black">
               <Link
                 href="/"
                 className="flex items-center justify-center"
@@ -461,7 +461,7 @@ export default function Header({
         <div className="relative">
           <Layout>
             <div
-              className="flex items-center justify-between pt-[28px] font-medium uppercase md:h-[96px] md:justify-start md:!pb-[28px] md:!pt-[28px]"
+              className="flex items-center justify-between pt-[28px] font-medium md:h-[96px] md:justify-start md:!pb-[28px] md:!pt-[28px]"
               style={{
                 '--header-theme':
                   t === 'brand' || t === 'white'
@@ -483,7 +483,7 @@ export default function Header({
               </Animated>
               <div
                 className={cx(
-                  'hidden transition-opacity duration-500 md:ml-[5.15%] md:flex xl:ml-[9.25%]'
+                  'hidden transition-opacity duration-500 md:absolute md:left-1/2 md:flex md:-translate-x-1/2'
                 )}
               >
                 {!isFooter &&
@@ -515,7 +515,8 @@ export default function Header({
                         <Button2
                           as={Link}
                           href="/contact-us"
-                          className="!bg-black !px-4 !py-2 font-inter normal-case !text-white"
+                          className="!bg-black font-inter normal-case !text-white"
+                          compact
                         >
                           {texts.header_cta}
                         </Button2>

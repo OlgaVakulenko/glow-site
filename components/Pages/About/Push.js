@@ -63,10 +63,10 @@ export default function Push() {
 
   return (
     <div ref={ref}>
-      <Layout className="pt-36">
+      <Layout className="pt-14 md:pt-16 xl:pt-[120px]">
         <div
           ref={descRef}
-          className="mb-[140px] text-[32px] font-medium leading-[40px] md:mb-[128px] md:text-[36px] md:leading-[48px] xl:mb-[117px]"
+          className="mb-16 font-satoshi text-[20px] font-medium leading-[32px] md:text-[24px] md:leading-[160%] xl:mb-20 xl:text-[32px] xl:leading-[40px]"
         >
           <h2>
             We push for innovation in product design. Digital transformation
@@ -94,7 +94,7 @@ export default function Push() {
               </svg>
             }
             title="Perfection"
-            description={`We always aim to create the best. We don’t settle with just "ok" or "nice". We exceed expectations and bring everything to 110%. Even if something is already in action, we try to improve it. There is nothing perfect but we still aim for perfection.`}
+            description={`We don’t settle with just "ok". We exceed expectations and bring everything to 110%. Even if something is already in action, we try to improve it. There is nothing perfect but we aim for perfection.`}
           />
           <Letter
             index={1}
@@ -112,7 +112,7 @@ export default function Push() {
               </svg>
             }
             title="Unity"
-            description={`Glow is a small and cozy family where we look after one another. Our strength is in our unity. Here you can be yourself. Show your strong sides and others will cover your weaknesses. Together we are more than just one.`}
+            description={`Glow is a small and cozy family. Our strength is in our unity. Here you can be yourself. Show your strong sides and others will cover your weaknesses. Together we are more than just one.`}
           />
           <Letter
             index={2}
@@ -148,7 +148,7 @@ export default function Push() {
               </svg>
             }
             title="Honesty"
-            description={`Every product is designed for people. And honesty is one of the most important treats of relations between people. That is why we are always honest, even if it drives us out of the comfort zone. We are honest with each other, with our clients, and with the product, we are working on.`}
+            description={`Every product is designed for people. And honesty is crucial in relationships. That is why we are always honest with people, and design we are working on. Even if it drives us out of the comfort zone.`}
           />
         </div>
       </Layout>
@@ -172,12 +172,15 @@ function Letter({ letter, title, description, width, index = 0 }) {
         {letter}
       </div>
       <div className="letter-desc mt-[-6px] w-full md:mt-0 md:w-full">
-        <div delay={50 + delay} className="mb-4 text-body-heading-m">
+        <div
+          delay={50 + delay}
+          className="mb-2 font-satoshi text-[24px] font-medium leading-[32px] md:mb-4 xl:mb-6 xl:text-[32px] xl:leading-[40px]"
+        >
           {title}
         </div>
         <div
           delay={100 + delay}
-          className="text-body-s md:w-full md:max-w-full"
+          className="text-[16px] leading-[160%] md:w-full md:max-w-full xl:text-[18px]"
         >
           {description}
         </div>

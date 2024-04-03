@@ -20,14 +20,14 @@ export default function Founders() {
           </Section.Description>
         </Section.Header>
       </div>
-      <div className="grid grid-cols-4 gap-1 gap-y-10 border-b border-white/10 pb-14 md:grid-flow-col md:grid-cols-8 md:gap-16 md:pb-16 xl:grid-cols-12 xl:pb-20">
+      <div className="grid grid-cols-4 gap-1 gap-y-10 border-b border-white/10 pb-14 md:grid-flow-col md:grid-cols-8 md:gap-16 md:pb-16 xl:grid-cols-24 xl:gap-0 xl:pb-20">
         <Photo
           img={Rus}
           name="Rus Mashatov"
           position="Co-Founder & Lead Designer"
           linkedin="https://www.linkedin.com/in/ruslan-mashatov-0b794aa9/"
           medium="https://medium.com/@ruslanmashatov"
-          className="col-span-4 md:col-start-1 xl:col-span-4 xl:col-start-3"
+          className="col-span-4 md:col-start-1 xl:col-span-11"
         />
 
         <Photo
@@ -37,7 +37,7 @@ export default function Founders() {
           align="right"
           linkedin="https://www.linkedin.com/in/staskovalsky/"
           medium="https://medium.com/@stas_k"
-          className="col-span-4 md:col-start-5 md:mt-[88px] xl:col-span-4 xl:col-start-8"
+          className="col-span-4 md:col-start-5 md:mt-[88px] xl:col-span-11 xl:col-start-[14]"
         />
       </div>
     </Section>

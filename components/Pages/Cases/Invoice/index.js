@@ -37,13 +37,24 @@ export default function InvoiceMaker() {
       <RespImage src={Frame1} md={Frame1md} xl={Frame1xl} />
       <Objectives />
       <Layout className="grid gap-4 md:grid-cols-8 md:gap-8 xl:grid-cols-12">
-        <RespImage
-          pictureClassname="md:col-span-8 xl:col-span-12"
-          className="rounded-[24px] md:rounded-[44px] md:rounded-b-[32px] xl:rounded-[56px]"
-          src={Frame2}
-          md={Frame2md}
-          xl={Frame2xl}
-        />
+        <div className="relative overflow-hidden rounded-[24px] rounded-t-[44px] md:col-span-8 md:rounded-[44px] md:rounded-b-[32px] xl:col-span-12 xl:rounded-[56px] xl:rounded-t-[56px]">
+          <RespImage
+            pictureClassname=""
+            className=""
+            src={Frame2}
+            md={Frame2md}
+            xl={Frame2xl}
+          />
+          <video
+            autoPlay
+            loop
+            muted
+            controls={false}
+            src="/video/invoice/input2.mp4"
+            className="absolute -bottom-8 left-1/2 mx-auto w-[180vw] max-w-[180vw] -translate-x-1/2 md:bottom-0 md:h-full md:max-h-[79%] md:w-full md:max-w-full xl:max-h-[72%]"
+          />
+        </div>
+
         <RespImage
           pictureClassname="md:col-span-4 xl:col-span-6"
           className="rounded-[24px] md:rounded-[32px] xl:rounded-[40px]"
@@ -62,9 +73,13 @@ export default function InvoiceMaker() {
         {/* <Image className="rounded-[24px] md:col-span-4" src={Frame4} alt="" /> */}
       </Layout>
       <ProblemsSolutions />
-      <RespImage src={Frame5} md={Frame5md} xl={Frame5xl} />
+      <Layout disablePadding>
+        <RespImage src={Frame5} md={Frame5md} xl={Frame5xl} />
+      </Layout>
       <Generating />
-      <RespImage src={Frame9} md={Frame9md} xl={Frame9xl} />
+      <Layout disablePadding>
+        <RespImage src={Frame9} md={Frame9md} xl={Frame9xl} />
+      </Layout>
       <Branding />
     </div>
   );

@@ -61,24 +61,20 @@ export default function BlogPosts({ posts }) {
     };
   }, []);
 
-  const Wrapper = useMemo(() => {
-    return withLayout ? Layout : React.Fragment;
-  }, [withLayout]);
-
   return (
-    <Section withLayout={false}>
-      <SectionLink
-        title="Insights"
-        buttonLabel="Read Blog"
-        href="/blog"
-        description="We share our knowledge. Not only with other designers, but also with businesses. Our processes help optimize your work. "
-        showButtonOnMobile={true}
-      />
-      <div className="pb-[46px] pt-[76px]">
-        <Wrapper>
-          <PostSlider withLayout={withLayout} posts={posts} />
-        </Wrapper>
+    <div className="overflow-hidden">
+      <Layout className="mb-14 md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:mb-20 xl:grid-cols-12">
+        <div className="mb-6 font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] md:col-span-4 md:text-[48px] md:leading-[56px] xl:col-span-7 xl:text-[56px] xl:leading-[64px]">
+          Insights
+        </div>
+        <div className="text-[18px] leading-[160%] md:col-span-4 xl:col-span-5">
+          We share our knowledge not only with other designers but also with
+          businesses. Our processes can help you optimize your work.
+        </div>
+      </Layout>
+      <div className="pb-[46px]">
+        <PostSlider posts={posts} />
       </div>
-    </Section>
+    </div>
   );
 }

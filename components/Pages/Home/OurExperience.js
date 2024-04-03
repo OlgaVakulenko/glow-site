@@ -43,7 +43,7 @@ export default function OurExperience() {
               delay={100 * index1}
               className="mb-[27px] flex text-body-heading-s uppercase md:mb-8 4xl:mb-7 4xl:text-base"
             >
-              <span className="shrink-0 rounded-full border border-checkbox-light bg-dim-gray px-[10px] py-[4.5px] font-inter tracking-[0.02em] text-black">
+              <span className="shrink-0 rounded-full border border-checkbox-light bg-dim-gray px-[10px] py-[4px] font-inter tracking-[0.02em] text-black">
                 {item.title}
               </span>
             </Animated>

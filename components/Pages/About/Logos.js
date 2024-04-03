@@ -5,17 +5,261 @@ import Layout from '../../Layout';
 
 export default function Logos() {
   return (
-    <Layout className="pb-[90px] pt-16 md:pb-[135px] md:pt-[129px] xl:pb-[112px] xl:pt-[158px]">
-      <div className="mx-auto max-w-[1440px]">
-        <div className="md:flex md:flex-wrap">
-          <Figma className="mb-10 md:mb-16 xl:mb-[136px] xl:grow" />
-          <Clutch className="mb-10 md:mb-16 md:ml-[88px] xl:mb-[136px] xl:ml-0 xl:mr-[104px]" />
-          <Dribble className="mb-10 md:mb-16 md:mr-[88px] xl:mb-[136px] xl:mr-20" />
-          <Medium className="mb-10 md:mb-16 xl:mb-0 xl:ml-auto" />
-          <DesignRush className="md:ml-[308px] xl:ml-[88px] xl:mr-[123px]" />
-        </div>
+    <Layout className="flex flex-col gap-10 pb-[68px] pt-14 md:grid md:grid-cols-8 md:gap-8 md:gap-y-16 md:pb-[120px] md:pt-20 xl:grid-cols-12 xl:pb-[240px] xl:pt-[120px]">
+      <Figma2 className="md:order-1 md:col-span-4 xl:order-2" />
+      <IconLayout
+        className="md:order-1 md:col-span-4 xl:order-2"
+        icon={mediumIcon}
+        title={<ItemTitle>Popular Design Blog on Medium</ItemTitle>}
+        link={<RemoteLink>View Topics</RemoteLink>}
+        href="https://medium.com/glow-team"
+      />
+      <IconLayout
+        className="md:col-span-4"
+        icon={dribbleIcon}
+        title={
+          <div className="flex gap-8">
+            <DribbleStat count="12 860" label="Likes" />
+            <DribbleStat count="2790" label="Followers" />
+          </div>
+        }
+        link={<RemoteLink>View Profile</RemoteLink>}
+        href="https://dribbble.com/glow-team"
+      />
+      <IconLayout
+        className="md:col-span-4"
+        icon={dr}
+        title={<ItemTitle>Top Product Design Company</ItemTitle>}
+        link={<RemoteLink>View Profile</RemoteLink>}
+        href="https://www.designrush.com/agency/graphic-design/digital-design"
+      />
+      <div className="md:order-2 md:col-span-8 md:flex md:items-center md:justify-center md:rounded-full md:border md:border-black md:p-[28px] xl:order-1 xl:col-span-4">
+        <IconLayout
+          icon={clutchIcon}
+          title={<ItemTitle>Top 30 User Experience Company</ItemTitle>}
+          href="https://clutch.co/profile/glow-design-agency"
+        />
       </div>
     </Layout>
+  );
+}
+
+function DribbleStat({ count, label }) {
+  return (
+    <div>
+      <div className="font-satoshi text-[18px] font-bold leading-[28px]">
+        {count}
+      </div>
+      <div className="font-satoshi text-[16px] leading-[160%]">{label}</div>
+    </div>
+  );
+}
+
+const mediumIcon = (
+  <svg
+    className="h-20 w-20 md:h-[120px] md:w-[120px] xl:h-[128px] xl:w-[128px]"
+    viewBox="0 0 80 80"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect width="80" height="80" rx="40" fill="#19191B" />
+    <g clip-path="url(#clip0_9183_15297)">
+      <path
+        d="M42.5624 40.3785C42.5624 46.6631 37.5116 51.7576 31.2814 51.7576C25.0512 51.7576 20 46.6619 20 40.3785C20 34.0951 25.0508 28.999 31.2814 28.999C37.5119 28.999 42.5624 34.094 42.5624 40.3785Z"
+        fill="white"
+      />
+      <path
+        d="M54.9337 40.3809C54.9337 46.2964 52.4083 51.0938 49.293 51.0938C46.1778 51.0938 43.6523 46.2964 43.6523 40.3809C43.6523 34.4654 46.1774 29.668 49.2927 29.668C52.4079 29.668 54.9334 34.4638 54.9334 40.3809"
+        fill="white"
+      />
+      <path
+        d="M60.0025 40.3783C60.0025 45.6772 59.1144 49.9754 58.0186 49.9754C56.9228 49.9754 56.0352 45.6784 56.0352 40.3783C56.0352 35.0783 56.9232 30.7812 58.0186 30.7812C59.114 30.7812 60.0025 35.0779 60.0025 40.3783Z"
+        fill="white"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_9183_15297">
+        <rect x="20" y="20" width="40" height="40" rx="4" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+const dribbleIcon = (
+  <svg
+    className="h-20 w-20 md:h-[120px] md:w-[120px] xl:h-[128px] xl:w-[128px]"
+    viewBox="0 0 80 80"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect x="0.5" y="0.5" width="79" height="79" rx="39.5" stroke="#19191B" />
+    <g clip-path="url(#clip0_9183_15303)">
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M40 25C31.7191 25 25 31.7191 25 40C25 48.2809 31.7191 55 40 55C48.2646 55 55 48.2809 55 40C55 31.7191 48.2646 25 40 25ZM49.9078 31.9143C51.6974 34.0944 52.7712 36.8763 52.8037 39.8861C52.3807 39.8048 48.1507 38.9425 43.8883 39.4794C43.7907 39.2679 43.7093 39.0401 43.6117 38.8124C43.3514 38.1942 43.0586 37.5597 42.7657 36.9577C47.4837 35.038 49.6312 32.2722 49.9078 31.9143ZM40 27.2126C43.2538 27.2126 46.231 28.4328 48.4924 30.4338C48.2646 30.7592 46.3286 33.346 41.7733 35.0542C39.6746 31.1985 37.3482 28.0423 36.9903 27.5542C37.9501 27.3265 38.9588 27.2126 40 27.2126ZM34.5499 28.4165C34.8916 28.872 37.1692 32.0445 39.3004 35.8188C33.3135 37.4133 28.026 37.3807 27.4566 37.3807C28.2863 33.4111 30.9707 30.1085 34.5499 28.4165ZM27.18 40.0163C27.18 39.8861 27.18 39.756 27.18 39.6259C27.7332 39.6421 33.9479 39.7234 40.3416 37.8037C40.7159 38.5195 41.0575 39.2516 41.3829 39.9837C41.2202 40.0325 41.0412 40.0814 40.8785 40.1301C34.2733 42.2614 30.7592 48.0857 30.4664 48.5737C28.4328 46.3124 27.18 43.3026 27.18 40.0163ZM40 52.82C37.039 52.82 34.3059 51.8113 32.1421 50.1193C32.3699 49.6475 34.9728 44.6367 42.1963 42.115C42.2288 42.0987 42.2451 42.0987 42.2777 42.0825C44.0835 46.7516 44.8157 50.6724 45.0109 51.795C43.4653 52.462 41.7733 52.82 40 52.82ZM47.1421 50.6237C47.0119 49.8427 46.3286 46.1009 44.6529 41.4967C48.6714 40.8622 52.1855 41.9035 52.6248 42.0499C52.0716 45.6128 50.0217 48.6876 47.1421 50.6237Z"
+        fill="#19191B"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_9183_15303">
+        <rect x="25" y="25" width="30" height="30" rx="4" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+const dr = (
+  <svg
+    className="h-20 w-20 md:h-[120px] md:w-[120px] xl:h-[128px] xl:w-[128px]"
+    viewBox="0 0 80 80"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect x="0.5" y="0.5" width="79" height="79" rx="39.5" stroke="#19191B" />
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M39.1699 20.1878C37.5791 22.5733 37.3451 23.6958 38.0486 25.567C38.5858 26.9954 38.6815 28.1732 38.2911 28.5531C37.4466 29.3748 36.3558 28.8154 35.9869 27.3715L35.7695 26.5208L34.887 28.2304C33.1065 31.6811 32.8524 33.7208 33.9322 35.8991C34.239 36.5183 34.8002 37.3637 35.1792 37.7775L35.8684 38.53L35.6119 37.7782C35.4708 37.3649 35.3554 36.5102 35.3554 35.8794C35.3554 34.0578 35.829 33.3073 38.8304 30.3698C40.346 28.8863 41.5381 27.5661 41.7772 27.1057C42.593 25.5352 42.13 22.5982 40.7266 20.4415C40.3449 19.855 39.9605 19.375 39.8723 19.375C39.784 19.375 39.4679 19.7407 39.1699 20.1878ZM42.8951 25.0801C42.851 25.2965 42.7729 25.781 42.7217 26.1565C42.5221 27.6197 41.6616 28.9125 39.4198 31.1162C36.8905 33.6029 36.4921 34.2599 36.4848 35.9531C36.4805 36.9668 36.5557 37.2843 36.9647 37.9754C37.7176 39.2477 38.5787 39.7203 40.2718 39.7902C42.7481 39.8928 44.5505 38.8875 45.5475 36.8478C46.0742 35.7708 46.4308 34.1233 46.4109 32.8608L46.4002 32.1736L46.092 33.0714C45.9227 33.5653 45.5846 34.2686 45.3407 34.6346C44.8609 35.3547 43.4467 36.3826 42.9358 36.3826C42.4877 36.3826 41.9276 35.7706 41.9276 35.2814C41.9276 34.8727 42.8874 33.5291 43.6566 32.8608C44.6857 31.9668 45.1114 30.0037 44.6812 28.1365C44.5055 27.3732 43.36 24.9227 43.1063 24.7669C43.0344 24.7228 42.9394 24.8636 42.8951 25.0801ZM26.0925 41.2697C29.8181 46.5725 39.7837 60.5695 39.8729 60.6248C39.9776 60.6898 55.0878 39.7767 54.9996 39.6892C54.9048 39.5949 48.7121 40.5296 47.8899 40.7623C47.4116 40.8976 46.6902 41.289 46.2867 41.632C45.8832 41.9753 44.3791 43.9301 42.9443 45.9762C39.8582 50.3772 40.0085 50.1975 39.6504 49.913C39.5006 49.794 38.2754 48.1356 36.9279 46.2279C34.3777 42.6175 33.2558 41.4089 32.0193 40.9397C31.6167 40.787 29.8726 40.4489 28.1436 40.1883L25 39.7145L26.0925 41.2697ZM35.8743 41.1407C35.8743 41.2369 39.7329 46.5989 39.8742 46.6991C39.9869 46.779 43.8682 41.1732 43.7685 41.0744C43.7376 41.0437 42.8524 41.2215 41.8017 41.4697L39.8911 41.921L37.8826 41.4941C36.7781 41.2594 35.8743 41.1003 35.8743 41.1407Z"
+      fill="#19191B"
+    />
+  </svg>
+);
+
+const clutchIcon = (
+  <svg
+    className="h-20 w-20 md:h-[64px] md:w-[64px]"
+    viewBox="0 0 80 80"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M40 0L57.4 9.86232L74.641 20L74.8 40L74.641 60L57.4 70.1377L40 80L22.6 70.1377L5.35898 60L5.2 40L5.35898 20L22.6 9.86232L40 0Z"
+      fill="#19191B"
+    />
+    <path
+      d="M50.0241 47.7701C47.9153 49.4572 44.9629 50.7225 42.0105 50.7225C35.2622 50.7225 30.6227 45.6613 30.6227 38.9129C30.6227 32.1646 35.2622 27.5251 42.0105 27.5251C44.9629 27.5251 47.9153 28.3687 50.0241 30.4775L51.2895 31.7428L58.0378 25.4163L56.3507 24.151C52.5548 20.7768 47.4935 18.668 42.0105 18.668C30.2009 18.668 21.3438 27.5251 21.3438 39.3347C21.3438 51.1443 30.2009 60.0015 42.0105 60.0015C47.4935 60.0015 52.5548 57.8926 56.3507 54.5185L58.0378 53.2531L51.2895 46.5048L50.0241 47.7701Z"
+      fill="#F3F2F4"
+    />
+    <path
+      d="M41.5921 46.0825C45.3191 46.0825 48.3404 43.0611 48.3404 39.3341C48.3404 35.6071 45.3191 32.5858 41.5921 32.5858C37.8651 32.5858 34.8438 35.6071 34.8438 39.3341C34.8438 43.0611 37.8651 46.0825 41.5921 46.0825Z"
+      fill="#F3F2F4"
+    />
+  </svg>
+);
+
+function IconLayout({ className, icon, title, href, link }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      className={cx('flex items-center gap-4 md:gap-6', className)}
+    >
+      <div>{icon}</div>
+      <div className="flex flex-col gap-2 md:gap-8">
+        {title}
+        {link}
+      </div>
+    </a>
+  );
+}
+
+function Figma2({ className }) {
+  return (
+    <IconLayout
+      className={className}
+      title={<ItemTitle>Top Profile Figma Community</ItemTitle>}
+      href="https://www.figma.com/@glow_agency"
+      link={<RemoteLink>Open Comunity</RemoteLink>}
+      icon={
+        <svg
+          className="h-20 w-20 md:h-[120px] md:w-[120px] xl:h-[128px] xl:w-[128px]"
+          viewBox="0 0 80 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="80" height="80" rx="40" fill="#19191B" />
+          <g clip-path="url(#clip0_9183_15286)">
+            <path
+              d="M40.1289 39.6666C40.1289 38.2227 40.6977 36.8378 41.71 35.8168C42.7224 34.7958 44.0955 34.2222 45.5272 34.2222C46.9589 34.2222 48.332 34.7958 49.3444 35.8168C50.3568 36.8378 50.9255 38.2227 50.9255 39.6666C50.9255 41.1106 50.3568 42.4954 49.3444 43.5164C48.332 44.5374 46.9589 45.1111 45.5272 45.1111C44.0955 45.1111 42.7224 44.5374 41.71 43.5164C40.6977 42.4954 40.1289 41.1106 40.1289 39.6666Z"
+              fill="#F3F2F4"
+            />
+            <path
+              d="M29.332 50.5555C29.332 49.1116 29.9008 47.7268 30.9132 46.7057C31.9255 45.6847 33.2986 45.1111 34.7303 45.1111H40.1286V50.5555C40.1286 51.9995 39.5599 53.3843 38.5475 54.4053C37.5351 55.4264 36.1621 56 34.7303 56C33.2986 56 31.9255 55.4264 30.9132 54.4053C29.9008 53.3843 29.332 51.9995 29.332 50.5555V50.5555Z"
+              fill="#F3F2F4"
+            />
+            <path
+              d="M40.1289 23.3333V34.2221H45.5272C46.9589 34.2221 48.332 33.6485 49.3444 32.6275C50.3568 31.6065 50.9255 30.2217 50.9255 28.7777C50.9255 27.3337 50.3568 25.9489 49.3444 24.9279C48.332 23.9069 46.9589 23.3333 45.5272 23.3333H40.1289Z"
+              fill="#F3F2F4"
+            />
+            <path
+              d="M29.332 28.7777C29.332 30.2217 29.9008 31.6065 30.9132 32.6275C31.9255 33.6485 33.2986 34.2221 34.7303 34.2221H40.1286V23.3333H34.7303C33.2986 23.3333 31.9255 23.9069 30.9132 24.9279C29.9008 25.9489 29.332 27.3337 29.332 28.7777V28.7777Z"
+              fill="#F3F2F4"
+            />
+            <path
+              d="M29.332 39.6666C29.332 41.1106 29.9008 42.4954 30.9132 43.5164C31.9255 44.5374 33.2986 45.1111 34.7303 45.1111H40.1286V34.2222H34.7303C33.2986 34.2222 31.9255 34.7958 30.9132 35.8168C29.9008 36.8378 29.332 38.2227 29.332 39.6666V39.6666Z"
+              fill="#F3F2F4"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_9183_15286">
+              <rect
+                width="21.5932"
+                height="32.6667"
+                fill="white"
+                transform="translate(29.332 23.3333)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+      }
+    />
+  );
+
+  return (
+    <div>
+      <div></div>
+      <div>
+        <ItemTitle>Top Profile Figma Community</ItemTitle>
+        <RemoteLink href="/figma" title="Open Comunity" />
+      </div>
+    </div>
+  );
+}
+
+function ItemTitle({ children }) {
+  return (
+    <div className="max-w-[240px] font-satoshi text-[18px] font-bold leading-[28px]">
+      {children}
+    </div>
+  );
+}
+
+function RemoteLink({ children }) {
+  return (
+    <div className="flex items-center gap-2 text-[16px] font-medium leading-[40px]">
+      <span>{children}</span>
+      <svg
+        width="20"
+        height="20"
+        viewBox="0 0 20 20"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M3.12491 9.37512L16.3751 9.37512L16.3751 10.6251L3.12491 10.6251L3.12491 9.37512Z"
+          fill="#19191B"
+        />
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M10.3255 15.0186L15.3653 9.99962L10.3255 4.98149L11.2075 4.0957L17.1368 9.99954L11.2076 15.9043L10.3255 15.0186Z"
+          fill="#19191B"
+        />
+      </svg>
+    </div>
   );
 }
 
@@ -42,19 +286,45 @@ function LinkItem({
         })}
       >
         <div
-          className={cx('text-body-m font-medium md:mb-12 md:max-w-[236px]', {
-            'mb-6': type !== 'blog',
-            'mb-0': type === 'blog',
-          })}
+          className={cx(
+            'font-satoshi text-[16px] font-bold leading-[28px] md:mb-12 md:max-w-[236px]',
+            {
+              'mb-6': type !== 'blog',
+              'mb-0': type === 'blog',
+            }
+          )}
         >
           {title}
         </div>
         <div
-          className={cx('text-button-m uppercase', {
-            'hidden md:block': type === 'blog',
-          })}
+          className={cx(
+            'flex w-fit items-center justify-between gap-2 text-[16px] font-medium leading-[24px]',
+            {
+              'hidden md:block': type === 'blog',
+            }
+          )}
         >
-          {subtitle}
+          <span>{subtitle}</span>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M3.12491 9.37512L16.3751 9.37512L16.3751 10.6251L3.12491 10.6251L3.12491 9.37512Z"
+              fill="#19191B"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M10.3255 15.0186L15.3653 9.99962L10.3255 4.98149L11.2075 4.0957L17.1368 9.99954L11.2076 15.9043L10.3255 15.0186Z"
+              fill="#19191B"
+            />
+          </svg>
         </div>
       </div>
     </Animated>
