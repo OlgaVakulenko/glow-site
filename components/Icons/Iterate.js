@@ -45,12 +45,12 @@ export default function Iterate({ className, isReady = true }) {
       };
   return (
     <svg
-      width="129"
-      height="129"
+      width="100%"
+      height="100%"
       viewBox="0 0 129 129"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cx(className, 'h-[129px] w-[129px]')}
+      className={cx(className)}
     >
       <path d="M60 64H79.5" stroke="#DADADA" />
       <path

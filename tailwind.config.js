@@ -14,8 +14,8 @@ module.exports = {
           'GeneralSans',
           ...defaultTheme.fontFamily.sans,
         ],
-        glow: ['Satoshi-Variable'],
-        satoshi: 'Satoshi-Variable',
+        glow: ['Satoshi'],
+        satoshi: 'Satoshi',
         inter: 'Inter-Variable',
       },
       screens: {
@@ -221,6 +221,8 @@ module.exports = {
         'text-dim': '#6F6F6F',
         // brand: '#d6dbe0', //Dev only
         black: '#19191B',
+        'black-dim': 'rgba(25, 25, 27, 0.04)',
+        'black-dim-border': 'rgba(25, 25, 27, 0.15)',
         lblue: '#F0F6FF',
         lred: '#FFE7EA',
         dim: '#F3F2F4',

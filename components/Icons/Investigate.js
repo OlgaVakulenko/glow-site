@@ -22,12 +22,12 @@ export default function Investigate({ className, isReady }) {
 
   return (
     <svg
-      width="153"
-      height="132"
+      width="100%"
+      height="100%"
       viewBox="0 0 153 132"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={cx(className, 'h-[132px] w-[153px]')}
+      className={cx(className)}
     >
       <circle cx="65" cy="65" r="64" stroke="#DADADA" />
       <path

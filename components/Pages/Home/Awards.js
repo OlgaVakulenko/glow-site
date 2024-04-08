@@ -15,7 +15,7 @@ function Card({ children, title, subtitle, icon }) {
 export default function Awards() {
   return (
     <Layout className="md:pb-4 xl:pb-[60px]">
-      <h2 className="mb-16 font-satoshi text-[48px] font-medium leading-[56px] xl:text-[56px] xl:leading-[64px]">
+      <h2 className="mb-10 font-satoshi text-[32px] font-medium leading-[130%] tracking-[-2px] md:mb-16 md:text-[48px] md:leading-[56px] xl:text-[56px] xl:leading-[64px]">
         We have won several <br />
         design awards
       </h2>
@@ -32,8 +32,8 @@ export default function Awards() {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
+                fillRule="evenodd"
+                clipRule="evenodd"
                 d="M16.1797 15.9999L32.3595 31.9999L24.2696 39.91L16.1797 31.9999L8.08986 24.0898L0 15.9999L16.1797 0H32.3595L16.1797 15.9999ZM35.7813 16L43.8712 24.0899L51.961 32L43.8712 40.0898L35.7813 47.9999H19.6016L35.7813 32L19.7813 16L27.6914 8.08994L35.7813 16Z"
                 fill="#282828"
               />

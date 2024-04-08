@@ -16,7 +16,7 @@ const reviews = [
     avatar: '/reviews/r_3.png',
     companyAvatar: '/reviews/rc_3.svg',
     name: 'Micha Mazaheri',
-    company: 'Co-Founder, Electric Beast O\u00dc',
+    company: 'Co-Founder at Electric Beast O\u00dc',
     company_id: '/beast',
     text: (
       <>
@@ -33,7 +33,7 @@ const reviews = [
     avatar: '/reviews/r_2.png?v=1',
     companyAvatar: '/reviews/rc_2.svg',
     name: 'Vitaly Babiy',
-    company: 'Founder, FleetChaser',
+    company: 'Founder at FleetChaser',
     company_id: '/fleet',
     text: (
       <>
@@ -49,7 +49,7 @@ const reviews = [
     avatar: '/reviews/r_1.png',
     companyAvatar: '/reviews/rc_1.svg',
     name: 'Eric Zellhart',
-    company: 'VP Product, LiquidSpace',
+    company: 'VP Product at LiquidSpace',
     company_id: '/liquidspace',
 
     text: (
@@ -83,7 +83,7 @@ const reviews = [
     avatar: '/reviews/r_5.png',
     companyAvatar: '/reviews/rc_5.svg',
     name: 'Jon Fry',
-    company: 'Founder, FinTech Company',
+    company: 'Founder at FinTech Company',
     company_id: 'landflow',
     text: (
       <>
@@ -99,7 +99,7 @@ const reviews = [
     avatar: '/reviews/r_6.png',
     companyAvatar: '/reviews/rc_6.svg',
     name: 'Scott Kuchinski',
-    company: 'Product Manager, IT Company',
+    company: 'Product Manager at IT Company',
     company_id: '/ethos',
     text: (
       <>
@@ -115,7 +115,7 @@ const reviews = [
     avatar: '/reviews/r_7.png',
     companyAvatar: '/reviews/rc_7.svg',
     name: 'Vinicius Rodrigues',
-    company: 'CTO, E-Commerce Platform',
+    company: 'CTO at E-Commerce Platform',
     company_id: 'chatfood',
     text: (
       <>
@@ -132,7 +132,7 @@ const reviews = [
     avatar: '/reviews/r_9.png?v=1',
     companyAvatar: '/reviews/rc_9.svg',
     name: 'Jacob Berg',
-    company: 'CTO, Social Curator',
+    company: 'CTO at Social Curator',
     company_id: 'sc',
     text: (
       <>
@@ -165,7 +165,7 @@ const reviews = [
     avatar: '/reviews/r_4.png',
     companyAvatar: '/reviews/rc_4.svg',
     name: 'Tim Bogza',
-    company: 'CEO & Founder, Digital Agency',
+    company: 'CEO & Founder at Digital Agency',
     company_id: 'bogza',
     text: (
       <>
@@ -258,7 +258,7 @@ function ReviewCard({
 }) {
   return (
     <div className="h-full font-inter">
-      <div className="h-full rounded-[32px] bg-dim-gray px-6 pb-8 pt-8 md:flex md:space-x-16 md:px-0 md:py-10 xl:py-12">
+      <div className="h-full rounded-[32px] bg-dim-gray p-6 md:flex md:space-x-16 md:px-0 md:py-10 xl:py-12">
         <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-10">
           <div className="md:flex md:h-full md:max-w-[168px] md:flex-col md:items-start md:justify-between">
             <div className="">
@@ -294,7 +294,7 @@ function ReviewCard({
           </div>
         </div>
         <div className="flex flex-col items-start">
-          <div className="text-body-l md:col-span-6 md:pr-10 md:text-2xl md:leading-[160%]">
+          <div className="text-[20px] leading-[150%] md:col-span-6 md:pr-10 md:text-[24px] md:leading-[160%]">
             “{text}”
           </div>
         </div>
@@ -307,11 +307,10 @@ export default function Reviews() {
 
   return (
     <div className="overflow-hidden">
-      <div className="pt-4 md:pb-[144px] md:pt-12 xl:pb-[176px]">
-        <Layout className="mb-6 flex items-end justify-between md:mb-16 xl:mb-20">
-          <div className="font-satoshi text-[40px] font-medium leading-[41px] tracking-[-2px] md:max-w-[577px] md:text-[56px] md:leading-[64px] md:tracking-[-2px]">
-            Discover what our customers <br className="md:hidden" />
-            have to say
+      <div className="pb-[100px] pt-[100px] md:pb-[144px] md:pt-12 xl:pb-[176px]">
+        <Layout className="mb-10 flex items-end justify-between md:mb-16 xl:mb-20">
+          <div className="font-satoshi text-[32px] font-medium leading-[130%] tracking-[-2px] md:max-w-[577px] md:text-[56px] md:leading-[64px] md:tracking-[-2px]">
+            Discover what our customers have to say
           </div>
           {/* <div className="hidden space-x-4 pb-[14px] md:flex">
           <CaseNavArrow
@@ -369,8 +368,8 @@ export default function Reviews() {
                 </SwiperSlide>
               ))}
               <div className="pt-10">
-                <div className="hidden items-center space-x-6 md:flex">
-                  <div className="flex shrink-0 space-x-4">
+                <div className="items-center md:flex md:space-x-6">
+                  <div className="hidden shrink-0 space-x-4 md:flex">
                     <CaseNavArrow
                       dir="left"
                       onClick={() => {

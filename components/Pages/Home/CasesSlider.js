@@ -1,7 +1,7 @@
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
 import { Mousewheel } from 'swiper/modules';
@@ -71,7 +71,7 @@ function CaseSlideMobile() {}
 
 function Tag({ name }) {
   return (
-    <div className="glow-border-dark rounded-full px-[10px] py-[4px] font-inter uppercase md:text-[12px] md:leading-[160%] md:tracking-[0.02em]">
+    <div className="glow-border-dark rounded-full bg-black-dim px-[10px] py-[4px] font-inter text-[12px] uppercase leading-[160%] tracking-[0.02em] md:py-[4px]">
       {name}
     </div>
   );
@@ -82,37 +82,18 @@ export function CaseSlide({ type = 'default', item, index, total }) {
 
   return (
     <div className="__slide-wrapper h-full w-full md:pointer-events-none">
-      <div className="__slide relative flex flex-col overflow-hidden text-black md:min-h-[480px] md:flex-row md:items-end md:rounded-3xl xl:h-[560px]">
-        {item.imageMobile ? (
-          <picture>
-            <Source
-              image={(type === 'work' && item.imageWork) || item.image}
-              media="(min-width: 820px)"
-              width="1280"
-            />
-            <Source image={item.imageMobile} width="480" />
-            <img
-              className="h-full min-h-[304px] w-full rounded-3xl object-cover transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none"
-              src={resolve({ src: item.image.src, width: 1440 })}
-              alt=""
-            />
-          </picture>
-        ) : (
-          <Image
-            className="h-full min-h-[304px] w-full rounded-3xl object-cover transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none"
-            src={(type === 'work' && item.imageWork) || item.image}
-            alt=""
-          />
-        )}
-
-        <div className="__slider-item2 pointer-events-none absolute inset-0 hidden md:block"></div>
+      <div className="__slide relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-[#F8F8F8] text-black md:min-h-[480px] md:flex-row md:items-end md:rounded-3xl xl:h-[560px]">
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
-          className="relative pb-3 md:mt-0 md:px-[48px] md:pb-[72px] md:pt-[72px] xl:px-12 xl:pb-[114px] xl:pt-[114px]"
+          className="relative z-[1] p-6 pb-14 md:mt-0 md:px-[48px] md:pb-[72px] md:pt-[72px] xl:px-12 xl:pb-[114px] xl:pt-[114px]"
         >
           {/* {item.icon && ( */}
-          <div className="mb-10">
-            <Image src={BLogo} alt="" className="h-[48px] w-[48px]" />
+          <div className="mb-0 md:mb-10">
+            <Image
+              src={BLogo}
+              alt=""
+              className="h-[40px] w-[40px] md:h-[48px] md:w-[48px]"
+            />
           </div>
           {/* )} */}
           {/* <div className="relative hidden font-glow text-[11px] font-medium uppercase tracking-[2px] md:block">
@@ -138,14 +119,14 @@ export function CaseSlide({ type = 'default', item, index, total }) {
               </>
             )}
           </div> */}
-          <div className="mb-9 mt-[38px] font-satoshi text-[26px] font-medium leading-[120%] md:mb-[24px] md:mt-[15px] md:text-[32px] md:leading-[40px] xl:text-[40px] xl:leading-[48px]">
+          <div className="mb-4 mt-6 font-satoshi text-[28px] font-medium leading-[130%] md:mb-[24px] md:mt-[15px] md:text-[32px] md:leading-[40px] xl:text-[40px] xl:leading-[48px]">
             {item.title2 || item.title}
           </div>
-          <div className="mb-10 max-w-[374px] font-inter md:text-[16px] md:leading-[160%] xl:text-[18px]">
+          <div className="mb-6 max-w-[374px] font-inter text-[16px] leading-[160%] xl:text-[18px]">
             Beast is an ambitious carsharing project from Estonia that presents
             a range of exclusive Tesla models.
           </div>
-          <div className="flex space-x-2">
+          <div className="flex flex-wrap gap-2">
             <Tag name="Product Design" />
             <Tag name="UI" />
             <Tag name="UX" />
@@ -162,6 +143,27 @@ export function CaseSlide({ type = 'default', item, index, total }) {
             {item.company && <Col title="Company" items={item.company} />}
           </div> */}
         </div>
+        {item.imageMobile ? (
+          <picture>
+            <Source
+              image={(type === 'work' && item.imageWork) || item.image}
+              media="(min-width: 820px)"
+              width="1280"
+            />
+            <Source image={item.imageMobile} width="480" />
+            <img
+              className="absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none md:object-cover"
+              src={resolve({ src: item.image.src, width: 1440 })}
+              alt=""
+            />
+          </picture>
+        ) : (
+          <Image
+            className="absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none md:object-cover"
+            src={(type === 'work' && item.imageWork) || item.image}
+            alt=""
+          />
+        )}
       </div>
     </div>
   );
@@ -334,25 +336,29 @@ export function CasesSlider2() {
             {/* {({ show, swiperOptions }) => ( */}
             <Swiper
               className="!overflow-visible"
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper;
-              }}
-              spaceBetween="24px"
-              // {...swiperOptions}
-              mousewheel={{
-                invert: true,
-                forceToAxis: true,
-                sensitivity: 0.1,
-              }}
-              modules={[Mousewheel]}
-              breakpoints={{
-                320: {
-                  slidesPerView: 1,
-                },
-                820: {
-                  slidesPerView: 'auto',
-                },
-              }}
+              {...(true
+                ? {
+                    onSwiper: (swiper) => {
+                      swiperRef.current = swiper;
+                    },
+                    spaceBetween: '24px',
+                    // {...swiperOptions}
+                    mousewheel: {
+                      invert: true,
+                      forceToAxis: true,
+                      sensitivity: 0.1,
+                    },
+                    modules: [Mousewheel],
+                    breakpoints: {
+                      320: {
+                        slidesPerView: 1,
+                      },
+                      820: {
+                        slidesPerView: 'auto',
+                      },
+                    },
+                  }
+                : {})}
             >
               {cases.map((item, i) => (
                 <SwiperSlide

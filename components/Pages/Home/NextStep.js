@@ -94,24 +94,25 @@ export default function NextStep() {
 
   return (
     <div ref={rootRef}>
-      <Layout className="relative pt-[100px] md:pt-[120px] xl:pt-[176px]">
+      <Layout className="relative pt-[86px] md:pt-[120px] xl:pt-[176px]">
         <div
           ref={sphereRef}
-          className="pointer-events-none absolute left-1/2 top-[-10%] w-[200%] max-w-[480px] -translate-x-1/2 opacity-30 md:max-w-[890px] xl:top-[-4%] xl:scale-125"
+          className="pointer-events-none absolute left-1/2 top-[-1%] w-[200%] max-w-[480px] -translate-x-1/2 scale-150 opacity-30 md:top-[-10%] md:max-w-[890px] xl:top-[-4%] xl:scale-125"
         >
           <Image src={SphereNew} alt="" />
         </div>
-        <div className="pb-[140px] xl:pb-[176px]">
+        <div className="pb-[100px] md:pb-[140px] xl:pb-[176px]">
           <Animated
             as="h2"
-            className="mb-[60px] text-center font-satoshi text-5xl font-medium tracking-[-3px] md:mb-[136px] md:text-[96px] md:leading-[106px] md:tracking-[-3px] xl:mb-[144px] xl:text-[112px] xl:leading-[120px]"
+            className="mb-[86px] text-center font-satoshi text-[53px] font-medium leading-[120%] tracking-[-1px] md:mb-[136px] md:text-[96px] md:leading-[106px] md:tracking-[-3px] xl:mb-[144px] xl:text-[112px] xl:leading-[120px]"
           >
-            The next step of <br className="hidden md:block" /> your{' '}
+            The next step of
+            <br className="hidden md:block" /> your{' '}
             <br className="hidden xl:hidden" />
             digital product
             <br className="hidden md:block" /> starts here
           </Animated>
-          <div className="grid grid-cols-3 gap-16 font-satoshi">
+          <div className="flex flex-col gap-12 pt-[100px] font-satoshi md:grid md:grid-cols-3 md:gap-16">
             {items.map((item, index) => (
               <div
                 key={index}
@@ -131,14 +132,14 @@ export default function NextStep() {
                       [index]: inView,
                     }));
                   }}
-                  className="mb-8 h-[80px] w-[80px] md:mb-8 xl:mb-6 4xl:mb-9"
+                  className="mb-6 h-[80px] w-[80px] md:mb-8 xl:mb-6 4xl:mb-9"
                 >
                   <item.icon isReady={iconMap[index] === true} />
                 </Animated>
                 <Animated
                   as="h3"
                   delay={100}
-                  className="mb-4 text-[28px] font-medium leading-[36px] xl:text-[32px] xl:leading-[40px]"
+                  className="mb-4 text-[24px] font-medium leading-[32px] md:text-[28px] md:leading-[36px] xl:text-[32px] xl:leading-[40px]"
                 >
                   {item.title}
                 </Animated>

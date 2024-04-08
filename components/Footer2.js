@@ -55,8 +55,8 @@ export default function Footer2({
         <FooterFormWrapper isSubmitted={isSubmitted} />
       ) : (
         showForm && (
-          <Layout disableOnMobile={true}>
-            <div className="text-inter relative overflow-hidden bg-black px-4 py-[126px] md:rounded-[32px] md:py-[126px] xl:py-[142px] xl:pb-[128px] xl:pt-[131px]">
+          <Layout disableOnMobile={true} className="px-2">
+            <div className="text-inter relative overflow-hidden rounded-3xl bg-black px-6 py-[138px] md:rounded-[32px] md:py-[126px] xl:py-[142px] xl:pb-[128px] xl:pt-[131px]">
               <Image
                 src={FormBG}
                 alt=""
@@ -77,23 +77,23 @@ export default function Footer2({
                 />
               </picture> */}
               <div className="relative z-[1] text-center">
-                <div className="mb-6 text-button-m2 uppercase text-white md:mb-8 md:text-[12px] md:leading-[24px]">
+                <div className="mb-[42px] text-[12px] uppercase leading-[24px] tracking-[0.02em] text-white md:mb-8">
                   <SlotText />
                 </div>
-                <div className="mb-4 text-center font-satoshi text-heading-h3 font-medium text-white md:mb-6 md:text-[56px] md:leading-[64px] xl:text-[72px] xl:leading-[72px]">
+                <div className="mb-8 text-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-6 md:text-[56px] md:leading-[64px] xl:text-[72px] xl:leading-[72px]">
                   Let’s make
                   <br /> your project glow
                 </div>
-                <div className="mb-10 text-body-xs text-white md:mb-8 md:text-[16px] md:leading-[24px] xl:text-[18px]">
-                  Our team will get back to you
-                  <br className="md:hidden" /> within 24 hours 🙌
+                <div className="mb-10 text-[16px] leading-[24px] text-white md:mb-8 md:text-[16px] md:leading-[24px] xl:text-[18px]">
+                  Our team will get back to you within{' '}
+                  <br className="md:hidden" /> 24 hours 🙌
                 </div>
                 <div className=" text-center">
                   <Button2
                     // color="white"
                     as={Link}
                     href="/contact-us"
-                    className="!bg-white !px-4 !py-2 !text-black"
+                    className="w-full !bg-white !px-4 !py-2 font-medium !text-black md:w-auto"
                   >
                     Book a free call
                   </Button2>
