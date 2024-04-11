@@ -259,7 +259,7 @@ function ReviewCard({
   return (
     <div className="h-full font-inter">
       <div className="h-full rounded-[32px] bg-dim-gray p-6 md:flex md:space-x-16 md:px-0 md:py-10 xl:py-12">
-        <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-10">
+        <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-12">
           <div className="md:flex md:h-full md:max-w-[168px] md:flex-col md:items-start md:justify-between">
             <div className="">
               <div className="mb-4 flex items-center justify-between">
@@ -294,7 +294,7 @@ function ReviewCard({
           </div>
         </div>
         <div className="flex flex-col items-start">
-          <div className="text-[20px] leading-[150%] md:col-span-6 md:pr-10 md:text-[24px] md:leading-[160%]">
+          <div className="text-[20px] leading-[150%] md:col-span-6 md:pr-12 md:text-[24px] md:leading-[160%]">
             “{text}”
           </div>
         </div>
@@ -307,7 +307,7 @@ export default function Reviews() {
 
   return (
     <div className="overflow-hidden">
-      <div className="pb-[100px] pt-[100px] md:pb-[144px] md:pt-12 xl:pb-[176px]">
+      <div className="py-[100px] md:py-[144px] xl:py-[176px]">
         <Layout className="mb-10 flex items-end justify-between md:mb-16 xl:mb-20">
           <div className="font-satoshi text-[32px] font-medium leading-[130%] tracking-[-2px] md:max-w-[577px] md:text-[56px] md:leading-[64px] md:tracking-[-2px]">
             Discover what our customers have to say

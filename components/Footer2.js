@@ -77,14 +77,14 @@ export default function Footer2({
                 />
               </picture> */}
               <div className="relative z-[1] text-center">
-                <div className="mb-[42px] text-[12px] uppercase leading-[24px] tracking-[0.02em] text-white md:mb-8">
+                <div className="mb-[42px] text-[12px] uppercase leading-[24px] tracking-[0.02em] text-white md:mb-8 xl:mb-10">
                   <SlotText />
                 </div>
-                <div className="mb-8 text-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-6 md:text-[56px] md:leading-[64px] xl:text-[72px] xl:leading-[72px]">
+                <div className="mb-8 text-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-6 md:text-[56px] md:leading-[64px] xl:mb-8 xl:text-[72px] xl:leading-[72px]">
                   Let’s make
                   <br /> your project glow
                 </div>
-                <div className="mb-10 text-[16px] leading-[24px] text-white md:mb-8 md:text-[16px] md:leading-[24px] xl:text-[18px]">
+                <div className="mb-10 text-[16px] leading-[24px] text-white md:mb-8 md:text-[16px] md:leading-[24px] xl:mb-10 xl:text-[18px]">
                   Our team will get back to you within{' '}
                   <br className="md:hidden" /> 24 hours 🙌
                 </div>
@@ -93,7 +93,8 @@ export default function Footer2({
                     // color="white"
                     as={Link}
                     href="/contact-us"
-                    className="w-full !bg-white !px-4 !py-2 font-medium !text-black md:w-auto"
+                    className="w-full !bg-white font-medium !text-black md:w-auto"
+                    compact
                   >
                     Book a free call
                   </Button2>

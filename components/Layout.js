@@ -9,7 +9,7 @@ export default function Layout({
   return (
     <div
       className={cx(
-        'mx-auto w-full max-w-[1424px]',
+        'mx-auto w-full max-w-[1440px]',
         {
           'md:px-8 xl:px-16': !disablePadding,
           'px-4': !disableOnMobile && !disablePadding,

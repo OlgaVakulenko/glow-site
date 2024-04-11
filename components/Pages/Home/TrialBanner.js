@@ -24,10 +24,10 @@ function Card({ className, children, hideBg = false }) {
 function NumCard({ num, title }) {
   return (
     <Card className="relative flex items-baseline space-x-6 md:flex-col md:space-x-0 md:space-y-[20px]">
-      <div className="flex h-[28px] w-[28px] items-center justify-center rounded-full bg-brand p-[6px] font-inter text-[16px] font-medium leading-[20px] text-white xl:text-[16px] xl:leading-[20px]">
+      <div className="flex h-[32px] w-[32px] items-center justify-center rounded-full bg-brand p-[6px] font-inter text-[16px] font-medium leading-[20px] text-white xl:text-[16px] xl:leading-[20px]">
         {num}
       </div>
-      <div className="font-satoshi text-[18px] font-medium leading-[28px] xl:text-[20px] xl:leading-[32px]">
+      <div className="font-satoshi text-[18px] font-medium leading-[32px] xl:text-[20px] xl:leading-[32px]">
         {title}
       </div>
     </Card>
@@ -68,7 +68,7 @@ export default function TrialBanner() {
             Get started
           </Button2>
         </Card>
-        <Card className="relative md:col-span-2  md:!pb-8 xl:!p-8">
+        <Card className="relative md:col-span-2  md:!pb-8 xl:!p-6">
           {/* <Image
             src={LogoG}
             alt=""

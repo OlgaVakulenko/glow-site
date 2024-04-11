@@ -169,12 +169,12 @@ export default function SliderProgress({
           ></div>
           {/* <div
             ref={thumbRef3}
-            className="absolute top-1/2 left-0 h-[2px] w-full -translate-y-2/4 bg-black"
+            className="absolute top-1/2 left-0 h-[4px] w-full -translate-y-2/4 bg-black"
           ></div> */}
           <div
             ref={thumbRef}
             className={cx(
-              'absolute left-0 top-1/2 h-[2px] w-full -translate-y-2/4 ',
+              'absolute left-0 top-1/2 h-[4px] w-full -translate-y-2/4 ',
               {
                 'bg-black': theme === 'white',
                 'bg-white': theme === 'dark',
@@ -183,7 +183,7 @@ export default function SliderProgress({
           ></div>
           {/* <div
             ref={thumbRef2}
-            className="absolute top-1/2 left-0 h-[2px] w-full -translate-y-2/4 bg-black"
+            className="absolute top-1/2 left-0 h-[4px] w-full -translate-y-2/4 bg-black"
           ></div> */}
         </>
       )}

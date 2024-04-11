@@ -32,7 +32,7 @@ export default function SliderProgress() {
         <div
           key={slide}
           className={cx(
-            'mr-2 h-[2px] w-[30px] bg-black transition-colors duration-500',
+            'mr-2 h-[4px] w-[30px] bg-black transition-colors duration-500',
             {
               '!bg-brand': activeIndex === slide,
             }

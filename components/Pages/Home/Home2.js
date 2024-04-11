@@ -52,7 +52,7 @@ function IntroSection3() {
 function IntroSection5() {
   return (
     <IntroSection2
-      className="!pt-[232px] md:!pt-[382px] xl:!pt-[401px]"
+      className="!pt-[232px] md:!pt-[382px] xl:!pt-[500px]"
       showBg={false}
       title={
         <>Your strategic partner in design of successful digital products</>

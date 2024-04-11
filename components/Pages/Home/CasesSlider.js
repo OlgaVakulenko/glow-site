@@ -82,7 +82,7 @@ export function CaseSlide({ type = 'default', item, index, total }) {
 
   return (
     <div className="__slide-wrapper h-full w-full md:pointer-events-none">
-      <div className="__slide relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-[#F8F8F8] text-black md:min-h-[480px] md:flex-row md:items-end md:rounded-3xl xl:h-[560px]">
+      <div className="__slide relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-[#F8F8F8] text-black md:min-h-[480px] md:flex-row md:items-end md:rounded-3xl xl:h-[560px] xl:rounded-[32px]">
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
           className="relative z-[1] p-6 pb-14 md:mt-0 md:px-[48px] md:pb-[72px] md:pt-[72px] xl:px-12 xl:pb-[114px] xl:pt-[114px]"
@@ -384,7 +384,7 @@ export function CasesSlider2() {
                   <EndSlide />
                 </SwiperSlide> */}
               <div className="md:mt-[52px] xl:mt-[48px]">
-                <div className="hidden items-center space-x-6 md:flex">
+                <div className="hidden items-center space-x-8 md:flex">
                   <div className="flex shrink-0 space-x-4">
                     <CaseNavArrow
                       dir="left"

@@ -47,7 +47,7 @@ export default function LoadingProgress() {
       style={{
         transform: `scaleX(${progress})`,
       }}
-      className={'absolute top-0 left-0 h-[2px] w-full origin-left bg-red-600'}
+      className={'absolute left-0 top-0 h-[4px] w-full origin-left bg-red-600'}
     ></div>
   );
 }

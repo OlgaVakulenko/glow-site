@@ -41,9 +41,9 @@ function Card({ item, index, iconMap, setIconMap }) {
   return (
     <div className="group h-full">
       <div className="h-full md:px-0">
-        <div className="flex h-full flex-col rounded-3xl bg-white md:flex md:justify-start md:rounded-none md:px-0 md:py-9 md:pb-[68px] xl:pb-[75px] 4xl:pb-[93px]">
+        <div className="flex h-full flex-col rounded-3xl bg-white md:flex md:justify-start md:rounded-none md:px-0">
           <InViewport
-            className="h-[80px] w-[80px] md:col-span-6 md:flex md:items-center"
+            className="h-[80px] w-[80px] md:col-span-6 md:flex md:items-center xl:h-[96px] xl:w-[96px]"
             onViewChange={(inView) => {
               setIconMap((map) => ({
                 ...map,
@@ -62,7 +62,7 @@ function Card({ item, index, iconMap, setIconMap }) {
             />
           </InViewport>
           <div>
-            <h3 className="mb-4 mt-6 font-satoshi text-2xl font-medium tracking-[0.48px] md:col-span-5 md:mb-5 md:mt-8 md:text-[28px] md:leading-[36px] xl:mt-10 xl:text-[32px] xl:leading-[40px]">
+            <h3 className="mb-4 mt-6 font-satoshi text-2xl font-medium tracking-[0.48px] md:col-span-5 md:mt-8 md:text-[28px] md:leading-[36px] xl:mt-10 xl:text-[32px] xl:leading-[40px]">
               {item.title}
             </h3>
             <div
@@ -115,7 +115,7 @@ export default function Services() {
           as="h2"
           className="font-satoshi text-[32px] font-medium leading-[130%] tracking-[-1px] md:col-span-4 md:mb-0 md:text-[48px] md:leading-[56px] md:tracking-[-2px] xl:col-span-7 xl:max-w-[560px] xl:text-[56px] xl:text-heading-h2-2 xl:leading-[64px]"
         >
-          We open to any <br /> kind of co-operation
+          We are open to any <br /> kind of co-operation
         </Animated>
         <div className="hidden 4xl:col-span-1 4xl:block"></div>
         {/* <Animated

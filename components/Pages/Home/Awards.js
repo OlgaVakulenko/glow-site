@@ -2,7 +2,7 @@ import Layout from '../../Layout';
 
 function Card({ children, title, subtitle, icon }) {
   return (
-    <div className="rounded-3xl bg-dim-gray p-6 md:w-full">
+    <div className="rounded-3xl bg-dim-gray p-6 md:w-full xl:p-8">
       <div className="mb-[68px] h-14 w-14 xl:mb-[48px]">{icon}</div>
       <div className="flex justify-between font-satoshi text-[20px] font-medium leading-[28px] xl:text-[24px] xl:leading-[32px]">
         <div>{title}</div>
@@ -14,8 +14,8 @@ function Card({ children, title, subtitle, icon }) {
 
 export default function Awards() {
   return (
-    <Layout className="md:pb-4 xl:pb-[60px]">
-      <h2 className="mb-10 font-satoshi text-[32px] font-medium leading-[130%] tracking-[-2px] md:mb-16 md:text-[48px] md:leading-[56px] xl:text-[56px] xl:leading-[64px]">
+    <Layout className="md:pb-0">
+      <h2 className="mb-10 font-satoshi text-[32px] font-medium leading-[130%] tracking-[-2px] md:mb-16 md:text-[48px] md:leading-[56px] xl:mb-20 xl:text-[56px] xl:leading-[64px]">
         We have won several <br />
         design awards
       </h2>

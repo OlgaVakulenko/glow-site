@@ -5,7 +5,7 @@ import Fintech from '../../Icons/Fintech';
 import Healthcare from '../../Icons/Healthcare';
 import { Transportation2 } from '../../Icons/Transportation';
 import Layout from '../../Layout';
-import SphereNew from './assets/sphere-new.png';
+import SphereNew from './assets/sphere-new2.png';
 import gsap from '../../../dist/gsap';
 import Image from '../../Image';
 import { useMedia, useMediaAtom } from '../../../lib/agent';
@@ -97,7 +97,7 @@ export default function NextStep() {
       <Layout className="relative pt-[86px] md:pt-[120px] xl:pt-[176px]">
         <div
           ref={sphereRef}
-          className="pointer-events-none absolute left-1/2 top-[-1%] w-[200%] max-w-[480px] -translate-x-1/2 scale-150 opacity-30 md:top-[-10%] md:max-w-[890px] xl:top-[-4%] xl:scale-125"
+          className="pointer-events-none absolute left-1/2 top-[-1%] w-[200%] max-w-[480px] -translate-x-1/2 scale-150 md:top-[-10%] md:max-w-[890px] xl:top-[-5%]"
         >
           <Image src={SphereNew} alt="" />
         </div>
@@ -112,7 +112,7 @@ export default function NextStep() {
             digital product
             <br className="hidden md:block" /> starts here
           </Animated>
-          <div className="flex flex-col gap-12 pt-[100px] font-satoshi md:grid md:grid-cols-3 md:gap-16">
+          <div className="flex flex-col gap-12 pt-[100px] font-satoshi md:grid md:grid-cols-3 md:gap-16 md:pt-0">
             {items.map((item, index) => (
               <div
                 key={index}
@@ -132,7 +132,7 @@ export default function NextStep() {
                       [index]: inView,
                     }));
                   }}
-                  className="mb-6 h-[80px] w-[80px] md:mb-8 xl:mb-6 4xl:mb-9"
+                  className="mb-6 h-[72px] w-[72px] md:mb-8 md:h-[80px] md:w-[80px] xl:mb-10 xl:h-[96px] xl:w-[96px] 4xl:mb-9"
                 >
                   <item.icon isReady={iconMap[index] === true} />
                 </Animated>

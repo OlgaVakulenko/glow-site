@@ -79,7 +79,7 @@ export default function LogoCarousel() {
     <div ref={containerRef}>
       <Layout
         className={cx(
-          'mb-6 !px-0 opacity-0 transition-opacity duration-300 md:mb-[100px] md:pt-[50px] xl:mb-[120px]',
+          'mb-6 !px-0 opacity-0 transition-opacity duration-300 md:mb-[100px] md:pt-0 xl:mb-[140px]',
           {
             '!opacity-100': mounted,
           }
@@ -89,7 +89,7 @@ export default function LogoCarousel() {
           <div className="icons-slider-l relative">
             <div
               ref={ref}
-              className="relative flex h-20 justify-between overflow-hidden"
+              className="relative flex min-h-16 justify-between overflow-hidden"
             >
               <div
                 ref={moveRef}
@@ -98,8 +98,12 @@ export default function LogoCarousel() {
                 <div ref={scrollerRef} className="flex">
                   {[...slides, ...slides].map((image, index) => (
                     <div key={index} className="ml-24 shrink-0 first:ml-0">
-                      <div className="flex h-full items-center  justify-center opacity-40">
-                        <img className="w-full" src={image.src} alt="" />
+                      <div className="flex h-full items-center justify-center opacity-40">
+                        <img
+                          className="w-full max-w-[87%]"
+                          src={image.src}
+                          alt=""
+                        />
                       </div>
                     </div>
                   ))}
