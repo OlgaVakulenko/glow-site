@@ -46,7 +46,7 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
               }
             )}
           >
-            <div className="font-glow text-[40px] font-medium leading-[48px] md:text-[56px] md:leading-[64px] xl:text-[72px] xl:leading-[72px]">
+            <div className="text-next-heading-4 md:text-next-heading-2 xl:text-next-heading-0">
               {_isSubmitted ? (
                 <div>
                   <div>Let’s get to work together</div>

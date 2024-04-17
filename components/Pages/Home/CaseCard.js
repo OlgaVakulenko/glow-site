@@ -19,7 +19,7 @@ function Col2({ title, items = [] }) {
 export default function CaseCard({ type, item, index, total }) {
   return (
     <div className={cx('__slide-wrapper h-full w-full')}>
-      <div className="__slide relative flex flex-col overflow-hidden text-black md:min-h-[530px] md:flex-col md:rounded-3xl">
+      <div className="__slide relative flex flex-col overflow-hidden text-black md:min-h-[530px] md:flex-col md:rounded-[32px]">
         {item.imageMobile ? (
           <picture>
             <Source
@@ -74,7 +74,7 @@ export default function CaseCard({ type, item, index, total }) {
               </>
             )}
           </div>
-          <div className="mb-3 mt-[38px] font-glow text-[26px] font-medium leading-[28px] md:mb-9 md:mt-6 md:text-[32px] md:leading-10">
+          <div className="mb-2 mt-6 font-glow text-next-heading-6 md:mb-9 md:mt-6 md:text-[32px] md:leading-10">
             <div className="flex items-center justify-between">
               <span>{item.title2 || item.title}</span>
               <svg
@@ -99,11 +99,8 @@ export default function CaseCard({ type, item, index, total }) {
             <div className="font-medium uppercase md:mb-3 md:text-body-heading-s">
               should be some kind of title here
             </div>
-            <div className="text-text-dim md:max-w-[332px] md:text-body-xs">
-              Beast is an ambitious carsharing project from Estonia that
-              presents a range of exclusive Tesla models. Inspired by Tesla,
-              their approach and desire is to serve the mission of reducing
-              carbon dioxide emissions into the environment.
+            <div className="md:max-w-[332px] md:text-next-body-s xl:text-next-body-m">
+              {item.description}
             </div>
           </div>
           <div className="hidden text-text-dim md:grid md:gap-4">
@@ -111,11 +108,8 @@ export default function CaseCard({ type, item, index, total }) {
             <Col2 title="Services" items={item.service} />
             <Col2 title="Company" items={item.company} />
           </div>
-          <div className="text-text-dim md:hidden md:max-w-[332px] md:text-body-xs">
-            Beast is an ambitious carsharing project from Estonia that presents
-            a range of exclusive Tesla models. Inspired by Tesla, their approach
-            and desire is to serve the mission of reducing carbon dioxide
-            emissions into the environment.
+          <div className="text-next-body-xs text-text-dim md:hidden">
+            {item.description}
           </div>
           <div className="hidden space-x-[40px] pl-[3px] md:hidden md:space-x-[62px]">
             <Col className="" title="Industry" items={item.industry} />

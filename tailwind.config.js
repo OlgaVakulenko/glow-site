@@ -30,6 +30,108 @@ module.exports = {
         '2k': '2000px',
       },
       fontSize: {
+        'next-heading-0': [
+          '72px',
+          {
+            lineHeight: '80px',
+            letterSpacing: '-1px',
+          },
+        ],
+        'next-heading-1': [
+          '64px',
+          {
+            lineHeight: '80px',
+            letterSpacing: '-1px',
+          },
+        ],
+        'next-heading-2': [
+          '56px',
+          {
+            lineHeight: '72px',
+            letterSpacing: '-1px',
+          },
+        ],
+        'next-heading-3': [
+          '48px',
+          {
+            lineHeight: '64px',
+            letterSpacing: '-1px',
+          },
+        ],
+        'next-heading-4': [
+          '40px',
+          {
+            lineHeight: '48px',
+            letterSpacing: '-1px',
+          },
+        ],
+        'next-heading-5': [
+          '32px',
+          {
+            lineHeight: '40px',
+            letterSpacing: '-1px',
+          },
+        ],
+        'next-heading-6': [
+          '24px',
+          {
+            lineHeight: '32px',
+          },
+        ],
+        'next-heading-7': [
+          '20px',
+          {
+            lineHeight: '24px',
+          },
+        ],
+        'next-body-xxl': [
+          '24px',
+          {
+            lineHeight: '36px',
+            letterSpacing: '-1px',
+          },
+        ],
+        'next-body-xl': [
+          '22px',
+          {
+            lineHeight: '32px',
+            letterSpacing: '-1px',
+          },
+        ],
+        'next-body-l': [
+          '20px',
+          {
+            lineHeight: '32px',
+            letterSpacing: '-1px',
+          },
+        ],
+        'next-body-m': [
+          '18px',
+          {
+            lineHeight: '28px',
+            letterSpacing: '-1px',
+          },
+        ],
+        'next-body-m-reading': [
+          '18px',
+          {
+            lineHeight: '32px',
+          },
+        ],
+        'next-body-s': [
+          '16px',
+          {
+            lineHeight: '24px',
+            letterSpacing: '-1px',
+          },
+        ],
+        'next-body-xs': [
+          '14px',
+          {
+            lineHeight: '20px',
+            letterSpacing: '-1px',
+          },
+        ],
         xs: ['12px', '18px'],
         'body-xs': ['14px', '19px'],
         'body-s': ['16px', '22px'],

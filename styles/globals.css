@@ -486,3 +486,13 @@
   mix-blend-mode: luminosity;
   z-index: 1;
 }
+
+.text-next-heading-0, .text-next-heading-1, .text-next-heading-2, .text-next-heading-3, .text-next-heading-4, .text-next-heading-5, .text-next-heading-6, .text-next-heading-7 {
+  font-family: 'Satoshi';
+  font-weight: 500;
+  font-feature-settings: 'ss03'on, 'liga'off;
+}
+
+.pointer-events-none, .md\:pointer-events-none {
+  pointer-events: unset !important;
+}

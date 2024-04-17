@@ -101,20 +101,20 @@ function Switches({
       selected={selected}
       onChange={onChange}
     >
-      <RGroupLabel className="text-[16px] leading-[26px] md:text-[18px] xl:font-medium ">
+      <RGroupLabel className="text-next-body-s md:text-next-body-m">
         {title}
       </RGroupLabel>
-      <div className="mt-4 flex flex-wrap gap-4 md:mt-[29px]">
+      <div className="mt-4 flex flex-wrap gap-4">
         {options.map((option) => (
           <RGroupOption
-            className="cursor-pointer rounded-full text-xs font-medium uppercase leading-[160%] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-focus-ring"
+            className="cursor-pointer rounded-full text-xs font-medium uppercase leading-[24px] tracking-[0.02em] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-focus-ring"
             key={option}
             value={option}
           >
             {({ checked }) => (
               <div
                 className={cx(
-                  'glow-border-light2 rounded-full px-4 py-2 transition-colors duration-200 hover:bg-checkbox-dark-hover ',
+                  'glow-border-light2 rounded-full px-4 py-2 transition-colors duration-200 hover:bg-checkbox-dark-hover xl:px-3 xl:py-[6px]',
                   {
                     '!bg-lblue text-black': checked,
                   }
@@ -387,7 +387,7 @@ export default function FooterForm({
               className="mt-8 w-full shrink-0 !bg-white !text-black md:mt-0 md:w-auto"
               compact
             >
-              Book free call
+              Book a free call
             </Button2>
             {/* <button
               type="submit"

@@ -32,11 +32,13 @@ const cases = [
         everything about invoices
       </>
     ),
+    description:
+      'Beast is an ambitious carsharing project from Estonia that presents a range of exclusive Tesla models.',
     title2: 'Invoice Maker',
     industry: ['Rental'],
     service: ['UI/UX', 'Product Design'],
     company: ['Funding $34.5M'],
-    image: LiquidSpace,
+    image: InvoiceMaker,
     imageWork: InvoiceMaker,
     // imageMobile: LiquidSpaceMobile,
     category: ['other'],
@@ -44,12 +46,10 @@ const cases = [
   },
   {
     href: '/liquidspace',
-    title: (
-      <>
-        Liquid Space - workspace <br />
-        rental service
-      </>
-    ),
+    title: <>LiquidSpace: flexible office space rental software</>,
+    description:
+      'LiquidSpace is an online platform and network that connects people with available office spaces for rent.',
+
     title2: 'Liquid Space',
     industry: ['Rental'],
     service: ['UI/UX', 'Product Design'],
@@ -62,12 +62,10 @@ const cases = [
   },
   {
     href: '/jucr',
-    title: (
-      <>
-        Charge your car <br />
-        without worries
-      </>
-    ),
+    title: <>JUCR: mobile app for efforthless EV charging</>,
+    description:
+      'JUCR is a mobile application for fast and convenient access to all charging stations in Europe. ',
+
     title2: 'JUCR',
     industry: ['Charge App', 'Electric Vehicles', 'Car rental'],
     service: ['Product Design', 'UI/UX'],
@@ -86,6 +84,8 @@ const cases = [
         <br /> car rental for Tesla
       </>
     ),
+    description:
+      'Beast is an ambitious carsharing project from Estonia that presents a range of exclusive Tesla models.',
     icon: (
       <svg
         width="48"
@@ -114,12 +114,10 @@ const cases = [
     type: ['mobile'],
   },
   {
-    title: (
-      <>
-        CryptoGenie is a tool for
-        <br className="hidden md:block" /> predicting the relevant trends
-      </>
-    ),
+    title: <>CryptoGenie: cryptocurrency trend prediction platform</>,
+    description:
+      'CryptoGenie is a brand new tool for predicting the relevant trends of various cryptocurrency assets.',
+
     title2: 'CryptoGenie',
     href: '/cryptogenie',
     industry: ['AI', 'Blockchain'],
@@ -137,7 +135,10 @@ const cases = [
   },
   {
     href: '/parking',
-    title: 'Platform for parking in airport',
+    title: 'A-Parking: platform for parking management',
+    description:
+      'Moving time-consuming parking management routine from paper to the tablet screen.',
+
     title2: 'Platform for parking',
     industry: ['Car Rent'],
     service: ['UI/UX', 'Branding'],
@@ -149,8 +150,10 @@ const cases = [
   },
   {
     href: '/tilt',
-    title:
-      'Tilt: a platform that connects students with financial aid opportunities',
+    title: 'Tilt: financial aid opportunities for american students',
+    description:
+      'Tilt helps students find and select colleges that will offer them the best deal, as well as financial aid.',
+
     title2: 'Tilt',
     industry: ['Education'],
     service: ['UI/UX', 'Product Design'],
@@ -168,7 +171,11 @@ const cases = [
   },
   {
     href: '/fleet',
-    title: 'FleetChaser – fleet management platform',
+    title: 'FleetChaser: efficient fleet management platform',
+    description:
+      'FleetChaser helps companies in the construction industry efficiently automate their work processes.',
+
+    titleMobile: 'FleetChaser - Fleet management platform',
     title2: 'FleetChaser',
     industry: ['Management', 'Construction'],
     service: ['Product Design', 'User Experience', 'Product Design'],
@@ -180,7 +187,10 @@ const cases = [
   },
   {
     href: '/ethos',
-    title: 'EthosCE: new look at medical platform',
+    title: 'EthosCE: educational platform for medical professionals',
+    description:
+      'EthosCE is an educational platform that provides new opportunities for healthcare professionals.',
+
     title2: 'EthosCE',
     industry: ['Education', 'Medicine'],
     service: ['UI/UX', 'Web Design'],

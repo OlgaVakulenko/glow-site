@@ -122,9 +122,8 @@ export function CaseSlide({ type = 'default', item, index, total }) {
           <div className="mb-4 mt-6 font-satoshi text-[28px] font-medium leading-[130%] md:mb-[24px] md:mt-[15px] md:text-[32px] md:leading-[40px] xl:text-[40px] xl:leading-[48px]">
             {item.title2 || item.title}
           </div>
-          <div className="mb-6 max-w-[374px] font-inter text-[16px] leading-[160%] xl:text-[18px]">
-            Beast is an ambitious carsharing project from Estonia that presents
-            a range of exclusive Tesla models.
+          <div className="mb-6 max-w-[464px] font-inter text-[16px] leading-[160%] xl:text-[18px]">
+            {item.description}
           </div>
           <div className="flex flex-wrap gap-2">
             <Tag name="Product Design" />

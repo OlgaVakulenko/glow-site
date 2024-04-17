@@ -8,12 +8,12 @@ import gsap from '../../../dist/gsap';
 import { useMediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
 import { getFullTitle } from '../../HeadTitle';
-import IntroSection from '../../IntroSection';
+import IntroSection2 from '../../IntroSection2';
 import Layout from '../../Layout';
 import { Separator } from '../About';
 import cases from '../Cases/data';
 import CaseCard from '../Home/CaseCard';
-import { CasesRow } from '../Home/CasesSlider';
+import { CaseSlide, CasesRow } from '../Home/CasesSlider';
 
 export const filterAtom = atom({
   category: 'all',
@@ -32,14 +32,16 @@ export default function Work() {
           content="Explore Glow Team's diverse portfolio of design and development projects, highlighting our commitment to creative solutions and client success."
         ></meta>
       </Head>
-      <IntroSection
-        title="Explore our projects"
-        subtitle={
+      <IntroSection2
+        className="!pt-[172px] md:!pt-[268px] xl:!pt-[296px]"
+        title={
           <>
-            These guys are shining
-            <br /> with us
+            Explore the projects
+            <br />
+            we worked on
           </>
         }
+        subtitle="We put Human Centered Design in the core of our work to provide solutions that satisfy both business and users."
       />
       <Layout>
         <Cases />
@@ -295,11 +297,11 @@ function Cases() {
 
   return (
     <div className="pb-9 pt-12 md:pb-20 md:pt-20">
-      <Filters className="mb-[70px] md:mb-24 xl:flex xl:justify-between" />
+      {/* <Filters className="mb-[70px] md:mb-24 xl:flex xl:justify-between" /> */}
       <div
         key={category + type}
         className={cx(
-          'outer grid gap-10 opacity-100 transition-opacity duration-500 md:gap-20',
+          'outer grid gap-10 opacity-100 transition-opacity duration-500 md:gap-6',
           {}
         )}
         style={
@@ -309,11 +311,15 @@ function Cases() {
         }
       >
         {_cases.map((item, i) => (
-          <AnimationWrapper key={i} index={i} lastIndex={_cases.length - 1}>
+          <div key={i}>
             <Link href={item.href}>
-              <CaseCard type="work" item={item} index={i} />
+              {media === 'mobile' ? (
+                <CaseCard type="work" item={item} index={i} />
+              ) : (
+                <CaseSlide item={item} index={i} />
+              )}
             </Link>
-          </AnimationWrapper>
+          </div>
           // <CaseItem
           //   key={item.href}
           //   className="mb-4"

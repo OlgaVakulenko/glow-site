@@ -70,7 +70,7 @@ function FaqItem({ question, answer }) {
               <h3 className="font-satoshi text-[20px] font-medium leading-[130%] md:col-span-3 md:pr-8 xl:col-span-5">
                 {question}
               </h3>
-              <div className="flex justify-between text-body-s md:col-span-5 xl:col-span-7">
+              <div className="flex justify-between text-next-body-s md:col-span-5 md:text-next-body-m xl:col-span-7">
                 {open ? (
                   <Disclosure.Panel className="hidden whitespace-pre-line md:block">
                     {answer}
@@ -134,8 +134,8 @@ function FaqItem({ question, answer }) {
 
 function FAQ() {
   return (
-    <div className="mb-12">
-      <h2 className="mb-10 font-glow text-[32px] font-medium leading-[40px] tracking-[-2px] md:mb-14 md:text-[48px] md:leading-[56px] xl:text-[56px] xl:leading-[64px]">
+    <div className="mb-12 md:mb-[72px] xl:mb-[88px]">
+      <h2 className="mb-10 font-glow text-[32px] font-medium leading-[40px] tracking-[-2px] md:mb-14 md:text-[48px] md:leading-[56px] xl:mb-20 xl:text-[56px] xl:leading-[64px]">
         Frequently asked questions
       </h2>
       <div className="divide-border-black border-border-black divide-y border-t">
@@ -157,7 +157,7 @@ export default function ContactUs() {
           content={`Have questions or need design solutions? Contact Glow Team's experts for creative and innovative design services.`}
         ></meta>
       </Head>
-      <div className="mb-10 md:mb-14 xl:mb-20">
+      <div className="mb-[52px] md:mb-[72px] xl:mb-[88px]">
         <FooterFormWrapper />
       </div>
       <Layout>
