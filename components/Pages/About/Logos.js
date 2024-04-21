@@ -3,22 +3,30 @@ import { useMediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
 import Layout from '../../Layout';
 
-export default function Logos() {
+export default function Logos({ padding }) {
   return (
-    <Layout className="flex flex-col gap-10 pb-[68px] pt-14 md:grid md:grid-cols-8 md:gap-8 md:gap-y-16 md:pb-[120px] md:pt-20 xl:grid-cols-12 xl:pb-[240px] xl:pt-[120px]">
-      <Figma2 className="md:order-1 md:col-span-4 xl:order-2" />
+    <Layout
+      className={cx(
+        'flex flex-col gap-10 md:grid md:grid-cols-8 md:gap-8 md:gap-y-14 xl:grid-cols-12 xl:gap-y-20',
+        {
+          'pb-[68px] pt-14 md:pb-[120px] md:pt-20 xl:pb-[240px] xl:pt-[120px]':
+            padding == null,
+        }
+      )}
+    >
+      <Figma2 className="order-4 md:col-span-4" />
       <IconLayout
-        className="md:order-1 md:col-span-4 xl:order-2"
+        className="order-5 md:col-span-4"
         icon={mediumIcon}
         title={<ItemTitle>Popular Design Blog on Medium</ItemTitle>}
         link={<RemoteLink>View Topics</RemoteLink>}
         href="https://medium.com/glow-team"
       />
       <IconLayout
-        className="md:col-span-4"
+        className="order-1 md:col-span-4"
         icon={dribbleIcon}
         title={
-          <div className="flex gap-8">
+          <div className="flex gap-2 pt-[3px] md:gap-6">
             <DribbleStat count="12 860" label="Likes" />
             <DribbleStat count="2790" label="Followers" />
           </div>
@@ -27,13 +35,13 @@ export default function Logos() {
         href="https://dribbble.com/glow-team"
       />
       <IconLayout
-        className="md:col-span-4"
+        className="order-2 md:col-span-4"
         icon={dr}
         title={<ItemTitle>Top Product Design Company</ItemTitle>}
         link={<RemoteLink>View Profile</RemoteLink>}
         href="https://www.designrush.com/agency/graphic-design/digital-design"
       />
-      <div className="md:order-2 md:col-span-8 md:flex md:items-center md:justify-center md:rounded-full md:border md:border-black md:p-[28px] xl:order-1 xl:col-span-4">
+      <div className="md:order-6 md:col-span-8 md:flex md:items-center md:justify-center md:rounded-full md:border md:border-black md:p-[28px] xl:order-3 xl:col-span-4">
         <IconLayout
           icon={clutchIcon}
           title={<ItemTitle>Top 30 User Experience Company</ItemTitle>}
@@ -47,7 +55,7 @@ export default function Logos() {
 function DribbleStat({ count, label }) {
   return (
     <div>
-      <div className="font-satoshi text-[18px] font-bold leading-[28px]">
+      <div className="font-satoshi text-[18px] font-bold leading-[28px] md:text-[20px] md:leading-[32px]">
         {count}
       </div>
       <div className="font-satoshi text-[16px] leading-[160%]">{label}</div>
@@ -63,7 +71,7 @@ const mediumIcon = (
     xmlns="http://www.w3.org/2000/svg"
   >
     <rect width="80" height="80" rx="40" fill="#19191B" />
-    <g clip-path="url(#clip0_9183_15297)">
+    <g clipPath="url(#clip0_9183_15297)">
       <path
         d="M42.5624 40.3785C42.5624 46.6631 37.5116 51.7576 31.2814 51.7576C25.0512 51.7576 20 46.6619 20 40.3785C20 34.0951 25.0508 28.999 31.2814 28.999C37.5119 28.999 42.5624 34.094 42.5624 40.3785Z"
         fill="white"
@@ -93,7 +101,7 @@ const dribbleIcon = (
     xmlns="http://www.w3.org/2000/svg"
   >
     <rect x="0.5" y="0.5" width="79" height="79" rx="39.5" stroke="#19191B" />
-    <g clip-path="url(#clip0_9183_15303)">
+    <g clipPath="url(#clip0_9183_15303)">
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -156,7 +164,7 @@ function IconLayout({ className, icon, title, href, link }) {
       className={cx('flex items-center gap-4 md:gap-6', className)}
     >
       <div>{icon}</div>
-      <div className="flex flex-col gap-2 md:gap-8">
+      <div className="flex flex-col gap-2 md:gap-6">
         {title}
         {link}
       </div>
@@ -179,7 +187,7 @@ function Figma2({ className }) {
           xmlns="http://www.w3.org/2000/svg"
         >
           <rect width="80" height="80" rx="40" fill="#19191B" />
-          <g clip-path="url(#clip0_9183_15286)">
+          <g clipPath="url(#clip0_9183_15286)">
             <path
               d="M40.1289 39.6666C40.1289 38.2227 40.6977 36.8378 41.71 35.8168C42.7224 34.7958 44.0955 34.2222 45.5272 34.2222C46.9589 34.2222 48.332 34.7958 49.3444 35.8168C50.3568 36.8378 50.9255 38.2227 50.9255 39.6666C50.9255 41.1106 50.3568 42.4954 49.3444 43.5164C48.332 44.5374 46.9589 45.1111 45.5272 45.1111C44.0955 45.1111 42.7224 44.5374 41.71 43.5164C40.6977 42.4954 40.1289 41.1106 40.1289 39.6666Z"
               fill="#F3F2F4"
@@ -229,7 +237,7 @@ function Figma2({ className }) {
 
 function ItemTitle({ children }) {
   return (
-    <div className="max-w-[240px] font-satoshi text-[18px] font-bold leading-[28px]">
+    <div className="max-w-[240px] font-satoshi text-[18px] font-bold leading-[28px] md:text-[20px] md:leading-[32px]">
       {children}
     </div>
   );
@@ -300,7 +308,7 @@ function LinkItem({
           className={cx(
             'flex w-fit items-center justify-between gap-2 text-[16px] font-medium leading-[24px]',
             {
-              'hidden md:block': type === 'blog',
+              'hidden md:flex': type === 'blog',
             }
           )}
         >

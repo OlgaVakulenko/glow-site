@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router';
+import { usePathname, useRouter } from 'next/navigation';
 import Script from 'next/script';
 import { useEffect, useState } from 'react';
 import GTag from './GTag';
@@ -33,21 +33,11 @@ export const event = ({ action, category, label, value }) => {
 };
 
 export default function Analytics() {
-  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
-    const onRouterChange = (url) => {
-      pageview(url);
-    };
-
-    router.events.on('routeChangeComplete', onRouterChange);
-    router.events.on('hashChangeComplete', onRouterChange);
-
-    return () => {
-      router.events.off('routeChangeComplete', onRouterChange);
-      router.events.off('hashChangeComplete', onRouterChange);
-    };
-  }, [router.events]);
+    pageview(pathname);
+  }, [pathname]);
 
   return (
     <>

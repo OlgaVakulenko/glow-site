@@ -123,7 +123,7 @@ export function HeaderSubMenu({ subMenuItems: items }) {
             title={item.title}
             icon={item.icon}
             text={item.text}
-            href={'#'}
+            href={item.href}
           />
         ))}
       </Layout>

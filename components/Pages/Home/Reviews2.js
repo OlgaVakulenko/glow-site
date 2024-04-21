@@ -1,15 +1,14 @@
+import cx from 'clsx';
+import { useRef } from 'react';
 import 'swiper/css/effect-fade';
+import { Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useMediaAtom } from '../../../lib/agent';
 import DragCursorContainer from '../../DragCursor';
 import Layout from '../../Layout';
 import SliderProgress from '../../SliderProgress';
 import casesData from '../Cases/data';
-import { ClutchRating } from './_Reviews';
-import { Mousewheel } from 'swiper/modules';
-import { FreeMode } from 'swiper/modules';
 import CaseNavArrow from './CaseNavArrow';
-import { useRef } from 'react';
+import { ClutchRating } from './_Reviews';
 
 const reviews = [
   {
@@ -302,12 +301,16 @@ function ReviewCard({
     </div>
   );
 }
-export default function Reviews() {
+export default function Reviews({ padding }) {
   const swiperRef = useRef();
 
   return (
     <div className="overflow-hidden">
-      <div className="py-[100px] md:py-[144px] xl:py-[176px]">
+      <div
+        className={cx({
+          'py-[100px] md:py-[144px] xl:py-[176px]': padding == null,
+        })}
+      >
         <Layout className="mb-10 flex items-end justify-between md:mb-16 xl:mb-20">
           <div className="font-satoshi text-[32px] font-medium leading-[130%] tracking-[-2px] md:max-w-[577px] md:text-[56px] md:leading-[64px] md:tracking-[-2px]">
             Discover what our customers have to say
@@ -338,9 +341,11 @@ export default function Reviews() {
               breakpoints={{
                 820: {
                   slidesPerView: '1.15',
+                  spaceBetween: '24px',
                 },
                 1440: {
                   slidesPerView: '1.5',
+                  spaceBetween: '24px',
                 },
               }}
               mousewheel={{
@@ -367,7 +372,7 @@ export default function Reviews() {
                   />
                 </SwiperSlide>
               ))}
-              <div className="pt-10">
+              <div className="pt-10 md:pt-12">
                 <div className="items-center md:flex md:space-x-6">
                   <div className="hidden shrink-0 space-x-4 md:flex">
                     <CaseNavArrow

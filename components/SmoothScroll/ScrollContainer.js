@@ -1,3 +1,4 @@
+'use client';
 import { atom, useSetAtom } from 'jotai';
 import debounce from 'lodash.debounce';
 import throttle from 'lodash.throttle';

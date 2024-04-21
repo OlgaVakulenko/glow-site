@@ -1,5 +1,6 @@
 import Animated, { AnimatedGroup } from '../../Animated';
 import Layout from '../../Layout';
+import cx from 'clsx';
 
 const items = [
   {
@@ -28,9 +29,18 @@ const items = [
   },
 ];
 
-export default function OurExperience() {
+export default function OurExperience({ padding }) {
   return (
-    <Layout className="flex flex-col pb-[100px] pt-[100px] md:flex-row md:pb-[184px] md:pt-[104px] xl:pt-[120px]">
+    <Layout
+      className={cx(
+        'flex flex-col md:flex-row',
+        {
+          'pb-[100px] pt-[100px] md:pb-[184px] md:pt-[104px] xl:pt-[120px]':
+            padding == null,
+        },
+        padding
+      )}
+    >
       <div className="mb-10 mr-[72px] flex-shrink-0 md:mb-[53px] xl:mr-[256px]">
         <div className="w-full  font-satoshi text-[24px] font-medium leading-[32px] md:max-w-[248px] xl:max-w-[304px] xl:text-[32px] xl:leading-[40px] 4xl:max-w-[383px]">
           We balance business objectives with customer needs
@@ -47,7 +57,7 @@ export default function OurExperience() {
                 {item.title}
               </span>
             </Animated>
-            <div className="grid gap-3 md:gap-4">
+            <div className="grid gap-3 px-1 xl:gap-4">
               {item.categories.map((category, index2) => (
                 <Animated
                   delay={100 * (index1 + index2)}

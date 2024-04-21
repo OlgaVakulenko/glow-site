@@ -8,7 +8,7 @@ import { getFullDescription, getFullTitle } from '../HeadTitle';
 import RollingText from '../RollingText';
 import StructuredData from '../StructuredData';
 import IntroBg from '../IntroBg';
-import IntroSection from '../IntroSection';
+import IntroSection from '../IntroSection2';
 import Layout from '../Layout';
 import { Medium } from '../Pages/About/Logos';
 import Card from './Card';
@@ -56,7 +56,7 @@ export default function BlogPage({ posts, tags = [] }) {
         )}
         subtitle={
           <Medium
-            className="md:ml-auto md:mr-[7%]"
+            className="md:ml-auto"
             title="Popular Design Blog on Medium"
             subtitle="View Topics"
             type="blog"

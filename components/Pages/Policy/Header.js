@@ -1,4 +1,4 @@
-import IntroSection from '../../IntroSection';
+import IntroSection from '../../IntroSection2';
 import Layout from '../../Layout';
 
 export default function Header({ title }) {

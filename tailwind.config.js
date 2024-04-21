@@ -360,6 +360,8 @@ module.exports = {
         ['btn-focus']: '0px 0px 0px 4px rgba(227, 50, 48, 0.20)',
         checkbox: 'inset 0 0 0 1px white',
         ['checkbox-checked']: 'inset 0 0 0 1px #E33230',
+        service:
+          '0px 6px 9px rgba(0, 0, 0, 0.05), 0px 1.80882px 2.71324px rgba(0, 0, 0, 0.0325794), 0px 0.751293px 1.12694px rgba(0, 0, 0, 0.025), 0px 0.271728px 0.407592px rgba(0, 0, 0, 0.0174206)',
       },
       transformOrigin: {
         'left-center': '24px center',

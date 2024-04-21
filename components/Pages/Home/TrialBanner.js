@@ -34,7 +34,7 @@ function NumCard({ num, title }) {
   );
 }
 
-function Tag({ name }) {
+export function Tag({ name }) {
   return (
     <div className="glow-border-light rounded-full px-[10px] py-[4px] text-[12px] uppercase leading-[160%] tracking-[2%] md:text-[12px] md:leading-[160%] md:tracking-[0.02em]">
       {name}
@@ -55,15 +55,14 @@ export default function TrialBanner() {
       />
       <div className="grid gap-4 md:grid-cols-4">
         <Card hideBg className="relative !p-2 !pb-4 md:col-span-2 md:!p-8">
-          <div className="relative mb-8 font-satoshi text-[40px] font-medium leading-[48px] tracking-[-1px] md:mb-8 md:text-[48px] md:leading-[56px] md:tracking-[-1px] xl:mb-9 xl:text-[56px]">
+          <div className="relative mb-8 font-satoshi text-[40px] font-medium leading-[48px] tracking-[-1px] md:mb-8 md:text-[48px] md:leading-[56px] md:tracking-[-1px] xl:mb-8 xl:text-[56px] xl:leading-[64px]">
             Start with <br className="" />a free 3-day trial
           </div>
           <Button2
             as={Link}
-            className="relative w-full !bg-white !px-[16px] !py-[8px] text-center font-medium !text-black md:w-auto"
+            className="relative w-full !bg-white !px-[20px] !py-[12px] text-center font-medium !text-black md:w-auto"
             href="/contact-us"
             color="white"
-            compact
           >
             Get started
           </Button2>
@@ -75,7 +74,7 @@ export default function TrialBanner() {
             className="pointer-events-none absolute right-0 top-0 h-full w-auto object-cover opacity-40"
           /> */}
           <div className="h-full md:flex md:flex-col md:justify-between">
-            <div className="relative mb-8 text-[16px] leading-[160%] md:mb-12 md:text-[16px] md:leading-[160%] xl:mb-[88px] xl:text-[18px]">
+            <div className="relative mb-8 text-[16px] leading-[160%] md:mb-12 md:text-[16px] md:leading-[160%] xl:mb-[80px] xl:text-[18px]">
               To reduce your risks and help you get to know us better, we offer
               the first three days of work at no charge. This way, you can
               evaluate our skills and decide whether you want to work with us

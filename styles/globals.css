@@ -492,7 +492,3 @@
   font-weight: 500;
   font-feature-settings: 'ss03'on, 'liga'off;
 }
-
-.pointer-events-none, .md\:pointer-events-none {
-  pointer-events: unset !important;
-}

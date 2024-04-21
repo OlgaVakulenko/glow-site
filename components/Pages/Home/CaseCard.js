@@ -29,16 +29,22 @@ export default function CaseCard({ type, item, index, total }) {
             />
             <Source image={item.imageMobile} width="480" />
             <img
-              className="h-full min-h-[304px] w-full rounded-3xl object-cover transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none"
+              className="h-full min-h-[304px] w-full rounded-3xl bg-dim-gray object-cover transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none"
               src={resolve({ src: item.image.src, width: 1440 })}
               alt=""
+              style={{
+                objectPosition: '60%',
+              }}
             />
           </picture>
         ) : (
           <Image
-            className="h-full min-h-[304px] w-full rounded-3xl object-cover transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none"
+            className="h-full min-h-[304px] w-full rounded-3xl bg-dim-gray object-cover transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none"
             src={(type === 'work' && item.imageWork) || item.image}
             alt=""
+            style={{
+              objectPosition: '60%',
+            }}
           />
         )}
 

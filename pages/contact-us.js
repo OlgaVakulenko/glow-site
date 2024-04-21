@@ -132,9 +132,13 @@ function FaqItem({ question, answer }) {
   );
 }
 
-function FAQ() {
+export function FAQ({ padding }) {
   return (
-    <div className="mb-12 md:mb-[72px] xl:mb-[88px]">
+    <div
+      className={cx({
+        '"mb-12 xl:mb-[88px]" md:mb-[72px]': padding == null,
+      })}
+    >
       <h2 className="mb-10 font-glow text-[32px] font-medium leading-[40px] tracking-[-2px] md:mb-14 md:text-[48px] md:leading-[56px] xl:mb-20 xl:text-[56px] xl:leading-[64px]">
         Frequently asked questions
       </h2>

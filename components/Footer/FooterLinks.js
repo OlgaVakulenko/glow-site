@@ -239,7 +239,7 @@ export default function FooterLinks({ className = '' }) {
         ))}
       </div>
       <div className="relative flex w-full shrink-0 justify-between space-x-7 md-safe:w-auto xl:space-x-9">
-        <div className="absolute left-1/2 top-1/2 h-[16px] w-[1px] -translate-x-1/2 -translate-y-1/2 bg-checkbox-light"></div>
+        <div className="absolute left-1/2 top-1/2 h-[16px] w-[1px] -translate-x-1/2 -translate-y-1/2 bg-checkbox-light md:hidden"></div>
         <Link href="/privacy-policy">
           <RollingText text="Privacy Policy" height={24}></RollingText>
         </Link>

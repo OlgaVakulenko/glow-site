@@ -445,9 +445,9 @@ export default function Header({
       </div>
       <header
         className={cx(
-          'first-header fixed z-10 w-full font-inter transition-transform duration-500 md:top-4',
+          'first-header fixed z-10 w-full font-inter transition-transform duration-500',
           {
-            'md:-translate-y-4': !isTop,
+            // 'md:-translate-y-4': !isTop,
             // && !isBottom
             '!-translate-y-full':
               (scrollDirection === 'forward' &&

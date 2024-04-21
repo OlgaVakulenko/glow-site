@@ -80,20 +80,27 @@ function Tag({ name }) {
 export function CaseSlide({ type = 'default', item, index, total }) {
   const [media] = useAtom(mediaAtom);
 
+  if (media === 'mobile') {
+    return <CaseCard item={item} type={type} index={index} total={total} />;
+  }
+
   return (
     <div className="__slide-wrapper h-full w-full md:pointer-events-none">
-      <div className="__slide relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-[#F8F8F8] text-black md:min-h-[480px] md:flex-row md:items-end md:rounded-3xl xl:h-[560px] xl:rounded-[32px]">
+      <div className="__slide relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-dim-gray text-black md:min-h-[480px] md:flex-row md:items-end md:rounded-3xl xl:h-[560px] xl:rounded-[32px]">
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
           className="relative z-[1] p-6 pb-14 md:mt-0 md:px-[48px] md:pb-[72px] md:pt-[72px] xl:px-12 xl:pb-[114px] xl:pt-[114px]"
         >
           {/* {item.icon && ( */}
           <div className="mb-0 md:mb-10">
-            <Image
+            <div className="h-[40px] w-[40px] md:h-[48px] md:w-[48px]">
+              {item.icon}
+            </div>
+            {/* <Image
               src={BLogo}
               alt=""
               className="h-[40px] w-[40px] md:h-[48px] md:w-[48px]"
-            />
+            /> */}
           </div>
           {/* )} */}
           {/* <div className="relative hidden font-glow text-[11px] font-medium uppercase tracking-[2px] md:block">
@@ -151,15 +158,15 @@ export function CaseSlide({ type = 'default', item, index, total }) {
             />
             <Source image={item.imageMobile} width="480" />
             <img
-              className="absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none md:object-cover"
+              className=" absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none md:object-cover"
               src={resolve({ src: item.image.src, width: 1440 })}
               alt=""
             />
           </picture>
         ) : (
           <Image
-            className="absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none md:object-cover"
-            src={(type === 'work' && item.imageWork) || item.image}
+            className="absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:right-[-153px] md:top-0 md:max-h-full md:w-[86%] md:origin-[90%_10%] md:rounded-none md:object-cover xl:left-auto xl:right-[-50px] xl:w-[75%]"
+            src={item.image}
             alt=""
           />
         )}
@@ -299,7 +306,11 @@ function ViewCaseCursor({ x, y }) {
   );
 }
 
-export function CasesSlider2() {
+export function CasesSlider2({
+  filter = [],
+  padding,
+  disableOnMobile = false,
+}) {
   const ref = useRef();
   const [media] = useAtom(mediaAtom);
   const [w, setW] = useState(0);
@@ -323,19 +334,45 @@ export function CasesSlider2() {
     setK((k) => k + 1);
   }, [media, w]);
 
+  const SwiperComponent = useMemo(() => {
+    if (media === 'mobile' && disableOnMobile) {
+      return 'div';
+    }
+
+    return Swiper;
+  }, [media, disableOnMobile]);
+
+  const SlideComponent = useMemo(() => {
+    if (media === 'mobile' && disableOnMobile) {
+      return 'div';
+    }
+
+    return SwiperSlide;
+  }, [media, disableOnMobile]);
+
+  const _cases = useMemo(() => {
+    if (!filter.length) return cases;
+
+    return cases.filter((c) => filter.includes(c.href));
+  }, [filter]);
+
   return (
     <div ref={ref} className="overflow-hidden">
       <Layout>
         <Section
           withLayout={false}
-          className="pb-[80px] md:pb-[120px] xl:pb-[120px]"
+          className={cx({
+            'pb-[80px] md:pb-[120px] xl:pb-[120px]': padding == null,
+          })}
         >
           <div key={k}>
             {/* <DragCursorContainer showDefaultCursor cursor={ViewCaseCursor} adhoc> */}
             {/* {({ show, swiperOptions }) => ( */}
-            <Swiper
-              className="!overflow-visible"
-              {...(true
+            <SwiperComponent
+              className={cx('!overflow-visible', {
+                'grid gap-10': disableOnMobile,
+              })}
+              {...(!disableOnMobile || media !== 'mobile'
                 ? {
                     onSwiper: (swiper) => {
                       swiperRef.current = swiper;
@@ -359,8 +396,8 @@ export function CasesSlider2() {
                   }
                 : {})}
             >
-              {cases.map((item, i) => (
-                <SwiperSlide
+              {_cases.map((item, i) => (
+                <SlideComponent
                   key={i}
                   className={cx(
                     'cursor-none select-none md:!w-[90vw] xl:!w-[1200px]'
@@ -374,10 +411,10 @@ export function CasesSlider2() {
                     })}
                   >
                     <div className={cx('md:pointer-events-none', {})}>
-                      <CaseSlide item={item} index={i} total={cases.length} />
+                      <CaseSlide item={item} index={i} total={_cases.length} />
                     </div>
                   </Link>
-                </SwiperSlide>
+                </SlideComponent>
               ))}
               {/* <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-16 4xl:pr-[120px]">
                   <EndSlide />
@@ -404,7 +441,7 @@ export function CasesSlider2() {
                   </div>
                 </div>
               </div>
-            </Swiper>
+            </SwiperComponent>
             {/* )} */}
             {/* </DragCursorContainer> */}
           </div>
