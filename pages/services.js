@@ -71,7 +71,7 @@ function Slider() {
       <Layout className="md:hidden">
         <Link
           href="/work"
-          className="flex w-full items-center justify-center gap-2 rounded-full border border-black px-8 py-4 text-[16px] uppercase leading-[24px]"
+          className="flex w-full items-center justify-center gap-2 rounded-full border border-black px-8 py-[15px] text-[16px] uppercase leading-[24px]"
         >
           <div>Cases</div>
           <svg
@@ -101,11 +101,12 @@ export default function Services() {
       <ServicesSelector />
       <Process />
       <Box>
-        <Slider />
-      </Box>
-      <Box>
         <OurExperience padding={false} />
       </Box>
+      <Box>
+        <Slider />
+      </Box>
+
       <Box>
         <Approach />
       </Box>

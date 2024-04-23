@@ -294,17 +294,17 @@ const items = [
 export default function Approach() {
   return (
     <Layout>
-      <h3 className="mb-10 text-next-heading-4 md:mb-14 md:text-next-heading-2 xl:mb-20 xl:text-[56px] xl:leading-[56px] xl:tracking-[-2px]">
+      <h3 className="mb-10 text-next-heading-4 md:mb-14 md:text-next-heading-2 xl:mb-20 xl:text-next-heading-2">
         The Glowing approach
       </h3>
       <div className="grid gap-14 md:grid-cols-2 md:gap-x-8 xl:grid-cols-3 xl:gap-y-20">
         {items.map((item, idx) => (
           <div key={idx} className="">
             <div className="mb-[38px] h-20 w-20 md:mb-[40px]">{item.icon}</div>
-            <div className="mb-[14px] text-next-heading-6 md:mb-4 md:tracking-[0.02em]">
+            <div className="mb-[14px] text-next-heading-6 md:mb-4 md:tracking-[0.02em] xl:text-next-heading-6">
               {item.title}
             </div>
-            <div className="text-next-body-m md:leading-[26px] md:tracking-normal">
+            <div className="text-next-body-m md:leading-[26px] md:tracking-normal xl:text-next-body-m">
               {item.description}
             </div>
           </div>

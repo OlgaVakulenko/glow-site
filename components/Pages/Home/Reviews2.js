@@ -257,7 +257,7 @@ function ReviewCard({
 }) {
   return (
     <div className="h-full font-inter">
-      <div className="h-full rounded-[32px] bg-dim-gray p-6 md:flex md:space-x-16 md:px-0 md:py-10 xl:py-12">
+      <div className="h-full rounded-[32px] bg-dim-gray p-6 md:flex md:space-x-16 md:px-0 md:py-10 xl:min-h-[400px] xl:space-x-20 xl:py-12">
         <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-12">
           <div className="md:flex md:h-full md:max-w-[168px] md:flex-col md:items-start md:justify-between">
             <div className="">
@@ -279,8 +279,10 @@ function ReviewCard({
                   className="border border-checkbox-light md:hidden"
                 />
               </div>
-              <div className="text-body-m2 font-medium md:mb-1">{name}</div>
-              <div className="mb-6 text-body-s opacity-80">
+              <div className="text-body-m2 font-medium md:mb-1 xl:text-next-body-m">
+                {name}
+              </div>
+              <div className="mb-6 text-body-s opacity-80 xl:text-next-body-s">
                 {company.split(',').map((text, i) => (
                   <p key={i}>{text}</p>
                 ))}
@@ -293,7 +295,7 @@ function ReviewCard({
           </div>
         </div>
         <div className="flex flex-col items-start">
-          <div className="text-[20px] leading-[150%] md:col-span-6 md:pr-12 md:text-[24px] md:leading-[160%]">
+          <div className="text-[20px] leading-[150%] md:col-span-6 md:pr-12 md:text-[24px] md:leading-[160%] xl:text-next-body-xxl">
             “{text}”
           </div>
         </div>
@@ -312,7 +314,7 @@ export default function Reviews({ padding }) {
         })}
       >
         <Layout className="mb-10 flex items-end justify-between md:mb-16 xl:mb-20">
-          <div className="font-satoshi text-[32px] font-medium leading-[130%] tracking-[-2px] md:max-w-[577px] md:text-[56px] md:leading-[64px] md:tracking-[-2px]">
+          <div className="font-satoshi text-[32px] font-medium leading-[130%] tracking-[-2px] md:max-w-[577px] md:text-[56px] md:leading-[64px] md:tracking-[-2px] xl:text-next-heading-2">
             Discover what our customers have to say
           </div>
           {/* <div className="hidden space-x-4 pb-[14px] md:flex">

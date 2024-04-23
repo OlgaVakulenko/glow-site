@@ -30,6 +30,13 @@ module.exports = {
         '2k': '2000px',
       },
       fontSize: {
+        'next-tag': [
+          '12px',
+          {
+            lineHeight: '24px',
+            letterSpacing: '0.02em',
+          },
+        ],
         'next-heading-0': [
           '72px',
           {
@@ -76,12 +83,14 @@ module.exports = {
           '24px',
           {
             lineHeight: '32px',
+            letterSpacing: '0px',
           },
         ],
         'next-heading-7': [
           '20px',
           {
             lineHeight: '24px',
+            letterSpacing: '0px',
           },
         ],
         'next-body-xxl': [
@@ -116,6 +125,7 @@ module.exports = {
           '18px',
           {
             lineHeight: '32px',
+            letterSpacing: '0px',
           },
         ],
         'next-body-s': [

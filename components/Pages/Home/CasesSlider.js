@@ -71,7 +71,7 @@ function CaseSlideMobile() {}
 
 function Tag({ name }) {
   return (
-    <div className="glow-border-dark rounded-full bg-black-dim px-[10px] py-[4px] font-inter text-[12px] uppercase leading-[160%] tracking-[0.02em] md:py-[4px]">
+    <div className="glow-border-dark rounded-full bg-black-dim px-[12px] py-[4px] font-inter text-[12px] uppercase leading-[160%] tracking-[0.02em] md:py-[4px]">
       {name}
     </div>
   );
@@ -85,15 +85,15 @@ export function CaseSlide({ type = 'default', item, index, total }) {
   }
 
   return (
-    <div className="__slide-wrapper h-full w-full md:pointer-events-none">
-      <div className="__slide relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-dim-gray text-black md:min-h-[480px] md:flex-row md:items-end md:rounded-3xl xl:h-[560px] xl:rounded-[32px]">
+    <div className="__slide-wrapper h-full w-full">
+      <div className="__slide relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-dim-gray text-black md:min-h-[480px] md:flex-row md:items-start md:rounded-3xl xl:h-[560px] xl:rounded-[32px]">
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
-          className="relative z-[1] p-6 pb-14 md:mt-0 md:px-[48px] md:pb-[72px] md:pt-[72px] xl:px-12 xl:pb-[114px] xl:pt-[114px]"
+          className="relative z-[1] p-6 pb-14 md:mt-0 md:h-full md:px-16 md:pb-[72px] md:pt-16 xl:pb-[114px] xl:pt-[100px]"
         >
           {/* {item.icon && ( */}
-          <div className="mb-0 md:mb-10">
-            <div className="h-[40px] w-[40px] md:h-[48px] md:w-[48px]">
+          <div className="mb-0 md:mb-8">
+            <div className="h-[40px] w-[40px] md:h-[56px] md:w-[56px]">
               {item.icon}
             </div>
             {/* <Image
@@ -126,10 +126,10 @@ export function CaseSlide({ type = 'default', item, index, total }) {
               </>
             )}
           </div> */}
-          <div className="mb-4 mt-6 font-satoshi text-[28px] font-medium leading-[130%] md:mb-[24px] md:mt-[15px] md:text-[32px] md:leading-[40px] xl:text-[40px] xl:leading-[48px]">
+          <div className="mb-4 mt-6 max-w-[364px] font-satoshi text-[28px] font-medium leading-[130%] md:mb-3 md:text-next-heading-5 xl:max-w-[464px]">
             {item.title2 || item.title}
           </div>
-          <div className="mb-6 max-w-[464px] font-inter text-[16px] leading-[160%] xl:text-[18px]">
+          <div className="mb-8 max-w-[364px] font-inter text-[16px] leading-[160%] md:text-next-body-s xl:max-w-[464px] xl:text-next-body-m">
             {item.description}
           </div>
           <div className="flex flex-wrap gap-2">
@@ -410,7 +410,7 @@ export function CasesSlider2({
                       // 'cursor-none': show,
                     })}
                   >
-                    <div className={cx('md:pointer-events-none', {})}>
+                    <div className={cx('', {})}>
                       <CaseSlide item={item} index={i} total={_cases.length} />
                     </div>
                   </Link>

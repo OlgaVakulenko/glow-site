@@ -41,23 +41,24 @@ export default function OurExperience({ padding }) {
         padding
       )}
     >
-      <div className="mb-10 mr-[72px] flex-shrink-0 md:mb-[53px] xl:mr-[256px]">
-        <div className="w-full  font-satoshi text-[24px] font-medium leading-[32px] md:max-w-[248px] xl:max-w-[304px] xl:text-[32px] xl:leading-[40px] 4xl:max-w-[383px]">
-          We balance business objectives with customer needs
+      <div className="mb-10 mr-[72px] flex-shrink-0 md:mb-[53px] xl:mr-8">
+        <div className="w-full  font-satoshi text-[24px] font-medium leading-[32px] md:max-w-[248px] xl:min-w-[415px] xl:max-w-[304px] xl:text-next-heading-5">
+          We balance <br className="hidden xl:block" /> business objectives with
+          customer needs
         </div>
       </div>
-      <AnimatedGroup className="grid w-full gap-x-6 gap-y-10 md:col-span-5 md:flex md:justify-between xl:col-span-8 xl:flex xl:space-x-[112px]">
+      <AnimatedGroup className="grid w-full gap-x-6 gap-y-10 md:col-span-5 md:flex md:justify-between md:gap-10 xl:col-span-8 xl:flex xl:gap-24">
         {items.map((item, index1) => (
-          <div key={index1} className="last:min-w-[200px]">
+          <div key={index1} className="md:min-w-[186px] xl:min-w-[223px]">
             <Animated
               delay={100 * index1}
               className="mb-6 flex text-body-heading-s uppercase"
             >
-              <span className="shrink-0 rounded-full border border-checkbox-light bg-dim-gray px-[10px] py-[4px] font-inter tracking-[0.02em] text-black">
+              <span className="shrink-0 rounded-full border border-checkbox-light bg-dim-gray px-[11px] py-[1px] text-next-tag text-black">
                 {item.title}
               </span>
             </Animated>
-            <div className="grid gap-3 px-1 xl:gap-4">
+            <div className="grid gap-3 px-1 xl:gap-[17px]">
               {item.categories.map((category, index2) => (
                 <Animated
                   delay={100 * (index1 + index2)}

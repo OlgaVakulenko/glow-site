@@ -64,16 +64,20 @@ export default function ServicesSelector() {
         </Layout>
         <div
           ref={scroller}
-          className="flex gap-1 overflow-x-auto px-4 pb-3 pt-3 md:grid md:grid-flow-col md:overflow-hidden md:p-0"
+          className="flex gap-1 overflow-x-auto px-4 pb-3 pt-3 md:grid md:grid-cols-3 md:gap-6 md:overflow-hidden md:p-0 xl:gap-8"
         >
           {services.map((service, idx) => (
             <button
               data-id={idx}
               key={service.name}
               className={cx(
-                'relative flex shrink-0 items-center gap-4 px-8 py-4 text-left transition-all duration-200 md:w-full md:rounded-b-none md:shadow-none',
+                'relative flex shrink-0 items-center gap-4 px-8 py-4 text-left transition-all duration-200 md:col-span-1 md:w-full md:w-full md:shrink md:gap-6 md:rounded-b-none md:shadow-none',
                 {
-                  'rounded-2xl bg-white shadow-service md:bg-[#F4F3F5]':
+                  'md:pt-3 xl:pb-3 xl:pt-5': idx === 0,
+                  'md:pt-2': idx !== 0,
+                  'xl:pb-[18px] xl:pt-[18px]': idx === 1,
+                  'xl:py-4': idx === 2,
+                  'rounded-2xl bg-white shadow-service md:rounded-[32px] md:bg-[#F4F3F5]':
                     selected === idx,
                 }
               )}
@@ -89,7 +93,7 @@ export default function ServicesSelector() {
                 <div className="mb-1 text-next-heading-7 md:mb-2 md:text-next-heading-6">
                   {service.name}
                 </div>
-                <div className="text-next-body-xs md:text-[18px] md:leading-[26px]">
+                <div className="text-next-body-xs opacity-50 md:text-next-body-m">
                   {service.stages.length} stages
                 </div>
               </div>
@@ -223,7 +227,7 @@ function ServiceCard({ index, title, description, tags }) {
           maxHeight: height,
         }}
       >
-        <div className="mb-10 pt-6 text-next-body-s md:text-next-body-m">
+        <div className="mb-10 pt-6 text-next-body-s md:mb-8 md:text-next-body-m xl:pt-8">
           {description}
         </div>
         <div className="flex flex-wrap gap-2 xl:max-w-[80%]">
