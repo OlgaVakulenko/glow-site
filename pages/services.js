@@ -62,7 +62,7 @@ function Slider() {
   return (
     <div>
       <Layout className="mb-10 text-center md:hidden">
-        <h3 className="mb-4 text-[20px] font-medium leading-[120%]">
+        <h3 className="mb-5 text-[20px] font-medium leading-[120%]">
           MVP Cases
         </h3>
         <h4 className="text-[18px] leading-[24px]">

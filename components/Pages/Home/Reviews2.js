@@ -333,72 +333,72 @@ export default function Reviews({ padding }) {
         </div> */}
         </Layout>
         <Layout className="">
-          <DragCursorContainer>
-            <Swiper
-              onSwiper={(swiper) => {
-                swiperRef.current = swiper;
-              }}
-              className="!overflow-visible"
-              spaceBetween="32px"
-              breakpoints={{
-                820: {
-                  slidesPerView: '1.15',
-                  spaceBetween: '24px',
-                },
-                1440: {
-                  slidesPerView: '1.5',
-                  spaceBetween: '24px',
-                },
-              }}
-              mousewheel={{
-                invert: true,
-                forceToAxis: true,
-                sensitivity: 0.1,
-                thresholdDelta: 10,
-              }}
-              modules={[Mousewheel]}
-            >
-              {reviews.map((review, index) => (
-                <SwiperSlide key={index} className="md:!h-auto">
-                  <ReviewCard
-                    avatar={review.avatar}
-                    companyAvatar={review.companyAvatar}
-                    name={review.name}
-                    company={review.company}
-                    text={review.text}
-                    rating={review.rating}
-                    dataService={review.data_service}
-                    dataCompany={review.data_company}
-                    index={index}
-                    total={reviews.length}
+          {/* <DragCursorContainer> */}
+          <Swiper
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            className="!overflow-visible"
+            spaceBetween="32px"
+            breakpoints={{
+              820: {
+                slidesPerView: '1.15',
+                spaceBetween: '24px',
+              },
+              1440: {
+                slidesPerView: '1.5',
+                spaceBetween: '24px',
+              },
+            }}
+            mousewheel={{
+              invert: true,
+              forceToAxis: true,
+              sensitivity: 0.1,
+              thresholdDelta: 10,
+            }}
+            modules={[Mousewheel]}
+          >
+            {reviews.map((review, index) => (
+              <SwiperSlide key={index} className="md:!h-auto">
+                <ReviewCard
+                  avatar={review.avatar}
+                  companyAvatar={review.companyAvatar}
+                  name={review.name}
+                  company={review.company}
+                  text={review.text}
+                  rating={review.rating}
+                  dataService={review.data_service}
+                  dataCompany={review.data_company}
+                  index={index}
+                  total={reviews.length}
+                />
+              </SwiperSlide>
+            ))}
+            <div className="pt-10 md:pt-12">
+              <div className="items-center md:flex md:space-x-6">
+                <div className="hidden shrink-0 space-x-4 md:flex">
+                  <CaseNavArrow
+                    dir="left"
+                    onClick={() => {
+                      swiperRef.current.slidePrev();
+                    }}
                   />
-                </SwiperSlide>
-              ))}
-              <div className="pt-10 md:pt-12">
-                <div className="items-center md:flex md:space-x-6">
-                  <div className="hidden shrink-0 space-x-4 md:flex">
-                    <CaseNavArrow
-                      dir="left"
-                      onClick={() => {
-                        swiperRef.current.slidePrev();
-                      }}
-                    />
-                    <CaseNavArrow
-                      dir="right"
-                      onClick={() => {
-                        swiperRef.current.slideNext();
-                      }}
-                    />
-                  </div>
+                  <CaseNavArrow
+                    dir="right"
+                    onClick={() => {
+                      swiperRef.current.slideNext();
+                    }}
+                  />
+                </div>
 
-                  <div className="w-full">
-                    <SliderProgress />
-                  </div>
+                <div className="w-full">
+                  <SliderProgress />
                 </div>
               </div>
-              {/* <div className="mx-auto pt-5 md:max-w-[544px] xl:max-w-full"></div> */}
-            </Swiper>
-          </DragCursorContainer>
+            </div>
+            {/* <div className="mx-auto pt-5 md:max-w-[544px] xl:max-w-full"></div> */}
+          </Swiper>
+          {/* </DragCursorContainer> */}
         </Layout>
       </div>
     </div>
