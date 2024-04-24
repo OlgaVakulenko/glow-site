@@ -71,7 +71,7 @@ function CaseSlideMobile() {}
 
 function Tag({ name }) {
   return (
-    <div className="glow-border-dark rounded-full bg-black-dim px-[12px] py-[4px] font-inter text-[12px] uppercase leading-[160%] tracking-[0.02em] md:py-[4px]">
+    <div className="glow-border-dark rounded-full bg-black-dim px-[12px] py-[2px] font-inter text-[12px] uppercase leading-[24px] tracking-[0.02em]">
       {name}
     </div>
   );
@@ -129,14 +129,13 @@ export function CaseSlide({ type = 'default', item, index, total }) {
           <div className="mb-4 mt-6 max-w-[364px] font-satoshi text-[28px] font-medium leading-[130%] md:mb-3 md:text-next-heading-5 xl:max-w-[464px]">
             {item.title2 || item.title}
           </div>
-          <div className="mb-8 max-w-[364px] font-inter text-[16px] leading-[160%] md:text-next-body-s xl:max-w-[464px] xl:text-next-body-m">
+          <div className="mb-8 max-w-[364px] font-inter text-[16px] leading-[24px] md:text-next-body-s xl:max-w-[464px] xl:text-next-body-m">
             {item.description}
           </div>
           <div className="flex flex-wrap gap-2">
-            <Tag name="Product Design" />
-            <Tag name="UI" />
-            <Tag name="UX" />
-            <Tag name="Visual identity" />
+            {item.tags?.map((tag) => (
+              <Tag key={tag} name={tag} />
+            ))}
           </div>
 
           {/* <div className="flex space-x-[40px] pl-[3px] md:space-x-[62px]">

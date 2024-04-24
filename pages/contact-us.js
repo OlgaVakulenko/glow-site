@@ -70,7 +70,7 @@ function FaqItem({ question, answer }) {
               <h3 className="font-satoshi text-[20px] font-medium leading-[130%] md:col-span-3 md:pr-8 xl:col-span-5">
                 {question}
               </h3>
-              <div className="flex justify-between text-next-body-s md:col-span-5 md:text-next-body-m xl:col-span-7 xl:text-next-body-m">
+              <div className="flex items-center justify-between text-next-body-s md:col-span-5 md:text-next-body-m xl:col-span-7 xl:text-next-body-m">
                 {open ? (
                   <Disclosure.Panel className="hidden whitespace-pre-line md:block">
                     {answer}
@@ -78,11 +78,10 @@ function FaqItem({ question, answer }) {
                 ) : (
                   <div className="hidden truncate md:block">{answer}</div>
                 )}
-                <div className="ml-6 mr-2 opacity-50 xl:mr-0">
+                <div className="ml-6 mr-2 h-5 w-5 shrink-0 opacity-50 xl:mr-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
+                    className="h-full w-full"
                     viewBox="0 0 24 24"
                     fill="none"
                   >

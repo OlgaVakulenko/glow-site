@@ -63,6 +63,7 @@ const cases = [
     service: ['UI/UX', 'Product Design'],
     company: ['Funding $34.5M'],
     image: ls,
+    tags: ['Product Design', 'ui', 'ux', 'Motion Design', 'Web Design'],
     // imageWork: LiquidSpaceWork,
     // imageMobile: LiquidSpaceMobile,
     category: ['other'],
@@ -93,6 +94,7 @@ const cases = [
     service: ['Product Design', 'UI/UX'],
     company: ['Funding €32.7M'],
     image: Jucr,
+    tags: ['Product Design', 'ui', 'ux'],
     // imageWork: JucrWork,
     // imageMobile: JucrCoverMobile,
     category: ['transportation'],
@@ -214,6 +216,7 @@ const cases = [
     image: Beast,
     category: ['transportation'],
     type: ['mobile'],
+    tags: ['Product Design', 'ui', 'ux', 'Branding'],
   },
   {
     title: <>CryptoGenie: cryptocurrency trend prediction platform</>,
@@ -228,6 +231,7 @@ const cases = [
       `100k predictions
         at start`,
     ],
+    tags: ['Product Design', 'ui', 'ux', 'Web Design', 'Branding'],
     image: Crypto,
     category: ['fintech'],
     type: ['desktop'],
@@ -259,6 +263,7 @@ const cases = [
     image: Parking,
     category: ['transportation'],
     type: ['desktop'],
+    tags: ['Product Design', 'ui', 'ux'],
     icon: (
       <svg
         className="h-full w-full"
@@ -301,6 +306,7 @@ const cases = [
         financial aid
       `,
     ],
+    tags: ['Product Design', 'ui', 'ux', 'Web Design', 'Illustration'],
     image: Tilt,
     category: ['other'],
     type: ['desktop'],
@@ -345,6 +351,7 @@ const cases = [
     image: FC,
     category: ['transportation'],
     type: ['desktop'],
+    tags: ['Product Design', 'ui', 'ux', 'Web Design'],
     icon: (
       <svg
         className="h-full w-full"
@@ -385,6 +392,7 @@ const cases = [
         study online
       `,
     ],
+    tags: ['Product Design', 'ui', 'ux', 'Web Design'],
     image: Ethos,
     category: ['healthcare'],
     type: ['desktop'],

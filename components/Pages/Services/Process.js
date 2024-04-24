@@ -1,11 +1,10 @@
-import { useMediaAtom } from '../../../lib/agent';
-import Image, { Source, resolve } from '../../Image';
+import { resolve } from '../../Image';
 import Layout from '../../Layout';
 import Heading from './Heading';
 
-import ProcessMobile from './assets/process-m.png';
-import ProcessMd from './assets/process-md.png';
-import ProcessLg from './assets/process-lg.png';
+import S1 from './assets/s1.svg';
+import S2 from './assets/s2.svg';
+import S3 from './assets/s3.svg';
 
 export default function Process() {
   return (
@@ -20,14 +19,10 @@ export default function Process() {
         description="Custom software development helps you create great and super stable products by applying our workflow."
       />
       <picture>
-        <Source image={ProcessLg} media="(min-width:1280px)" width="1280" />
-        <Source image={ProcessMd} media="(min-width:820px)" width="1280" />
-        <Source image={ProcessMobile} width="480" />
-        <img
-          className="mt-10 w-full md:mt-14 xl:mt-20"
-          src={resolve({ src: ProcessMobile.src })}
-          alt=""
-        />
+        <source srcSet={S3.src} media="(min-width:1280px)"></source>
+        <source srcSet={S2.src} media="(min-width:820px)"></source>
+        <source srcSet={S1.src}></source>
+        <img className="mt-10 w-full md:mt-14 xl:mt-20" src={S1.src} alt="" />
       </picture>
     </Layout>
   );

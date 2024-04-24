@@ -1,6 +1,7 @@
 import Animated, { AnimatedGroup } from '../../Animated';
 import Layout from '../../Layout';
 import cx from 'clsx';
+import { Tag } from '../../Tag';
 
 const items = [
   {
@@ -49,14 +50,14 @@ export default function OurExperience({ padding }) {
       </div>
       <AnimatedGroup className="grid w-full gap-x-6 gap-y-10 md:col-span-5 md:flex md:justify-between md:gap-10 xl:col-span-8 xl:flex xl:gap-24">
         {items.map((item, index1) => (
-          <div key={index1} className="md:min-w-[186px] xl:min-w-[223px]">
+          <div key={index1} className="md:min-w-[29%] xl:min-w-[26%]">
             <Animated
               delay={100 * index1}
               className="mb-6 flex text-body-heading-s uppercase"
             >
-              <span className="shrink-0 rounded-full border border-checkbox-light bg-dim-gray px-[11px] py-[1px] text-next-tag text-black">
-                {item.title}
-              </span>
+              <Tag>{item.title}</Tag>
+              {/* <span className="shrink-0 rounded-full border border-checkbox-light bg-dim-gray px-[12px] py-[1px] text-next-tag text-black">
+              </span> */}
             </Animated>
             <div className="grid gap-3 px-1 xl:gap-[17px]">
               {item.categories.map((category, index2) => (

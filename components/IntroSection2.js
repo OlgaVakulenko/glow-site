@@ -14,7 +14,7 @@ export default function IntroSection({ title, subtitle, className }) {
         {title}
       </div>
       <div className="hidden xl:col-span-1 xl:block"></div>
-      <div className="text-next-body-m md:pb-2 md:text-next-body-xxl xl:col-span-5">
+      <div className="text-next-body-m md:text-next-body-xxl xl:col-span-5">
         {subtitle}
       </div>
     </Layout>

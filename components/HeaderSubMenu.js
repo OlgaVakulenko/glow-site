@@ -100,11 +100,7 @@ export default function HeaderSubMenuContainer() {
         leaveTo="opacity-0"
         className={cx('fixed top-0 z-[9] w-full bg-white')}
       >
-        <div
-          className={cx('pb-[70px] pt-24', {
-            '!pt-[120px]': isTop,
-          })}
-        >
+        <div className={cx('pb-[70px] pt-24', {})}>
           <HeaderSubMenu subMenuItems={items} />
         </div>
       </Transition>

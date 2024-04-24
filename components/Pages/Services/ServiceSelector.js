@@ -4,9 +4,9 @@ import { services } from './data';
 import cx from 'clsx';
 import { useMediaAtom } from '../../../lib/agent';
 import { addLeadingZero } from '../../../lib/utils';
-import { Tag } from '../Home/TrialBanner';
 import { atom, useAtom, useSetAtom } from 'jotai';
 import { useParams, usePathname, useSearchParams } from 'next/navigation';
+import { Tag } from '../../Tag';
 
 const serviceCardAtom = atom(0);
 const categoryAtom = atom(0);
@@ -52,7 +52,7 @@ export default function ServicesSelector() {
       <div
         className="bg-[#F4F3F5] pt-[52px] md:rounded-[32px] md:bg-inherit md:pt-0"
         style={{
-          boxShadow: 'inset 0 0 1.5px #d7d7d7',
+          boxShadow: 'inset 0 0 0px 1px #E8E8E9',
         }}
       >
         <Layout className="pb-10 md:hidden">
@@ -232,12 +232,7 @@ function ServiceCard({ index, title, description, tags }) {
         </div>
         <div className="flex flex-wrap gap-2 xl:max-w-[80%]">
           {tags.map((tag) => (
-            <div
-              key={tag}
-              className="rounded-full border border-black-dim-border bg-black-dim px-[11px] py-[1px] text-[12px] font-medium uppercase leading-[24px] tracking-[0.02em]"
-            >
-              {tag}
-            </div>
+            <Tag key={tag}>{tag}</Tag>
           ))}
         </div>
       </div>

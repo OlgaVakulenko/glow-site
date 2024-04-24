@@ -36,7 +36,7 @@ function NumCard({ num, title }) {
 
 export function Tag({ name }) {
   return (
-    <div className="glow-border-light rounded-full px-[12px] py-[4px] text-[12px] uppercase leading-6 tracking-[2%] md:text-[12px] md:leading-[160%] md:tracking-[0.02em]">
+    <div className="glow-border-light rounded-full px-[12px] py-[4px] text-next-tag font-medium uppercase">
       {name}
     </div>
   );

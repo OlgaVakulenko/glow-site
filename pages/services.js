@@ -1,18 +1,20 @@
-import { useMemo, useState } from 'react';
-import IntroSection2 from '../components/IntroSection2';
-import { useMediaAtom } from '../lib/agent';
-import Layout from '../components/Layout';
 import cx from 'clsx';
-import ServicesSelector from '../components/Pages/Services/ServiceSelector';
-import Process from '../components/Pages/Services/Process';
-import OurExperience from '../components/Pages/Home/OurExperience';
-import Approach from '../components/Pages/Services/Approach';
-import TrialBanner from '../components/Pages/Home/TrialBanner';
-import Logos from '../components/Pages/About/Logos';
-import Reviews from '../components/Pages/Home/Reviews2';
-import { FAQ } from './contact-us';
-import { CasesSlider2 } from '../components/Pages/Home/CasesSlider';
 import Link from 'next/link';
+import { useMemo } from 'react';
+import IntroSection2 from '../components/IntroSection2';
+import Layout from '../components/Layout';
+import Logos from '../components/Pages/About/Logos';
+import { CasesSlider2 } from '../components/Pages/Home/CasesSlider';
+import OurExperience from '../components/Pages/Home/OurExperience';
+import Reviews from '../components/Pages/Home/Reviews2';
+import TrialBanner from '../components/Pages/Home/TrialBanner';
+import Approach from '../components/Pages/Services/Approach';
+import Process from '../components/Pages/Services/Process';
+import ServicesSelector from '../components/Pages/Services/ServiceSelector';
+import { useMediaAtom } from '../lib/agent';
+import { FAQ } from './contact-us';
+import Head from 'next/head';
+import { getFullTitle } from '../components/HeadTitle';
 
 function Heading() {
   const media = useMediaAtom();
@@ -97,6 +99,13 @@ function Slider() {
 export default function Services() {
   return (
     <div className="pb-[52px] md:pb-[72px] xl:pb-[88px]">
+      <Head>
+        <title>{'Glow design process & the list of our services'}</title>
+        <meta
+          name="description"
+          content="We put Human Centered Design in the core of our work to provide solutions that satisfy both business and users."
+        ></meta>
+      </Head>
       <Heading />
       <ServicesSelector />
       <Process />
