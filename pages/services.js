@@ -100,10 +100,10 @@ export default function Services() {
   return (
     <div className="pb-[52px] md:pb-[72px] xl:pb-[88px]">
       <Head>
-        <title>{'Glow design process & the list of our services'}</title>
+        <title>{'Our Design Services - Glow Team'}</title>
         <meta
           name="description"
-          content="We put Human Centered Design in the core of our work to provide solutions that satisfy both business and users."
+          content="Explore Glow Team's array of product design services, including UI/UX design, branding, and more. Dedicated to delivering high-quality solutions for business."
         ></meta>
       </Head>
       <Heading />
