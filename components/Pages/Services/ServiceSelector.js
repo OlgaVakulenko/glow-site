@@ -171,7 +171,7 @@ function ServiceCard({ index, title, description, tags }) {
 
     let h = 0;
     if (!collapsed) {
-      h = ref.scrollHeight + 5;
+      h = ref.scrollHeight + 1;
     } else {
       h = 0;
     }
