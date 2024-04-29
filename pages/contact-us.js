@@ -62,12 +62,12 @@ const items = [
 
 function FaqItem({ question, answer }) {
   return (
-    <div className="w-full py-8">
+    <div className="w-full py-[31px]">
       <Disclosure>
         <Disclosure.Button className="flex w-full justify-between text-left md:grid md:grid-cols-8 md:gap-8 xl:grid-cols-12">
           {({ open }) => (
             <>
-              <h3 className="font-satoshi text-[20px] font-medium leading-[130%] md:col-span-3 md:pr-8 xl:col-span-5">
+              <h3 className="text-next-heading-7 md:col-span-3 md:pr-8 xl:col-span-5">
                 {question}
               </h3>
               <div className="flex items-center justify-between text-next-body-s md:col-span-5 md:text-next-body-m xl:col-span-7 xl:text-next-body-m">
@@ -138,7 +138,7 @@ export function FAQ({ padding }) {
         '"mb-12 xl:mb-[88px]" md:mb-[72px]': padding == null,
       })}
     >
-      <h2 className="mb-10 font-glow text-[32px] font-medium leading-[40px] tracking-[-2px] md:mb-14 md:text-[48px] md:leading-[56px] xl:mb-20 xl:text-next-heading-2">
+      <h2 className="mb-10 text-next-heading-5 md:mb-14 md:text-[48px] md:leading-[56px] xl:mb-20 xl:text-next-heading-2">
         Frequently asked questions
       </h2>
       <div className="divide-border-blac border-border-black divide-y border-b border-t">

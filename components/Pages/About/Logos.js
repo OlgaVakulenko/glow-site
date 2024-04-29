@@ -41,11 +41,12 @@ export default function Logos({ padding }) {
         link={<RemoteLink>View Profile</RemoteLink>}
         href="https://www.designrush.com/agency/graphic-design/digital-design"
       />
-      <div className="md:order-6 md:col-span-8 md:flex md:items-center md:justify-center md:rounded-full md:border md:border-black md:p-[28px] xl:order-3 xl:col-span-4">
+      <div className="order-2 md:order-6 md:col-span-8 md:flex md:items-center md:justify-start md:rounded-full md:border md:border-black md:p-[32px] xl:order-3 xl:col-span-4">
         <IconLayout
           icon={clutchIcon}
           title={<ItemTitle>Top 30 User Experience Company</ItemTitle>}
           href="https://clutch.co/profile/glow-design-agency"
+          clutch
         />
       </div>
     </Layout>
@@ -156,12 +157,18 @@ const clutchIcon = (
   </svg>
 );
 
-function IconLayout({ className, icon, title, href, link }) {
+function IconLayout({ className, icon, title, href, link, clutch }) {
   return (
     <a
       href={href}
       target="_blank"
-      className={cx('flex items-center gap-4 md:gap-6', className)}
+      className={cx(
+        'flex items-center gap-4 md:gap-6',
+        {
+          'md:!gap-8': clutch,
+        },
+        className
+      )}
     >
       <div>{icon}</div>
       <div className="flex flex-col gap-2 md:gap-6">

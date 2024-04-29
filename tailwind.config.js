@@ -97,28 +97,28 @@ module.exports = {
           '24px',
           {
             lineHeight: '36px',
-            letterSpacing: '-1px',
+            letterSpacing: '0px',
           },
         ],
         'next-body-xl': [
           '22px',
           {
             lineHeight: '32px',
-            letterSpacing: '-1px',
+            letterSpacing: '0px',
           },
         ],
         'next-body-l': [
           '20px',
           {
             lineHeight: '32px',
-            letterSpacing: '-1px',
+            letterSpacing: '0px',
           },
         ],
         'next-body-m': [
           '18px',
           {
             lineHeight: '28px',
-            letterSpacing: '-1px',
+            letterSpacing: '0px',
           },
         ],
         'next-body-m-reading': [
@@ -132,14 +132,14 @@ module.exports = {
           '16px',
           {
             lineHeight: '24px',
-            letterSpacing: '-1px',
+            letterSpacing: '0px',
           },
         ],
         'next-body-xs': [
           '14px',
           {
             lineHeight: '20px',
-            letterSpacing: '-1px',
+            letterSpacing: '0px',
           },
         ],
         xs: ['12px', '18px'],
@@ -372,6 +372,7 @@ module.exports = {
         ['checkbox-checked']: 'inset 0 0 0 1px #E33230',
         service:
           '0px 6px 9px rgba(0, 0, 0, 0.05), 0px 1.80882px 2.71324px rgba(0, 0, 0, 0.0325794), 0px 0.751293px 1.12694px rgba(0, 0, 0, 0.025), 0px 0.271728px 0.407592px rgba(0, 0, 0, 0.0174206)',
+        'service-btn': 'inset 0 0 0px 1px #E8E8E9',
       },
       transformOrigin: {
         'left-center': '24px center',

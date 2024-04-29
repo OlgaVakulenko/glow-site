@@ -32,6 +32,7 @@ import Logo from './Logo';
 import links from './links-data';
 import texts from './texts';
 import Button2 from './Button';
+import { useLenis } from '@studio-freight/react-lenis';
 
 export function BurgerIcon({ isOpen = false, theme, size = 40 }) {
   let stroke = '#19191B';
@@ -160,7 +161,7 @@ const BurgerMenu = ({ menuId, links }) => {
       <div className="overflow-y-auto">
         <Layout>
           <div className={'flex h-screenx flex-col md:justify-between'}>
-            <div className="flex items-center justify-between py-[28px] font-medium text-black">
+            <div className="flex items-center justify-between py-6 font-medium text-black">
               <Link
                 href="/"
                 className="flex items-center justify-center"
@@ -289,6 +290,10 @@ export const useHeaderTheme = ({
 export const isTopAtom = atom(false);
 export const isBottomAtom = atom(false);
 
+function StickyHeader({ className, children }) {
+  return <header className={className}>{children}</header>;
+}
+
 export default function Header({
   isFixed = true,
   headerRightSlot = null,
@@ -380,7 +385,6 @@ export default function Header({
     mounted &&
     headerActive &&
     !isTop &&
-    // !isBottom &&
     scrollDirection !== 'forward' &&
     t !== 'dark' &&
     t !== 'brand';
@@ -427,14 +431,12 @@ export default function Header({
 
   return (
     <div ref={rootRef}>
-      <div className={cx('fixed top-0 z-10 w-full font-inter')}>
+      {/* <div className={cx('fixed top-0 z-10 w-full font-inter')}>
         <div className="relative">
           <div
             className={cx(
               'backdrop pointer-events-none absolute left-0 top-0 h-[96px] w-full -translate-y-full bg-white opacity-0 transition-all duration-500',
               {
-                // 'duration-300': !subMenuActive,
-                // 'duration-[0s]': subMenuActive,
                 '!translate-y-0': backdropActive,
                 '!opacity-100': backdropActive,
                 '!transition-none': isRouteTransition,
@@ -442,26 +444,39 @@ export default function Header({
             )}
           ></div>
         </div>
-      </div>
-      <header
+      </div> */}
+      <StickyHeader
         className={cx(
-          'first-header fixed z-10 w-full font-inter transition-transform duration-500',
+          'first-header fixed z-10 w-full font-inter transition-all duration-500',
           {
-            // 'md:-translate-y-4': !isTop,
-            // && !isBottom
             '!-translate-y-full':
               (scrollDirection === 'forward' &&
                 // && !isBottom
                 !subMenuActive) ||
               !headerActive,
-            // '!transition-none': isRouteTransition,
+            'bg-white': backdropActive,
+            '!transition-none': isRouteTransition,
           }
         )}
       >
+        {/* <header
+        className={cx(
+          'first-header fixed z-10 w-full font-inter transition-all duration-500',
+          {
+            '!-translate-y-full':
+              (scrollDirection === 'forward' &&
+                // && !isBottom
+                !subMenuActive) ||
+              !headerActive,
+            'bg-white': backdropActive,
+            '!transition-none': isRouteTransition,
+          }
+        )}
+      > */}
         <div className="relative">
           <Layout>
             <div
-              className="flex items-center justify-between pt-[28px] font-medium md:h-[96px] md:justify-start md:!pb-[28px] md:!pt-[28px]"
+              className="flex items-center justify-between py-6 font-medium md:justify-start"
               style={{
                 '--header-theme':
                   t === 'brand' || t === 'white'
@@ -540,7 +555,8 @@ export default function Header({
             </div>
           </Layout>
         </div>
-      </header>
+        {/* </header> */}
+      </StickyHeader>
       <BurgerMenu menuId={menuId} links={links} />
       {isClient && media !== 'mobile' && <HeaderSubMenuContainer />}
     </div>

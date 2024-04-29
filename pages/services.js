@@ -1,4 +1,5 @@
 import cx from 'clsx';
+import Head from 'next/head';
 import Link from 'next/link';
 import { useMemo } from 'react';
 import IntroSection2 from '../components/IntroSection2';
@@ -13,30 +14,18 @@ import Process from '../components/Pages/Services/Process';
 import ServicesSelector from '../components/Pages/Services/ServiceSelector';
 import { useMediaAtom } from '../lib/agent';
 import { FAQ } from './contact-us';
-import Head from 'next/head';
-import { getFullTitle } from '../components/HeadTitle';
 
 function Heading() {
-  const media = useMediaAtom();
-
   const title = useMemo(() => {
-    if (media === 'mobile') {
-      return (
-        <>
-          Glow Processes
-          <br /> For Mvp Projects
-        </>
-      );
-    }
-
     return (
       <>
         Glow design process
         <br className="hidden xl:block" /> &{' '}
-        <span className="hidden xl:inline">&nbsp;</span>the list of our services
+        <span className="hidden xl:inline">&nbsp;</span>the list of&nbsp;our
+        services
       </>
     );
-  }, [media]);
+  }, []);
 
   return (
     <IntroSection2
@@ -61,14 +50,6 @@ function Slider() {
 
   return (
     <div>
-      <Layout className="mb-10 text-center md:hidden">
-        <h3 className="mb-5 text-[20px] font-medium leading-[120%]">
-          MVP Cases
-        </h3>
-        <h4 className="text-[18px] leading-[24px]">
-          How we do it. Check out how we make ideas glow click-by-click.
-        </h4>
-      </Layout>
       <CasesSlider2 filter={filter} disableOnMobile padding={false} />
       <Layout className="md:hidden">
         <Link

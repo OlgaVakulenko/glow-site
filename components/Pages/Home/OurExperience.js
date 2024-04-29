@@ -42,10 +42,10 @@ export default function OurExperience({ padding }) {
         padding
       )}
     >
-      <div className="mb-10 mr-[72px] flex-shrink-0 md:mb-[53px] xl:mr-8">
-        <div className="w-full  font-satoshi text-[24px] font-medium leading-[32px] md:max-w-[248px] xl:min-w-[415px] xl:max-w-[304px] xl:text-next-heading-5">
-          We balance <br className="hidden xl:block" /> business objectives with
-          customer needs
+      <div className="mb-[72px] flex-shrink-0 md:mb-[53px] md:mr-[72px] xl:mr-8">
+        <div className="w-full font-satoshi text-next-heading-7 font-medium md:max-w-[248px] xl:min-w-[415px] xl:max-w-[304px] xl:text-next-heading-5">
+          We balance <br className="hidden xl:block" /> business objectives
+          with&nbsp;customer needs
         </div>
       </div>
       <AnimatedGroup className="grid w-full gap-x-6 gap-y-10 md:col-span-5 md:flex md:justify-between md:gap-10 xl:col-span-8 xl:flex xl:gap-24">

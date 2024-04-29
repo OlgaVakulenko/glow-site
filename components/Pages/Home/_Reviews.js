@@ -202,7 +202,7 @@ export function ClutchRating({ rating = 5, className = '' }) {
     <div
       className={cx(
         className,
-        'flex items-center rounded-full bg-white px-4 py-2 text-[#d05c54]'
+        'flex items-center rounded-full bg-white px-4 py-2 pl-2 text-[#d05c54]'
       )}
     >
       <svg

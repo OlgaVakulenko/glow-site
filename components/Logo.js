@@ -9,14 +9,14 @@ export default function Logo({ className = '', style = {} }) {
 
   return (
     <svg
-      width={media === 'mobile' ? 32 : 78}
-      height={media === 'mobile' ? 40 : 32}
+      width={media === 'mobile' ? 32 : 80}
+      height={media === 'mobile' ? 40 : 33}
       viewBox={media === 'mobile' ? '0 0 32 40' : '0 0 78 32'}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={cx(
         className,
-        'h-[40px] w-[32px] md:h-[32px] md:w-[78px]',
+        'h-[40px] w-[32px] md:h-[33px] md:w-[80px]',
         !style.color && 'header-logo',
         subMenuParent && 'submenu'
       )}

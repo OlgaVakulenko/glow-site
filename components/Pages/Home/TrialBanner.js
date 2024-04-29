@@ -27,16 +27,14 @@ function NumCard({ num, title }) {
       <div className="flex h-[32px] w-[32px] items-center justify-center rounded-full bg-brand p-[6px] font-inter text-[16px] font-medium leading-[20px] text-white xl:text-[16px] xl:leading-[20px]">
         {num}
       </div>
-      <div className="font-satoshi text-[18px] font-medium leading-[32px] xl:text-next-heading-7">
-        {title}
-      </div>
+      <div className="text-next-heading-7">{title}</div>
     </Card>
   );
 }
 
 export function Tag({ name }) {
   return (
-    <div className="glow-border-light rounded-full px-[12px] py-[4px] text-next-tag font-medium uppercase">
+    <div className="glow-border-light rounded-full px-[12px] py-[2px] text-next-tag font-medium uppercase">
       {name}
     </div>
   );
@@ -55,8 +53,9 @@ export default function TrialBanner() {
       />
       <div className="grid gap-4 md:grid-cols-4">
         <Card hideBg className="relative !p-2 !pb-4 md:col-span-2 md:!p-8">
-          <div className="relative mb-8 font-satoshi text-[40px] font-medium leading-[48px] tracking-[-1px] md:mb-8 md:text-[48px] md:leading-[56px] md:tracking-[-1px] xl:mb-8 xl:text-next-heading-2">
-            Start with <br className="" />a free 3-day trial
+          <div className="relative mb-8 text-next-heading-5 md:mb-8 md:text-[48px] md:leading-[56px] md:tracking-[-1px] xl:mb-8 xl:text-next-heading-2">
+            Start with
+            <br className="hidden md:block" /> a free 3&#8209;day trial
           </div>
           <Button2
             as={Link}

@@ -492,3 +492,14 @@
   font-weight: 500;
   font-feature-settings: 'ss03'on, 'liga'off;
 }
+
+.scroll-c::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-c {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}

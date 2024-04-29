@@ -12,7 +12,7 @@ export default function Process() {
       <Heading
         title={
           <>
-            This is how we <br className="xl:hidden" />
+            This is how we <br className="hidden md:block xl:hidden" />
             do it
           </>
         }

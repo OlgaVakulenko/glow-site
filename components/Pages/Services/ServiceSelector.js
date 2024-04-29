@@ -49,14 +49,9 @@ export default function ServicesSelector() {
 
   return (
     <Layout disableOnMobile className="md:pt-6 xl:pt-[88px]">
-      <div
-        className="bg-[#F4F3F5] pt-[52px] md:rounded-[32px] md:bg-inherit md:pt-0"
-        style={{
-          boxShadow: 'inset 0 0 0px 1px #E8E8E9',
-        }}
-      >
+      <div className="bg-[#F4F3F5] pt-[52px] md:rounded-[32px] md:bg-inherit md:pt-0 md:shadow-service-btn">
         <Layout className="pb-10 md:hidden">
-          <h3 className="mb-4 text-next-heading-4">Making it Glow</h3>
+          <h3 className="mb-4 text-next-heading-5">Making it Glow</h3>
           <h4 className="text-next-body-l">
             We put Human Centered Design in the core of our work to provide
             solutions that satisfy both business and users.
@@ -64,7 +59,7 @@ export default function ServicesSelector() {
         </Layout>
         <div
           ref={scroller}
-          className="flex gap-1 overflow-x-auto px-4 pb-3 pt-3 md:grid md:grid-cols-3 md:gap-6 md:overflow-hidden md:p-0 xl:gap-8"
+          className="scroll-c flex gap-1 overflow-x-auto px-4 pb-3 pt-3 md:grid md:grid-cols-3 md:gap-6 md:overflow-hidden md:p-0 xl:gap-8"
         >
           {services.map((service, idx) => (
             <button
@@ -73,10 +68,10 @@ export default function ServicesSelector() {
               className={cx(
                 'relative flex shrink-0 items-center gap-4 px-8 py-4 text-left transition-all duration-200 md:col-span-1 md:w-full md:w-full md:shrink md:gap-6 md:rounded-b-none md:shadow-none',
                 {
-                  'md:pt-3 xl:pb-3 xl:pt-5': idx === 0,
-                  'md:pt-2': idx !== 0,
-                  'xl:pb-[18px] xl:pt-[18px]': idx === 1,
-                  'xl:py-4': idx === 2,
+                  // 'md:pt-3 xl:pb-3 xl:pt-5': idx === 0,
+                  // 'md:pt-2': idx !== 0,
+                  // 'xl:pb-[18px] xl:pt-[18px]': idx === 1,
+                  // 'xl:py-4': idx === 2,
                   'rounded-2xl bg-white shadow-service md:rounded-[32px] md:bg-[#F4F3F5]':
                     selected === idx,
                 }
@@ -99,7 +94,7 @@ export default function ServicesSelector() {
               </div>
               <svg
                 className={cx(
-                  'absolute -left-[25px] bottom-[-1px] h-[22px] w-[26px] transition-all duration-200',
+                  'absolute -left-[25px] bottom-[-1px] hidden h-[22px] w-[26px] transition-all duration-200 md:block',
                   {
                     '!opacity-0': idx === 0,
                     'opacity-0': selected !== idx,
@@ -117,7 +112,7 @@ export default function ServicesSelector() {
 
               <svg
                 className={cx(
-                  'absolute -right-[25px] bottom-[-1px] h-[22px] w-[26px] transition-all duration-200',
+                  'absolute -right-[25px] bottom-[-1px] hidden h-[22px] w-[26px] transition-all duration-200 md:block',
                   {
                     'opacity-0': selected !== idx,
                   }
@@ -181,7 +176,7 @@ function ServiceCard({ index, title, description, tags }) {
 
   return (
     <button
-      className="rounded-2xl bg-white p-6 text-left shadow-service md:p-8"
+      className="rounded-2xl bg-white p-6 text-left md:p-8"
       onClick={() => {
         setCurrent(index);
       }}

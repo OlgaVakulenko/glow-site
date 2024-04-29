@@ -314,7 +314,7 @@ export default function Reviews({ padding }) {
         })}
       >
         <Layout className="mb-10 flex items-end justify-between md:mb-16 xl:mb-20">
-          <div className="font-satoshi text-[32px] font-medium leading-[130%] tracking-[-2px] md:max-w-[577px] md:text-[56px] md:leading-[64px] md:tracking-[-2px] xl:text-next-heading-2">
+          <div className="text-next-heading-5 md:max-w-[577px] md:text-[56px] md:leading-[64px] md:tracking-[-2px] xl:text-next-heading-2">
             Discover what our customers have to say
           </div>
           {/* <div className="hidden space-x-4 pb-[14px] md:flex">
