@@ -41,7 +41,7 @@ export default function Logos({ padding }) {
         link={<RemoteLink>View Profile</RemoteLink>}
         href="https://www.designrush.com/agency/graphic-design/digital-design"
       />
-      <div className="order-2 md:order-6 md:col-span-8 md:flex md:items-center md:justify-start md:rounded-full md:border md:border-black md:p-[32px] xl:order-3 xl:col-span-4">
+      <div className="order-2 md:order-6 md:col-span-8 md:flex md:items-center md:justify-center md:rounded-full md:border md:border-black md:p-[32px] xl:order-3 xl:col-span-4 xl:justify-start">
         <IconLayout
           icon={clutchIcon}
           title={<ItemTitle>Top 30 User Experience Company</ItemTitle>}
