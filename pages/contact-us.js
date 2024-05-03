@@ -62,23 +62,25 @@ const items = [
 
 function FaqItem({ question, answer }) {
   return (
-    <div className="w-full py-[31px]">
+    <div className="faq-adhoc w-full py-[31px]">
       <Disclosure>
-        <Disclosure.Button className="flex w-full justify-between text-left md:grid md:grid-cols-8 md:gap-8 xl:grid-cols-12">
+        <Disclosure.Button className="flex w-full justify-between text-left md:grid md:grid-cols-8 md:gap-8 xl:flex">
           {({ open }) => (
             <>
               <h3 className="text-next-heading-7 md:col-span-3 md:pr-8 xl:col-span-5">
                 {question}
               </h3>
-              <div className="flex items-center justify-between text-next-body-s md:col-span-5 md:text-next-body-m xl:col-span-7 xl:text-next-body-m">
+              <div className="flex shrink-0 items-center  justify-between text-next-body-s md:col-span-5 md:items-start md:text-next-body-m xl:col-span-7 xl:text-next-body-m">
                 {open ? (
-                  <Disclosure.Panel className="hidden whitespace-pre-line md:block">
+                  <Disclosure.Panel className="hidden whitespace-pre-line md:block xl:w-full xl:max-w-[650px]">
                     {answer}
                   </Disclosure.Panel>
                 ) : (
-                  <div className="hidden truncate md:block">{answer}</div>
+                  <div className="hidden truncate md:block xl:w-full xl:max-w-[650px]">
+                    {answer}
+                  </div>
                 )}
-                <div className="ml-6 mr-2 h-5 w-5 shrink-0 opacity-50 xl:mr-0">
+                <div className="ml-6 mr-2 h-5 w-5 shrink-0 opacity-50 md:mt-[3px] xl:mr-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-full w-full"
@@ -141,7 +143,9 @@ export function FAQ({ padding }) {
       <h2 className="mb-10 text-next-heading-5 md:mb-14 md:text-[48px] md:leading-[56px] xl:mb-20 xl:text-next-heading-2">
         Frequently asked questions
       </h2>
-      <div className="divide-border-blac border-border-black divide-y border-b border-t">
+      <div
+      // className="border-border-black divide-y border-b border-t"
+      >
         {items.map((item, idx) => (
           <FaqItem key={idx} question={item.q} answer={item.a} />
         ))}

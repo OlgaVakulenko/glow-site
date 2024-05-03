@@ -16,6 +16,7 @@ import HeadTitle, {
   getFullTitle,
 } from '../components/HeadTitle';
 import CookieBanner from '../components/CookieBanner';
+import PixelPerfect from '../components/PixelPerfect';
 
 export const routerHistory = atom([]);
 

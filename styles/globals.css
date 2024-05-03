@@ -503,3 +503,22 @@
   scrollbar-width: none;
   /* Firefox */
 }
+
+.faq-adhoc {
+  --border-color-top: #D1D1D1;
+  border-top: 1px solid var(--border-color-top);
+}
+
+.faq-adhoc:has([data-headlessui-state="open"]),
+.faq-adhoc:has([data-headlessui-state="open"])+.faq-adhoc {
+  --border-color-top: black;
+}
+
+.faq-adhoc:last-child {
+  --border-color-bottom: #D1D1D1;
+  border-bottom: 1px solid var(--border-color-bottom);
+}
+
+.faq-adhoc:last-child:has([data-headlessui-state="open"]) {
+  --border-color-bottom: black;
+}

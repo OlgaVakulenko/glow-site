@@ -275,7 +275,7 @@ function IconsSection2() {
           {items2.map((item, index) => (
             <Animated
               key={index}
-              className="flex items-center"
+              className="flex items-center xl:items-start"
               delay={300 * index}
               onViewChange={(isVisible) => {
                 setMap((c) => ({

@@ -222,7 +222,7 @@ function ServiceCard({ index, title, description, tags }) {
           maxHeight: height,
         }}
       >
-        <div className="mb-10 pt-6 text-next-body-s md:mb-8 md:text-next-body-m xl:pt-8">
+        <div className="mb-10 pt-6 text-next-body-s md:mb-8 md:text-next-body-m xl:pr-6 xl:pt-8">
           {description}
         </div>
         <div className="flex flex-wrap gap-2 xl:max-w-[80%]">

@@ -257,7 +257,7 @@ function ReviewCard({
 }) {
   return (
     <div className="h-full font-inter">
-      <div className="h-full rounded-[32px] bg-dim-gray p-6 md:flex md:space-x-16 md:px-0 md:py-10 xl:min-h-[400px] xl:space-x-20 xl:py-12">
+      <div className="h-full rounded-[32px] bg-dim-gray p-6 md:flex md:space-x-16 md:px-0 md:py-10 xl:min-h-[394px] xl:space-x-20 xl:py-12">
         <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-12">
           <div className="md:flex md:h-full md:max-w-[168px] md:flex-col md:items-start md:justify-between">
             <div className="">
@@ -276,10 +276,10 @@ function ReviewCard({
                 </div>
                 <ClutchRating
                   rating={rating}
-                  className="border border-checkbox-light md:hidden"
+                  className="shadow-as-border shadow-checkbox-light md:hidden"
                 />
               </div>
-              <div className="text-body-m2 font-medium md:mb-1 xl:text-next-body-m">
+              <div className="text-body-m2 font-medium md:mb-1 xl:text-next-body-m xl:font-normal">
                 {name}
               </div>
               <div className="mb-6 text-body-s opacity-80 xl:text-next-body-s">
@@ -290,7 +290,7 @@ function ReviewCard({
             </div>
             <ClutchRating
               rating={rating}
-              className="hidden border border-checkbox-light md:flex"
+              className="hidden shadow-as-border shadow-checkbox-light md:flex"
             />
           </div>
         </div>
@@ -346,7 +346,7 @@ export default function Reviews({ padding }) {
                 spaceBetween: '24px',
               },
               1440: {
-                slidesPerView: '1.5',
+                slidesPerView: '1.511',
                 spaceBetween: '24px',
               },
             }}

@@ -79,7 +79,7 @@ export default function TrialBanner() {
               evaluate our skills and decide whether you want to work with us
               going forward.
             </div>
-            <div className="relative flex flex-wrap gap-2 pb-[2px]">
+            <div className="relative flex flex-wrap gap-2 xl:pb-0">
               {tags.map((tag) => (
                 <Tag key={tag} name={tag} />
               ))}

@@ -26,7 +26,7 @@ export default function Logos({ padding }) {
         className="order-1 md:col-span-4"
         icon={dribbleIcon}
         title={
-          <div className="flex gap-2 pt-[3px] md:gap-6">
+          <div className="flex gap-2 pt-[3px] md:gap-8">
             <DribbleStat count="12 860" label="Likes" />
             <DribbleStat count="2790" label="Followers" />
           </div>
