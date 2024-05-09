@@ -62,7 +62,7 @@ const items = [
 
 function FaqItem({ question, answer }) {
   return (
-    <div className="faq-adhoc w-full py-[31px]">
+    <div className="faq-adhoc w-full pb-[31px] pt-[32px]">
       <Disclosure>
         <Disclosure.Button className="flex w-full justify-between text-left md:grid md:grid-cols-8 md:gap-8 xl:flex">
           {({ open }) => (
@@ -80,7 +80,7 @@ function FaqItem({ question, answer }) {
                     {answer}
                   </div>
                 )}
-                <div className="ml-6 mr-2 h-5 w-5 shrink-0 opacity-50 md:mt-[3px] xl:mr-0">
+                <div className="ml-6 mt-[2px] h-5 w-5 shrink-0 opacity-50 md:mr-2 md:mt-[3px] xl:mr-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-full w-full"

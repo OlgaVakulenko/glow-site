@@ -257,11 +257,11 @@ function ReviewCard({
 }) {
   return (
     <div className="h-full font-inter">
-      <div className="h-full rounded-[32px] bg-dim-gray p-6 md:flex md:space-x-16 md:px-0 md:py-10 xl:min-h-[394px] xl:space-x-20 xl:py-12">
+      <div className="h-full rounded-3xl bg-dim-gray p-6 md:flex md:space-x-16 md:rounded-[32px] md:px-0 md:py-10 xl:min-h-[394px] xl:space-x-20 xl:py-12">
         <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-12">
           <div className="md:flex md:h-full md:max-w-[168px] md:flex-col md:items-start md:justify-between">
             <div className="">
-              <div className="mb-4 flex items-center justify-between">
+              <div className="mb-[18px] flex items-start justify-between md:items-center">
                 <div className="flex">
                   <div className="relative z-[1] h-[64px] w-[64px] rounded-full bg-black shadow-[0_0_0_2px_white] md:-mr-4">
                     <div className="absolute left-1/2 top-1/2 w-full max-w-[55px] -translate-x-1/2 -translate-y-1/2 ">
@@ -279,10 +279,10 @@ function ReviewCard({
                   className="shadow-as-border shadow-checkbox-light md:hidden"
                 />
               </div>
-              <div className="text-body-m2 font-medium md:mb-1 xl:text-next-body-m xl:font-normal">
+              <div className="mb-1 flex min-h-8 items-center text-next-body-m   font-medium md:mb-1 md:min-h-0 xl:text-next-body-m xl:font-normal">
                 {name}
               </div>
-              <div className="mb-6 text-body-s opacity-80 xl:text-next-body-s">
+              <div className="mb-8 text-next-body-s opacity-80 xl:text-next-body-s">
                 {company.split(',').map((text, i) => (
                   <p key={i}>{text}</p>
                 ))}
@@ -295,7 +295,7 @@ function ReviewCard({
           </div>
         </div>
         <div className="flex flex-col items-start">
-          <div className="text-[20px] leading-[150%] md:col-span-6 md:pr-12 md:text-[24px] md:leading-[160%] xl:text-next-body-xxl">
+          <div className="text-next-body-l md:col-span-6 md:pr-12 md:text-[24px] md:leading-[160%] xl:text-next-body-xxl">
             “{text}”
           </div>
         </div>
@@ -374,7 +374,7 @@ export default function Reviews({ padding }) {
                 />
               </SwiperSlide>
             ))}
-            <div className="pt-10 md:pt-12">
+            <div className="pt-8 md:pt-12">
               <div className="items-center md:flex md:space-x-6">
                 <div className="hidden shrink-0 space-x-4 md:flex">
                   <CaseNavArrow

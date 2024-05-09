@@ -26,7 +26,7 @@ export default function Logos({ padding }) {
         className="order-1 md:col-span-4"
         icon={dribbleIcon}
         title={
-          <div className="flex gap-2 pt-[3px] md:gap-8">
+          <div className="flex gap-8 pt-[3px] md:gap-8">
             <DribbleStat count="12 860" label="Likes" />
             <DribbleStat count="2790" label="Followers" />
           </div>
@@ -163,8 +163,9 @@ function IconLayout({ className, icon, title, href, link, clutch }) {
       href={href}
       target="_blank"
       className={cx(
-        'flex items-center gap-4 md:gap-6',
+        'flex items-center gap-4  md:gap-6 ',
         {
+          'min-h-[120px]': icon !== clutchIcon,
           'md:!gap-8': clutch,
         },
         className
@@ -508,7 +509,7 @@ function Clutch({ className }) {
           </svg>
         </div>
         <div className="text-body-heading-m md:max-w-[236px]">
-          Top 30 User Experience Company
+          Top 30 User <br className="md:hidden" /> Experience Company
         </div>
       </div>
     </Animated>

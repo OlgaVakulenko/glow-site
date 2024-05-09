@@ -522,3 +522,20 @@
 .faq-adhoc:last-child:has([data-headlessui-state="open"]) {
   --border-color-bottom: black;
 }
+
+.bg-bl {
+  background: linear-gradient(0deg, rgba(255, 0, 0, 0) 50%, rgba(255, 75, 73, 0.6) 100%);
+
+}
+
+@media screen and (min-width: 820px) {
+  .bg-bl {
+    background: radial-gradient(ellipse at 26% 0%, rgba(255, 75, 73, 0.7) 0%, rgba(187, 110, 187, 0) 76%);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .bg-bl {
+    background: radial-gradient(ellipse at 2% 5%, rgba(255, 75, 73, 0.6) 7%, rgba(187, 110, 187, 0) 70%);
+  }
+}

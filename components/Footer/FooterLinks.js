@@ -12,8 +12,8 @@ const links = [
     label: 'Facebook',
     icon: (
       <svg
-        width="16"
-        height="16"
+        width="20"
+        height="20"
         viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -30,8 +30,8 @@ const links = [
     label: 'Medium',
     icon: (
       <svg
-        width="16"
-        height="16"
+        width="20"
+        height="20"
         viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -56,8 +56,8 @@ const links = [
     label: 'Clutch',
     icon: (
       <svg
-        width="16"
-        height="16"
+        width="20"
+        height="20"
         viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -78,8 +78,8 @@ const links = [
     label: 'Instagram',
     icon: (
       <svg
-        width="16"
-        height="16"
+        width="20"
+        height="20"
         viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -108,8 +108,8 @@ const links = [
     label: 'Dribbble',
     icon: (
       <svg
-        width="16"
-        height="16"
+        width="20"
+        height="20"
         viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -135,8 +135,8 @@ const links = [
     label: 'Behance',
     icon: (
       <svg
-        width="16"
-        height="16"
+        width="20"
+        height="20"
         viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -155,8 +155,8 @@ const links = [
     label: 'LinkedIn',
     icon: (
       <svg
-        width="16"
-        height="16"
+        width="20"
+        height="20"
         viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -173,8 +173,8 @@ const links = [
     label: 'Pinterest',
     icon: (
       <svg
-        width="16"
-        height="16"
+        width="20"
+        height="20"
         viewBox="0 0 16 16"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -207,11 +207,11 @@ export default function FooterLinks({ className = '' }) {
   return (
     <div
       className={cx(
-        'flex flex-col items-center justify-between space-y-8 font-inter text-sm text-white md-safe:flex-row md-safe:space-y-0',
+        'flex flex-col items-center justify-between gap-4 font-inter text-sm text-white md-safe:flex-row md-safe:space-y-0',
         className
       )}
     >
-      <div className="flex w-full items-center justify-between md-safe:w-auto md-safe:justify-start">
+      <div className="flex w-full items-center justify-between py-3 md-safe:w-auto md-safe:justify-start">
         <div className="flex shrink-0 items-center">
           <div className="styag mr-4 w-[24px] overflow-hidden rounded md-safe:mr-6">
             <div className="h-[9px] bg-[#156DD1]"></div>
@@ -224,11 +224,11 @@ export default function FooterLinks({ className = '' }) {
           <Weather className="md-safe:mr-8" />
         </div>
       </div>
-      <div className="flex w-full justify-between md-safe:w-auto md-safe:space-x-8 xl:space-x-10">
+      <div className="flex w-full justify-between py-2 md-safe:w-auto md-safe:space-x-8 xl:space-x-10">
         {_links.map((link) => (
           <a
             title={link.label}
-            className="whitespace-nowrap"
+            className="whitespace-nowrap p-[6px]"
             key={link.href}
             href={link.href}
             target="_blank"
@@ -238,7 +238,7 @@ export default function FooterLinks({ className = '' }) {
           </a>
         ))}
       </div>
-      <div className="relative flex w-full shrink-0 justify-between space-x-7 md-safe:w-auto xl:space-x-9">
+      <div className="relative flex w-full shrink-0 justify-between px-2 py-4 md-safe:w-auto xl:space-x-9">
         <div className="absolute left-1/2 top-1/2 h-[16px] w-[1px] -translate-x-1/2 -translate-y-1/2 bg-checkbox-light md:hidden"></div>
         <Link href="/privacy-policy">
           <RollingText text="Privacy Policy" height={24}></RollingText>

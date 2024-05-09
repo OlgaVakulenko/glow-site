@@ -52,7 +52,7 @@ export default function CaseCard({ type, item, index, total }) {
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
           className={cx(
-            'relative pb-3',
+            'relative',
             // 'md:mt-0 md:px-[96px] md:pb-16 md:pt-[282px] xl:px-12',
             'md:flex md:h-full md:grow md:flex-col md:justify-between md:px-16 md:py-[72px]'
           )}
@@ -81,20 +81,20 @@ export default function CaseCard({ type, item, index, total }) {
             )}
           </div>
           <div className="mb-2 mt-6 font-glow text-next-heading-6 md:mb-9 md:mt-6 md:text-[32px] md:leading-10">
-            <div className="flex items-center justify-between">
+            <div className="flex items-start justify-between">
               <span>{item.title2 || item.title}</span>
               <svg
-                className="md:hidden"
-                xmlns="http://www.w3.org/2000/svg"
-                width="28"
-                height="28"
-                viewBox="0 0 28 28"
+                className="shrink-0 md:hidden"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
                 fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M7.96693 21.2829L17.568 11.6818L17.5532 18.7974L19.5529 18.8016L19.5748 8.25936L9.03325 8.28199L9.03749 10.2817L16.1552 10.2661L6.55272 19.8686L7.96693 21.2829Z"
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M10.9679 23.2829L20.569 13.6818L20.5542 20.7974L22.5539 20.8016L22.5758 10.2594L12.0342 10.282L12.0385 12.2817L19.1562 12.2661L9.55369 21.8686L10.9679 23.2829Z"
                   fill="#19191B"
                 />
               </svg>

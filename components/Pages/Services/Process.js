@@ -12,8 +12,7 @@ export default function Process() {
       <Heading
         title={
           <>
-            This is how we <br className="hidden md:block xl:hidden" />
-            do it
+            This is how <br className="hidden md:block xl:hidden" /> we do it
           </>
         }
         description="Custom software development helps you create great and super stable products by applying our workflow."

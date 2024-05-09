@@ -29,7 +29,7 @@ function Heading() {
 
   return (
     <IntroSection2
-      className="!pt-[196px] md:!pt-[271px] xl:!pt-[300px]"
+      className="!pt-[192px] md:!pt-[271px] xl:!pt-[300px]"
       title={title}
       subtitle="We put Human Centered Design in the core of our work to provide solutions that satisfy both business and users."
     />
@@ -54,7 +54,7 @@ function Slider() {
       <Layout className="md:hidden">
         <Link
           href="/work"
-          className="flex w-full items-center justify-center gap-2 rounded-full border border-black px-8 py-[15px] text-[16px] uppercase leading-[24px]"
+          className="flex w-full items-center justify-center gap-2 rounded-full border border-black px-8 py-[15px] text-[16px] uppercase leading-[24px] tracking-[0.03em]"
         >
           <div>Cases</div>
           <svg

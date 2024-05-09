@@ -106,7 +106,7 @@ export default function Footer2({
         )
       )}
       <Layout>
-        <div className="py-6 md:py-11">
+        <div className="px-1 pt-6 md:py-11">
           <FooterLinks className="!text-black" />
         </div>
       </Layout>

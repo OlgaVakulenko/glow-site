@@ -10,7 +10,7 @@ export default function IntroSection({ title, subtitle, className }) {
         className
       )}
     >
-      <div className="mb-4 text-next-heading-4 md:mb-0 md:mr-24 md:min-w-[350px] md:text-next-heading-3 xl:col-span-6 xl:mr-0 xl:text-next-heading-2">
+      <div className="mb-4 text-next-heading-4 md:mb-0 md:mr-24 md:min-w-[416px] md:text-next-heading-3 xl:col-span-6 xl:mr-0 xl:text-next-heading-2">
         {title}
       </div>
       <div className="hidden xl:col-span-1 xl:block"></div>

@@ -43,7 +43,7 @@ export default function OurExperience({ padding }) {
       )}
     >
       <div className="mb-[72px] flex-shrink-0 md:mb-[53px] md:mr-[72px] xl:mr-8">
-        <div className="w-full font-satoshi text-next-heading-7 font-medium md:max-w-[248px] xl:min-w-[415px] xl:max-w-[304px] xl:text-next-heading-5">
+        <div className="w-full font-satoshi text-next-heading-7 font-medium md:max-w-[248px] md:text-next-heading-6 xl:min-w-[415px] xl:max-w-[304px] xl:text-next-heading-5">
           We balance <br className="hidden xl:block" /> business objectives
           with&nbsp;customer needs
         </div>
@@ -64,7 +64,7 @@ export default function OurExperience({ padding }) {
                 <Animated
                   delay={100 * (index1 + index2)}
                   key={index2}
-                  className="font-inter text-[16px] leading-[160%] xl:text-[18px]"
+                  className="text-next-body-s xl:text-[18px] xl:leading-[160%]"
                 >
                   {category}
                 </Animated>

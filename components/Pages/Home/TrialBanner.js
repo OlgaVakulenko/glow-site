@@ -23,7 +23,7 @@ function Card({ className, children, hideBg = false }) {
 
 function NumCard({ num, title }) {
   return (
-    <Card className="relative flex items-baseline space-x-6 md:flex-col md:space-x-0 md:space-y-[20px]">
+    <Card className="relative flex items-center space-x-6 md:flex-col md:space-x-0 md:space-y-[20px]">
       <div className="flex h-[32px] w-[32px] items-center justify-center rounded-full bg-brand p-[6px] font-inter text-[16px] font-medium leading-[20px] text-white xl:text-[16px] xl:leading-[20px]">
         {num}
       </div>
@@ -34,7 +34,7 @@ function NumCard({ num, title }) {
 
 export function Tag({ name }) {
   return (
-    <div className="glow-border-light rounded-full px-[12px] py-[2px] text-next-tag font-medium uppercase">
+    <div className="glow-border-light rounded-full px-[10px] py-[2px] text-next-tag font-medium uppercase">
       {name}
     </div>
   );
@@ -45,17 +45,19 @@ const tags = ['Discovery', 'UI Design', 'UX Design', 'Design Audit', 'MVP'];
 export default function TrialBanner() {
   return (
     // <Layout className="mb-[72px] font-inter md:mb-[144px] xl:mb-[176px]">
-    <div className="relative overflow-hidden rounded-[32px] bg-black p-4 text-white">
-      <Image
+    <div className="relative -mx-2 overflow-hidden rounded-[32px] bg-black p-4 text-white md:mx-0">
+      <div className="bg-bl absolute inset-0"></div>
+      {/* <Image
         src={CtaBG}
         alt=""
-        className="pointer-events-none absolute inset-0 h-full w-[200%] max-w-[200%] md:h-auto md:w-full md:max-w-full"
-      />
+        className="pointer-events-none absolute inset-0 h-full max-h-[50%] w-[200%] max-w-[200%] md:h-auto md:max-h-full md:w-full md:max-w-full"
+      /> */}
       <div className="grid gap-4 md:grid-cols-4">
         <Card hideBg className="relative !p-2 !pb-4 md:col-span-2 md:!p-8">
           <div className="relative mb-8 text-next-heading-5 md:mb-8 md:text-[48px] md:leading-[56px] md:tracking-[-1px] xl:mb-8 xl:text-next-heading-2">
             Start with
-            <br className="hidden md:block" /> a free 3&#8209;day trial
+            <br className="hidden md:block" /> a free
+            <br className="md:hidden" /> 3&#8209;day trial
           </div>
           <Button2
             as={Link}
@@ -66,14 +68,14 @@ export default function TrialBanner() {
             Get started
           </Button2>
         </Card>
-        <Card className="relative md:col-span-2  md:!pb-8 xl:!p-6">
+        <Card className="relative md:col-span-2 xl:!p-6">
           {/* <Image
             src={LogoG}
             alt=""
             className="pointer-events-none absolute right-0 top-0 h-full w-auto object-cover opacity-40"
           /> */}
           <div className="h-full md:flex md:flex-col md:justify-between">
-            <div className="relative mb-8 text-[16px] leading-[160%] md:mb-12 md:text-[16px] md:leading-[160%] xl:mb-[80px] xl:text-next-body-m">
+            <div className="relative mb-8 text-next-body-s md:mb-[39px] md:text-[16px] md:leading-[160%] xl:mb-[80px] xl:text-next-body-m">
               To reduce your risks and help you get to know us better, we offer
               the first three days of work at no charge. This way, you can
               evaluate our skills and decide whether you want to work with us
