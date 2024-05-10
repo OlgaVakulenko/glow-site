@@ -64,13 +64,13 @@ function FaqItem({ question, answer }) {
   return (
     <div className="faq-adhoc w-full pb-[31px] pt-[32px]">
       <Disclosure>
-        <Disclosure.Button className="flex w-full justify-between text-left md:grid md:grid-cols-8 md:gap-8 xl:flex">
+        <Disclosure.Button className="flex w-full justify-between text-left md:flex md:gap-6 xl:flex">
           {({ open }) => (
             <>
-              <h3 className="text-next-heading-7 md:col-span-3 md:pr-8 xl:col-span-5">
+              <h3 className="text-next-heading-7 md:w-full md:min-w-[426px] md:max-w-[426px] xl:col-span-5 xl:pr-8">
                 {question}
               </h3>
-              <div className="flex shrink-0 items-center  justify-between text-next-body-s md:col-span-5 md:items-start md:text-next-body-m xl:col-span-7 xl:text-next-body-m">
+              <div className="flex shrink-0 items-center justify-between overflow-hidden  text-next-body-s md:col-span-5 md:shrink md:items-start md:text-next-body-s xl:col-span-7 xl:text-next-body-m">
                 {open ? (
                   <Disclosure.Panel className="hidden whitespace-pre-line md:block xl:w-full xl:max-w-[650px]">
                     {answer}
@@ -80,7 +80,7 @@ function FaqItem({ question, answer }) {
                     {answer}
                   </div>
                 )}
-                <div className="ml-6 mt-[2px] h-5 w-5 shrink-0 opacity-50 md:mr-2 md:mt-[3px] xl:mr-0">
+                <div className="ml-6 mt-[2px] h-5 w-5 shrink-0 opacity-50 md:mr-0 xl:mr-0">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-full w-full"
@@ -123,7 +123,7 @@ function FaqItem({ question, answer }) {
             leaveFrom="transform scale-100 opacity-100"
             leaveTo="transform scale-95 opacity-0"
           >
-            <Disclosure.Panel className="mt-6 whitespace-pre-line text-[16px] leading-[160%]">
+            <Disclosure.Panel className="mt-6 whitespace-pre-line text-next-body-s">
               {answer}
             </Disclosure.Panel>
           </Transition>
@@ -140,7 +140,7 @@ export function FAQ({ padding }) {
         '"mb-12 xl:mb-[88px]" md:mb-[72px]': padding == null,
       })}
     >
-      <h2 className="mb-10 text-next-heading-5 md:mb-14 md:text-[48px] md:leading-[56px] xl:mb-20 xl:text-next-heading-2">
+      <h2 className="mb-10 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:mb-20 xl:text-next-heading-2">
         Frequently asked questions
       </h2>
       <div

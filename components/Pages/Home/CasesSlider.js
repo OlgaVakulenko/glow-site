@@ -86,10 +86,10 @@ export function CaseSlide({ type = 'default', item, index, total }) {
 
   return (
     <div className="__slide-wrapper h-full w-full">
-      <div className="__slide relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-dim-gray text-black md:min-h-[480px] md:flex-row md:items-start md:rounded-3xl xl:h-[560px] xl:rounded-[32px]">
+      <div className="__slide relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-dim-gray text-black md:min-h-[456px] md:flex-row md:items-start md:rounded-[32px] xl:h-[560px]">
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
-          className="relative z-[1] p-6 pb-14 md:mt-0 md:h-full md:px-16 md:pb-[72px] md:pt-16 xl:pb-[114px] xl:pt-[100px]"
+          className="relative z-[1] p-6 pb-14 md:mt-0 md:h-full md:px-16 md:pb-[80px] md:pt-16 xl:pb-[114px] xl:pt-[100px]"
         >
           {/* {item.icon && ( */}
           <div className="mb-0 md:mb-8">
@@ -132,7 +132,7 @@ export function CaseSlide({ type = 'default', item, index, total }) {
           <div className="mb-8 max-w-[364px] font-inter text-[16px] leading-[24px] md:text-next-body-s xl:max-w-[464px] xl:text-next-body-m">
             {item.description}
           </div>
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 md:max-w-[364px]">
             {item.tags?.map((tag) => (
               <Tag key={tag} name={tag} />
             ))}
@@ -157,14 +157,14 @@ export function CaseSlide({ type = 'default', item, index, total }) {
             />
             <Source image={item.imageMobile} width="480" />
             <img
-              className=" absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none md:object-cover"
+              className=" absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none  md:absolute md:left-0  md:h-[calc(100%-45px)] md:max-h-full md:origin-[90%_90%] md:rounded-none md:object-contain"
               src={resolve({ src: item.image.src, width: 1440 })}
               alt=""
             />
           </picture>
         ) : (
           <Image
-            className="absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:right-[-153px] md:top-0 md:max-h-full md:w-[86%] md:origin-[90%_10%] md:rounded-none md:object-cover xl:left-auto xl:right-[-50px] xl:w-[75%]"
+            className="absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:right-[-54px]  md:h-[calc(100%-45px)] md:max-h-full md:w-[663px] md:origin-[90%_90%] md:rounded-none md:object-contain xl:left-auto xl:right-[-50px] xl:w-[75%]"
             src={item.image}
             alt=""
           />
@@ -399,7 +399,7 @@ export function CasesSlider2({
                 <SlideComponent
                   key={i}
                   className={cx(
-                    'cursor-none select-none md:!w-[90vw] xl:!w-[1200px]'
+                    'cursor-none select-none md:!w-[904px] xl:!w-[1200px]'
                     // '4xl:first:pl-[120px]'
                   )}
                 >
@@ -418,7 +418,7 @@ export function CasesSlider2({
               {/* <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-16 4xl:pr-[120px]">
                   <EndSlide />
                 </SwiperSlide> */}
-              <div className="md:mt-[52px] xl:mt-[48px]">
+              <div className="md:mt-[49px] xl:mt-[48px]">
                 <div className="hidden items-center space-x-8 md:flex">
                   <div className="flex shrink-0 space-x-4">
                     <CaseNavArrow

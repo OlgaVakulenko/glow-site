@@ -124,7 +124,12 @@ const cases = [
   },
   {
     href: '/beast',
-    title: <>Beast: zero-emissions car rental for Tesla</>,
+    title: (
+      <>
+        Beast: zero-emissions
+        <br className="hidden md:block xl:hidden" /> car rental for Tesla
+      </>
+    ),
     description:
       'Beast is an ambitious carsharing project from Estonia that presents a range of exclusive Tesla models.',
     icon: (

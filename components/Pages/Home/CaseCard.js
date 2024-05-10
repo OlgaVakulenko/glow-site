@@ -92,8 +92,8 @@ export default function CaseCard({ type, item, index, total }) {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
+                  fillRule="evenodd"
+                  clipRule="evenodd"
                   d="M10.9679 23.2829L20.569 13.6818L20.5542 20.7974L22.5539 20.8016L22.5758 10.2594L12.0342 10.282L12.0385 12.2817L19.1562 12.2661L9.55369 21.8686L10.9679 23.2829Z"
                   fill="#19191B"
                 />

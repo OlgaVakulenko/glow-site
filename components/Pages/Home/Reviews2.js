@@ -257,9 +257,9 @@ function ReviewCard({
 }) {
   return (
     <div className="h-full font-inter">
-      <div className="h-full rounded-3xl bg-dim-gray p-6 md:flex md:space-x-16 md:rounded-[32px] md:px-0 md:py-10 xl:min-h-[394px] xl:space-x-20 xl:py-12">
+      <div className="h-full rounded-3xl bg-dim-gray p-6 md:flex md:min-h-[394px] md:space-x-12 md:rounded-[32px] md:px-0 md:py-12 xl:min-h-[394px] xl:space-x-20 xl:py-12">
         <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-12">
-          <div className="md:flex md:h-full md:max-w-[168px] md:flex-col md:items-start md:justify-between">
+          <div className="md:flex md:h-full md:min-w-[200px] md:max-w-[168px] md:flex-col md:items-start md:justify-between">
             <div className="">
               <div className="mb-[18px] flex items-start justify-between md:items-center">
                 <div className="flex">
@@ -313,8 +313,8 @@ export default function Reviews({ padding }) {
           'py-[100px] md:py-[144px] xl:py-[176px]': padding == null,
         })}
       >
-        <Layout className="mb-10 flex items-end justify-between md:mb-16 xl:mb-20">
-          <div className="text-next-heading-5 md:max-w-[577px] md:text-[56px] md:leading-[64px] md:tracking-[-2px] xl:text-next-heading-2">
+        <Layout className="mb-10 flex items-end justify-between md:mb-14 xl:mb-20">
+          <div className="text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2">
             Discover what our customers have to say
           </div>
           {/* <div className="hidden space-x-4 pb-[14px] md:flex">
@@ -342,7 +342,7 @@ export default function Reviews({ padding }) {
             spaceBetween="32px"
             breakpoints={{
               820: {
-                slidesPerView: '1.15',
+                slidesPerView: '1.112',
                 spaceBetween: '24px',
               },
               1440: {

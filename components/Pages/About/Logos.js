@@ -44,7 +44,11 @@ export default function Logos({ padding }) {
       <div className="order-2 md:order-6 md:col-span-8 md:flex md:items-center md:justify-center md:rounded-full md:border md:border-black md:p-[32px] xl:order-3 xl:col-span-4 xl:justify-start">
         <IconLayout
           icon={clutchIcon}
-          title={<ItemTitle>Top 30 User Experience Company</ItemTitle>}
+          title={
+            <ItemTitle>
+              Top 30 User <br className="md:hidden" /> Experience Company
+            </ItemTitle>
+          }
           href="https://clutch.co/profile/glow-design-agency"
           clutch
         />
@@ -66,7 +70,7 @@ function DribbleStat({ count, label }) {
 
 const mediumIcon = (
   <svg
-    className="h-20 w-20 md:h-[120px] md:w-[120px] xl:h-[128px] xl:w-[128px]"
+    className="h-20 w-20 md:h-[128px] md:w-[128px] xl:h-[128px] xl:w-[128px]"
     viewBox="0 0 80 80"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +100,7 @@ const mediumIcon = (
 
 const dribbleIcon = (
   <svg
-    className="h-20 w-20 md:h-[120px] md:w-[120px] xl:h-[128px] xl:w-[128px]"
+    className="h-20 w-20 md:h-[128px] md:w-[128px] xl:h-[128px] xl:w-[128px]"
     viewBox="0 0 80 80"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -120,7 +124,7 @@ const dribbleIcon = (
 
 const dr = (
   <svg
-    className="h-20 w-20 md:h-[120px] md:w-[120px] xl:h-[128px] xl:w-[128px]"
+    className="h-20 w-20 md:h-[128px] md:w-[128px] xl:h-[128px] xl:w-[128px]"
     viewBox="0 0 80 80"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -189,7 +193,7 @@ function Figma2({ className }) {
       link={<RemoteLink>Open Comunity</RemoteLink>}
       icon={
         <svg
-          className="h-20 w-20 md:h-[120px] md:w-[120px] xl:h-[128px] xl:w-[128px]"
+          className="h-20 w-20 md:h-[128px] md:w-[128px] xl:h-[128px] xl:w-[128px]"
           viewBox="0 0 80 80"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -245,7 +249,7 @@ function Figma2({ className }) {
 
 function ItemTitle({ children }) {
   return (
-    <div className="max-w-[240px] font-satoshi text-[18px] font-bold leading-[28px] md:text-[20px] md:leading-[32px]">
+    <div className="max-w-[240px] font-satoshi text-[18px] font-bold leading-[28px] md:max-w-full md:text-[20px] md:leading-[32px]">
       {children}
     </div>
   );

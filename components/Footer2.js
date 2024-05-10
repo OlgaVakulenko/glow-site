@@ -25,7 +25,7 @@ function SlotText() {
   if (!isClient) return null;
 
   return (
-    <span className="glow-border-light mx-auto block min-h-[28px] w-fit rounded-full px-[12px] py-[2px]">
+    <span className="glow-border-light mx-auto block min-h-[28px] w-fit rounded-full px-[12px] py-[2px] text-next-tag">
       2 slots available in {month}
     </span>
   );
@@ -57,7 +57,7 @@ export default function Footer2({
       ) : (
         showForm && (
           <Layout disableOnMobile={true} className="px-2">
-            <div className="text-inter relative overflow-hidden rounded-3xl bg-black px-6 py-[138px] md:rounded-[32px] md:py-[126px] xl:py-[142px] xl:pb-[128px] xl:pt-[131px]">
+            <div className="text-inter relative overflow-hidden rounded-3xl bg-black px-6 py-[138px] md:rounded-[32px] md:py-[134px] xl:py-[142px] xl:pb-[128px] xl:pt-[131px]">
               <Image
                 src={FormBG}
                 alt=""
@@ -78,14 +78,14 @@ export default function Footer2({
                 />
               </picture> */}
               <div className="relative z-[1] text-center">
-                <div className="mb-[42px] text-[12px] uppercase leading-[24px] tracking-[0.02em] text-white md:mb-8 xl:mb-10">
+                <div className="mb-[42px] text-[12px] uppercase leading-[24px] tracking-[0.02em] text-white md:mb-10 xl:mb-10">
                   <SlotText />
                 </div>
-                <div className="mb-8 text-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-6 md:text-[56px] md:leading-[64px] xl:mb-8 xl:text-[72px] xl:leading-[72px]">
+                <div className="mb-8 text-center text-next-heading-4 text-white md:mb-8 md:text-next-heading-3 xl:mb-8 xl:text-[72px] xl:leading-[72px]">
                   Let’s make
                   <br /> your project glow
                 </div>
-                <div className="mb-10 text-[16px] leading-[24px] text-white md:mb-8 md:text-[16px] md:leading-[24px] xl:mb-10 xl:text-[18px]">
+                <div className="mb-10 text-[16px] leading-[24px] text-white md:mb-10 md:text-next-body-s xl:mb-10 xl:text-[18px]">
                   Our team will get back to you within{' '}
                   <br className="md:hidden" /> 24 hours 🙌
                 </div>
@@ -106,7 +106,7 @@ export default function Footer2({
         )
       )}
       <Layout>
-        <div className="px-1 pt-6 md:py-11">
+        <div className="px-1 pt-6 md:px-0 md:py-[28px]">
           <FooterLinks className="!text-black" />
         </div>
       </Layout>

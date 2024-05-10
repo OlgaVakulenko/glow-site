@@ -23,7 +23,7 @@ function Card({ className, children, hideBg = false }) {
 
 function NumCard({ num, title }) {
   return (
-    <Card className="relative flex items-center space-x-6 md:flex-col md:space-x-0 md:space-y-[20px]">
+    <Card className="relative flex items-center space-x-6 md:flex-col md:items-start md:space-x-0 md:space-y-[20px]">
       <div className="flex h-[32px] w-[32px] items-center justify-center rounded-full bg-brand p-[6px] font-inter text-[16px] font-medium leading-[20px] text-white xl:text-[16px] xl:leading-[20px]">
         {num}
       </div>
@@ -54,7 +54,7 @@ export default function TrialBanner() {
       /> */}
       <div className="grid gap-4 md:grid-cols-4">
         <Card hideBg className="relative !p-2 !pb-4 md:col-span-2 md:!p-8">
-          <div className="relative mb-8 text-next-heading-5 md:mb-8 md:text-[48px] md:leading-[56px] md:tracking-[-1px] xl:mb-8 xl:text-next-heading-2">
+          <div className="relative mb-8 text-next-heading-5 md:mb-8 md:text-next-heading-3 xl:mb-8 xl:text-next-heading-2">
             Start with
             <br className="hidden md:block" /> a free
             <br className="md:hidden" /> 3&#8209;day trial
@@ -75,13 +75,13 @@ export default function TrialBanner() {
             className="pointer-events-none absolute right-0 top-0 h-full w-auto object-cover opacity-40"
           /> */}
           <div className="h-full md:flex md:flex-col md:justify-between">
-            <div className="relative mb-8 text-next-body-s md:mb-[39px] md:text-[16px] md:leading-[160%] xl:mb-[80px] xl:text-next-body-m">
+            <div className="relative mb-8 text-next-body-s md:mb-[40px] md:text-[16px] md:leading-[25.8px] xl:mb-[80px] xl:text-next-body-m">
               To reduce your risks and help you get to know us better, we offer
               the first three days of work at no charge. This way, you can
               evaluate our skills and decide whether you want to work with us
               going forward.
             </div>
-            <div className="relative flex flex-wrap gap-2 xl:pb-0">
+            <div className="relative flex flex-wrap gap-2 md:max-w-[80%] xl:max-w-full xl:pb-0">
               {tags.map((tag) => (
                 <Tag key={tag} name={tag} />
               ))}

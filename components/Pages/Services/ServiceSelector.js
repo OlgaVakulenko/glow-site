@@ -161,29 +161,35 @@ function ServiceCard({ index, title, description, tags }) {
   const collapsed = current !== index;
 
   useLayoutEffect(() => {
-    const ref = contentRef.current;
-    if (!ref) return;
+    const id = setTimeout(() => {
+      const ref = contentRef.current;
+      if (!ref) return;
 
-    let h = 0;
-    if (!collapsed) {
-      h = ref.scrollHeight + 1;
-    } else {
-      h = 0;
-    }
+      let h = 0;
+      if (!collapsed) {
+        h = ref.scrollHeight + 1;
+      } else {
+        h = 0;
+      }
 
-    setHeight(h);
+      setHeight(h);
+    });
+
+    return () => {
+      clearTimeout(id);
+    };
   }, [currentCategory, collapsed]);
 
   return (
     <button
-      className="rounded-2xl bg-white p-6 text-left md:p-8"
+      className="rounded-2xl bg-white p-6 text-left shadow-service md:p-8 md:shadow-none"
       onClick={() => {
         setCurrent(index);
       }}
     >
       <div className="relative flex w-full items-center gap-5 text-next-heading-7">
         <div className="opacity-50 md:absolute md:left-0">
-          {addLeadingZero(index + 1)}{' '}
+          {addLeadingZero(index + 1)} &nbsp;
           <span className="hidden md:inline">Stage</span>
         </div>
         <div className="md:ml-[171px]">{title}</div>
@@ -219,7 +225,7 @@ function ServiceCard({ index, title, description, tags }) {
           'overflow-hidden transition-all duration-300 md:ml-[171px]'
         )}
         style={{
-          maxHeight: height,
+          maxHeight: !collapsed ? height : 0,
         }}
       >
         <div className="mb-10 pt-6 text-next-body-s md:mb-8 md:pt-8 md:text-next-body-m xl:pr-6 xl:pt-8">
