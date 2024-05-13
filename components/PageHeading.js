@@ -23,26 +23,6 @@ export function PageHeading2({ animate = true, className, children }) {
   const media = useMediaAtom();
   const ref = useRef();
 
-  // useEffect(() => {
-  //   if (!animate) return;
-  //   if (media === 'mobile') return;
-  //   if (!ref.current) return;
-
-  //   const ctx = gsap.context(() => {
-  //     gsap.to(ref.current, {
-  //       y: -50,
-  //       scrollTrigger: {
-  //         trigger: ref.current,
-  //         scrub: true,
-  //         start: 'bottom 50%',
-  //         end: 'bottom top',
-  //       },
-  //     });
-  //   });
-
-  //   return () => ctx.revert();
-  // }, [media, animate]);
-
   return (
     <div
       ref={ref}

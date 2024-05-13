@@ -18,6 +18,7 @@ import { SkipRenderOnClient } from '../../SkipRender';
 import casesData from '../Cases/data';
 import Awards from './Awards';
 import CardBg from './assets/card-bg.png';
+import TypedWords from './TypedWords';
 
 function IntroSection3() {
   return (
@@ -53,7 +54,7 @@ function IntroSection5() {
           We help startups, scale-ups and unicorns to improve product metrics
           through design:
           <br />
-          <RollingWords
+          <TypedWords
             words={[
               'Increase conversion rate',
               'Speed up task completion time',

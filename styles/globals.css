@@ -539,3 +539,28 @@
     background: radial-gradient(ellipse at 2% 5%, rgba(255, 75, 73, 0.6) 7%, rgba(187, 110, 187, 0) 70%);
   }
 }
+
+@supports(-webkit-background-clip: text) {
+  .main-title {
+    position: relative;
+    background: linear-gradient(90deg, black 0%, #E33230 50%, black 100%);
+    background-size: 200% 200%;
+    background-position: 100% 0%;
+    background-position: var(--position, 50%) 0%;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 1s;
+  }
+}
+
+@keyframes blink-caret {
+  50% {
+    /* box-shadow: 0 0 black; */
+    border-color: transparent;
+  }
+}
+
+.blink {
+  border-right: 1px solid black;
+  animation: blink-caret .5s step-end infinite alternate;
+}
