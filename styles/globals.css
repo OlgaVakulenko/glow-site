@@ -511,7 +511,7 @@
 
 .faq-adhoc:has([data-headlessui-state="open"]),
 .faq-adhoc:has([data-headlessui-state="open"])+.faq-adhoc {
-  --border-color-top: black;
+  --border-color-top: rgb(25, 25, 27);
 }
 
 .faq-adhoc:last-child {
@@ -520,7 +520,7 @@
 }
 
 .faq-adhoc:last-child:has([data-headlessui-state="open"]) {
-  --border-color-bottom: black;
+  --border-color-bottom: rgb(25, 25, 27);
 }
 
 .bg-bl {
