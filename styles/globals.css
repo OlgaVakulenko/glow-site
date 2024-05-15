@@ -542,20 +542,17 @@
 
 @supports(-webkit-background-clip: text) {
   .main-title {
+    --x: -1000px;
+    --y: -1000px;
     position: relative;
-    background: linear-gradient(90deg, black 0%, #E33230 50%, black 100%);
-    background-size: 200% 200%;
-    background-position: 100% 0%;
-    background-position: var(--position, 50%) 0%;
+    background: radial-gradient(circle at var(--x) var(--y), #E33230, #000);
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    transition: all 1s;
   }
 }
 
 @keyframes blink-caret {
   50% {
-    /* box-shadow: 0 0 black; */
     border-color: transparent;
   }
 }

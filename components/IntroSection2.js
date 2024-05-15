@@ -2,9 +2,14 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import Layout from './Layout';
 import cx from 'clsx';
 import throttle from 'lodash.throttle';
+import gsap from '../dist/gsap';
 
-export default function IntroSection({ title, subtitle, className }) {
-  const [pos, setPos] = useState('100%');
+export default function IntroSection({
+  title,
+  subtitle,
+  className,
+  animate = false,
+}) {
   const ref = useRef(null);
   const refId = useRef(() => Math.random());
 
@@ -13,26 +18,33 @@ export default function IntroSection({ title, subtitle, className }) {
   });
 
   useEffect(() => {
-    const el = ref.current;
+    if (!animate) return;
 
+    const el = ref.current;
     if (!el) return;
 
-    const handleMouseMove = throttle((e) => {
+    const handleMouseMove = (e) => {
       if (!e.currentTarget) return;
-
       const rect = el.getBoundingClientRect(e);
-      let x = ((e.clientX - rect.left) / rect.width) * 100; // x position within the element as a percentage.
-      x = Math.max(0, Math.min(100, x));
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-      setPos(100 - x + '%');
-    }, 100);
+      gsap.to(el, {
+        duration: 0.5,
+        ease: 'power1.out',
+        css: {
+          '--x': x + 'px',
+          '--y': y + 'px',
+        },
+      });
+    };
 
-    el.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mousemove', handleMouseMove);
 
     return () => {
-      el.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mousemove', handleMouseMove);
     };
-  }, []);
+  }, [animate]);
 
   return (
     <Layout
@@ -44,18 +56,6 @@ export default function IntroSection({ title, subtitle, className }) {
     >
       <div
         ref={ref}
-        style={{
-          '--position': pos,
-        }}
-        onMouseLeave={(e) => {
-          let tid = refId.current;
-
-          setTimeout(() => {
-            if (tid === refId.current) {
-              setPos('100%');
-            }
-          }, 100);
-        }}
         className={cx(
           'main-title mb-4 select-none bg-clip-text text-next-heading-4 md:mb-0 md:mr-24 md:min-w-[416px] md:text-next-heading-3 xl:col-span-6 xl:mr-0 xl:text-next-heading-2'
         )}

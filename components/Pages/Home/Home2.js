@@ -44,6 +44,7 @@ function IntroSection3() {
 function IntroSection5() {
   return (
     <IntroSection2
+      animate
       className="!pt-[232px] md:!pt-[382px] xl:!pt-[500px]"
       showBg={false}
       title={
