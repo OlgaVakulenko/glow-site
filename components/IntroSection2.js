@@ -37,14 +37,7 @@ export default function IntroSection({
     const el = ref.current;
     if (!el) return;
 
-    const handleMouseMove = (e) => {
-      if (!e.currentTarget) return;
-      const rect = el.getBoundingClientRect(e);
-      let x = softClamp(e.clientX, rect.left + 50, rect.right - 50);
-      x = x - rect.left;
-      let y = softClamp(e.clientY, rect.top + 50, rect.bottom - 50);
-      y = y - rect.top;
-
+    function moveTo(x, y) {
       gsap.to(el, {
         duration: 0.5,
         ease: 'power1.out',
@@ -53,8 +46,20 @@ export default function IntroSection({
           '--y': y + 'px',
         },
       });
+    }
+
+    const handleMouseMove = (e) => {
+      if (!e.currentTarget) return;
+      const rect = el.getBoundingClientRect(e);
+      let x = softClamp(e.clientX, rect.left + 100, rect.right - 100);
+      x = x - rect.left;
+      let y = softClamp(e.clientY, rect.top + 100, rect.bottom - 100);
+      y = y - rect.top;
+
+      moveTo(x, y);
     };
 
+    // moveTo(0, 0);
     document.addEventListener('mousemove', handleMouseMove);
 
     return () => {

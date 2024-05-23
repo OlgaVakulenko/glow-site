@@ -542,8 +542,8 @@
 
 @supports(-webkit-background-clip: text) {
   .main-title {
-    --x: -1000px;
-    --y: -1000px;
+    --x: 0px;
+    --y: 0px;
     position: relative;
     background: radial-gradient(circle at var(--x) var(--y), #E33230, #000);
     background-clip: text;
