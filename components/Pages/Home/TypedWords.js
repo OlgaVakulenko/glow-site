@@ -42,7 +42,7 @@ function TypedWord({ word, onComplete }) {
       setCurrent((c) => {
         return Math.min(c + 1, word.length - 1);
       });
-    }, 200);
+    }, 80);
 
     return () => {
       clearInterval(id);
@@ -61,7 +61,7 @@ function TypedWord({ word, onComplete }) {
       setCurrent((c) => {
         return c - 1;
       });
-    }, 30);
+    }, 20);
 
     return () => {
       clearInterval(id);
@@ -100,7 +100,7 @@ export default function TypedWords({ words }) {
             setCurrent((c) => {
               return (c + 1) % words.length;
             });
-          }, 700);
+          }, 500);
         }, 100)}
       />
     </div>

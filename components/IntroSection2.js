@@ -1,12 +1,7 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import Layout from './Layout';
 import cx from 'clsx';
-import throttle from 'lodash.throttle';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import gsap from '../dist/gsap';
-
-function clamp(value, min, max) {
-  return Math.max(min, Math.min(value, max));
-}
+import Layout from './Layout';
 
 function softClamp(x, min, max, stretch = 50, k = 0.01) {
   if (x < min) {
@@ -37,17 +32,6 @@ export default function IntroSection({
     const el = ref.current;
     if (!el) return;
 
-    function moveTo(x, y) {
-      gsap.to(el, {
-        duration: 0.5,
-        ease: 'power1.out',
-        css: {
-          '--x': x + 'px',
-          '--y': y + 'px',
-        },
-      });
-    }
-
     const handleMouseMove = (e) => {
       if (!e.currentTarget) return;
       const rect = el.getBoundingClientRect(e);
@@ -56,7 +40,14 @@ export default function IntroSection({
       let y = softClamp(e.clientY, rect.top + 100, rect.bottom - 100);
       y = y - rect.top;
 
-      moveTo(x, y);
+      gsap.to(el, {
+        duration: 0.5,
+        ease: 'power1.out',
+        css: {
+          '--x': x + 'px',
+          '--y': y + 'px',
+        },
+      });
     };
 
     // moveTo(0, 0);
