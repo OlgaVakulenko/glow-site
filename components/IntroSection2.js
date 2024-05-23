@@ -4,6 +4,20 @@ import cx from 'clsx';
 import throttle from 'lodash.throttle';
 import gsap from '../dist/gsap';
 
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(value, max));
+}
+
+function softClamp(x, min, max, stretch = 50, k = 0.01) {
+  if (x < min) {
+    return min - stretch * Math.log1p(k * (min - x));
+  } else if (x > max) {
+    return max + stretch * Math.log1p(k * (x - max));
+  } else {
+    return x;
+  }
+}
+
 export default function IntroSection({
   title,
   subtitle,
@@ -26,8 +40,10 @@ export default function IntroSection({
     const handleMouseMove = (e) => {
       if (!e.currentTarget) return;
       const rect = el.getBoundingClientRect(e);
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+      let x = softClamp(e.clientX, rect.left + 50, rect.right - 50);
+      x = x - rect.left;
+      let y = softClamp(e.clientY, rect.top + 50, rect.bottom - 50);
+      y = y - rect.top;
 
       gsap.to(el, {
         duration: 0.5,
