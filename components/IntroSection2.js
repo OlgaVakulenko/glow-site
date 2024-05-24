@@ -69,7 +69,10 @@ export default function IntroSection({
       <div
         ref={ref}
         className={cx(
-          'main-title mb-4 select-none bg-clip-text text-next-heading-4 md:mb-0 md:mr-24 md:min-w-[416px] md:text-next-heading-3 xl:col-span-6 xl:mr-0 xl:text-next-heading-2'
+          'main-title mb-4 select-none bg-clip-text text-next-heading-4 md:mb-0 md:mr-24 md:min-w-[416px] md:text-next-heading-3 xl:col-span-6 xl:mr-0 xl:text-next-heading-2',
+          {
+            animate: animate,
+          }
         )}
       >
         {title}

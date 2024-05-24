@@ -541,7 +541,7 @@
 }
 
 @supports(-webkit-background-clip: text) {
-  .main-title {
+  .main-title.animate {
     --x: 0px;
     --y: 0px;
     position: relative;
