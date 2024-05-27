@@ -17,7 +17,7 @@ function useRefFn(fn) {
 }
 
 function TypedWord({ word, onComplete }) {
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(word.length - 1);
   const [isCompleting, setIsCompleting] = useState(false);
   const currentRef = useRefFn(current);
   const onCompleteFn = useRefFn(onComplete);

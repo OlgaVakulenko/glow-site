@@ -2,11 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@import '../assets/fonts/general-sans/general-sans.css';
-@import '../assets/fonts/glow/glow.css';
-@import '../assets/fonts/satoshi/satoshi.css';
-@import '../assets/fonts/inter/inter.css';
-
 @import '../assets/fonts/inter/inter.css';
 @import '../assets/fonts/satoshi/satoshi.css';
 

@@ -30,67 +30,9 @@ const items = [
 ];
 
 export default function NextStep() {
-  //@TODO remove this
-  const router = useRouter();
-  const media = useMediaAtom();
   const rootRef = useRef();
   const sphereRef = useRef();
   const [iconMap, setIconMap] = useState({});
-
-  useEffect(() => {
-    return;
-    if (media === 'mobile') {
-      return;
-    }
-
-    const withOpacity =
-      router.query?.o === '1'
-        ? {
-            from: { opacity: 0 },
-            to: { opacity: 1 },
-          }
-        : { from: {}, to: {} };
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        sphereRef.current,
-        {
-          y: 180,
-        },
-        {
-          y: -25,
-          scrollTrigger: {
-            trigger: sphereRef.current,
-            scrub: true,
-            start: '10% 100%',
-            end: 'bottom 20%',
-            // markers: true,
-          },
-        }
-      );
-
-      gsap.fromTo(
-        '.__item',
-        { y: 150, ...withOpacity.from },
-        {
-          y: 0,
-          ...withOpacity.to,
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: sphereRef.current,
-            scrub: true,
-            start: 'top 80%',
-            end: 'bottom 20%',
-            // markers: true,
-          },
-        }
-      );
-    }, rootRef);
-
-    return () => {
-      ctx.revert();
-    };
-  }, [media, router.query]);
 
   return (
     <div ref={rootRef}>
