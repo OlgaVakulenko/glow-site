@@ -85,9 +85,9 @@ export default function ServicesSelector() {
                 {service.ill?.(media)}
               </div>
               <div>
-                <div className="mb-1 text-next-heading-7 md:mb-2 md:text-next-heading-6">
+                <h2 className="mb-1 text-next-heading-7 md:mb-2 md:text-next-heading-6">
                   {service.name}
-                </div>
+                </h2>
                 <div className="text-next-body-xs opacity-50 md:text-next-body-m">
                   {service.stages.length} stages
                 </div>

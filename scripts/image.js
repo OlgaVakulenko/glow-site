@@ -34,7 +34,7 @@ walk(out, async (err, pathname, dir) => {
     console.error(err);
     return;
   }
-  //skip directory
+
   if (dir.isDirectory()) {
     return true;
   }

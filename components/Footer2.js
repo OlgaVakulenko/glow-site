@@ -81,10 +81,10 @@ export default function Footer2({
                 <div className="mb-[42px] text-[12px] uppercase leading-[24px] tracking-[0.02em] text-white md:mb-10 xl:mb-10">
                   <SlotText />
                 </div>
-                <div className="mb-8 text-center text-next-heading-4 text-white md:mb-8 md:text-next-heading-3 xl:mb-8 xl:text-[72px] xl:leading-[72px]">
+                <h3 className="mb-8 text-center text-next-heading-4 text-white md:mb-8 md:text-next-heading-3 xl:mb-8 xl:text-[72px] xl:leading-[72px]">
                   Let’s make
                   <br /> your project glow
-                </div>
+                </h3>
                 <div className="mb-10 text-[16px] leading-[24px] text-white md:mb-10 md:text-next-body-s xl:mb-10 xl:text-[18px]">
                   Our team will get back to you within{' '}
                   <br className="md:hidden" /> 24 hours 🙌

@@ -2,8 +2,23 @@
   "next": {
     "entry": [
       "next.config.{js,ts,cjs,mjs}",
-      "{app,pages}/**/*.{js,jsx,ts,tsx}",
-      "src/{app,pages}/**/*.{js,jsx,ts,tsx}"
+      "{instrumentation,middleware}.{js,ts}",
+      "app/global-error.{js,jsx,ts,tsx}",
+      "app/**/{error,layout,loading,not-found,page,template}.{js,jsx,ts,tsx}",
+      "app/**/{route,default}.{js,ts}",
+      "app/{manifest,sitemap,robots}.{js,ts}",
+      "app/**/{icon,apple-icon}.{js,jsx,ts,tsx}",
+      "app/**/{opengraph,twitter}-image.{js,jsx,ts,tsx}",
+      "pages/**/*.{js,jsx,ts,tsx}",
+      "src/{instrumentation,middleware}.{js,ts}",
+      "src/app/global-error.{js,jsx,ts,tsx}",
+      "src/app/**/{error,layout,loading,not-found,page,template}.{js,jsx,ts,tsx}",
+      "src/app/**/{route,default}.{js,ts}",
+      "src/app/{manifest,sitemap,robots}.{js,ts}",
+      "src/app/**/{icon,apple-icon}.{js,jsx,ts,tsx}",
+      "src/app/**/{opengraph,twitter}-image.{js,jsx,ts,tsx}",
+      "src/pages/**/*.{js,jsx,ts,tsx}",
+      "scripts/**/*.{js,jsx,ts,tsx}"
     ]
   }
 }

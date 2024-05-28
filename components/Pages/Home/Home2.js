@@ -1,54 +1,35 @@
+import Link from 'next/link';
 import { useState } from 'react';
 import Animated from '../../Animated';
+import Button2 from '../../Button';
+import Image from '../../Image';
 import IntroSection2 from '../../IntroSection2';
 import Layout from '../../Layout';
+import { SkipRenderOnClient } from '../../SkipRender';
+import casesData from '../Cases/data';
+import Awards from './Awards';
 import { CaseSlide, CasesSlider2 } from './CasesSlider';
 import LogoCarousel from './LogoCarousel';
 import NextStep from './NextStep';
 import OurExperience from './OurExperience';
 import Reviews from './Reviews2';
-import { RollingWords } from './RollingWords';
 import Services from './Services';
 import TrialBanner from './TrialBanner';
-// import ThreeBG from './ThreeBG';
-import Link from 'next/link';
-import Button2 from '../../Button';
-import Image from '../../Image';
-import { SkipRenderOnClient } from '../../SkipRender';
-import casesData from '../Cases/data';
-import Awards from './Awards';
-import CardBg from './assets/card-bg.png';
 import TypedWords from './TypedWords';
-
-function IntroSection3() {
-  return (
-    <Layout className="pt-[144px] md:flex md:items-end md:justify-between md:space-x-10 md:pt-[456px] xl:pt-[470px]">
-      <div className="mb-6 font-glow text-heading-2-h4 md:mb-0 md:w-[65%] md:text-heading-h2-hero xl:max-w-[642px]">
-        Your Strategic Partner in Design of Successful Digital Products
-      </div>
-      <div className="leading-8 md:w-[35%] md:pb-2 xl:max-w-[389px]">
-        <span className="text-body-m2-2">
-          We help startups and scale-ups
-          <br className="md:hidden xl:block" /> unicorns to{' '}
-          <br className="hidden xl:block" />
-        </span>
-
-        <span className="text-body-heading-m text-brand">
-          [increase sales by 50%]
-        </span>
-      </div>
-    </Layout>
-  );
-}
+import CardBg from './assets/card-bg.png';
+import HomeIntroSection from '../../HomeIntroSection';
 
 function IntroSection5() {
   return (
-    <IntroSection2
+    <HomeIntroSection
       animate
-      className="!pt-[232px] md:!pt-[382px] xl:!pt-[500px]"
+      className="!pt-[232px] md:!pt-[384px] xl:!pt-[401px]"
       showBg={false}
       title={
-        <>Your strategic partner in design of successful digital products</>
+        <>
+          Your strategic partner in&nbsp;design of&nbsp;successful
+          digital&nbsp;products
+        </>
       }
       subtitle={
         <>
@@ -266,7 +247,7 @@ const items2 = [
   },
 ];
 
-function IconsSection2() {
+function IconsSection() {
   const [map, setMap] = useState({});
 
   return (
@@ -285,15 +266,6 @@ function IconsSection2() {
                   [index]: isVisible,
                 }));
               }}
-              // onTransitionEnd={(e) => {
-              //   // console.log(e);
-              //   setTimeout(() => {
-              //     setMap((c) => ({
-              //       ...c,
-              //       [index]: true,
-              //     }));
-              //   }, 300);
-              // }}
             >
               <div className="mr-8 min-w-[72px] md:mr-4 4xl:mr-6">
                 <item.icon isReady={map[index]}></item.icon>
@@ -302,9 +274,6 @@ function IconsSection2() {
                 <div className="mb-2 text-body-heading-m md:max-w-[208px] xl:max-w-[208px] 4xl:text-[22px] 4xl:leading-[120%]">
                   {item.title}
                 </div>
-                {/* <div className="text-body-s opacity-50 4xl:text-body-m2">
-                  {item.description}
-                </div> */}
               </div>
             </Animated>
           ))}
@@ -375,10 +344,8 @@ export default function Home2() {
             <CasesSlider2 />
           </div>
         </SkipRenderOnClient>
-
-        {/* <CasesSliderWrapper /> */}
       </div>
-      <IconsSection2 />
+      <IconsSection />
       <NextStep />
       <Awards />
       <OurExperience />
@@ -386,7 +353,6 @@ export default function Home2() {
         <TrialBanner />
       </Layout>
       <Services />
-      {/* <Solutions /> */}
       <Reviews />
     </div>
   );

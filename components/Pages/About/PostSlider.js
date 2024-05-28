@@ -54,9 +54,9 @@ export default function PostSlider({ posts = [], withLayout = false }) {
                   </div>
 
                   <div className="flex flex-col justify-between">
-                    <div className="mb-6 font-satoshi text-[20px] font-medium leading-[32px] md:mb-8">
+                    <h3 className="mb-6 font-satoshi text-[20px] font-medium leading-[32px] md:mb-8">
                       {post.title}
-                    </div>
+                    </h3>
                     <div className="flex items-center">
                       <div className="flex">
                         <AuthorImage

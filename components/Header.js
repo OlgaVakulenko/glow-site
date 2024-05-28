@@ -22,7 +22,7 @@ import {
   useScrollDirection,
 } from '../lib/utils';
 import Animated from './Animated';
-import AnimatedButton from './AnimatedButton';
+import Button2 from './Button';
 import HeaderLink from './HeaderLink';
 import HeaderMobileMenu from './HeaderMobileMenu';
 import HeaderSubMenuContainer from './HeaderSubMenu';
@@ -31,10 +31,8 @@ import Layout from './Layout';
 import Logo from './Logo';
 import links from './links-data';
 import texts from './texts';
-import Button2 from './Button';
-import { useLenis } from '@studio-freight/react-lenis';
 
-export function BurgerIcon({ isOpen = false, theme, size = 40 }) {
+export function BurgerIcon({ isOpen = false, theme, size = 32 }) {
   let stroke = '#19191B';
 
   if (theme === 'dark') {
@@ -69,17 +67,15 @@ export function BurgerIcon({ isOpen = false, theme, size = 40 }) {
 
   return (
     <svg
-      style={{
-        color: stroke,
-      }}
+      style={{ color: stroke }}
       className="transition-colors"
-      width="32"
-      height="18"
-      viewBox="0 0 32 18"
+      width="26"
+      height="14"
+      viewBox="0 0 26 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M0 1H32M0 17H32" stroke="currentColor" strokeWidth="2" />
+      <path d="M0 1H26M0 13H26" stroke="#19191B" stroke-width="1.6776" />
     </svg>
   );
 }
@@ -92,7 +88,7 @@ const BurgerButton = ({ isOpen, className, theme, ...props }) => {
       className={cx(
         'flex items-center justify-center',
         {
-          ['px-[4px] py-[11px]']: !isOpen,
+          ['px-[3px] py-[9px]']: !isOpen,
         },
         className
       )}
@@ -161,7 +157,7 @@ const BurgerMenu = ({ menuId, links }) => {
       <div className="overflow-y-auto">
         <Layout>
           <div className={'flex h-screenx flex-col md:justify-between'}>
-            <div className="flex items-center justify-between py-6 font-medium text-black">
+            <div className="flex items-center justify-between py-[28px] font-medium text-black md:py-6 xl:py-[20px]">
               <Link
                 href="/"
                 className="flex items-center justify-center"
@@ -476,7 +472,7 @@ export default function Header({
         <div className="relative">
           <Layout>
             <div
-              className="flex items-center justify-between py-6 font-medium md:justify-start"
+              className="flex items-center justify-between py-[28px] font-medium md:min-h-[88px] md:justify-start md:py-6 xl:py-[20px]"
               style={{
                 '--header-theme':
                   t === 'brand' || t === 'white'
@@ -530,7 +526,7 @@ export default function Header({
                         <Button2
                           as={Link}
                           href="/contact-us"
-                          className="!bg-black font-inter normal-case !text-white"
+                          className="!bg-black !px-4 !py-2 font-inter normal-case !tracking-[0.01em] !text-white xl:!px-5 xl:!py-3"
                           compact
                         >
                           {texts.header_cta}

@@ -13,15 +13,12 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@next/bundle-analyzer": "^12.3.1",
-    "@next/third-parties": "^14.0.4",
     "@radix-ui/react-checkbox": "^1.0.4",
-    "@studio-freight/react-lenis": "^0.0.43",
     "clsx": "^2.1.0",
     "entities": "^4.5.0",
     "gsap": "^3.11.3",
-    "install": "^0.13.0",
     "jotai": "^2.3.1",
-    "knip": "^4.4.0",
+    "knip": "^5.17.3",
     "lodash.debounce": "^4.0.8",
     "lodash.throttle": "^4.1.1",
     "next": "14.0.4",
@@ -35,8 +32,7 @@
     "react-textarea-autosize": "^8.5.3",
     "sass": "^1.57.1",
     "slugify": "^1.6.5",
-    "swiper": "^10.3.1",
-    "three": "^0.160.0"
+    "swiper": "^10.3.1"
   },
   "devDependencies": {
     "@root/walk": "^1.1.0",

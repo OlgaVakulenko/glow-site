@@ -1,9 +1,7 @@
 'use client';
 import { atom, useSetAtom } from 'jotai';
 import debounce from 'lodash.debounce';
-import throttle from 'lodash.throttle';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { smoothScrollAtom } from '../../atoms/scroll';
 import { ScrollSmoother, ScrollTrigger } from '../../dist/gsap';
 import { useMediaAtom } from '../../lib/agent';
 import { useLayoutSsrEffect } from '../../lib/utils';
@@ -22,7 +20,6 @@ export default function ScrollContainer({ children }) {
   const media = useMediaAtom();
   const setMounted = useSetAtom(ScrollSmootherMounted);
   const setEnabled = useSetAtom(ScrollSmootherEnabled);
-  const updateScrollPosition = useSetAtom(smoothScrollAtom);
   const viewportRef = useRef(null);
   const ref = useRef(null);
   const smootherRef = useRef(null);
@@ -61,11 +58,6 @@ export default function ScrollContainer({ children }) {
       content: ref.current,
       effects: false,
       smooth: 1.3,
-      // smoothTouch: 0.1,
-      onUpdate: throttle((e) => {
-        const scrollTop = Math.round(Math.abs(e.scrollTop()));
-        updateScrollPosition(scrollTop);
-      }, 0),
     });
 
     setMounted(true);
@@ -80,7 +72,7 @@ export default function ScrollContainer({ children }) {
       }
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMobile, updateScrollPosition, setMounted, disabled]);
+  }, [isMobile, setMounted, disabled]);
 
   //scrolltrigger sometimes does not refresh when scrollsmoother is enabled
   useEffect(() => {

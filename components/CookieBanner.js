@@ -29,7 +29,7 @@ function getConsentCookie() {
   return null; // Return null if the cookie is not set
 }
 
-export default function CookieBannerWrapper() {
+export default function CookieBannerWrapper({ children }) {
   const isClient = useIsClient();
   const [isConsent, setIsConsent] = useState(null);
 
@@ -47,7 +47,7 @@ export default function CookieBannerWrapper() {
           }}
         />
       )}
-      {isConsent === true && <Analytics />}
+      {children(isConsent)}
     </>
   );
 }

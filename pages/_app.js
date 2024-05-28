@@ -1,85 +1,27 @@
-import { atom, useSetAtom } from 'jotai';
+import cx from 'clsx';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useMemo, useRef } from 'react';
-import { nativeScrollAtom } from '../atoms/scroll';
 import Analytics from '../components/Analytics';
+import CookieBanner from '../components/CookieBanner';
+import { getFullDescription, getFullTitle } from '../components/HeadTitle';
 import LoadingProgress from '../components/LoadingProgress';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 import StructuredData from '../components/StructuredData';
 import { useMedia } from '../lib/agent';
 import { useReferrer } from '../lib/utils';
 import '../styles/globals.css';
-import HeadTitle, {
-  Title,
-  getFullDescription,
-  getFullTitle,
-} from '../components/HeadTitle';
-import CookieBanner from '../components/CookieBanner';
-import PixelPerfect from '../components/PixelPerfect';
-
-export const routerHistory = atom([]);
-
-function SyncRouterHistory() {
-  const router = useRouter();
-  const setRouterHistory = useSetAtom(routerHistory);
-
-  useEffect(() => {
-    const onRouteChange = (url) => {
-      setRouterHistory((h) => [...h, url]);
-    };
-
-    router.events.on('routeChangeComplete', onRouteChange);
-
-    return () => {
-      router.events.off('routeChangeComplete', onRouteChange);
-    };
-  }, [router.events, setRouterHistory]);
-
-  return null;
-}
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
-  // const setRouterHistory = useSetAtom(routerHistory);
-  const updateValue = useSetAtom(nativeScrollAtom);
+  useMedia();
+  useReferrer();
 
   const getLayout = useMemo(() => {
     return (
       Component.getLayout || ((page) => <DefaultLayout>{page}</DefaultLayout>)
     );
   }, [Component]);
-
-  useEffect(() => {
-    // setScrollbarWidth();
-  }, []);
-
-  useEffect(() => {
-    const onScroll = () => {
-      updateValue(window.scrollY);
-    };
-    onScroll();
-    window.addEventListener('scroll', onScroll);
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-    };
-  }, [updateValue]);
-
-  useMedia();
-
-  useReferrer();
-
-  // useEffect(() => {
-  //   const onRouteChange = (url) => {
-  //     setRouterHistory((h) => [...h, url]);
-  //   };
-
-  //   router.events.on('routeChangeComplete', onRouteChange);
-
-  //   return () => {
-  //     router.events.off('routeChangeComplete', onRouteChange);
-  //   };
-  // }, [router.events, setRouterHistory]);
 
   const errorsRef = useRef([]);
   useEffect(() => {
@@ -94,7 +36,6 @@ function MyApp({ Component, pageProps }) {
           colno: e?.colno,
           error: e?.error,
         },
-        // e: JSON.stringify(e),
         ua: window?.navigator?.userAgent,
       });
     };
@@ -123,16 +64,6 @@ function MyApp({ Component, pageProps }) {
       document.removeEventListener('visibilitychange', onUnload);
       window.removeEventListener('error', onError);
     };
-  }, []);
-
-  useEffect(() => {
-    if (router.isReady) {
-      document.documentElement.classList.add('hydrated');
-    }
-  }, [router.isReady]);
-
-  useEffect(() => {
-    window.__app_hydrated = true;
   }, []);
 
   const canonicalUrl = useMemo(() => {
@@ -281,7 +212,6 @@ function MyApp({ Component, pageProps }) {
           `}
         </style>
       </Head>
-      <SyncRouterHistory />
       <LoadingProgress />
       <StructuredData
         id="organization-schema"
@@ -293,8 +223,9 @@ function MyApp({ Component, pageProps }) {
         }}
       />
       {getLayout(<Component {...pageProps} />)}
-      <CookieBanner />
-      {/* <AnimatedFix /> */}
+      <CookieBanner>
+        {(isConsent) => (isConsent ? <Analytics /> : null)}
+      </CookieBanner>
       <script
         dangerouslySetInnerHTML={{
           __html: `
@@ -311,7 +242,6 @@ function MyApp({ Component, pageProps }) {
             `,
         }}
       />
-      {/* <Analytics /> */}
       <div id="drag-cursor"></div>
     </div>
   );

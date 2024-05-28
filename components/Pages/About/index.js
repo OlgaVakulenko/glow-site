@@ -107,17 +107,17 @@ function VisionBlock({ heading, text, className = '' }) {
       )}
     >
       <div className="glow mb-4 flex text-[12px] font-medium uppercase leading-[160%] xl:mb-6">
-        <div
+        <h2
           className="glow-border-dark2 rounded-full px-[10px] py-[4px]"
           style={{
             background: 'rgba(0,0,0,0.04)',
           }}
         >
           {heading}
-        </div>
+        </h2>
       </div>
       <div className="font-satoshi text-[20px] font-medium leading-[32px] md:text-[24px] md:leading-[36px] xl:text-[32px] xl:leading-[40px]">
-        <h3>{text}</h3>
+        {text}
       </div>
     </div>
   );

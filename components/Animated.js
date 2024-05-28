@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useRef, useState } from 'react';
+import React, {
+  forwardRef,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import cx from 'clsx';
 import { useRouter } from 'next/router';
 import InViewport from './InViewport';
@@ -58,34 +64,6 @@ const onInView = (el, cb) => {
 };
 
 let run = false;
-
-export function AnimatedFix() {
-  const router = useRouter();
-
-  useEffect(() => {
-    const onComplete = () => {
-      document.documentElement.classList.remove('ready');
-    };
-
-    router.events.on('routeChangeStart', onComplete);
-
-    return () => {
-      router.events.off('routeChangeStart', onComplete);
-    };
-  }, [router.events]);
-
-  return (
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
-          setTimeout(function() {
-            document.documentElement.classList.add("ready");
-          }, 20000);
-      `,
-      }}
-    />
-  );
-}
 
 const AnimatedContext = React.createContext(null);
 export function AnimatedGroup({ children, ...rest }) {

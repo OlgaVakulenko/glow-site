@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import Footer2 from '../../Footer2';
 import Header from '../../Header';
 import ScrollContainer from '../../SmoothScroll/ScrollContainer';
-import PixelPerfect from '../../PixelPerfect';
 // import LenisScrollContainer from '../../SmoothScroll/LenisScrollContainer';
 
 export default function DefaultLayout({
@@ -23,7 +22,6 @@ export default function DefaultLayout({
         {children}
         {/* {footer && <ParallaxFooter showFormButton={showFormButton} />} */}
         {footer && <Footer2 {...footerProps} footerSuccess={footerSuccess} />}
-        {<PixelPerfect />}
       </ScrollContainer>
       {/* </LenisScrollContainer> */}
     </>

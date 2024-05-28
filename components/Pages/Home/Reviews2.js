@@ -314,9 +314,9 @@ export default function Reviews({ padding }) {
         })}
       >
         <Layout className="mb-10 flex items-end justify-between md:mb-14 xl:mb-20">
-          <div className="text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2">
+          <h2 className="text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2">
             Discover what our customers have to say
-          </div>
+          </h2>
           {/* <div className="hidden space-x-4 pb-[14px] md:flex">
           <CaseNavArrow
             dir="left"

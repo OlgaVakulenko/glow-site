@@ -4,7 +4,7 @@ import { useMediaAtom } from '../lib/agent';
 import { subMenuParentAtom } from './Header';
 
 export default function Logo({ className = '', style = {} }) {
-  const media = useMediaAtom();
+  let media = 'desktop';
   const [subMenuParent] = useAtom(subMenuParentAtom);
 
   return (
@@ -16,7 +16,7 @@ export default function Logo({ className = '', style = {} }) {
       xmlns="http://www.w3.org/2000/svg"
       className={cx(
         className,
-        'h-[40px] w-[32px] md:h-[33px] md:w-[80px]',
+        'h-[33px] w-[80px]',
         !style.color && 'header-logo',
         subMenuParent && 'submenu'
       )}

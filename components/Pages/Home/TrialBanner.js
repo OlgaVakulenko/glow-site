@@ -54,11 +54,11 @@ export default function TrialBanner() {
       /> */}
       <div className="grid gap-4 md:grid-cols-4">
         <Card hideBg className="relative !p-2 !pb-4 md:col-span-2 md:!p-8">
-          <div className="relative mb-8 text-next-heading-5 md:mb-8 md:text-next-heading-3 xl:mb-8 xl:text-next-heading-2">
+          <h2 className="relative mb-8 text-next-heading-5 md:mb-8 md:text-next-heading-3 xl:mb-8 xl:text-next-heading-2">
             Start with
             <br className="hidden md:block" /> a free
             <br className="md:hidden" /> 3&#8209;day trial
-          </div>
+          </h2>
           <Button2
             as={Link}
             className="relative w-full !bg-white !px-[20px] !py-[12px] text-center font-medium !text-black md:w-auto"

@@ -68,12 +68,10 @@ export default function Push() {
           ref={descRef}
           className="mb-16 font-satoshi text-[20px] font-medium leading-[32px] md:text-[24px] md:leading-[160%] xl:mb-20 xl:text-[32px] xl:leading-[40px]"
         >
-          <h2>
-            We push for innovation in product design. Digital transformation
-            knocks in the door of every industry, and we provide services that
-            will help you be ahead of time with product design decisions that
-            last.
-          </h2>
+          We push for innovation in product design. Digital transformation
+          knocks in the door of every industry, and we provide services that
+          will help you be ahead of time with product design decisions that
+          last.
         </div>
         <div
           ref={lettersRef}

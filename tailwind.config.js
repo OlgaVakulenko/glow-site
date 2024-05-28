@@ -14,7 +14,7 @@ module.exports = {
           'GeneralSans',
           ...defaultTheme.fontFamily.sans,
         ],
-        glow: ['Satoshi'],
+        glow: 'Satoshi',
         satoshi: 'Satoshi',
         inter: 'Inter-Variable',
       },

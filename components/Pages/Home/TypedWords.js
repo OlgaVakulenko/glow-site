@@ -1,12 +1,7 @@
 import cx from 'clsx';
 import throttle from 'lodash.throttle';
-import {
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useLayoutSsrEffect } from '../../../lib/utils';
 
 function useRefFn(fn) {
   const ref = useRef(fn);
@@ -24,7 +19,7 @@ function TypedWord({ word, onComplete }) {
   const isCompletingRef = useRefFn(isCompleting);
   const letters = word.split('');
 
-  useLayoutEffect(() => {
+  useLayoutSsrEffect(() => {
     setCurrent(0);
     setIsCompleting(false);
   }, [word]);
