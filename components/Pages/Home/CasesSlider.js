@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
-import { Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import gsap from '../../../dist/gsap';
 import { mediaAtom, useMediaAtom } from '../../../lib/agent';
@@ -16,11 +15,10 @@ import SliderProgress from '../../SliderProgress';
 
 import { useSetAtom } from 'jotai';
 import throttle from 'lodash.throttle';
-import DragCursorContainer, { cursorGlobalDisableAtom } from '../../DragCursor';
+import { cursorGlobalDisableAtom } from '../../DragCursor';
 import casesData from '../Cases/data';
 import CaseCard from './CaseCard';
 import CaseNavArrow from './CaseNavArrow';
-import BLogo from './assets/b-logo.png';
 
 const featured = ['/beast', '/cryptogenie', '/jucr', '/tilt', '/liquidspace'];
 
@@ -378,12 +376,12 @@ export function CasesSlider2({
                     },
                     spaceBetween: '24px',
                     // {...swiperOptions}
-                    mousewheel: {
-                      invert: true,
-                      forceToAxis: true,
-                      sensitivity: 0.1,
-                    },
-                    modules: [Mousewheel],
+                    // mousewheel: {
+                    //   invert: true,
+                    //   forceToAxis: true,
+                    //   sensitivity: 0.1,
+                    // },
+                    // modules: [Mousewheel],
                     breakpoints: {
                       320: {
                         slidesPerView: 1,

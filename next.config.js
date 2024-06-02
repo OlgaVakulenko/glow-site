@@ -12,10 +12,10 @@ const nextConfig = {
     unoptimized: true,
   },
   experimental: {
-    optimizeCss: {
-      fonts: true,
-      minimumExternalSize: 10 * 1000 * 1000,
-    },
+    // optimizeCss: {
+    //   fonts: true,
+    //   minimumExternalSize: 10 * 1000 * 1000,
+    // },
     scrollRestoration: true,
   },
   transpilePackages: ['gsap'],

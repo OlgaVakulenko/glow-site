@@ -89,7 +89,7 @@ function Item({ title, description, image, index, total }) {
         <div className="mb-2 font-glow text-2xl font-medium leading-[40px]">
           {title}
         </div>
-        <div className="mb-6 text-base italic leading-[24px] md:mb-14 md:max-w-[300px] xl:mb-20 xl:max-w-[360px]">
+        <div className="mb-6 text-base leading-[24px] md:mb-14 md:max-w-[300px] xl:mb-20 xl:max-w-[360px]">
           {description}
         </div>
       </div>

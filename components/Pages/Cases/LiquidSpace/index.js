@@ -126,7 +126,7 @@ export function SectionLayout({
         </Animated>
         <Animated
           delay={100}
-          className="mb-8 text-base leading-[22px] md:mb-0 md:max-w-[328px] md:text-2xl md:italic xl:max-w-[528px]"
+          className="mb-8 text-base leading-[22px] md:mb-0 md:max-w-[328px] md:text-2xl xl:max-w-[528px]"
         >
           {description}
         </Animated>

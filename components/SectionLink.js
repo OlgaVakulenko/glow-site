@@ -58,7 +58,7 @@ export default function SectionLink({
           <Animated
             delay={150}
             className={cx(
-              'text-center text-lg italic leading-6 md:flex-grow md:text-left md:text-xl md:leading-[27px]',
+              'text-center text-lg leading-6 md:flex-grow md:text-left md:text-xl md:leading-[27px]',
               {
                 'mb-9': showButtonOnMobile,
               }

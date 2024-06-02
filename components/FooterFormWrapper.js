@@ -63,7 +63,7 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
               )}
             </div>
             {_isSubmitted ? (
-              <div className="mt-6 text-subtitle-m italic opacity-50 md:text-body-m xl:text-body-m">
+              <div className="mt-6 text-subtitle-m opacity-50 md:text-body-m xl:text-body-m">
                 Our team will get back to you within 12-24 hours{' '}
                 <span className="not-italic">🙌</span>
               </div>

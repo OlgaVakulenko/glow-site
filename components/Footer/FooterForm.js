@@ -251,7 +251,7 @@ export default function FooterForm({
             <h3 className="font-glow text-heading-h3 md:mb-2 md:text-heading-h3">
               Thank you!
             </h3>
-            <div className="text-subtitle-m italic opacity-50">
+            <div className="text-subtitle-m opacity-50">
               We will contact you ASAP!
             </div>
           </div>
