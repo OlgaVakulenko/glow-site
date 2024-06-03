@@ -10,7 +10,11 @@
     "created_at": 1681889021128,
     "read_minutes": "3 min read",
     "href": "how-to-test-a-new-feature-successfully-without-spending-a-cent",
-    "tags": ["Process", "Design", "Business"],
+    "tags": [
+      "Process",
+      "Design",
+      "Business"
+    ],
     "paragraphs": [
       {
         "id": "p4747338365160729",
@@ -41,6 +45,7 @@
         "text": "Benefits for a business"
       }
     ],
-    "order": 992
+    "order": 992,
+    "date_iso": "2023-04-17T21:00:00.000Z"
   }
 }

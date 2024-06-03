@@ -11,8 +11,12 @@
     "created_at": 1699435173961,
     "read_minutes": "5 min read",
     "href": "how-switching-the-task-management-app-helped-increase-the-team-productivity",
-    "tags": ["Process", "Design"],
+    "tags": [
+      "Process",
+      "Design"
+    ],
     "paragraphs": [],
-    "order": 998
+    "order": 998,
+    "date_iso": "2023-11-07T22:00:00.000Z"
   }
 }

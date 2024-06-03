@@ -53,6 +53,27 @@ async function createFolder(p) {
   }
 }
 
+function toIsoDateString(humanReadableDate) {
+  // Current year to use if no year is provided
+  const currentYear = new Date().getFullYear();
+
+  // Check if the date string contains a year
+  const hasYear = humanReadableDate.match(/\d{4}$/);
+
+  // If the date string doesn't contain a year, append the current year
+  if (!hasYear) {
+    humanReadableDate += `, ${currentYear}`;
+  }
+
+  // Parse the human-readable date into a Date object
+  const date = new Date(humanReadableDate);
+
+  // Generate an ISO date string
+  const isoDateString = date.toISOString();
+
+  return isoDateString;
+}
+
 fetch(url)
   .then((res) => res.text())
   .then(async (html) => {
@@ -197,6 +218,7 @@ function getPostDataFromHtml(root) {
     author_name,
     author_image,
     date,
+    date_iso: toIsoDateString(date),
     created_at: new Date(
       root.querySelector('time').getAttribute('datetime')
     ).getTime(),

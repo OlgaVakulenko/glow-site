@@ -11,7 +11,10 @@
     "created_at": 1689679740155,
     "read_minutes": "6 min read",
     "href": "the-design-looks-great,-but-the-final-product-does-not-fix-frontend-issues-with-design-qa",
-    "tags": ["Process", "Design"],
+    "tags": [
+      "Process",
+      "Design"
+    ],
     "paragraphs": [
       {
         "id": "p4649181920424077",
@@ -54,6 +57,7 @@
         "text": "Bonus: Reduce the Design QA time before the work even started"
       }
     ],
-    "order": 994
+    "order": 994,
+    "date_iso": "2023-07-17T21:00:00.000Z"
   }
 }

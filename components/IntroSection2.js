@@ -32,7 +32,7 @@ export default function IntroSection({
       <Animated
         as="h1"
         className={cx(
-          'mb-4 select-none bg-clip-text text-next-heading-4 md:mb-0 md:mr-24 md:min-w-[416px] md:text-next-heading-3 xl:col-span-6 xl:mr-0 xl:text-next-heading-2',
+          'mb-4 text-next-heading-4 md:mb-0 md:mr-24 md:min-w-[416px] md:text-next-heading-3 xl:col-span-6 xl:mr-0 xl:text-next-heading-2',
           headingClassname
         )}
       >

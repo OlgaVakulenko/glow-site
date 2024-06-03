@@ -78,9 +78,7 @@ export default function PostPage({ post, relatedPosts = [] }) {
     };
   }, [media, post.href]);
 
-  const isoDate = useMemo(() => {
-    return new Date(`${post.date} 2023`).toISOString();
-  }, [post.date]);
+  console.log(post.date_iso);
 
   return (
     <div className="pb-20 pt-[142px] md:pt-[176px]">
@@ -110,8 +108,8 @@ export default function PostPage({ post, relatedPosts = [] }) {
           '@type': 'NewsArticle',
           headline: post.title,
           image: [post.image],
-          datePublished: isoDate,
-          dateModified: isoDate,
+          datePublished: post.date_iso,
+          dateModified: post.date_iso,
         }}
       />
       <Layout key={post.href}>

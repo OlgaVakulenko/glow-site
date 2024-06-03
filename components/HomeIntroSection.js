@@ -53,7 +53,6 @@ export default function HomeIntroSection({
       });
     };
 
-    // moveTo(0, 0);
     document.addEventListener('mousemove', handleMouseMove);
 
     return () => {
@@ -64,7 +63,7 @@ export default function HomeIntroSection({
   return (
     <Layout
       className={cx(
-        'pb-14 pt-[128px] md:flex md:items-end md:justify-between md:pb-12 md:pt-[144px] xl:grid xl:grid-cols-12 xl:gap-8 xl:pb-[32px] xl:pt-[178px]',
+        'pb-14 pt-[128px] md:flex md:items-end md:justify-between md:pb-12 md:pt-[144px] xl:grid xl:grid-cols-12 xl:gap-8 xl:pb-0 xl:pt-[178px]',
         {},
         className
       )}
@@ -73,7 +72,7 @@ export default function HomeIntroSection({
         <h1
           ref={ref}
           className={cx(
-            'main-title mb-[25px] select-none bg-clip-text text-next-heading-4 md:mb-0 md:min-w-[496px] md:max-w-[496px] md:text-next-heading-3 xl:mr-0 xl:max-w-full xl:text-next-heading-0',
+            'main-title mb-[25px] select-none bg-clip-text text-next-heading-4 md:mb-0 md:min-w-[496px] md:max-w-[496px] md:text-next-heading-3 xl:mr-0 xl:max-w-full xl:pb-8 xl:text-next-heading-0',
             headingClassname,
             {
               animate: animate,
@@ -86,7 +85,7 @@ export default function HomeIntroSection({
       <div className="hidden xl:col-span-1 xl:block"></div>
       <Animated
         delay={100}
-        className="text-[16px] leading-[160%] md:max-w-[372px] md:pb-[1px] md:text-[18px] md:leading-[160%] xl:col-span-4 xl:max-w-full xl:pb-[4px] xl:text-[20px]"
+        className="text-[16px] leading-[160%] md:max-w-[372px] md:pb-[1px] md:text-[18px] md:leading-[160%] xl:col-span-4 xl:max-w-full xl:pb-9 xl:text-[20px]"
       >
         {subtitle}
       </Animated>

@@ -11,7 +11,11 @@
     "created_at": 1692264335106,
     "read_minutes": "3 min read",
     "href": "from-brand-recognition-to-market-domination-harnessing-visual-identity-in-product-design",
-    "tags": ["Process", "Business", "Design"],
+    "tags": [
+      "Process",
+      "Business",
+      "Design"
+    ],
     "paragraphs": [
       {
         "id": "p9919512194001956",
@@ -38,6 +42,7 @@
         "text": "Identification Chain and Marketing"
       }
     ],
-    "order": 995
+    "order": 995,
+    "date_iso": "2023-08-16T21:00:00.000Z"
   }
 }

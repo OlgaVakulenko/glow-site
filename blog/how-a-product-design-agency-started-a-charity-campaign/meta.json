@@ -10,7 +10,10 @@
     "created_at": 1664143200000,
     "read_minutes": "7 min read",
     "href": "how-a-product-design-agency-started-a-charity-campaign",
-    "tags": ["Process", "Design"],
+    "tags": [
+      "Process",
+      "Design"
+    ],
     "paragraphs": [
       {
         "id": "p479896181361702",
@@ -41,6 +44,7 @@
         "text": "Help is important and help is needed — the war rages on."
       }
     ],
-    "order": 991
+    "order": 991,
+    "date_iso": "2022-09-25T21:00:00.000Z"
   }
 }

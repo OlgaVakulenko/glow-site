@@ -66,7 +66,7 @@ export default function ServicesSelector() {
               data-id={idx}
               key={service.name}
               className={cx(
-                'relative flex shrink-0 items-center gap-4 px-8 py-4 text-left transition-all duration-200 md:col-span-1 md:w-full md:w-full md:shrink md:gap-6 md:rounded-b-none md:shadow-none',
+                'relative flex shrink-0 items-center gap-4 px-8 py-4 text-left transition-all duration-200 md:col-span-1 md:w-full md:shrink md:gap-6 md:rounded-b-none md:shadow-none',
                 {
                   // 'md:pt-3 xl:pb-3 xl:pt-5': idx === 0,
                   // 'md:pt-2': idx !== 0,

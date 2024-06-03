@@ -11,7 +11,11 @@
     "created_at": 1694591983318,
     "read_minutes": "3 min read",
     "href": "harnessing-hr-psychology-unlocking-human-potential-in-your-business",
-    "tags": ["HR", "Business", "Process"],
+    "tags": [
+      "HR",
+      "Business",
+      "Process"
+    ],
     "paragraphs": [
       {
         "id": "p8497327757805931",
@@ -42,6 +46,7 @@
         "text": "Organizational Culture"
       }
     ],
-    "order": 996
+    "order": 996,
+    "date_iso": "2023-09-11T21:00:00.000Z"
   }
 }

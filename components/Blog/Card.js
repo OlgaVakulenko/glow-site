@@ -18,9 +18,9 @@ function Author({ name, image, date, minutes }) {
         /> */}
       </div>
       <div>
-        <div className="text-base leading-7">{name}</div>
-        <div className="mt-[-5px] text-sm leading-[27px] opacity-50">
-          {date} | {minutes}
+        <div className="text-next-body-s">{name}</div>
+        <div className="text-next-body-xs opacity-50">
+          {date} ・ {minutes}
         </div>
       </div>
     </div>
@@ -37,13 +37,13 @@ export default function Card({ post }) {
         <img
           src={post.image}
           alt=""
-          className="h-[223px] w-full object-cover transition-transform duration-500 group-hover:scale-105 md:h-[255px]"
+          className="h-[223px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <h2 className="mb-3 text-body-heading-m md:mb-2 md:max-w-[80%]">
+      <h2 className="mb-2 text-next-body-l md:mb-2 md:max-w-[80%]">
         {post.title}
       </h2>
-      <div className="mb-6 max-w-[90%] text-body-s opacity-50 md:mb-7 md:max-w-[80%]">
+      <div className="mb-[36px] max-w-[90%] text-next-body-s opacity-50 md:mb-7 md:max-w-[80%]">
         {post.description}
       </div>
       <Author

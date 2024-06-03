@@ -11,7 +11,10 @@
     "created_at": 1667340000000,
     "read_minutes": "7 min read",
     "href": "a-product-design-agency-is-too-costly-for-me",
-    "tags": ["Design", "Process"],
+    "tags": [
+      "Design",
+      "Process"
+    ],
     "paragraphs": [
       {
         "id": "p6916589256557533",
@@ -30,6 +33,7 @@
         "text": "Ok, I’ve made my mind. Where should I find specialists?"
       }
     ],
-    "order": 992
+    "order": 992,
+    "date_iso": "2022-11-01T22:00:00.000Z"
   }
 }

@@ -14,6 +14,7 @@ import Process from '../components/Pages/Services/Process';
 import ServicesSelector from '../components/Pages/Services/ServiceSelector';
 import { useMediaAtom } from '../lib/agent';
 import { FAQ } from './contact-us';
+import { getFullTitle } from '../components/HeadTitle';
 
 function Heading() {
   const title = useMemo(() => {
@@ -81,7 +82,7 @@ export default function Services() {
   return (
     <div className="pb-[52px] md:pb-[72px] xl:pb-[88px]">
       <Head>
-        <title>{'Our Design Services - Glow Team'}</title>
+        <title>{getFullTitle('Our Design Services')}</title>
         <meta
           name="description"
           content="Explore Glow Team's array of product design services, including UI/UX design, branding, and more. Dedicated to delivering high-quality solutions for business."
