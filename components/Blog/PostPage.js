@@ -81,7 +81,7 @@ export default function PostPage({ post, relatedPosts = [] }) {
   console.log(post.date_iso);
 
   return (
-    <div className="pb-20 pt-[142px] md:pt-[176px]">
+    <div className="pb-20 pt-[129px] md:pt-[176px]">
       <Head>
         <title>{getFullTitle(post.html_title || post.title)}</title>
         <meta
@@ -116,7 +116,7 @@ export default function PostPage({ post, relatedPosts = [] }) {
         <Provider>
           <div className={columnClx}>
             <Breadcrumbs current={post.title} slug={post.href} />
-            <h1 className="color-[#000] mb-10 font-glow text-heading-h3 leading-[37px] md:max-w-[800px] md:text-heading-h2">
+            <h1 className="color-black mb-9 text-next-heading-5 md:max-w-[800px] md:text-heading-h2">
               {post.title}
             </h1>
             <div className="md:hidden">

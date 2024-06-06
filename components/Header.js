@@ -110,7 +110,7 @@ export const Animation = ({ index, children, ...props }) => {
       leave="transition ease-in-out duration-300 transform"
       leaveFrom="opacity-1"
       leaveTo="opacity-0"
-      className="mb-3 py-[10px] text-[38px] leading-[51px] last:mb-[0px]"
+      className=""
       {...props}
       style={{
         transitionDelay: (1 + index) * 100 + 'ms',
@@ -147,16 +147,12 @@ const BurgerMenu = ({ menuId, links }) => {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
       className={cx(
-        'fixed left-0 top-0 z-10 h-[150vh] w-full transition-colors duration-100',
-        {
-          'bg-brand': !subMenuParent,
-          'bg-white': subMenuParent,
-        }
+        'fixed left-0 top-0 z-10 h-[150vh] w-full bg-white transition-colors duration-100'
       )}
     >
       <div className="overflow-y-auto">
         <Layout>
-          <div className={'flex h-screenx flex-col md:justify-between'}>
+          <div className={'flex h-screenx flex-col justify-between'}>
             <div className="flex items-center justify-between py-[28px] font-medium text-black md:py-6 xl:py-[20px]">
               <Link
                 href="/"

@@ -8,8 +8,6 @@ const crumbs = [
   { href: '/blog', label: 'All Blog Posts' },
 ];
 
-function Label({ children }) {}
-
 export default function Breadcrumbs({ current, slug }) {
   const links = useMemo(() => {
     return [
@@ -22,7 +20,7 @@ export default function Breadcrumbs({ current, slug }) {
   }, [current, slug]);
 
   return (
-    <div className="mb-12 flex overflow-hidden text-button-s uppercase">
+    <div className="mb-9 flex overflow-hidden text-button-s uppercase">
       <StructuredData
         id="breadcrumbs"
         data={{
@@ -38,25 +36,6 @@ export default function Breadcrumbs({ current, slug }) {
               item: !isLast ? `https://glow.team${l.href}` : undefined,
             };
           }),
-          // itemListElement: [
-          //   {
-          //     '@type': 'ListItem',
-          //     position: 1,
-          //     name: 'Books',
-          //     item: 'https://example.com/books',
-          //   },
-          //   {
-          //     '@type': 'ListItem',
-          //     position: 2,
-          //     name: 'Science Fiction',
-          //     item: 'https://example.com/books/sciencefiction',
-          //   },
-          //   {
-          //     '@type': 'ListItem',
-          //     position: 3,
-          //     name: 'Award Winners',
-          //   },
-          // ],
         }}
       />
       {links.map((l, idx) => (

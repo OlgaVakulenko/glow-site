@@ -189,21 +189,27 @@ const links = [
   },
 ];
 
+export function SocialLinks() {
+  return (
+    <div className="flex w-full justify-between py-2 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:justify-center md:gap-4">
+      {links.map((link) => (
+        <a
+          title={link.label}
+          className="whitespace-nowrap p-1"
+          key={link.href}
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+        >
+          {link.icon}
+        </a>
+      ))}
+    </div>
+  );
+}
+
 export default function FooterLinks({ className = '' }) {
-  const width = useInnerWidth();
-
   let _links = links;
-  // const _links = useMemo(() => {
-  //   if (width < 1300) {
-  //     return links.slice(0, links.length - 2);
-  //   }
-
-  //   if (width > 820 && width < 960) {
-  //     return links.slice(0, links.length - 3);
-  //   }
-
-  //   return links;
-  // }, [width]);
 
   return (
     <div
@@ -225,20 +231,7 @@ export default function FooterLinks({ className = '' }) {
           <Weather className="md-safe:mr-8" />
         </div>
       </div>
-      <div className="flex w-full justify-between py-2 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:justify-center md:gap-4">
-        {_links.map((link) => (
-          <a
-            title={link.label}
-            className="whitespace-nowrap p-1"
-            key={link.href}
-            href={link.href}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {link.icon}
-          </a>
-        ))}
-      </div>
+      <SocialLinks />
       <div className="relative flex w-full shrink-0 justify-between px-2 py-4 md:gap-6 md-safe:w-auto xl:space-x-9">
         <div className="absolute left-1/2 top-1/2 h-[16px] w-[1px] -translate-x-1/2 -translate-y-1/2 bg-checkbox-light md:hidden"></div>
         <Link href="/privacy-policy">

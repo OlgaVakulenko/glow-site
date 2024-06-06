@@ -27,7 +27,7 @@ export default function HeaderLinkMobile({ item, onSubMenuClick }) {
   return (
     <BaseElement
       {...props}
-      className="flex w-full items-center justify-between font-medium uppercase tracking-[0.03em] text-black"
+      className="flex w-full items-center justify-between text-next-heading-5 uppercase text-black"
       onClick={() => {
         if (item.children?.length) {
           setSubMenuParent((it) => {
