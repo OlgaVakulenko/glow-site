@@ -26,7 +26,7 @@ export default function Team() {
         showButtonOnMobile={true}
         withLayout={false}
       /> */}
-      <div className="pt-[60px] md:pt-[88px]">
+      <div className="pt-[56px] md:pt-[88px]">
         <ProfileLayout profiles={profiles} />
       </div>
     </Section>
@@ -43,17 +43,21 @@ function Profile({ image, name, position, animated = true, index = 0 }) {
       delay={index * 50}
       className="group flex w-[255px] flex-col md:w-full xl:max-w-full"
     >
-      <div className="relative mb-6 w-full max-w-[255px] overflow-hidden rounded-3xl pb-[100%] md:max-w-full">
+      <div className="relative mb-6 max-h-[264px] w-full max-w-[254px] overflow-hidden rounded-[20px] pb-[264px] md:max-w-full">
         <Image
           src={image}
           alt=""
-          className="absolute inset-0 object-cover transition-transform duration-500 group-hover:scale-105"
+          className="absolute inset-0 h-full object-cover transition-transform duration-500 group-hover:scale-105"
           sizes={[[208, 1280], [350]]}
         />
       </div>
 
-      <div className="mb-2 text-[18px] leading-[26px]">{name}</div>
-      <div className="text-base opacity-80">{position}</div>
+      <div className="mb-2 text-[18px] font-medium leading-[26px] xl:text-next-heading-7">
+        {name}
+      </div>
+      <div className="text-base leading-none opacity-80 xl:text-next-body-s">
+        {position}
+      </div>
     </Wrapper>
   );
 }
@@ -76,7 +80,7 @@ function ProfileLayout({ profiles: _profiles }) {
     return (
       <Swiper
         slidesPerView={'auto'}
-        spaceBetween={16}
+        spaceBetween={32}
         style={{
           overflow: 'visible',
         }}
@@ -93,16 +97,18 @@ function ProfileLayout({ profiles: _profiles }) {
             </div>
           </SwiperSlide>
         ))}
-        <Layout className="pt-10">
+        {/* <Layout className="pt-10"> */}
+        <div className="pt-10">
           <SliderProgress theme="dark" />
-        </Layout>
+        </div>
+        {/* </Layout> */}
       </Swiper>
     );
   }
 
   return (
     // <Layout>
-    <div className="-mb-12 -mr-8 flex flex-wrap md:m-0 md:grid md:grid-cols-9 md:gap-8 md:gap-y-16 xl:grid-cols-12">
+    <div className="-mb-12 -mr-8 flex flex-wrap md:m-0 md:grid md:grid-cols-9 md:gap-8 md:gap-y-20 xl:grid-cols-12">
       {profiles.map((profile, i) => (
         <div
           key={i}

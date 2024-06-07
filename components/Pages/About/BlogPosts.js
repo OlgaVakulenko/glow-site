@@ -63,16 +63,16 @@ export default function BlogPosts({ posts }) {
 
   return (
     <div className="overflow-hidden">
-      <Layout className="mb-14 md:mb-16 md:grid md:grid-cols-8 md:gap-8 xl:mb-20 xl:grid-cols-12">
-        <h2 className="mb-6 font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] md:col-span-4 md:text-[48px] md:leading-[56px] xl:col-span-7 xl:text-[56px] xl:leading-[64px]">
+      <Layout className="mb-10 md:mb-14 md:flex md:justify-between xl:mb-20 xl:flex xl:items-end">
+        <h2 className="mb-6 font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] md:mb-0 md:text-[48px] md:leading-[56px] xl:col-span-7 xl:text-next-heading-2">
           Insights
         </h2>
-        <div className="text-[18px] leading-[160%] md:col-span-4 xl:col-span-5">
+        <div className="text-[18px] leading-[29px] md:max-w-[480px] xl:col-span-5 xl:w-full xl:max-w-[558px] xl:text-next-body-m">
           We share our knowledge not only with other designers but also with
           businesses. Our processes can help you optimize your work.
         </div>
       </Layout>
-      <div className="pb-[46px]">
+      <div className="pb-[104px] md:pb-[144px] xl:pb-[176px]">
         <PostSlider posts={posts} />
       </div>
     </div>

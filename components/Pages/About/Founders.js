@@ -9,10 +9,12 @@ export default function Founders() {
   return (
     <Section withLayout={false}>
       <div className="mb-14 md:mb-[88px]">
-        <Section.Header>
-          <Section.Title>Meet our founders</Section.Title>
+        <Section.Header className="md:grid md:grid-cols-2 md:gap-10 xl:flex xl:items-center xl:justify-between">
+          <Section.Title>
+            Meet our <br className="hidden md:block" /> founders
+          </Section.Title>
           <Section.Description>
-            <p className="mb-4">
+            <p className="mb-4 md:mb-0">
               Back in 2019, we had a goal to create an agency that would help
               its clients with design in complex industries. Few years later,
               our partners became our friends, and designers became our family.
@@ -20,10 +22,10 @@ export default function Founders() {
           </Section.Description>
         </Section.Header>
       </div>
-      <div className="grid grid-cols-4 gap-1 gap-y-10 border-b border-white/10 pb-14 md:grid-flow-col md:grid-cols-8 md:gap-16 md:pb-16 xl:grid-cols-24 xl:gap-0 xl:pb-20">
+      <div className="grid grid-cols-4 gap-1 gap-y-10 border-b border-white/10 pb-14 pr-4 md:grid-flow-col md:grid-cols-8 md:gap-16 md:pb-16 md:pr-0 xl:flex xl:gap-20 xl:pb-20">
         <Photo
           img={Rus}
-          name="Rus Mashatov"
+          name="Ruslan Mashatov"
           position="Co-Founder & Lead Designer"
           linkedin="https://www.linkedin.com/in/ruslan-mashatov-0b794aa9/"
           medium="https://medium.com/@ruslanmashatov"
@@ -37,7 +39,7 @@ export default function Founders() {
           align="right"
           linkedin="https://www.linkedin.com/in/staskovalsky/"
           medium="https://medium.com/@stas_k"
-          className="col-span-4 md:col-start-5 md:mt-[88px] xl:col-span-11 xl:col-start-[14]"
+          className="col-span-4 md:col-start-5 md:mt-[140px] xl:col-span-11 xl:col-start-[14] xl:mt-[194px]"
         />
       </div>
     </Section>
@@ -55,7 +57,10 @@ function Photo({
   className,
 }) {
   return (
-    <Animated className={cx('group overflow-hidden', className)} delay={delay}>
+    <Animated
+      className={cx('group overflow-hidden xl:w-full', className)}
+      delay={delay}
+    >
       <div className="mb-6 overflow-hidden rounded-3xl md:mb-8 xl:mb-8">
         <Image
           src={img}
@@ -67,58 +72,56 @@ function Photo({
 
       <div className="flex items-center justify-between">
         <div>
-          <div className="mb-1 font-satoshi text-[18px] font-medium leading-[130%] md:mb-2 md:text-[20px]">
+          <div className="mb-1 font-satoshi text-[18px] font-medium leading-[26px] md:mb-2 md:text-[20px] xl:text-next-heading-7">
             {name}
           </div>
-          <div className="text-[14px] leading-[160%] opacity-80 md:text-[16px]">
+          <div className="text-[14px] leading-[23px] opacity-80 md:text-[16px] md:leading-none xl:text-next-body-s">
             {position}
           </div>
         </div>
-        <div className="flex flex-row space-x-6">
+        <div className="flex flex-row gap-2">
           {linkedin && (
-            <a href={linkedin} target="_blank">
+            <a href={linkedin} target="_blank" className="p-2">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="20"
-                viewBox="0 0 24 20"
+                className="h-[24px] w-[24px] md:h-[32px] md:w-[32px]"
+                viewBox="0 0 24 24"
                 fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <g clipPath="url(#clip0_5903_17166)">
-                  <path
-                    d="M22.309 18.709C22.3593 18.7095 22.4093 18.6997 22.4556 18.6801C22.502 18.6605 22.5438 18.6316 22.5786 18.5952C22.6133 18.5588 22.6402 18.5156 22.6575 18.4683C22.6749 18.4211 22.6823 18.3708 22.6794 18.3205C22.6794 18.045 22.5132 17.9133 22.1722 17.9133H21.6211V19.3559H21.8284V18.7271H22.0831L22.0889 18.7348L22.4841 19.3559H22.7058L22.2805 18.713L22.309 18.709ZM22.0693 18.5645H21.829V18.0768H22.1336C22.2909 18.0768 22.4703 18.1025 22.4703 18.3086C22.4703 18.5455 22.2888 18.5645 22.0681 18.5645"
-                    fill="white"
-                  />
-                  <path
-                    d="M16.9014 16.9012H13.9623V12.2984C13.9623 11.2009 13.9427 9.78796 12.4336 9.78796C10.9029 9.78796 10.6686 10.9838 10.6686 12.2185V16.9009H7.72952V7.43576H10.5511V8.72927H10.5906C10.8729 8.24647 11.281 7.8493 11.7712 7.58006C12.2614 7.31081 12.8155 7.17958 13.3745 7.20032C16.3534 7.20032 16.9026 9.15973 16.9026 11.7088L16.9014 16.9012ZM4.41324 6.14194C4.07591 6.142 3.74612 6.04203 3.4656 5.85466C3.18509 5.6673 2.96644 5.40096 2.83729 5.08933C2.70815 4.77769 2.6743 4.43476 2.74005 4.10389C2.8058 3.77303 2.9682 3.46909 3.20669 3.23052C3.44518 2.99194 3.74906 2.82944 4.0799 2.76357C4.41074 2.6977 4.75368 2.73142 5.06536 2.86045C5.37704 2.98949 5.64345 3.20805 5.83092 3.4885C6.01838 3.76895 6.11848 4.0987 6.11854 4.43603C6.11858 4.66002 6.0745 4.88181 5.98882 5.08876C5.90314 5.29571 5.77755 5.48376 5.6192 5.64216C5.46085 5.80057 5.27284 5.92624 5.06592 6.01199C4.859 6.09774 4.63723 6.1419 4.41324 6.14194V6.14194ZM5.88279 16.9012H2.94063V7.43576H5.88279V16.9012ZM18.3666 0.00135143H1.46374C1.08009 -0.00297804 0.710398 0.145182 0.435933 0.413275C0.161468 0.681368 0.00468222 1.04746 0 1.4311V18.4041C0.00452196 18.788 0.161216 19.1543 0.435672 19.4227C0.710127 19.691 1.0799 19.8395 1.46374 19.8354H18.3666C18.7512 19.8402 19.122 19.6922 19.3976 19.4238C19.6731 19.1555 19.8309 18.7887 19.8362 18.4041V1.42988C19.8307 1.04547 19.6729 0.678966 19.3973 0.41088C19.1218 0.142794 18.7511 -0.00494354 18.3666 0.000126304"
-                    fill="white"
-                  />
-                  <path
-                    d="M22.0935 17.2705C21.7359 17.2739 21.3942 17.4189 21.1432 17.6735C20.8922 17.9282 20.7522 18.272 20.7539 18.6296C20.7556 18.9872 20.8989 19.3295 21.1524 19.5818C21.4059 19.834 21.7489 19.9756 22.1065 19.9756C22.4641 19.9756 22.8072 19.834 23.0606 19.5818C23.3141 19.3295 23.4574 18.9872 23.4591 18.6296C23.4608 18.272 23.3209 17.9282 23.0698 17.6735C22.8188 17.4189 22.4771 17.2739 22.1195 17.2705H22.0935ZM22.0935 19.8208C21.859 19.8247 21.6285 19.759 21.4313 19.6319C21.2342 19.5048 21.0791 19.3222 20.9857 19.107C20.8923 18.8918 20.8649 18.6537 20.9068 18.4229C20.9487 18.1921 21.0582 17.9789 21.2213 17.8103C21.3844 17.6417 21.5938 17.5252 21.823 17.4757C22.0523 17.4261 22.2912 17.4456 22.5094 17.5317C22.7275 17.6179 22.9153 17.7668 23.0488 17.9596C23.1824 18.1525 23.2557 18.3806 23.2596 18.6151C23.2596 18.6219 23.2596 18.6283 23.2596 18.635C23.2662 18.9427 23.1503 19.2404 22.9374 19.4627C22.7245 19.6849 22.4321 19.8135 22.1244 19.8202H22.0938"
-                    fill="white"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_5903_17166">
-                    <rect width="23.459" height="20" fill="white" />
-                  </clipPath>
-                </defs>
+                <path
+                  d="M1.00781 2.4405C1.00781 1.7331 1.25541 1.1495 1.75057 0.689708C2.24574 0.229896 2.88948 0 3.68176 0C4.4599 0 5.08946 0.226351 5.57049 0.679097C6.06566 1.14598 6.31326 1.75432 6.31326 2.50417C6.31326 3.18327 6.07275 3.74917 5.59172 4.20191C5.09655 4.66879 4.44574 4.90223 3.63931 4.90223H3.61809C2.83995 4.90223 2.21039 4.66879 1.72935 4.20191C1.24832 3.73503 1.00781 3.14789 1.00781 2.4405ZM1.2837 21.0096V6.83341H5.99493V21.0096H1.2837ZM8.60521 21.0096H13.3164V13.0938C13.3164 12.5986 13.373 12.2167 13.4862 11.9479C13.6843 11.4668 13.9849 11.0601 14.3881 10.7276C14.7914 10.3951 15.2971 10.2289 15.9055 10.2289C17.4901 10.2289 18.2823 11.2971 18.2823 13.4334V21.0096H22.9936V12.8816C22.9936 10.7877 22.4984 9.19964 21.508 8.11733C20.5177 7.03502 19.209 6.49386 17.582 6.49386C15.7569 6.49386 14.3351 7.27907 13.3164 8.84948V8.89192H13.2952L13.3164 8.84948V6.83341H8.60521C8.6335 7.28614 8.64765 8.69384 8.64765 11.0565C8.64765 13.4192 8.6335 16.7369 8.60521 21.0096Z"
+                  fill="white"
+                />
               </svg>
             </a>
           )}
           {medium && (
-            <a href={medium} target="_blank">
+            <a href={medium} target="_blank" className="p-2">
               <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="36"
-                height="20"
-                viewBox="0 0 36 20"
+                className="h-[24px] w-[24px] md:h-[32px] md:w-[32px]"
+                viewBox="0 0 24 24"
                 fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M20.3207 10.0002C20.3207 15.5229 15.874 20 10.389 20C4.90406 20 0.457031 15.5219 0.457031 10.0002C0.457031 4.47841 4.90373 0 10.389 0C15.8744 0 20.3207 4.4774 20.3207 10.0002ZM31.2161 10.0002C31.2161 15.1987 28.9927 19.4146 26.2501 19.4146C23.5074 19.4146 21.2841 15.1987 21.2841 10.0002C21.2841 4.80167 23.5071 0.585784 26.2497 0.585784C28.9924 0.585784 31.2157 4.80032 31.2157 10.0002H31.2161ZM35.6726 10.0002C35.6726 14.6567 34.8907 18.434 33.926 18.434C32.9613 18.434 32.1798 14.6578 32.1798 10.0002C32.1798 5.34258 32.9616 1.56636 33.926 1.56636C34.8904 1.56636 35.6726 5.34224 35.6726 10.0002Z"
-                  fill="white "
-                />
+                <g clip-path="url(#clip0_13001_4400)">
+                  <path
+                    d="M13.5374 12.2271C13.5374 15.9978 10.5069 19.0546 6.76883 19.0546C3.03073 19.0546 0 15.9971 0 12.2271C0 8.45709 3.0305 5.39941 6.76883 5.39941C10.5072 5.39941 13.5374 8.4564 13.5374 12.2271Z"
+                    fill="white"
+                  />
+                  <path
+                    d="M20.9602 12.2285C20.9602 15.7779 19.445 18.6563 17.5758 18.6563C15.7067 18.6563 14.1914 15.7779 14.1914 12.2285C14.1914 8.67922 15.7064 5.80078 17.5756 5.80078C19.4448 5.80078 20.96 8.67829 20.96 12.2285"
+                    fill="white"
+                  />
+                  <path
+                    d="M24.0015 12.227C24.0015 15.4063 23.4686 17.9853 22.8112 17.9853C22.1537 17.9853 21.6211 15.407 21.6211 12.227C21.6211 9.04699 22.1539 6.46875 22.8112 6.46875C23.4684 6.46875 24.0015 9.04676 24.0015 12.227Z"
+                    fill="white"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_13001_4400">
+                    <rect width="24" height="24" rx="4" fill="white" />
+                  </clipPath>
+                </defs>
               </svg>
             </a>
           )}

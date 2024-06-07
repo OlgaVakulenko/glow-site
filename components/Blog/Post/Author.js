@@ -21,7 +21,7 @@ export function AuthorImage({ name, src, className = '' }) {
         <Image
           src={authorImage}
           alt=""
-          className="h-16 w-16 object-cover"
+          className="w-h-12 h-12 object-cover"
           sizes={[[64]]}
         />
       </div>
