@@ -64,10 +64,10 @@ export default function UiUxServices() {
 	const processHeadingDescription = useMemo(() => {
 		return (
 			<>
-				<div className='md:max-w-[596px]'>
+				<div className='xl:max-w-[596px] md:max-w-[464px]'>
 					The digital world depends on a seamless user experience (UX). Our UI/UX design services enhance digital platforms by combining aesthetic appeal with intuitive functionality. Start your project effortlessly with us. 
 				</div>
-				<div className='md:max-w-[596px]'>
+				<div className='xl:max-w-[596px] md:max-w-[464px]'>
 					Our clear design services&apos; processes ensure transparency and excellent results every step of the way. You will end up with a fantastic project, allowing you to shine at the top of the search results. Let&apos;s make your product glow!
 				</div>
 			</>
