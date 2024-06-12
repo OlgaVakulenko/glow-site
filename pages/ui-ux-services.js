@@ -20,7 +20,8 @@ function PageHeading() {
   const title = useMemo(() => {
     return (
       <>
-				UI & UX Design Services:{' '}
+				UI & UX Design
+				<br className="hidden md:block xl:hidden" /> Services:{' '}
         <br className="hidden xl:block" />Boost Your Product Now
       </>
     );
@@ -28,9 +29,9 @@ function PageHeading() {
 	
   return (
     <IntroSection2
-      className="!pt-[192px] md:!pt-[271px] xl:!pt-[300px]"
+      className="!pt-[192px] md:!pt-[271px] xl:!pt-[300px] md:!pb-0 xl:!pb-8"
 			bodyClassName="md:!text-next-body-l"
-			headingClassname='md:!min-w-[432px]'
+			headingClassname='md:!min-w-[496px] md:mr-4'
       title={title}
       subtitle="A great interface converts visitors into loyal customers. Achieve your product goals and business objectives with our UI & UX design services."
     />
@@ -103,6 +104,8 @@ export default function UiUxServices() {
         <Slider />
       </Box>
       <Process 
+				layoutClassNames='!px-2 md:!px-8 xl:!px-16'
+				headingClassNames='pl-4 md:pl-0'
 				headingTitle={processHeadingTitle}
 				headingDescription={processHeadingDescription}
 				isColumn
@@ -115,10 +118,17 @@ export default function UiUxServices() {
 					<Heading
 						title={servicesHeadingTitle}
 						description="Our design services are tailored to meet the unique requirements of your business. That's why Glow can ensure that every aspect meets your goals and resonates with your audience."
-						descriptionClassNames="md:!text-next-body-m xl:!text-next-body-l md:!max-w-[448px] xl:max-w-[528px] md:self-end"
+						titleClassNames='!mb-6 md:!mb-0'
+						descriptionClassNames="!text-next-body-m xl:!text-next-body-l md:!max-w-[448px] xl:!max-w-[528px] md:self-end font-normal"
 					/>
-						<Box className='!pb-0'>
-							<GraphicBlock items={items} className='md:!gap-x-20'/>
+						<Box className='!pb-0 pt-10 md:pt-14 xl:pt-20'>
+							<GraphicBlock 
+								items={items} 
+								className='md:!gap-x-8 md:gap-y-[60px]'
+								descriptionClassNames='md:pr-12 md:leading-[28px] xl:pr-3'
+								titleClassNames='md:tracking-[0]'
+								blockClassNames='xl:min-w-[422px]'
+								/>
 						</Box>
 				</Layout>
       </Box>

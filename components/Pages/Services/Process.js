@@ -8,7 +8,8 @@ export default function Process({
 	children, 
 	isColumn, 
 	headingDescriptionClassNames,
-	layoutClassNames 
+	layoutClassNames,
+	headingClassNames 
 }) {
   return (
     <Layout className={cx('py-[52px] md:py-[72px] xl:py-[88px]', layoutClassNames)}>
@@ -17,6 +18,7 @@ export default function Process({
         description={headingDescription}
 				isColumn={isColumn}
 				descriptionClassNames={headingDescriptionClassNames}
+				classNames={headingClassNames}
       />
 			{ children }
     </Layout>

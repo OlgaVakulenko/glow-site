@@ -374,7 +374,7 @@ export default function Reviews({ padding }) {
                 />
               </SwiperSlide>
             ))}
-            <div className="pt-8 md:pt-12">
+            <div className="pt-px md:pt-12">
               <div className="items-center md:flex md:space-x-6">
                 <div className="hidden shrink-0 space-x-4 md:flex">
                   <CaseNavArrow

@@ -2,7 +2,7 @@ import cx from 'clsx';
 
 export default function Heading({ title, description, isColumn, classNames, titleClassNames, descriptionClassNames }) {
   return (
-    <div className={cx('md:flex md:justify-between', {'flex-col xl:gap-y-20 md:gap-y-12': isColumn, 'md:gap-8': !isColumn}, classNames)}>
+    <div className={cx('md:flex md:justify-between', {'flex-col xl:gap-y-20 md:gap-y-10': isColumn, 'md:gap-8': !isColumn}, classNames)}>
       <h2 className={cx('mb-4 shrink-0 text-next-heading-5 md:mb-0 md:text-next-heading-3 xl:text-next-heading-2', titleClassNames)}>
         {title}
       </h2>
