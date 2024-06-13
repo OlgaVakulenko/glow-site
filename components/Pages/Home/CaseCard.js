@@ -117,15 +117,6 @@ export default function CaseCard({ type, item, index, total }) {
           <div className="text-next-body-xs text-text-dim md:hidden">
             {item.description}
           </div>
-          <div className="hidden space-x-[40px] pl-[3px] md:hidden md:space-x-[62px]">
-            <Col className="" title="Industry" items={item.industry} />
-            <Col
-              className="min-w-[100px]"
-              title="Services"
-              items={item.service}
-            />
-            {item.company && <Col title="Company" items={item.company} />}
-          </div>
         </div>
       </div>
     </div>

@@ -214,7 +214,7 @@ export function CaseItem({
         Beast is an ambitious carsharing project from Estonia that presents a
         range of exclusive Tesla models.
       </div>
-      <div className="-mr-10 flex md:-mr-16 xl:-mr-24">
+      {/* <div className="-mr-10 flex md:-mr-16 xl:-mr-24">
         {columns.map((col, i) => (
           <Col2
             key={i}
@@ -223,7 +223,7 @@ export function CaseItem({
             className="mr-10 md:mr-16 xl:mr-24"
           />
         ))}
-      </div>
+      </div> */}
     </Link>
   );
 }

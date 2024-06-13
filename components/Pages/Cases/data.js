@@ -57,8 +57,6 @@ const cases = [
     title: <>LiquidSpace: flexible office space rental software</>,
     description:
       'LiquidSpace is an online platform and network that connects people with available office spaces for rent.',
-
-    title2: 'Liquid Space',
     industry: ['Rental'],
     service: ['UI/UX', 'Product Design'],
     company: ['Funding $34.5M'],
@@ -88,8 +86,6 @@ const cases = [
     title: <>JUCR: mobile app for efforthless EV charging</>,
     description:
       'JUCR is a mobile application for fast and convenient access to all charging stations in Europe. ',
-
-    title2: 'JUCR',
     industry: ['Charge App', 'Electric Vehicles', 'Car rental'],
     service: ['Product Design', 'UI/UX'],
     company: ['Funding €32.7M'],
@@ -228,7 +224,6 @@ const cases = [
     description:
       'CryptoGenie is a brand new tool for predicting the relevant trends of various cryptocurrency assets.',
 
-    title2: 'CryptoGenie',
     href: '/cryptogenie',
     industry: ['AI', 'Blockchain'],
     service: ['Product Design', 'UI/UX'],
@@ -261,8 +256,6 @@ const cases = [
     description:
       'Moving time-consuming parking management routine from paper to the tablet screen.',
 
-    title2: 'Platform for parking',
-    industry: ['Car Rent'],
     service: ['UI/UX', 'Branding'],
     company: ['Funding 30M'],
     image: Parking,
@@ -271,28 +264,45 @@ const cases = [
     tags: ['Product Design', 'ui', 'ux'],
     icon: (
       <svg
-        className="h-full w-full"
+        width="56"
+        height="56"
         viewBox="0 0 56 56"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
         <rect width="56" height="56" rx="16" fill="white" />
         <path
-          d="M34.1254 16.3806L25.1003 14.9206C25.0118 14.9206 24.8791 14.8764 24.7906 14.8764C24.7022 14.8764 24.5694 14.8764 24.481 14.8764C24.3925 14.8764 24.2598 14.8764 24.127 14.9206C23.9943 14.9206 23.9058 14.9649 23.7731 14.9649C23.5962 15.0091 23.4192 15.0533 23.2865 15.0976C23.1095 15.1418 22.9768 15.2303 22.7998 15.3188C22.6229 15.4073 22.4901 15.4957 22.3132 15.5842C22.1805 15.6727 22.0035 15.8054 21.8708 15.8939C21.738 16.0266 21.6053 16.1151 21.4284 16.2478C21.2956 16.3806 21.1629 16.5133 21.0302 16.646C20.8975 16.7787 20.809 16.9557 20.6763 17.0884C20.5878 17.2654 20.4551 17.3981 20.3666 17.575L13.7305 30.4491C13.642 30.5818 13.5978 30.7145 13.5535 30.8472C13.5093 30.9799 13.4208 31.1127 13.3766 31.2454C13.3323 31.3781 13.2881 31.5108 13.2439 31.6435C13.1996 31.7763 13.1554 31.909 13.1554 32.0417C13.1111 32.2629 13.1111 32.4841 13.0669 32.6611C13.0669 32.8823 13.0669 33.0592 13.0669 33.2362C13.0669 33.4132 13.1111 33.6344 13.1111 33.8113C13.1554 33.9883 13.1996 34.1653 13.2439 34.3422C13.2881 34.5192 13.3766 34.6961 13.4651 34.8289C13.5535 35.0058 13.642 35.1386 13.7305 35.2713C13.819 35.404 13.9517 35.5367 14.0844 35.6694C14.2171 35.8022 14.3499 35.8906 14.4826 35.9791L15.1904 36.3773L17.0485 32.5726L16.3407 32.2187H16.2965L16.2522 32.1744L16.208 32.1302V32.086L16.1637 32.0417V31.9975V31.9532V31.909C16.1637 31.8648 16.1637 31.8648 16.1637 31.8648V31.8205V31.7763C16.1637 31.732 16.1637 31.732 16.208 31.6878L23.021 18.2829V18.2387L23.0653 18.1944L23.1095 18.1502L23.1537 18.1059L23.198 18.0617L23.2422 18.0175L23.2865 17.9732L23.3307 17.929H23.3749H23.4192H23.4634H23.5077L32.5327 19.8756L34.1254 16.3806ZM42.0002 20.4949C42.0002 20.2737 41.956 20.0525 41.9117 19.8756C41.8675 19.6544 41.779 19.4774 41.6905 19.3004C41.6021 19.1235 41.5136 18.9465 41.3809 18.7695C41.2481 18.5926 41.1154 18.4599 40.9827 18.2829C40.85 18.1502 40.673 18.0175 40.496 17.8847C40.3191 17.752 40.1421 17.6635 39.9652 17.5308C39.7882 17.4423 39.567 17.3538 39.3458 17.2654C39.1246 17.1769 38.9034 17.1326 38.6822 17.0884L37.6647 16.9114L36.072 20.5834L37.0895 20.8046H37.1338H37.178H37.2222L37.2665 20.8489L37.3107 20.8931L37.355 20.9373L37.3992 20.9816V21.0258V21.0701V21.1143C37.3992 21.1143 37.3992 21.1585 37.3992 21.2028C37.3992 21.247 37.3992 21.247 37.355 21.2913L30.2322 38.3681C30.2322 38.3681 30.2322 38.4124 30.188 38.4124L30.1438 38.4566L30.0995 38.5008L30.0553 38.5451L30.011 38.5893C30.011 38.5893 29.9668 38.6336 29.9226 38.6336C29.8783 38.6336 29.8783 38.6778 29.8341 38.6778C29.7898 38.6778 29.7898 38.6778 29.7456 38.6778C29.7013 38.6778 29.7013 38.6778 29.6571 38.6778C29.6129 38.6778 29.6129 38.6778 29.5686 38.6778C29.5244 38.6778 29.5244 38.6778 29.4801 38.6778C29.4359 38.6778 29.4359 38.6778 29.3917 38.6336L28.3741 38.1469L26.3833 42.7922L27.4008 43.3673C27.5336 43.4558 27.7105 43.5443 27.8875 43.5885C28.0644 43.677 28.1972 43.7212 28.3741 43.7655C28.5511 43.8097 28.7281 43.8539 28.8608 43.8982C29.0377 43.9424 29.2147 43.9424 29.3917 43.9424C29.6571 43.9424 29.9226 43.9424 30.1438 43.9424C30.4092 43.8982 30.6746 43.8539 30.8958 43.8097C31.1613 43.7212 31.3825 43.6327 31.6479 43.5443C31.8691 43.4115 32.1346 43.2788 32.3558 43.1461C32.577 43.0134 32.7982 42.8364 33.0194 42.6152C33.2406 42.4382 33.4176 42.217 33.5945 41.9958C33.7715 41.7746 33.9484 41.5092 34.0812 41.2438C34.2139 40.9783 34.3466 40.7129 34.4793 40.4474L41.6021 22.3088C41.6463 22.1318 41.7348 21.9991 41.779 21.8221C41.8233 21.6452 41.8675 21.5125 41.8675 21.3355C41.9117 21.1585 41.9117 21.0258 41.9117 20.8931C42.0002 20.8046 42.0002 20.6276 42.0002 20.4949Z"
-          fill="#003192"
+          d="M16.0804 19.1007L23.9388 32.9685C25.7264 36.1231 30.2714 36.1231 32.059 32.9685L39.9174 19.1007C41.6802 15.9898 39.433 12.1334 35.8573 12.1334L20.1405 12.1334C16.5648 12.1334 14.3175 15.9898 16.0804 19.1007Z"
+          fill="url(#paint0_linear_11255_3284)"
         />
         <path
-          d="M23.9963 25.0074L21.2976 24.1225L17.0505 32.5725L15.1924 36.3329L17.7583 37.8371L19.7049 33.8555L23.9963 25.0074Z"
-          fill="#52A800"
+          d="M39.9196 37.8326L32.0612 23.9649C30.2736 20.8103 25.7286 20.8103 23.941 23.9649L16.0826 37.8326C14.3198 40.9436 16.567 44.8 20.1427 44.8H35.8595C39.4352 44.8 41.6825 40.9436 39.9196 37.8326Z"
+          fill="url(#paint1_linear_11255_3284)"
         />
-        <path
-          d="M30.5433 21.2025L27.4464 20.4504L20.8104 34.4304L18.8638 38.4563L21.8279 40.1817L23.8187 35.8904L30.5433 21.2025Z"
-          fill="#52A800"
-        />
-        <path
-          d="M37.8395 12.1333L33.5924 14.5223L34.8754 14.6993L23.1074 40.8897L26.5139 42.8363L28.5048 38.191L36.0257 20.5833L37.6183 16.9113L38.3262 15.1859L39.8746 15.4071L37.8395 12.1333Z"
-          fill="#52A800"
-        />
+        <defs>
+          <linearGradient
+            id="paint0_linear_11255_3284"
+            x1="27.9989"
+            y1="35.9334"
+            x2="27.9989"
+            y2="12.1334"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="white" />
+            <stop offset="1" stop-color="#1D73F7" />
+          </linearGradient>
+          <linearGradient
+            id="paint1_linear_11255_3284"
+            x1="28.0011"
+            y1="21"
+            x2="28.0011"
+            y2="44.8"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop stop-color="white" />
+            <stop offset="1" stop-color="#1D73F7" />
+          </linearGradient>
+        </defs>
       </svg>
     ),
   },
@@ -301,8 +311,6 @@ const cases = [
     title: 'Tilt: financial aid opportunities for american students',
     description:
       'Tilt helps students find and select colleges that will offer them the best deal, as well as financial aid.',
-
-    title2: 'Tilt',
     industry: ['Education'],
     service: ['UI/UX', 'Product Design'],
     company: [
@@ -349,7 +357,6 @@ const cases = [
       'FleetChaser helps companies in the construction industry efficiently automate their work processes.',
 
     titleMobile: 'FleetChaser - Fleet management platform',
-    title2: 'FleetChaser',
     industry: ['Management', 'Construction'],
     service: ['Product Design', 'User Experience', 'Product Design'],
     company: ['Funding 30M'],
@@ -388,7 +395,6 @@ const cases = [
     description:
       'EthosCE is an educational platform that provides new opportunities for healthcare professionals.',
 
-    title2: 'EthosCE',
     industry: ['Education', 'Medicine'],
     service: ['UI/UX', 'Web Design'],
     company: [
