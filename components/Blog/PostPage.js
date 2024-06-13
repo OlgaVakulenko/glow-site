@@ -78,8 +78,6 @@ export default function PostPage({ post, relatedPosts = [] }) {
     };
   }, [media, post.href]);
 
-  console.log(post.date_iso);
-
   return (
     <div className="pb-20 pt-[129px] md:pt-[176px]">
       <Head>
