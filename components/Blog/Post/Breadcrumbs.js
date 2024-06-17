@@ -20,7 +20,7 @@ export default function Breadcrumbs({ current, slug }) {
   }, [current, slug]);
 
   return (
-    <div className="mb-9 flex overflow-hidden text-button-s uppercase">
+    <div className="mb-9 flex overflow-hidden text-button-s uppercase md:mb-8 xl:mb-14">
       <StructuredData
         id="breadcrumbs"
         data={{
@@ -44,6 +44,7 @@ export default function Breadcrumbs({ current, slug }) {
             href={l.href}
             className={cx('max-w-[140px] flex-shrink-0 md:max-w-[200px]', {
               'truncate text-brand': l.label === current,
+              'text-black/50': l.label !== current,
             })}
           >
             {l.label}

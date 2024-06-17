@@ -27,7 +27,7 @@ export default function LinkedIn() {
           width="47"
           height="47"
           rx="23.5"
-          stroke="#19191B"
+          stroke="rgba(25,25,27,0.15)"
         />
         <defs>
           <clipPath id="clip0_4191_798">

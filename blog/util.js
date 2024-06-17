@@ -43,10 +43,10 @@ export async function getBlogPosts() {
 }
 
 const positionMap = {
-  'Kovalsky Stanislav': 'Co-Founder & Lead Designer',
+  'Kovalsky Stanislav': 'Co-Founder & Designer',
   'Daria Haman': 'HR Manager',
   'Liudmyla Gramatyk': 'Content Manager',
-  'Ruslan Mashatov': 'Co-Founder & Lead Designer',
+  'Ruslan Mashatov': 'Co-Founder & Designer',
 };
 
 export function withAuthor(post) {
@@ -55,7 +55,7 @@ export function withAuthor(post) {
     author_position: positionMap[post.author_name] || 'Product Designer',
     author_name:
       post.author_name === 'Kovalsky Stanislav'
-        ? 'Stanislav Kovalsky'
+        ? 'Stas Kovalsky'
         : post.author_name,
   };
 }

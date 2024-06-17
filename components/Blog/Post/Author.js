@@ -21,7 +21,7 @@ export function AuthorImage({ name, src, className = '' }) {
         <Image
           src={authorImage}
           alt=""
-          className="w-h-12 h-12 object-cover"
+          className="aspect-square h-full w-full object-cover"
           sizes={[[64]]}
         />
       </div>
@@ -40,9 +40,9 @@ export default function Author({ name, image, position }) {
         className={'mr-4 h-[64px] w-[64px] rounded-[20px]'}
       />
 
-      <div>
-        <div className="mb-2 text-body-heading-m">{name}</div>
-        <div className="text-body-s">{position}</div>
+      <div className="flex flex-col justify-center">
+        <div className="mb-2 text-[20px] font-medium leading-6">{name}</div>
+        <div className="text-[16px] leading-[19px]">{position}</div>
       </div>
     </div>
   );

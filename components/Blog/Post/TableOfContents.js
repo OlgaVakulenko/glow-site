@@ -37,11 +37,11 @@ export default function TableOfContents({ paragraphs }) {
   }
 
   return (
-    <div className="mb-10">
-      <div className="mb-8 text-button-s uppercase">Table of contents</div>
+    <div className="mb-[58px]">
+      <div className="mb-[26px] text-next-heading-7">Table of contents</div>
       <div
         ref={scrollRef}
-        className="max-h-[calc(100vh-608px)] overflow-y-auto"
+        className="max-h-[calc(100vh-600px)] overflow-y-auto"
       >
         {paragraphs.map((p, i) => (
           <a
@@ -49,7 +49,7 @@ export default function TableOfContents({ paragraphs }) {
             key={i}
             data-element-index={i}
             className={cx(
-              'relative mb-6 flex items-center pl-6 text-body-xs transition-colors last:mb-0',
+              'relative mb-5 flex items-center pl-6 text-next-body-xs transition-colors last:mb-0',
               {
                 'text-brand': active === i,
               }
@@ -75,7 +75,7 @@ export default function TableOfContents({ paragraphs }) {
             }}
           >
             {active === i && (
-              <div className="absolute left-0 top-1/2 -translate-y-1/2">
+              <div className="absolute left-[2px] top-1/2 -translate-y-1/2">
                 <svg
                   width="6"
                   height="8"

@@ -78,7 +78,7 @@ export default function Footer2({
                 />
               </picture> */}
               <div className="relative z-[1] text-center">
-                <div className="mb-[42px] text-[12px] uppercase leading-[24px] tracking-[0.02em] text-white md:mb-10 xl:mb-10">
+                <div className="mb-[40px] text-[12px] uppercase leading-[24px] tracking-[0.02em] text-white md:mb-10 xl:mb-10">
                   <SlotText />
                 </div>
                 <h3 className="mb-8 text-center text-next-heading-4 text-white md:mb-8 md:text-next-heading-3 xl:mb-8 xl:text-[72px] xl:leading-[72px]">
@@ -86,8 +86,7 @@ export default function Footer2({
                   <br /> your project glow
                 </h3>
                 <div className="mb-10 text-[16px] leading-[24px] text-white md:mb-10 md:text-next-body-s xl:mb-10 xl:text-[18px]">
-                  Our team will get back to you within{' '}
-                  <br className="md:hidden" /> 24 hours 🙌
+                  Our team will get back to you within 24 hours 🙌
                 </div>
                 <div className=" text-center">
                   <Button2

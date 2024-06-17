@@ -482,7 +482,15 @@
   z-index: 1;
 }
 
-.text-next-heading-0, .text-next-heading-1, .text-next-heading-2, .text-next-heading-3, .text-next-heading-4, .text-next-heading-5, .text-next-heading-6, .text-next-heading-7 {
+.text-next-heading-0,
+.text-next-heading-1,
+.text-next-heading-2,
+.text-next-heading-3,
+.text-next-heading-4,
+.text-next-heading-5,
+.text-next-heading-6,
+.text-next-heading-7,
+.prose-headings\:text-next-heading-6 :is(:where(h1, h2, h3, h4, h5, h6)) {
   font-family: 'Satoshi';
   font-weight: 500;
   font-feature-settings: 'ss03'on, 'liga'off;
