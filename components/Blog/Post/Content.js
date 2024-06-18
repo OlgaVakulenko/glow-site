@@ -103,6 +103,7 @@ export default function Content({ html, paragraphs }) {
       ref={ref}
       className={cx(
         'prose max-w-full prose-headings:mb-6 prose-headings:mt-[60px] prose-headings:font-satoshi prose-headings:text-next-heading-6 prose-headings:font-medium prose-img:w-full md:prose-headings:text-[32px] md:prose-headings:leading-[37px] xl:prose-headings:text-next-heading-5',
+        'prose-th:!font-inter prose-th:!text-next-body-m-reading prose-td:text-next-body-m-reading',
         'prose-li:my-0 prose-li:marker:text-black md:prose-li:my-2 md:prose-li:text-next-body-m-reading',
         'prose-p:text-next-body-s prose-a:font-normal prose-a:text-brand prose-a:no-underline prose-figure:-mx-4 prose-strong:font-medium md:prose-p:text-next-body-m-reading',
         'prose-li:text-next-body-s md:prose-p:text-body-m md:prose-figure:mx-0 md:prose-li:text-body-m'
