@@ -29,29 +29,56 @@ import Tilt from './assets/new3/tilt.png';
 // import Tilt from './assets/new/tilt-cover.png';
 // import TiltWork from './assets/new/tilt-work.png';
 // import ParkingWork from './assets/new/parking-work.png';
-// import InvoiceMaker from './assets/new/invoice-maker-cover.png';
+import InvoiceMaker from './assets/new/invoice-maker-cover.png';
 
 const cases = [
-  // {
-  //   href: '/invoice-maker/',
-  //   title: (
-  //     <>
-  //       Invoice Maker - <br />
-  //       everything about invoices
-  //     </>
-  //   ),
-  //   description:
-  //     'Beast is an ambitious carsharing project from Estonia that presents a range of exclusive Tesla models.',
-  //   title2: 'Invoice Maker',
-  //   industry: ['Rental'],
-  //   service: ['UI/UX', 'Product Design'],
-  //   company: ['Funding $34.5M'],
-  //   image: InvoiceMaker,
-  //   imageWork: InvoiceMaker,
-  //   // imageMobile: LiquidSpaceMobile,
-  //   category: ['other'],
-  //   type: ['desktop'],
-  // },
+  {
+    href: '/invoice-maker/',
+    title: (
+      <>
+        Invoice Maker - <br />
+        everything about invoices
+      </>
+    ),
+    description:
+      'InvoiceMaker is designed to saves all of your invoicing information, making it simple to generate repeat invoices for regular clients.',
+    industry: ['Rental'],
+    service: ['UI/UX', 'Product Design'],
+    company: ['Funding $34.5M'],
+    image: InvoiceMaker,
+    imageWork: InvoiceMaker,
+    // imageMobile: LiquidSpaceMobile,
+    category: ['other'],
+    type: ['desktop'],
+    tags: ['Product Design', 'UI', 'UX', 'Visual Identity'],
+    icon: (
+      <svg className="h-full w-full" viewBox="0 0 48 49" fill="none">
+        <rect
+          y="0.5"
+          width="48"
+          height="48"
+          rx="13.7143"
+          fill="url(#pattern0_808_22841)"
+        />
+        <defs>
+          <pattern
+            id="pattern0_808_22841"
+            patternContentUnits="objectBoundingBox"
+            width="1"
+            height="1"
+          >
+            <use href="#image0_808_22841" transform="scale(0.0104167)" />
+          </pattern>
+          <image
+            id="image0_808_22841"
+            width="96"
+            height="96"
+            href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAACXBIWXMAABYlAAAWJQFJUiTwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAU0SURBVHgB7Zw/TJxlHMd/NeqAqRyDCw7coKlx4YhlcTnQrQMHxnTRFAgOuhSI0a0CsjkUcKlLhUvsaOC6dGiUu8WlJByDRqImd0NZupxp7KAm7ft96ENe2vfao9z9vs9Lf5+keQ8Kx3u/z/P+3t/z531O7fz/4X0xaLwgBhUTQMYEkDEBZEwAGRNAxgSQMQFkTAAZE0DGBJAxAWRMABkTQMYEkDEBZEwAmRflBLFX/8cdb9fuyevZLunte0VCJ9UCblXuyGZpT7aiI4J/t/HfYz9zpj8jZ3IZGbnQJ4P51yQ0TqVtThhB/uHbP+Ra9C8e8EwmI9ls1h091WpVGo3Gwde9fV3yxeWcvFfolVBIjYCkwA8NDUmhUJDR0VEX/CRqtZqUy2VZWFhwr8FHF9+ULy/3SwikQgCCfuXr31zg0cKnp6dlZmbmUGtvhbW1tQMRSE1Xf8rL6cxLwiRoAQj4palbLs+DiYkJWVpaOnLg4yD4w8PD+8coFS3/+K4wCbYM3YsqmfPv3HTBR3rZ3NyU1dXVYwUf+Pdyx+i9kdaYBClgd6chU++Xo8rmnsvz29vb7tguEPz19XX3+ruHqY1FcAL2g19xwUeuR2s9bqtPIpfLufuIv7mzCOoegLTjW/7c3JzMz89LJ0GJ2tPT427EN/48R7khB3MFaAcf4MpCasNV8PtOQxgEI+Cbz6su+KjpNYLvwd8DvtLSJggBqPN9tYMyU5N8Pu+OfhxJG7oApB50soAvDzXxf2+3+pymoCuLv7ocjIpHO/igExXWUaAKQOu/Xqy7wKMkfB6hCcBQ8vmzN91rVD2M1h8CFAHXizX5JOpsIfUg8BjjYYEha9Cb5UzeqAtAT/fS1NbB1+0cYngW/HwBa1RUVQBy/swHvxz6HtIPk0ql4o6YVWOMCakKQMWDzpYH6Yed+zFZA/zQtzZqAnzFE8f3Qln42TIPOoMoDjRRE4DW/yi+F8oiHnzPNeWRUTUBSWMt7PSD6clH0b4XqAho9qGYAtD6/SR9HJznz6XbooWKgGZ5lTkMMDk52fT/dnf+Fi1UBOySxtqbgdURSa3fozkyqiKgWU6NL5rSAoFPyv1xULFpQR2MYwiIL9Bqxt3Gv6IFVYDvhWqB4CP9hARVgB8I02BjY0N1qrNVqALQGjXSEEQ/qephQr8HlEol6SSo97EUkXG/aQX6lCTSQqeCs7KyEnTwAV0AKpLZ2VlpJwg43jMN05xBLEvxy8bbAVLOwMCALC8vSxoIZmEWUtHY2NhTa/Rm+Fzvl56nhaCeEUOpiIoFc8Tj4+NPHaxDqikWi+73koaW04DK4lysdt56hokOzBdjFTNEdHd3u+/V63XXwiGqU/0IPEt2469zokHQT0miVae1ZbeKPahNxgSQMQEJnM68LFqoCGA/CnpUNM9XRUAa9myIc+IEYK+GNHFWcU8JFQEhbpLxJDT3klBKQV2qreo4YAsDzZSpVgUVxrOSBj6++IZooiYA+/XgSggZnN+IckNR7Qcsfj8oIfPZV2+LNqoCcB9gfMhW+DQ6rxFCmlTvCe9/0D4JCZwPq2FQhiIWrw66XatCAMHH+bCgDUdjy7BXox6nf0ibdQ7shkDfLQXrMLFPhOZeDbgXIfio+dkEs10NVlBj356t8p1Dz5G1C4zvjFzIul5uSJ3CIPeMgwxcGe3YQgbP/77V3x1Ea08idfuGnjRsQoaMCSBjAsiYADImgIwJIGMCyJgAMiaAjAkgYwLImAAyJoCMCSBjAsiYADImgIwJIGMCyDwAI2U0S4wSXQYAAAAASUVORK5CYII="
+          />
+        </defs>
+      </svg>
+    ),
+  },
   {
     href: '/liquidspace',
     title: <>LiquidSpace: flexible office space rental software</>,
