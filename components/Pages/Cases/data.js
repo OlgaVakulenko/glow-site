@@ -33,7 +33,7 @@ import InvoiceMaker from './assets/new/invoice-maker-cover.png';
 
 const cases = [
   {
-    href: '/invoice-maker/',
+    href: '/invoice-maker',
     title: (
       <>
         Invoice Maker - <br />
@@ -258,7 +258,7 @@ const cases = [
       `100k predictions
         at start`,
     ],
-    tags: ['Product Design', 'ui', 'ux', 'Web Design', 'Branding'],
+    tags: ['Product Design', 'ui', 'ux', 'Web Design'],
     image: Crypto,
     category: ['fintech'],
     type: ['desktop'],
@@ -346,7 +346,7 @@ const cases = [
         financial aid
       `,
     ],
-    tags: ['Product Design', 'ui', 'ux', 'Web Design', 'Illustration'],
+    tags: ['Product Design', 'ui', 'ux', 'Web Design'],
     image: Tilt,
     category: ['other'],
     type: ['desktop'],

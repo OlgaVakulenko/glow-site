@@ -267,11 +267,11 @@ function IconsSection() {
                 }));
               }}
             >
-              <div className="mr-8 min-w-[72px] md:mr-4 4xl:mr-6">
+              <div className="4xl:mr-6 mr-8 min-w-[72px] md:mr-4">
                 <item.icon isReady={map[index]}></item.icon>
               </div>
               <div>
-                <div className="mb-2 text-body-heading-m md:max-w-[208px] xl:max-w-[208px] 4xl:text-[22px] 4xl:leading-[120%]">
+                <div className="4xl:text-[22px] 4xl:leading-[120%] mb-2 text-body-heading-m md:max-w-[208px] xl:max-w-[208px]">
                   {item.title}
                 </div>
               </div>
