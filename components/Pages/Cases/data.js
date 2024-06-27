@@ -247,7 +247,7 @@ const cases = [
     tags: ['Product Design', 'ui', 'ux', 'Branding'],
   },
   {
-    title: <>CryptoGenie: cryptocurrency trend prediction platform</>,
+    title: <>CryptoGenie: crypto trend prediction platform</>,
     description:
       'CryptoGenie is a brand new tool for predicting the relevant trends of various cryptocurrency assets.',
 
@@ -258,7 +258,7 @@ const cases = [
       `100k predictions
         at start`,
     ],
-    tags: ['Product Design', 'ui', 'ux', 'Web Design'],
+    tags: ['Product Design', 'ui', 'ux', 'Web Design', 'Branding'],
     image: Crypto,
     category: ['fintech'],
     type: ['desktop'],
@@ -315,8 +315,8 @@ const cases = [
             y2="12.1334"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="white" />
-            <stop offset="1" stop-color="#1D73F7" />
+            <stop stopColor="white" />
+            <stop offset="1" stopColor="#1D73F7" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_11255_3284"
@@ -326,8 +326,8 @@ const cases = [
             y2="44.8"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="white" />
-            <stop offset="1" stop-color="#1D73F7" />
+            <stop stopColor="white" />
+            <stop offset="1" stopColor="#1D73F7" />
           </linearGradient>
         </defs>
       </svg>
@@ -335,7 +335,7 @@ const cases = [
   },
   {
     href: '/tilt',
-    title: 'Tilt: financial aid opportunities for american students',
+    title: 'Tilt: financial aid opportunities for students',
     description:
       'Tilt helps students find and select colleges that will offer them the best deal, as well as financial aid.',
     industry: ['Education'],
@@ -346,7 +346,7 @@ const cases = [
         financial aid
       `,
     ],
-    tags: ['Product Design', 'ui', 'ux', 'Web Design'],
+    tags: ['Product Design', 'ui', 'ux', 'Web Design', 'Illustration'],
     image: Tilt,
     category: ['other'],
     type: ['desktop'],
