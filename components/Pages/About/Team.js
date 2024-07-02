@@ -74,7 +74,7 @@ function ProfileLayout({ profiles: _profiles }) {
     // p.splice(12, 0, null);
     // p.splice(13, 0, null);
     // return p;
-  }, [_profiles, media]);
+  }, [_profiles]);
 
   if (media === 'mobile') {
     return (

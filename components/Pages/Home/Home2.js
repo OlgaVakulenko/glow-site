@@ -8,7 +8,7 @@ import Layout from '../../Layout';
 import { SkipRenderOnClient } from '../../SkipRender';
 import casesData from '../Cases/data';
 import Awards from './Awards';
-import { CaseSlide, CasesSlider2 } from './CasesSlider';
+import { CaseSlide, CasesSlider2 } from '../../CasesSlider/CasesSlider';
 import LogoCarousel from './LogoCarousel';
 import NextStep from './NextStep';
 import OurExperience from './OurExperience';

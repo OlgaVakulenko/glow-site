@@ -69,8 +69,8 @@ export function BurgerIcon({ isOpen = false, theme, size = 32 }) {
     <svg
       style={{ color: stroke }}
       className="transition-colors"
-      width="26"
-      height="14"
+      width="40"
+      height="40"
       viewBox="0 0 26 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -159,7 +159,7 @@ const BurgerMenu = ({ menuId, links }) => {
                 className="flex items-center justify-center"
                 title="home"
               >
-                <Logo />
+                <Logo isBurgerMenu/>
               </Link>
               <div className="hidden md:block">
                 <Link
@@ -468,7 +468,7 @@ export default function Header({
         <div className="relative">
           <Layout>
             <div
-              className="flex items-center justify-between py-[28px] font-medium md:min-h-[88px] md:justify-start md:py-6 xl:py-[20px]"
+              className="flex items-center justify-between py-[28px] md:min-h-[88px] md:justify-start md:py-6 xl:py-[20px]"
               style={{
                 '--header-theme':
                   t === 'brand' || t === 'white'

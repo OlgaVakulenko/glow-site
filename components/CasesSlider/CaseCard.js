@@ -1,5 +1,7 @@
-import { addLeadingZero } from '../../../lib/utils';
-import Image, { Source, resolve } from '../../Image';
+import { useContext } from 'react';
+import { addLeadingZero } from '../../lib/utils';
+import Image, { Source, resolve } from '../Image';
+import SliderContext from './SliderContext';
 import { Col } from './CasesSlider';
 import cx from 'clsx';
 
@@ -17,9 +19,11 @@ function Col2({ title, items = [] }) {
 }
 
 export default function CaseCard({ type, item, index, total }) {
+	const { cardClassName } = useContext(SliderContext);
+
   return (
     <div className={cx('__slide-wrapper h-full w-full')}>
-      <div className="__slide relative flex flex-col overflow-hidden text-black md:min-h-[530px] md:flex-col md:rounded-[32px]">
+      <div className={cx('__slide relative flex flex-col overflow-hidden text-black md:min-h-[530px] md:flex-col md:rounded-[32px]', cardClassName)}>
         {item.imageMobile ? (
           <picture>
             <Source

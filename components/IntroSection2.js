@@ -20,6 +20,7 @@ export default function IntroSection({
   subtitle,
   className,
   headingClassname,
+	bodyClassName,
 }) {
   return (
     <Layout
@@ -41,7 +42,10 @@ export default function IntroSection({
       <div className="hidden xl:col-span-1 xl:block"></div>
       <Animated
         delay={100}
-        className="text-next-body-m md:text-next-body-xxl xl:col-span-5"
+        className={cx(
+          'text-next-body-m md:text-next-body-xxl xl:col-span-5',
+          bodyClassName
+        )}
       >
         {subtitle}
       </Animated>
