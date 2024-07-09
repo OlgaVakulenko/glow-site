@@ -13,6 +13,7 @@ import React, {
   useState,
 } from 'react';
 import { mediaAtom, useMediaAtom } from '../lib/agent';
+import { themeAtom } from '../lib/theme';
 import {
   createHeaderScrollTrigger,
   useBodyLock,
@@ -291,6 +292,7 @@ export default function Header({
   headerRightSlot = null,
   overrideTheme = '',
 }) {
+	const [colorTheme] = useAtom(themeAtom);
   const router = useRouter();
   const mounted = useMounted();
   const media = useMediaAtom();
@@ -470,7 +472,7 @@ export default function Header({
             <div
               className="flex items-center justify-between py-[28px] md:min-h-[88px] md:justify-start md:py-6 xl:py-[20px]"
               style={{
-                '--header-theme':
+                '--header-theme': 
                   t === 'brand' || t === 'white'
                     ? 'black'
                     : t === 'dark'

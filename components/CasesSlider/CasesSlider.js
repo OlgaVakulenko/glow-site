@@ -1,7 +1,9 @@
+'use client'
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
-import { useEffect, useMemo, useRef, useState, useContext, Fragment } from 'react';
+import { useEffect, useMemo, useRef, useState, Fragment } from 'react';
+import { themeAtom } from '../../lib/theme';
 import 'swiper/css';
 import 'swiper/css/effect-creative';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
@@ -12,14 +14,13 @@ import Image, { Source, resolve } from '../Image';
 import Layout from '../Layout';
 import Section from '../Section';
 import SliderProgress from '../SliderProgress';
-import SliderContext from './SliderContext';
 import { useSetAtom } from 'jotai';
 import throttle from 'lodash.throttle';
 import { cursorGlobalDisableAtom } from '../DragCursor';
 import casesData from '../Pages/Cases/data';
 import CaseCard from './CaseCard';
 import CaseNavArrow from './CaseNavArrow';
-import AiTag from '../AiTag';
+import AiTag from '../Pages/AI/AiTag';
 
 const featured = [
   '/beast',
@@ -93,15 +94,15 @@ function Tag({ name, theme }) {
 
 export function CaseSlide({ type = 'default', item, index, total }) {
   const [media] = useAtom(mediaAtom);
-	const { cardClassName, progressBarTheme } = useContext(SliderContext)
-
+	const [theme] = useAtom(themeAtom);
+	
   if (media === 'mobile') {
     return <CaseCard item={item} type={type} index={index} total={total} />;
   }
 
   return (
     <div className="__slide-wrapper h-full w-full">
-      <div className={cx('__slide relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-dim-gray text-black md:max-h-[456px] md:min-h-[456px] md:flex-row md:items-start md:rounded-[32px] xl:max-h-[560px] xl:min-h-[560px]', cardClassName)}>
+      <div className={cx('__slide relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-dim-gray text-black md:max-h-[456px] md:min-h-[456px] md:flex-row md:items-start md:rounded-[32px] xl:max-h-[560px] xl:min-h-[560px]', {'case-card-dark': theme === 'dark'})}>
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
           className="relative z-[1] p-6 pb-14 md:mt-0 md:h-full md:px-16 md:pb-[80px] md:pt-16 xl:pb-[114px] xl:pt-[100px]"
@@ -149,7 +150,7 @@ export function CaseSlide({ type = 'default', item, index, total }) {
           </div>
           <div className="flex flex-wrap gap-2 md:max-w-[364px] xl:max-w-[464px]">
             {item.tags?.map((tag) => (
-              <Tag key={tag} name={tag} theme={progressBarTheme}/>
+              <Tag key={tag} name={tag} theme={theme}/>
             ))}
           </div>
           {/* <div className="flex space-x-[40px] pl-[3px] md:space-x-[62px]">
@@ -329,7 +330,7 @@ export function CasesSlider2({
   const [w, setW] = useState(0);
   const [k, setK] = useState(0);
   const swiperRef = useRef();
-	const { progressBarTheme, progressBarMode, slideWidth, progressBarLayoutClass } = useContext(SliderContext)
+	const [theme] = useAtom(themeAtom);
 
   useEffect(() => {
     const onResize = throttle(() => {
@@ -414,9 +415,7 @@ export function CasesSlider2({
                 <SlideComponent
                   key={i}
                   className={cx(
-                    'cursor-none select-none', {
-											'md:!w-[904px] xl:!w-[1200px]': !slideWidth,
-										}, slideWidth
+										'cursor-none select-none md:!w-[904px] xl:!w-[1200px]'
                     // '4xl:first:pl-[120px]'
                   )}
                 >
@@ -435,19 +434,17 @@ export function CasesSlider2({
               {/* <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-16 4xl:pr-[120px]">
                   <EndSlide />
                 </SwiperSlide> */}
-              <div className={cx({'md:mt-[49px] xl:mt-[48px]': !progressBarLayoutClass}, progressBarLayoutClass)}>
+              <div className='md:mt-[49px] xl:mt-[48px]'>
                 <div className="hidden items-center space-x-8 md:flex">
                   <div className="flex shrink-0 space-x-4">
                     <CaseNavArrow
                       dir="left"
-											theme={progressBarTheme}
                       onClick={() => {
                         swiperRef.current.slidePrev();
                       }}
                     />
                     <CaseNavArrow
                       dir="right"
-											theme={progressBarTheme}
                       onClick={() => {
                         swiperRef.current.slideNext();
                       }}
@@ -455,7 +452,7 @@ export function CasesSlider2({
                   </div>
 
                   <div className="w-full">
-                    <SliderProgress theme={progressBarTheme} mode={progressBarMode}/>
+                    <SliderProgress theme={theme} />
                   </div>
                 </div>
               </div>

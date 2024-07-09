@@ -1,8 +1,8 @@
-import { useContext } from 'react';
+'use client'
 import { addLeadingZero } from '../../lib/utils';
 import Image, { Source, resolve } from '../Image';
-import SliderContext from './SliderContext';
-import { Col } from './CasesSlider';
+import { useAtom } from 'jotai';
+import { themeAtom } from '../../lib/theme';
 import cx from 'clsx';
 
 function Col2({ title, items = [] }) {
@@ -19,11 +19,11 @@ function Col2({ title, items = [] }) {
 }
 
 export default function CaseCard({ type, item, index, total }) {
-	const { cardClassName } = useContext(SliderContext);
+	const [theme] = useAtom(themeAtom);
 
   return (
     <div className={cx('__slide-wrapper h-full w-full')}>
-      <div className={cx('__slide relative flex flex-col overflow-hidden text-black md:min-h-[530px] md:flex-col md:rounded-[32px]', cardClassName)}>
+      <div className={cx('__slide relative flex flex-col overflow-hidden text-black md:min-h-[530px] md:flex-col md:rounded-[32px]', {'text-white': theme === 'dark'})}>
         {item.imageMobile ? (
           <picture>
             <Source
@@ -33,7 +33,7 @@ export default function CaseCard({ type, item, index, total }) {
             />
             <Source image={item.imageMobile} width="480" />
             <img
-              className="h-full min-h-[304px] w-full rounded-3xl bg-dim-gray object-cover transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none"
+              className={cx("h-full min-h-[304px] w-full rounded-3xl bg-dim-gray object-cover transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:left-0 md:top-0 md:max-h-full md:origin-[90%_10%] md:rounded-none", {'case-card-dark': theme === 'dark'})}
               src={resolve({ src: item.image.src, width: 1440 })}
               alt=""
               style={{
@@ -99,7 +99,7 @@ export default function CaseCard({ type, item, index, total }) {
                   fillRule="evenodd"
                   clipRule="evenodd"
                   d="M10.9679 23.2829L20.569 13.6818L20.5542 20.7974L22.5539 20.8016L22.5758 10.2594L12.0342 10.282L12.0385 12.2817L19.1562 12.2661L9.55369 21.8686L10.9679 23.2829Z"
-                  fill="#19191B"
+                  fill="currentColor"
                 />
               </svg>
             </div>

@@ -6,7 +6,7 @@ import SliderProgress from '../../SliderProgress';
 import { useMediaAtom } from '../../../lib/agent';
 import Link from 'next/link';
 import { AuthorImage } from '../../Blog/Post/Author';
-import CaseNavArrow from '../Home/CaseNavArrow';
+import CaseNavArrow from '../../CasesSlider/CaseNavArrow';
 import { useRef } from 'react';
 import Button2 from '../../Button';
 

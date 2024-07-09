@@ -43,7 +43,7 @@ const cases = [
     description:
       'InvoiceMaker is designed to saves all of your invoicing information, making it simple to generate repeat invoices for regular clients.',
     industry: ['Rental'],
-    service: ['UI/UX', 'Product Design', 'AI'],
+    service: ['UI/UX', 'Product Design'],
     company: ['Funding $34.5M'],
     image: InvoiceMaker,
     imageWork: InvoiceMaker,
@@ -85,7 +85,7 @@ const cases = [
     description:
       'LiquidSpace is an online platform and network that connects people with available office spaces for rent.',
     industry: ['Rental'],
-    service: ['UI/UX', 'Product Design', 'AI'],
+    service: ['UI/UX', 'Product Design'],
     company: ['Funding $34.5M'],
     image: ls,
     tags: ['Product Design', 'ui', 'ux', 'Motion Design', 'Web Design'],
@@ -114,7 +114,7 @@ const cases = [
     description:
       'JUCR is a mobile application for fast and convenient access to all charging stations in Europe. ',
     industry: ['Charge App', 'Electric Vehicles', 'Car rental'],
-    service: ['Product Design', 'UI/UX', 'AI'],
+    service: ['Product Design', 'UI/UX'],
     company: ['Funding €32.7M'],
     image: Jucr,
     tags: ['Product Design', 'ui', 'ux'],
@@ -244,7 +244,7 @@ const cases = [
     image: Beast,
     category: ['transportation'],
     type: ['mobile'],
-    tags: ['Product Design', 'ui', 'ux', 'Branding', 'AI'],
+    tags: ['Product Design', 'ui', 'ux', 'Branding'],
   },
   {
     title: <>CryptoGenie: crypto trend prediction platform</>,
@@ -258,7 +258,7 @@ const cases = [
       `100k predictions
         at start`,
     ],
-    tags: ['Product Design', 'ui', 'ux', 'Web Design', 'Branding', 'AI'],
+    tags: ['Product Design', 'ui', 'ux', 'Web Design', 'Branding'],
     image: Crypto,
     category: ['fintech'],
     type: ['desktop'],
@@ -288,7 +288,7 @@ const cases = [
     image: Parking,
     category: ['transportation'],
     type: ['desktop'],
-    tags: ['Product Design', 'ui', 'ux', 'AI'],
+    tags: ['Product Design', 'ui', 'ux'],
     icon: (
       <svg
         width="56"
@@ -339,7 +339,7 @@ const cases = [
     description:
       'Tilt helps students find and select colleges that will offer them the best deal, as well as financial aid.',
     industry: ['Education'],
-    service: ['UI/UX', 'Product Design', 'AI'],
+    service: ['UI/UX', 'Product Design'],
     company: [
       `
         72% received
@@ -390,7 +390,7 @@ const cases = [
     image: FC,
     category: ['transportation'],
     type: ['desktop'],
-    tags: ['Product Design', 'ui', 'ux', 'Web Design', 'AI'],
+    tags: ['Product Design', 'ui', 'ux', 'Web Design'],
     icon: (
       <svg
         className="h-full w-full"
@@ -430,7 +430,7 @@ const cases = [
         study online
       `,
     ],
-    tags: ['Product Design', 'ui', 'ux', 'Web Design', 'AI'],
+    tags: ['Product Design', 'ui', 'ux', 'Web Design'],
     image: Ethos,
     category: ['healthcare'],
     type: ['desktop'],

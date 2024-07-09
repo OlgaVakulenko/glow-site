@@ -1,3 +1,4 @@
+'use client'
 import { RadioGroup } from '@headlessui/react';
 import cx from 'clsx';
 import debounce from 'lodash.debounce';

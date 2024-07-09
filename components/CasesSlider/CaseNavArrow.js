@@ -1,6 +1,9 @@
 import cx from 'clsx';
+import { useAtom } from 'jotai';
+import { themeAtom } from '../../lib/theme';
 
-export default function CaseNavArrow({ dir = 'right', theme, ...rest }) {
+export default function CaseNavArrow({ dir = 'right', ...rest }) {
+	const [theme] = useAtom(themeAtom);
   return (
     <button
       {...rest}

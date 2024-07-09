@@ -9,7 +9,7 @@ import TrialBanner from '../components/Pages/Home/TrialBanner';
 import Approach from '../components/Pages/Services/Approach';
 import Process from '../components/Pages/Services/Process';
 import ServicesSelector from '../components/Pages/Services/ServiceSelector';
-import Box from '../components/Pages/Services/Box';
+import Box from '../components/Box';
 import Slider from '../components/Pages/Services/Slider';
 import { FAQ } from './contact-us';
 import { getFullTitle } from '../components/HeadTitle';

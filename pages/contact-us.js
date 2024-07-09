@@ -1,5 +1,7 @@
 import { Disclosure, Transition } from '@headlessui/react';
 import cx from 'clsx';
+import { useAtom } from 'jotai';
+import { themeAtom } from '../lib/theme';
 import FooterFormWrapper from '../components/FooterFormWrapper';
 import Layout from '../components/Layout';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
@@ -134,6 +136,7 @@ function FaqItem({ question, answer }) {
 }
 
 export function FAQ({ padding }) {
+	const [theme] = useAtom(themeAtom);
   return (
     <div
       className={cx({
@@ -141,7 +144,7 @@ export function FAQ({ padding }) {
       })}
     >
       <h2 className="mb-10 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:mb-20 xl:text-next-heading-2">
-        Frequently asked questions
+        <span className={cx({'white-gradient-text': theme === 'dark'})}>Frequently asked</span> <span className={cx({'red-gradient-text': theme === 'dark'})}>questions</span>
       </h2>
       <div
       // className="border-border-black divide-y border-b border-t"

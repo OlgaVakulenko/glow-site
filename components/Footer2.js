@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useCallback, useState } from 'react';
 import { useIsClient } from '../lib/utils';
+import { useAtom } from 'jotai';
+import { themeAtom } from '../lib/theme';
 import Button2 from './Button';
 import FooterLinks from './Footer/FooterLinks';
 import FooterFormWrapper from './FooterFormWrapper';
@@ -38,6 +40,7 @@ export default function Footer2({
   showForm = true,
 }) {
   const router = useRouter();
+	const [theme] = useAtom(themeAtom);;
 
   const setIsSubmitted = useCallback(() => {
     const u = footerStyle === 'trial' ? '/form-success3' : 'form-success';
@@ -50,6 +53,7 @@ export default function Footer2({
       id="footer"
       className={cx('', {
         '!mt-0 flex h-screenx flex-col !pt-[120px] font-inter': isSubmitted,
+				'bg-[#0a0a0b]': theme === 'dark'
       })}
     >
       {isSubmitted ? (

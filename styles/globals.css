@@ -75,21 +75,37 @@
   }
 }
 
-.bg-gradient-red-text {
+.red-gradient-text {
 	background-image: linear-gradient(144deg, #a72726 0%, #6d1d1c 100%);
+	display: inline-block;
+	color: transparent;
+	background-clip: text;
+}
+
+.white-gradient-text {
+	background-image: linear-gradient(114deg, #fff 0%, rgba(255, 255, 255, 0.59) 100%);
+	display: inline-block;
+	color: transparent;
+	background-clip: text;
+}
+
+a.white svg path,
+a.white svg g,
+a.white svg rect {
+  fill: white;
 }
 
 .case-card-dark {
 	background-image: linear-gradient(180deg, rgba(64, 62, 81, 0.31) 0%, rgba(64, 62, 81, 0.1) 100%) !important;
 	background-size: cover;
 	color: white;
-	border: 1px solid #403e51cc;
+	border: 1px solid rgba(64, 62, 81, 0.5);
   box-shadow: inset 0 0 0 1px #403E5114; 
 }
 
 .gradient-red-border {
   position: relative;
-	background-color: #15151A;
+	background-color: #15151a;
   background-origin: border-box;
   background-clip: border-box;
   border: 1px solid transparent;
@@ -589,19 +605,158 @@
 
 .bg-bl {
   background: linear-gradient(0deg, rgba(255, 0, 0, 0) 50%, rgba(255, 75, 73, 0.6) 100%);
+}
 
+.bg-bl-dark {
+	background: radial-gradient(ellipse at 2% 5%, rgba(255, 75, 73, 0.6) 8%, rgba(187, 110, 187, 0.07) 85%);
+}
+
+.bg-dark-card {
+	background: linear-gradient(180deg, rgba(64, 62, 81, 0.31) 0%, rgba(64, 62, 81, 0.1) 100%);
+	border-top: 1px solid rgba(186, 184, 202, 0.1);
+	border-left: 1px solid rgba(186, 184, 202, 0.1);
+}
+
+.ai-background {
+	background: url('/img/ai-background.svg') no-repeat center center;
+	width: 100%;
+  height: 100vh;
+  background-size: cover;
+  position: relative;
+}
+
+.ai-background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; 
+}
+
+.ai-logo-border {
+	border: 0.5px solid rgba(186, 184, 202, 0.1);
+}  
+
+.ai-logo-border:first-child {
+	border-radius: 16px 0 0 0;
+}  
+
+.ai-logo-border:nth-last-child(2) {
+	border-radius: 0 0 0 16px;
+}
+
+.ai-logo-border:nth-child(2) {
+	border-radius: 0 16px 0 0;
+}
+
+.ai-logo-border:last-child {
+	border-radius: 0 0 16px 0;
+}  
+
+.ai-logo-border:hover {
+	border-color: rgba(255, 75, 73, 0.4);
+	transition-duration: 200ms;
+	transition-property: border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+} 
+
+.ai-logo-border::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+	z-index: 1;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  background-image: url('/img/bg-noise-small.svg');
+}
+
+.ai-logo-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+	z-index: 2;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	bottom: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.ai-logo-border:hover::after {
+  opacity: 1;
+}
+
+.ai-logo-border::before {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+.ai-icon {
+	background: linear-gradient(130deg, rgba(24, 24, 30, 0.9) 25%, rgba(227,50,48,0.7) 50%, rgba(24, 24, 30, 0.9) 75%);
+	border: 3px solid rgba(54, 54, 68, 0.2);
+  opacity: 0;
+}
+
+.ai-icon-circle {
+	-webkit-box-shadow: 0px 0px 80px 40px rgba(227,50,48,0.4);
+	-moz-box-shadow: 0px 0px 80px 40px rgba(227,50,48,0.4);
+	box-shadow: 0px 0px 80px 40px rgba(227,50,48,0.4);
+}
+
+.circle {
+	border-radius: 50%;
+	background: rgba(255, 0, 0, 0.6);
+	position: absolute;
+	z-index: 1;
+}
+
+.wave {
+  position: absolute;
+  border: 0.5px solid rgba(227,50,48,0.4);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (min-width: 1280px) {
+  .ai-logo-border:nth-child(3) {
+		border-radius: 0 16px 0 0;
+	}
+
+	.ai-logo-border:nth-last-child(3) {
+		border-radius: 0 0 0 16px;
+	}
+
+	.ai-logo-border:nth-last-child(2) {
+		border-radius: 0;
+	}
+	
+	.ai-logo-border:nth-child(2) {
+		border-radius: 0;
+	}
 }
 
 @media screen and (min-width: 820px) {
   .bg-bl {
     background: radial-gradient(ellipse at 26% 0%, rgba(255, 75, 73, 0.7) 0%, rgba(187, 110, 187, 0) 76%);
   }
+
+	.bg-bl-dark {
+		background: radial-gradient(ellipse at 2% 5%, rgba(255, 75, 73, 0.6) 17%, rgba(187, 110, 187, 0.05) 80%);
+	}
 }
 
 @media screen and (min-width: 1280px) {
   .bg-bl {
     background: radial-gradient(ellipse at 2% 5%, rgba(255, 75, 73, 0.6) 7%, rgba(187, 110, 187, 0) 70%);
   }
+	.bg-bl-dark {
+		background: radial-gradient(ellipse at 2% 5%, rgba(255, 75, 73, 0.6) 7%, rgba(187, 110, 187, 0.05) 70%);
+	}
 }
 
 @supports(-webkit-background-clip: text) {

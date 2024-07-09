@@ -1,5 +1,7 @@
 import cx from 'clsx';
 import { useRef } from 'react';
+import { useAtom } from 'jotai';
+import { themeAtom } from '../../../lib/theme';
 import 'swiper/css/effect-fade';
 import { Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -255,9 +257,11 @@ function ReviewCard({
   dataService,
   dataCompany,
 }) {
+	const [theme] = useAtom(themeAtom);
+
   return (
     <div className="h-full font-inter">
-      <div className="h-full rounded-3xl bg-dim-gray p-6 md:flex md:min-h-[394px] md:space-x-12 md:rounded-[32px] md:px-0 md:py-12 xl:min-h-[394px] xl:space-x-20 xl:py-12">
+      <div className={cx('h-full rounded-3xl p-6 md:flex md:min-h-[394px] md:space-x-12 md:rounded-[32px] md:px-0 md:py-12 xl:min-h-[394px] xl:space-x-20 xl:py-12', {'case-card-dark': theme === 'dark', 'bg-dim-gray': theme === 'light'})}>
         <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-12">
           <div className="md:flex md:h-full md:min-w-[200px] md:max-w-[168px] md:flex-col md:items-start md:justify-between">
             <div className="">
@@ -305,6 +309,8 @@ function ReviewCard({
 }
 export default function Reviews({ padding }) {
   const swiperRef = useRef();
+	const [theme] = useAtom(themeAtom);
+	const dark = theme === 'dark';
 
   return (
     <div className="overflow-hidden">
@@ -313,9 +319,9 @@ export default function Reviews({ padding }) {
           'py-[100px] md:py-[144px] xl:py-[176px]': padding == null,
         })}
       >
-        <Layout className="mb-10 flex items-end justify-between md:mb-14 xl:mb-20">
-          <h2 className="text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2">
-            Discover what our customers have to say
+        <Layout className={cx('mb-10 flex items-end justify-between md:mb-14', {'xl:mb-[46px]': dark, 'xl:mb-20': !dark})}>
+          <h2 className='text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2'>
+						<span className={cx({'white-gradient-text': dark})}>Discover what our</span> <span className={cx({'red-gradient-text': dark})}>customers</span> <span className={cx({'white-gradient-text': dark})}>have to say</span>
           </h2>
           {/* <div className="hidden space-x-4 pb-[14px] md:flex">
           <CaseNavArrow
@@ -392,7 +398,7 @@ export default function Reviews({ padding }) {
                 </div>
 
                 <div className="w-full">
-                  <SliderProgress />
+                  <SliderProgress theme={theme}/>
                 </div>
               </div>
             </div>

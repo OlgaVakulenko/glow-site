@@ -1,5 +1,5 @@
 import Layout from '../../Layout';
-import GraphicBlock from './GraphicBlock';
+import GraphicBlock from '../../GraphicBlock';
 import { items } from '../../../data/approach-graphic-data';
 
 export default function Approach() {
