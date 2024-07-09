@@ -34,7 +34,7 @@ export const aiLogoBlockData = [
 				</g>
 			</svg>
 		),
-		title: '',
+		title: 'LiquidSpace',
 	},
 	{
 		icon: (

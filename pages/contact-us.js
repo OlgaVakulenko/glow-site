@@ -8,7 +8,7 @@ import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 import Head from 'next/head';
 import { getFullTitle } from '../components/HeadTitle';
 
-const items = [
+const faqItems = [
   {
     q: `What does your company stand for?`,
     a: `We stand for bringing complex solutions in simple and comprehensible forms. Turn complex digital systems into clean and usable products. We care for consistent user flow from the first demo to full-scale Omni channel operations. We ensure that for the user the first experience pays off and the last never comes.
@@ -92,12 +92,12 @@ function FaqItem({ question, answer }) {
                     <g clipPath="url(#clip0_7301_28184)">
                       <path
                         d="M24 12L4.95391e-07 12"
-                        stroke="#19191B"
+                        stroke="currentColor"
                         strokeWidth="2"
                       />
                       <path
                         d="M12 24L12 4.95391e-07"
-                        stroke="#19191B"
+                        stroke="currentColor"
                         strokeWidth="2"
                         className={cx(
                           open && 'opacity-0',
@@ -135,7 +135,7 @@ function FaqItem({ question, answer }) {
   );
 }
 
-export function FAQ({ padding }) {
+export function FAQ({ padding, items = faqItems }) {
 	const [theme] = useAtom(themeAtom);
   return (
     <div

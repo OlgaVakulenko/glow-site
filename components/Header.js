@@ -13,7 +13,6 @@ import React, {
   useState,
 } from 'react';
 import { mediaAtom, useMediaAtom } from '../lib/agent';
-import { themeAtom } from '../lib/theme';
 import {
   createHeaderScrollTrigger,
   useBodyLock,
@@ -292,7 +291,6 @@ export default function Header({
   headerRightSlot = null,
   overrideTheme = '',
 }) {
-	const [colorTheme] = useAtom(themeAtom);
   const router = useRouter();
   const mounted = useMounted();
   const media = useMediaAtom();
@@ -319,7 +317,7 @@ export default function Header({
       ((theme[theme.length - 1] === 'brand' && 'brand') ||
         (theme[theme.length - 1] === 'white' && 'white'))) ||
     theme[theme.length - 1];
-console.log("theme", theme)
+
   useEffect(() => {
     if (isOpen) {
       lock();

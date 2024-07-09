@@ -15,17 +15,13 @@ import AiHeader from './AiHeader';
 import { aiLogoBlockData } from '../../../data/ai-logo-block-data';
 import { items } from '../../../data/ai-graphic-data';
 import { companiesSectionData } from '../../../data/ai-companies-data';
-import GraphicBlock from '../../GraphicBlock';
 import { CasesSlider2 } from '../../CasesSlider/CasesSlider';
-import Reviews from '../Home/Reviews2';
-import TrialBanner from '../Home/TrialBanner';
-import { FAQ } from '../../../pages/contact-us';
+import { aiFaqItems } from '../../../data/ai-faq-items';
 
-// const GraphicBlock = dynamic(() => import('../../GraphicBlock'));
-// const CasesSlider2 = dynamic(() => import('../../CasesSlider/CasesSlider'));
-// const Reviews = dynamic(() => import('../Home/Reviews2'));
-// const TrialBanner = dynamic(() => import('../Home/TrialBanner'));
-// const FAQ = dynamic(() => import('../../../pages/contact-us').then(mod => mod.FAQ));
+const GraphicBlock = dynamic(() => import('../../GraphicBlock'));
+const Reviews = dynamic(() => import('../Home/Reviews2'));
+const TrialBanner = dynamic(() => import('../Home/TrialBanner'));
+const FAQ = dynamic(() => import('../../../pages/contact-us').then(mod => mod.FAQ));
 
 function Card({ className, children }) {
   return (
@@ -56,16 +52,15 @@ function IconCard({ item }) {
 const AIDesign = () => {
   return (
     <div className="grid gap-4 md:grid-cols-4 xl:grid-rows-6 md:grid-row-7 xl:max-h-[684px]">
-			<Card className='opacity-80 md:col-span-2 order-1 xl:row-span-3 md:row-span-2'>
-				<h3 className="mb-8 text-next-heading-7 md:mb-8 md:text-next-heading-5 xl:mb-[58px] xl:text-next-heading-4 white-gradient-text">
+			<Card className='!bg-[#0c0b0edf] md:col-span-2 order-1 xl:row-span-3 md:row-span-2'>
+				<h3 className="mb-8 text-next-heading-7 md:mb-8 md:text-next-heading-5 xl:mb-[58px] xl:text-next-heading-4 white-gradient-text opacity-80">
 					AI Design Shapes the Future Landscape
 				</h3>
-				<p className='xl:text-next-body-m text-next-body-s white-gradient-text'>
+				<p className='xl:text-next-body-m text-next-body-s white-gradient-text opacity-80'>
 					The AI industry is a leader in the Web4 revolution. With a proven track record, we navigate the dynamic landscape of artificial intelligence, shaping tomorrow&apos;s technology today.
 				</p>
 			</Card>
 			<Card className='md:col-span-2 !p-0 order-2 md:row-span-3 xl:row-span-4'>
-			{/* h-[251px] md:h-[346px] xl:h-[474px] */}
 				<AiCard />
 			</Card>
 			<Card className='md:col-span-2 order-5 md:order-4 grid grid-cols-2 grid-rows-3 xl:grid-cols-3 xl:grid-rows-2 !p-0 xl:row-span-3 md:row-span-5 min-h-[420px] xl:min-h-[334px]'>
@@ -145,7 +140,7 @@ export default function AI() {
         ></meta>
       </Head>
 			<AiHeader />
-			<Box className='xl:mb-[90px]'>
+			<Box className='xl:mb-[90px] md:!pt-0'>
 				<Layout>
 					<AIDesign />
 				</Layout>
@@ -197,7 +192,7 @@ export default function AI() {
       </Box>
       <Box>
         <Layout>
-          <FAQ padding={false} />
+          <FAQ padding={false} items={aiFaqItems} />
         </Layout>
       </Box>
     </div>
