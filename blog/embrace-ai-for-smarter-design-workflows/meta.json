@@ -1,0 +1,47 @@
+{
+  "data": {
+    "title": "Embrace AI for Smarter Design Workflows",
+    "description": "Imagine this: You're a designer swamped with work. Deadlines are looming. Clients are demanding more. Your creativity is running out. Sound familiar?..",
+    "html_description": "Explore the transformative power of the Agile design process in our comprehensive guide. Learn how adopting Agile methodologies can revolutionize your design team's workflow",
+    "image": "/img/blog/wf/Glow-Article-7.png",
+    "author_name": "Kovalsky Stanislav",
+    "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/2*5uDfocwzTmm0N9ZJGlTplQ.png",
+    "date": "Jul 9",
+    "created_at": 1720529056342,
+    "read_minutes": "10 min read",
+    "href": "agile-design-process-unlocking-creativity-and-efficiency",
+    "tags": ["Process", "Design"],
+    "paragraphs": [
+      {
+        "id": "p1",
+        "text": "Introduction"
+      },
+      {
+        "id": "p2",
+        "text": "Evolution of Design Automation"
+      },
+      {
+        "id": "p3",
+        "text": "AI-Powered Design Tools"
+      },
+      {
+        "id": "p4",
+        "text": "Key Applications"
+      },
+      {
+        "id": "p5",
+        "text": "Benefits and Challenges"
+      },
+      {
+        "id": "p6",
+        "text": "Future Trends"
+      },
+      {
+        "id": "p7",
+        "text": "Conclusion"
+      }
+    ],
+    "order": 1000,
+    "date_iso": "2024-07-09T12:00:00.000Z"
+  }
+}
