@@ -119,7 +119,7 @@ export default function AiCard() {
       const aiIconAnimation = gsap.to('.ai-icon', {
         backgroundImage: 'linear-gradient(130deg, rgba(24, 24, 30, 0.9) 25%, rgba(227,50,48,0.2) 50%, rgba(24, 24, 30, 0.9) 75%)',
         opacity: 1,
-        duration: 3,
+        duration: 2,
         ease: 'power1.out',
         repeat: 0,
         yoyo: true

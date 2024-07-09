@@ -35,7 +35,8 @@ export default function AiHeader() {
   }, []);
 
 	return (
-		<Box>
+		<section>
+			<Box>
 		<Layout>
 		{/* <object
         ref={svgRef}
@@ -61,5 +62,6 @@ export default function AiHeader() {
 				</div>
 			</Layout>
 	</Box>
+		</section>
 	)
 }

@@ -1,11 +1,12 @@
 import cx from 'clsx';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
-import { useMemo, useEffect } from 'react';
+import { useMemo, useEffect, useRef } from 'react';
 import { useSetAtom } from 'jotai';
 import { themeAtom } from '../../../lib/theme';
 import { useMediaAtom } from '../../../lib/agent';
 import { getFullTitle } from '../../HeadTitle';
+import { useHeaderTheme } from '../../Header';
 import Layout from '../../Layout';
 import Heading from '../../Heading';
 import Box from '../../Box';
@@ -85,11 +86,13 @@ const AIDesign = () => {
 };
 
 export default function AI() {
+	const ref = useRef(null)
 	const setTheme = useSetAtom(themeAtom);
 	const media = useMediaAtom();
 
   const filter = media === 'mobile' ? ['/beast', '/cryptogenie'] : [];
 
+	useHeaderTheme({ ref, theme: 'dark' });
 	useEffect(() => {
 		setTheme('dark');
 	}, [setTheme])

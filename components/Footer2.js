@@ -40,7 +40,7 @@ export default function Footer2({
   showForm = true,
 }) {
   const router = useRouter();
-	const [theme] = useAtom(themeAtom);;
+	const [theme] = useAtom(themeAtom);
 
   const setIsSubmitted = useCallback(() => {
     const u = footerStyle === 'trial' ? '/form-success3' : 'form-success';

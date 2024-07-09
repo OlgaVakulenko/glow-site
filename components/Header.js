@@ -319,7 +319,7 @@ export default function Header({
       ((theme[theme.length - 1] === 'brand' && 'brand') ||
         (theme[theme.length - 1] === 'white' && 'white'))) ||
     theme[theme.length - 1];
-
+console.log("theme", theme)
   useEffect(() => {
     if (isOpen) {
       lock();
