@@ -75,7 +75,7 @@ export function BurgerIcon({ isOpen = false, theme, size = 32 }) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M0 1H26M0 13H26" stroke="#19191B" strokeWidth="1.6776" />
+      <path d="M0 1H26M0 13H26" stroke="currentColor" strokeWidth="1.6776" />
     </svg>
   );
 }
