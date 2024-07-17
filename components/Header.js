@@ -69,8 +69,8 @@ export function BurgerIcon({ isOpen = false, theme, size = 32 }) {
     <svg
       style={{ color: stroke }}
       className="transition-colors"
-      width="40"
-      height="40"
+      width="36"
+      height="14"
       viewBox="0 0 26 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -446,7 +446,8 @@ export default function Header({
                 // && !isBottom
                 !subMenuActive) ||
               !headerActive,
-            'bg-white': backdropActive,
+            'bg-white': backdropActive ,
+						'bg-[#0a0a0b]': t === 'dark',
             '!transition-none': isRouteTransition,
           }
         )}

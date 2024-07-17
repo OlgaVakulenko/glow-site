@@ -27,7 +27,7 @@ function NumCard({ num, title }) {
 	const [theme] = useAtom(themeAtom)
 
   return (
-    <Card className={cx('relative flex items-center space-x-6 md:flex-col md:items-start md:space-x-0 md:space-y-[20px]', {'bg-dark-card': theme === 'dark'})}>
+    <Card className={cx('relative flex items-center space-x-6 md:flex-col md:items-start md:space-x-0 md:space-y-[20px]', {'bg-dark-tag border border-[#403e514d]': theme === 'dark'})}>
       <div className={cx("flex h-[32px] w-[32px] items-center justify-center rounded-full p-[6px] font-inter text-[16px] font-medium leading-[20px] text-white xl:text-[16px] xl:leading-[20px]", {'bg-brand': theme === 'light', 'bg-[#ffffff1a]': theme === 'dark' })}>
         {num}
       </div>
@@ -52,7 +52,7 @@ function Bunner() {
 
 	return(
 		<div className="grid gap-4 md:grid-cols-4">
-			<Card className={cx('relative !p-2 !pb-4 md:col-span-2', {'bg-bl-dark md:!p-12 !p-6': dark, 'md:!p-8': !dark})}>
+			<Card className={cx('relative md:col-span-2', {'bg-bl-dark xl:!p-12 md:!p-8 !p-6': dark, 'md:!p-8 !p-2 !pb-4': !dark})}>
 				<h2 className="relative mb-8 text-next-heading-5 md:mb-8 md:text-next-heading-3 xl:mb-8 xl:text-next-heading-2">
 					Start with
 					<br className="hidden md:block" /> a free
@@ -60,22 +60,22 @@ function Bunner() {
 				</h2>
 				<Button2
 					as={Link}
-					className={cx("relative !bg-white !px-[20px] !py-[12px] text-center font-medium !text-black md:w-auto", {'w-auto': dark, 'w-full': !dark})}
+					className={cx("relative !bg-white !px-[20px] !py-[12px] text-center !text-black md:w-auto", {'w-auto font-normal xl:mb-0 md:mb-[9px]': dark, 'w-full font-medium': !dark})}
 					href="/contact-us"
 					color="white"
 				>
 					Get started
 				</Button2>
 			</Card>
-			<Card className={cx('relative md:col-span-2 xl:!p-6', { 'bg-dark-card': dark })}>
+			<Card className={cx('relative md:col-span-2 xl:!p-6', { 'bg-dark-tag border border-[#403e514d]': dark })}>
 				<div className="h-full md:flex md:flex-col md:justify-between">
-					<div className={cx('relative mb-8 text-next-body-s md:mb-[40px] md:text-[16px] md:leading-[25.8px] xl:mb-[80px] xl:text-next-body-m', {'opacity-80': dark})}>
+					<div className={cx('relative mb-8 text-next-body-s md:mb-[40px] md:text-[16px] md:leading-[25.8px] xl:mb-[80px] xl:text-next-body-m', {'trial-text-gradient': dark})}>
 						To reduce your risks and help you get to know us better, we offer
 						the first three days of work at no charge. This way, you can
 						evaluate our skills and decide whether you want to work with us
 						going forward.
 					</div>
-					<div className="relative flex flex-wrap gap-2 md:max-w-[80%] xl:max-w-full xl:pb-0">
+					<div className={cx("relative flex flex-wrap gap-2 xl:max-w-full xl:pb-0", {'md:max-w-[80%]': !dark, 'md:max-w-full': dark})}>
 						{tags.map((tag) => (
 							<Tag key={tag} name={tag} />
 						))}

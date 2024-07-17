@@ -28,14 +28,14 @@ export default function AiHeader() {
 
             path.parentNode.appendChild(electricPath);
 
-						const dashLength = 30;
+						const dashLength = 60;
 
 						gsap.set(electricPath, { strokeDasharray: `${dashLength} ${length}` });
 
-            const tl = gsap.timeline({ repeat: -1, repeatDelay: Math.random() * 2 });
+            const tl = gsap.timeline({ repeat: -1, repeatDelay: Math.random() * 5 });
           tl.to(electricPath, {
             strokeDashoffset: -length,
-            duration: 0.7,
+            duration: 3,
             ease: 'none',
           });
         });
@@ -45,22 +45,18 @@ export default function AiHeader() {
   }, [media]);
 
   return (
-    <section className='ai-background py-[52px] md:py-[72px] xl:mt-[88px] xl:pb-[88px]'>
+    <section className='ai-background pt-[88px] pb-[56px] md:py-[72px] xl:mt-[88px] xl:pb-[88px]'>
       <Layout>
-        <div className="xl:w-3/4 md:w-3/4 mx-auto xl:mt-[70px] xl:mb-[120px] md:mt-[135px] md:mb-[135px] mt-[52px] mb-[108px] flex flex-col items-center z-[6]">
-          <div className='case-card-dark gradient-red-border rounded-full px-6 py-3 font-inter text-next-body-xs w-max'>
+        <div className="xl:w-3/4 md:w-3/4 mx-auto xl:mt-[70px] xl:mb-[120px] md:mt-[135px] md:mb-[135px] mt-[52px] mb-0 flex flex-col items-center z-[6]">
+          <div className='bg-dark-tag dark-tag gradient-red-border rounded-full px-6 py-3 font-inter text-next-body-xs w-max'>
             Transforming AI visions into success
           </div>
-          <h1 className="xl:leading-[88px] xl:mt-9 md:mt-11 mt-10 text-next-heading-4 md:text-next-heading-2 xl:text-next-heading-0 w-full text-center ">
-            <span className='white-gradient-text'>Turning ideas into</span>{' '}<br className='hidden md:block'/>
-            <span className='white-gradient-text'>impactful</span>{' '} 
-            <span className='red-gradient-text inline-block'>{' '}
-              AI products
+          <h1 className="xl:pb-1 ai-header-text-white xl:mt-9 md:mt-11 mt-10 text-next-heading-4 md:text-next-heading-2 xl:text-next-heading-0 w-full text-center">
+            Design services for<br/>
+            <span className='ai-text'>{' '}
+              AI products<br className='block md:hidden'/>
             </span>
-            <br className='hidden md:block'/> 
-            <span className='white-gradient-text'>
-              through design
-            </span>
+						{' '}that change<br/> the world
           </h1>
         </div>
       </Layout>

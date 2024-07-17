@@ -14,9 +14,11 @@ import Layout from './Layout';
 import GlwEffectM from './Pages/Home/assets/glw-eff-m.png';
 import GlwEffect from './Pages/Home/assets/glw-eff.png';
 import FormBG from './Pages/Home/assets/form-bg.png';
+import FormBGdark from './Pages/Home/assets/form-bg-dark.png';
 
 function SlotText() {
   const isClient = useIsClient();
+	const [theme] = useAtom(themeAtom);
   const [month] = useState(() => {
     const date = new Date();
     const month = date.toLocaleString('en', { month: 'long' });
@@ -27,7 +29,7 @@ function SlotText() {
   if (!isClient) return null;
 
   return (
-    <span className="glow-border-light mx-auto block min-h-[28px] w-fit rounded-full px-[12px] py-[2px] text-next-tag">
+    <span className={cx ("glow-border-light mx-auto block min-h-[28px] w-fit rounded-full px-[12px] py-[2px] text-next-tag", {'slot-text-dark': theme === 'dark'})}>
       2 slots available in {month}
     </span>
   );
@@ -41,6 +43,7 @@ export default function Footer2({
 }) {
   const router = useRouter();
 	const [theme] = useAtom(themeAtom);
+	const dark = theme === 'dark';
 
   const setIsSubmitted = useCallback(() => {
     const u = footerStyle === 'trial' ? '/form-success3' : 'form-success';
@@ -53,7 +56,7 @@ export default function Footer2({
       id="footer"
       className={cx('', {
         '!mt-0 flex h-screenx flex-col !pt-[120px] font-inter': isSubmitted,
-				'bg-[#0a0a0b]': theme === 'dark'
+				'bg-[#0a0a0b]': dark
       })}
     >
       {isSubmitted ? (
@@ -63,7 +66,7 @@ export default function Footer2({
           <Layout disableOnMobile={true} className="px-2">
             <div className="text-inter relative overflow-hidden rounded-3xl bg-black px-6 py-[138px] md:rounded-[32px] md:py-[134px] xl:py-[142px] xl:pb-[124px] xl:pt-[128px]">
               <Image
-                src={FormBG}
+                src={dark ? FormBGdark : FormBG}
                 alt=""
                 className="pointer-events-none absolute inset-0 z-0 h-full w-full"
               />
@@ -97,7 +100,7 @@ export default function Footer2({
                     // color="white"
                     as={Link}
                     href="/contact-us"
-                    className="w-full !bg-white font-medium !text-black md:w-auto"
+                    className={cx("!bg-white !text-black md:w-auto", {'w-full font-medium': !dark, 'w-auto font-normal': dark})}
                     compact
                   >
                     Book a free call

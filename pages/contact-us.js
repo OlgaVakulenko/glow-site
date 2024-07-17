@@ -63,8 +63,11 @@ const faqItems = [
 ];
 
 function FaqItem({ question, answer }) {
+	const [theme] = useAtom(themeAtom);
+	const dark = theme === 'dark';
+	
   return (
-    <div className="faq-adhoc w-full pb-[31px] pt-[32px]">
+    <div className={cx("faq-adhoc w-full pb-[31px] pt-[32px]", {'faq-dark': dark})}>
       <Disclosure>
         <Disclosure.Button className="flex w-full justify-between text-left md:flex md:gap-6 xl:flex">
           {({ open }) => (
@@ -144,7 +147,7 @@ export function FAQ({ padding, items = faqItems }) {
       })}
     >
       <h2 className="mb-10 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:mb-20 xl:text-next-heading-2">
-        <span className={cx({'white-gradient-text': theme === 'dark'})}>Frequently asked</span> <span className={cx({'red-gradient-text': theme === 'dark'})}>questions</span>
+        <span className={cx({'white-gradient-text': theme === 'dark'})}>Frequently asked</span> <span className={cx({'ai-text': theme === 'dark'})}>questions</span>
       </h2>
       <div
       // className="border-border-black divide-y border-b border-t"

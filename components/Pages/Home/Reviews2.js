@@ -261,19 +261,19 @@ function ReviewCard({
 
   return (
     <div className="h-full font-inter">
-      <div className={cx('h-full rounded-3xl p-6 md:flex md:min-h-[394px] md:space-x-12 md:rounded-[32px] md:px-0 md:py-12 xl:min-h-[394px] xl:space-x-20 xl:py-12', {'case-card-dark': theme === 'dark', 'bg-dim-gray': theme === 'light'})}>
+      <div className={cx('h-full rounded-3xl p-6 md:flex md:min-h-[394px] md:space-x-12 md:rounded-[32px] md:px-0 md:py-12 xl:min-h-[394px] xl:space-x-20 xl:py-12', {'dark-card': theme === 'dark', 'bg-dim-gray': theme === 'light'})}>
         <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-12">
           <div className="md:flex md:h-full md:min-w-[200px] md:max-w-[168px] md:flex-col md:items-start md:justify-between">
             <div className="">
               <div className="mb-[18px] flex items-start justify-between md:items-center">
                 <div className="flex">
-                  <div className="relative z-[1] h-[64px] w-[64px] rounded-full bg-black shadow-[0_0_0_2px_white] md:-mr-4">
+                  <div className={cx("relative z-[1] h-[64px] w-[64px] rounded-full bg-black md:-mr-4", {'shadow-[0_0_0_2px_white]': theme !== 'dark', 'shadow-[0_0_0_2px_#504F5A]': theme === 'dark'})}>
                     <div className="absolute left-1/2 top-1/2 w-full max-w-[55px] -translate-x-1/2 -translate-y-1/2 ">
                       <img src={companyAvatar} alt="" className="mx-auto" />
                     </div>
                   </div>
                   <img
-                    className="-ml-4 h-[64px] w-[64px] rounded-full md:ml-0"
+                    className={cx("-ml-4 h-[64px] w-[64px] rounded-full md:ml-0", {'shadow-[0_0_0_2px_#504F5A]': theme === 'dark'})}
                     src={avatar}
                     alt=""
                   />
@@ -307,10 +307,12 @@ function ReviewCard({
     </div>
   );
 }
-export default function Reviews({ padding }) {
+export default function Reviews({ padding, title }) {
   const swiperRef = useRef();
 	const [theme] = useAtom(themeAtom);
 	const dark = theme === 'dark';
+	const defaultText = 'Discover what our customers have to say';
+	const titleText = title || defaultText;
 
   return (
     <div className="overflow-hidden">
@@ -320,8 +322,8 @@ export default function Reviews({ padding }) {
         })}
       >
         <Layout className={cx('mb-10 flex items-end justify-between md:mb-14', {'xl:mb-[46px]': dark, 'xl:mb-20': !dark})}>
-          <h2 className='text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2'>
-						<span className={cx({'white-gradient-text': dark})}>Discover what our</span> <span className={cx({'red-gradient-text': dark})}>customers</span> <span className={cx({'white-gradient-text': dark})}>have to say</span>
+          <h2 className={cx('text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2', {'white-gradient-text': dark})}>
+						{titleText}
           </h2>
           {/* <div className="hidden space-x-4 pb-[14px] md:flex">
           <CaseNavArrow
