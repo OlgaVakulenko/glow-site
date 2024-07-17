@@ -321,7 +321,7 @@ export default function Reviews({ padding, title }) {
           'py-[100px] md:py-[144px] xl:py-[176px]': padding == null,
         })}
       >
-        <Layout className={cx('mb-10 flex items-end justify-between md:mb-14', {'xl:mb-[46px]': dark, 'xl:mb-20': !dark})}>
+        <Layout className={cx('mb-10 flex items-end justify-between md:mb-14', {'xl:!mb-20': dark, 'xl:mb-20': !dark})}>
           <h2 className={cx('text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2', {'white-gradient-text': dark})}>
 						{titleText}
           </h2>

@@ -726,7 +726,7 @@ a.white svg rect {
 		content: '';
 		background: linear-gradient(180deg, #1a1a22 0%, #18181f 100%);
 		width: 60px;
-		height: 56px;
+		height: 35px;
 		top: 0;
 		left: 40px;
 		position: absolute;

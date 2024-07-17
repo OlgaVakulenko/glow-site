@@ -55,7 +55,7 @@ const AIDesign = () => {
   return (
     <div className="grid gap-4 md:grid-cols-4 xl:grid-rows-6 md:grid-row-7 xl:max-h-[684px]">
 			<Card className='md:col-span-2 order-1 xl:row-span-3 md:row-span-2 card-underlay relative'>
-				<h3 className="mb-8 text-next-heading-7 md:mb-8 md:text-next-heading-5 xl:mb-[58px] xl:text-next-heading-4 ai-design-card-title">
+				<h3 className="mb-6 text-next-heading-6 md:mb-8 md:text-next-heading-5 xl:mb-[58px] xl:text-next-heading-4 ai-design-card-title">
 					AI Design Shapes the Future Landscape
 				</h3>
 				<p className='xl:text-next-body-m text-next-body-s ai-design-card-description'>
@@ -70,11 +70,11 @@ const AIDesign = () => {
 					return <IconCard item={item} key={index}/>
 				})}
 			</Card>
-			<Card className='self-end xl:w-[316px] xl:h-[194px] md:col-span-2 xl:col-span-1 md:px-8 xl:pt-9 xl:pb-[30px] md:py-6 p-4 order-3 md:order-4 xl:row-span-2 md:row-span-2'>
+			<Card className='self-end xl:w-[316px] xl:h-[194px] md:col-span-2 xl:col-span-1 md:!px-8 xl:pt-9 xl:pb-[30px] md:py-6 p-4 order-3 md:order-4 xl:row-span-2 md:row-span-2'>
 				<p className='md:text-next-heading-4 text-next-heading-5 mb-5 xl:mb-8 design-number-card-title'>$196B+</p>
 				<p className='text-next-body-s design-number-card-description'>The estimated value of the global AI market <br className="hidden md:block xl:hidden" /> as of 2024.</p>
 			</Card>
-			<Card className='self-end xl:w-[316px] xl:h-[194px] md:col-span-2 xl:col-span-1 md:px-8 xl:pt-9 xl:pb-[30px] md:py-6 p-4 order-4 md:order-5 xl:row-span-2 md:row-span-2'>
+			<Card className='self-end xl:w-[316px] xl:h-[194px] md:col-span-2 xl:col-span-1 md:!px-8 xl:pt-9 xl:pb-[30px] md:py-6 p-4 order-4 md:order-5 xl:row-span-2 md:row-span-2'>
 				<p className='md:text-next-heading-4 text-next-heading-5 mb-5 xl:mb-8 design-number-card-title'>↑13x</p>
 				<p className='text-next-body-s design-number-card-description'>The growth of the global AI market in the next <br className="hidden md:block xl:hidden" />7 years.</p>
 			</Card>
@@ -116,7 +116,7 @@ export default function AI() {
 		return (
 			companiesSectionData.map((item, index) => {
 				return (
-					<div className={cx('flex flex-col items-start justify-start xl:min-w-[632px]', {'xl:mb-20 md:mb-0 mb-14': index === 0})} key={index}>
+					<div className={cx('flex flex-col items-start justify-start xl:min-w-[632px] md:min-w-[450px]', {'xl:mb-[120px] md:mb-0 mb-14': index === 0})} key={index}>
 						<div className={cx(
 							'flex bg-dark-tag rounded-full px-6 py-3 font-inter items-center text-sm',
 							{	
@@ -124,7 +124,7 @@ export default function AI() {
 								'gradient-grey-border': !item.isBorder,
 							}
 							)}>{item.tagIcon}<span className='pl-[10px]'>{item.tagText}</span></div>
-						<div className='text-next-heading-6 md:text-next-heading-5 !font-inter md:pt-8 pt-6 pb-4 md:!leading-9 xl:tracking-wide white-gradient-text'>{item.title}</div>
+						<div className='text-next-heading-6 md:text-next-heading-5 !font-inter md:pt-8 pt-6 pb-4 md:!leading-9 xl:tracking-normal white-gradient-text'>{item.title}</div>
 						<div className='md:text-next-body-m text-next-body-s opacity-80'>{item.description}</div>
 					</div>
 				)
@@ -159,24 +159,25 @@ export default function AI() {
 				<Layout>
 					<Heading
 						title={productsHeadingTitle}
-						titleClassNames="white-gradient-text"
+						titleClassNames="white-gradient-text xl:pl-3"
+						classNames='mb-16 md:mb-0'
 						description="Our expertise is grounded in transformative experiences backed by industry figures that speak volumes. Unleashing the potential of AI, we craft solutions that transcend expectations."
-						descriptionClassNames="md:!text-next-body-m md:!max-w-[413px] xl:!max-w-[528px] md:self-end text-[#ffffffcc] !self-center"
+						descriptionClassNames="md:!text-next-body-m md:!max-w-[413px] xl:!max-w-[534px] md:self-end text-[#ffffffcc] !self-center"
 					/>
-						<Box className='!pb-0 xl:!pt-[80px]'>
+						<Box className='!pt-0 pb-7 md:!pt-14 xl:!pt-[80px]'>
 							<GraphicBlock 
 								items={items} 
-								className='md:gap-8 xl:!gap-8'
-								blockClassNames='md:p-6 md:w-[464px] md:min-h-[340px]' 
-								titleClassNames='!font-inter !font-normal md:tracking-[0.02em] md:!leading-9'
-								descriptionClassNames='md:leading-6 text-next-body-s xl:text-next-body-s text-[#ffffffcc]'
+								className='md:gap-8 xl:!gap-8 gap-[72px]'
+								blockClassNames='md:p-6 xl:w-[416px] md:w-[464px] md:min-h-[340px]' 
+								titleClassNames='!font-inter !font-normal md:!leading-9'
+								descriptionClassNames='text-next-body-s xl:text-next-body-s text-[#ffffffcc]'
 							/>
 						</Box>
 				</Layout>
 			</Box>
 			<Box>
 				<Layout>
-					<div className='mb-4 shrink-0 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:text-next-heading-2 our-work-text'>
+					<div className='mb-10 shrink-0 text-next-heading-5 md:mb-14 xl:mb-20 md:text-next-heading-3 xl:text-next-heading-2 our-work-text'>
 						Our work
 					</div>
 				</Layout>
@@ -188,7 +189,7 @@ export default function AI() {
 						title={companiesTitle}
 						description={companiesDescription}
 						isColumn={media === 'tablet'}
-						titleClassNames="md:mb-4 !mb-10 white-gradient-text"
+						titleClassNames="md:!mb-3 !mb-10 white-gradient-text"
 						descriptionClassNames="md:!text-next-body-m xl:!max-w-[625px] md:self-end opacity-80 !self-center md:gap-x-[60px]"
 					/>
 				</Layout>

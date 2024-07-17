@@ -434,7 +434,7 @@ export function CasesSlider2({
               {/* <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-16 4xl:pr-[120px]">
                   <EndSlide />
                 </SwiperSlide> */}
-              <div className='md:mt-[49px] xl:mt-[48px]'>
+              <div className='md:mt-[49px] xl:mt-[40px]'>
                 <div className="hidden items-center space-x-8 md:flex">
                   <div className="flex shrink-0 space-x-4">
                     <CaseNavArrow
