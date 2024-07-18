@@ -237,8 +237,8 @@ export default function AiCard() {
 						<stop offset="1" stopColor="#0F0F12"/>
 					</linearGradient>
 					<linearGradient id="paint1_linear_1_1155" x1="229" y1="1.1732e-05" x2="-46.9871" y2="45.7476" gradientUnits="userSpaceOnUse">
-						<stop stopColor="#403E51" stopOpacity="0"/>
-						<stop offset="1" stopColor="#403E51" stopOpacity="0.6"/>
+						<stop stopColor="#403E51" strokeOpacity="0"/>
+						<stop offset="1" stopColor="#403E51" strokeOpacity="0.6"/>
 					</linearGradient>
 				</defs>
 			</svg>
