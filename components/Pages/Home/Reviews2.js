@@ -326,7 +326,7 @@ export default function Reviews({ padding, title, animate = false }) {
         <Layout className={cx('mb-10 flex items-end justify-between md:mb-14', {'xl:!mb-20': dark, 'xl:mb-20': !dark})}>
           <TitleTag
 						as={animate ? 'h2' : undefined}
-						delay={animate ? 200 : undefined}
+						delay={animate ? 300 : undefined}
 					 	className={cx('text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2', {'white-gradient-text': dark})}
 					>
 						{titleText}
