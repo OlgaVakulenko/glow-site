@@ -7,6 +7,7 @@ import Layout from '../components/Layout';
 import DefaultLayout from '../components/Pages/Layouts/DefaultLayout';
 import Head from 'next/head';
 import { getFullTitle } from '../components/HeadTitle';
+import Animated from '../components/Animated';
 
 const faqItems = [
   {
@@ -138,22 +139,29 @@ function FaqItem({ question, answer }) {
   );
 }
 
-export function FAQ({ padding, items = faqItems }) {
+export function FAQ({ padding, items = faqItems, animate = false }) {
 	const [theme] = useAtom(themeAtom);
+	const TitleTag = animate ? Animated : 'h2';
+
   return (
     <div
       className={cx({
         '"mb-12 xl:mb-[88px]" md:mb-[72px]': padding == null,
       })}
     >
-      <h2 className="mb-10 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:mb-20 xl:text-next-heading-2">
+      <TitleTag className="mb-10 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:mb-20 xl:text-next-heading-2">
         <span className={cx({'white-gradient-text': theme === 'dark'})}>Frequently asked</span> <span className={cx({'ai-text': theme === 'dark'})}>questions</span>
-      </h2>
+      </TitleTag>
       <div
       // className="border-border-black divide-y border-b border-t"
       >
         {items.map((item, idx) => (
+					<Animated
+					key={idx}
+					delay={100 * idx}
+				>
           <FaqItem key={idx} question={item.q} answer={item.a} />
+					</Animated>
         ))}
       </div>
     </div>

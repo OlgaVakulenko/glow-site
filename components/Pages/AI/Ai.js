@@ -7,6 +7,7 @@ import { themeAtom } from '../../../lib/theme';
 import { useMediaAtom } from '../../../lib/agent';
 import { getFullTitle } from '../../HeadTitle';
 import { useHeaderTheme } from '../../Header';
+import Animated from '../../Animated';
 import Layout from '../../Layout';
 import Heading from '../../Heading';
 import Box from '../../Box';
@@ -65,7 +66,7 @@ const AIDesign = () => {
 			<Card className='md:col-span-2 !p-0 order-2 md:row-span-3 xl:row-span-4 xl:w-[647px] xl:h-[474px]'>
 				<AiCard />
 			</Card>
-			<Card className='md:col-span-2 order-5 md:order-4 grid grid-cols-2 grid-rows-3 xl:grid-cols-3 xl:grid-rows-2 !p-0 xl:row-span-3 md:row-span-5 min-h-[420px] xl:min-h-[334px]'>
+			<Card className='!border-[0.5px] md:col-span-2 order-5 md:order-4 grid grid-cols-2 grid-rows-3 xl:grid-cols-3 xl:grid-rows-2 !p-0 xl:row-span-3 md:row-span-5 min-h-[420px] xl:min-h-[334px]'>
 				{aiLogoBlockData?.map((item, index) => {
 					return <IconCard item={item} key={index}/>
 				})}
@@ -92,6 +93,10 @@ export default function AI() {
 	useHeaderTheme({ ref, theme: 'dark' });
 	useEffect(() => {
 		setTheme('dark');
+
+		return (() => {
+			setTheme('light');
+		})
 	}, [setTheme])
 
 	const productsHeadingTitle = useMemo(() => {
@@ -116,7 +121,11 @@ export default function AI() {
 		return (
 			companiesSectionData.map((item, index) => {
 				return (
-					<div className={cx('flex flex-col items-start justify-start xl:min-w-[632px] md:min-w-[450px]', {'xl:mb-[120px] md:mb-0 mb-14': index === 0})} key={index}>
+					<Animated 
+						delay={150 * (index + 1)}
+						className={cx('flex flex-col items-start justify-start xl:min-w-[632px] md:min-w-[450px]', {'xl:mb-[120px] md:mb-0 mb-14': index === 0})} 
+						key={index}
+						>
 						<div className={cx(
 							'flex bg-dark-tag rounded-full px-6 py-3 font-inter items-center text-sm',
 							{	
@@ -126,7 +135,7 @@ export default function AI() {
 							)}>{item.tagIcon}<span className='pl-[10px]'>{item.tagText}</span></div>
 						<div className='text-next-heading-6 md:text-next-heading-5 !font-inter md:pt-8 pt-6 pb-4 md:!leading-9 xl:tracking-normal white-gradient-text'>{item.title}</div>
 						<div className='md:text-next-body-m text-next-body-s opacity-80'>{item.description}</div>
-					</div>
+					</Animated>
 				)
 			})
 		)
@@ -158,13 +167,14 @@ export default function AI() {
 			<Box>
 				<Layout>
 					<Heading
+						animate
 						title={productsHeadingTitle}
 						titleClassNames="white-gradient-text xl:pl-3"
 						classNames='mb-16 md:mb-0'
 						description="Our expertise is grounded in transformative experiences backed by industry figures that speak volumes. Unleashing the potential of AI, we craft solutions that transcend expectations."
 						descriptionClassNames="md:!text-next-body-m md:!max-w-[413px] xl:!max-w-[534px] md:self-end text-[#ffffffcc] !self-center"
 					/>
-						<Box className='!pt-0 pb-7 md:!pt-14 xl:!pt-[80px]'>
+						<Box className='!pt-0 pb-7 md:!pt-14 xl:!pt-[80px] md:!pb-0'>
 							<GraphicBlock 
 								items={items} 
 								className='md:gap-8 xl:!gap-8 gap-[72px]'
@@ -177,15 +187,16 @@ export default function AI() {
 			</Box>
 			<Box>
 				<Layout>
-					<div className='mb-10 shrink-0 text-next-heading-5 md:mb-14 xl:mb-20 md:text-next-heading-3 xl:text-next-heading-2 our-work-text'>
+					<Animated className='mb-10 shrink-0 text-next-heading-5 md:mb-14 xl:mb-20 md:text-next-heading-3 xl:text-next-heading-2 our-work-text'>
 						Our work
-					</div>
+					</Animated>
 				</Layout>
 				<CasesSlider2 filter={filter} disableOnMobile padding={false} />
 			</Box>
 			<Box>
 				<Layout>
 					<Heading
+						animate
 						title={companiesTitle}
 						description={companiesDescription}
 						isColumn={media === 'tablet'}
@@ -201,9 +212,9 @@ export default function AI() {
       </Box>
 			<Box>
 				<Layout>
-					<div className='mb-4 shrink-0 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:text-next-heading-2 white-gradient-text'>
+					<Animated delay={100} className='mb-4 shrink-0 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:text-next-heading-2 white-gradient-text'>
 						Why choose{' '}<span className='ai-text'>Glow Team</span>
-					</div>
+					</Animated>
 				</Layout>
 				<IconsSection 
 					items={iconsSectionItems}
@@ -214,11 +225,11 @@ export default function AI() {
 				/>
 			</Box>
       <Box>
-        <Reviews title={reviewsTitle} padding={false} />
+        <Reviews title={reviewsTitle} padding={false} animate />
       </Box>
       <Box>
         <Layout>
-          <FAQ padding={false} items={aiFaqItems} />
+          <FAQ padding={false} items={aiFaqItems} animate/>
         </Layout>
       </Box>
     </div>

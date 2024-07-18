@@ -773,7 +773,6 @@ a.white svg rect {
   background: linear-gradient(180deg, rgba(64, 62, 81, 0.31) 0%, rgba(64, 62, 81, 0.1) 100%);
   border: 0.5px solid rgba(64, 62, 81, 0.30);
   transition: border 800ms cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: 16px;
 }  
 
 .ai-logo-border:first-child {

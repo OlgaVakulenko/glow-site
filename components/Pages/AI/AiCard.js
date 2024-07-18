@@ -219,11 +219,11 @@ export default function AiCard() {
 			 	xmlns="http://www.w3.org/2000/svg" width="159" height="474" viewBox="0 0 159 474" fill="none">
 				<g filter="url(#filter0_d_1_1155)">
 					<path d="M159 16C159 7.16346 151.837 0 143 0H28C25.7909 0 24 1.79086 24 4V118.5C24 135.487 29.8132 151.962 40.4735 165.187L44 169.563C56.9423 185.619 64 205.621 64 226.244V237V247.756C64 268.379 56.9423 288.381 44 304.438L40.4735 308.813C29.8132 322.038 24 338.513 24 355.5V470C24 472.209 25.7909 474 28 474H143C151.837 474 159 466.837 159 458V16Z" fill="url(#paint0_linear_1_1155)"/>
-					<path d="M158.5 16C158.5 7.4396 151.56 0.5 143 0.5H28C26.067 0.5 24.5 2.067 24.5 4V118.5C24.5 135.373 30.2742 151.737 40.8628 164.874L44.3893 169.249C57.4033 185.394 64.5 205.507 64.5 226.244V237V247.756C64.5 268.493 57.4032 288.606 44.3893 304.751L40.8627 309.126C30.2742 322.263 24.5 338.627 24.5 355.5V470C24.5 471.933 26.067 473.5 28 473.5H143C151.56 473.5 158.5 466.56 158.5 458V16Z" stroke="url(#paint1_linear_1_1155)" stroke-opacity="0.4"/>
+					<path d="M158.5 16C158.5 7.4396 151.56 0.5 143 0.5H28C26.067 0.5 24.5 2.067 24.5 4V118.5C24.5 135.373 30.2742 151.737 40.8628 164.874L44.3893 169.249C57.4033 185.394 64.5 205.507 64.5 226.244V237V247.756C64.5 268.493 57.4032 288.606 44.3893 304.751L40.8627 309.126C30.2742 322.263 24.5 338.627 24.5 355.5V470C24.5 471.933 26.067 473.5 28 473.5H143C151.56 473.5 158.5 466.56 158.5 458V16Z" stroke="url(#paint1_linear_1_1155)" strokeOpacity="0.4"/>
 				</g>
 				<defs>
-					<filter id="filter0_d_1_1155" x="0" y="-16" width="175" height="514" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-						<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+					<filter id="filter0_d_1_1155" x="0" y="-16" width="175" height="514" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+						<feFlood floodOpacity="0" result="BackgroundImageFix"/>
 						<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
 						<feOffset dx="-4" dy="4"/>
 						<feGaussianBlur stdDeviation="10"/>
@@ -233,12 +233,12 @@ export default function AiCard() {
 						<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1155" result="shape"/>
 					</filter>
 					<linearGradient id="paint0_linear_1_1155" x1="119.856" y1="2.18714e-07" x2="112.245" y2="582.901" gradientUnits="userSpaceOnUse">
-						<stop stop-color="#1B1A21"/>
-						<stop offset="1" stop-color="#0F0F12"/>
+						<stop stopColor="#1B1A21"/>
+						<stop offset="1" stopColor="#0F0F12"/>
 					</linearGradient>
 					<linearGradient id="paint1_linear_1_1155" x1="229" y1="1.1732e-05" x2="-46.9871" y2="45.7476" gradientUnits="userSpaceOnUse">
-						<stop stop-color="#403E51" stop-opacity="0"/>
-						<stop offset="1" stop-color="#403E51" stop-opacity="0.6"/>
+						<stop stopColor="#403E51" stopOpacity="0"/>
+						<stop offset="1" stopColor="#403E51" stopOpacity="0.6"/>
 					</linearGradient>
 				</defs>
 			</svg>

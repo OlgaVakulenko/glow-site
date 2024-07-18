@@ -3,7 +3,8 @@ export const items = [
     title: 'Chatbots & Assistants',
     description:
       'Enhance engagement with our diverse chatbot solutions: AI-powered customer service, virtual assistant, transactional, and enterprise, all on cutting-edge AI chatbot platforms.',
-    icon: (
+    icon: ({ isReady }) => {
+			return (
       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
 				<line x1="52.0762" y1="34.0059" x2="38.5064" y2="47.5757" stroke="#484858"/>
 				<path d="M46.75 54.625H76C76 45.0772 72.2072 35.9205 65.4558 29.1692C58.7045 22.4178 49.5478 18.625 40 18.625C30.4522 18.625 21.2955 22.4178 14.5442 29.1692C7.79285 35.9205 4 45.0772 4 54.625L14.125 54.625" stroke="#484858"/>
@@ -16,13 +17,14 @@ export const items = [
 					</linearGradient>
 				</defs>
 			</svg>
-    ),
+    )},
   },
   {
     title: 'Speech Recognition',
     description:
       'Revolutionize communication with our speech recognition suite: meeting software, speech-to-text, virtual assistants, voice biometrics, and language translation for seamless interactions and efficiency.',
-    icon: (
+    icon: ({ isReady }) => {
+			return(
       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
 				<circle cx="40" cy="30" r="18.5" fill="url(#paint0_linear_11277_23072)" stroke="#BC2B2A"/>
 				<path d="M68 30C68 33.677 67.2758 37.318 65.8686 40.7151C64.4615 44.1123 62.399 47.1989 59.799 49.799C57.1989 52.399 54.1123 54.4615 50.7151 55.8686C47.318 57.2758 43.677 58 40 58C36.323 58 32.682 57.2758 29.2849 55.8686C25.8877 54.4615 22.801 52.399 20.201 49.799C17.601 47.1989 15.5385 44.1123 14.1314 40.7151C12.7242 37.318 12 33.677 12 30" stroke="#484858"/>
@@ -34,13 +36,14 @@ export const items = [
 					</linearGradient>
 				</defs>
 			</svg>
-    ),
+    )},
   },
   {
     title: 'Data Analyzes Products',
     description:
       'Empower decision-making with our aata analysis products: BI tools, predictive analytics, big data platforms, visualization tools, machine learning, forecasting, and intelligent document processing systems for unparalleled insights.',
-    icon: (
+    icon: ({ isReady }) => {
+			return (
       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
 				<path d="M22.4258 56.9219L31.8477 47.5M56.6453 22.6473L48.0904 31.2159" stroke="#484858"/>
 				<path d="M56.6484 57.3545L47.2929 48" stroke="#484858"/>
@@ -55,13 +58,14 @@ export const items = [
 					</linearGradient>
 				</defs>
 			</svg>
-    ),
+    )},
   },
   {
     title: 'Fintech',
     description:
       'Explore fintech innovation: Personalized Advisory, Credit Scoring, Fraud Detection, Risk Management, Algorithmic Trading, Customer Support, Insurance Processing, Blockchain, and Payment Solutions for financial excellence.',
-    icon: (
+    icon: ({ isReady }) => {
+			return (
       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
 				<path d="M31 20C29.5555 20 28.1251 20.2845 26.7905 20.8373C25.4559 21.3901 24.2433 22.2004 23.2218 23.2218C22.2004 24.2433 21.3901 25.4559 20.8373 26.7905C20.2845 28.1251 20 29.5555 20 31" stroke="#484858"/>
 				<path d="M49 60C50.4445 60 51.8749 59.7155 53.2095 59.1627C54.5441 58.6099 55.7567 57.7996 56.7782 56.7782C57.7996 55.7567 58.6099 54.5441 59.1627 53.2095C59.7155 51.8749 60 50.4445 60 49" stroke="#484858"/>
@@ -79,13 +83,14 @@ export const items = [
 					</linearGradient>
 				</defs>
 			</svg>
-    ),
+    )},
   },
   {
     title: 'Automation',
     description:
       'Streamline operations with our Automation solutions: Workflow tools, AI-driven Marketing&Sales, BPM with AI, Supply Chain Automation, and AI-powered CRM for efficient business processes.',
-    icon: (
+    icon: ({ isReady }) => {
+			return (
       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
 				<mask id="path-1-inside-1_11277_21703" fill="white">
 				<path d="M9 40.5C9 34.6652 11.3178 29.0695 15.4436 24.9437C19.5694 20.8179 25.1652 18.5 31 18.5C36.8348 18.5 42.4305 20.8179 46.5563 24.9436C50.6821 29.0694 53 34.6652 53 40.5L31 40.5L9 40.5Z"/>
@@ -106,13 +111,14 @@ export const items = [
 					</linearGradient>
 				</defs>
 			</svg>
-    ),
+    )},
   },
   {
     title: 'Transportation',
     description:
       'Elevate your transportation ecosystem with: Route Optimization, Fleet Management, Supply Chain Visibility, Warehouse Automation, Delivery Optimization, and Supply Chain Risk Management for seamless logistics efficiency.',
-    icon: (
+    icon: ({ isReady }) => {
+			return (
       <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
 			<circle cx="24.16" cy="39.9998" r="20.6425" stroke="#484858" strokeWidth="1.035"/>
 			<circle cx="50.8397" cy="39.9998" r="20.6425" stroke="#484858" strokeWidth="1.035"/>
@@ -129,6 +135,6 @@ export const items = [
 				</linearGradient>
 			</defs>
 			</svg>
-    ),
+    )},
   },
 ];

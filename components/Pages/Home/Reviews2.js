@@ -11,6 +11,7 @@ import SliderProgress from '../../SliderProgress';
 import casesData from '../Cases/data';
 import CaseNavArrow from '../../CasesSlider/CaseNavArrow';
 import { ClutchRating } from './_Reviews';
+import Animated from '../../Animated';
 
 const reviews = [
   {
@@ -307,12 +308,13 @@ function ReviewCard({
     </div>
   );
 }
-export default function Reviews({ padding, title }) {
+export default function Reviews({ padding, title, animate = false }) {
   const swiperRef = useRef();
 	const [theme] = useAtom(themeAtom);
 	const dark = theme === 'dark';
 	const defaultText = 'Discover what our customers have to say';
 	const titleText = title || defaultText;
+  const TitleTag = animate ? Animated : 'h2';
 
   return (
     <div className="overflow-hidden">
@@ -322,9 +324,13 @@ export default function Reviews({ padding, title }) {
         })}
       >
         <Layout className={cx('mb-10 flex items-end justify-between md:mb-14', {'xl:!mb-20': dark, 'xl:mb-20': !dark})}>
-          <h2 className={cx('text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2', {'white-gradient-text': dark})}>
+          <TitleTag
+						as={animate ? 'h2' : undefined}
+						delay={animate ? 200 : undefined}
+					 	className={cx('text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2', {'white-gradient-text': dark})}
+					>
 						{titleText}
-          </h2>
+          </TitleTag>
           {/* <div className="hidden space-x-4 pb-[14px] md:flex">
           <CaseNavArrow
             dir="left"
