@@ -14,7 +14,6 @@ import Layout from './Layout';
 import GlwEffectM from './Pages/Home/assets/glw-eff-m.png';
 import GlwEffect from './Pages/Home/assets/glw-eff.png';
 import FormBG from './Pages/Home/assets/form-bg.png';
-import FormBGdark from './Pages/Home/assets/form-bg-dark.png';
 
 function SlotText() {
   const isClient = useIsClient();
@@ -50,7 +49,7 @@ export default function Footer2({
 
     router.push(u);
   }, [router, footerStyle]);
-
+	
   return (
     <footer
       id="footer"
@@ -66,7 +65,7 @@ export default function Footer2({
           <Layout disableOnMobile={true} className="px-2">
             <div className="text-inter relative overflow-hidden rounded-3xl bg-black px-6 py-[138px] md:rounded-[32px] md:py-[134px] xl:py-[142px] xl:pb-[124px] xl:pt-[128px]">
               <Image
-                src={dark ? FormBGdark : FormBG}
+                src={dark ? '/img/form-bg-dark.png' : FormBG}
                 alt=""
                 className="pointer-events-none absolute inset-0 z-0 h-full w-full"
               />
