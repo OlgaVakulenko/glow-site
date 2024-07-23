@@ -1,188 +1,228 @@
 import { useEffect, useMemo, useRef } from 'react';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function AiCard() {
 	const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const centralCircleRef = useRef(null);
+	const leftSvgRef = useRef(null);
+  const rightSvgRef = useRef(null);
   const animationFrameRef = useRef(null);
+	const circlesRef = useRef([]);
 
   const drawCircles = useMemo(() => {
     return (ctx, width, height, circles) => {
       ctx.clearRect(0, 0, width, height);
       circles.forEach(circle => {
         ctx.beginPath();
-        ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2);
+        ctx.arc(circle.x, circle.y, circle.radius, 0, Math.PI * 2, false);
         ctx.fillStyle = `rgba(255, 75, 73, ${circle.opacity})`;
         ctx.fill();
       });
     };
   }, []);
 
-  useEffect(() => {
-    if (!canvasRef.current || !containerRef.current || !centralCircleRef.current) return;
+	useEffect(() => {
+		if (!canvasRef.current || !containerRef.current || !centralCircleRef.current || !leftSvgRef.current || !rightSvgRef.current) return;
+	
+		const canvas = canvasRef.current;
+		const container = containerRef.current;
+		const centralCircle = centralCircleRef.current;
+		const leftSvg = leftSvgRef.current;
+		const rightSvg = rightSvgRef.current;
+		const ctx = canvas.getContext('2d');
+		const width = canvas.width = canvas.offsetWidth;
+		const height = canvas.height = canvas.offsetHeight;
+		const centralCircleSize = centralCircle ? centralCircle.offsetWidth : 100;
+	
+		function normalRandom() {
+			let u = 0, v = 0;
+			while (u === 0) u = Math.random();
+			while (v === 0) v = Math.random();
+			return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+		}
+	
+		function randomPosition(center, variance) {
+			return center + normalRandom() * variance;
+		}
+	
+		function createCircles() {
+			return Array.from({ length: 1300 }, () => ({
+				x: randomPosition(width / 2, width / 6),
+				y: randomPosition(height / 2, height / 6),
+				radius: Math.random() * 1,
+				opacity: Math.random(),
+				duration: Math.random() * 2 + 1,
+				direction: Math.random() < 0.5 ? -1 : 1,
+			}));
+		}
+	
+		function animateCircles() {
+			circlesRef.current.forEach(circle => {
+				circle.opacity += circle.direction * 0.02;
+				if (circle.opacity <= 0 || circle.opacity >= 1) {
+					circle.direction *= -1;
+				}
+			});
+			drawCircles(ctx, canvas.width, canvas.height, circlesRef.current);
+			animationFrameRef.current = requestAnimationFrame(animateCircles);
+		}
+	
+		function createWave(size, borderWidth, opacity) {
+			const wave = document.createElement('div');
+			wave.classList.add('wave');
+			wave.style.width = `${centralCircleSize}px`;
+			wave.style.height = `${centralCircleSize}px`;
+			wave.style.borderWidth = `${borderWidth}px`;
+			wave.style.opacity = opacity;
+			container.appendChild(wave);
+	
+			gsap.fromTo(wave,
+				{ scale: 0 },
+				{
+					scale: size,
+					opacity: opacity,
+					duration: 2,
+					ease: 'power1.inOut',
+					onComplete: () => wave.classList.add('persistent')
+				}
+			);
+		}
+	
+		let animationsStarted = false;
+	
+		function startAnimations() {
+			if (animationsStarted) return;
+	
+			animationsStarted = true;
+	
+			const elements = container.querySelectorAll('.wave');
+			elements.forEach(element => element.remove());
+	
+			if (animationFrameRef.current) {
+				cancelAnimationFrame(animationFrameRef.current);
+			}
+	
+			circlesRef.current = createCircles();
+			animateCircles();
+	
+			createWave(1.9, 0.5, 0.3);
+			setTimeout(() => createWave(1.6, 1, 0.4), 100);
+			setTimeout(() => createWave(1.3, 1, 0.5), 200);
+	
+			gsap.to('.ai-icon', {
+				backgroundImage: 'linear-gradient(130deg, rgba(24, 24, 30, 0.9) 25%, rgba(227,50,48,0.2) 50%, rgba(24, 24, 30, 0.9) 75%)',
+				color: '#E33230',
+				duration: 2,
+				ease: 'power1.out',
+				repeat: 0,
+				yoyo: true
+			});
+		}
+	
+		function stopAnimations() {
+			animationsStarted = false;
 
-    const canvas = canvasRef.current;
-    const container = containerRef.current;
-    const centralCircle = centralCircleRef.current;
-    const ctx = canvas.getContext('2d');
-    const width = canvas.width = canvas.offsetWidth;
-    const height = canvas.height = canvas.offsetHeight;
-    const centralCircleSize = centralCircle ? centralCircle.offsetWidth : 100;
+			if (animationFrameRef.current) {
+				cancelAnimationFrame(animationFrameRef.current);
+			}
 
-    function normalRandom() {
-      let u = 0, v = 0;
-      while (u === 0) u = Math.random();
-      while (v === 0) v = Math.random();
-      return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
-    }
-
-    function randomPosition(center, variance) {
-      return center + normalRandom() * variance;
-    }
-
-    function createCircles() {
-      return Array.from({ length: 1300 }, () => ({
-        x: randomPosition(width / 2, width / 6),
-        y: randomPosition(height / 2, height / 6),
-        radius: Math.random() * 1,
-        opacity: Math.random(),
-        duration: Math.random() * 2 + 1,
-        direction: Math.random() < 0.5 ? -1 : 1,
-      }));
-    }
-
-    let circles = createCircles();
-
-    function drawCircles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      circles.sort((a, b) => a.radius - b.radius);
-      circles.forEach(circle => {
-        ctx.beginPath();
-        ctx.arc(circle.x, circle.y, circle.radius, 0, 2 * Math.PI, false);
-        ctx.fillStyle = `rgba(255, 75, 73, ${circle.opacity})`;
-        ctx.fill();
-      });
-    }
-
-    function animateCircles() {
-      circles.forEach(circle => {
-        circle.opacity += circle.direction * 0.02;
-        if (circle.opacity <= 0 || circle.opacity >= 1) {
-          circle.direction *= -1;
-        }
-      });
-      drawCircles();
-      animationFrameRef.current = requestAnimationFrame(animateCircles);
-    }
-
-    function createWave(size, borderWidth, opacity) {
-      const wave = document.createElement('div');
-      wave.classList.add('wave');
-      wave.style.width = `${centralCircleSize}px`;
-      wave.style.height = `${centralCircleSize}px`;
-      wave.style.borderWidth = `${borderWidth}px`;
-      wave.style.opacity = opacity;
-      container.appendChild(wave);
-
-      gsap.fromTo(wave,
-        { scale: 0 },
-        {
-          scale: size,
-          opacity: opacity,
-          duration: 2,
-          ease: 'power1.inOut',
-          onComplete: () => wave.classList.add('persistent')
-        }
-      );
-    }
-
-    function startAnimations() {
-      // Clean up existing elements
-      const elements = container.querySelectorAll('.wave');
-      elements.forEach(element => element.remove());
-
-      // Cancel any ongoing animations
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-
-      // Create new circles and start the animation
-      circles = createCircles();
-      animateCircles();
-
-      // Create new waves
-      createWave(1.9, 0.5, 0.3);
-      setTimeout(() => createWave(1.6, 1, 0.4), 100);
-      setTimeout(() => createWave(1.3, 1, 0.5), 200);
-
-      const aiIconAnimation = gsap.to('.ai-icon', {
-        backgroundImage: 'linear-gradient(130deg, rgba(24, 24, 30, 0.9) 25%, rgba(227,50,48,0.2) 50%, rgba(24, 24, 30, 0.9) 75%)',
-        opacity: 1,
-        duration: 2,
-        ease: 'power1.out',
-        repeat: 0,
-        yoyo: true
-      });
-
-      aiIconAnimation.invalidate().restart(); // Restart the animation
-    }
-
-    // Intersection Observer to trigger animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          startAnimations();
-        }
-      });
-    });
-
-    observer.observe(centralCircle);
-
-    return () => {
-      const elements = container.querySelectorAll('.wave');
-      elements.forEach(element => element.remove());
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-      observer.disconnect(); // Clean up the observer
-    };
-  }, [drawCircles]);
-
+			gsap.to(circlesRef.current, { opacity: 0, duration: 1, ease: 'power1.in', onComplete: () => {
+				ctx.clearRect(0, 0, canvas.width, canvas.height);
+				circlesRef.current = [];
+			}});
+		}
+		
+		const reverseAnimations = () => {
+			const tl = gsap.timeline();
+		
+			tl.to('.wave', { opacity: 0, duration: 1, ease: 'power1.in', onComplete: () => {
+				const elements = container.querySelectorAll('.wave');
+				elements.forEach(element => element.remove());
+			}})
+			.to(centralCircleRef.current, { backgroundColor: '#0C0C0E', duration: 0.5, ease: 'power1.in' }, 0)
+			.to('.ai-icon', { backgroundImage: 'none', color: '#0E0D10', duration: 0.5, ease: 'power1.in' }, 0)
+			.to('.ai-icon-circle', { 
+					borderColor: '#0E0D10', 
+					boxShadow: 'none', 
+					duration: 0.5, 
+					ease: 'power1.in' 
+				}, 0)
+			.add(() => stopAnimations(), 0);
+		
+			tl.play();
+		};
+	
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: container,
+				start: "top 60%", 
+				end: "bottom 45%",
+				toggleActions: "play reverse play reverse",
+			}
+		});
+	
+		tl.to(leftSvg, { xPercent: -55, duration: 1.5, ease: 'power2.inOut' }, 0) 
+			.to(rightSvg, { xPercent: 55, duration: 1.5, ease: 'power2.inOut' }, 0) 
+			.to('.ai-icon', { color: '#E33230', duration: 1, ease: 'power1.out' }, '-=2') 
+			.to('.ai-icon-circle', { 
+					borderColor: '#e3323080', 
+					backgroundColor: '#0c0c0eb3',
+					boxShadow: '0px 0px 83px 50px rgba(227,50,48,0.25)', 
+					duration: 0.5, 
+					ease: 'power1.out' 
+				}, '-=2');
+	
+		ScrollTrigger.create({
+			trigger: container,
+			start: "top 60%",
+			end: "bottom 45%",
+			onLeaveBack: reverseAnimations, 
+			onLeave: reverseAnimations, 
+		});
+	
+		ScrollTrigger.create({
+			trigger: container,
+			start: "top 60%",
+			end: "bottom 45%",
+			onEnter: startAnimations,
+			onEnterBack: startAnimations,
+		});
+	
+			return () => {
+						const elements = container.querySelectorAll('.wave');
+						elements.forEach(element => element.remove());
+						if (animationFrameRef.current) {
+							cancelAnimationFrame(animationFrameRef.current);
+						}
+						ScrollTrigger.getAll().forEach(trigger => trigger.kill()); // Удалить все ScrollTrigger при размонтировании
+					};
+	}, [drawCircles]);
+	
   return (
-    <div ref={containerRef} className="flex justify-between items-center relative overflow-hidden h-auto w-full">
+    <div ref={containerRef} className="flex justify-center items-center relative overflow-hidden h-full w-full">
       <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full"></canvas>
-			<svg
-				className="z-[8] w-1/4 h-full relative xl:bottom-2"
-			 	xmlns="http://www.w3.org/2000/svg" width="159" height="474" viewBox="0 0 159 474" fill="none">
-				<g filter="url(#filter0_d_1_1154)">
-					<path d="M0 16C0 7.16346 7.16344 0 16 0H131C133.209 0 135 1.79086 135 4V118.5V135.004C135 141.311 132.842 147.428 128.884 152.338L121.75 161.189C104.44 182.664 95 209.417 95 237C95 264.583 104.44 291.336 121.75 312.811L128.884 321.662C132.842 326.572 135 332.689 135 338.996V355.5V470C135 472.209 133.209 474 131 474H16C7.16345 474 0 466.837 0 458V16Z" fill="url(#paint0_linear_1_1154)"/>
-					<path d="M0.5 16C0.5 7.4396 7.43959 0.5 16 0.5H131C132.933 0.5 134.5 2.067 134.5 4V118.5V135.004C134.5 141.197 132.381 147.203 128.495 152.024L121.36 160.875C103.979 182.439 94.5 209.303 94.5 237C94.5 264.697 103.979 291.561 121.36 313.125L128.495 321.976C132.381 326.797 134.5 332.803 134.5 338.996V355.5V470C134.5 471.933 132.933 473.5 131 473.5H16C7.43959 473.5 0.5 466.56 0.5 458V16Z" stroke="url(#paint1_linear_1_1154)" strokeOpacity="0.4"/>
-				</g>
+		
+			<svg ref={leftSvgRef} className="z-[8] absolute -left-[3px] top-0 h-full w-1/2" xmlns="http://www.w3.org/2000/svg" width="321" viewBox="0 0 321 474" fill="none">
+				<path d="M0 16C0 7.16346 7.16344 0 16 0H317C319.209 0 321 1.79086 321 4V118.5C321 135.487 315.187 151.962 304.527 165.187L301 169.563C288.058 185.619 281 205.621 281 226.244V247.756C281 268.379 288.058 288.381 301 304.438L304.527 308.813C315.187 322.038 321 338.513 321 355.5V470C321 472.209 319.209 474 317 474H16C7.16345 474 0 466.837 0 458V16Z" fill="url(#paint0_linear_1_4343)"/>
+				<path d="M0.5 16C0.5 7.4396 7.43959 0.5 16 0.5H317C318.933 0.5 320.5 2.067 320.5 4V118.5C320.5 135.373 314.726 151.737 304.137 164.874L300.611 169.249C287.597 185.394 280.5 205.507 280.5 226.244V247.756C280.5 268.493 287.597 288.606 300.611 304.751L304.137 309.126C314.726 322.263 320.5 338.627 320.5 355.5V470C320.5 471.933 318.933 473.5 317 473.5H16C7.4396 473.5 0.5 466.56 0.5 458V16Z" stroke="url(#paint1_linear_1_4343)" stroke-opacity="0.4"/>
 				<defs>
-					<filter id="filter0_d_1_1154" x="-16" y="-16" width="175" height="514" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-						<feFlood floodOpacity="0" result="BackgroundImageFix"/>
-						<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-						<feOffset dx="4" dy="4"/>
-						<feGaussianBlur stdDeviation="10"/>
-						<feComposite in2="hardAlpha" operator="out"/>
-						<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0"/>
-						<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1154"/>
-						<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1154" result="shape"/>
-					</filter>
-					<linearGradient id="paint0_linear_1_1154" x1="39.1435" y1="2.18714e-07" x2="46.7547" y2="582.901" gradientUnits="userSpaceOnUse">
-						<stop stopColor="#1B1A21"/>
-						<stop offset="1" stopColor="#0F0F12"/>
+					<linearGradient id="paint0_linear_1_4343" x1="39.1435" y1="1.31762e-07" x2="46.7547" y2="582.901" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#1B1A21"/>
+						<stop offset="1" stop-color="#121215" stop-opacity="0.9"/>
 					</linearGradient>
-					<linearGradient id="paint1_linear_1_1154" x1="-70" y1="1.1732e-05" x2="205.987" y2="45.7476" gradientUnits="userSpaceOnUse">
-						<stop stopColor="#403E51" stopOpacity="0"/>
-						<stop offset="1" stopColor="#403E51" stopOpacity="0.6"/>
+					<linearGradient id="paint1_linear_1_4343" x1="-70" y1="-2.87986e-05" x2="205.987" y2="45.7476" gradientUnits="userSpaceOnUse">
+						<stop stop-color="#403E51" stop-opacity="0"/>
+						<stop offset="1" stop-color="#403E51" stop-opacity="1"/>
 					</linearGradient>
 				</defs>
 			</svg>
 
-      <div ref={centralCircleRef} className="relative flex items-center justify-center rounded-full overflow-hidden ai-icon-circle border-[#e3323080] border-2 bg-[rgba(24,24,30,0.8)] z-[8] xl:w-[184px] xl:h-[184px] md:w-[133px] md:h-[133px] w-[96px] h-[96px] m-5">
-				<div className="xl:w-[158px] xl:h-[158px] md:w-[114px] md:h-[114px] w-[82px] h-[82px] rounded-full ai-icon flex items-center justify-center">
+      <div ref={centralCircleRef} className="z-[9] relative flex items-center justify-center rounded-full overflow-hidden ai-icon-circle border-[#0E0D10] border-2 bg-[#0C0C0E] xl:w-[184px] xl:h-[184px] md:w-[133px] md:h-[133px] w-[96px] h-[96px] m-5">
+				<div className="xl:w-[158px] xl:h-[158px] md:w-[114px] md:h-[114px] w-[82px] h-[82px] rounded-full ai-icon flex items-center justify-center text-[#0E0D10] bg-[#18181ecc]">
           <svg
 						className='w-2/5 h-auto'
             viewBox="0 0 62 54"
@@ -205,40 +245,26 @@ export default function AiCard() {
                 y2="70"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stopColor="#E33230" stopOpacity="0.1" />
-                <stop offset="0.5" stopColor="#E33230" />
-                <stop offset="1" stopColor="#E33230" stopOpacity="0.1" />
+                <stop stopColor="currentColor" stopOpacity="0.1" />
+                <stop offset="0.5" stopColor="currentColor" />
+                <stop offset="1" stopColor="currentColor" stopOpacity="0.1" />
               </linearGradient>
             </defs>
           </svg>
         </div>
       </div>
 
-      <svg
-				className="z-[8] w-1/4 h-full relative xl:bottom-2"
-			 	xmlns="http://www.w3.org/2000/svg" width="159" height="474" viewBox="0 0 159 474" fill="none">
-				<g filter="url(#filter0_d_1_1155)">
-					<path d="M159 16C159 7.16346 151.837 0 143 0H28C25.7909 0 24 1.79086 24 4V118.5C24 135.487 29.8132 151.962 40.4735 165.187L44 169.563C56.9423 185.619 64 205.621 64 226.244V237V247.756C64 268.379 56.9423 288.381 44 304.438L40.4735 308.813C29.8132 322.038 24 338.513 24 355.5V470C24 472.209 25.7909 474 28 474H143C151.837 474 159 466.837 159 458V16Z" fill="url(#paint0_linear_1_1155)"/>
-					<path d="M158.5 16C158.5 7.4396 151.56 0.5 143 0.5H28C26.067 0.5 24.5 2.067 24.5 4V118.5C24.5 135.373 30.2742 151.737 40.8628 164.874L44.3893 169.249C57.4033 185.394 64.5 205.507 64.5 226.244V237V247.756C64.5 268.493 57.4032 288.606 44.3893 304.751L40.8627 309.126C30.2742 322.263 24.5 338.627 24.5 355.5V470C24.5 471.933 26.067 473.5 28 473.5H143C151.56 473.5 158.5 466.56 158.5 458V16Z" stroke="url(#paint1_linear_1_1155)" strokeOpacity="0.4"/>
-				</g>
+			<svg ref={rightSvgRef} className="z-[8] absolute -right-[3px] top-0 h-full w-1/2" xmlns="http://www.w3.org/2000/svg" width="321" viewBox="0 0 321 474" fill="none">
+				<path d="M321 16C321 7.16346 313.837 0 305 0H4C1.79086 0 0 1.79086 0 4V118.5C0 135.487 5.81323 151.962 16.4735 165.187L20 169.563C32.9423 185.619 40 205.621 40 226.244V237V247.756C40 268.379 32.9423 288.381 20 304.438L16.4734 308.813C5.8132 322.038 0 338.513 0 355.5V470C0 472.209 1.79086 474 4 474H305C313.837 474 321 466.837 321 458V16Z" fill="url(#paint0_linear_1_4344)"/>
+				<path d="M320.5 16C320.5 7.4396 313.56 0.5 305 0.5H4C2.06702 0.5 0.5 2.067 0.5 4V118.5C0.5 135.373 6.27417 151.737 16.8628 164.874L20.3893 169.249C33.4033 185.394 40.5 205.507 40.5 226.244V237V247.756C40.5 268.493 33.4033 288.606 20.3893 304.751L16.8627 309.126C6.27414 322.263 0.5 338.627 0.5 355.5V470C0.5 471.933 2.06702 473.5 4 473.5H305C313.56 473.5 320.5 466.56 320.5 458V16Z" stroke="url(#paint1_linear_1_4344)" strokeOpacity="0.4"/>
 				<defs>
-					<filter id="filter0_d_1_1155" x="0" y="-16" width="175" height="514" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
-						<feFlood floodOpacity="0" result="BackgroundImageFix"/>
-						<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-						<feOffset dx="-4" dy="4"/>
-						<feGaussianBlur stdDeviation="10"/>
-						<feComposite in2="hardAlpha" operator="out"/>
-						<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0"/>
-						<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1155"/>
-						<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1155" result="shape"/>
-					</filter>
-					<linearGradient id="paint0_linear_1_1155" x1="119.856" y1="2.18714e-07" x2="112.245" y2="582.901" gradientUnits="userSpaceOnUse">
+					<linearGradient id="paint0_linear_1_4344" x1="281.856" y1="1.31762e-07" x2="274.245" y2="582.901" gradientUnits="userSpaceOnUse">
 						<stop stopColor="#1B1A21"/>
-						<stop offset="1" stopColor="#0F0F12"/>
+						<stop offset="1" stopColor="#121215" stopOpacity="0.9"/>
 					</linearGradient>
-					<linearGradient id="paint1_linear_1_1155" x1="229" y1="1.1732e-05" x2="-46.9871" y2="45.7476" gradientUnits="userSpaceOnUse">
-						<stop stopColor="#403E51" strokeOpacity="0"/>
-						<stop offset="1" stopColor="#403E51" strokeOpacity="0.6"/>
+					<linearGradient id="paint1_linear_1_4344" x1="391" y1="-2.87986e-05" x2="115.013" y2="45.7476" gradientUnits="userSpaceOnUse">
+						<stop stopColor="#403E51" stopOpacity="0"/>
+						<stop offset="1" stopColor="#403E51" stopOpacity="1"/>
 					</linearGradient>
 				</defs>
 			</svg>

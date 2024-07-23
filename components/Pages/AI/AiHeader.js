@@ -59,7 +59,7 @@ export default function AiHeader() {
 						className='xl:pb-1 ai-header-text-white xl:mt-10 md:mt-11 mt-10 text-next-heading-4 md:text-next-heading-2 xl:text-next-heading-0 w-full text-center'
 					>
 							Design services for<br/>
-							<span className='ai-text'>{' '}
+							<span className='ai-text-header'>{' '}
 							AI products<br className='block md:hidden'/>
 							</span>
 							{' '}that change<br/> the world

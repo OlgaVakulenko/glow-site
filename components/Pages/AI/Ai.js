@@ -54,8 +54,8 @@ function IconCard({ item }) {
 
 const AIDesign = () => {
   return (
-    <div className="grid gap-4 md:grid-cols-4 xl:grid-rows-6 md:grid-row-7 xl:max-h-[684px]">
-			<Card className='md:col-span-2 order-1 xl:row-span-3 md:row-span-2 card-underlay relative'>
+    <div className="grid gap-4 md:grid-cols-4 xl:grid-rows-6 md:grid-row-7 xl:max-h-[684px] md:h-[708px]">
+			<Card className='md:col-span-2 order-1 xl:row-span-3 md:row-span-2 card-underlay relative md:min-h-[272px]'>
 				<h3 className="mb-6 text-next-heading-6 md:mb-8 md:text-next-heading-5 xl:mb-[58px] xl:text-next-heading-4 ai-design-card-title">
 					AI Design Shapes the Future Landscape
 				</h3>
@@ -63,10 +63,10 @@ const AIDesign = () => {
 					The AI industry is a leader in the Web4 revolution. With a proven track record, we navigate the dynamic landscape of artificial intelligence, shaping tomorrow&apos;s technology today.
 				</p>
 			</Card>
-			<Card className='md:col-span-2 !p-0 order-2 md:row-span-3 xl:row-span-4 xl:w-[647px] xl:h-[474px]'>
+			<Card className='md:col-span-2 !p-0 order-2 md:row-span-3 xl:row-span-4 xl:w-[647px] xl:h-[474px] md:w-[472px] md:min-h-[346px] h-[251px]'>
 				<AiCard />
 			</Card>
-			<Card className='!border-[0.5px] md:col-span-2 order-5 md:order-4 grid grid-cols-2 grid-rows-3 xl:grid-cols-3 xl:grid-rows-2 !p-0 xl:row-span-3 md:row-span-5 min-h-[420px] xl:min-h-[334px]'>
+			<Card className='!border-[0.5px] md:col-span-2 order-5 md:order-4 grid grid-cols-2 grid-rows-3 xl:grid-cols-3 xl:grid-rows-2 !p-0 xl:row-span-3 md:row-span-5 h-[420px] xl:h-[334px]'>
 				{aiLogoBlockData?.map((item, index) => {
 					return <IconCard item={item} key={index}/>
 				})}
@@ -122,7 +122,7 @@ export default function AI() {
 			companiesSectionData.map((item, index) => {
 				return (
 					<Animated 
-						delay={150 * (index + 1)}
+						delay={100 * (index + 1)}
 						className={cx('flex flex-col items-start justify-start xl:min-w-[632px] md:min-w-[450px]', {'xl:mb-[120px] md:mb-0 mb-14': index === 0})} 
 						key={index}
 						>
@@ -144,7 +144,7 @@ export default function AI() {
 	const reviewsTitle = useMemo(() => {
 		return (
 			<>
-				Discover our{' '}<br /><span className='ai-text'> customers&apos;</span>{' '}testimonials
+				Discover our{' '}<br /><span className='ai-text-header'> customers&apos;</span>{' '}testimonials
 			</>
 		)
 	}, [])

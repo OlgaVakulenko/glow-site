@@ -11,7 +11,7 @@ export default function GraphicBlock({ items, className, blockClassNames, descri
 				<Animated
 				key={index}
 				className={blockClassNames}
-				delay={300 * index}
+				delay={200 * index}
 				onViewChange={(isVisible) => {
 					setMap((c) => ({
 						...c,
