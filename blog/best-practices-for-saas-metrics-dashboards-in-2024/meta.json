@@ -1,0 +1,47 @@
+{
+  "data": {
+    "title": "Best Practices for SaaS Metrics Dashboards in 2024",
+    "description": "Imagine a world where data speaks louder than words. In 2024, that world is our reality. SaaS companies swim in oceans of information every day",
+    "html_description": "Imagine a world where data speaks louder than words. In 2024, that world is our reality. SaaS companies swim in oceans of information every day",
+    "image": "/img/blog/metrics-dashboard/Glow-Article-7.png",
+    "author_name": "Kovalsky Stanislav",
+    "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/2*5uDfocwzTmm0N9ZJGlTplQ.png",
+    "date": "Jul 23",
+    "created_at": 1721754425409,
+    "read_minutes": "10 min read",
+    "href": "best-practices-for-saas-metrics-dashboards-in-2024",
+    "tags": ["Process", "Design"],
+    "paragraphs": [
+      {
+        "id": "p1",
+        "text": "What is a SaaS Dashboard?"
+      },
+      {
+        "id": "p2",
+        "text": "Importance in SaaS Business"
+      },
+      {
+        "id": "p3",
+        "text": "Essential SaaS Metrics"
+      },
+      {
+        "id": "p4",
+        "text": "Steps to Create a SaaS Dashboard"
+      },
+      {
+        "id": "p5",
+        "text": "Overview of Different Types of Dashboards"
+      },
+      {
+        "id": "p6",
+        "text": "Overview of Design Best Practices"
+      },
+      {
+        "id": "p7",
+        "text": "Conclusion"
+      }
+    ],
+    "order": 1000,
+    "date_iso": "2024-07-23T17:07:26.773Z"
+  }
+}
