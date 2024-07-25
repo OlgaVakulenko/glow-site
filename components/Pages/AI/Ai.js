@@ -63,7 +63,7 @@ const AIDesign = () => {
 					The AI industry is a leader in the Web4 revolution. With a proven track record, we navigate the dynamic landscape of artificial intelligence, shaping tomorrow&apos;s technology today.
 				</p>
 			</Card>
-			<Card className='md:col-span-2 !p-0 order-2 md:row-span-3 xl:row-span-4 xl:w-[647px] xl:h-[474px] md:w-[472px] md:min-h-[346px] h-[251px]'>
+			<Card className='md:col-span-2 !p-0 order-2 md:row-span-3 xl:row-span-4 xl:min-w-[647px] xl:h-[474px] md:min-w-[472px] md:min-h-[346px] h-[251px]'>
 				<AiCard />
 			</Card>
 			<Card className='!border-[0.5px] md:col-span-2 order-5 md:order-4 grid grid-cols-2 grid-rows-3 xl:grid-cols-3 xl:grid-rows-2 !p-0 xl:row-span-3 md:row-span-5 h-[420px] xl:h-[334px]'>

@@ -744,41 +744,6 @@ a.white svg rect {
 	}
 }
 
-.ai-background {
-	width: 100%;
-  height: 100%;
-  position: relative;
-	opacity: 0.95;
-}
-
-.ai-background-overlay {
-	position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  pointer-events: none;
-} 
-
-@media screen and (min-width: 820px) {
-  .ai-background-overlay {
-		top: 100px;
-		height: 100%;
-	}
-}
-
-@media screen and (min-width: 1280px) {
-  .ai-background-overlay {
-		top: 0;
-		height: auto;
-	}
-}
-
-@media screen and (min-width: 1450px) {
-  .ai-background-overlay {
-		height: 100%;
-	}
-}
-
 .ai-logo-border {
 	position: relative;
   background: linear-gradient(180deg, rgba(64, 62, 81, 0.31) 0%, rgba(64, 62, 81, 0.1) 100%);
@@ -944,4 +909,145 @@ a.white svg rect {
 		transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 		transition-duration: 250ms;
+}
+
+.sync-lines {
+  position: relative; 
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	mask-position: center;
+}
+
+.sync-line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: auto;
+  transition: 5s cubic-bezier(.6,.6,0,1) opacity;
+}
+
+.ai-background {
+	width: 100%;
+  height: 100%;
+  position: relative;
+	opacity: 0.95;
+}
+
+.ai-background-overlay {
+	position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+	height: 100%;
+  pointer-events: none;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+} 
+
+.animated-line {
+	width: 800px;
+	height: 250px;
+	position: absolute;
+	top: 50px;
+	left: -300px;
+	transform: translate(-300px, -400px) rotate(-45deg);
+	background: linear-gradient(to bottom, rgba(45, 22, 22, .3) 0%, rgb(60, 38, 38, .5) 33%, rgba(168, 17, 15, 0.8) 61%, rgba(244,18,16,.7) 85%, rgba(244,18,16,.8) 97%, rgba(244,18,16,1) 100%)
+}
+
+.ai-background-overlay .animated-line:nth-of-type(2) {
+  left: calc(100% - 500px); 
+  transform: translate(300px, -400px) rotate(45deg); 
+}
+
+@media screen and (min-width: 820px) {
+  .ai-background-overlay {
+		top: 195px;
+		background-image: url('/img/ai-bg-tablet.svg');
+	}
+
+	.sync-lines {
+		-webkit-mask-image: url('/img/ai-bg-tablet.svg');
+		mask-image: url('/img/ai-bg-tablet.svg');
+	}
+
+	.animated-line {
+		animation: sync-line-2 linear infinite;
+		animation-duration: 8s;
+		animation-delay: 0s;
+	}
+
+	.ai-background-overlay .animated-line:nth-of-type(2) {
+		animation: sync-line-2-reverse linear infinite;
+		animation-duration: 8s;
+		animation-delay: 0s;
+	}
+}
+
+@media screen and (min-width: 1050px) {
+  .ai-background-overlay {
+		top: 190px;
+	}
+}
+
+@media screen and (min-width: 1100px) {
+  .ai-background-overlay {
+		top: 180px;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+  .ai-background-overlay {
+		top: 165px;
+	}
+}
+
+@media screen and (min-width: 1280px) {
+  .ai-background-overlay {
+		top: 0;
+		background-image: url('/img/ai-background.svg');
+	}
+
+	.sync-lines {
+		-webkit-mask-image: url('/img/ai-background.svg');
+		mask-image: url('/img/ai-background.svg'); 
+	}
+}
+
+@media screen and (min-width: 1450px) {
+  .ai-background-overlay {
+		height: 100%;
+	}
+}
+
+@media screen and (min-width: 1500px) {
+  .animated-line {
+		left: -100px;
+	}
+	
+	.ai-background-overlay .animated-line:nth-of-type(2) {
+		left: calc(100% - 1000px);  
+	}
+	
+}
+
+@keyframes sync-line-2 {
+  0% {
+    transform: translate(-100px, -100px) rotate(-45deg);
+  }
+  25%, 100% {
+    transform: translate(475px, 775px) rotate(-45deg);
+  }
+}
+
+@keyframes sync-line-2-reverse {
+  0% {
+    transform: translate(100px, -100px) rotate(45deg);
+  }
+  25%, 100% {
+    transform: translate(-475px, 775px) rotate(45deg);
+  }
 }
