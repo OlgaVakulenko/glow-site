@@ -1025,11 +1025,32 @@ a.white svg rect {
 
 @media screen and (min-width: 1500px) {
   .animated-line {
+		left: -250px;
+	}
+	
+	.ai-background-overlay .animated-line:nth-of-type(2) {
+		left: calc(100% - 500px);  
+	}
+}
+
+@media screen and (min-width: 1800px) {
+  .animated-line {
 		left: -100px;
 	}
 	
 	.ai-background-overlay .animated-line:nth-of-type(2) {
-		left: calc(100% - 1000px);  
+		left: calc(100% - 650px);  
+	}
+	
+}
+
+@media screen and (min-width: 2000px) {
+  .animated-line {
+		left: -50px;
+	}
+	
+	.ai-background-overlay .animated-line:nth-of-type(2) {
+		left: calc(100% - 800px);  
 	}
 	
 }
