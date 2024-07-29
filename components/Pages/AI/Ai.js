@@ -42,8 +42,8 @@ function Card({ className, children }) {
 function IconCard({ item }) {
   return (
    <div className='relative group ai-logo-border flex items-center justify-center flex-col'>
-		<div className={cx("group-hover:text-[#E33230] text-[#6B6B7B] transition-colors duration-800 z-[3]", {'jucr-icon': item.title === 'JUCR'})}>
-			{item.icon}
+		<div className="z-[3]">
+			<span className='group-hover:hidden'>{item.icon}</span><span className='group-hover:block group-hover:opacity-100 opacity-0 hidden transition-opacity duration-1000'>{item.hoverIcon}</span>
 		</div>
 		<div className="z-[3] hidden cursor-default text-next-body-xs opacity-0 group-hover:opacity-80 group-hover:block mt-2 transition-all duration-1000">
 			{item.title}
@@ -150,7 +150,7 @@ export default function AI() {
 	}, [])
 
   return (
-    <div className="pb-[52px] md:pb-[72px] xl:pb-[88px] relative overflow-hidden bg-[#0a0a0b] text-white">
+    <div className="dark-theme pb-[52px] md:pb-[72px] xl:pb-[88px] relative overflow-hidden bg-[#0a0a0b] text-white">
       <Head>
         <title>{getFullTitle('AI')}</title>
         <meta

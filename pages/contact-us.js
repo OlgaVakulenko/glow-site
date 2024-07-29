@@ -86,7 +86,7 @@ function FaqItem({ question, answer }) {
                     {answer}
                   </div>
                 )}
-                <div className="ml-6 mt-[2px] h-5 w-5 shrink-0 opacity-50 md:mr-0 xl:mr-0">
+                <div className="ml-6 mt-[2px] h-5 w-5 shrink-0 opacity-50 md:mr-0 xl:mr-0 faq-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-full w-full"

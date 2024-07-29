@@ -83,7 +83,7 @@ function Tag({ name, theme }) {
   return (
     <div className={cx('rounded-full px-[12px] py-[2px] font-inter text-[12px] uppercase leading-[24px] tracking-[0.02em]', 
 			{
-				'case-card-dark': theme === 'dark',
+				'glow-border-light': theme === 'dark',
 				'glow-border-dark bg-black-dim': theme !== 'dark'
 			}
 		)}>

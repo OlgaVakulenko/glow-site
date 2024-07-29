@@ -4,7 +4,7 @@ import Animated from '../../Animated';
 export default function AiHeader() {
 
   return (
-    <section className='ai-background pt-[88px] pb-[56px] md:py-[72px] xl:mt-[88px] xl:pb-[88px]'>
+    <section className='ai-background pt-[88px] pb-[56px] md:py-[72px] xl:mt-[88px] 2xl:mt-0 xl:pb-[88px] 2xl:pt-[155px]'>
       <Layout>
         <div className="xl:w-3/4 md:w-3/4 mx-auto xl:mt-[70px] xl:mb-[135px] md:mt-[135px] md:mb-[135px] mt-[52px] mb-0 flex flex-col items-center z-[6]">
           <Animated delay={100}>

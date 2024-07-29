@@ -6,9 +6,27 @@
 @import '../assets/fonts/satoshi/satoshi.css';
 
 @layer base {
+	:root {
+    --selection-bg-light: theme('colors.brand');
+    --selection-color-light: theme('colors.white');
+    --selection-bg-dark: rgba(232, 90, 87, 0.125);
+
+    --selection-bg: var(--selection-bg-light);
+    --selection-color: var(--selection-color-light);
+  }
+
+	.dark-theme {
+    --selection-bg: var(--selection-bg-dark);
+  }
+
   ::selection {
-    color: theme('colors.white');
-    background-color: theme('colors.brand');
+    background-color: var(--selection-bg);
+    color: var(--selection-color);
+  }
+
+  ::-moz-selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-color);
   }
 
   html {
@@ -682,7 +700,7 @@ a.white svg rect {
   --border-color-top: rgb(25, 25, 27);
 }
 
-.faq-adhoc:last-child {
+.fade-uo:last-child .faq-adhoc {
   --border-color-bottom: #D1D1D1;
   border-bottom: 1px solid var(--border-color-bottom);
 }
@@ -701,8 +719,14 @@ a.white svg rect {
 	stroke: rgba(255, 255, 255, 0.8);
 }
 
-.faq-adhoc.faq-dark:has([data-headlessui-state="open"]) svg path {
-	stroke: white;
+.faq-adhoc.faq-dark .faq-icon {
+	color: white;
+	opacity: .8;
+}
+
+.faq-adhoc.faq-dark:has([data-headlessui-state="open"]) .faq-icon {
+	color: white;
+	opacity: 1;
 }
 
 .faq-adhoc.faq-dark:has([data-headlessui-state="open"]),
@@ -711,12 +735,12 @@ a.white svg rect {
 	color: rgba(255, 255, 255, 1)
 }
 
-.faq-adhoc.faq-dark:last-child {
+.fade-up:last-child .faq-adhoc.faq-dark {
   --border-color-bottom: rgba(255, 255, 255, 0.20);
   border-bottom: 1px solid var(--border-color-bottom);
 }
 
-.faq-adhoc.faq-dark:last-child:has([data-headlessui-state="open"]) {
+.fade-up:last-child .faq-adhoc.faq-dark:has([data-headlessui-state="open"]) {
   --border-color-bottom: rgba(255, 255, 255, 0.20);
 }
 
@@ -866,7 +890,7 @@ a.white svg rect {
     background: radial-gradient(ellipse at 2% 5%, rgba(255, 75, 73, 0.6) 7%, rgba(187, 110, 187, 0) 70%);
   }
 	.bg-bl-dark {
-		background: radial-gradient(ellipse at 2% 5%, rgba(255, 75, 73, 0.6) 7%, rgba(187, 110, 187, 0.05) 70%);
+		background: radial-gradient(ellipse at 2% 5%, rgba(255, 75, 73, 0.6) 0%, rgba(255, 75, 73, 0.5) 20%, rgba(64, 62, 81, .18) 66%, rgba(64, 62, 81, .1) 95%);
 	}
 }
 
@@ -976,13 +1000,13 @@ a.white svg rect {
 
 	.animated-line {
 		animation: sync-line-2 linear infinite;
-		animation-duration: 8s;
+		animation-duration: 12s;
 		animation-delay: 0s;
 	}
 
 	.ai-background-overlay .animated-line:nth-of-type(2) {
 		animation: sync-line-2-reverse linear infinite;
-		animation-duration: 8s;
+		animation-duration: 12s;
 		animation-delay: 0s;
 	}
 }
@@ -1034,6 +1058,19 @@ a.white svg rect {
 }
 
 @media screen and (min-width: 1800px) {
+	.ai-background-overlay {
+		top: 0;
+		background-image: url('/img/ai-bg-xl.svg');
+		background-size: cover;
+	}
+
+	.sync-lines {
+		-webkit-mask-image: url('/img/ai-bg-xl.svg');
+		-webkit-mask-size: cover;
+		mask-image: url('/img/ai-bg-xl.svg'); 
+		mask-size: cover;
+	}
+
   .animated-line {
 		left: -100px;
 	}
@@ -1045,8 +1082,19 @@ a.white svg rect {
 }
 
 @media screen and (min-width: 2000px) {
+	.ai-background-overlay {
+		top: 14px;
+		background-image: url('/img/ai-bg-2xl.svg');
+	}
+
+	.sync-lines {
+		-webkit-mask-image: url('/img/ai-bg-2xl.svg');
+		mask-image: url('/img/ai-bg-2xl.svg'); 
+	}
+
   .animated-line {
-		left: -50px;
+		left: -250px;
+		width: 1000px;
 	}
 	
 	.ai-background-overlay .animated-line:nth-of-type(2) {
@@ -1060,7 +1108,7 @@ a.white svg rect {
     transform: translate(-100px, -100px) rotate(-45deg);
   }
   25%, 100% {
-    transform: translate(475px, 775px) rotate(-45deg);
+    transform: translate(475px, 910px) rotate(-45deg);
   }
 }
 
@@ -1069,6 +1117,6 @@ a.white svg rect {
     transform: translate(100px, -100px) rotate(45deg);
   }
   25%, 100% {
-    transform: translate(-475px, 775px) rotate(45deg);
+    transform: translate(-475px, 910px) rotate(45deg);
   }
 }
