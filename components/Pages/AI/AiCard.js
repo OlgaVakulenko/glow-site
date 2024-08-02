@@ -25,7 +25,7 @@ export default function AiCard() {
   }, []);
 
   useEffect(() => {
-    if (!canvasRef.current || !containerRef.current) return;
+    if (!canvasRef.current || !containerRef.current || !centralCircleRef.current || !leftSvgRef.current || !rightSvgRef.current) return;
 
     const canvas = canvasRef.current;
     const container = containerRef.current;

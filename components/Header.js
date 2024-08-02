@@ -446,8 +446,9 @@ export default function Header({
                 // && !isBottom
                 !subMenuActive) ||
               !headerActive,
-            'bg-white': backdropActive ,
-						'bg-[#0a0a0b]': t === 'dark',
+            'bg-transparent': isTop,
+            'bg-white': backdropActive && !isTop,
+            'bg-[#0a0a0b]': t === 'dark' && !isTop,
             '!transition-none': isRouteTransition,
           }
         )}

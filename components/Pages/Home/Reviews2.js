@@ -284,7 +284,7 @@ function ReviewCard({
                   className="shadow-as-border shadow-checkbox-light md:hidden"
                 />
               </div>
-              <div className="mb-1 flex min-h-8 items-center text-next-body-m   font-medium md:mb-1 md:min-h-0 xl:text-next-body-m xl:font-normal">
+              <div className="mb-1 flex min-h-8 items-center text-next-body-m   font-normal md:mb-1 md:min-h-0 xl:text-next-body-m xl:font-normal">
                 {name}
               </div>
               <div className="mb-8 text-next-body-s opacity-80 xl:text-next-body-s">
