@@ -1062,17 +1062,17 @@ a.white svg rect {
 } 
 
 .animated-line {
-	width: 800px;
-	height: 250px;
+	width: 640px;
+	height: 160px;
 	position: absolute;
-	top: 50px;
+	top: -100px;
 	left: -300px;
 	transform: translate(-300px, -400px) rotate(-45deg);
 	background: linear-gradient(to bottom, rgba(45, 22, 22, .3) 0%, rgb(60, 38, 38, .5) 33%, rgba(168, 17, 15, 0.8) 61%, rgba(244,18,16,.7) 85%, rgba(244,18,16,.8) 97%, rgba(244,18,16,1) 100%)
 }
 
 .ai-background-overlay .animated-line:nth-of-type(2) {
-  left: calc(100% - 500px); 
+  left: calc(100% - 300px); 
   transform: translate(300px, -400px) rotate(45deg); 
 }
 
@@ -1097,7 +1097,16 @@ a.white svg rect {
 
 @media screen and (min-width: 1050px) {
   .ai-background-overlay {
-		top: 190px;
+		top: 190px; 
+	}
+
+	.animated-line {
+		width: 800px;
+		height: 250px;
+	}
+
+	.ai-background-overlay .animated-line:nth-of-type(2) {
+		left: calc(100% - 500px); 
 	}
 }
 
@@ -1145,22 +1154,21 @@ a.white svg rect {
 
   .animated-line {
 		left: -100px;
+		width: 900;
 	}
 	
 	.ai-background-overlay .animated-line:nth-of-type(2) {
 		left: calc(100% - 650px);  
 	}
-	
 }
 
 @media screen and (min-width: 2000px) {
 	.ai-background-overlay {
-		top: 14px;
 		background-image: url('/img/ai/ai-bg-2xl.svg');
 	}
 
   .animated-line {
-		left: -100px;
+		left: -250px;
 	}
 	
 	.ai-background-overlay .animated-line:nth-of-type(2) {
@@ -1183,7 +1191,7 @@ a.white svg rect {
 		transform: translate(375px, 700px) rotate(-45deg);
 	}
 	 100% {
-    transform: translate(475px, 810px) rotate(-45deg);
+    transform: translate(575px, 910px) rotate(-45deg);
   }
 }
 
@@ -1201,6 +1209,6 @@ a.white svg rect {
 		transform: translate(-375px, 700px) rotate(45deg);
 	}
   100% {
-    transform: translate(-475px, 810px) rotate(45deg);
+    transform: translate(-475px, 910px) rotate(45deg);
   }
 }

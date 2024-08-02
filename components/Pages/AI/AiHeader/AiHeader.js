@@ -2,10 +2,10 @@ import { useEffect, useState, useRef } from 'react';
 import Layout from '../../../Layout';
 import Animated from '../../../Animated';
 
-const layersCount = { '2xl': 11, 'xl': 10, 'lg': 7, 'md': 9 };
+const layersCount = { '2xl': 11, 'xl': 10, 'lg': 7, 'md': 7 };
 
 const animationDuration = 3000; 
-const animationDelay = 1; 
+const animationDelay = 10; 
 
 export default function AiHeader() {
   const [screenSize, setScreenSize] = useState(undefined);
