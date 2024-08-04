@@ -91,11 +91,11 @@ export default function FaqItem({ question, answer }) {
         <AnimatePresence initial={false}>
           <motion.div
             ref={contentRef}
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: isOpen ? height : 0, opacity: isOpen ? 1 : 0 }}
-            exit={{ height: 0, opacity: 0 }}
+            initial={{ height: 0, opacity: 0, marginTop: 0 }}
+            animate={{ height: isOpen ? height : 0, opacity: isOpen ? 1 : 0, marginTop: isOpen ? '1.5rem' : 0 }}
+            exit={{ height: 0, opacity: 0, marginTop: 0 }}
             transition={{ height: { duration: 0.3 }, opacity: { duration: 0 } }}
-            className="mt-6 overflow-hidden whitespace-pre-line text-next-body-s"
+            className="overflow-hidden whitespace-pre-line text-next-body-s"
           >
             {answer}
           </motion.div>
