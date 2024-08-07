@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 import { themeAtom } from '../lib/theme';
@@ -13,6 +14,11 @@ import { faqItems } from '../data/faq-items';
 export function FAQ({ padding, items = faqItems, animate = false }) {
 	const [theme] = useAtom(themeAtom);
 	const TitleTag = animate ? Animated : 'h2';
+	const [openIndex, setOpenIndex] = useState(null);
+
+  const handleOpen = (index) => {
+    setOpenIndex(index === openIndex ? null : index);
+  };
 
   return (
     <div
@@ -31,7 +37,16 @@ export function FAQ({ padding, items = faqItems, animate = false }) {
 					key={idx}
 					delay={100 * idx}
 				>
-          <FaqItem key={idx} question={item.q} answer={item.a} />
+          <FaqItem
+              key={idx}
+              question={item.q}
+              answer={item.a}
+              setOpenState={() => handleOpen(idx)}
+              isOpen={openIndex === idx}
+              className={cx({
+                'next-to-open': openIndex !== null && idx === openIndex + 1,
+              })}
+            />
 					</Animated>
         ))}
       </div>

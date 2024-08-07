@@ -1,60 +1,71 @@
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 import { themeAtom } from '../../lib/theme';
+import { mediaAtom } from '../../lib/agent';
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function FaqItem({ question, answer }) {
+export default function FaqItem({ question, answer, setOpenState, isOpen, className }) {
   const [theme] = useAtom(themeAtom);
+	const [media] = useAtom(mediaAtom);
   const dark = theme === 'dark';
-  const [isOpen, setIsOpen] = useState(false);
-  const [height, setHeight] = useState('auto');
-  const contentRef = useRef(null);
+	const [summaryHeight, setSummaryHeight] = useState(0);
+  const [fullHeight, setFullHeight] = useState(0);
+	const mobileContentRef = useRef(null);
+	const summaryRef = useRef(null);
+  const fullTextRef = useRef(null);
 
-  const toggleAccordion = () => setIsOpen(!isOpen);
-
-  useEffect(() => {
-    if (isOpen && contentRef.current) {
-      setHeight(contentRef.current.scrollHeight);
-    } else {
-      setHeight(0);
-    }
-  }, [isOpen]);
+	useEffect(() => {
+		if (summaryRef.current && fullTextRef.current || mobileContentRef.current && media === 'mobile') {
+			setSummaryHeight(summaryRef.current.scrollHeight);
+			setFullHeight(fullTextRef.current.scrollHeight);
+			if (isOpen) {
+				if (media === 'mobile') setFullHeight(mobileContentRef.current.scrollHeight);
+				else if (media !== 'mobile') setFullHeight(fullTextRef.current.scrollHeight);
+			}
+		}
+	}, [answer, isOpen, media]);
 
   return (
-    <div className={cx("faq-adhoc w-full pb-[31px] pt-[32px]", { 'faq-dark': dark })}>
-      <div onClick={toggleAccordion} className="flex w-full justify-between text-left md:flex md:gap-6 xl:flex cursor-pointer">
+    <div className={cx("faq-adhoc w-full pb-[31px] pt-[32px]", className, { 
+			'faq-dark': dark,
+			'open': isOpen, 
+			})}
+		>
+      <div onClick={setOpenState} className="flex w-full justify-between text-left md:flex md:gap-6 xl:flex cursor-pointer">
         <h3 className="text-next-heading-7 md:w-full md:min-w-[426px] md:max-w-[426px] xl:col-span-5 xl:pr-8">
           {question}
         </h3>
         <div className="flex shrink-0 items-center justify-between overflow-hidden text-next-body-s md:col-span-5 md:shrink md:items-start md:text-next-body-s xl:col-span-7 xl:text-next-body-m">
-          <div className="hidden md:block xl:w-full xl:max-w-[650px]">
             <AnimatePresence initial={false}>
-						{isOpen ? (
-							<motion.div
-								key="content"
-								className="whitespace-pre-line md:block xl:w-full xl:max-w-[650px]"
-								initial={{ height: 0, opacity: 0 }}
-								animate={{ height: 'auto', opacity: 1 }}
-								exit={{ height: 0, opacity: 0 }}
-								transition={{ duration: 0.3, opacity: {duration: 0} }}
-							>
-								{answer}
-							</motion.div>
-						) : (
-							<motion.div
-								key="summary"
-								className="truncate md:block xl:w-full xl:max-w-[650px]"
-								initial={{ height: 0, opacity: 0 }}
-								animate={{ height: 'auto', opacity: 1 }}
-								exit={{ opacity: 0 }}
-								transition={{ duration: 0.3, opacity: {duration: 0} }}
-							>
-								{answer}
-							</motion.div>
-						)}
+						<motion.div
+              key="faq-content"
+              initial={{ height: summaryHeight }}
+              animate={{ height: isOpen ? fullHeight : summaryHeight }}
+              exit={{ height: summaryHeight }}
+              transition={{ duration: 0.3 }}
+              className="hidden md:block xl:w-full xl:max-w-[650px] md:max-w-[466px]"
+            >
+              <div
+                ref={summaryRef}
+								className={cx('truncate', {
+									'invisible leading-[0]': isOpen,
+									'visible leading-[inherit]': !isOpen
+								})}
+              >
+                {answer}
+              </div>
+              <div
+                ref={fullTextRef}
+								className={cx('whitespace-pre-line', {
+									'visible': isOpen,
+									'invisible': !isOpen
+								})}
+              >
+                {answer}
+              </div>
+            </motion.div>
             </AnimatePresence>
-          </div>
           <div className={cx("ml-6 mt-[2px] h-5 w-5 shrink-0 opacity-50 md:mr-0 xl:mr-0 faq-icon", {'open': isOpen})}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -90,9 +101,9 @@ export default function FaqItem({ question, answer }) {
       <div className="md:hidden">
         <AnimatePresence initial={false}>
           <motion.div
-            ref={contentRef}
+            ref={mobileContentRef}
             initial={{ height: 0, opacity: 0, marginTop: 0 }}
-            animate={{ height: isOpen ? height : 0, opacity: isOpen ? 1 : 0, marginTop: isOpen ? '1.5rem' : 0 }}
+            animate={{ height: isOpen ? fullHeight : 0, opacity: isOpen ? 1 : 0, marginTop: isOpen ? '1.5rem' : 0 }}
             exit={{ height: 0, opacity: 0, marginTop: 0 }}
             transition={{ height: { duration: 0.3 }, opacity: { duration: 0 } }}
             className="overflow-hidden whitespace-pre-line text-next-body-s"

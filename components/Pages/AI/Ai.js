@@ -66,7 +66,7 @@ const AIDesign = () => {
 					The AI industry is a leader in the Web4 revolution. With a proven track record, we navigate the dynamic landscape of artificial intelligence, shaping tomorrow&apos;s technology today.
 				</p>
 			</Card>
-			<Card className='md:col-span-2 !p-0 order-2 md:row-span-3 xl:row-span-4 xl:min-w-[647px] xl:h-[474px] md:min-w-[472px] md:min-h-[346px] h-[251px]'>
+			<Card className='md:col-span-2 !p-0 order-2 md:row-span-3 xl:row-span-4 xl:min-w-[647px] xl:h-[474px] md:min-w-[472px] md:min-h-[346px] h-[251px] ai-card glow-border-light3'>
 				<AiCard />
 			</Card>
 			<Card className='!border-[0.5px] md:col-span-2 order-5 md:order-4 grid grid-cols-2 grid-rows-3 xl:grid-cols-3 xl:grid-rows-2 !p-0 xl:row-span-3 md:row-span-5 h-[420px] xl:h-[334px]'>
@@ -76,7 +76,7 @@ const AIDesign = () => {
 			</Card>
 			<Card className='self-end xl:w-[316px] xl:h-[194px] md:col-span-2 xl:col-span-1 md:!px-8 xl:pt-9 xl:pb-[30px] md:py-6 p-4 order-3 md:order-4 xl:row-span-2 md:row-span-2'>
 				<p className='md:text-next-heading-4 text-next-heading-5 mb-5 xl:mb-8 design-number-card-title'>$196B+</p>
-				<p className='text-next-body-s design-number-card-description'>The estimated value of the global AI market <br className="hidden md:block xl:hidden" /> as of 2024.</p>
+				<p className='text-next-body-s design-number-card-description'>The estimated value of the<br className='hidden xl:block'/> global AI market <br className="hidden md:block xl:hidden" /> as of 2024.</p>
 			</Card>
 			<Card className='self-end xl:w-[316px] xl:h-[194px] md:col-span-2 xl:col-span-1 md:!px-8 xl:pt-9 xl:pb-[30px] md:py-6 p-4 order-4 md:order-5 xl:row-span-2 md:row-span-2'>
 				<p className='md:text-next-heading-4 text-next-heading-5 mb-5 xl:mb-8 design-number-card-title'>↑13x</p>
@@ -126,7 +126,7 @@ export default function AI() {
 				return (
 					<Animated 
 						delay={100 * (index + 1)}
-						className={cx('flex flex-col items-start justify-start xl:min-w-[632px] md:min-w-[450px]', {'xl:mb-[120px] md:mb-0 mb-14': index === 0})} 
+						className={cx('flex flex-col items-start justify-start xl:min-w-[632px] md:min-w-[450px] text-[#FFFFFFCC]', {'xl:mb-[120px] md:mb-0 mb-14': index === 0})} 
 						key={index}
 						>
 						<div className={cx(
@@ -137,7 +137,7 @@ export default function AI() {
 							}
 							)}>{item.tagIcon}<span className='pl-[10px]'>{item.tagText}</span></div>
 						<div className='text-next-heading-6 md:text-next-heading-5 !font-inter md:pt-8 pt-6 pb-4 md:!leading-9 xl:tracking-normal white-gradient-text'>{item.title}</div>
-						<div className='md:text-next-body-m text-next-body-s opacity-80'>{item.description}</div>
+						<div className='md:text-next-body-m text-next-body-s'>{item.description}</div>
 					</Animated>
 				)
 			})
@@ -223,7 +223,7 @@ export default function AI() {
 					items={iconsSectionItems}
 					sectionClasses="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 xl:mt-20 md:mt-14 mt-10 md:gap-x-8 gap-y-11"
 					blockClasses='gap-6'
-					titleClasses="text-body-heading-m2 font-satoshi"
+					titleClasses="text-body-heading-m2 font-satoshi font-normal"
 					iconClasses='w-[72px] h-[72px] xl:w-20 xl:h-20 ' 
 				/>
 			</Box>
