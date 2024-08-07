@@ -148,8 +148,8 @@ export default function AiHeader() {
         {screenSize && <div
           className='relative top-0 w-full h-full'
           style={{
-            WebkitMaskImage: activeMaskLayer ? `url(${activeMaskLayer})` : `url(/img/ai/mask/${screenSize}/default.svg)`,
-            maskImage: activeMaskLayer ? `url(${activeMaskLayer})` : `url(/img/ai/mask/${screenSize}/default.svg)`,
+            // WebkitMaskImage: activeMaskLayer ? `url(${activeMaskLayer})` : `url(/img/ai/mask/${screenSize}/default.svg)`,
+            // maskImage: activeMaskLayer ? `url(${activeMaskLayer})` : `url(/img/ai/mask/${screenSize}/default.svg)`,
             WebkitMaskSize: 'cover',
             maskSize: 'cover',
             WebkitMaskRepeat: 'no-repeat',

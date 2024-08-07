@@ -1156,6 +1156,10 @@ a.white svg rect {
     background-image: url('/img/ai/ai-bg-xl.svg');
     background-size: cover;
   }
+
+	.animated-line {
+		width: 1500px;
+	}
 }
 
 @media screen and (min-width: 2000px) {
