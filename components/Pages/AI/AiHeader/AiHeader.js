@@ -26,10 +26,10 @@ const rightLines = {
 const animationDurationMap = {
   '2xl': 7000,
   'xl': 6000,
-  'lg': 5500,
-  'md': 5000
+  'lg': 6000,
+  'md': 6000
 };
-const downLineAnimationDuration = 4500;
+const downLineAnimationDuration = 6500;
 const animationDelay = 10;
 
 export default function AiHeader() {

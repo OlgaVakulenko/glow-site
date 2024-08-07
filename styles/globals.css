@@ -1092,7 +1092,7 @@ a.white svg rect {
 }
 
 .animated-line.right {
-  top: -200px;
+  top: 100px;
   right: -300px;
   transform: translate(300px, -400px) rotate(45deg);
   animation: line-up-to-down-right linear infinite;
@@ -1179,7 +1179,7 @@ a.white svg rect {
 
 @keyframes line-up-to-down-right {
   0% {
-    transform: translate(calc(100vw - 100px), -100px) rotate(45deg);
+    transform: translate(100px, -100px) rotate(45deg);
   }
   100% {
     transform: translate(calc(-100vw - 100px), calc(100vh + 100px)) rotate(45deg);
