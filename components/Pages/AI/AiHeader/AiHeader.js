@@ -45,7 +45,7 @@ export default function AiHeader() {
   const handleResize = useCallback(() => {
     const width = window.innerWidth;
     if (width >= 2000) setScreenSize('2xl');
-    else if (width >= 1800) setScreenSize('xl');
+    else if (width >= 1600) setScreenSize('xl');
     else if (width >= 1280) setScreenSize('lg');
     else if (width >= 1024) setScreenSize('md');
   }, []);

@@ -1150,7 +1150,7 @@ a.white svg rect {
   }
 }
 
-@media screen and (min-width: 1800px) {
+@media screen and (min-width: 1600px) {
   .ai-background-overlay {
     top: 0;
     background-image: url('/img/ai/ai-bg-xl.svg');
