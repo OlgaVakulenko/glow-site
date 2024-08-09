@@ -4,9 +4,11 @@ import React, { useEffect, useMemo } from 'react';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useMediaAtom } from '../../../lib/agent';
+import { themeAtom } from '../../../lib/theme';
 import { useIsClient } from '../../../lib/utils';
 import DragCursorContainer from '../../DragCursor';
 import Layout from '../../Layout';
+import { useAtom } from 'jotai';
 
 const SliderProgress = dynamic(() => import('../../SliderProgress'), {
   ssr: false,
@@ -192,6 +194,9 @@ function ReviewAvatar({ image }) {
 }
 
 export function ClutchRating({ rating = 5, className = '' }) {
+	const [theme] = useAtom(themeAtom);
+	const dark = theme === 'dark';
+
   const stars = useMemo(() => {
     const stars = [];
     for (let i = 0; i < rating; i++) {
@@ -205,10 +210,12 @@ export function ClutchRating({ rating = 5, className = '' }) {
     <div
       className={cx(
         className,
-        'flex items-center rounded-full bg-white px-4 py-2 pl-2 text-[#d05c54]'
+        'flex items-center rounded-full px-4 py-2 pl-2 text-[#d05c54]',
+				{'bg-white': !dark, 'bg-transparent border border-[#ffffff26]': dark}
       )}
     >
       <svg
+				className={cx({'text-[#19191B]': !dark, 'text-white': dark})}
         width="21"
         height="24"
         viewBox="0 0 21 24"
@@ -217,7 +224,7 @@ export function ClutchRating({ rating = 5, className = '' }) {
       >
         <path
           d="M16.3946 17.0594C15.1962 18.1417 13.6138 18.7417 11.8773 18.7417C8.04941 18.7417 5.23831 15.9176 5.23831 12.0402C5.23831 8.16273 7.95997 5.45752 11.8773 5.45752C13.5835 5.45752 15.1962 6.02842 16.4249 7.11078L17.2601 7.83236L20.9711 4.10561L20.0423 3.26377C17.8587 1.2829 14.9595 0.171509 11.876 0.171509C4.99614 0.171509 0 5.15894 0 12.0111C0 18.8343 5.11585 24 11.876 24C15.0173 24 17.9467 22.8886 20.1029 20.876L21 20.0341L17.2312 16.3102L16.3946 17.0594Z"
-          fill="#19191B"
+          fill="currentColor"
         />
         <path
           d="M11.6961 8.10339C12.7515 8.10339 13.7636 8.52458 14.5099 9.27429C15.2561 10.024 15.6754 11.0408 15.6754 12.1011C15.6754 13.1613 15.2561 14.1782 14.5099 14.9279C13.7636 15.6776 12.7515 16.0988 11.6961 16.0988C10.6407 16.0988 9.62857 15.6776 8.8823 14.9279C8.13604 14.1782 7.7168 13.1613 7.7168 12.1011C7.7168 11.0408 8.13604 10.024 8.8823 9.27429C9.62857 8.52458 10.6407 8.10339 11.6961 8.10339Z"
@@ -243,7 +250,7 @@ export function ClutchRating({ rating = 5, className = '' }) {
         />
       </svg> */}
       {stars}
-      <span className="ml-[6px] text-[14px] leading-[17px] text-black">
+      <span className={cx ("ml-[6px] text-[14px] leading-[17px]", {'text-black': !dark, 'text-white': dark})}>
         5.0
       </span>
     </div>
@@ -251,6 +258,8 @@ export function ClutchRating({ rating = 5, className = '' }) {
 }
 
 function ReviewSlide({ review }) {
+	const [theme] = useAtom(themeAtom);
+
   return (
     <Layout className="h-full">
       <div className="flex h-full flex-col">
@@ -258,13 +267,13 @@ function ReviewSlide({ review }) {
           <div className="flex">
             <div className="relative z-[1] h-[64px] w-[64px] rounded-full bg-black">
               <div className="absolute left-1/2 top-1/2 w-full max-w-[55px] -translate-x-1/2 -translate-y-1/2">
-                <img src={review.companyAvatar} alt="" className="mx-auto" />
+                <img src={review.companyAvatar} alt="" className={cx("mx-auto", {})} />
               </div>
             </div>
             <ReviewAvatar image={review.avatar} />
           </div>
 
-          <ClutchRating className="md:hidden" />
+          <ClutchRating className={cx("md:hidden", {'': theme === 'dark'})} />
         </div>
         <div className="grow border-b border-black pb-[43px] text-body-m md:pb-6 md:text-body-l xl:pb-11">
           {review.text}

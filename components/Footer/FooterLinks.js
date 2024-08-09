@@ -2,6 +2,8 @@ import LocalTime from '../LocalTime';
 import RollingText from '../RollingText';
 import Weather from '../Weather';
 import cx from 'clsx';
+import { useAtom } from 'jotai';
+import { themeAtom } from '../../lib/theme';
 import { useEffect, useMemo, useRef } from 'react';
 import { useInnerWidth } from '../../lib/utils';
 import Link from 'next/link';
@@ -190,12 +192,14 @@ const links = [
 ];
 
 export function SocialLinks() {
+	const [theme] = useAtom(themeAtom);
+
   return (
     <div className="flex w-full justify-between py-2 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:justify-center md:gap-4">
       {links.map((link) => (
         <a
           title={link.label}
-          className="whitespace-nowrap p-1"
+          className={cx('whitespace-nowrap p-1', {'white': theme === 'dark'})}
           key={link.href}
           href={link.href}
           target="_blank"
@@ -210,6 +214,8 @@ export function SocialLinks() {
 
 export default function FooterLinks({ className = '' }) {
   let _links = links;
+	const [theme] = useAtom(themeAtom);
+	const dark = theme === 'dark';
 
   return (
     <div
@@ -218,7 +224,7 @@ export default function FooterLinks({ className = '' }) {
         className
       )}
     >
-      <div className="flex w-full items-center justify-between py-3 md-safe:w-auto md-safe:justify-start">
+      <div className={cx('flex w-full items-center justify-between py-3 md-safe:w-auto md-safe:justify-start', {'text-white': dark})}>
         <div className="flex shrink-0 items-center">
           <div className="styag mr-4 w-[24px] overflow-hidden rounded md-safe:mr-4">
             <div className="h-[9px] bg-[#156DD1]"></div>
@@ -234,10 +240,10 @@ export default function FooterLinks({ className = '' }) {
       <SocialLinks />
       <div className="relative flex w-full shrink-0 justify-between px-2 py-4 md:gap-6 md-safe:w-auto xl:space-x-9">
         <div className="absolute left-1/2 top-1/2 h-[16px] w-[1px] -translate-x-1/2 -translate-y-1/2 bg-checkbox-light md:hidden"></div>
-        <Link href="/privacy-policy">
+        <Link href="/privacy-policy" className={cx({'text-white': dark})}>
           <RollingText text="Privacy Policy" height={24}></RollingText>
         </Link>
-        <Link href="terms-of-service">
+        <Link href="terms-of-service" className={cx({'text-white': dark})}>
           <RollingText text="Terms Of Service" height={24}></RollingText>
         </Link>
       </div>

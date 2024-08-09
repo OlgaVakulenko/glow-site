@@ -69,13 +69,13 @@ export function BurgerIcon({ isOpen = false, theme, size = 32 }) {
     <svg
       style={{ color: stroke }}
       className="transition-colors"
-      width="26"
+      width="36"
       height="14"
       viewBox="0 0 26 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M0 1H26M0 13H26" stroke="#19191B" strokeWidth="1.6776" />
+      <path d="M0 1H26M0 13H26" stroke="currentColor" strokeWidth="1.6776" />
     </svg>
   );
 }
@@ -159,7 +159,7 @@ const BurgerMenu = ({ menuId, links }) => {
                 className="flex items-center justify-center"
                 title="home"
               >
-                <Logo />
+                <Logo isBurgerMenu/>
               </Link>
               <div className="hidden md:block">
                 <Link
@@ -446,7 +446,9 @@ export default function Header({
                 // && !isBottom
                 !subMenuActive) ||
               !headerActive,
-            'bg-white': backdropActive,
+            'bg-transparent': isTop,
+            'bg-white': backdropActive && !isTop,
+            'bg-[#0a0a0b]': t === 'dark' && !isTop,
             '!transition-none': isRouteTransition,
           }
         )}
@@ -468,9 +470,9 @@ export default function Header({
         <div className="relative">
           <Layout>
             <div
-              className="flex items-center justify-between py-[28px] font-medium md:min-h-[88px] md:justify-start md:py-6 xl:py-[20px]"
+              className="flex items-center justify-between py-[28px] md:min-h-[88px] md:justify-start md:py-6 xl:py-[20px]"
               style={{
-                '--header-theme':
+                '--header-theme': 
                   t === 'brand' || t === 'white'
                     ? 'black'
                     : t === 'dark'

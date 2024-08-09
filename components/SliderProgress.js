@@ -3,6 +3,7 @@ import cx from 'clsx';
 import gsap from '../dist/gsap';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { useSwiper } from 'swiper/react';
+import { addLeadingZero } from '../lib/utils';
 
 export default function SliderProgress({
   className = '',
@@ -95,15 +96,22 @@ export default function SliderProgress({
     }
 
     if (mode === 'realIndex') {
-      const onRealIndexChange = (e) => {
-        setRealIndex(Math.abs(e.realIndex));
+			const updateRealIndex = () => {
+        setRealIndex(swiper.realIndex);
       };
-
-      swiper.on('realIndexChange', onRealIndexChange);
-
+      swiper.on('slideChange', updateRealIndex);
       return () => {
-        swiper.off('realIndexChange', onRealIndexChange);
+        swiper.off('slideChange', updateRealIndex);
       };
+      // const onRealIndexChange = (e) => {
+      //   setRealIndex(Math.abs(e.realIndex));
+      // };
+
+      // swiper.on('realIndexChange', onRealIndexChange);
+
+      // return () => {
+      //   swiper.off('realIndexChange', onRealIndexChange);
+      // };
     }
   }, [swiper, mode]);
 
@@ -152,41 +160,53 @@ export default function SliderProgress({
   }, [trackWidth, left]);
 
   return (
-    <div
-      ref={ref}
-      className={cx(
-        'relative flex h-[16px] items-center justify-center overflow-hidden',
-        className
-      )}
-    >
-      {slidesCount > 0 && (
-        <>
-          <div
-            className={cx('h-[1px] w-full bg-black opacity-20', {
-              'bg-black': theme === 'white',
-              'bg-white': theme === 'dark',
-            })}
-          ></div>
-          {/* <div
-            ref={thumbRef3}
-            className="absolute top-1/2 left-0 h-[4px] w-full -translate-y-2/4 bg-black"
-          ></div> */}
-          <div
-            ref={thumbRef}
-            className={cx(
-              'absolute left-0 top-1/2 h-[4px] w-full -translate-y-2/4 ',
-              {
-                'bg-black': theme === 'white',
-                'bg-white': theme === 'dark',
-              }
-            )}
-          ></div>
-          {/* <div
-            ref={thumbRef2}
-            className="absolute top-1/2 left-0 h-[4px] w-full -translate-y-2/4 bg-black"
-          ></div> */}
-        </>
-      )}
-    </div>
+		<div className="relative">
+			<div
+				ref={ref}
+				className={cx(
+					'relative flex h-[16px] items-center justify-center overflow-hidden slider-progress',
+					className
+				)}
+			>
+				{slidesCount > 0 && (
+					<>
+						<div
+							className={cx('h-[1px] w-full bg-black opacity-20', {
+								'bg-black': theme === 'white',
+								'bg-white': theme === 'dark',
+							})}
+						></div>
+						{/* <div
+							ref={thumbRef3}
+							className="absolute top-1/2 left-0 h-[4px] w-full -translate-y-2/4 bg-black"
+						></div> */}
+						<div
+							ref={thumbRef}
+							className={cx(
+								'absolute left-0 top-1/2 h-[4px] w-full -translate-y-2/4',
+								{
+									'bg-black': theme === 'white',
+									'bg-white': theme === 'dark',
+								}
+							)}
+						></div>
+						{/* <div
+							ref={thumbRef2}
+							className="absolute top-1/2 left-0 h-[4px] w-full -translate-y-2/4 bg-black"
+						></div> */}
+					</>
+				)}
+			</div>
+			{mode === 'realIndex' && 
+				<div className={cx(
+					'absolute top-[-30px] end-0 w-full text-end text-[18px]',
+						{
+							'text-black': theme === 'white',
+							'text-white': theme === 'dark',
+						}
+					)}>
+					{addLeadingZero(realIndex + 1)} / {addLeadingZero(slidesCount)}
+				</div>}
+		</div>
   );
 }
