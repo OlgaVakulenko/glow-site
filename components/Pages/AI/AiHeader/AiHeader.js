@@ -47,7 +47,7 @@ export default function AiHeader() {
     if (width >= 2000) setScreenSize('2xl');
     else if (width >= 1600) setScreenSize('xl');
     else if (width >= 1280) setScreenSize('lg');
-    else if (width >= 1024) setScreenSize('md');
+    else if (width >= 820) setScreenSize('md');
   }, []);
 
   useEffect(() => {
@@ -150,12 +150,6 @@ export default function AiHeader() {
           style={{
             WebkitMaskImage: activeMaskLayer ? `url(${activeMaskLayer})` : `url(/img/ai/mask/${screenSize}/default.svg)`,
             maskImage: activeMaskLayer ? `url(${activeMaskLayer})` : `url(/img/ai/mask/${screenSize}/default.svg)`,
-            WebkitMaskSize: 'cover',
-            maskSize: 'cover',
-            WebkitMaskRepeat: 'no-repeat',
-            maskRepeat: 'no-repeat',
-            WebkitMaskPosition: 'center',
-            maskPosition: 'center',
           }}
         >
           <div className='animated-line left' ref={leftRef} style={{ visibility: 'hidden', animation: 'none' }}></div>

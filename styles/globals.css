@@ -1077,6 +1077,18 @@ a.white svg rect {
   background-position: center;
 }
 
+.ai-background-overlay > div {
+	-webkit-mask-size: contain;
+	-moz-mask-size: contain;
+	mask-size: contain;
+	-webkit-mask-repeat: no-repeat;
+	-moz-mask-repeat: no-repeat;
+	mask-repeat: no-repeat;
+	-webkit-mask-position: center;
+	-moz-mask-position: center;
+	mask-position: center;
+}
+
 .animated-line {
   width: 1000px;
   height: 160px;
@@ -1114,15 +1126,36 @@ a.white svg rect {
 
 @media screen and (min-width: 820px) {
   .ai-background-overlay {
-    top: 195px;
+    /* top: 195px; */
+		top: 263px;
     background-image: url('/img/ai/ai-bg-tablet.svg');
+		background-size: contain;
+  }
+}
+
+@media screen and (min-width: 847px) {
+  .ai-background-overlay {
+    top: 225px;
+  }
+}
+
+@media screen and (min-width: 950px) {
+  .ai-background-overlay {
+    top: 205px;
   }
 }
 
 @media screen and (min-width: 1050px) {
   .ai-background-overlay {
     top: 190px;
+		background-size: cover;
   }
+
+	.ai-background-overlay>div {
+		-webkit-mask-size: cover;
+		-moz-mask-size: cover;
+		mask-size: cover;
+	}
 }
 
 @media screen and (min-width: 1100px) {

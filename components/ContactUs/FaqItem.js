@@ -40,11 +40,11 @@ export default function FaqItem({ question, answer, setOpenState, isOpen, classN
             <AnimatePresence initial={false}>
 						<motion.div
               key="faq-content"
-              initial={{ height: summaryHeight }}
-              animate={{ height: isOpen ? fullHeight : summaryHeight }}
-              exit={{ height: summaryHeight }}
+              initial={{ maxHeight: summaryHeight }}
+              animate={{ maxHeight: isOpen ? fullHeight : summaryHeight }}
+              exit={{ maxHeight: summaryHeight }}
               transition={{ duration: 0.3 }}
-              className="hidden md:block xl:w-full xl:max-w-[650px] md:max-w-[466px]"
+              className="hidden md:block xl:w-full xl:max-w-[650px] md:max-w-[260px] md-safe:max-w-[466px]"
             >
               <div
                 ref={summaryRef}
