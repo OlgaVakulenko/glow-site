@@ -112,10 +112,10 @@ export default function AiHeader() {
   }, [screenSize]);
 
   return (
-    <section className='ai-background pt-[88px] pb-[56px] md:py-[72px] xl:pt-0 xl:mt-[88px] 2xl:mt-0 xl:pb-[88px] 2xl:pt-0'>
+    <section className='ai-background pt-[88px] pb-[56px] md:py-[72px] xl:pt-0 xl:mt-[88px] xl:pb-[88px] 2xl:pt-0'>
       <Layout>
         <div className="xl:w-3/4 md:w-3/4 mx-auto xl:mt-0 xl:mb-[135px] md:mt-[135px] md:mb-[135px] mt-[52px] mb-0 flex flex-col items-center z-[6]">
-          <div className='relative xl:pt-[142px] 2xl:pt-[155px] w-full justify-center flex'>
+          <div className='relative xl:pt-[142px] wide:pt-[142px] 3xl:pt-[155px] w-full justify-center flex'>
             <div className='ai-button-icon-left h-full w-[235px] hidden xl:block'>
               <div className='relative w-full h-full header-button-line-left'>
                 <div className='header-button-animated-line left' ref={leftRef}></div>

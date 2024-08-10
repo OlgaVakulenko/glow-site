@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 import { themeAtom } from '../lib/theme';
@@ -16,9 +16,9 @@ export function FAQ({ padding, items = faqItems, animate = false }) {
 	const TitleTag = animate ? Animated : 'h2';
 	const [openIndex, setOpenIndex] = useState(null);
 
-  const handleOpen = (index) => {
+  const handleOpen = useCallback((index) => {
     setOpenIndex(index === openIndex ? null : index);
-  };
+  },[openIndex]);
 
   return (
     <div

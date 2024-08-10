@@ -11,14 +11,41 @@ export default function FaqItem({ question, answer, setOpenState, isOpen, classN
   const dark = theme === 'dark';
 	const [summaryHeight, setSummaryHeight] = useState(0);
   const [fullHeight, setFullHeight] = useState(0);
+	const [isTextVisible, setIsTextVisible] = useState(false);
 	const mobileContentRef = useRef(null);
 	const summaryRef = useRef(null);
   const fullTextRef = useRef(null);
 
+	const handleSetOpenState = () => {
+		if (summaryRef.current && fullTextRef.current || mobileContentRef.current && media === 'mobile') {
+			const summaryHeightValue = summaryRef.current.scrollHeight;
+      const fullHeightValue = fullTextRef.current.scrollHeight;
+
+			if (!isOpen) {
+				if (Math.abs(summaryHeightValue - fullHeightValue) <= 50) {
+					setOpenState(true)
+					setTimeout(() => {
+						setIsTextVisible(true); 
+					}, 130)
+				} else {
+					setOpenState(true)
+					setIsTextVisible(true)
+				}
+			} else {
+				setOpenState(false)
+				setIsTextVisible(false)
+			}
+		}
+	}
+
 	useEffect(() => {
 		if (summaryRef.current && fullTextRef.current || mobileContentRef.current && media === 'mobile') {
-			setSummaryHeight(summaryRef.current.scrollHeight);
-			setFullHeight(fullTextRef.current.scrollHeight);
+			const summaryHeightValue = summaryRef.current.scrollHeight;
+      const fullHeightValue = fullTextRef.current.scrollHeight;
+
+      setSummaryHeight(summaryHeightValue);
+      setFullHeight(fullHeightValue);
+
 			if (isOpen) {
 				if (media === 'mobile') setFullHeight(mobileContentRef.current.scrollHeight);
 				else if (media !== 'mobile') setFullHeight(fullTextRef.current.scrollHeight);
@@ -32,7 +59,7 @@ export default function FaqItem({ question, answer, setOpenState, isOpen, classN
 			'open': isOpen, 
 			})}
 		>
-      <div onClick={setOpenState} className="flex w-full justify-between text-left md:flex md:gap-6 xl:flex cursor-pointer">
+      <div onClick={handleSetOpenState} className="flex w-full justify-between text-left md:flex md:gap-6 xl:flex cursor-pointer">
         <h3 className="text-next-heading-7 md:w-full md:min-w-[426px] md:max-w-[426px] xl:col-span-5 xl:pr-8">
           {question}
         </h3>
@@ -49,8 +76,8 @@ export default function FaqItem({ question, answer, setOpenState, isOpen, classN
               <div
                 ref={summaryRef}
 								className={cx('truncate', {
-									'invisible leading-[0]': isOpen,
-									'visible leading-[inherit]': !isOpen
+									'invisible leading-[0]': isOpen && isTextVisible,
+									'visible leading-[inherit]': !isOpen || !isTextVisible
 								})}
               >
                 {answer}
@@ -58,8 +85,8 @@ export default function FaqItem({ question, answer, setOpenState, isOpen, classN
               <div
                 ref={fullTextRef}
 								className={cx('whitespace-pre-line', {
-									'visible': isOpen,
-									'invisible': !isOpen
+									'visible': isOpen && isTextVisible,
+                  'invisible': !isOpen || !isTextVisible
 								})}
               >
                 {answer}
