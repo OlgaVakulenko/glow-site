@@ -146,6 +146,11 @@ const links = [
     label: 'Blog',
     href: '/blog',
   },
+	{
+		label: 'Design for AI',
+		href: '/ai',
+	}
+
 ];
 
 export default links;

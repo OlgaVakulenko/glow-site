@@ -4,7 +4,7 @@ import Card from '../Card';
 import { SkipRenderOnClient } from '../../SkipRender';
 import { Swiper, SwiperSlide, useSwiper } from 'swiper/react';
 import SliderProgress from '../../SliderProgress';
-import CaseNavArrow from '../../Pages/Home/CaseNavArrow';
+import CaseNavArrow from '../../CasesSlider/CaseNavArrow';
 import { addLeadingZero } from '../../../lib/utils';
 
 export default function MoreTopics({ posts }) {

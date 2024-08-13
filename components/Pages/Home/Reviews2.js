@@ -1,5 +1,7 @@
 import cx from 'clsx';
 import { useRef } from 'react';
+import { useAtom } from 'jotai';
+import { themeAtom } from '../../../lib/theme';
 import 'swiper/css/effect-fade';
 import { Mousewheel } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -7,8 +9,9 @@ import DragCursorContainer from '../../DragCursor';
 import Layout from '../../Layout';
 import SliderProgress from '../../SliderProgress';
 import casesData from '../Cases/data';
-import CaseNavArrow from './CaseNavArrow';
+import CaseNavArrow from '../../CasesSlider/CaseNavArrow';
 import { ClutchRating } from './_Reviews';
+import Animated from '../../Animated';
 
 const reviews = [
   {
@@ -255,21 +258,23 @@ function ReviewCard({
   dataService,
   dataCompany,
 }) {
+	const [theme] = useAtom(themeAtom);
+
   return (
     <div className="h-full font-inter">
-      <div className="h-full rounded-3xl bg-dim-gray p-6 md:flex md:min-h-[394px] md:space-x-12 md:rounded-[32px] md:px-0 md:py-12 xl:min-h-[394px] xl:space-x-20 xl:py-12">
+      <div className={cx('h-full rounded-3xl p-6 md:flex md:min-h-[394px] md:space-x-12 md:rounded-[32px] md:px-0 md:py-12 xl:min-h-[394px] xl:space-x-20 xl:py-12', {'dark-card': theme === 'dark', 'bg-dim-gray': theme === 'light'})}>
         <div className="md:col-span-3 md:flex md:shrink-0 md:flex-col md:justify-between md:pl-12">
           <div className="md:flex md:h-full md:min-w-[200px] md:max-w-[168px] md:flex-col md:items-start md:justify-between">
             <div className="">
               <div className="mb-[18px] flex items-start justify-between md:items-center">
                 <div className="flex">
-                  <div className="relative z-[1] h-[64px] w-[64px] rounded-full bg-black shadow-[0_0_0_2px_white] md:-mr-4">
+                  <div className={cx("relative z-[1] h-[64px] w-[64px] rounded-full bg-black md:-mr-4", {'shadow-[0_0_0_2px_white]': theme !== 'dark', 'shadow-[0_0_0_2px_#504F5A]': theme === 'dark'})}>
                     <div className="absolute left-1/2 top-1/2 w-full max-w-[55px] -translate-x-1/2 -translate-y-1/2 ">
                       <img src={companyAvatar} alt="" className="mx-auto" />
                     </div>
                   </div>
                   <img
-                    className="-ml-4 h-[64px] w-[64px] rounded-full md:ml-0"
+                    className={cx("-ml-4 h-[64px] w-[64px] rounded-full md:ml-0", {'shadow-[0_0_0_2px_#504F5A]': theme === 'dark'})}
                     src={avatar}
                     alt=""
                   />
@@ -279,7 +284,7 @@ function ReviewCard({
                   className="shadow-as-border shadow-checkbox-light md:hidden"
                 />
               </div>
-              <div className="mb-1 flex min-h-8 items-center text-next-body-m   font-medium md:mb-1 md:min-h-0 xl:text-next-body-m xl:font-normal">
+              <div className="mb-1 flex min-h-8 items-center text-next-body-m   font-normal md:mb-1 md:min-h-0 xl:text-next-body-m xl:font-normal">
                 {name}
               </div>
               <div className="mb-8 text-next-body-s opacity-80 xl:text-next-body-s">
@@ -303,8 +308,13 @@ function ReviewCard({
     </div>
   );
 }
-export default function Reviews({ padding }) {
+export default function Reviews({ padding, title, animate = false }) {
   const swiperRef = useRef();
+	const [theme] = useAtom(themeAtom);
+	const dark = theme === 'dark';
+	const defaultText = 'Discover what our customers have to say';
+	const titleText = title || defaultText;
+  const TitleTag = animate ? Animated : 'h2';
 
   return (
     <div className="overflow-hidden">
@@ -313,10 +323,14 @@ export default function Reviews({ padding }) {
           'py-[100px] md:py-[144px] xl:py-[176px]': padding == null,
         })}
       >
-        <Layout className="mb-10 flex items-end justify-between md:mb-14 xl:mb-20">
-          <h2 className="text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2">
-            Discover what our customers have to say
-          </h2>
+        <Layout className={cx('mb-10 flex items-end justify-between md:mb-14', {'xl:!mb-20': dark, 'xl:mb-20': !dark})}>
+          <TitleTag
+						as={animate ? 'h2' : undefined}
+						delay={animate ? 300 : undefined}
+					 	className={cx('text-next-heading-5 md:max-w-[577px] md:text-next-heading-3 xl:text-next-heading-2', {'white-gradient-text': dark})}
+					>
+						{titleText}
+          </TitleTag>
           {/* <div className="hidden space-x-4 pb-[14px] md:flex">
           <CaseNavArrow
             dir="left"
@@ -374,7 +388,7 @@ export default function Reviews({ padding }) {
                 />
               </SwiperSlide>
             ))}
-            <div className="pt-8 md:pt-12">
+            <div className="pt-px md:pt-12">
               <div className="items-center md:flex md:space-x-6">
                 <div className="hidden shrink-0 space-x-4 md:flex">
                   <CaseNavArrow
@@ -392,7 +406,7 @@ export default function Reviews({ padding }) {
                 </div>
 
                 <div className="w-full">
-                  <SliderProgress />
+                  <SliderProgress theme={theme}/>
                 </div>
               </div>
             </div>
