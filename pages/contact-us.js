@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 import { themeAtom } from '../lib/theme';
@@ -16,9 +16,9 @@ export function FAQ({ padding, items = faqItems, animate = false }) {
 	const TitleTag = animate ? Animated : 'h2';
 	const [openIndex, setOpenIndex] = useState(null);
 
-  const handleOpen = (index) => {
+  const handleOpen = useCallback((index) => {
     setOpenIndex(index === openIndex ? null : index);
-  };
+  },[openIndex]);
 
   return (
     <div
@@ -29,9 +29,7 @@ export function FAQ({ padding, items = faqItems, animate = false }) {
       <TitleTag className="mb-10 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:mb-20 xl:text-next-heading-2">
         <span className={cx({'white-gradient-text': theme === 'dark'})}>Frequently asked</span> <span className={cx({'ai-text': theme === 'dark'})}>questions</span>
       </TitleTag>
-      <div
-      // className="border-border-black divide-y border-b border-t"
-      >
+      <div>
         {items.map((item, idx) => (
 					<Animated
 					key={idx}

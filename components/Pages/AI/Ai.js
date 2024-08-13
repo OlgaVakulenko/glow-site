@@ -59,14 +59,14 @@ const AIDesign = () => {
   return (
     <div className="grid gap-4 md:grid-cols-4 xl:grid-rows-6 md:grid-row-7 xl:max-h-[684px] md:h-[708px]">
 			<Card className='md:col-span-2 order-1 xl:row-span-3 md:row-span-2 card-underlay relative md:min-h-[272px]'>
-				<h3 className="mb-6 text-next-heading-6 md:mb-8 md:text-next-heading-5 xl:mb-[58px] xl:text-next-heading-4 ai-design-card-title">
+				<h3 className="mb-6 text-next-heading-6 md-safe:mb-8 md:text-next-heading-5 xl:mb-[58px] xl:text-next-heading-4 ai-design-card-title">
 					AI Design Shapes the Future Landscape
 				</h3>
 				<p className='xl:text-next-body-m text-next-body-s ai-design-card-description'>
 					The AI industry is a leader in the Web4 revolution. With a proven track record, we navigate the dynamic landscape of artificial intelligence, shaping tomorrow&apos;s technology today.
 				</p>
 			</Card>
-			<Card className='md:col-span-2 !p-0 order-2 md:row-span-3 xl:row-span-4 xl:min-w-[647px] xl:h-[474px] md:min-w-[472px] md:min-h-[346px] h-[251px] ai-card glow-border-light3'>
+			<Card className='md:col-span-2 !p-0 order-2 md:row-span-3 xl:row-span-4 xl:min-w-[647px] xl:h-[474px] md-safe:min-w-[472px] md-safe:min-h-[346px] min-h-[251px] min-w-[343px] ai-card glow-border-light3'>
 				<AiCard />
 			</Card>
 			<Card className='!border-[0.5px] md:col-span-2 order-5 md:order-4 grid grid-cols-2 grid-rows-3 xl:grid-cols-3 xl:grid-rows-2 !p-0 xl:row-span-3 md:row-span-5 h-[420px] xl:h-[334px]'>
@@ -126,7 +126,7 @@ export default function AI() {
 				return (
 					<Animated 
 						delay={100 * (index + 1)}
-						className={cx('flex flex-col items-start justify-start xl:min-w-[632px] md:min-w-[450px] text-[#FFFFFFCC]', {'xl:mb-[120px] md:mb-0 mb-14': index === 0})} 
+						className={cx('flex flex-col items-start justify-start xl:min-w-[632px] md-safe:min-w-[450px] text-[#FFFFFFCC]', {'xl:mb-[120px] md:mb-0 mb-14': index === 0})} 
 						key={index}
 						>
 						<div className={cx(
@@ -181,7 +181,7 @@ export default function AI() {
 							<GraphicBlock 
 								items={items} 
 								className='md:gap-8 xl:!gap-8 gap-[72px]'
-								blockClassNames='md:p-6 xl:w-[416px] md:w-[464px] md:min-h-[340px]' 
+								blockClassNames='md:p-6 xl:w-[416px] md-safe:w-[464px] md:min-h-[340px]' 
 								titleClassNames='!font-inter !font-normal md:!leading-9'
 								descriptionClassNames='text-next-body-s xl:text-next-body-s text-[#ffffffcc]'
 							/>
