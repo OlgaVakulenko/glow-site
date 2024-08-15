@@ -20,6 +20,7 @@ import CardBg from './assets/card-bg.png';
 import HomeIntroSection from '../../HomeIntroSection';
 import { iconsSectionItems } from '../../../data/home-icons-section-data';
 
+
 const IconsSection = dynamic(() => import('../../IconsSection'));
 
 function IntroSection5() {
@@ -57,6 +58,15 @@ function IntroSection5() {
 export default function Home2() {
   return (
     <div className="relative overflow-hidden">
+			{/* <div 
+				id="awwwards" 
+				style={{
+					position: 'fixed', 
+					zIndex: 999, 
+					transform: 'translateY(-50%)', 
+					top: '50%',  
+					right: 0}}
+					> */}
       <div id="intro-section">
         <IntroSection5 />
         {/* <IntroSection2 /> */}
