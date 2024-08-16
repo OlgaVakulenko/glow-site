@@ -13,10 +13,8 @@ if (typeof window !== 'undefined') {
   window.ScrollTrigger = ScrollTrigger;
 }
 
-const sleep = (time) => new Promise((resolve) => setTimeout(resolve, time));
-
 export default function ScrollContainer({ children }) {
-  const [disabled, setDisabled] = useState(false);
+  const [smootherEnabled, setSmootherEnabled] = useState(false);
   const media = useMediaAtom();
   const setMounted = useSetAtom(ScrollSmootherMounted);
   const setEnabled = useSetAtom(ScrollSmootherEnabled);
@@ -47,41 +45,55 @@ export default function ScrollContainer({ children }) {
   }, []);
 
   useEffect(() => {
-    if (media === 'mobile' || disabled) {
-      setMounted(true);
-      return () => {
-        // setMounted(false);
-      };
-    }
-    smootherRef.current = new ScrollSmoother({
-      wrapper: viewportRef.current,
-      content: ref.current,
-      effects: false,
-      smooth: 1.3,
-    });
+    const enableScrollSmoother = () => {
+      if (media === 'mobile' || !smootherEnabled) {
+        setMounted(true);
+        return () => {};
+      }
 
-    setMounted(true);
-    setEnabled(true);
+      // smooth initialization ScrollSmoother
+      smootherRef.current = new ScrollSmoother({
+        wrapper: viewportRef.current,
+        content: ref.current,
+        effects: false,
+        smooth: 1.3,
+      });
+
+      setMounted(true);
+      setEnabled(true);
+
+      // updating ScrollTrigger
+      ScrollTrigger.refresh(true);
+    };
+
+    // deffered ScrollSmoother for avoiding abrupt rerender
+    if (document.readyState === 'complete') {
+      requestAnimationFrame(() => setSmootherEnabled(true));
+    } else {
+      window.addEventListener('load', () => {
+        requestAnimationFrame(() => setSmootherEnabled(true));
+      });
+    }
 
     return () => {
-      // setMounted(false);
       setEnabled(false);
       if (smootherRef.current) {
         smootherRef.current.kill();
         ScrollTrigger.refresh();
       }
+      window.removeEventListener('load', enableScrollSmoother);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isMobile, setMounted, disabled]);
+  }, [isMobile, smootherEnabled]);
 
-  //scrolltrigger sometimes does not refresh when scrollsmoother is enabled
+  // scrolltrigger sometimes does not refresh when scrollsmoother is enabled
   useEffect(() => {
     if ('MutationObserver' in window) {
       let height = 0;
       const handleChange = debounce(() => {
         const newHeight = document.body.style.height;
         if (height !== newHeight) {
-          ScrollTrigger.refresh();
+          ScrollTrigger.refresh(true); 
         }
         height = newHeight;
       }, 100);
@@ -118,9 +130,9 @@ export default function ScrollContainer({ children }) {
     if (isResize) {
       key = isMobile ? 'mobile' : 'desktop';
     }
-    key += disabled ? 'disabled' : 'not-disabled';
+    key += smootherEnabled ? 'enabled' : 'disabled';
     return key;
-  }, [isMobile, disabled, isResize]);
+  }, [isMobile, smootherEnabled, isResize]);
 
   const Wrapper = useMemo(() => {
     const wrapper = ({ children }) => <div key={key}>{children}</div>;

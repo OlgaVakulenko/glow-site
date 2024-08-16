@@ -199,6 +199,7 @@ function MyApp({ Component, pageProps }) {
           {`
             .to-animate {
               opacity: 0;
+							visibility: hidden !important;
               transition: transform .7s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s, opacity .7s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s;
             }
             .fade-up, .fadeInUp {
