@@ -34,6 +34,7 @@
     -webkit-tap-highlight-color: transparent;
     --btn-height: 48px;
 		font-weight: 300;
+		scroll-behavior: smooth;
 
     @screen layout {
       --btn-height: 56px;
@@ -1209,5 +1210,10 @@ a.white svg rect {
   }
 }
 
-
-
+#awwwards {
+	position: fixed;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	z-index: 99999;
+}
