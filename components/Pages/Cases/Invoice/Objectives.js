@@ -1,5 +1,6 @@
 import Layout from '../../../Layout';
 import cx from 'clsx';
+import Animated from '../../../Animated';
 
 function Col({ className, title, items = [] }) {
   return (
@@ -12,9 +13,9 @@ function Col({ className, title, items = [] }) {
       <div className="mb-3 opacity-30 md:mb-10">{title}</div>
       <div className="md:grid md:gap-3">
         {items.map((item, index) => (
-          <div key={index} className="flex min-h-[48px] items-center">
+          <Animated delay={index * 50} key={index} className="flex min-h-[48px] items-center">
             {item}
-          </div>
+          </Animated>
         ))}
       </div>
     </div>
@@ -47,10 +48,10 @@ export default function Objectives() {
   return (
     <Layout>
       <div className="py-[96px] md:py-[100px] xl:py-[150px]">
-        <div className="mb-[38px] font-satoshi text-[28px] font-medium leading-[36px] md:mb-[96px] md:text-[48px] md:leading-[56px] xl:mb-[64px] xl:text-[56px] xl:leading-[64px]">
+        <Animated className="mb-[38px] font-satoshi text-[28px] font-medium leading-[36px] md:mb-[96px] md:text-[48px] md:leading-[56px] xl:mb-[64px] xl:text-[56px] xl:leading-[64px]">
           We balance business <br className="hidden md:block" /> objectives with
           customer needs
-        </div>
+        </Animated>
         <div className="grid grid-cols-4 gap-x-4 gap-y-[38px] md:grid-cols-8 xl:grid-cols-12">
           {cols.map((col, index) => (
             <Col

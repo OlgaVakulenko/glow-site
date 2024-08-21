@@ -18,6 +18,7 @@ const filterAtom = atom(TAG_ALL);
 
 export default function BlogPage({ posts, tags = [] }) {
   const [filter] = useAtom(filterAtom);
+	const media = useMediaAtom();
 
   const _posts = useMemo(() => {
     return posts.filter((post) => {
@@ -29,6 +30,19 @@ export default function BlogPage({ posts, tags = [] }) {
   }, [posts, filter]);
 
   const key = filter;
+
+	const postsInColumnCount = useMemo(() => {
+		switch (media) {
+			case 'desktop':
+				return 3;
+			case 'tablet':
+				return 2;
+			case 'mobile':
+				return 1;
+			default: 
+				return 1;
+		}
+	}, [media]) 
 
   return (
     <div className="md:pb-[88px]">
@@ -60,11 +74,16 @@ export default function BlogPage({ posts, tags = [] }) {
       <div key={filter + Math.random()}>
         <Layout>
           <div className="grid gap-y-10 py-[52px] md:grid-cols-2 md:gap-8 md:gap-y-14 md:py-[72px] xl:grid-cols-3 xl:gap-y-20 xl:py-[88px]">
-            {_posts.map((post, index) => (
-              <Animated key={post.href} delay={index * 50} immediate>
-                <Card post={post} />
-              </Animated>
-            ))}
+            {_posts.map((post, index) => {
+							const columnIndex = index % postsInColumnCount; 
+							const delay = (columnIndex + 1) * 100;
+
+							return (
+								<Animated key={post.href} delay={delay}>
+									<Card post={post} />
+								</Animated>
+							)
+						})}
           </div>
         </Layout>
       </div>

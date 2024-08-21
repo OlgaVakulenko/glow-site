@@ -1,3 +1,4 @@
+import Animated from '../../../Animated';
 import Image from '../../../Image';
 import Layout from '../../../Layout';
 import Frame10 from './assets/frame-10.png';
@@ -25,14 +26,14 @@ export default function Branding() {
   return (
     <Layout>
       <div className="pb-5 md:grid md:grid-cols-8 md:gap-8 md:pb-[145px] xl:grid-cols-12">
-        <div className="mb-10 font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] md:col-span-3 md:mb-0 md:text-[56px] md:leading-[64px] xl:col-span-6">
+        <Animated className="mb-10 font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] md:col-span-3 md:mb-0 md:text-[56px] md:leading-[64px] xl:col-span-6">
           Branding
-        </div>
-        <div className="text-base leading-[160%] md:col-span-5 md:text-[24px] xl:col-span-6">
+        </Animated>
+        <Animated delay={100} className="text-base leading-[160%] md:col-span-5 md:text-[24px] xl:col-span-6">
           Through meticulous design we crafted a visual identity that conveyed
           trustworthiness and reliability, ensuring they stand out in the
           competitive landscape of financial services.
-        </div>
+        </Animated>
       </div>
       <div className="grid gap-4 pb-4 md:grid-cols-8 md:gap-8 md:pb-8 xl:grid-cols-12">
         <RespImage
@@ -77,14 +78,16 @@ export default function Branding() {
           md={Frame15md}
           xl={Frame15xl}
         />
-        <video
-          autoPlay
-          loop
-          muted
-          controls={false}
-          src="/video/invoice/output.mp4"
-          className="aspect-square w-full rounded-[24px] object-cover md:col-span-8 md:aspect-video xl:col-span-12"
-        />
+				<Animated className='md:col-span-8 xl:col-span-12'>
+					<video
+						autoPlay
+						loop
+						muted
+						controls={false}
+						src="/video/invoice/output.mp4"
+						className="aspect-square w-full rounded-[24px] object-cover md:aspect-video"
+					/>
+				</Animated>
         {/* <Image className="rounded-[24px]" src={Frame16} alt="" /> */}
       </div>
     </Layout>

@@ -315,6 +315,7 @@ export default function Reviews({ padding, title, animate = false }) {
 	const defaultText = 'Discover what our customers have to say';
 	const titleText = title || defaultText;
   const TitleTag = animate ? Animated : 'h2';
+	const SliderContainer = animate ? Animated : 'div';
 
   return (
     <div className="overflow-hidden">
@@ -346,7 +347,7 @@ export default function Reviews({ padding, title, animate = false }) {
           />
         </div> */}
         </Layout>
-        <Layout className="">
+        <SliderContainer className='mx-auto w-full max-w-[1440px] px-4'>
           {/* <DragCursorContainer> */}
           <Swiper
             onSwiper={(swiper) => {
@@ -413,7 +414,7 @@ export default function Reviews({ padding, title, animate = false }) {
             {/* <div className="mx-auto pt-5 md:max-w-[544px] xl:max-w-full"></div> */}
           </Swiper>
           {/* </DragCursorContainer> */}
-        </Layout>
+        </SliderContainer>
       </div>
     </div>
   );

@@ -1,15 +1,16 @@
 import Layout from '../../../Layout';
+import Animated from '../../../Animated';
 
 function Text({ className, children }) {
-  return <p className={className}>{children}</p>;
+  return <Animated as='p' className={className}>{children}</Animated>;
 }
 
 export default function ProblemsSolutions() {
   return (
     <Layout className="pt-[144px]">
-      <div className="mb-10 text-[40px] font-medium leading-[48px] tracking-[-2px] md:mb-[54px] md:text-[56px] md:leading-[64px]">
+      <Animated as='div' className="mb-10 text-[40px] font-medium leading-[48px] tracking-[-2px] md:mb-[54px] md:text-[56px] md:leading-[64px]">
         Problems & Solutions
-      </div>
+      </Animated>
       <div className="space-y-4 text-base leading-[160%] md:space-y-8 md:text-[24px] xl:grid xl:grid-cols-12 xl:gap-8 xl:space-y-0">
         <Text className="xl:col-span-6">
           {`One of the key benefits of InvoiceMaker is its speed. With our intuitive design, you can quickly input all the necessary details for your invoice, including the client's name and contact information, the products or services provided, and the total amount owed. InvoiceMaker automatically calculates taxes and discounts, and generates a polished invoice that can be sent to your client right away.`}
