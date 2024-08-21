@@ -102,7 +102,7 @@ export function CaseSlide({ type = 'default', item, index, total }) {
 
   return (
     <div className="__slide-wrapper h-full w-full">
-      <div className={cx('__slide relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-dim-gray text-black md:max-h-[456px] md:min-h-[456px] md:flex-row md:items-start md:rounded-[32px] xl:max-h-[560px] xl:min-h-[560px]', {'case-card-dark': theme === 'dark'})}>
+      <div className={cx('__slide group relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-dim-gray text-black md:max-h-[456px] md:min-h-[456px] md:flex-row md:items-start md:rounded-[32px] xl:max-h-[560px] xl:min-h-[560px]', {'case-card-dark': theme === 'dark'})}>
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
           className="relative z-[1] p-6 pb-14 md:mt-0 md:h-full md:px-16 md:pb-[80px] md:pt-16 xl:pb-[114px] xl:pt-[100px]"
