@@ -347,7 +347,10 @@ export default function Reviews({ padding, title, animate = false }) {
           />
         </div> */}
         </Layout>
-        <SliderContainer className='mx-auto w-full max-w-[1440px] px-4'>
+        <SliderContainer 
+					className='mx-auto w-full max-w-[1440px] px-4'
+					delay={animate ? 350 : undefined}
+				>
           {/* <DragCursorContainer> */}
           <Swiper
             onSwiper={(swiper) => {
