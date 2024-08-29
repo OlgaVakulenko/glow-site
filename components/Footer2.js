@@ -64,9 +64,9 @@ export default function Footer2({
       ) : (
         showForm && (
           <Layout disableOnMobile={true} className="px-2">
-            <Animated className="text-inter dark-outline relative overflow-hidden rounded-3xl px-6 py-[138px] md:rounded-[32px] md:py-[134px] xl:py-[142px] xl:pb-[124px] xl:pt-[128px] footer-dark">
+            <Animated className={cx("text-inter relative overflow-hidden rounded-3xl px-6 py-[138px] md:rounded-[32px] md:py-[134px] xl:py-[142px] xl:pb-[124px] xl:pt-[128px]", {'dark-outline footer-dark': dark})}>
               <Image
-                src={dark ? '/img/form-bg-dark.png' : FormBG}
+                src={dark ? '/img/footer/form-bg-dark.png' : FormBG}
                 alt=""
                 className="pointer-events-none absolute inset-0 z-0 h-full w-full"
               />
