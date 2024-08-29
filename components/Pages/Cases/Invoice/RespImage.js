@@ -1,5 +1,6 @@
 import Image, { Source, resolve } from '../../../Image';
 import cx from 'clsx';
+import Animated from '../../../Animated';
 
 export default function RespImage({
   src,
@@ -10,7 +11,7 @@ export default function RespImage({
   ...props
 }) {
   return (
-    <picture className={pictureClassname}>
+    <Animated as='picture' className={pictureClassname}>
       {xl && (
         <Source
           image={xl}
@@ -36,6 +37,6 @@ export default function RespImage({
         height={src.height}
         {...props}
       />
-    </picture>
+    </Animated>
   );
 }

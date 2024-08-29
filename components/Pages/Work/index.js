@@ -311,7 +311,7 @@ function Cases() {
         }
       >
         {_cases.map((item, i) => (
-          <div key={i}>
+          <Animated key={i}>
             <Link href={item.href}>
               {media === 'mobile' ? (
                 <CaseCard type="work" item={item} index={i} />
@@ -319,7 +319,7 @@ function Cases() {
                 <CaseSlide item={item} index={i} />
               )}
             </Link>
-          </div>
+          </Animated>
           // <CaseItem
           //   key={item.href}
           //   className="mb-4"

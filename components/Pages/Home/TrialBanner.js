@@ -8,6 +8,7 @@ import Layout from '../../Layout';
 import LogoG from './assets/logo-g.png';
 import Sphere from './assets/sphere.png';
 import CtaBG from './assets/cta-bg.png';
+import Animated from '../../Animated';
 
 function Card({ className, children, hideBg = false }) {
   return (
@@ -99,7 +100,7 @@ export default function TrialBanner() {
 
   return (
     // <Layout className="mb-[72px] font-inter md:mb-[144px] xl:mb-[176px]">
-    <div className='relative -mx-2 overflow-hidden rounded-[32px] bg-black p-4 text-white md:mx-0'>
+    <Animated className='relative -mx-2 overflow-hidden rounded-[32px] bg-black p-4 text-white md:mx-0'>
       <div className="bg-bl absolute inset-0"></div>
       {/* <Image
         src={CtaBG}
@@ -107,7 +108,7 @@ export default function TrialBanner() {
         className="pointer-events-none absolute inset-0 h-full max-h-[50%] w-[200%] max-w-[200%] md:h-auto md:max-h-full md:w-full md:max-w-full"
       /> */}
 			<Bunner />
-    </div>
+    </Animated>
     // </Layout>
   );
 }
