@@ -135,7 +135,7 @@ export default function Home2() {
         <TrialBanner />
       </Layout>
       <Services />
-      <Reviews />
+      <Reviews animate />
     </div>
   );
 }

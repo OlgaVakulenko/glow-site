@@ -1,11 +1,7 @@
-import LocalTime from '../LocalTime';
 import RollingText from '../RollingText';
-import Weather from '../Weather';
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 import { themeAtom } from '../../lib/theme';
-import { useEffect, useMemo, useRef } from 'react';
-import { useInnerWidth } from '../../lib/utils';
 import Link from 'next/link';
 import { links, usFlag } from '../../data/footer-data';
 
@@ -17,7 +13,7 @@ export function SocialLinks() {
       {links.map((link) => (
         <a
           title={link.label}
-          className={cx('whitespace-nowrap p-1', {'white': theme === 'dark'})}
+          className={cx('whitespace-nowrap p-1 hover:text-brand transition-colors text-[#19191B]', {'text-white': theme === 'dark'})}
           key={link.href}
           href={link.href}
           target="_blank"
@@ -31,7 +27,6 @@ export function SocialLinks() {
 }
 
 export default function FooterLinks({ className = '' }) {
-  let _links = links;
 	const [theme] = useAtom(themeAtom);
 	const dark = theme === 'dark';
 

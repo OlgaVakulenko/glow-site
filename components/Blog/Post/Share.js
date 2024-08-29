@@ -14,7 +14,7 @@ export default function Share() {
   return (
     <div>
       <div className="mb-5 text-button-s uppercase text-black">Share</div>
-      <div className="inline-grid grid-cols-4 gap-4 opacity-50">
+      <div className="inline-grid grid-cols-4 gap-4">
         <Facebook />
         <LinkedIn />
         <Twitter />

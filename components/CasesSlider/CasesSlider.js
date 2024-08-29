@@ -21,6 +21,7 @@ import casesData from '../Pages/Cases/data';
 import CaseCard from './CaseCard';
 import CaseNavArrow from './CaseNavArrow';
 import AiTag from '../Pages/AI/AiTag';
+import Animated from '../Animated';
 
 const featured = [
   '/beast',
@@ -373,7 +374,7 @@ export function CasesSlider2({
 
   return (
     <div ref={ref} className="overflow-hidden">
-      <Layout>
+      <Animated className='mx-auto w-full max-w-[1440px] px-4'>
         <Section
           withLayout={false}
           className={cx({
@@ -461,7 +462,7 @@ export function CasesSlider2({
             {/* </DragCursorContainer> */}
           </Fragment>
         </Section>
-      </Layout>
+      </Animated>
     </div>
   );
 }
