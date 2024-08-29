@@ -36,7 +36,7 @@ export default function CopyLink() {
     <button
       type="button"
       onClick={handleClick}
-      className={cx('text-[#09121F] transition-colors duration-200', {
+      className={cx('social-link transition-colors duration-200 opacity-50', {
         '!text-brand': clicked,
       })}
     >
@@ -59,7 +59,7 @@ export default function CopyLink() {
           width="47"
           height="47"
           rx="23.5"
-          stroke="rgba(25,25,27,0.15)"
+          stroke="currentColor"
         />
         <defs>
           <clipPath id="clip0_4191_815">

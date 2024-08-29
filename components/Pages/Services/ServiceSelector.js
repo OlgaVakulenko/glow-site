@@ -7,6 +7,7 @@ import { addLeadingZero } from '../../../lib/utils';
 import { atom, useAtom, useSetAtom } from 'jotai';
 import { useParams, usePathname, useSearchParams } from 'next/navigation';
 import { Tag } from '../../Tag';
+import Animated from '../../Animated';
 
 const serviceCardAtom = atom(0);
 const categoryAtom = atom(0);
@@ -49,7 +50,7 @@ export default function ServicesSelector() {
 
   return (
     <Layout disableOnMobile className="md:pt-6 xl:pt-[88px]">
-      <div className="bg-[#F4F3F5] pt-[52px] md:rounded-[32px] md:bg-inherit md:pt-0 md:shadow-service-btn">
+      <Animated className="bg-[#F4F3F5] pt-[52px] md:rounded-[32px] md:bg-inherit md:pt-0 md:shadow-service-btn">
         <Layout className="pb-10 md:hidden">
           <h3 className="mb-4 text-next-heading-5">Making it Glow</h3>
           <h4 className="text-next-body-l">
@@ -148,7 +149,7 @@ export default function ServicesSelector() {
             />
           ))}
         </div>
-      </div>
+      </Animated>
     </Layout>
   );
 }

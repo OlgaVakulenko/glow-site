@@ -6,12 +6,11 @@ export default function AwardsRibbon() {
 	useLayoutEffect(() => {
 		const ribbon = ribbonRef.current;
 		if (ribbon) {
-				ribbon.style.position = 'fixed';
-				ribbon.style.top = '50%';
-				ribbon.style.left = '0';
-				ribbon.style.transform = 'translateY(-50%)';
-				ribbon.style.zIndex = '9999';
-				console.log('Position fixed applied');
+			ribbon.style.position = 'fixed';
+			ribbon.style.top = '50%';
+			ribbon.style.left = '0';
+			ribbon.style.transform = 'translateY(-50%)';
+			ribbon.style.zIndex = '9999';
 		}
 }, []);
 

@@ -19,6 +19,7 @@ export default function Process({
 				isColumn={isColumn}
 				descriptionClassNames={headingDescriptionClassNames}
 				classNames={headingClassNames}
+				animate
       />
 			{ children }
     </Layout>
