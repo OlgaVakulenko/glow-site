@@ -7,12 +7,11 @@ import Animated from "./Animated";
 export default function NextCase({ icon, title, href}) {
 
   return (
-		<Layout className="xl:mb-[176px] xl:mt-[88px] md:mb-[144px] md:mt-[72px] mb-[104px] mt-[52px]">
+		<Layout className="xl:my-[176px] md:my-[144px] my-[104px]">
 			<div className="rounded-[32px] border flex flex-col md:flex-row p-6 md:p-[48px] w-full h-fit box-sizing-border">
 				<div className="w-[68px] h-[68px] md:mb-0 mb-8 md:mr-8">
 					{icon}
 				</div> 
-				{/* {&& <Image src={icon} className="w-[68px] h-[68px] md:mb-0 mb-8 md:mr-8" alt="icon"/>} */}
         <div className="flex flex-col box-sizing-border flex-grow">
           <p className="opacity-50 m-0 mb-1 font-inter leading-6 inline-block self-start break-words font-normal text-black">
             Next case
