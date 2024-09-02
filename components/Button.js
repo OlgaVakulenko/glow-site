@@ -19,12 +19,12 @@ export default function Button2({
       className={cx(
         {
           'bg-brand': flavor === 'primary',
-          'border border-lblue bg-transparent font-medium text-white hover:bg-lblue hover:text-black':
+          'border border-lblue bg-transparent font-medium !text-white hover:bg-lblue hover:text-black':
             flavor === 'secondary' && color === 'white',
           'border border-black bg-transparent text-black':
             flavor === 'secondary' && color === 'black',
-          'text-white': color === 'white',
-          'text-black': color === 'black',
+          '!text-white': color === 'white',
+          '!text-black': color === 'black',
           'px-6 py-3 md:px-9 md:py-4': compact === false,
           'px-5 py-3': compact === true,
           '!py-5': size === 'large',

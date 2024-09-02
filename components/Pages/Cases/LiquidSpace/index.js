@@ -22,11 +22,12 @@ import Graphic2 from './assets/graphic2.png';
 import Graphic3 from './assets/graphic3.png';
 import MobileVersionImg from './assets/mobver-desktop.png';
 import ReviewImg from './assets/review.png';
-import NextStudy2 from '../NextStudy2';
 import Animated from '../../../Animated';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { getFullDescription, getFullTitle } from '../../../HeadTitle';
+import NextCase from '../../../NextCase';
+import { fleetChaiserIcon } from '../icons';
 
 const WorkCarousel = dynamic(() => import('./WorkCarousel'));
 
@@ -81,10 +82,11 @@ export default function LiquidSpace() {
       <MobileVersion />
       <Results />
       <Review />
-      <NextStudy2
-        title="Fleet manager to control your equipment"
-        href="/fleet"
-      />
+			<NextCase 
+				title="FleetChaser: efficient fleet management platform"
+				href="/fleet"
+				icon={fleetChaiserIcon}
+			/>
     </div>
   );
 }
