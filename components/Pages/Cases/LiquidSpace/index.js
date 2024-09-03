@@ -457,9 +457,9 @@ function Results() {
 function Review() {
   return (
     <Animated>
-      <Layout className="mt-2 pb-16">
+      <Layout className="mt-2">
         <div className="border-t border-black pt-10 md:flex md:pt-12">
-          <div className="mb-10">
+          <div className="md:mb-0 mb-10">
             <div className="mb-6 w-[112px] overflow-hidden rounded-[10px] md:mb-8 md:mr-[90px] md:w-[198px] xl:w-[288px]">
               <Image src={ReviewImg} alt="" />
             </div>

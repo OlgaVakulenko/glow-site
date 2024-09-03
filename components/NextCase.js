@@ -1,13 +1,11 @@
 import Link from "next/link";
-import Layout from "./Layout"
 import Button2 from "./Button";
-import Image from "./Image";
 import Animated from "./Animated";
 
 export default function NextCase({ icon, title, href}) {
 
   return (
-		<Layout className="xl:my-[176px] md:my-[144px] my-[104px]">
+		<Animated className="mx-auto w-full max-w-[1440px] md:px-8 xl:px-16 px-4 xl:py-[176px] md:py-[144px] py-[104px]">
 			<div className="rounded-[32px] border flex flex-col md:flex-row p-6 md:p-[48px] w-full h-fit box-sizing-border">
 				<div className="w-[68px] h-[68px] md:mb-0 mb-8 md:mr-8">
 					{icon}
@@ -28,7 +26,7 @@ export default function NextCase({ icon, title, href}) {
           compact>
           Explore
         </Button2>
-      </div>
-		</Layout>        
+      </div>   
+		</Animated>     
   )
 }
