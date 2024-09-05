@@ -1,20 +1,20 @@
 import Head from 'next/head';
 import { useMemo } from 'react';
-import IntroSection2 from '../components/IntroSection2';
-import Layout from '../components/Layout';
-import Logos from '../components/Pages/About/Logos';
-import Reviews from '../components/Pages/Home/Reviews2';
-import TrialBanner from '../components/Pages/Home/TrialBanner';
-import GraphicBlock from '../components/Pages/Services/GraphicBlock';
-import Process from '../components/Pages/Services/Process';
-import Box from '../components/Pages/Services/Box';
-import Heading from '../components/Pages/Services/Heading';
-import Slider from '../components/Pages/Services/Slider';
-import { getFullTitle } from '../components/HeadTitle';
-import S1 from '../components/Pages/Services/assets/ui-ux-s1.svg';
-import S2 from '../components/Pages/Services/assets/ui-ux-s2.svg';
-import S3 from '../components/Pages/Services/assets/ui-ux-s3.svg';
-import { items } from '../data/ui-ux-services-graphic-data';
+import IntroSection2 from '../../../IntroSection2';
+import Layout from '../../../Layout';
+import Logos from '../../../Pages/About/Logos';
+import Reviews from '../../../Pages/Home/Reviews2';
+import TrialBanner from '../../../Pages/Home/TrialBanner';
+import GraphicBlock from '../../../Pages/Services/GraphicBlock';
+import Process from '../../../Pages/Services/Process';
+import Box from '../../../Pages/Services/Box';
+import Heading from '../../../Pages/Services/Heading';
+import Slider from '../../../Pages/Services/Slider';
+import { getFullTitle } from '../../../HeadTitle';
+import S1 from '../../../Pages/Services/assets/ui-ux-s1.svg';
+import S2 from '../../../Pages/Services/assets/ui-ux-s2.svg';
+import S3 from '../../../Pages/Services/assets/ui-ux-s3.svg';
+import { items } from '../../../../data/ui-ux-services-graphic-data';
 
 function PageHeading() {
   const title = useMemo(() => {
