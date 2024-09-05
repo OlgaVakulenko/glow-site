@@ -29,7 +29,7 @@ function IntroSection({ title, subtitle, className, headingClassname }) {
       <Animated
         as="h1"
         className={cx(
-          'mb-6 text-next-heading-4 md:mb-0 md:mr-24 md:min-w-[416px] md:text-next-heading-3 xl:col-span-6 xl:mr-0 xl:text-next-heading-0',
+          'mb-6 md:mb-0 md:mr-24 md:min-w-[416px] text-next-heading-4 md:text-next-heading-3 xl:text-next-heading-0 xl:col-span-6 xl:mr-0',
           headingClassname
         )}
       >
@@ -38,7 +38,7 @@ function IntroSection({ title, subtitle, className, headingClassname }) {
       <div className="hidden xl:col-span-2 xl:block"></div>
       <Animated
         delay={100}
-        className="text-[16px] leading-[160%] md:text-next-body-xxl xl:col-span-4 xl:text-next-body-l"
+        className="text-[16px] leading-[160%] md:text-next-body-xxl xl:text-next-body-l xl:col-span-4"
       >
         {subtitle}
       </Animated>
