@@ -1,21 +1,21 @@
 import Head from 'next/head';
 import { useMemo } from 'react';
-import IntroSection2 from '../components/IntroSection2';
-import Layout from '../components/Layout';
-import Logos from '../components/Pages/About/Logos';
-import OurExperience from '../components/Pages/Home/OurExperience';
-import Reviews from '../components/Pages/Home/Reviews2';
-import TrialBanner from '../components/Pages/Home/TrialBanner';
-import Approach from '../components/Pages/Services/Approach';
-import Process from '../components/Pages/Services/Process';
-import ServicesSelector from '../components/Pages/Services/ServiceSelector';
-import Box from '../components/Pages/Services/Box';
-import Slider from '../components/Pages/Services/Slider';
-import { FAQ } from './contact-us';
-import { getFullTitle } from '../components/HeadTitle';
-import S1 from '../components/Pages/Services/assets/s1.svg';
-import S2 from '../components/Pages/Services/assets/s2.svg';
-import S3 from '../components/Pages/Services/assets/s3.svg';
+import IntroSection2 from '../../components/IntroSection2';
+import Layout from '../../components/Layout';
+import Logos from '../../components/Pages/About/Logos';
+import OurExperience from '../../components/Pages/Home/OurExperience';
+import Reviews from '../../components/Pages/Home/Reviews2';
+import TrialBanner from '../../components/Pages/Home/TrialBanner';
+import Approach from '../../components/Pages/Services/Approach';
+import Process from '../../components/Pages/Services/Process';
+import ServicesSelector from '../../components/Pages/Services/ServiceSelector';
+import Box from '../../components/Pages/Services/Box';
+import Slider from '../../components/Pages/Services/Slider';
+import { FAQ } from '../contact-us';
+import { getFullTitle } from '../../components/HeadTitle';
+import S1 from '../../components/Pages/Services/assets/s1.svg';
+import S2 from '../../components/Pages/Services/assets/s2.svg';
+import S3 from '../../components/Pages/Services/assets/s3.svg';
   
 function Heading() {
   const title = useMemo(() => {
