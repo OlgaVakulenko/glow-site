@@ -2,7 +2,6 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { range } from '../../../../lib/utils';
 import LegacyCaseContainer from '../LegacyCaseContainer';
-import NextStudy from '../NextStudy';
 import SliderProgress from '../SliderProgress';
 import ReactBeforeSliderComponent from 'react-before-after-slider-component';
 import 'react-before-after-slider-component/dist/build.css';
@@ -12,6 +11,8 @@ import { useHeaderTheme } from '../../../Header';
 import InlineVideo from '../InlineVideo';
 import Head from 'next/head';
 import { getFullDescription, getFullTitle } from '../../../HeadTitle';
+import NextCase from '../../../NextCase';
+import { fleetChaiserIcon } from '../icons';
 
 export default function Tilt() {
   const ref = useRef();
@@ -762,9 +763,10 @@ export default function Tilt() {
           </div>
         </section>
         {/* Next*/}
-        <NextStudy
-          title="Fleet manager to control your equipment"
+        <NextCase
+          title="FleetChaser: efficient fleet management platform"
           href="/fleet"
+					icon={fleetChaiserIcon}
         />
       </main>
     </LegacyCaseContainer>

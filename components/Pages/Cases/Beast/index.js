@@ -6,10 +6,11 @@ import { range } from '../../../../lib/utils';
 import { useHeaderTheme } from '../../../Header';
 import LegacyCaseContainer from '../LegacyCaseContainer';
 import SliderProgress from '../SliderProgress';
-import NextStudy from '../NextStudy';
 import Head from 'next/head';
 import InlineVideo from '../InlineVideo';
 import { getFullDescription, getFullTitle } from '../../../HeadTitle';
+import NextCase from '../../../NextCase';
+import { tiltIcon } from '../icons';
 
 function Intro() {
   const ref = useRef();
@@ -958,10 +959,11 @@ export default function Beast() {
           </div>
         </section>
       </div>
-      <NextStudy
-        title="Platform that connects students with financial aid opportunities"
+			<NextCase 
+				title="Platform that connects students with financial aid opportunities"
         href="/tilt"
-      />
+				icon={tiltIcon}
+			/>
     </LegacyCaseContainer>
   );
 }

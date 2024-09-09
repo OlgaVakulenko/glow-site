@@ -56,7 +56,7 @@ export default function BlogPage({ posts, tags = [] }) {
             <Animated
               as="h1"
               className={cx(
-                'mb-9 px-4 text-next-heading-5 md:mb-0 md:mr-24 md:min-w-[416px] md:px-0 md:pb-8 md:text-next-heading-3 xl:col-span-6 xl:mr-0 xl:text-next-heading-2'
+                'mb-9 px-4 md:mb-0 md:mr-24 md:min-w-[416px] md:px-0 md:pb-8 xl:col-span-6 xl:mr-0 text-next-heading-4 md:text-next-heading-3 xl:text-next-heading-0'
               )}
             >
               We write about <br className="block" /> business &&nbsp;design
