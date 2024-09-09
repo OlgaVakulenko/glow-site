@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import { getFullDescription, getFullTitle } from '../../../HeadTitle';
 import LegacyCaseContainer from '../LegacyCaseContainer';
-import NextStudy from '../NextStudy';
+import NextCase from '../../../NextCase';
+import { ethosIcon } from '../icons';
 
 export default function Fleet() {
   return (
@@ -781,7 +782,7 @@ export default function Fleet() {
           </div>
         </section>
         {/* Next*/}
-        <NextStudy title="New look at medical platform" href="/ethos" />
+        <NextCase title="New look at medical platform" href="/ethos" icon={ethosIcon} />
       </main>
     </LegacyCaseContainer>
   );

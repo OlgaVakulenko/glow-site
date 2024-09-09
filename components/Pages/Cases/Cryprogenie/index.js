@@ -3,9 +3,10 @@ import cx from 'clsx';
 import { useHeaderTheme } from '../../../Header';
 import LegacyCaseContainer from '../LegacyCaseContainer';
 import styles from './styles.module.scss';
-import NextStudy from '../NextStudy';
 import Head from 'next/head';
 import { getFullDescription, getFullTitle } from '../../../HeadTitle';
+import NextCase from '../../../NextCase';
+import { fleetChaiserIcon } from '../icons';
 
 function Intro() {
   const ref = useRef();
@@ -1668,10 +1669,12 @@ function Cryptogenie() {
             </div>
           </section>
           {/* Next*/}
-          <NextStudy
-            title="Fleet manager to control your equipment"
+					<NextCase
+						title="FleetChaser: efficient fleet management platform"
             href="/fleet"
-          />
+						icon={fleetChaiserIcon}
+					/>
+
         </main>
       </div>
     </LegacyCaseContainer>

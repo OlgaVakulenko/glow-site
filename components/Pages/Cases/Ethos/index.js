@@ -5,7 +5,8 @@ import BeforeAfter from '../BeforeAfter';
 import Carousel from '../Carousel';
 import InlineVideo from '../InlineVideo';
 import LegacyCaseContainer from '../LegacyCaseContainer';
-import NextStudy from '../NextStudy';
+import NextCase from '../../../NextCase';
+import { parkingIcon } from '../icons';
 
 export default function Ethos() {
   return (
@@ -730,7 +731,7 @@ export default function Ethos() {
           </div>
         </section>
         {/* Next*/}
-        <NextStudy title="Platform for parking in airport" href="/parking" />
+        <NextCase title="Platform for parking in airport" href="/parking" icon={parkingIcon} />
       </main>
     </LegacyCaseContainer>
   );
