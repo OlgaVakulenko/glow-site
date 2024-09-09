@@ -61,9 +61,9 @@ function Bunner() {
 				</h2>
 				<Button2
 					as={Link}
-					className={cx("relative !bg-white !px-[20px] !py-[12px] text-center !text-black md:w-auto font-normal", {'w-auto xl:mb-0 md:mb-[9px]': dark, 'w-full': !dark})}
+					className={cx("relative !bg-white !px-[20px] !py-[12px] text-center md:w-auto font-normal", {'w-auto xl:mb-0 md:mb-[9px]': dark, 'w-full': !dark})}
 					href="/contact-us"
-					color="white"
+					color="black"
 				>
 					Get started
 				</Button2>

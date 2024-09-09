@@ -36,7 +36,7 @@ export default function CopyLink() {
     <button
       type="button"
       onClick={handleClick}
-      className={cx('social-link transition-colors duration-200 opacity-50', {
+      className={cx('social-link transition-colors duration-200', {
         '!text-brand': clicked,
       })}
     >
