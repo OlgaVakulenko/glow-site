@@ -118,7 +118,7 @@ export const links = [
   },
 
   {
-    href: 'https://www.linkedin.com/company/glow-team/mycompany/',
+    href: 'https://www.linkedin.com/company/glow-team/',
     label: 'LinkedIn',
     icon: (
       <svg
