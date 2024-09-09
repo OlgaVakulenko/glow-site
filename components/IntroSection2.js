@@ -33,7 +33,7 @@ export default function IntroSection({
       <Animated
         as="h1"
         className={cx(
-          'mb-4 text-next-heading-4 md:mb-0 md:mr-24 md:min-w-[416px] md:text-next-heading-3 xl:col-span-6 xl:mr-0 xl:text-next-heading-2',
+          'mb-4 md:mb-0 md:mr-24 md:min-w-[416px] text-next-heading-4 md:text-next-heading-3 xl:text-next-heading-0 xl:col-span-6 xl:mr-0',
           headingClassname
         )}
       >
@@ -43,7 +43,7 @@ export default function IntroSection({
       <Animated
         delay={100}
         className={cx(
-          'text-next-body-m md:text-next-body-xxl xl:col-span-5',
+          'text-[16px] leading-[160%] xl:text-next-body-l md:text-next-body-xxl xl:col-span-5',
           bodyClassName
         )}
       >
