@@ -5,6 +5,7 @@ import Layout from '../../Layout';
 
 export default function Logos({ padding }) {
   return (
+		<Animated>
     <Layout
       className={cx(
         'flex flex-col gap-10 md:grid md:grid-cols-8 md:gap-8 md:gap-y-14 xl:grid-cols-12 xl:gap-y-20',
@@ -41,7 +42,7 @@ export default function Logos({ padding }) {
         link={<RemoteLink>View Profile</RemoteLink>}
         href="https://www.designrush.com/agency/graphic-design/digital-design"
       />
-      <div className="order-2 md:order-6 md:col-span-8 md:flex md:items-center md:justify-center md:rounded-full md:border md:border-black md:p-[32px] xl:order-3 xl:col-span-4 xl:justify-start">
+      <Animated className="order-2 md:order-6 md:col-span-8 md:flex md:items-center md:justify-center md:rounded-full md:border md:border-black md:p-[32px] xl:order-3 xl:col-span-4 xl:justify-start">
         <IconLayout
           icon={clutchIcon}
           title={
@@ -52,8 +53,9 @@ export default function Logos({ padding }) {
           href="https://clutch.co/profile/glow-design-agency"
           clutch
         />
-      </div>
+      </Animated>
     </Layout>
+		</Animated>
   );
 }
 

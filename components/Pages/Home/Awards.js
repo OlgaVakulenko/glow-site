@@ -20,7 +20,7 @@ export default function Awards() {
         design awards
       </h2>
       <div className="space-y-6 md:flex md:justify-between md:space-x-6 md:space-y-0">
-        <Card
+				<Card
           title="CSS Design Awards"
           subtitle="x4"
           icon={

@@ -23,8 +23,6 @@ export const isTransitionAtom = atom(false);
 export const progressAtom = atom(0);
 export const progressNodeYAtom = atom(null);
 
-const columnClx = 'md:max-w-[1220px] mx-auto';
-
 function createDot(x, y, id = null) {
   if (id) {
     const el = document.getElementById(id);
@@ -67,7 +65,7 @@ export default function PostPage({ post, relatedPosts = [] }) {
         const diff = rect.y - start.y;
         const Y2 = center + diff;
 
-        const query = `bottom+=40 ${Y2}`;
+        const query = `bottom+=60 ${Y2}`;
 
         return query;
       },
@@ -78,10 +76,8 @@ export default function PostPage({ post, relatedPosts = [] }) {
     };
   }, [media, post.href]);
 
-  console.log(post.date_iso);
-
   return (
-    <div className="pb-20 pt-[142px] md:pt-[176px]">
+    <div className="pb-[88px] pt-[129px] md:pb-[163px] md:pt-[204px] xl:pb-[179px] xl:pt-[152px]">
       <Head>
         <title>{getFullTitle(post.html_title || post.title)}</title>
         <meta
@@ -114,9 +110,9 @@ export default function PostPage({ post, relatedPosts = [] }) {
       />
       <Layout key={post.href}>
         <Provider>
-          <div className={columnClx}>
+          <div>
             <Breadcrumbs current={post.title} slug={post.href} />
-            <h1 className="color-[#000] mb-10 font-glow text-heading-h3 leading-[37px] md:max-w-[800px] md:text-heading-h2">
+            <h1 className="color-black mb-[66px] text-next-heading-5 md:mb-20 md:max-w-[800px] md:text-next-heading-3 xl:mb-16">
               {post.title}
             </h1>
             <div className="md:hidden">
@@ -128,21 +124,24 @@ export default function PostPage({ post, relatedPosts = [] }) {
             </div>
           </div>
           <div
-            className={cx('md:grid md:grid-cols-12 md:gap-[72px]', columnClx)}
+            className={cx('md:flex md:gap-8 xl:grid xl:grid-cols-12 xl:gap-8')}
           >
             <div className="md:col-span-8">
-              <div className="-mx-4 mb-10 md:mx-0">
+              <div className="-mx-4 mb-10 md:mx-0 md:mb-12">
                 <img src={post.image} alt="" className="md:rounded-3xl" />
               </div>
               <div ref={triggerRef}>
                 <Content html={post.text} paragraphs={post.paragraphs} />
               </div>
-              <Tags tags={post.tags} className="mb-20" />
+              <Tags
+                tags={post.tags}
+                className="mb-20 md:mb-[72px] xl:mb-[88px]"
+              />
             </div>
             {media !== 'mobile' && (
-              <aside className="hidden md:col-span-4 md:block">
+              <aside className="hidden md:block md:min-w-[352px] xl:col-span-3 xl:col-start-10 xl:min-w-full">
                 <div className="stickyref" ref={stickyRef}>
-                  <div className="mb-12">
+                  <div className="mb-11">
                     <Author
                       name={post.author_name}
                       image={post.author_image}
@@ -157,6 +156,8 @@ export default function PostPage({ post, relatedPosts = [] }) {
             )}
           </div>
         </Provider>
+      </Layout>
+      <Layout className="overflow-hidden">
         <MoreTopics posts={relatedPosts} />
       </Layout>
     </div>

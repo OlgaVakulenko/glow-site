@@ -69,13 +69,13 @@ export function BurgerIcon({ isOpen = false, theme, size = 32 }) {
     <svg
       style={{ color: stroke }}
       className="transition-colors"
-      width="40"
-      height="40"
+      width="36"
+      height="14"
       viewBox="0 0 26 14"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <path d="M0 1H26M0 13H26" stroke="#19191B" strokeWidth="1.6776" />
+      <path d="M0 1H26M0 13H26" stroke="currentColor" strokeWidth="1.6776" />
     </svg>
   );
 }
@@ -110,7 +110,7 @@ export const Animation = ({ index, children, ...props }) => {
       leave="transition ease-in-out duration-300 transform"
       leaveFrom="opacity-1"
       leaveTo="opacity-0"
-      className="mb-3 py-[10px] text-[38px] leading-[51px] last:mb-[0px]"
+      className=""
       {...props}
       style={{
         transitionDelay: (1 + index) * 100 + 'ms',
@@ -147,16 +147,12 @@ const BurgerMenu = ({ menuId, links }) => {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
       className={cx(
-        'fixed left-0 top-0 z-10 h-[150vh] w-full transition-colors duration-100',
-        {
-          'bg-brand': !subMenuParent,
-          'bg-white': subMenuParent,
-        }
+        'fixed left-0 top-0 z-10 h-[150vh] w-full bg-white transition-colors duration-100'
       )}
     >
       <div className="overflow-y-auto">
         <Layout>
-          <div className={'flex h-screenx flex-col md:justify-between'}>
+          <div className={'flex h-screenx flex-col justify-between'}>
             <div className="flex items-center justify-between py-[28px] font-medium text-black md:py-6 xl:py-[20px]">
               <Link
                 href="/"
@@ -450,7 +446,9 @@ export default function Header({
                 // && !isBottom
                 !subMenuActive) ||
               !headerActive,
-            'bg-white': backdropActive,
+            'bg-transparent': isTop,
+            'bg-white': backdropActive && !isTop,
+            'bg-[#0a0a0b]': t === 'dark' && !isTop,
             '!transition-none': isRouteTransition,
           }
         )}
@@ -474,7 +472,7 @@ export default function Header({
             <div
               className="flex items-center justify-between py-[28px] md:min-h-[88px] md:justify-start md:py-6 xl:py-[20px]"
               style={{
-                '--header-theme':
+                '--header-theme': 
                   t === 'brand' || t === 'white'
                     ? 'black'
                     : t === 'dark'

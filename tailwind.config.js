@@ -23,7 +23,7 @@ module.exports = {
         'md-safe': '1000px',
         'x-920': '904px',
         'x-1400': '1440px',
-        '4xl': '1800px',
+        // '4xl': '1800px',
         layout: '1736px',
         '3xl': '1600px',
         wide: '1920px',

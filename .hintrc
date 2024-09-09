@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "web-recommended",
+    "@hint/configuration-accessibility",
+    "@hint/configuration-performance"
+  ]
+}
+
+
+
+
+
+
+
+
+

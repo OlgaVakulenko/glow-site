@@ -12,8 +12,8 @@ import IntroSection2 from '../../IntroSection2';
 import Layout from '../../Layout';
 import { Separator } from '../About';
 import cases from '../Cases/data';
-import CaseCard from '../Home/CaseCard';
-import { CaseSlide, CasesRow } from '../Home/CasesSlider';
+import CaseCard from '../../CasesSlider/CaseCard';
+import { CaseSlide, CasesRow } from '../../CasesSlider/CasesSlider';
 
 export const filterAtom = atom({
   category: 'all',
@@ -311,7 +311,7 @@ function Cases() {
         }
       >
         {_cases.map((item, i) => (
-          <div key={i}>
+          <Animated key={i}>
             <Link href={item.href}>
               {media === 'mobile' ? (
                 <CaseCard type="work" item={item} index={i} />
@@ -319,7 +319,7 @@ function Cases() {
                 <CaseSlide item={item} index={i} />
               )}
             </Link>
-          </div>
+          </Animated>
           // <CaseItem
           //   key={item.href}
           //   className="mb-4"

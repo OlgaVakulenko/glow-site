@@ -80,7 +80,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>{getFullTitle('UX/UI & Branding Product Design Agency')}</title>
+        <title>{getFullTitle('AI UI UX & Product Design Agency')}</title>
         <meta
           name="description"
           content={getFullDescription(
@@ -89,10 +89,7 @@ function MyApp({ Component, pageProps }) {
         ></meta>
         <meta property="akey" content="needle-4" />
         <meta property="og:image" content="/img/og-image.png?v=2" />
-        <meta
-          name="p:domain_verify"
-          content="6e1fb96305a72b68c37e78ef360a42ff"
-        />
+				<meta name="p:domain_verify" content="6e1fb96305a72b68c37e78ef360a42ff"/>
         <meta property="akey" content="needle-4" />
         <meta property="og:image" content="/img/og-image.png?v=2" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -199,6 +196,7 @@ function MyApp({ Component, pageProps }) {
           {`
             .to-animate {
               opacity: 0;
+							visibility: hidden !important;
               transition: transform .7s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s, opacity .7s cubic-bezier(0.4, 0.01, 0.165, 0.99) .2s;
             }
             .fade-up, .fadeInUp {

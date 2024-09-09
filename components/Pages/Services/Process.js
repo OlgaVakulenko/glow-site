@@ -1,6 +1,6 @@
 import cx from 'clsx';
 import Layout from '../../Layout';
-import Heading from './Heading';
+import Heading from '../../Heading';
 
 export default function Process({ 
 	headingTitle, 
@@ -19,6 +19,7 @@ export default function Process({
 				isColumn={isColumn}
 				descriptionClassNames={headingDescriptionClassNames}
 				classNames={headingClassNames}
+				animate
       />
 			{ children }
     </Layout>

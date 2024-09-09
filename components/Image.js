@@ -33,14 +33,27 @@ export const x2 = (src, width, type) => {
 };
 
 export function Source(props) {
+  let dimensions = {};
+  if (props.height) {
+    dimensions = {
+      width: props.width,
+      height: props.height,
+    };
+  }
+
   return (
     <>
       <source
         srcSet={x2(props.image.src, props.width, 'webp')}
         media={props.media}
         type="image/webp"
+        {...dimensions}
       />
-      <source srcSet={x2(props.image.src, props.width)} media={props.media} />
+      <source
+        {...dimensions}
+        srcSet={x2(props.image.src, props.width)}
+        media={props.media}
+      />
     </>
   );
 }

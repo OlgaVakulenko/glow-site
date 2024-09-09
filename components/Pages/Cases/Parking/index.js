@@ -1,7 +1,8 @@
 import Head from 'next/head';
 import { getFullDescription, getFullTitle } from '../../../HeadTitle';
 import LegacyCaseContainer from '../LegacyCaseContainer';
-import NextStudy from '../NextStudy';
+import NextCase from '../../../NextCase';
+import { beastIcon } from '../icons';
 
 export default function Parking() {
   return (
@@ -862,7 +863,7 @@ export default function Parking() {
           </div>
         </section>
         {/* Next*/}
-        <NextStudy title="Zero-emissions car rental" href="/beast" />
+        <NextCase title="Zero-emissions car rental" href="/beast" icon={beastIcon} />
       </main>
     </LegacyCaseContainer>
   );

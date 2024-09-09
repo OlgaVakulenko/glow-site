@@ -2,6 +2,7 @@
   "data": {
     "title": "Agile Design Process: Unlocking Creativity and Efficiency",
     "description": "In today’s design, versatility is the key to unleashing creativity and productivity. And the Glow team is just what you need in this case…",
+    "html_description": "Explore the transformative power of the Agile design process in our comprehensive guide. Learn how adopting Agile methodologies can revolutionize your design team's workflow",
     "image": "https://cdn-images-1.medium.com/max/2000/1*3WED0ngDFxIkKE7kzZvVkg.jpeg",
     "author_name": "Kovalsky Stanislav",
     "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/2*5uDfocwzTmm0N9ZJGlTplQ.png",
@@ -9,10 +10,7 @@
     "created_at": 1714477505649,
     "read_minutes": "8 min read",
     "href": "agile-design-process-unlocking-creativity-and-efficiency",
-    "tags": [
-      "Process",
-      "Design"
-    ],
+    "tags": ["Process", "Design"],
     "paragraphs": [
       {
         "id": "p4706471274178536",

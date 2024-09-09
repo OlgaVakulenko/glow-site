@@ -1956,6 +1956,10 @@
     width: 50%;
   }
 
+	.inline-header__item.inline-header__right {
+		padding-bottom: 0;
+	}
+
   @media (max-width: 1020px) {
     .inline-header__item {
       width: 100%;
@@ -2049,7 +2053,7 @@
   }
 
   .owl-carousel.owl-theme {
-    padding-bottom: 50px;
+    padding-bottom: 0;
   }
 
   .owl-carousel.owl-theme .item {

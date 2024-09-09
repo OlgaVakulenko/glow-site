@@ -1,14 +1,15 @@
 import Link from 'next/link';
 import Layout from '../../Layout';
-import { CasesSlider2 } from '../../Pages/Home/CasesSlider';
+import { CasesSlider2 } from '../../CasesSlider/CasesSlider';
 import { useMediaAtom } from '../../../lib/agent';
+import Animated from '../../Animated';
 
 export default function Slider() {
   const media = useMediaAtom();
   const filter = media === 'mobile' ? ['/beast', '/cryptogenie'] : [];
 
   return (
-    <div>
+    <Animated>
       <CasesSlider2 filter={filter} disableOnMobile padding={false} />
       <Layout className="md:hidden">
         <Link
@@ -32,6 +33,6 @@ export default function Slider() {
           </svg>
         </Link>
       </Layout>
-    </div>
+    </Animated>
   );
 }

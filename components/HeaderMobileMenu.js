@@ -6,6 +6,9 @@ import BigButton from './BigButton';
 import { Animation, subMenuParentAtom } from './Header';
 import HeaderLinkMobile from './HeaderLinkMobile';
 import texts from './texts';
+import Button2 from './Button';
+import { SocialLinks } from './Footer/FooterLinks';
+import Animated from './Animated';
 
 export default function HeaderMobileMenu({ menuId, links }) {
   const [activeParent, setActiveParent] = useAtom(subMenuParentAtom);
@@ -18,14 +21,14 @@ export default function HeaderMobileMenu({ menuId, links }) {
   }, [links, activeParent]);
 
   return (
-    <div className="flex h-full flex-col justify-between pt-[13px]">
+    <div className="flex flex-col justify-between pb-4 pt-[13px]">
       <nav
         aria-label="Main menu"
         role="navigation"
         id={menuId}
         className="flex flex-col"
       >
-        <ul>
+        <ul className="flex flex-col gap-8">
           {_links.map((item, i) => (
             <Animation as="li" key={item.href} index={i}>
               <HeaderLinkMobile item={item} />
@@ -40,7 +43,7 @@ export default function HeaderMobileMenu({ menuId, links }) {
                 key={item.href}
                 className="mb-[31px] flex last:mb-20"
               >
-                <div className="min-w-16 mr-6 flex  justify-center">
+                <div className="mr-6 flex min-w-16  justify-center">
                   {item.icon}
                 </div>
                 <div className="pt-2">
@@ -54,19 +57,20 @@ export default function HeaderMobileMenu({ menuId, links }) {
         )}
       </nav>
       {!activeParent && (
-        <Animation index={links.length} className="mt-[55px]">
-          {/* <BigButton
-            href="#footer"
-            className="mb-4 !py-[41px]"
-            onClick={handleFooterFormClick}
+        <Animation index={links.length} className="my-8">
+          <Button2
+            as={Link}
+            href="/contact-us"
+            className="w-full !bg-black text-center !text-white"
+            size="large"
           >
-            Let’s get in touch
-          </BigButton> */}
-          <BigButton href="/contact-us" className="mb-4 !py-[41px]">
             {texts.header_cta}
-          </BigButton>
+          </Button2>
         </Animation>
       )}
+      <Animated delay={300}>
+        <SocialLinks />
+      </Animated>
     </div>
   );
 }

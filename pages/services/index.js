@@ -1,21 +1,22 @@
 import Head from 'next/head';
 import { useMemo } from 'react';
-import IntroSection2 from '../../components/IntroSection2';
-import Layout from '../../components/Layout';
-import Logos from '../../components/Pages/About/Logos';
-import OurExperience from '../../components/Pages/Home/OurExperience';
-import Reviews from '../../components/Pages/Home/Reviews2';
-import TrialBanner from '../../components/Pages/Home/TrialBanner';
-import Approach from '../../components/Pages/Services/Approach';
-import Process from '../../components/Pages/Services/Process';
-import ServicesSelector from '../../components/Pages/Services/ServiceSelector';
-import Box from '../../components/Pages/Services/Box';
-import Slider from '../../components/Pages/Services/Slider';
-import { FAQ } from '../contact-us';
-import { getFullTitle } from '../../components/HeadTitle';
-import S1 from '../../components/Pages/Services/assets/s1.svg';
-import S2 from '../../components/Pages/Services/assets/s2.svg';
-import S3 from '../../components/Pages/Services/assets/s3.svg';
+import IntroSection2 from '../components/IntroSection2';
+import Layout from '../components/Layout';
+import Animated from '../components/Animated';
+import Logos from '../components/Pages/About/Logos';
+import OurExperience from '../components/Pages/Home/OurExperience';
+import Reviews from '../components/Pages/Home/Reviews2';
+import TrialBanner from '../components/Pages/Home/TrialBanner';
+import Approach from '../components/Pages/Services/Approach';
+import Process from '../components/Pages/Services/Process';
+import ServicesSelector from '../components/Pages/Services/ServiceSelector';
+import Box from '../components/Box';
+import Slider from '../components/Pages/Services/Slider';
+import { FAQ } from './contact-us';
+import { getFullTitle } from '../components/HeadTitle';
+import S1 from '../components/Pages/Services/assets/s1.svg';
+import S2 from '../components/Pages/Services/assets/s2.svg';
+import S3 from '../components/Pages/Services/assets/s3.svg';
   
 function Heading() {
   const title = useMemo(() => {
@@ -40,12 +41,12 @@ function Heading() {
 
 function ProcessPicture() {
 	return (
-		<picture>
+		<Animated as='picture' delay={250}>
 			<source srcSet={S3.src} media="(min-width:1280px)"></source>
 			<source srcSet={S2.src} media="(min-width:820px)"></source>
 			<source srcSet={S1.src}></source>
 			<img className="mt-10 w-full md:mt-14 xl:mt-20" src={S1.src} alt="" />
-		</picture>
+		</Animated>
 	)
 }
 
@@ -95,11 +96,11 @@ export default function Services() {
         <Logos padding={false} />
       </Box>
       <Box>
-        <Reviews padding={false} />
+        <Reviews padding={false} animate />
       </Box>
       <Box>
         <Layout>
-          <FAQ padding={false} />
+          <FAQ padding={false} animate />
         </Layout>
       </Box>
     </div>

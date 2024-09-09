@@ -22,11 +22,12 @@ import Graphic2 from './assets/graphic2.png';
 import Graphic3 from './assets/graphic3.png';
 import MobileVersionImg from './assets/mobver-desktop.png';
 import ReviewImg from './assets/review.png';
-import NextStudy2 from '../NextStudy2';
 import Animated from '../../../Animated';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { getFullDescription, getFullTitle } from '../../../HeadTitle';
+import NextCase from '../../../NextCase';
+import { fleetChaiserIcon } from '../icons';
 
 const WorkCarousel = dynamic(() => import('./WorkCarousel'));
 
@@ -81,10 +82,11 @@ export default function LiquidSpace() {
       <MobileVersion />
       <Results />
       <Review />
-      <NextStudy2
-        title="Fleet manager to control your equipment"
-        href="/fleet"
-      />
+			<NextCase 
+				title="FleetChaser: efficient fleet management platform"
+				href="/fleet"
+				icon={fleetChaiserIcon}
+			/>
     </div>
   );
 }
@@ -455,9 +457,9 @@ function Results() {
 function Review() {
   return (
     <Animated>
-      <Layout className="mt-2 pb-16">
+      <Layout className="mt-2">
         <div className="border-t border-black pt-10 md:flex md:pt-12">
-          <div className="mb-10">
+          <div className="md:mb-0 mb-10">
             <div className="mb-6 w-[112px] overflow-hidden rounded-[10px] md:mb-8 md:mr-[90px] md:w-[198px] xl:w-[288px]">
               <Image src={ReviewImg} alt="" />
             </div>

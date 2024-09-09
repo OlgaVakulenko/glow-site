@@ -3,7 +3,8 @@ export const items = [
     title: 'Small Dedicated Teams',
     description:
       'Together stronger than alone: your project will be assigned a PM, a lead-designer, and design professionals experienced in your field.',
-    icon: (
+    icon: ({ isReady }) => {
+      return (
       <svg
         width="80"
         height="80"
@@ -46,13 +47,14 @@ export const items = [
           </clipPath>
         </defs>
       </svg>
-    ),
+    )},
   },
   {
     title: 'Sprint Based',
     description:
       'Regular sprints help us distribute the workload, set and achieve goals in estimated time, and bring structure to the creative process.',
-    icon: (
+    icon: ({ isReady }) => {
+      return (
       <svg
         width="80"
         height="80"
@@ -91,13 +93,14 @@ export const items = [
           stroke="#19191B"
         />
       </svg>
-    ),
+    )},
   },
   {
     title: 'Niches Experience',
     description:
       'While some may take their time digging in the nuances, our expertise in selected fast-growing fields helps us jump in the products right away.',
-    icon: (
+    icon: ({ isReady }) => {
+      return (
       <svg
         width="80"
         height="80"
@@ -128,13 +131,14 @@ export const items = [
           stroke="#19191B"
         />
       </svg>
-    ),
+    )},
   },
   {
     title: 'Always in Touch',
     description:
       'We are maintaining the contact with our clients not only by gathering feedback but also by organizing workshops and experience-based improvements even after the release.',
-    icon: (
+    icon: ({ isReady }) => {
+      return (
       <svg
         width="80"
         height="80"
@@ -174,13 +178,14 @@ export const items = [
           </clipPath>
         </defs>
       </svg>
-    ),
+    )},
   },
   {
     title: 'Technology Oriented',
     description:
       'We always communicate with developers and keep the technical aspect in mind. Our mockups and solutions are comprehendible and always consider the software possibilities of our clients.',
-    icon: (
+    icon: ({ isReady }) => {
+      return(
       <svg
         width="80"
         height="80"
@@ -229,13 +234,14 @@ export const items = [
           stroke="#19191B"
         />
       </svg>
-    ),
+    )},
   },
   {
     title: 'Work as a Partner',
     description:
       'Honesty is one of our company’s core values. We are honest with our clients and always aim to become the trusted design team for any digital challenges our partners face.',
-    icon: (
+    icon: ({ isReady }) => {
+      return (
       <svg
         width="80"
         height="80"
@@ -285,6 +291,6 @@ export const items = [
           mask="url(#path-5-inside-1_9728_19264)"
         />
       </svg>
-    ),
+    )},
   },
 ];

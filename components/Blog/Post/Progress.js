@@ -39,17 +39,17 @@ export default function Progress({ minutes }) {
   return (
     <div ref={rootRef} className="progress-node mb-9">
       <div className="relative">
-        <div className="absolute top-1/2 left-0 h-[1px] w-full -translate-y-1/2 bg-lred"></div>
+        <div className="absolute left-0 top-1/2 h-[1px] w-full -translate-y-1/2 bg-lred"></div>
         <div
           ref={handleRef}
           className={cx(
-            'absolute top-1/2 left-0 h-[1px] -translate-y-1/2 bg-brand'
+            'absolute left-0 top-1/2 h-[1px] -translate-y-1/2 bg-brand'
           )}
         ></div>
         <div
           ref={thumbRef}
           className={cx(
-            'absolute top-1/2 left-0 flex h-[17px] w-[17px] -translate-y-1/2 -translate-x-1/2 items-center justify-center bg-white'
+            'absolute left-0 top-1/2 flex h-[17px] w-[17px] -translate-x-1/2 -translate-y-1/2 items-center justify-center bg-white'
           )}
         >
           <div className="h-[9px] w-[9px] rounded-full bg-brand"></div>

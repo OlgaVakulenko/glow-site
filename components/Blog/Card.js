@@ -1,10 +1,11 @@
 import Link from 'next/link';
 import { AuthorImage } from './Post/Author';
+import cx from 'clsx';
 
-function Author({ name, image, date, minutes }) {
+function Author({ name, image, date, minutes, position }) {
   return (
     <div className="flex md:mt-auto">
-      <div className="mr-[18px]">
+      <div className="mr-[18px] flex items-center">
         <AuthorImage
           name={name}
           src={image}
@@ -20,14 +21,14 @@ function Author({ name, image, date, minutes }) {
       <div>
         <div className="text-next-body-s">{name}</div>
         <div className="text-next-body-xs opacity-50">
-          {date} ・ {minutes}
+          {position || `${date} ・ ${minutes}`}
         </div>
       </div>
     </div>
   );
 }
 
-export default function Card({ post }) {
+export default function Card({ post, flavor = 'default' }) {
   return (
     <Link
       href={`/blog/${post.href}`}
@@ -40,17 +41,25 @@ export default function Card({ post }) {
           className="h-[223px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
-      <h2 className="mb-2 text-next-body-l md:mb-2 md:max-w-[80%]">
+      <h2
+        className={cx('line-clamp-3 text-next-body-l md:max-w-[80%]', {
+          'mb-2': flavor === 'default',
+          'mb-[18px]': flavor === 'read-more',
+        })}
+      >
         {post.title}
       </h2>
-      <div className="mb-[36px] max-w-[90%] text-next-body-s opacity-50 md:mb-7 md:max-w-[80%]">
-        {post.description}
-      </div>
+      {flavor === 'default' && (
+        <div className="mb-[36px] max-w-[90%] text-next-body-s opacity-50 md:mb-7 md:max-w-[80%]">
+          {post.description}
+        </div>
+      )}
       <Author
         name={post.author_name}
         image={post.author_image}
         date={post.date}
         minutes={post.read_minutes}
+        position={flavor === 'read-more' ? post.author_position : null}
       />
     </Link>
   );

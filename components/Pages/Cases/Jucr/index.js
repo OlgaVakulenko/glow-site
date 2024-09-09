@@ -7,10 +7,11 @@ import { showBackdropAtom, useHeaderTheme } from '../../../Header';
 import { createHeaderScrollTrigger, range } from '../../../../lib/utils';
 import { useSetAtom } from 'jotai';
 import Carousel from '../Carousel';
-import NextStudy from '../NextStudy';
 import InlineVideo from '../InlineVideo';
 import Head from 'next/head';
 import { getFullDescription, getFullTitle } from '../../../HeadTitle';
+import NextCase from '../../../NextCase';
+import { fleetChaiserIcon } from '../icons';
 
 function Stripes() {
   const [toggle, setToggle] = useState(false);
@@ -1355,10 +1356,11 @@ function Jucr() {
             </div>
           </section>
           {/* Next*/}
-          <NextStudy
-            title="Fleet manager to control your equipment"
+					<NextCase 
+						title="FleetChaser: efficient fleet management platform"
             href="/fleet"
-          />
+						icon={fleetChaiserIcon} 
+					/>
         </main>
       </div>
     </LegacyCaseContainer>

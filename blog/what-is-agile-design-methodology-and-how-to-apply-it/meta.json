@@ -1,0 +1,50 @@
+{
+  "data": {
+    "title": "What Is Agile Design Methodology and How to Apply It?",
+    "description": "Welcome to Agile Design, a revolutionary way of creating and implementing solutions. Agile is more than just a phrase; it's a new, rapidly transforming environment.",
+    "image": "/img/blog/agile/glow-article-1.png",
+    "author_name": "Kovalsky Stanislav",
+    "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/2*5uDfocwzTmm0N9ZJGlTplQ.png",
+    "date": "Jun 18",
+    "created_at": 1718661600000,
+    "read_minutes": "10 min read",
+    "href": "what-is-agile-design-methodology-and-how-to-apply-it",
+    "tags": ["Design", "Process"],
+    "paragraphs": [
+      {
+        "id": "p1",
+        "text": "Navigating Agile Design Methodology: Principles, Evolution, and Application"
+      },
+      {
+        "id": "p2",
+        "text": "Key Components of Agile Design"
+      },
+      {
+        "id": "p3",
+        "text": "Benefits of Implementing Agile Design"
+      },
+      {
+        "id": "p4",
+        "text": "Case Studies and Examples"
+      },
+      {
+        "id": "p5",
+        "text": "Steps to Implement Agile Design in Your Projects"
+      },
+      {
+        "id": "p6",
+        "text": "Challenges and Solutions in Agile Design"
+      },
+      {
+        "id": "p7",
+        "text": "Tools and Resources for Agile Design"
+      },
+      {
+        "id": "p8",
+        "text": "Glow Agency at Your Service"
+      }
+    ],
+    "order": 999,
+    "date_iso": "2024-06-18T22:00:00.000Z"
+  }
+}
