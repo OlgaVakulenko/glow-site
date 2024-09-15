@@ -15,7 +15,7 @@ import { getFullTitle } from '../../../../components/HeadTitle';
 import S1 from '../assets/ui-ux-s1.svg';
 import S2 from '../assets/ui-ux-s2.svg';
 import S3 from '../assets/ui-ux-s3.svg';
-import { items } from '../../../../data/ui-ux-services-graphic-data';
+import { items } from '../../../../data/mobile-services-graphic-data';
 
 const GraphicBlock = dynamic(() => import('../../../GraphicBlock'), { ssr: false });
 
@@ -23,9 +23,8 @@ function PageHeading() {
   const title = useMemo(() => {
     return (
       <>
-				UI & UX Design
-				<br className="hidden md:block xl:hidden" /> Services:{' '}
-        <br className="hidden xl:block" />Boost Your Product Now
+				Mobile application<br />
+				design services 
       </>
     );
   }, []);
@@ -36,7 +35,7 @@ function PageHeading() {
 			bodyClassName="md:!text-next-body-l"
 			headingClassname='md:!min-w-[496px] md:mr-4'
       title={title}
-      subtitle="A great interface converts visitors into loyal customers. Achieve your product goals and business objectives with our UI & UX design services."
+      subtitle="Developing a quality mobile application becomes a key element of successful interaction between a company and its audience."
     />
   );
 }
@@ -54,13 +53,11 @@ function ProcessPicture() {
 	)
 }
 
-export default function UiUxServices() {
+export default function MobileServices() {
 	const processHeadingTitle = useMemo(() => {
 		return (
 			<>
-				The Importance 
-				<br className="md:hidden" /> of UX Design
-				<br /> in Today&apos;s Digital Landscape
+				The importance of professional <br className='hidden xl:block' /> design <br className='hidden md:block xl:hidden' />in app development
 			</>
 		)
 	}, [])
@@ -69,10 +66,10 @@ export default function UiUxServices() {
 		return (
 			<>
 				<div className='xl:max-w-[596px] md:max-w-[464px]'>
-					The digital world depends on a seamless user experience (UX). Our UI/UX design services enhance digital platforms by combining aesthetic appeal with intuitive functionality. Start your project effortlessly with us. 
+				We can offer you a design that achieves business goals and solves user problems. It means you get a double plus for your business! Android? iOS? We can design for both native and custom apps. Our mobile app design services combine creativity and functionality to make your app stand out.
 				</div>
 				<div className='xl:max-w-[596px] md:max-w-[464px]'>
-					Our clear design services&apos; processes ensure transparency and excellent results every step of the way. You will end up with a fantastic project, allowing you to shine at the top of the search results. Let&apos;s make your product glow!
+				Working with mobile app designs requires meticulous and careful work. Glow team will deliver the perfect result with clear processes and transparent communication. Starting a project with us is simple. Our streamlined approach ensures great results every time you want something perfect.
 				</div>
 			</>
 		)
@@ -81,10 +78,10 @@ export default function UiUxServices() {
 	const servicesHeadingTitle = useMemo(() => {
 		return (
 			<>
-				Design Services
-				<br className="hidden md:block xl:hidden" /> Tailored
-				<br className="md:hidden xl:block" /> to Your
-				<br className="hidden md:block xl:hidden" /> Business Needs
+				Mobile app designs 
+				<br className="hidden md:block xl:hidden" /> tailored
+				<br className="hidden xl:block" /> to your
+				<br className="hidden md:block xl:hidden" /> business needs
 			</>
 		)
 	}, [])
@@ -120,7 +117,7 @@ export default function UiUxServices() {
 				<Box>
 					<Heading
 						title={servicesHeadingTitle}
-						description="Our design services are tailored to meet the unique requirements of your business. That's why Glow can ensure that every aspect meets your goals and resonates with your audience."
+						description="Your brand is unique, and so should your app designs. We provide tailored design solutions to meet your business needs, ensuring your digital presence connects with your audience and delivers results."
 						titleClassNames='!mb-6 md:!mb-0'
 						descriptionClassNames="!text-next-body-m xl:!text-next-body-l md:!max-w-[448px] xl:!max-w-[528px] md:self-end font-normal"
 					/>

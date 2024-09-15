@@ -374,7 +374,7 @@ export function CasesSlider2({
 
   return (
     <div ref={ref} className="overflow-hidden">
-      <Animated className='mx-auto w-full max-w-[1440px] px-4'>
+      <Animated className='mx-auto w-full max-w-[1440px] px-4 md:px-8 xl:px-16'>
         <Section
           withLayout={false}
           className={cx({
