@@ -78,8 +78,6 @@ function MyApp({ Component, pageProps }) {
   return (
     <div>
       <Head>
-        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{getFullTitle('AI UI UX & Product Design Agency')}</title>
         <meta
           name="description"
@@ -90,8 +88,6 @@ function MyApp({ Component, pageProps }) {
         <meta property="akey" content="needle-4" />
         <meta property="og:image" content="/img/og-image.png?v=2" />
 				<meta name="p:domain_verify" content="6e1fb96305a72b68c37e78ef360a42ff"/>
-        <meta property="akey" content="needle-4" />
-        <meta property="og:image" content="/img/og-image.png?v=2" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/img/og-image.png?v=2" />
         <script
