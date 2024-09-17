@@ -4,7 +4,6 @@ import { useMemo } from 'react';
 import IntroSection2 from '../../../IntroSection2';
 import Layout from '../../../../components/Layout';
 import Awards from '../../../Awards';
-import Logos from '../../../../components/Pages/About/Logos';
 import Reviews from '../../../../components/Pages/Home/Reviews2';
 import TrialBanner from '../../../../components/Pages/Home/TrialBanner';
 import Process from '../Process';
@@ -101,7 +100,7 @@ export default function MobileServices() {
       </Head>
       <PageHeading />
 			<Box>
-        <Slider />
+        <Slider mobileURLs={['/beast', '/jucr']} />
       </Box>
       <Process 
 				layoutClassNames='!px-2 md:!px-8 xl:!px-16'

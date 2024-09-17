@@ -12,14 +12,14 @@ function Item({ index, icon, title, text, href }) {
   return (
     <Link
       href={href}
-      className={cx('group flex transition-opacity duration-300')}
+      className={cx('group flex flex-col transition-opacity duration-300 gap-3 flex-1')}
     >
       <div className={cx('mr-6 w-16 transition-colors duration-300')}>
         {icon}
       </div>
       <div className="pt-2">
         <div className="mb-2 text-body-heading-m">{title}</div>
-        <div className="max-w-[208px] text-body-s opacity-50">{text}</div>
+        <div className="max-w-[208px] text-body-xs opacity-50">{text}</div>
       </div>
     </Link>
   );
@@ -100,7 +100,7 @@ export default function HeaderSubMenuContainer() {
         leaveTo="opacity-0"
         className={cx('fixed top-0 z-[9] w-full bg-white')}
       >
-        <div className={cx('pb-[70px] pt-24', {})}>
+        <div className={cx('pt-24', {})}>
           <HeaderSubMenu subMenuItems={items} />
         </div>
       </Transition>
@@ -110,7 +110,7 @@ export default function HeaderSubMenuContainer() {
 
 export function HeaderSubMenu({ subMenuItems: items }) {
   return (
-    <div className={cx('border-t border-[#B3B3B3] pt-14')}>
+    <div className={cx('border-t border-[#B3B3B3] pt-1 md:py-11 md:px-8 xl:py-8 xl:px-16 flex gap-8')}>
       <Layout className="flex flex-col justify-between md:flex-row xl:!px-[48px]">
         {items.map((item, idx) => (
           <Item

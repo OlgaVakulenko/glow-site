@@ -9,7 +9,7 @@ import Layout from './Layout';
 
 function AwardCard({ item }) {
 	return (
-		<div className="bg-black bg-opacity-[0.03] rounded-[32px] pt-6 pb-4 px-[14px] md:pt-8 md:pb-6 xl:pt-[49px] xl:pb-8 max-w-[164px] md:min-w-[216px] xl:min-w-[304px] flex flex-col justify-end items-center flex-shrink-0 gap-y-6 md:gap-y-8 xl:gap-y-12">
+		<div className="bg-black bg-opacity-[0.03] rounded-[32px] pt-6 pb-4 px-[14px] md:pt-8 md:pb-6 xl:pt-[49px] xl:pb-8 w-[164px] md:min-w-[216px] xl:min-w-[304px] flex flex-col justify-end items-center flex-shrink-0 gap-y-6 md:gap-y-8 xl:gap-y-12">
 			<div className="relative">
 				<div className="bg-black rounded-full w-[88px] h-[88px] md:w-24 md:h-24 xl:w-[113px] xl:h-[113px] flex justify-center items-center flex-shrink-0">
 					<Image src={item.imgSrc} alt='award icon'/>

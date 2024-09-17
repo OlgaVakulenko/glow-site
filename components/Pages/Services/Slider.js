@@ -4,9 +4,9 @@ import { CasesSlider2 } from '../../CasesSlider/CasesSlider';
 import { useMediaAtom } from '../../../lib/agent';
 import Animated from '../../Animated';
 
-export default function Slider() {
+export default function Slider({ mobileURLs }) {
   const media = useMediaAtom();
-  const filter = media === 'mobile' ? ['/beast', '/cryptogenie'] : [];
+  const filter = media === 'mobile' ? mobileURLs ? [...mobileURLs] : ['/beast', '/cryptogenie'] : [];
 
   return (
     <Animated>
