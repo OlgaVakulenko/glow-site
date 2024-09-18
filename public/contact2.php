@@ -2,13 +2,9 @@
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-require __DIR__ . '/vendor/autoload.php';
 require 'phpmailer/PHPMailer.php';
 require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
-
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-$dotenv->load();
 
 $h = $_SERVER['HTTP_HOST'];
 if ($h === 'localhost:8000') {
@@ -108,11 +104,11 @@ function emailNotification() {
     $mailer->CharSet = 'UTF-8';
     $mailer->SMTPAuth = true;
 
-		$mailer->Host = getenv('EMAIL_HOST');
-		$mailer->Username = getenv('EMAIL_USERNAME');
-		$mailer->Password = getenv('EMAIL_PASSWORD');
-		$mailer->Port = getenv('EMAIL_PORT');
-		$mailer->SMTPSecure = getenv('EMAIL_SMTP_SECURE');
+    $mailer->Host = 'mail.privateemail.com';
+    $mailer->Username = 'hello@glow.team';
+    $mailer->Password = '-fVpUem@3%h2QSu';
+    $mailer->Port = 465;
+    $mailer->SMTPSecure = 'ssl';
     $mailer->setFrom('hello@glow.team', 'Glow Team');
     $mailer->addAddress('hello@glow.team');
     $mailer->addAddress('rusmashatov@gmail.com');
