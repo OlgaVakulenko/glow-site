@@ -7,9 +7,9 @@
     "image": "/img/blog/how-to-create-trustworthy-fintech-app-design/Glow-Article.png",
     "author_name": "Kovalsky Stanislav",
     "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/2*5uDfocwzTmm0N9ZJGlTplQ.png",
-    "date": "Sept 18, 2024",
-    "created_at": 1693515600000,
-    "read_minutes": "5 min read",
+    "date": "Sept 20, 2024",
+    "created_at": 1726790400000,
+    "read_minutes": "15 min read",
     "href": "how-to-create-trustworthy-fintech-app-design",
     "tags": [
       "Process",
@@ -26,22 +26,26 @@
       },
       {
         "id": "p1203",
-        "text": "Key Strategies to Improve Navigation and User Flow"
+        "text": "Best Practices in Fintech App Design"
       },
       {
         "id": "p1204",
-        "text": "Techniques for Enhancing User Flow"
+        "text": "Common Pitfalls to Dodge"
       },
       {
         "id": "p1205",
-        "text": "Continuous Improvement"
+        "text": "Main Types of Fintech Products"
       },
       {
         "id": "p1206",
-        "text": "Conclusion"
+        "text": "Strategic Steps in Fintech Product Development"
+      },
+			{
+        "id": "p1207",
+        "text": "Final Thoughts"
       }
     ],
     "order": 995,
-    "date_iso": "2023-08-31T21:00:00.000Z"
+    "date_iso": "2024-09-20T21:00:00.000Z"
   }
 }
