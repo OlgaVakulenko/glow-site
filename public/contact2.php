@@ -106,15 +106,12 @@ function emailNotification() {
 
     $mailer->Host = 'mail.privateemail.com';
     $mailer->Username = 'hello@glow.team';
-    $mailer->Password = '5mKW>4ebgdWM';
+    $mailer->Password = '-fVpUem@3%h2QSu';
     $mailer->Port = 465;
     $mailer->SMTPSecure = 'ssl';
     $mailer->setFrom('hello@glow.team', 'Glow Team');
-    $mailer->addAddress('sergey.bogdan.vi@gmail.com');
     $mailer->addAddress('hello@glow.team');
     $mailer->addAddress('rusmashatov@gmail.com');
-    $mailer->addAddress('chr99272@gmail.com');
-    $mailer->addAddress('bliznetsov@glow.team');
 
     $mailer->isHTML(true);
     $mailer->Subject = 'Contact form submission';
