@@ -17,13 +17,15 @@ export default function BlogPage({ posts, tags = [] }) {
   const [filter] = useAtom(filterAtom);
   const media = useMediaAtom();
 
-  const _posts = useMemo(() => {
-    return posts.filter((post) => {
+  const sortedPosts = useMemo(() => {
+    const filteredPosts = posts.filter((post) => {
       if (filter === TAG_ALL) {
         return true;
       }
       return post.tags.includes(filter);
     });
+    
+    return filteredPosts.sort((a, b) => b.created_at - a.created_at);
   }, [posts, filter]);
 
   const postsInColumnCount = useMemo(() => {
@@ -71,7 +73,7 @@ export default function BlogPage({ posts, tags = [] }) {
       <div key={filter + Math.random()}>
         <Layout>
           <div className="grid gap-y-10 py-[52px] md:grid-cols-2 md:gap-8 md:gap-y-14 md:py-[72px] xl:grid-cols-3 xl:gap-y-20 xl:py-[88px]">
-            {_posts.map((post, index) => {
+            {sortedPosts.map((post, index) => {
               const columnIndex = index % postsInColumnCount;
               const delay = (columnIndex + 1) * 100;
 
