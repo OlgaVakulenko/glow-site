@@ -16,7 +16,7 @@ export default function HeaderLink({
   onSubMenuClick,
 }) {
   const subItems = item.children;
-  const { href, label } = item;
+  const { href, label, icon } = item;
   const [subMenuParent, setSubMenuParent] = useAtom(subMenuParentAtom);
   const debounceRef = useRef(false);
 
@@ -59,41 +59,34 @@ export default function HeaderLink({
 
             return item;
           });
-        }
+        } 
       }}
       delay={(index + 1) * 100}
       className={cx(
         'rolling-text-group flex items-center justify-center px-5 text-[16px] leading-[24px] tracking-[0.03em]',
-        theme === 'dark' && !subMenuParent && 'text-white'
+        theme === 'dark' && 'text-white',
+				{'ai-link': href === '/ai'}
       )}
       immediate
     >
+			{icon && <span className='mr-[6px]'>{icon}</span>}
       <RollingText text={label} height={24} />
       {!!subItems?.length && (
-        <div className="ml-2">
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 14 14"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M14 7L-2.7314e-08 7"
-              stroke="currentColor"
-              strokeWidth="2"
-            />
-            <path
-              className={cx('opacity-100 transition-opacity duration-200', {
-                '!opacity-0': subMenuParent,
-              })}
-              d="M7 14L7 -2.73145e-08"
-              stroke="currentColor"
-              strokeWidth="2"
-            />
-          </svg>
-        </div>
-      )}
+				<div className="ml-2" onClick={(event) => {
+					event.stopPropagation();
+					setSubMenuParent((it) => (it === item ? null : item));
+				}}>
+					{!subMenuParent || subMenuParent !== item ? (
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+							<path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" strokeLinecap="square" />
+						</svg>
+					) : (
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+							<path d="M15 12.5L10 7.5L5 12.5" stroke="currentColor" strokeLinecap="square" />
+						</svg>
+					)}
+				</div>
+			)}
     </Animated>
   );
 }
