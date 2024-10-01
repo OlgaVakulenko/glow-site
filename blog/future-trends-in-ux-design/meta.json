@@ -1,0 +1,45 @@
+{
+  "data": {
+    "title": "Future trends in UX design",
+    "html_title": "Future trends in UX design",
+    "html_description": "Discover how to create a standout FinTech app with essential features, design tips, and case studies. Learn from top examples and avoid common pitfalls in this comprehensive guide.",
+    "description": "In a rapidly evolving digital landscape, the influence of automation and artificial intelligence is reshaping our routines and market dynamics.",
+    "image": "/img/blog/future-trends-in-ux-design/Glow-Article.png",
+    "author_name": "Anastasiia Lavrentii",
+    "author_image": "/img/blog/al.png",
+    "date": "Oct 3, 2024",
+    "created_at": 1727913600000,
+    "read_minutes": "10 min read",
+    "href": "future-trends-in-ux-design",
+    "tags": [
+      "Design"
+    ],
+    "paragraphs": [
+      {
+        "id": "p1301",
+        "text": "AI-Driven Personalization"
+      },
+      {
+        "id": "p1302",
+        "text": "Voice and Conversational UI"
+      },
+      {
+        "id": "p1303",
+        "text": "Neurodesign and Biometric Feedback"
+      },
+      {
+        "id": "p1304",
+        "text": "Micro-Interactions and Motion Design"
+      },
+      {
+        "id": "p1305",
+        "text": "5G and Edge Computing"
+      },
+      {
+        "id": "p1306",
+        "text": "Conclusion"
+      }
+    ],
+    "date_iso": "2024-10-03T21:00:00.000Z"
+  }
+}
