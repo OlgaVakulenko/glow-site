@@ -13,6 +13,6 @@ jobs:
       - run: npm install
       - run: npm run build
       - name: Deploy to Vercel (Production)
-        run: vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --confirm --scope olgavakulenko
+        run: vercel --token ${{ secrets.VERCEL_TOKEN }} --prod --confirm
         env:
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
