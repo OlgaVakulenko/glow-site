@@ -36,6 +36,7 @@ export default function HeaderSubMenuContainer() {
   const setSubMenuOpen = useSetAtom(subMenuOpenAtom);
   const show = !!subItems?.length;
   const prevItemsRef = useRef(subItems);
+	console.log('SHOW', show)
   const items = useMemo(() => {
     if (!subItems?.length) {
       return prevItemsRef.current;
@@ -113,8 +114,9 @@ export default function HeaderSubMenuContainer() {
 
 export function HeaderSubMenu({ subMenuItems: items }) {
 	const [theme] = useAtom(themeAtom);
+	const [subMenuParent, setSubMenuParent] = useAtom(subMenuParentAtom);
   return (
-    <div className={cx('border-t pt-1 flex', {'bg-[#0A0A0B] text-white border-[#2B2B2B]': theme === 'dark', 'border-[#B3B3B3]': theme !== 'dark'})}>
+    <div onMouseLeave={() => setSubMenuParent(null)} className={cx('border-t pt-1 flex', {'bg-[#0A0A0B] text-white border-[#2B2B2B]': theme === 'dark', 'border-[#B3B3B3]': theme !== 'dark'})}>
       <Layout className="flex flex-col justify-between md:flex-row md:!py-7 md:!px-4 xl:!py-4 xl:!px-12">
         {items.map((item, idx) => (
           <Item

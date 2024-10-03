@@ -3,7 +3,6 @@ import { useMemo } from 'react';
 import IntroSection2 from '../../components/IntroSection2';
 import Layout from '../../components/Layout';
 import Animated from '../../components/Animated';
-import Logos from '../../components/Pages/About/Logos';
 import OurExperience from '../../components/Pages/Home/OurExperience';
 import Reviews from '../../components/Pages/Home/Reviews2';
 import TrialBanner from '../../components/Pages/Home/TrialBanner';
@@ -17,6 +16,7 @@ import { getFullTitle } from '../../components/HeadTitle';
 import S1 from '../../components/Pages/Services/assets/s1.svg';
 import S2 from '../../components/Pages/Services/assets/s2.svg';
 import S3 from '../../components/Pages/Services/assets/s3.svg';
+import Awards from '../../components/Awards';
   
 function Heading() {
   const title = useMemo(() => {
@@ -89,12 +89,10 @@ export default function Services() {
       <Box>
         <Approach />
       </Box>
-      <Box className="grid gap-16 xl:gap-[120px]">
-        <Layout>
-          <TrialBanner />
-        </Layout>
-        <Logos padding={false} />
-      </Box>
+      <Layout className='py-[52px] md:py-[72px] xl:py-[88px]'>
+        <TrialBanner />
+      </Layout>
+			<Awards />
       <Box>
         <Reviews padding={false} animate />
       </Box>

@@ -9,13 +9,12 @@ import HRule from '../../HRule';
 import { getFullDescription, getFullTitle } from '../../HeadTitle';
 import BlogPosts from './BlogPosts';
 import Founders from './Founders';
-import Logos from './Logos';
 import Push from './Push';
 import Team from './Team';
 import Img from './assets/main-cover-d.jpg';
 import ImgMobile from './assets/main-cover-mobile.jpg';
 import TrialBanner from '../Home/TrialBanner';
-import { Tag } from '../../Tag';
+import Awards from '../../Awards';
 
 function IntroSection({ title, subtitle, className, headingClassname }) {
   return (
@@ -118,13 +117,11 @@ export default function About({ posts }) {
         </div>
       </Layout>
       <Push />
-      <Layout className="pt-14 md:pt-[72px] xl:pt-[88px]">
+      <Layout className="pb-[52px] pt-14 md:py-[72px] xl:py-[88px]">
         <TrialBanner />
       </Layout>
-      <div className="pb-[52px] pt-16 md:pb-[72px] xl:pb-[88px] xl:pt-[120px]">
-        <Logos padding={false} />
-      </div>
-      <div className="pt-[52px] md:pt-[72px]">
+			<Awards />
+      <div className="pt-[52px] md:pt-[72px] xl:pt-[88px]">
         <BlogPosts posts={posts} />
       </div>
     </div>

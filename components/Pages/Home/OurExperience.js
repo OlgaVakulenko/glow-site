@@ -36,7 +36,7 @@ export default function OurExperience({ padding }) {
       className={cx(
         'flex flex-col md:flex-row',
         {
-          'pb-[100px] pt-[100px] md:pb-[184px] md:pt-[104px] xl:pt-[120px]':
+          'pb-[100px] pt-12 md:pb-[184px] md:pt-8 xl:pt-[120px]':
             padding == null,
         },
         padding
