@@ -1,10 +1,11 @@
 import { Transition } from '@headlessui/react';
 import cx from 'clsx';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { themeAtom } from '../lib/theme';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { useLayoutSsrEffect } from '../lib/utils';
 import { isTopAtom, subMenuOpenAtom, subMenuParentAtom } from './Header';
 import Layout from './Layout';
@@ -36,7 +37,9 @@ export default function HeaderSubMenuContainer() {
   const setSubMenuOpen = useSetAtom(subMenuOpenAtom);
   const show = !!subItems?.length;
   const prevItemsRef = useRef(subItems);
-	console.log('SHOW', show)
+	const [fullHeight, setFullHeight] = useState(0);
+  const contentRef = useRef(null);
+
   const items = useMemo(() => {
     if (!subItems?.length) {
       return prevItemsRef.current;
@@ -82,32 +85,58 @@ export default function HeaderSubMenuContainer() {
     };
   }, [router.events, setSubMenuParent]);
 
+	useEffect(() => {
+    if (contentRef.current) {
+      setFullHeight(contentRef.current.scrollHeight);
+    }
+  }, [show]);
+
   return (
     <div>
-      <div
-        className={cx(
-          'pointer-events-none fixed inset-0 z-[9] bg-black opacity-0 transition-opacity duration-300',
-          {
-            '!pointer-events-auto': show,
-            '!opacity-50': show,
-          }
+			<AnimatePresence>
+        {show && (
+          <motion.div
+            key="overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.5 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2, ease: 'easeInOut', delay: 0.2 }}
+            className={cx(
+							'pointer-events-none fixed inset-0 z-[7] bg-black',
+							{
+								'!pointer-events-auto': show,
+							}
+						)}
+            onClick={() => setSubMenuParent(null)}
+          />
         )}
-        onClick={() => setSubMenuParent(null)}
-      ></div>
-      <Transition
-        show={show}
-        enter="transition-opacity duration-300"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity duration-300"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
-        className={cx('fixed top-0 z-[9] w-full', {'bg-[#0A0A0B]': theme === 'dark', 'bg-white': theme !== 'dark'})}
-      >
-        <div className={cx('pt-24', {})}>
-          <HeaderSubMenu subMenuItems={items} theme={theme} />
-        </div>
-      </Transition>
+      </AnimatePresence>
+			<AnimatePresence>
+        {show && (
+          <motion.div
+            key="submenu"
+            initial={{ maxHeight: 40 }}
+            animate={{ maxHeight: fullHeight }}
+            exit={{ maxHeight: 40 }}
+            transition={{
+              maxHeight: {
+                duration: 0.6, 
+                ease: 'easeInOut',
+								delay: show ? 0.1 : 0.6,
+              },
+            }}
+            className={cx('fixed top-0 z-[9] w-full overflow-hidden', {
+              'bg-[#0A0A0B]': theme === 'dark',
+              'bg-white': theme !== 'dark',
+            })}
+            ref={contentRef}
+          >
+            <div className="pt-24">
+              <HeaderSubMenu subMenuItems={items} theme={theme} />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
