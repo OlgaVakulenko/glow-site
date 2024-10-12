@@ -14,7 +14,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm install
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
       - run: npm run build
+
       - name: Deploy to Vercel (Preview)
         run: vercel --token ${{ secrets.VERCEL_TOKEN }} --yes
         env:
