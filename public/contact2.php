@@ -104,9 +104,9 @@ function emailNotification() {
     $mailer->CharSet = 'UTF-8';
     $mailer->SMTPAuth = true;
 
-    $mailer->Host = 'mail.privateemail.com';
+    $mailer->Host = 'smtp.gmail.com';
     $mailer->Username = 'hello@glow.team';
-    $mailer->Password = '-fVpUem@3%h2QSu';
+    $mailer->Password = 'tbqicilgiswhuhcl';
     $mailer->Port = 587;
     $mailer->SMTPSecure = 'tls';
     $mailer->setFrom('hello@glow.team', 'Glow Team');
