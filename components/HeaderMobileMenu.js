@@ -2,16 +2,18 @@ import { useAtom } from 'jotai';
 import Link from 'next/link';
 import { useMemo } from 'react';
 import { useHandleFooterFormClick } from '../lib/utils';
-import BigButton from './BigButton';
+import cx from 'clsx';
 import { Animation, subMenuParentAtom } from './Header';
 import HeaderLinkMobile from './HeaderLinkMobile';
 import texts from './texts';
 import Button2 from './Button';
 import { SocialLinks } from './Footer/FooterLinks';
 import Animated from './Animated';
+import { themeAtom } from '../lib/theme';
 
 export default function HeaderMobileMenu({ menuId, links }) {
   const [activeParent, setActiveParent] = useAtom(subMenuParentAtom);
+	const [theme] = useAtom(themeAtom);
   const handleFooterFormClick = useHandleFooterFormClick();
 
   const _links = useMemo(() => {
@@ -28,7 +30,7 @@ export default function HeaderMobileMenu({ menuId, links }) {
         id={menuId}
         className="flex flex-col"
       >
-        <ul className="flex flex-col gap-8">
+        <ul className={cx("flex flex-col gap-8", {'border-b pb-8': activeParent})}>
           {_links.map((item, i) => (
             <Animation as="li" key={item.href} index={i}>
               <HeaderLinkMobile item={item} />
@@ -36,18 +38,18 @@ export default function HeaderMobileMenu({ menuId, links }) {
           ))}
         </ul>
         {activeParent && (
-          <div className="-mx-4 border-t px-4 pt-12">
+          <div className={cx("-mx-4 px-4 pt-8", {'text-white': theme === 'dark'})}>
             {activeParent.children.map((item) => (
               <Link
                 href={item.href}
                 key={item.href}
-                className="mb-[31px] flex last:mb-20"
+                className="mb-8 flex last:mb-20"
               >
-                <div className="mr-6 flex min-w-16  justify-center">
-                  {item.icon}
+                <div className="mr-2">
+                  {theme === 'dark' ? item.icon.dark : item.icon.light || item.icon}
                 </div>
-                <div className="pt-2">
-                  <div className="mb-2 text-body-heading-m">{item.title}</div>
+                <div>
+                  <div className="mb-3 text-body-heading-m">{item.title}</div>
                   <div className="text-body-s opacity-50">{item.text}</div>
                 </div>
               </Link>
@@ -64,7 +66,7 @@ export default function HeaderMobileMenu({ menuId, links }) {
             className="w-full !bg-black text-center !text-white"
             size="large"
           >
-            {texts.header_cta}
+            {texts.header_cta_mob}
           </Button2>
         </Animation>
       )}

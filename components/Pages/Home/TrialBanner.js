@@ -53,7 +53,7 @@ function Bunner() {
 
 	return(
 		<div className="grid gap-4 md:grid-cols-4">
-			<Card className={cx('relative md:col-span-2', {'bg-bl-dark xl:!p-12 md:!p-8 !p-6 trial-dark-outline': dark, 'md:!p-8 !p-2 !pb-4': !dark})}>
+			<Card hideBg={!dark} className={cx('relative md:col-span-2', {'bg-bl-dark xl:!p-12 md:!p-8 !p-6 trial-dark-outline': dark, 'md:!p-8 !p-2 !pb-4': !dark})}>
 				<h2 className="relative mb-8 text-next-heading-5 md:mb-8 md:text-next-heading-3 xl:mb-8 xl:text-next-heading-2">
 					Start with
 					<br className="hidden md:block" /> a free

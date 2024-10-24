@@ -348,7 +348,7 @@ export default function Reviews({ padding, title, animate = false }) {
         </div> */}
         </Layout>
         <SliderContainer 
-					className='mx-auto w-full max-w-[1440px] px-4'
+					className='mx-auto w-full max-w-[1440px] px-4 md:px-8 xl:px-16'
 					delay={animate ? 350 : undefined}
 				>
           {/* <DragCursorContainer> */}
