@@ -384,8 +384,7 @@ export default function FooterForm({
             <Button2
               type="submit"
               flavor="secondary"
-              color="white"
-              className="mt-8 w-full shrink-0 !bg-white !text-black md:mt-0 md:w-auto"
+              className="mt-8 w-full shrink-0 bg-white md:mt-0 md:w-auto"
               compact
             >
               Book a free call

@@ -106,12 +106,13 @@ function emailNotification() {
 
     $mailer->Host = 'smtp.gmail.com';
     $mailer->Username = 'hello@glow.team';
-    $mailer->Password = 'HqRyTYBg=ug6eX&+';
+    $mailer->Password = 'tbqicilgiswhuhcl';
     $mailer->Port = 587;
     $mailer->SMTPSecure = 'tls';
     $mailer->setFrom('hello@glow.team', 'Glow Team');
     $mailer->addAddress('hello@glow.team');
     $mailer->addAddress('rusmashatov@gmail.com');
+		$mailer->addAddress('chr99272@gmail.com');
 
     $mailer->isHTML(true);
     $mailer->Subject = 'Contact form submission';
