@@ -334,6 +334,10 @@
   color: white;
 }
 
+.header-logo.submenu.dark path {
+  color: white;
+}
+
 .header-logo.submenu path {
   color: theme('colors.black');
 }

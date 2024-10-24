@@ -31,6 +31,7 @@ import Layout from './Layout';
 import Logo from './Logo';
 import links from './links-data';
 import texts from './texts';
+import { themeAtom } from '../lib/theme';
 
 export function BurgerIcon({ isOpen = false, theme, size = 32 }) {
   let stroke = '#19191B';
@@ -42,9 +43,6 @@ export function BurgerIcon({ isOpen = false, theme, size = 32 }) {
   if (isOpen) {
     return (
       <svg
-        style={{
-          color: '#19191B',
-        }}
         width={size}
         height={size}
         viewBox="0 0 40 40"
@@ -123,6 +121,7 @@ export const Animation = ({ index, children, ...props }) => {
 
 const BurgerMenu = ({ menuId, links }) => {
   const [subMenuParent, setSubMenuParent] = useAtom(subMenuParentAtom);
+	const [theme] = useAtom(themeAtom);
   const router = useRouter();
   const [isOpen, setIsOpen] = useAtom(openAtom);
   const [media] = useAtom(mediaAtom);
@@ -147,19 +146,20 @@ const BurgerMenu = ({ menuId, links }) => {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
       className={cx(
-        'fixed left-0 top-0 z-10 h-[150vh] w-full bg-white transition-colors duration-100'
+        'fixed left-0 top-0 z-10 h-[150vh] w-full transition-colors duration-100',
+				{'bg-[#0A0A0B]': theme === 'dark', 'bg-white': theme !== 'dark'}
       )}
     >
       <div className="overflow-y-auto">
         <Layout>
           <div className={'flex h-screenx flex-col justify-between'}>
-            <div className="flex items-center justify-between py-[28px] font-medium text-black md:py-6 xl:py-[20px]">
+            <div className={cx("flex items-center justify-between py-[28px] font-medium md:py-6 xl:py-[20px]", {'text-white': theme === 'dark', 'text-black': theme !== 'dark'})}>
               <Link
                 href="/"
                 className="flex items-center justify-center"
                 title="home"
               >
-                <Logo isBurgerMenu/>
+                <Logo className={theme} isBurgerMenu/>
               </Link>
               <div className="hidden md:block">
                 <Link

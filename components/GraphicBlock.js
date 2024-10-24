@@ -27,7 +27,7 @@ export default function GraphicBlock({ items, className, blockClassNames, descri
       setMap({ ...mapRef.current });
     }
   };
-
+	
   return (
     <div className={cx('grid gap-14 md:grid-cols-2 xl:grid-cols-3 xl:gap-y-20', className)}>
       {items.map((item, index) => {
