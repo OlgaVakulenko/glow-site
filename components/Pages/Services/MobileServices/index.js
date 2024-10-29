@@ -88,10 +88,10 @@ export default function MobileServices() {
   return (
     <div className="pb-[52px] md:pb-[72px] xl:pb-[88px]">
       <Head>
-        <title>{getFullTitle('UI & UX Design Services')}</title>
+        <title>{getFullTitle('Mobile App Design Services')}</title>
         <meta
           name="description"
-          content="Transform your digital presence with our UI and UX design services, tailored to meet your business goals and enhance user experience."
+          content="Explore top-tier mobile app design services. Hire custom app designers for iOS and Android to deliver UX/UI solutions that elevate your app."
         ></meta>
 				<meta 
 					name="keywords" 

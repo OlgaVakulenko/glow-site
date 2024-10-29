@@ -1,0 +1,47 @@
+{
+  "data": {
+    "title": "Best Practices for SaaS Metrics Dashboards in 2024",
+    "description": "In today's fast-paced SaaS world, staying on top of your business performance is crucial. Enter the SaaS dashboard from your window into the heart of your operations. But what makes a great dashboard?",
+    "html_description": "Learn best practices for creating SaaS metrics dashboards in 2024, including key metrics, design tips, and tools for data-driven decisions and business growth.",
+    "image": "/img/blog/metrics-dashboard-saas/Glow-Article.png",
+    "author_name": "Ruslan Mashatov",
+    "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/0*TZLn6eils9KJ4IoB.",
+    "date": "Oct 29, 2024",
+    "created_at": 1730150400000,
+    "read_minutes": "10 min read",
+    "href": "best-practices-for-saas-metrics-dashboards-in-2024",
+    "tags": ["Process", "Design"],
+    "paragraphs": [
+      {
+        "id": "p1102",
+        "text": "What is a SaaS Dashboard?"
+      },
+      {
+        "id": "p1103",
+        "text": "Importance in SaaS Business"
+      },
+      {
+        "id": "p1104",
+        "text": "Essential SaaS Metrics"
+      },
+      {
+        "id": "p1105",
+        "text": "Steps to Create a SaaS Dashboard"
+      },
+      {
+        "id": "p1106",
+        "text": "Overview of Different Types of Dashboards"
+      },
+      {
+        "id": "p1107",
+        "text": "Overview of Design Best Practices"
+      },
+      {
+        "id": "p1108",
+        "text": "Conclusion"
+      }
+    ],
+    "order": 1000,
+    "date_iso": "2024-07-23T17:07:26.773Z"
+  }
+}
