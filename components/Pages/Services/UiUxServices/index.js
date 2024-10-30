@@ -91,7 +91,7 @@ export default function UiUxServices() {
   return (
     <div className="pb-[52px] md:pb-[72px] xl:pb-[88px]">
       <Head>
-        <title>{getFullTitle('UI & UX Design Services')}</title>
+        <title>{getFullTitle('UI UX Design Services')}</title>
         <meta
           name="description"
           content="Transform your digital presence with our UI and UX design services, tailored to meet your business goals and enhance user experience."
