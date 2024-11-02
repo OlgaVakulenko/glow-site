@@ -248,6 +248,10 @@ export default function TermsOfService() {
     <div className="pb-[150px]">
       <Head>
         <title>{getFullTitle('Terms of Service')}</title>
+				<meta
+          name="description"
+          content="Review Glow's Terms of Service to understand our policies and your rights. Stay informed about your responsibilities while using our platform."
+        ></meta>
       </Head>
       <Header title="Terms of Service" />
       <Layout className="grid gap-[60px] pt-0 xl:pt-20">
