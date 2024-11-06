@@ -1,15 +1,15 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
   siteUrl: process.env.SITE_URL || 'https://glow.team',
-  generateRobotsTxt: false, // (optional)
-  // robotsTxtOptions: {
-  //   policies: [
-  //     { userAgent: '*', allow: '/', disallow: '/form-success' },
-  //     { userAgent: '*', disallow: '/scene' },
-  //     { userAgent: '*', disallow: '/cgi-bin' },
-  //     { userAgent: '*', disallow: '*?' },
-  //   ],
-  // },
+  generateRobotsTxt: true,
+  exclude: ['/form-success'],
+  robotsTxtOptions: {
+    policies: [
+      { userAgent: '*', allow: '/', disallow: ['/form-success', '/scene', '/cgi-bin', '*?'] },
+    ],
+    additionalSitemaps: [
+      `${process.env.SITE_URL || 'https://glow.team'}/sitemap-0.xml`,
+    ],
+  },
   outDir: 'out',
-  // ...other options
 };

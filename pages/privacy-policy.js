@@ -155,6 +155,10 @@ export default function Policy() {
     <div className="pb-[150px]">
       <Head>
         <title>{getFullTitle('Privacy Policy')}</title>
+				<meta
+          name="description"
+          content="Learn how Glow handles your data with our Privacy Policy. We prioritize your privacy and explain our data collection and usage practices."
+        ></meta>
       </Head>
       <Header title="Privacy Policy" />
       <Layout className="grid gap-[60px] pt-0 xl:pt-20">

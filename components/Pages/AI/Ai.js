@@ -155,10 +155,10 @@ export default function AI() {
   return (
     <div className="dark-theme pb-[52px] md:pb-[72px] xl:pb-[88px] relative overflow-hidden bg-[#0a0a0b] text-white">
       <Head>
-        <title>{getFullTitle('AI')}</title>
+        <title>{getFullTitle('AI Design Agency')}</title>
         <meta
           name="description"
-          content=""
+          content="We specialize in blending cutting-edge artificial intelligence with creative design to transform your business. Explore our services and see how we can elevate your brand today."
         ></meta>
       </Head>
 			<AiHeader />
