@@ -19,11 +19,34 @@ const nextConfig = {
     scrollRestoration: true,
   },
   transpilePackages: ['gsap'],
+  async redirects() {
+    return [
+      {
+        source: '/blog/the-design-looks-great%2C-but-the-final-product-does-not-fix-frontend-issues-with-design-qa/',
+        destination: '/blog/the-design-looks-great,-but-the-final-product-does-not-fix-frontend-issues-with-design-qa/',
+        permanent: true,
+				statusCode: 301,
+      },
+      {
+        source: '/blog/terms-of-service/',
+        destination: '/terms-of-service/',
+        permanent: true,
+				statusCode: 301,
+      },
+      {
+        source: '/contact/',
+        destination: '/contact-us/',
+        permanent: true,
+				statusCode: 301,
+      },
+    ];
+  },
 };
 
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
+
 module.exports = withBundleAnalyzer(nextConfig);
 
 // module.exports = nextConfig;

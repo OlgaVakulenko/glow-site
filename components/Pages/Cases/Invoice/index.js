@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Header from './Header';
 import Frame1md from './assets/frame-1-md.png';
 import Frame1xl from './assets/frame-1-xl.png';
@@ -29,6 +30,13 @@ import Animated from '../../../Animated';
 export default function InvoiceMaker() {
   return (
     <div>
+			<Head>
+        <title>Case Invoice Maker - Web Design for Invoice Services</title>
+        <meta
+          name="description"
+          content="Explore Glow's Case Invoice Maker - an innovative web design solution for seamless invoice services, tailored for efficiency and user-friendly experience."
+        ></meta>
+      </Head>
 			<Header
 				title="Invoice Maker - everything about invoices"
 				subtitle="InvoiceMaker is designed to saves all of your invoicing information, making it simple to generate repeat invoices for regular clients."
