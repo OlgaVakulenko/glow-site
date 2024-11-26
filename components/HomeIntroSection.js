@@ -44,8 +44,8 @@ export default function HomeIntroSection({
       y = y - rect.top;
 
       gsap.to(el, {
-        duration: 0.5,
-        ease: 'power1.out',
+        duration: 8,
+        ease: 'power3.out',
         css: {
           '--x': x + 'px',
           '--y': y + 'px',
@@ -72,7 +72,7 @@ export default function HomeIntroSection({
         <h1
           ref={ref}
           className={cx(
-            'main-title mb-[25px] select-none bg-clip-text text-next-heading-4 md:mb-0 md:min-w-[496px] md:max-w-[496px] md:text-next-heading-3 xl:mr-0 xl:max-w-full xl:pb-8 xl:text-next-heading-0',
+            'main-title mb-[25px] select-none bg-clip-text text-next-heading-4 md:mb-0 md:min-w-[496px] md:max-w-[496px] md:text-next-heading-3 xl:mr-0 xl:max-w-full xl:pb-[74px] xl:text-next-heading-0',
             headingClassname,
             {
               animate: animate,
@@ -85,7 +85,7 @@ export default function HomeIntroSection({
       <div className="hidden xl:col-span-1 xl:block"></div>
       <Animated
         delay={100}
-        className="text-[16px] leading-[160%] md:max-w-[372px] md:pb-[1px] md:text-[18px] md:leading-[160%] xl:col-span-4 xl:max-w-full xl:pb-9 xl:text-[20px]"
+        className="text-[16px] leading-[160%] md:max-w-[372px] md:pb-[1px] md:text-[18px] md:leading-[160%] xl:col-span-4 xl:max-w-full xl:pb-[74px] xl:text-[20px]"
       >
         {subtitle}
       </Animated>
