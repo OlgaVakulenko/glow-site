@@ -16,8 +16,7 @@ import { getFullTitle } from '../../components/HeadTitle';
 import S1 from '../../components/Pages/Services/assets/s1.svg';
 import S2 from '../../components/Pages/Services/assets/s2.svg';
 import S3 from '../../components/Pages/Services/assets/s3.svg';
-import Awards from '../../components/Awards';
-  
+
 function Heading() {
   const title = useMemo(() => {
     return (
@@ -40,26 +39,27 @@ function Heading() {
 }
 
 function ProcessPicture() {
-	return (
-		<Animated as='picture' delay={250}>
-			<source srcSet={S3.src} media="(min-width:1280px)"></source>
-			<source srcSet={S2.src} media="(min-width:820px)"></source>
-			<source srcSet={S1.src}></source>
-			<img className="mt-10 w-full md:mt-14 xl:mt-20" src={S1.src} alt="" />
-		</Animated>
-	)
+  return (
+    <Animated as="picture" delay={250}>
+      <source srcSet={S3.src} media="(min-width:1280px)"></source>
+      <source srcSet={S2.src} media="(min-width:820px)"></source>
+      <source srcSet={S1.src}></source>
+      <img className="mt-10 w-full md:mt-14 xl:mt-20" src={S1.src} alt="" />
+    </Animated>
+  );
 }
 
 export default function Services() {
-	const processHeadingTitle = useMemo(() => {
-		return (
-			<>
-				This is how <br className="hidden md:block xl:hidden" /> we do it
-			</>
-		)
-	},[])
-	
-	const processHeadingDescription = "Custom software development helps you create great and super stable products by applying our workflow."
+  const processHeadingTitle = useMemo(() => {
+    return (
+      <>
+        This is how <br className="hidden md:block xl:hidden" /> we do it
+      </>
+    );
+  }, []);
+
+  const processHeadingDescription =
+    'Custom software development helps you create great and super stable products by applying our workflow.';
 
   return (
     <div className="pb-[52px] md:pb-[72px] xl:pb-[88px]">
@@ -72,13 +72,13 @@ export default function Services() {
       </Head>
       <Heading />
       <ServicesSelector />
-      <Process 
-				layoutClassNames="md:mt-[72px] xl:mt-[88px]"
-				headingTitle={processHeadingTitle}
-				headingDescription={processHeadingDescription}
-			>
-				<ProcessPicture />
-			</Process>
+      <Process
+        layoutClassNames="md:mt-[72px] xl:mt-[88px]"
+        headingTitle={processHeadingTitle}
+        headingDescription={processHeadingDescription}
+      >
+        <ProcessPicture />
+      </Process>
       <Box>
         <OurExperience padding={false} />
       </Box>
@@ -89,10 +89,9 @@ export default function Services() {
       <Box>
         <Approach />
       </Box>
-      <Layout className='py-[52px] md:py-[72px] xl:py-[88px]'>
+      <Layout className="py-[52px] md:py-[72px] xl:py-[88px]">
         <TrialBanner />
       </Layout>
-			<Awards />
       <Box>
         <Reviews padding={false} animate />
       </Box>

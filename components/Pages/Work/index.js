@@ -83,7 +83,7 @@ function Filters({ className }) {
     <Animated
       className={cx(
         'relative flex',
-        'xl:grid xl:grid-flow-row xl:grid-cols-12 4xl:gap-12',
+        '4xl:gap-12 xl:grid xl:grid-flow-row xl:grid-cols-12',
         className
       )}
       delay={150}
@@ -275,6 +275,7 @@ function Cases() {
   const _cases = useMemo(() => {
     return cases
       .filter((item) => {
+        if (item.href === '/work') return false;
         if (!category || category === 'all') return true;
         if (!item.category) {
           return true;
@@ -293,7 +294,7 @@ function Cases() {
 
         return item.type?.includes(type);
       });
-  }, [category, type]);
+  }, [cases, category, type]);
 
   return (
     <div className="pb-9 pt-12 md:pb-20 md:pt-20">

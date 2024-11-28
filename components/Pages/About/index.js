@@ -14,7 +14,6 @@ import Team from './Team';
 import Img from './assets/main-cover-d.jpg';
 import ImgMobile from './assets/main-cover-mobile.jpg';
 import TrialBanner from '../Home/TrialBanner';
-import Awards from '../../Awards';
 
 function IntroSection({ title, subtitle, className, headingClassname }) {
   return (
@@ -28,7 +27,7 @@ function IntroSection({ title, subtitle, className, headingClassname }) {
       <Animated
         as="h1"
         className={cx(
-          'mb-6 md:mb-0 md:mr-24 md:min-w-[416px] text-next-heading-4 md:text-next-heading-3 xl:text-next-heading-0 xl:col-span-6 xl:mr-0',
+          'mb-6 text-next-heading-4 md:mb-0 md:mr-24 md:min-w-[416px] md:text-next-heading-3 xl:col-span-6 xl:mr-0 xl:text-next-heading-0',
           headingClassname
         )}
       >
@@ -37,7 +36,7 @@ function IntroSection({ title, subtitle, className, headingClassname }) {
       <div className="hidden xl:col-span-2 xl:block"></div>
       <Animated
         delay={100}
-        className="text-[16px] leading-[160%] md:text-next-body-xxl xl:text-next-body-l xl:col-span-4"
+        className="text-[16px] leading-[160%] md:text-next-body-xxl xl:col-span-4 xl:text-next-body-l"
       >
         {subtitle}
       </Animated>
@@ -120,7 +119,6 @@ export default function About({ posts }) {
       <Layout className="pb-[52px] pt-14 md:py-[72px] xl:py-[88px]">
         <TrialBanner />
       </Layout>
-			<Awards />
       <div className="pt-[52px] md:pt-[72px] xl:pt-[88px]">
         <BlogPosts posts={posts} />
       </div>

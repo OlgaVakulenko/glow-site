@@ -148,12 +148,13 @@ export default function AI() {
         >
           <div
             className={cx(
-              'bg-dark-tag gradient-red-border flex items-center rounded-full px-6 py-3 font-inter text-sm'
+              'bg-dark-tag gradient-red-border flex h-[44px] items-center rounded-full py-3 font-inter text-sm',
               // 'gradient-grey-border': !item.isBorder,
+              { 'w-[149px] pl-4': index === 0, 'w-[242px] pl-8': index === 1 }
             )}
           >
-            {item.tagIcon}
-            <span className="pl-[10px]">{item.tagText}</span>
+            <span className="absolute z-10"> {item.tagIcon}</span>
+            <span className="overtext ml-8 w-full">{item.tagText}</span>
           </div>
           <div className="white-gradient-text pb-4 pt-6 !font-inter text-next-heading-6 md:pt-8 md:text-next-heading-5 md:!leading-9 xl:tracking-normal">
             {item.title}

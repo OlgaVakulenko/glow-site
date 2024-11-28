@@ -7,7 +7,6 @@ import IntroSection2 from '../../IntroSection2';
 import Layout from '../../Layout';
 import { SkipRenderOnClient } from '../../SkipRender';
 import casesData from '../Cases/data';
-import Awards from '../../Awards';
 import { CaseSlide, CasesSlider2 } from '../../CasesSlider/CasesSlider';
 import LogoCarousel from './LogoCarousel';
 import NextStep from './NextStep';
@@ -126,7 +125,6 @@ export default function Home2() {
         />
       </div>
       <NextStep />
-      <Awards />
       <OurExperience />
       <Layout className="mb-[100px] font-inter md:mb-[144px] xl:mb-[176px]">
         <TrialBanner />

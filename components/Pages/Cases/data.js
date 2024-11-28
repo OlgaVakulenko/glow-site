@@ -461,6 +461,13 @@ const cases = [
       </svg>
     ),
   },
+  {
+    href: '/work',
+    title: <>We have lots of amazing projects for you</>,
+    lastSlide: true,
+    image: '',
+    // type: ['mobile'],
+  },
 ];
 
 export default cases;

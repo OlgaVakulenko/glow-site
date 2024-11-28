@@ -227,24 +227,51 @@
 }
 
 .gradient-red-border {
-  position: relative;
-	background-color: #0A0A0B;
-  background-origin: border-box;
-  background-clip: border-box;
-  border: 1px solid transparent;
+    --offset: 1px;
+    background: #171717;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .gradient-red-border::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  z-index: -1;
-  background: linear-gradient(150deg, rgb(227, 50, 48) 0%, rgb(64, 62, 81) 50%, rgba(64, 62, 81, 0.8) 100%);
-  border-radius: inherit;
+    content: '';
+    background: conic-gradient(transparent 270deg, #e33230, transparent);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    aspect-ratio: 1;
+    width: 100%;
+    animation: rotate 3s linear infinite;
 }
+
+.gradient-red-border::after {
+    content: '';
+    background: inherit;
+    border-radius: inherit;
+    position: absolute;
+    inset: var(--offset);
+    height: calc(100% - 2 * var(--offset));
+    width: calc(100% - 2 * var(--offset));
+}
+
+.overtext {
+    background: transparent;
+    position: absolute;
+    z-index: 10;
+}
+
+@keyframes rotate {
+    from {
+        transform: translate(-50%, -50%) scale(1.4) rotate(0turn);
+    }
+
+    to {
+        transform: translate(-50%, -50%) scale(1.4) rotate(1turn);
+    }
+}
+
 
 .red-shadow {
 	-webkit-box-shadow: -4px -3px 30px 5px rgba(227,50,48,0.3);
