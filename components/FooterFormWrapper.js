@@ -5,6 +5,8 @@ import FooterForm from './Footer/FooterForm';
 import Layout from './Layout';
 import GlowImg from './Pages/Home/assets/glow555.png';
 import Image from './Image';
+import CalendlyEmbed from './CalendlyEmbed';
+import Button2 from './Button';
 
 const footerStyle = 'default';
 export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
@@ -40,10 +42,13 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
         >
           <div
             className={cx(
-              ' md:max-w-[600px] xl:col-span-12 xl:max-w-full 4xl:max-w-full',
+              ' 4xl:max-w-full h-full md:max-w-[600px] xl:col-span-12 xl:max-w-full',
               {
-                'mb-8 md:mb-[56px]': footerStyle !== 'trial',
+                'flex h-full flex-col justify-between': !_isSubmitted,
               }
+              // {
+              //   'mb-8 md:mb-[56px]': footerStyle !== 'trial',
+              // }
             )}
           >
             <div className="text-next-heading-4 md:text-next-heading-2 xl:text-next-heading-0">
@@ -54,7 +59,7 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
               ) : (
                 <div>
                   {
-                    <h1>
+                    <h1 className="pb-14 x-1280:pb-0">
                       Let’s make <br className="hidden md:block" />
                       your project glow
                     </h1>
@@ -67,7 +72,25 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
                 Our team will get back to you within 12-24 hours{' '}
                 <span className="not-italic">🙌</span>
               </div>
-            ) : null}
+            ) : (
+              <div className="hidden max-w-[259px] flex-col items-start gap-8 x-1280:flex">
+                <span className="font-satoshi text-[20px] font-medium leading-6">
+                  Always busy and want to book an exact time to call?
+                </span>
+                <CalendlyEmbed
+                  text={
+                    <Button2
+                      flavor="secondary"
+                      color="white"
+                      className="mt-8 w-[180px] shrink-0 border-0 !bg-[#ffffff30] font-normal md:mt-0"
+                      compact
+                    >
+                      Book a free call
+                    </Button2>
+                  }
+                />
+              </div>
+            )}
           </div>
           {
             <div
@@ -88,6 +111,35 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
           }
         </div>
       </div>
+      {!_isSubmitted ? (
+        <div
+          className={cx(
+            'relative mt-2.5 items-center justify-between overflow-hidden rounded-3xl bg-black p-6 text-white sm:flex md:rounded-[32px] md:p-12 xl:p-20 xl:px-16 xl:py-[72px] x-1280:hidden',
+            {
+              '4xl:px-24 4xl:py-[120px]': footerStyle === 'default',
+              'xl:pt-14': footerStyle === 'trial',
+              'h-full !pb-8 md:!pb-20 xl:!p-20': _isSubmitted,
+            }
+          )}
+        >
+          <p className="mb-6 mr-[72px] max-w-full font-satoshi text-base font-normal leading-6 xs:mr-0 sm:mb-0 sm:max-w-60 md:max-w-64 md:text-[20px] md:font-medium">
+            Always busy and want to book an exact time to call?
+          </p>
+          <CalendlyEmbed
+            classNames="sm:w-auto w-full"
+            text={
+              <Button2
+                flavor="secondary"
+                color="white"
+                className="w-full shrink-0 border-0 !bg-[#ffffff30] font-normal sm:w-[160px]"
+                compact
+              >
+                Book a free call
+              </Button2>
+            }
+          />
+        </div>
+      ) : null}
     </Layout>
   );
 }

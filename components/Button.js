@@ -19,7 +19,7 @@ export default function Button2({
       className={cx(
         {
           'bg-brand': flavor === 'primary',
-          'border border-lblue bg-transparent font-medium !text-white hover:bg-lblue hover:text-black':
+          'border-blue hover:bg-blue border bg-transparent font-medium !text-white hover:text-black':
             flavor === 'secondary' && color === 'white',
           'border border-black bg-transparent text-black':
             flavor === 'secondary' && color === 'black',

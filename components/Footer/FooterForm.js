@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { RadioGroup } from '@headlessui/react';
 import cx from 'clsx';
 import debounce from 'lodash.debounce';
@@ -20,6 +20,8 @@ import StasImage from '../Pages/About/assets/stas-k.png';
 import RollingText from '../RollingText';
 import { Checkbox } from '../Checkbox';
 import Button2 from '../Button';
+import CalendlyEmbed from '../CalendlyEmbed';
+import { PopupButton } from 'react-calendly';
 
 const CheckboxCtx = createContext(null);
 
@@ -227,6 +229,8 @@ export default function FooterForm({
 
   const [checked, setChecked] = useState(false);
 
+  const openCalModal = () => {};
+
   return (
     <div className="relative h-full">
       <Image
@@ -360,7 +364,7 @@ export default function FooterForm({
               theme={theme}
             />
           </div>
-          <div className="md:mt-10 md:flex md:items-center md:justify-between md:space-x-4 xl:mt-14">
+          <div className="gap-x-6 sm:flex sm:items-center sm:justify-between md:mt-10 md:space-x-4 x-920:gap-0 xl:mt-14">
             <div className="flex space-x-4 text-body-xs leading-[160%] xl:max-w-[428px] xl:text-[16px]">
               <div className="pt-[2px] md:pt-[3px]">
                 <Checkbox
@@ -383,11 +387,11 @@ export default function FooterForm({
             </div>
             <Button2
               type="submit"
-              flavor="secondary"
-              className="mt-8 w-full shrink-0 bg-white md:mt-0 md:w-auto"
+              flavor="primary"
+              className="mt-8 w-full shrink-0 bg-white sm:mt-0 sm:w-[160px]"
               compact
             >
-              Book a free call
+              Send message
             </Button2>
             {/* <button
               type="submit"
