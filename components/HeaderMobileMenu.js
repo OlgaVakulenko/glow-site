@@ -2,6 +2,7 @@ import { useAtom } from 'jotai';
 import Link from 'next/link';
 import React, { useMemo } from 'react';
 import { useHandleFooterFormClick } from '../lib/utils';
+import { useRouter } from 'next/router';
 import cx from 'clsx';
 import { Animation, subMenuParentAtom } from './Header';
 import HeaderLinkMobile from './HeaderLinkMobile';
@@ -11,13 +12,12 @@ import { SocialLinks } from './Footer/FooterLinks';
 import Animated from './Animated';
 import { themeAtom } from '../lib/theme';
 import CalendlyEmbed from './CalendlyEmbed';
-import path from 'path';
-import { router } from 'next/client';
 
 export default function HeaderMobileMenu({ menuId, links }) {
   const [activeParent, setActiveParent] = useAtom(subMenuParentAtom);
   const [theme] = useAtom(themeAtom);
   const handleFooterFormClick = useHandleFooterFormClick();
+  const router = useRouter();
 
   const _links = useMemo(() => {
     if (activeParent) return links.filter((item) => item === activeParent);
