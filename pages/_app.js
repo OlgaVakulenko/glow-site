@@ -1,4 +1,4 @@
-import cx from 'clsx';
+// import cx from 'clsx';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useMemo, useRef } from 'react';
@@ -85,10 +85,13 @@ function MyApp({ Component, pageProps }) {
             `Glow Team specializes in design, transforming businesses through creativity and innovation. Explore our services for success.`
           )}
         ></meta>
-				<meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="akey" content="needle-4" />
         <meta property="og:image" content="/img/og-image.png?v=2" />
-				<meta name="p:domain_verify" content="6e1fb96305a72b68c37e78ef360a42ff"/>
+        <meta
+          name="p:domain_verify"
+          content="6e1fb96305a72b68c37e78ef360a42ff"
+        />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:image" content="/img/og-image.png?v=2" />
         <link key="canonical" rel="canonical" href={canonicalUrl} />
