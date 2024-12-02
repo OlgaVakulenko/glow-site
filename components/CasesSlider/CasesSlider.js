@@ -234,7 +234,7 @@ export function CaseSlide({ type = 'default', item, index, total }) {
         <Image
           src={LastSlideBg}
           alt=""
-          className="absolute inset-0 z-[-1] h-full w-full"
+          className="absolute inset-0 z-[-1] h-full w-full rounded-3xl md:rounded-[32px]"
         />
       )}
     </div>

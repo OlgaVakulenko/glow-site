@@ -331,9 +331,12 @@ module.exports = {
       colors: {
         brand: '#E33230',
         'brand-focus-ring': 'rgba(227, 50, 48, 0.2)',
+        'charcoal-black': '#202226',
         'text-dim': '#6F6F6F',
         ['border-gray']: '#D1D1D1',
         'text-dim': '#6F6F6F',
+        'light-green': '#18AB41',
+        'light-black': '#282B30',
         // brand: '#d6dbe0', //Dev only
         black: '#19191B',
         'black-dim': 'rgba(25, 25, 27, 0.04)',
@@ -341,6 +344,7 @@ module.exports = {
         lblue: '#F0F6FF',
         lred: '#FFE7EA',
         dim: '#F3F2F4',
+        lightGray: '#F5F7FA',
         'checkbox-dark': 'rgba(255, 255, 255, 0.3)',
         'checkbox-dark-hover': 'rgba(240, 246, 255, 0.2)',
         'checkbox-light': 'rgba(25, 25, 27, 0.15)',
