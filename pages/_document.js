@@ -1,5 +1,6 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 import React from 'react';
+import Script from 'next/script';
 
 export default function Document() {
   return (
@@ -10,10 +11,10 @@ export default function Document() {
           name="google-site-verification"
           content="I4egQ7qOh-ZASJcyRGFSfIvpiIm9jLhwy-clP3dcR5Q"
         />
-        <script
+        <Script
           id="pixel-script-poptin"
           src="https://cdn.popt.in/pixel.js?id=76da613987c45"
-          async="true"
+          strategy="lazyOnload"
         />
       </Head>
       <body>
