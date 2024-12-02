@@ -23,8 +23,7 @@ import CaseNavArrow from './CaseNavArrow';
 import AiTag from '../Pages/AI/AiTag';
 import Animated from '../Animated';
 import Button2 from '../Button';
-import LastSlideBg from './assets/last-slide-bg.png';
-import CardBg from '../Pages/Home/assets/card-bg.png';
+import LastSlideBg from '../Pages/Home/assets/card-bg.png';
 
 const featured = [
   '/beast',
@@ -233,15 +232,10 @@ export function CaseSlide({ type = 'default', item, index, total }) {
       </div>
       {item.lastSlide && (
         <Image
-          src={CardBg}
+          src={LastSlideBg}
           alt=""
           className="absolute inset-0 z-[-1] h-full w-full"
         />
-        // <Image
-        //   src={LastSlideBg}
-        //   alt="lazy"
-        //   className="absolute inset-0 z-[-1] h-full w-full"
-        // />
       )}
     </div>
   );
