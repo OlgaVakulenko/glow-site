@@ -44,7 +44,7 @@ export default function HomeIntroSection({
       y = y - rect.top;
 
       gsap.to(el, {
-        duration: 8,
+        duration: 5,
         ease: 'power3.out',
         css: {
           '--x': x + 'px',
