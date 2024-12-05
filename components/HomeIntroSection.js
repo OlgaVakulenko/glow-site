@@ -74,6 +74,7 @@ export default function HomeIntroSection({
     >
       <Image src={Frame35} alt="test png with frame tag next" />
       <RespImage src={test} md={test} xl={test} />
+      <RespImage src={Frame35} md={Frame35} xl={Frame35} />
       <Animated className="xl:col-span-7">
         <h1
           ref={ref}
