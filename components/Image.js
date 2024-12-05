@@ -10,19 +10,18 @@ export const resolve = ({ src, width, type }) => {
   }
 
   const parts = src.split('.');
-  const extension = parts.pop();
-  if (extension === 'svg') {
-    return src;
-  }
-
+  let extension = parts.pop();
   parts.push(`w-${width}`);
-  parts.push(type || extension);
+  if (type) {
+    extension = type;
+  }
+  parts.push(extension);
   return parts.join('.');
 };
 
 const getExtension = (src) => {
-  const parts = src.split('.');
-  return parts[parts.length - 1];
+  const p = src.split('.');
+  return p[p.length - 1];
 };
 
 export const x2 = (src, width, type) => {
@@ -86,25 +85,9 @@ const useLoading = (initialLoading = 'lazy') => {
 
 export default function Image(props) {
   const loading = useLoading();
-
   if (!props.src) {
-    console.error('Missing src property in Image component', props);
-    return null;
+    console.log('needle', props);
   }
-
-  if (isString(props.src) && props.src.endsWith('.svg')) {
-    return (
-      <img
-        {...props}
-        src={props.src}
-        alt={props.alt || ''}
-        width={props.width}
-        height={props.height}
-        decoding="async"
-      />
-    );
-  }
-
   const [width, height] = useMemo(() => {
     if (isString(props.src)) {
       return [];
@@ -112,6 +95,7 @@ export default function Image(props) {
 
     const ratio = 1140 / props.src.width;
     return [props.src.width * ratio, props.src.height * ratio];
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props?.src.width, props?.src.height]);
 
   const sizes = props.sizes || defaultSizes;
@@ -130,9 +114,15 @@ export default function Image(props) {
     });
 
     return media;
-  }, [sizes]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sizes.length]);
 
   const ext = props.ext || null;
+
+  if (isString(props.src)) {
+    // eslint-disable-next-line jsx-a11y/alt-text
+    return <img {...props} />;
+  }
 
   return (
     <>
@@ -151,18 +141,20 @@ export default function Image(props) {
           : sizesList.map((item, i) => (
               <React.Fragment key={i}>
                 <source
+                  key={i + 'orig'}
                   srcSet={x2(props.src.src, item.width, 'webp')}
                   type="image/webp"
                   media={item.media}
                 />
                 <source
+                  key={i + 'ext'}
                   srcSet={x2(props.src.src, item.width, ext)}
                   media={item.media}
                 />
               </React.Fragment>
             ))}
         <img
-          alt={props.alt || ''}
+          alt=""
           loading={loading}
           {...props}
           src={resolve({ src: props.src.src, width: 1140, type: ext })}

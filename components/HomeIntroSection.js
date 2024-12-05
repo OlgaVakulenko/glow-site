@@ -4,10 +4,6 @@ import gsap from '../dist/gsap';
 import { useLayoutSsrEffect } from '../lib/utils';
 import Layout from './Layout';
 import Animated from './Animated';
-import RespImage from './Pages/Cases/Renovation/RespImage';
-import Frame35 from '../assets/frame-32.svg';
-import test from '../assets/test.png';
-import Image from 'next/image';
 
 function softClamp(x, min, max, stretch = 50, k = 0.01) {
   if (x < min) {
@@ -72,9 +68,6 @@ export default function HomeIntroSection({
         className
       )}
     >
-      <Image src={Frame35} alt="test png with frame tag next" />
-      <RespImage src={test} md={test} xl={test} />
-      <RespImage src={Frame35} md={Frame35} xl={Frame35} />
       <Animated className="xl:col-span-7">
         <h1
           ref={ref}
