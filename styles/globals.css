@@ -1105,6 +1105,53 @@
   animation: line-down-to-up-right linear infinite;
 }
 
+.fix-width {
+    overflow-x: scroll;
+    width: 200%;
+    overflow-y: hidden;
+    /*overflow-x: auto;*/
+    -webkit-overflow-scrolling: touch;
+}
+.bg {
+    position: relative;
+    padding-left: 1px;
+}
+
+.bg::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 50%;
+    width: 1px;
+    background: radial-gradient(circle at left, rgba(213, 255, 0, 1), rgba(25, 24, 34, 1));
+}
+
+
+.image {
+    width: 100%;
+}
+
+.scroll-inner::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scroll-inner::-webkit-scrollbar:horizontal {
+    height: 10px;
+    width: 90%;
+}
+
+.scroll-inner::-webkit-scrollbar-track {
+
+}
+
+.scroll-inner::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+
 @media screen and (min-width: 820px) {
   .ai-background-overlay {
     /* top: 195px; */

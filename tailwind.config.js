@@ -25,6 +25,7 @@ module.exports = {
         'md-safe': '1010px',
         'x-920': '904px',
         'x-1280': '1280px',
+        'x-1390': '1390px',
         'x-1400': '1440px',
         // '4xl': '1800px',
         layout: '1736px',
@@ -337,6 +338,9 @@ module.exports = {
         'text-dim': '#6F6F6F',
         'light-green': '#18AB41',
         'light-black': '#282B30',
+        'light-blue': '#6160F6',
+        'light-red': '#F22F46',
+        'deep-black': '#111016',
         // brand: '#d6dbe0', //Dev only
         black: '#19191B',
         'black-dim': 'rgba(25, 25, 27, 0.04)',
@@ -352,6 +356,9 @@ module.exports = {
       },
       spacing: {
         screenx: 'calc(var(--vh, 1vh) * 100);',
+      },
+      maxHeight: {
+        initial: 'initial',
       },
       borderWidth: {
         ['1.5']: '1.5px',
