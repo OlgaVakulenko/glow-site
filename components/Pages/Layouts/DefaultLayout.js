@@ -1,8 +1,6 @@
-import { useRouter } from 'next/router';
 import Footer2 from '../../Footer2';
 import Header from '../../Header';
 import ScrollContainer from '../../SmoothScroll/ScrollContainer';
-// import LenisScrollContainer from '../../SmoothScroll/LenisScrollContainer';
 
 export default function DefaultLayout({
   children,

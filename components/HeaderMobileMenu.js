@@ -31,9 +31,7 @@ export default function HeaderMobileMenu({ menuId, links }) {
         aria-label="Main menu"
         role="navigation"
         id={menuId}
-        className={cx('flex flex-col sm:pb-[72px]', {
-          'pb-[72px]': router.pathname === '/contact-us',
-        })}
+        className={cx('flex flex-col sm:pb-[72px]')}
       >
         <ul
           className={cx('flex flex-col gap-8', {
@@ -73,7 +71,7 @@ export default function HeaderMobileMenu({ menuId, links }) {
           </div>
         )}
       </nav>
-      {!activeParent && router.pathname !== '/contact-us' && (
+      {!activeParent && (
         <Animation index={links.length} className="my-8 sm:hidden">
           <div
             className={cx(
@@ -82,7 +80,13 @@ export default function HeaderMobileMenu({ menuId, links }) {
           >
             <Animated delay={(links.length + 1) * 100} immediate>
               <Button2
-                className="w-full !bg-black !py-5 text-center font-inter font-normal normal-case !tracking-[0.01em] !text-white"
+                className={cx(
+                  'w-full !bg-black !py-5 text-center font-inter font-normal normal-case !tracking-[0.01em]',
+                  {
+                    '!bg-white !text-black': theme === 'dark',
+                    '!text-white': theme !== 'dark',
+                  }
+                )}
                 as={Link}
                 href="/contact-us"
                 compact
@@ -95,7 +99,12 @@ export default function HeaderMobileMenu({ menuId, links }) {
               text={
                 <Animated delay={(links.length + 1) * 100} immediate>
                   <Button2
-                    className="w-full !bg-[#19191B0F] !py-5 font-inter font-normal normal-case !tracking-[0.01em]"
+                    className={cx(
+                      'w-full !bg-[#19191B0F] !py-5 font-inter font-normal normal-case !tracking-[0.01em]',
+                      {
+                        '!bg-[#FFFFFF29] !text-white': theme === 'dark',
+                      }
+                    )}
                     compact
                   >
                     {texts.header_cta}

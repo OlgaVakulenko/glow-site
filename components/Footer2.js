@@ -16,6 +16,11 @@ import GlwEffect from './Pages/Home/assets/glw-eff.png';
 import FormBG from './Pages/Home/assets/form-bg.png';
 import Animated from './Animated';
 import CalendlyEmbed from './CalendlyEmbed';
+import { FAQ } from '../pages/contact-us';
+import RespImage from './Pages/Cases/Renovation/RespImage';
+import BgXl from './Pages/Home/assets/form-bg-xl.png';
+import BgMd from './Pages/Home/assets/form-bg-md.png';
+import BgSm from './Pages/Home/assets/form-bgg.png';
 
 function SlotText() {
   const isClient = useIsClient();
@@ -61,26 +66,39 @@ export default function Footer2({
     <footer
       id="footer"
       className={cx('', {
-        '!mt-0 flex h-screenx flex-col !pt-[120px] font-inter': isSubmitted,
         'bg-[#0a0a0b]': dark,
+        '!mt-0 flex h-screenx flex-col !pt-[88px] font-inter xl:!pt-[112px]':
+          isSubmitted,
       })}
     >
       {isSubmitted ? (
-        <FooterFormWrapper isSubmitted={isSubmitted} />
+        <div className="">
+          <FooterFormWrapper isSubmitted={isSubmitted} />
+          <Layout>
+            <FAQ />
+          </Layout>
+        </div>
       ) : (
         showForm && (
           <Layout disableOnMobile={true} className="px-2">
             <Animated
               className={cx(
-                'text-inter relative overflow-hidden rounded-3xl px-6 py-[106px] md:rounded-[32px] md:py-[134px] xl:py-[142px] xl:pb-[124px] xl:pt-[128px]',
+                'text-inter relative rounded-3xl px-6 py-[106px] md:rounded-[32px] md:py-[134px] xl:py-[142px] xl:pb-[124px] xl:pt-[128px]',
                 { 'footer-dark dark-outline': dark }
               )}
             >
               <Image
                 src={dark ? '/img/footer/form-bg-dark.png' : FormBG}
                 alt=""
-                className="pointer-events-none absolute inset-0 z-0 h-full w-full"
+                className="pointer-events-none absolute inset-0 z-0 h-full w-full rounded-3xl md:rounded-[32px]"
               />
+              {/*<RespImage*/}
+              {/*    src={BgSm}*/}
+              {/*    md={BgMd}*/}
+              {/*    xl={BgXl}*/}
+              {/*    className="pointer-events-none absolute inset-0 z-0 h-full w-full"*/}
+              {/*/>*/}
+
               {/* <picture>
                 <Source
                   image={GlwEffect}

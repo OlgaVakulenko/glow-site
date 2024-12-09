@@ -157,7 +157,7 @@ const BurgerMenu = ({ menuId, links }) => {
           <div className={'flex h-screen flex-col justify-between'}>
             <div
               className={cx(
-                'flex items-center justify-between py-[28px] font-medium md:py-6 xl:py-[20px]',
+                'flex items-center justify-between py-[27.5px] font-medium sm:py-[20px]',
                 {
                   'text-white': theme === 'dark',
                   'text-black': theme !== 'dark',
@@ -187,10 +187,7 @@ const BurgerMenu = ({ menuId, links }) => {
                 <div className="flex items-center gap-x-5 md:gap-x-8">
                   <div
                     className={cx(
-                      'hidden gap-x-3 opacity-100 transition-opacity delay-500 sm:flex',
-                      {
-                        '!hidden': router.pathname === '/contact-us',
-                      }
+                      'hidden gap-x-3 opacity-100 transition-opacity delay-500 sm:flex'
                     )}
                   >
                     <CalendlyEmbed
@@ -198,7 +195,12 @@ const BurgerMenu = ({ menuId, links }) => {
                       text={
                         <Animated delay={(links.length + 1) * 100} immediate>
                           <Button2
-                            className="w-full !bg-[#19191B0F] !px-4 !py-3 font-inter font-light normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]"
+                            className={cx(
+                              'w-full !bg-[#19191B0F] !px-4 !py-3 font-inter font-light normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]',
+                              {
+                                '!bg-[#FFFFFF29] !text-white': theme === 'dark',
+                              }
+                            )}
                             compact
                           >
                             {texts.header_cta}
@@ -208,7 +210,13 @@ const BurgerMenu = ({ menuId, links }) => {
                     />
                     <Animated delay={(links.length + 1) * 100} immediate>
                       <Button2
-                        className="w-full !bg-black !py-3 text-center font-inter font-light normal-case !tracking-[0.01em] !text-white sm:w-[160px] md:w-[150px]"
+                        className={cx(
+                          'w-full !bg-black !py-3 text-center font-inter font-light normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]',
+                          {
+                            '!bg-white !text-black': theme === 'dark',
+                            '!text-white': theme !== 'dark',
+                          }
+                        )}
                         as={Link}
                         href="/contact-us"
                         compact
@@ -523,7 +531,7 @@ export default function Header({
         <div className="relative">
           <Layout>
             <div
-              className="flex items-center justify-between py-[28px] md:min-h-[88px] md:py-6 xl:py-[20px]"
+              className="flex items-center justify-between py-[27.5px] sm:py-[20px]  md:min-h-[88px] "
               style={{
                 '--header-theme':
                   t === 'brand' || t === 'white'
@@ -545,7 +553,7 @@ export default function Header({
               </Animated>
               <div
                 className={cx(
-                  'hidden transition-opacity duration-500 md-safe:flex'
+                  'hidden transition-opacity duration-500 xl:flex'
                   //md:absolute md:left-1/2 md:flex md:-translate-x-1/2
                 )}
               >
@@ -571,7 +579,6 @@ export default function Header({
                               : !isTop
                               ? false
                               : true,
-                            '!hidden': router.pathname === '/contact-us',
                           }
                         )}
                       >
@@ -583,7 +590,12 @@ export default function Header({
                               immediate
                             >
                               <Button2
-                                className="w-full !bg-[#19191B0F] !px-4 !py-3 font-inter normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]"
+                                className={cx(
+                                  'w-full !bg-[#19191B0F] !px-4 !py-3 font-inter normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]',
+                                  {
+                                    '!bg-[#FFFFFF29] !text-white': t === 'dark',
+                                  }
+                                )}
                                 compact
                               >
                                 {texts.header_cta}
@@ -593,7 +605,13 @@ export default function Header({
                         />
                         <Animated delay={(links.length + 1) * 100} immediate>
                           <Button2
-                            className="w-full !bg-black !py-3 text-center font-inter normal-case !tracking-[0.01em] !text-white sm:w-[160px] md:w-[150px]"
+                            className={cx(
+                              'w-full !bg-black !py-3 text-center font-inter normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]',
+                              {
+                                '!bg-white !text-black': t === 'dark',
+                                '!text-white': t !== 'dark',
+                              }
+                            )}
                             as={Link}
                             href="/contact-us"
                             compact
@@ -602,7 +620,7 @@ export default function Header({
                           </Button2>
                         </Animated>
                       </div>
-                      <div className="md-safe:hidden">
+                      <div className="xl:hidden">
                         <Animated delay={50} immediate className="test">
                           <BurgerButton
                             theme={t}

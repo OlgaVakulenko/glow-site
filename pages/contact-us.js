@@ -10,7 +10,6 @@ import { getFullTitle } from '../components/HeadTitle';
 import FaqItem from '../components/ContactUs/FaqItem';
 import Animated from '../components/Animated';
 import { faqItems } from '../data/faq-items';
-import CalendlyEmbed from '../components/CalendlyEmbed';
 
 export function FAQ({ padding, items = faqItems, animate = false }) {
   const [theme] = useAtom(themeAtom);
@@ -27,7 +26,7 @@ export function FAQ({ padding, items = faqItems, animate = false }) {
   return (
     <div
       className={cx({
-        '"mb-12 xl:mb-[88px]" md:mb-[72px]': padding == null,
+        'mb-[52px] md:mb-[72px] xl:mb-[88px]': padding == null,
       })}
     >
       <TitleTag className="mb-10 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:mb-20 xl:text-next-heading-2">
@@ -58,7 +57,7 @@ export function FAQ({ padding, items = faqItems, animate = false }) {
 
 export default function ContactUs() {
   return (
-    <div className="pt-[88px] md:pt-[144px]">
+    <div className="pt-[88px] xl:pt-[112px]">
       <Head>
         <title>{getFullTitle('Contact')}</title>
         <meta
