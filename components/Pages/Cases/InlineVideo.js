@@ -5,6 +5,7 @@ export default function InlineVideo({
   controls,
   src,
   type,
+  trial,
   ...rest
 }) {
   const ref = useRef();
@@ -24,6 +25,17 @@ export default function InlineVideo({
     video.controls = controls;
     video.setAttribute('playsinline', 'true');
 
+    if (trial) {
+      if (window.innerWidth < 650) {
+        video.style.height = '304px';
+        video.style.objectFit = 'contain';
+      } else {
+        video.style.height = '480px';
+        video.style.objectFit = 'cover';
+      }
+      video.style.borderRadius = '32px';
+    }
+
     if (type) {
       const source = document.createElement('source');
       source.src = src;
@@ -35,7 +47,7 @@ export default function InlineVideo({
 
     ref.current.appendChild(video);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [trial]);
 
   return <div ref={ref} {...rest} />;
 }
