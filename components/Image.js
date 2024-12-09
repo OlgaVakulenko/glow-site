@@ -119,6 +119,22 @@ export default function Image(props) {
 
   const ext = props.ext || null;
 
+  // Check if source is an SVG
+  const isSvg = props.src && props.src.src.endsWith('.svg');
+
+  if (isSvg) {
+    // For SVG, you could use <object> or <img> depending on your requirement
+    return (
+      <object
+        type="image/svg+xml"
+        data={resolve({ src: props.src.src, width: 1140, type: ext })}
+        width={width}
+        height={height}
+        {...props}
+      />
+    );
+  }
+
   if (isString(props.src)) {
     // eslint-disable-next-line jsx-a11y/alt-text
     return <img {...props} />;
