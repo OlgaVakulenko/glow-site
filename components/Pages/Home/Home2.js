@@ -95,7 +95,8 @@ export default function Home2() {
                 className="absolute inset-0 h-full w-full"
               />
               <div className="relative mb-10 text-center font-satoshi text-[40px] font-medium leading-[120%] tracking-[-1px]">
-                We have lots of amazing projects for you
+                We have lots <br className="md:hidden" /> of amazing projects
+                for you
               </div>
               <Button2
                 as={Link}
