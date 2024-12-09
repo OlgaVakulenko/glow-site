@@ -10,7 +10,7 @@ export default function RespImage({
   className,
   ...props
 }) {
-  const isSvg = src?.src?.endsWith('.svg');
+  const isSvg = src && src.src && src.src.endsWith('.svg');
 
   if (isSvg) {
     return (
