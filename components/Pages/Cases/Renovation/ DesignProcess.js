@@ -13,6 +13,8 @@ import Frame9 from './assets/frame-9.svg';
 import Frame10md from './assets/frame-10-md.svg';
 import Frame10xl from './assets/frame-10-xl.svg';
 import Frame10 from './assets/frame-10.svg';
+import Image from 'next/image';
+import RespSVG from './RespSvg';
 
 function TitleSection({ className, children }) {
   return (
@@ -103,14 +105,21 @@ export default function DesignProcess() {
               </div>
             </div>
             <div className="pl-4 md:max-h-[646px] md:w-[48%] md:pl-0 x-920:w-[55%] xl:max-h-[760px] xl:w-[63%]">
-              <RespImage
-                pictureClassname=""
-                className="h-full w-full rounded-br-[24px] md:rounded-br-[40px]"
-                src={Frame8}
-                md={Frame8md}
-                xl={Frame8xl}
-              />
+              {/*<RespSVG*/}
+              {/*  pictureClassname=""*/}
+              {/*  className="h-full w-full rounded-br-[24px] md:rounded-br-[40px]"*/}
+              {/*  src={Frame8}*/}
+              {/*  md={Frame8md}*/}
+              {/*  xl={Frame8xl}*/}
+              {/*/>*/}
             </div>
+            <Image
+              src="/img/wr/frame-8.svg"
+              width={0}
+              height={0}
+              objectfit="contain"
+              style={{ width: '100%', height: '100%' }}
+            />
           </div>
         </Layout>
         <Layout className="bg-charcoal-black xl:!pr-[56px]">
@@ -133,7 +142,7 @@ export default function DesignProcess() {
               </div>
             </div>
             <div className="pl-4 md:max-h-[666px] md:w-[49%] md:pl-0  x-920:w-[65.5%] xl:max-h-[808px] xl:w-[62.5%]">
-              <RespImage
+              <RespSVG
                 pictureClassname=""
                 className="h-full w-full rounded-br-[24px] md:rounded-br-[40px] "
                 src={Frame9}
