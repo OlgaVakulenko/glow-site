@@ -36,6 +36,7 @@ import Frame45xl from './assets/frame-45-xl.svg';
 import IllustrationCard from './IllustrationCard';
 import PunchList from './PunchList';
 import Calendar from './Calendar';
+import RespSVG from './RespSVG';
 
 export default function WelcomeRenovation() {
   return (
@@ -75,16 +76,35 @@ export default function WelcomeRenovation() {
       <Reporting />
       <div className="bg-lightGray">
         <Layout disablePadding>
-          <RespImage src={Frame35} md={Frame35md} xl={Frame35xl} />
+          <RespSVG
+            src="/img/wr/frame-35.svg"
+            md="/img/wr/frame-35-md.svg"
+            xl="/img/wr/frame-35-xl.svg"
+          />
         </Layout>
-
         <Calendar />
         <PunchList />
         <Layout className="flex flex-col gap-2 bg-lightGray md:gap-8">
-          <RespImage src={Frame42} md={Frame42md} xl={Frame42xl} />
-          <RespImage src={Frame43} md={Frame43md} xl={Frame43xl} />
-          <RespImage src={Frame44} md={Frame44md} xl={Frame44xl} />
-          <RespImage src={Frame45} md={Frame45md} xl={Frame45xl} />
+          <RespSVG
+            src="/img/wr/frame-42.svg"
+            md="/img/wr/frame-42-md.svg"
+            xl="/img/wr/frame-42-xl.svg"
+          />
+          <RespSVG
+            src="/img/wr/frame-43.svg"
+            md="/img/wr/frame-43-md.svg"
+            xl="/img/wr/frame-43-xl.svg"
+          />
+          <RespSVG
+            src="/img/wr/frame-44.svg"
+            md="/img/wr/frame-44-md.svg"
+            xl="/img/wr/frame-44-xl.svg"
+          />
+          <RespSVG
+            src="/img/wr/frame-45.svg"
+            md="/img/wr/frame-45-md.svg"
+            xl="/img/wr/frame-45-xl.svg"
+          />
         </Layout>
       </div>
       <IllustrationCard />

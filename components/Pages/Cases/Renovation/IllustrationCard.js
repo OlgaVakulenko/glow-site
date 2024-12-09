@@ -4,6 +4,7 @@ import RespImage from './RespImage';
 import Frame46md from './assets/frame-46-md.svg';
 import Frame46xl from './assets/frame-46-xl.svg';
 import Frame46 from './assets/frame-46.svg';
+import RespSVG from './RespSVG';
 
 function Title({ className, children }) {
   return (
@@ -46,7 +47,12 @@ export default function IllustrationCard() {
           </Animated>
         </div>
         <div className="h-full w-full">
-          <RespImage src={Frame46} md={Frame46md} xl={Frame46xl} className="" />
+          <RespSVG
+            className="w-[100vw]"
+            src="/img/wr/frame-46.svg"
+            md="/img/wr/frame-46-md.svg"
+            xl="/img/wr/frame-46-xl.svg"
+          />
         </div>
       </Layout>
     </div>

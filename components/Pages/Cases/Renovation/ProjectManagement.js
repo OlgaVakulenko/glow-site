@@ -7,6 +7,7 @@ import Frame30xl from './assets/frame-30-xl.svg';
 import Frame31 from './assets/frame-31.svg';
 import Frame31md from './assets/frame-31-xl.svg';
 import Frame31xl from './assets/frame-31-xl.svg';
+import RespSVG from './RespSVG';
 
 function Title({ className, children }) {
   return (
@@ -48,19 +49,19 @@ export default function ProjectManagement() {
         <div className="mb-[56px] flex h-full w-full flex-col justify-center gap-0 pt-6 md:mb-0 md:flex-row md:justify-between md:pt-[40px] md-safe:pt-[56px] xl:gap-20 xl:pt-[72px]">
           <div className="flex w-full xl:gap-10">
             <div className="flex-1 md:max-h-[597px] xl:max-h-[740px] xl:max-w-[400px]">
-              <RespImage
+              <RespSVG
                 className="h-full w-full"
-                src={Frame30}
-                md={Frame30md}
-                xl={Frame30xl}
+                src="/img/wr/frame-30.svg"
+                md="/img/wr/frame-30-md.svg"
+                xl="/img/wr/frame-30-xl.svg"
               />
             </div>
             <div className="flex-1 md:max-h-[597px] xl:max-h-[740px] xl:max-w-[400px]">
-              <RespImage
+              <RespSVG
                 className="h-full w-full"
-                src={Frame31}
-                md={Frame31md}
-                xl={Frame31xl}
+                src="/img/wr/frame-31.svg"
+                md="/img/wr/frame-31-md.svg"
+                xl="/img/wr/frame-31-xl.svg"
               />
             </div>
           </div>

@@ -7,6 +7,7 @@ import Frame40xl from './assets/frame-40-xl.svg';
 import Frame41 from './assets/frame-41.svg';
 import Frame41md from './assets/frame-41-xl.svg';
 import Frame41xl from './assets/frame-41-xl.svg';
+import RespSVG from './RespSVG';
 
 function Title({ className, children }) {
   return (
@@ -36,19 +37,19 @@ export default function Calendar() {
         <div className="mb-[56px] flex h-full w-full flex-col justify-center gap-0  pt-[24px] md:mb-0 md:flex-row md:justify-between  md:pt-[48px] xl:gap-20 xl:pt-0 ">
           <div className="flex w-full justify-between xl:gap-[40px]">
             <div className=" flex-1 md:max-h-[597px] xl:max-h-[740px] xl:max-w-[400px]">
-              <RespImage
+              <RespSVG
                 className="h-full w-full"
-                src={Frame40}
-                md={Frame40md}
-                xl={Frame40xl}
+                src="/img/wr/frame-40.svg"
+                md="/img/wr/frame-40-md.svg"
+                xl="/img/wr/frame-40-xl.svg"
               />
             </div>
             <div className="flex-1 md:max-h-[597px] xl:mt-[140px] xl:max-h-[740px] xl:max-w-[400px]">
-              <RespImage
+              <RespSVG
                 className="h-full w-full"
-                src={Frame41}
-                md={Frame41md}
-                xl={Frame41xl}
+                src="/img/wr/frame-41.svg"
+                md="/img/wr/frame-41-md.svg"
+                xl="/img/wr/frame-41-xl.svg"
               />
             </div>
           </div>

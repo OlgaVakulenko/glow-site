@@ -16,6 +16,7 @@ import Frame38xl from './assets/frame-38-xl.svg';
 import Frame39 from './assets/frame-39.svg';
 import Frame39md from './assets/frame-39-md.svg';
 import Frame39xl from './assets/frame-39-xl.svg';
+import RespSVG from './RespSVG';
 
 function Title({ className, children }) {
   return (
@@ -59,37 +60,33 @@ export default function PunchList() {
         </div>
         <div className="flex h-full items-end justify-between xl:gap-[35px]">
           <div className="h-full w-full flex-1 md:mt-[315px] md-safe:mt-[345px] xl:mr-[9px]">
-            <RespImage
-              pictureClassname=""
+            <RespSVG
               className="h-full w-full"
-              src={Frame36}
-              md={Frame36md}
-              xl={Frame36xl}
+              src="/img/wr/frame-36.svg"
+              md="/img/wr/frame-36-md.svg"
+              xl="/img/wr/frame-36-xl.svg"
             />
           </div>
           <div className="h-full w-full flex-1 md:mb-[55px] md-safe:mb-[106px] xl:mb-[96px]">
-            <RespImage
-              pictureClassname=""
+            <RespSVG
               className="h-full w-full"
-              src={Frame37}
-              md={Frame37md}
-              xl={Frame37xl}
+              src="/img/wr/frame-37.svg"
+              md="/img/wr/frame-37-md.svg"
+              xl="/img/wr/frame-37-xl.svg"
             />
           </div>
           <div className="h-full w-full flex-1 md:mb-[45px] md:pt-[64px] md-safe:mb-[61px] xl:mb-[44px] xl:pt-[68px]">
-            <RespImage
-              pictureClassname=""
+            <RespSVG
               className="h-full w-full md-safe:mb-4 md-safe:max-h-[385px] xl:mb-6 xl:max-h-[494px] "
-              src={Frame38}
-              md={Frame38md}
-              xl={Frame38xl}
+              src="/img/wr/frame-38.svg"
+              md="/img/wr/frame-38-md.svg"
+              xl="/img/wr/frame-38-xl.svg"
             />
-            <RespImage
-              pictureClassname=""
+            <RespSVG
               className="h-full w-full md-safe:max-h-[449px] xl:max-h-[574px] "
-              src={Frame39}
-              md={Frame39md}
-              xl={Frame39xl}
+              src="/img/wr/frame-39.svg"
+              md="/img/wr/frame-39-md.svg"
+              xl="/img/wr/frame-39-xl.svg"
             />
           </div>
         </div>
@@ -97,35 +94,31 @@ export default function PunchList() {
       <div className="pb-[56px] md:hidden">
         <div className="flex">
           <div className="mt-[46px] h-full w-full flex-1">
-            <RespImage
-              pictureClassname=""
+            <RespSVG
               className="mb-[24px] h-full w-full md:mb-0"
-              src={Frame38}
-              md={Frame38md}
-              xl={Frame38xl}
+              src="/img/wr/frame-38.svg"
+              md="/img/wr/frame-38-md.svg"
+              xl="/img/wr/frame-38-xl.svg"
             />
-            <RespImage
-              pictureClassname=""
+            <RespSVG
               className="h-full w-full"
-              src={Frame36}
-              md={Frame36md}
-              xl={Frame36xl}
+              src="/img/wr/frame-36.svg"
+              md="/img/wr/frame-36-md.svg"
+              xl="/img/wr/frame-36-xl.svg"
             />
           </div>
           <div className="mt-[24px] h-full w-full flex-1">
-            <RespImage
-              pictureClassname=""
+            <RespSVG
               className="h-full w-full md-safe:mb-4  md-safe:max-h-[385px] xl:mb-6 xl:max-h-[494px] "
-              src={Frame37}
-              md={Frame37md}
-              xl={Frame37xl}
+              src="/img/wr/frame-37.svg"
+              md="/img/wr/frame-37-md.svg"
+              xl="/img/wr/frame-37-xl.svg"
             />
-            <RespImage
-              pictureClassname=""
+            <RespSVG
               className="h-full w-full md-safe:max-h-[449px] xl:max-h-[574px] "
-              src={Frame39}
-              md={Frame39md}
-              xl={Frame39xl}
+              src="/img/wr/frame-39.svg"
+              md="/img/wr/frame-39-md.svg"
+              xl="/img/wr/frame-39-xl.svg"
             />
           </div>
         </div>

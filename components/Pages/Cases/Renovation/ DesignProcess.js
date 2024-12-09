@@ -88,7 +88,7 @@ export default function DesignProcess() {
         </Layout>
         <Layout className="bg-charcoal-black xl:!pr-[56px]">
           <div className="mb-4 flex flex-col gap-y-8 rounded-[24px] bg-light-black pb-0 pt-8 md:flex-row md:justify-between md:gap-x-[50px] md:rounded-[40px] md:py-10 md:pl-8 md:pr-0 x-920:gap-x-[88px] xl:mb-8 xl:gap-x-[123px] xl:py-[80px] xl:pl-[72px]">
-            <div className="flex flex-col items-start justify-between px-4 md:w-[46%] md:px-0 x-920:w-[39%] xl:w-[34%]">
+            <div className="flex flex-col items-start justify-between px-4 md:w-[46%] md:px-0 x-920:w-[39%] xl:w-[34.2%]">
               <TitleSection className="mb-6 md:mb-0 xl:pt-4">
                 {'Customer'} <br /> {'journey map'}
               </TitleSection>
@@ -104,14 +104,7 @@ export default function DesignProcess() {
                 </TitleDesc>
               </div>
             </div>
-            <div className="pl-4 md:max-h-[646px] md:w-[48%] md:pl-0 x-920:w-[55%] xl:max-h-[760px] xl:w-[63%]">
-              {/*<RespImage*/}
-              {/*  pictureClassname=""*/}
-              {/*  className="h-full w-full rounded-br-[24px] md:rounded-br-[40px]"*/}
-              {/*  src={Frame8}*/}
-              {/*  md={Frame8md}*/}
-              {/*  xl={Frame8xl}*/}
-              {/*/>*/}
+            <div className="pl-4 md:max-h-[646px] md:w-[48%] md:pl-0 x-920:w-[57.5%] xl:max-h-[760px] xl:w-[64%]">
               <RespSVG
                 className="h-full w-full rounded-br-[24px] md:rounded-br-[40px]"
                 src="/img/wr/frame-8.svg"
@@ -119,18 +112,11 @@ export default function DesignProcess() {
                 xl="/img/wr/frame-8-xl.svg"
               />
             </div>
-            {/*<Image*/}
-            {/*  src="/img/wr/frame-8.svg"*/}
-            {/*  width={0}*/}
-            {/*  height={0}*/}
-            {/*  objectfit="contain"*/}
-            {/*  style={{ width: '100%', height: '100%' }}*/}
-            {/*/>*/}
           </div>
         </Layout>
         <Layout className="bg-charcoal-black xl:!pr-[56px]">
           <div className="mb-4 flex flex-col gap-y-8 rounded-[24px] bg-light-black pb-0 pt-8 md:flex-row md:justify-between md:gap-x-[20px] md:rounded-[40px] md:py-10 md:pl-8 md:pr-0 x-920:gap-x-[72px] xl:mb-8 xl:gap-x-[144px] xl:py-[56px] xl:pl-[72px]">
-            <div className="flex flex-col items-start justify-between px-4 md:w-[49%] md:px-0 x-920:w-[39%] xl:w-[34.5%]">
+            <div className="flex flex-col items-start justify-between px-4 md:w-[49%] md:px-0 x-920:w-[39%] xl:w-[34.6%]">
               <TitleSection className="mb-6 md:mb-0 xl:pt-4">
                 {'Feature prioritization matrix'}
               </TitleSection>
@@ -147,13 +133,12 @@ export default function DesignProcess() {
                 </TitleDesc>
               </div>
             </div>
-            <div className="pl-4 md:max-h-[666px] md:w-[49%] md:pl-0  x-920:w-[65.5%] xl:max-h-[808px] xl:w-[62.5%]">
-              <RespImage
-                pictureClassname=""
-                className="h-full w-full rounded-br-[24px] md:rounded-br-[40px] "
-                src={Frame9}
-                md={Frame9md}
-                xl={Frame9xl}
+            <div className="pl-4 md:max-h-[666px] md:w-[49%] md:pl-0  x-920:w-[65.5%] xl:max-h-[808px] xl:w-[62.7%]">
+              <RespSVG
+                className="h-full w-full rounded-br-[24px] md:rounded-br-[40px]"
+                src="/img/wr/frame-9.svg"
+                md="/img/wr/frame-9-md.svg"
+                xl="/img/wr/frame-9-xl.svg"
               />
             </div>
           </div>
@@ -173,12 +158,11 @@ export default function DesignProcess() {
               </TitleDesc>
             </div>
             <div className="md:max-h-[666px] xl:max-h-[616px]">
-              <RespImage
-                pictureClassname=""
-                className="h-full w-full rounded-br-[24px]  md:rounded-br-[40px] "
-                src={Frame10}
-                md={Frame10md}
-                xl={Frame10xl}
+              <RespSVG
+                className="h-full w-full rounded-br-[24px] md:rounded-br-[40px]"
+                src="/img/wr/frame-10.svg"
+                md="/img/wr/frame-10-md.svg"
+                xl="/img/wr/frame-10-xl.svg"
               />
             </div>
           </div>

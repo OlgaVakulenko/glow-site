@@ -20,6 +20,7 @@ import Frame28md from './assets/frame-28-md.svg';
 import Frame29 from './assets/frame-29.svg';
 import Frame29md from './assets/frame-29-md.svg';
 import Frame29xl from './assets/frame-29-xl.svg';
+import RespSVG from './RespSVG';
 
 function TitleSection({ className, children }) {
   return (
@@ -67,12 +68,11 @@ export default function IntegrationsOverview() {
           <div className=" relative mb-4 overflow-hidden rounded-[24px] bg-light-blue md:mb-8 md:rounded-[40px]">
             <div className="flex flex-col items-center justify-between px-6 pb-10 md:flex-row md:items-start md:px-10 md:pb-0 xl:w-[84%] xl:pl-[12.2%] xl:pr-0">
               <div className=" order-2 md:-order-10 md:max-w-[370px]  md:pt-[56px] md-safe:max-w-[392px] xl:pt-[120px]">
-                <RespImage
-                  pictureClassname=""
-                  className="mb-[21px] h-[56px] !w-fit  md:mb-8 md:h-[88px] md:!w-[175px] xl:mb-10"
-                  src={Frame20}
-                  md={Frame20xl}
-                  xl={Frame20xl}
+                <RespSVG
+                  className="mb-[21px] h-[56px] !w-fit  md:mb-8 md:h-[88px] md:!w-[175px] xl:mb-8"
+                  src="/img/wr/frame-20.svg"
+                  md="/img/wr/frame-20-md.svg"
+                  xl="/img/wr/frame-20-xl.svg"
                 />
                 <div className="md:pb-[80px] md-safe:pb-[127px] xl:pb-[78px]">
                   <TitleDesc className="mb-4 md:mb-[18px]">
@@ -86,32 +86,29 @@ export default function IntegrationsOverview() {
                   </TitleDesc>
                 </div>
                 <div className="ml-auto hidden max-h-[160px] max-w-[210px] md:mr-[72px] md:block md-safe:mr-0 md-safe:max-h-[260px] md-safe:max-w-[288px] xl:mr-4">
-                  <RespImage
-                    pictureClassname=""
+                  <RespSVG
                     className="h-full md-safe:h-[270px]"
-                    src={Frame21}
-                    md={Frame21}
-                    xl={Frame21}
+                    src="/img/wr/frame-21-xl.svg"
+                    md="/img/wr/frame-21-xl.svg"
+                    xl="/img/wr/frame-21-xl.svg"
                   />
                 </div>
               </div>
               <div className="mb-[65px]  h-full max-h-[475px] w-[340px] pb-[5px] pt-[40px] xs:max-h-[470px] xs:max-w-[340px] sm:max-h-[550px] sm:w-full sm:max-w-[400px] md:mb-0 md:max-h-[640px] md:max-w-[330px] md:pt-[71px]  md-safe:max-h-[740px] md-safe:max-w-[400px]">
-                <RespImage
-                  pictureClassname=""
+                <RespSVG
                   className="h-full w-full"
-                  src={Frame22}
-                  md={Frame22xl}
-                  xl={Frame22xl}
+                  src="/img/wr/frame-22.svg"
+                  md="/img/wr/frame-22-md.svg"
+                  xl="/img/wr/frame-22-xl.svg"
                 />
               </div>
             </div>
             <div className="absolute right-[-4%] top-[29%] hidden h-full w-full xl:block xl:max-h-[295px] xl:max-w-[289px]">
-              <RespImage
-                pictureClassname=""
+              <RespSVG
                 className="h-full w-full"
-                src={Frame23}
-                md={Frame23}
-                xl={Frame23}
+                src="/img/wr/frame-23-xl.svg"
+                md="/img/wr/frame-23-xl.svg"
+                xl="/img/wr/frame-23-xl.svg"
               />
             </div>
           </div>
@@ -121,21 +118,19 @@ export default function IntegrationsOverview() {
           <div className=" relative mb-4 overflow-hidden rounded-[24px] bg-light-red md:mb-8 md:rounded-[40px]">
             <div className="flex flex-col items-center justify-between py-10 md:w-[95%] md:flex-row md:items-end md:pb-[3px] md:pl-10 md:pt-[73px]  md-safe:pl-[56px] xl:pl-[104px]">
               <div className="mb-[25px] h-full max-h-[475px]  w-[340px] xs:max-h-[470px] xs:max-w-[340px] sm:max-h-[550px] sm:w-full sm:max-w-[400px] md:mb-0 md:max-h-[610px] md:max-w-[360px] md-safe:max-h-[740px] md-safe:max-w-[431px] xl:max-w-[488px]">
-                <RespImage
-                  pictureClassname=""
+                <RespSVG
                   className="h-full w-full"
-                  src={Frame24}
-                  md={Frame24md}
-                  xl={Frame24xl}
+                  src="/img/wr/frame-24.svg"
+                  md="/img/wr/frame-24-md.svg"
+                  xl="/img/wr/frame-24-xl.svg"
                 />
               </div>
               <div className="px-6 md:mr-0  md:max-w-[392px] md:px-0 md:pb-10 md-safe:pb-[56px] xl:mr-[96px] xl:pb-[96px]">
-                <RespImage
-                  pictureClassname=""
+                <RespSVG
                   className="mb-[21px] h-[56px] !w-fit md:mb-8 md:h-[88px] md:!w-[233px]"
-                  src={Frame26md}
-                  md={Frame26xl}
-                  xl={Frame26xl}
+                  src="/img/wr/frame-26-md.svg"
+                  md="/img/wr/frame-26-xl.svg"
+                  xl="/img/wr/frame-26-xl.svg"
                 />
                 <div className="">
                   <TitleDesc className="mb-4">
@@ -150,12 +145,11 @@ export default function IntegrationsOverview() {
                   </TitleDesc>
                 </div>
                 <div className="absolute top-[-2%] hidden h-full w-full md:right-[11%] md:top-[-0%] md:block md:max-h-[150px] md:max-w-[210px] md-safe:right-[9.5%] md-safe:max-h-[304px] md-safe:max-w-[290px]   xl:right-[7.5%] xl:top-[-3%]">
-                  <RespImage
-                    pictureClassname=""
+                  <RespSVG
                     className="h-full w-full"
-                    src={Frame25xl}
-                    md={Frame25xl}
-                    xl={Frame25xl}
+                    src="/img/wr/frame-25-xl.svg"
+                    md="/img/wr/frame-25-xl.svg"
+                    xl="/img/wr/frame-25-xl.svg"
                   />
                 </div>
               </div>
@@ -163,26 +157,24 @@ export default function IntegrationsOverview() {
           </div>
         </Layout>
         {/*four*/}
-        <Layout className="rounded-b-[32px] bg-charcoal-black bg-charcoal-black pb-[20px] md:rounded-b-[56px] md:pb-8 xl:pb-[64px]">
+        <Layout className="rounded-b-[32px]  bg-charcoal-black pb-[20px] md:rounded-b-[56px] md:pb-8 xl:pb-[64px]">
           <div className=" bg relative overflow-hidden rounded-[24px] bg-deep-black  md:rounded-[40px]">
             <div className="flex w-full flex-col-reverse items-center justify-between py-10 md:flex-row md:items-start md:gap-4 md:py-0 md-safe:gap-0 xl:max-w-[90%] xl:pl-[160px]">
               <div className="flex flex-col items-end px-6 md:gap-[90px] md:pl-10 md:pr-0 md-safe:gap-[130px] xl:gap-[101px] xl:pl-0">
                 <div className="relative hidden h-full w-full  md:right-[25.5%] md:top-[-1.5%] md:block md:max-h-[150px]  md:max-w-[210px] md-safe:right-0 md-safe:mr-[10px] md-safe:max-h-[322px] md-safe:max-w-[264px] xl:top-[-3%]  xl:mr-0 ">
-                  <RespImage
-                    pictureClassname=""
+                  <RespSVG
                     className="h-full w-full md:h-[180px] md-safe:h-full"
-                    src={Frame27}
-                    md={Frame27}
-                    xl={Frame27}
+                    src="/img/wr/frame-27.svg"
+                    md="/img/wr/frame-27.svg"
+                    xl="/img/wr/frame-27.svg"
                   />
                 </div>
                 <div className="md:max-w-[392px] md:pb-[40px] md-safe:pb-[56px] xl:pb-[96px]">
-                  <RespImage
-                    pictureClassname=""
+                  <RespSVG
                     className="mb-[16px] h-[56px] !w-fit md:mb-8 md:h-[80px] md:!w-[290px]"
-                    src={Frame28md}
-                    md={Frame28xl}
-                    xl={Frame28xl}
+                    src="/img/wr/frame-28-md.svg"
+                    md="/img/wr/frame-28-xl.svg"
+                    xl="/img/wr/frame-28-xl.svg"
                   />
                   <div className="">
                     <TitleDesc className="mb-4">
@@ -198,12 +190,11 @@ export default function IntegrationsOverview() {
                 </div>
               </div>
               <div className="mb-[25px] h-full max-h-[475px]  w-[340px] xs:max-h-[470px] xs:max-w-[340px] sm:max-h-[550px] sm:w-full sm:max-w-[400px] md:mb-[65px] md:mt-[96px] md:max-h-[520px] md:max-w-[360px] md-safe:max-h-[654px] md-safe:max-w-[456px] xl:my-[81px] xl:max-w-[428px]">
-                <RespImage
-                  pictureClassname=""
+                <RespSVG
                   className="h-full w-full"
-                  src={Frame29}
-                  md={Frame29md}
-                  xl={Frame29xl}
+                  src="/img/wr/frame-29.svg"
+                  md="/img/wr/frame-29-md.svg"
+                  xl="/img/wr/frame-29-xl.svg"
                 />
               </div>
             </div>
