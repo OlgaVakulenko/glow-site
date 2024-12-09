@@ -145,9 +145,9 @@ export default function DesignProcess() {
               <RespSVG
                 pictureClassname=""
                 className="h-full w-full rounded-br-[24px] md:rounded-br-[40px] "
-                src={Frame9}
-                md={Frame9md}
-                xl={Frame9xl}
+                src="/img/lendFlow/frame-1-xl.svg"
+                md="/img/lendFlow/frame-1-xl.svg"
+                xl="/img/lendFlow/frame-1-xl.svg"
               />
             </div>
           </div>
