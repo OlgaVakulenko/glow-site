@@ -6,7 +6,7 @@ const RespSVG = ({ src, md, xl, className, alt }) => {
   useEffect(() => {
     const xlQuery = window.matchMedia('(min-width: 1200px)');
     const mdQuery = window.matchMedia(
-      '(min-width: 768px) and (max-width: 1199px)'
+      '(min-width: 820px) and (max-width: 1199px)'
     );
 
     const handleMediaQueryChange = () => {
