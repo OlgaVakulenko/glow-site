@@ -13,7 +13,7 @@ export default function TextBlock({
   subBoxClassName = '',
 }) {
   return (
-    <div className="mt-[100px] md:mt-[97px]">
+    <div className="mt-[20px]  md:mt-[97px]">
       <div
         className="mx-[20] flex flex-col items-center bg-[#070919] md:mx-[100px] xl:mx-[300px] xl:rounded-[1440px] "
         style={{

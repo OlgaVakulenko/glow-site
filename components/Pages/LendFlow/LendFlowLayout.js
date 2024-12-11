@@ -34,7 +34,7 @@ export default function LendFlow() {
       <div>
         <Animated>
           <SectionIntro
-            className="pt-[140px] md:pt-[270px] xl:pt-[175px] "
+            className="pt-[140px] md:pt-[268px] xl:pt-[175px] "
             title={
               <>
                 Lendflow:
@@ -63,7 +63,7 @@ export default function LendFlow() {
       <SectionInnovate />
       <SectionTransforming />
       <Animated>
-        <div className="md:mb-[143px] md:ml-[101px] md:w-[819px] xl:mb-[150px] xl:ml-[140px] xl:w-[1160px]">
+        <div className="h-[169px] md:mb-[143px] md:ml-[101px] md:w-[80vw] md-safe:w-[819px] xl:mb-[150px] xl:ml-[140px] xl:w-[1160px]">
           <Image
             src="/img/lendFlow/process-1-md.svg"
             width={0}
@@ -79,7 +79,7 @@ export default function LendFlow() {
         icon={
           <Image
             src={nextCaseIcon}
-            className="mb-6 mr-8 h-[68px] w-[68px] md:mb-0"
+            className="mb-8 mr-8 h-[68px] w-[68px] md:mb-0"
             alt="icon"
           />
         }
@@ -94,8 +94,8 @@ function SectionBalance() {
   return (
     <div>
       <Animated>
-        <div className="mx-0 ml-3 pb-[35px] pt-[112px] font-inter md:ml-0 md:pb-[60px] md:pt-[155px] xl:pb-[50px] xl:pt-[150px]">
-          <SectionFullCycle className="mb-6 text-[28px] text-next-heading-5 leading-[36px] tracking-[-1px] md:mb-[10px] md:ml-8 md:text-[48px] md:text-next-heading-3 md:leading-[56px] md:tracking-[-2px] xl:mb-16 xl:ml-[66px] xl:text-[56px] xl:leading-[64px] xl:tracking-[-2px]">
+        <div className="mx-4 pb-[35px] pt-[104px] font-inter md:mx-0 md:pb-[32px] md:pt-[144px] xl:pb-[50px] xl:pt-[150px]">
+          <SectionFullCycle className="mb-6 text-[28px] leading-[36px] tracking-[-1px] md:mb-[8px] md:ml-8 md:text-[48px] md:text-next-heading-3 md:leading-[56px] md:tracking-[-2px] xl:mb-16 xl:ml-[64px] xl:text-[56px] xl:leading-[64px] xl:tracking-[-2px]">
             <div style={{ fontFeatureSettings: 'normal' }}>
               {' '}
               The full cycle of product design:
@@ -142,9 +142,9 @@ function SectionBalance() {
 function SectionInnovate() {
   return (
     <div className="mb-5 mt-4 md:mb-[52px] md:mt-[39px] xl:mb-[100px] xl:mt-[66px]">
-      <div className="px-3 md:pl-[32px] xl:pl-[65px]">
+      <div className="px-3 md:px-[32px] xl:px-[64px]">
         <Animated>
-          <div className="mb-5 md:mb-[25px] md:h-auto md:w-[960px] xl:mb-[36px]  xl:h-auto xl:w-[1312px]">
+          <div className="mb-5 md:mb-[25px] md:h-auto md:w-full xl:mb-[36px]  xl:h-auto xl:w-[1312px]">
             <Image
               src="/img/lendFlow/innovate-0-xl.svg"
               width={0}
@@ -257,7 +257,7 @@ function SectionFullCycle({ className, children }) {
     <Animated
       className={cx(
         className,
-        'font-glow text-[32px] font-medium leading-[32px] md:text-[64px] md:leading-[57px]'
+        'font-glow font-medium leading-[32px] md:text-[64px] md:leading-[56px]'
       )}
     >
       {children}
@@ -267,23 +267,27 @@ function SectionFullCycle({ className, children }) {
 
 function SectionFullCycleList({ data }) {
   return (
-    <div className="ml-0 mt-[40px] flex flex-wrap md:mb-[60px] md:ml-0 md:mt-0 xl:mb-11 xl:min-w-[1440px] xl:flex-nowrap">
+    // xl:mb-11
+    <div className="ml-0 mt-[50px] grid grid-cols-2 gap-4 sm:flex sm:flex-wrap sm:gap-0 md:mb-[60px] md:ml-0 md:mt-0 xl:mb-0 xl:min-w-[100%] xl:flex-nowrap">
       {data.map((column, i) => (
         <Animated
           key={i}
           delay={i * 100}
-          className="mb-[57px] w-[calc(50%-5px)] items-start md:mb-0 md:w-[261px] xl:w-[335px]"
+          className={cx(
+            'mb-[22px] items-start sm:col-span-1 sm:w-[calc(50%-5px)] md:mb-0 md:w-[261px] xl:w-[335px]',
+            { 'col-span-2': i === 2 }
+          )}
         >
-          <div className="text-[16px] font-medium leading-[13px] leading-[25.6px] opacity-50 md:mb-[54px] md:ml-8 md:mt-[58px] md:text-[20px] md:normal-case md:leading-[30px] md:opacity-30 xl:mb-12 xl:ml-[65px] xl:mt-0">
+          <div className="text-[16px]  font-normal leading-[25.6px] opacity-50 md:mb-[42px] md:ml-8 md:mt-[64px] md:text-[20px] md:normal-case md:leading-[30px] md:opacity-30 xl:mb-[42px] xl:ml-[64px] xl:mt-0">
             {column.title}
           </div>
 
-          <div className="mt-[22px] font-normal leading-[25.6px] leading-[36px] md:ml-[30px] md:mt-0 md:text-[20px] md:leading-[27px] xl:ml-[65px] xl:pl-[1px]">
+          <div className="mt-[22px] font-normal leading-[25.6px]  md:ml-[32px] md:mt-0 md:text-[20px] md:leading-[24px] xl:ml-[64px] xl:pl-[1px]">
             {column.values.map((value, k) => (
               <Animated
                 delay={i * k * 50}
                 key={k}
-                className="mt-3 md:mb-[34px] md:mt-0 last:md:mb-0"
+                className="xl: mt-[22px] md:mb-[44px] md:mt-0 last:md:mb-0 xl:mb-[44px]"
               >
                 {value}
               </Animated>
@@ -310,7 +314,7 @@ function SectionTransforming() {
               src="/img/lendFlow/logo-xl.svg"
               width={0}
               height={0}
-              className="inline-block h-[71px] w-[71px] md:ml-3 md:mr-4 md:h-[50px] md:w-[50px] xl:mx-5 xl:h-fit xl:w-[71px] xl:pb-[8px] "
+              className="inline-block h-[34px] w-[34px] md:ml-3 md:mr-4 md:h-[50px] md:w-[50px] xl:mx-5 xl:h-fit xl:w-[71px] xl:pb-[8px] "
               alt="Logo"
             />
             by enabling every company to provide{' '}
@@ -375,7 +379,7 @@ function SectionToolsHeader() {
               className="h-[50px] w-[50px] md:h-[80px] md:w-[80px] xl:h-[114px] xl:w-[114px] "
             />
           </div>
-          <Layout className="px-[25px] pt-[30px] md:px-[50px] md:pb-0 md:pl-[28px] md:pt-[54px]  xl:pb-0 xl:pt-[59px] ">
+          <Layout className="px-[16px] pt-[30px] md:px-[50px] md:pb-0 md:pl-[28px] md:pt-[54px]  xl:pb-0 xl:pt-[59px] ">
             {/* The code below draws the gradient behind the image */}
             <div
               className="flex w-full md:ml-[19px] md:mt-[2px] xl:ml-[14px] xl:mt-[70px]"
@@ -428,12 +432,12 @@ function SectionTools() {
   return (
     <Layout
       disablePadding={true}
-      className="ml-0 mr-0 flex w-full max-w-full flex-col items-center overflow-hidden rounded-b-[20px] bg-[#070919]  pb-[48px] text-white  md:rounded-b-[60px] md:pb-[90px] md:pt-16 xl:mt-[-200px] xl:rounded-b-[60px] xl:pb-[120px]"
+      className="ml-0 mr-0 flex w-full max-w-full flex-col items-center overflow-hidden rounded-b-[20px] bg-[#070919] px-4 pb-[48px]  text-white md:rounded-b-[60px]  md:px-0 md:pb-[90px] md:pt-16 xl:mt-[-200px] xl:rounded-b-[60px] xl:pb-[120px]"
     >
       <Animated>
-        <div className="flex max-h-full max-w-full flex-col md:ml-4 md:flex-row md:gap-9 md:pt-[14px] xl:ml-0 xl:gap-9 xl:pt-[184px]">
+        <div className="flex max-h-full max-w-full flex-col md:ml-4 md:flex-row md:gap-9 md:pt-[14px] xl:ml-0 xl:gap-9 xl:pt-[174px]">
           <div className="mb-6 flex-shrink md:mb-0 md:pl-0 xl:pl-0">
-            <div className=" md:h-[499px] md:w-[468px] md:rounded-[22px] xl:h-[700px] xl:w-[638px]">
+            <div className=" w-full md:h-[499px] md:rounded-[22px] xl:h-[700px]">
               <Image
                 src="/img/lendFlow/product0-xl.svg"
                 width={0}
@@ -444,7 +448,7 @@ function SectionTools() {
             </div>
           </div>
           <div className="flex-shrink">
-            <div className=" md:h-[499px] md:w-[468px] md:rounded-[22px] xl:h-[700px] xl:w-[638px]">
+            <div className=" w-full md:h-[499px] md:rounded-[22px] xl:h-[700px]">
               <Image
                 src="/img/lendFlow/product1-xl.svg"
                 width={0}
@@ -526,7 +530,7 @@ function SectionTools() {
         <TextBlock
           topic="Activity"
           topicClassName="w-[97px]"
-          boxClassName="md:w-[550px] w-[300px] xl:w-[700px] md:pl-[10px]"
+          boxClassName="md:w-[550px]  w-[300px] xl:w-[700px] md:pl-[10px]"
           subBoxClassName="md:w-[525px] xl:w-[510px] md:pr-[40px] xl:pl-[29px] xl:pr-0 md:pl-[12px]"
           title={
             <>
@@ -563,7 +567,7 @@ function SectionTools() {
             >
               <Image
                 src="/img/lendFlow/activity1-md.svg"
-                className="md:block xl:hidden"
+                className="block xl:hidden"
                 width={0}
                 height={0}
                 objectfit="contain"
@@ -571,7 +575,7 @@ function SectionTools() {
               />
               <Image
                 src="/img/lendFlow/activity1-xl.svg"
-                className="md:hidden xl:block"
+                className="hidden xl:block"
                 width={0}
                 height={0}
                 objectfit="contain"
@@ -592,7 +596,7 @@ function SectionTools() {
             >
               <Image
                 src="/img/lendFlow/activity2-md.svg"
-                className="md:block xl:hidden"
+                className="block xl:hidden"
                 width={0}
                 height={0}
                 objectfit="contain"
@@ -600,7 +604,7 @@ function SectionTools() {
               />
               <Image
                 src="/img/lendFlow/activity2-xl.svg"
-                className="md:hidden xl:block"
+                className="hidden xl:block"
                 width={0}
                 height={0}
                 objectfit="contain"
@@ -732,7 +736,7 @@ function SectionTools() {
               >
                 <Image
                   src="/img/lendFlow/branding1-md.svg"
-                  className="md:block xl:hidden"
+                  className="block xl:hidden"
                   width={0}
                   height={0}
                   objectfit="contain"
@@ -740,7 +744,7 @@ function SectionTools() {
                 />
                 <Image
                   src="/img/lendFlow/branding1-xl.svg"
-                  className="md:hidden xl:block"
+                  className="hidden xl:block"
                   width={0}
                   height={0}
                   objectfit="contain"
@@ -761,7 +765,7 @@ function SectionTools() {
               >
                 <Image
                   src="/img/lendFlow/branding2-md.svg"
-                  className="md:block xl:hidden"
+                  className="block xl:hidden"
                   width={0}
                   height={0}
                   objectfit="contain"
@@ -769,7 +773,7 @@ function SectionTools() {
                 />
                 <Image
                   src="/img/lendFlow/branding2-xl.svg"
-                  className="md:hidden xl:block"
+                  className="hidden xl:block"
                   width={0}
                   height={0}
                   objectfit="contain"
@@ -999,11 +1003,11 @@ function SectionTools() {
         </Layout>
       </Animated>
 
-      <div className="flex max-h-full max-w-full flex-col md:mt-[125px] md:flex-row md:gap-[25px] md:pt-[14px]  xl:mt-[52px] xl:gap-[35px]   ">
+      <div className="flex max-h-full max-w-full flex-col px-[16px] md:mt-[157px] md:flex-row md:gap-[24px] md:px-[32px] md:pt-[14px]  xl:mt-[66px] xl:gap-[35px] xl:px-[64px]   ">
         <div className="mb-6 md:mb-0">
           <Animated>
             <div
-              className="cover md:ml-[25px] md:h-[510px] md:w-[468px] xl:ml-[0px] xl:h-[700px] xl:w-[638px]"
+              className="cover h-full xl:ml-[0px]"
               style={{
                 borderRadius: '18px', // Set the desired border radius for all breakpoints
                 '@media (minWidth: 768px)': { borderRadius: '22px' }, // Adjust for md breakpoint
@@ -1020,10 +1024,10 @@ function SectionTools() {
             </div>
           </Animated>
         </div>
-        <div className="md:mr-3 xl:mr-0">
+        <div className="">
           <Animated>
             <div
-              className="cover md:ml-[0px] md:h-[510px] md:w-[468px] xl:ml-[0px] xl:h-[700px] xl:w-[638px]"
+              className="cover h-full md:ml-[0px]"
               style={{
                 borderRadius: '18px', // Set the desired border radius for all breakpoints
                 '@media (minWidth: 768px)': { borderRadius: '22px' }, // Adjust for md breakpoint
@@ -1041,19 +1045,19 @@ function SectionTools() {
           </Animated>
         </div>
       </div>
-      <div className="w-full md:ml-[58px] md:mt-[25px] md:rounded-[22px] xl:ml-[70px]  xl:mt-[35px] xl:rounded-[30px]">
+      <div className="w-full px-[16px] md:mt-[24px] md:rounded-[22px]  md:px-[32px]  xl:mt-[35px] xl:rounded-[30px] xl:px-[64px]">
         <Animated>
           <div
-            className="cover bg-transparent md:h-[715px] md:w-[960px] xl:h-[996px] xl:w-[1370px]"
+            className="cover h-full bg-transparent"
             style={{
-              borderRadius: '18px', // Set the desired border radius for all breakpoints
+              borderRadius: '22px', // Set the desired border radius for all breakpoints
               '@media (minWidth: 768px)': { borderRadius: '22px' }, // Adjust for md breakpoint
               '@media (minWidth: 1280px)': { borderRadius: '30px' }, // Adjust for xl breakpoint
             }}
           >
             <Image
               src="/img/lendFlow/pic0-md.svg"
-              className="md:block xl:hidden"
+              className="block xl:hidden"
               width={0}
               height={0}
               objectfit="contain"
@@ -1061,7 +1065,7 @@ function SectionTools() {
             />
             <Image
               src="/img/lendFlow/pic0-xl.svg"
-              className="md:hidden xl:block"
+              className="hidden xl:block"
               width={0}
               height={0}
               objectfit="contain"
