@@ -3,6 +3,7 @@ import cx from 'clsx';
 import Animated from '../../Animated';
 import TextBlockIcon from '../LendFlow/assets/textBlocIcon.svg';
 import Image, { Source } from '../../Image';
+import RespSVG from '../Cases/Renovation/RespSVG';
 
 export default function TextBlock({
   topic,
@@ -32,10 +33,11 @@ export default function TextBlock({
               topicClassName
             )}
           >
-            <Image
-              src={TextBlockIcon}
+            <RespSVG
+              src="/img/lendFlow/textBlocIcon.svg"
+              md="/img/lendFlow/textBlocIcon.svg"
+              xl="/img/lendFlow/textBlocIcon.svg"
               className="h-[18px] w-[18px] "
-              alt="icon"
             />
             <div className=" inline-block break-words pt-0.5 font-inter text-[14px] font-medium leading-[16.94px]  text-[#FFFFFF]">
               {topic}
