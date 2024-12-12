@@ -1,10 +1,18 @@
 import cx from 'clsx';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import FooterForm from './Footer/FooterForm';
 import Layout from './Layout';
 import GlowImg from './Pages/Home/assets/glow555.png';
 import Image from './Image';
+import CalendlyEmbed from './CalendlyEmbed';
+import Button2 from './Button';
+import { FAQ } from '../pages/contact-us';
+import Animated from './Animated';
+import BgSm from './Pages/Home/assets/form-bgg.png';
+import BgMd from './Pages/Home/assets/form-bg-md.png';
+import BgXl from './Pages/Home/assets/form-bg-xl.png';
+import RespImage from './Pages/Cases/Renovation/RespImage';
 
 const footerStyle = 'default';
 export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
@@ -21,14 +29,33 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
           {
             '4xl:px-24 4xl:py-[120px]': footerStyle === 'default',
             'xl:pt-14': footerStyle === 'trial',
-            'h-full !pb-8 md:!pb-20 xl:!p-20': _isSubmitted,
+            'mb-[52px] h-[584px]  sm:h-[480px] md:mb-[72px] md:!pb-[48px] xl:mb-[112px] xl:h-[600px] xl:!px-[64px] xl:!py-[72px]':
+              _isSubmitted,
           }
         )}
       >
         <Image
-          className="pointer-events-none absolute inset-0 hidden h-full w-full md:block md:rotate-180 xl:bottom-0 xl:left-0 xl:rotate-0"
+          className={cx(
+            'pointer-events-none absolute inset-0 top-[-1%] hidden h-full w-full sm:top-[-26%] sm:block sm:rotate-180  xl:bottom-0 xl:left-0 xl:top-0 xl:rotate-0',
+            {
+              'sm:top-[-40%]': _isSubmitted,
+              'sm:top-[-26%]': !_isSubmitted,
+            }
+          )}
           src={GlowImg}
           alt=""
+        />
+        <RespImage
+          src={BgSm}
+          md={BgMd}
+          xl={BgXl}
+          className={cx(
+            'pointer-events-none absolute inset-0 z-0 h-full w-full sm:hidden',
+            {
+              'top-[-38%]': _isSubmitted,
+              'top-[-10%]': !_isSubmitted,
+            }
+          )}
         />
         <div
           className={cx(
@@ -40,10 +67,13 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
         >
           <div
             className={cx(
-              ' md:max-w-[600px] xl:col-span-12 xl:max-w-full 4xl:max-w-full',
+              ' 4xl:max-w-full h-full md:max-w-[600px] xl:col-span-12 xl:max-w-full',
               {
-                'mb-8 md:mb-[56px]': footerStyle !== 'trial',
+                'flex h-full flex-col justify-between': !_isSubmitted,
               }
+              // {
+              //   'mb-8 md:mb-[56px]': footerStyle !== 'trial',
+              // }
             )}
           >
             <div className="text-next-heading-4 md:text-next-heading-2 xl:text-next-heading-0">
@@ -54,8 +84,8 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
               ) : (
                 <div>
                   {
-                    <h1>
-                      Let’s make <br className="hidden md:block" />
+                    <h1 className="pb-8 md:pb-14 x-1280:pb-0">
+                      Let’s make <br className="" />
                       your project glow
                     </h1>
                   }
@@ -63,11 +93,29 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
               )}
             </div>
             {_isSubmitted ? (
-              <div className="mt-6 text-subtitle-m opacity-50 md:text-body-m xl:text-body-m">
-                Our team will get back to you within 12-24 hours{' '}
+              <div className="mt-[20px] text-subtitle-m xxs:max-w-[250px] xs:max-w-full sm:max-w-[430px] md:text-body-m xl:max-w-full xl:text-body-m">
+                Our team will get back to you within 12-24 hours
                 <span className="not-italic">🙌</span>
               </div>
-            ) : null}
+            ) : (
+              <div className="hidden max-w-[259px] flex-col items-start gap-8 x-1280:flex">
+                <span className="font-satoshi text-[20px] font-medium leading-6">
+                  Always busy and want to book an exact time to call?
+                </span>
+                <CalendlyEmbed
+                  text={
+                    <Button2
+                      flavor="secondary"
+                      color="white"
+                      className="mt-8 w-[180px] shrink-0 border-0 !bg-[#ffffff30] font-normal md:mt-0"
+                      compact
+                    >
+                      Book a free call
+                    </Button2>
+                  }
+                />
+              </div>
+            )}
           </div>
           {
             <div
@@ -88,6 +136,36 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
           }
         </div>
       </div>
+      {!_isSubmitted ? (
+        <div
+          className={cx(
+            'relative mt-2.5 items-center justify-between overflow-hidden rounded-3xl bg-black p-6 text-white sm:flex md:rounded-[32px] md:p-12 xl:p-20 xl:px-16 xl:py-[72px] x-1280:hidden',
+            {
+              '4xl:px-24 4xl:py-[120px]': footerStyle === 'default',
+              'xl:pt-14': footerStyle === 'trial',
+              'h-full !pb-8 md:!pb-20 xl:!px-[64px] xl:!py-[72px]':
+                _isSubmitted,
+            }
+          )}
+        >
+          <p className="mb-6 mr-[72px] max-w-full font-satoshi text-base font-normal leading-6 xs:mr-0 sm:mb-0 sm:max-w-60 md:max-w-64 md:text-[20px] md:font-medium">
+            Always busy and want to book an exact time to call?
+          </p>
+          <CalendlyEmbed
+            classNames="sm:w-auto w-full"
+            text={
+              <Button2
+                flavor="secondary"
+                color="white"
+                className="w-full shrink-0 border-0 !bg-[#ffffff30] font-normal sm:w-[160px]"
+                compact
+              >
+                Book a free call
+              </Button2>
+            }
+          />
+        </div>
+      ) : null}
     </Layout>
   );
 }

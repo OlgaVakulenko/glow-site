@@ -19,9 +19,12 @@ module.exports = {
         inter: 'Inter-Variable',
       },
       screens: {
+        xs: '450px',
+        sm: '600px',
         md: '820px',
-        'md-safe': '1000px',
+        'md-safe': '1010px',
         'x-920': '904px',
+        'x-1280': '1280px',
         'x-1400': '1440px',
         // '4xl': '1800px',
         layout: '1736px',

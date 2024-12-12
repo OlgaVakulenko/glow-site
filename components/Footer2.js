@@ -2,7 +2,7 @@
 import cx from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useIsClient } from '../lib/utils';
 import { useAtom } from 'jotai';
 import { themeAtom } from '../lib/theme';
@@ -15,10 +15,16 @@ import GlwEffectM from './Pages/Home/assets/glw-eff-m.png';
 import GlwEffect from './Pages/Home/assets/glw-eff.png';
 import FormBG from './Pages/Home/assets/form-bg.png';
 import Animated from './Animated';
+import CalendlyEmbed from './CalendlyEmbed';
+import { FAQ } from '../pages/contact-us';
+import RespImage from './Pages/Cases/Renovation/RespImage';
+import BgXl from './Pages/Home/assets/form-bg-xl.png';
+import BgMd from './Pages/Home/assets/form-bg-md.png';
+import BgSm from './Pages/Home/assets/form-bgg.png';
 
 function SlotText() {
   const isClient = useIsClient();
-	const [theme] = useAtom(themeAtom);
+  const [theme] = useAtom(themeAtom);
   const [month] = useState(() => {
     const date = new Date();
     const month = date.toLocaleString('en', { month: 'long' });
@@ -29,47 +35,70 @@ function SlotText() {
   if (!isClient) return null;
 
   return (
-    <span className={cx ("glow-border-light mx-auto block min-h-[28px] w-fit rounded-full px-[12px] py-[2px] text-next-tag", {'slot-text-dark': theme === 'dark'})}>
+    <span
+      className={cx(
+        'glow-border-light mx-auto block min-h-[28px] w-fit rounded-full px-[12px] py-[2px] text-next-tag',
+        { 'slot-text-dark': theme === 'dark' }
+      )}
+    >
       2 slots available in {month}
     </span>
   );
 }
 
 export default function Footer2({
-  footerSuccess: isSubmitted,
-  footerStyle = 'default',
-  hideToggles = false,
-  showForm = true,
-}) {
+                                  footerSuccess: isSubmitted,
+                                  footerStyle = 'default',
+                                  hideToggles = false,
+                                  showForm = true,
+                                }) {
   const router = useRouter();
-	const [theme] = useAtom(themeAtom);
-	const dark = theme === 'dark';
+  const [theme] = useAtom(themeAtom);
+  const dark = theme === 'dark';
 
   const setIsSubmitted = useCallback(() => {
     const u = footerStyle === 'trial' ? '/form-success3' : 'form-success';
 
     router.push(u);
   }, [router, footerStyle]);
-	
+
   return (
     <footer
       id="footer"
       className={cx('', {
-        '!mt-0 flex h-screenx flex-col !pt-[120px] font-inter': isSubmitted,
-				'bg-[#0a0a0b]': dark
+        'bg-[#0a0a0b]': dark,
+        '!mt-0 flex h-screenx flex-col !pt-[88px] font-inter xl:!pt-[112px]':
+        isSubmitted,
       })}
     >
       {isSubmitted ? (
-        <FooterFormWrapper isSubmitted={isSubmitted} />
+        <div className="">
+          <FooterFormWrapper isSubmitted={isSubmitted} />
+          <Layout>
+            <FAQ />
+          </Layout>
+        </div>
       ) : (
         showForm && (
           <Layout disableOnMobile={true} className="px-2">
-            <Animated className={cx("text-inter relative overflow-hidden rounded-3xl px-6 py-[138px] md:rounded-[32px] md:py-[134px] xl:py-[142px] xl:pb-[124px] xl:pt-[128px]", {'footer-dark dark-outline': dark})}>
+            <Animated
+              className={cx(
+                'text-inter relative rounded-3xl px-6 py-[106px] md:rounded-[32px] md:py-[134px] xl:py-[142px] xl:pb-[124px] xl:pt-[128px]',
+                { 'footer-dark dark-outline': dark }
+              )}
+            >
               <Image
                 src={dark ? '/img/footer/form-bg-dark.png' : FormBG}
                 alt=""
-                className="pointer-events-none absolute inset-0 z-0 h-full w-full"
+                className="pointer-events-none absolute inset-0 z-0 h-full w-full rounded-3xl md:rounded-[32px]"
               />
+              {/*<RespImage*/}
+              {/*    src={BgSm}*/}
+              {/*    md={BgMd}*/}
+              {/*    xl={BgXl}*/}
+              {/*    className="pointer-events-none absolute inset-0 z-0 h-full w-full"*/}
+              {/*/>*/}
+
               {/* <picture>
                 <Source
                   image={GlwEffect}
@@ -92,18 +121,36 @@ export default function Footer2({
                   Let’s make
                   <br /> your project glow
                 </h3>
-                <div className="mb-10 text-[16px] leading-[24px] text-white md:mb-10 md:text-next-body-s xl:mb-10 xl:text-[18px]">
+                <div className="mb-10 text-[16px] leading-[24px] text-lblue md:mb-10 md:text-next-body-s xl:mb-10 xl:text-[18px]">
                   Our team will get back to you within 24 hours 🙌
                 </div>
-                <div className=" text-center">
+                <div className=" mx-auto flex max-w-[400px] flex-col gap-4 text-center md:block">
+                  <CalendlyEmbed
+                    classNames="w-full md:w-[160px] xl:w-[180px] mr-[12px]"
+                    text={
+                      <Button2
+                        color="white"
+                        className="w-full !bg-[#FFFFFF29] !px-5 !py-3 font-inter font-light normal-case !tracking-[0.01em] text-white"
+                        compact
+                      >
+                        Book a free call
+                      </Button2>
+                    }
+                  />
                   <Button2
                     // color="white"
                     as={Link}
                     href="/contact-us"
-                    className={cx("!bg-white !text-black md:w-auto", {'w-full font-medium': !dark, 'w-auto font-normal': dark})}
+                    className={cx(
+                      '!bg-white !text-black md:w-[160px] xl:w-[180px]',
+                      {
+                        'w-full font-medium': !dark,
+                        'w-auto font-normal': dark,
+                      }
+                    )}
                     compact
                   >
-                    Book a free call
+                    Let&#39;s talk
                   </Button2>
                 </div>
               </div>

@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import Animated, { AnimatedGroup } from '../../Animated';
 import Layout from '../../Layout';
 import cx from 'clsx';
@@ -30,7 +31,15 @@ const items = [
   },
 ];
 
-export default function OurExperience({ padding }) {
+export default function OurExperience({ title, padding, titleClassName }) {
+  const defaultTitle = useMemo(() => {
+    return (
+      <>
+        We balance <br className="hidden xl:block" /> business objectives
+        with&nbsp;customer needs
+      </>
+    );
+  }, []);
   return (
     <Layout
       className={cx(
@@ -43,9 +52,13 @@ export default function OurExperience({ padding }) {
       )}
     >
       <Animated className="mb-[72px] flex-shrink-0 md:mb-[53px] md:mr-[72px] xl:mr-8">
-        <h2 className="w-full font-satoshi text-next-heading-7 font-medium md:max-w-[248px] md:text-next-heading-6 xl:min-w-[415px] xl:max-w-[304px] xl:text-next-heading-5">
-          We balance <br className="hidden xl:block" /> business objectives
-          with&nbsp;customer needs
+        <h2
+          className={cx(
+            'w-full font-satoshi text-next-heading-7 font-medium md:max-w-[248px] md:text-next-heading-6 xl:min-w-[415px] xl:max-w-[304px] xl:text-next-heading-5',
+            titleClassName
+          )}
+        >
+          {title || defaultTitle}
         </h2>
       </Animated>
       <AnimatedGroup className="grid w-full gap-x-6 gap-y-10 md:col-span-5 md:flex md:justify-between md:gap-10 xl:col-span-8 xl:flex xl:gap-24">

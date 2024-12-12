@@ -1,7 +1,8 @@
 import { useAtom } from 'jotai';
 import Link from 'next/link';
-import { useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { useHandleFooterFormClick } from '../lib/utils';
+import { useRouter } from 'next/router';
 import cx from 'clsx';
 import { Animation, subMenuParentAtom } from './Header';
 import HeaderLinkMobile from './HeaderLinkMobile';
@@ -10,11 +11,13 @@ import Button2 from './Button';
 import { SocialLinks } from './Footer/FooterLinks';
 import Animated from './Animated';
 import { themeAtom } from '../lib/theme';
+import CalendlyEmbed from './CalendlyEmbed';
 
 export default function HeaderMobileMenu({ menuId, links }) {
   const [activeParent, setActiveParent] = useAtom(subMenuParentAtom);
-	const [theme] = useAtom(themeAtom);
+  const [theme] = useAtom(themeAtom);
   const handleFooterFormClick = useHandleFooterFormClick();
+  const router = useRouter();
 
   const _links = useMemo(() => {
     if (activeParent) return links.filter((item) => item === activeParent);
@@ -28,9 +31,13 @@ export default function HeaderMobileMenu({ menuId, links }) {
         aria-label="Main menu"
         role="navigation"
         id={menuId}
-        className="flex flex-col"
+        className={cx('flex flex-col sm:pb-[72px]')}
       >
-        <ul className={cx("flex flex-col gap-8", {'border-b pb-8': activeParent})}>
+        <ul
+          className={cx('flex flex-col gap-8', {
+            'border-b pb-8': activeParent,
+          })}
+        >
           {_links.map((item, i) => (
             <Animation as="li" key={item.href} index={i}>
               <HeaderLinkMobile item={item} />
@@ -38,7 +45,11 @@ export default function HeaderMobileMenu({ menuId, links }) {
           ))}
         </ul>
         {activeParent && (
-          <div className={cx("-mx-4 px-4 pt-8", {'text-white': theme === 'dark'})}>
+          <div
+            className={cx('-mx-4 px-4 pt-8', {
+              'text-white': theme === 'dark',
+            })}
+          >
             {activeParent.children.map((item) => (
               <Link
                 href={item.href}
@@ -46,7 +57,9 @@ export default function HeaderMobileMenu({ menuId, links }) {
                 className="mb-8 flex last:mb-20"
               >
                 <div className="mr-2">
-                  {theme === 'dark' ? item.icon.dark : item.icon.light || item.icon}
+                  {theme === 'dark'
+                    ? item.icon.dark
+                    : item.icon.light || item.icon}
                 </div>
                 <div>
                   <div className="mb-3 text-body-heading-m">{item.title}</div>
@@ -59,15 +72,47 @@ export default function HeaderMobileMenu({ menuId, links }) {
         )}
       </nav>
       {!activeParent && (
-        <Animation index={links.length} className="my-8">
-          <Button2
-            as={Link}
-            href="/contact-us"
-            className="w-full !bg-black text-center !text-white"
-            size="large"
+        <Animation index={links.length} className="my-8 sm:hidden">
+          <div
+            className={cx(
+              'flex flex-col gap-y-4 opacity-100  transition-opacity delay-500'
+            )}
           >
-            {texts.header_cta_mob}
-          </Button2>
+            <Animated delay={(links.length + 1) * 100} immediate>
+              <Button2
+                className={cx(
+                  'w-full !bg-black !py-5 text-center font-inter font-normal normal-case !tracking-[0.01em]',
+                  {
+                    '!bg-white !text-black': theme === 'dark',
+                    '!text-white': theme !== 'dark',
+                  }
+                )}
+                as={Link}
+                href="/contact-us"
+                compact
+              >
+                {texts.header_contact}
+              </Button2>
+            </Animated>
+            <CalendlyEmbed
+              classNames="w-full sm:w-auto"
+              text={
+                <Animated delay={(links.length + 1) * 100} immediate>
+                  <Button2
+                    className={cx(
+                      'w-full !bg-[#19191B0F] !py-5 font-inter font-normal normal-case !tracking-[0.01em]',
+                      {
+                        '!bg-[#FFFFFF29] !text-white': theme === 'dark',
+                      }
+                    )}
+                    compact
+                  >
+                    {texts.header_cta}
+                  </Button2>
+                </Animated>
+              }
+            />
+          </div>
         </Animation>
       )}
       <Animated delay={300}>

@@ -10,15 +10,19 @@ import { getFullTitle } from '../components/HeadTitle';
 import FaqItem from '../components/ContactUs/FaqItem';
 import Animated from '../components/Animated';
 import { faqItems } from '../data/faq-items';
+import CalendlyEmbed from '../components/CalendlyEmbed';
 
 export function FAQ({ padding, items = faqItems, animate = false }) {
-	const [theme] = useAtom(themeAtom);
-	const TitleTag = animate ? Animated : 'h2';
-	const [openIndex, setOpenIndex] = useState(null);
+  const [theme] = useAtom(themeAtom);
+  const TitleTag = animate ? Animated : 'h2';
+  const [openIndex, setOpenIndex] = useState(null);
 
-  const handleOpen = useCallback((index) => {
-    setOpenIndex(index === openIndex ? null : index);
-  },[openIndex]);
+  const handleOpen = useCallback(
+    (index) => {
+      setOpenIndex(index === openIndex ? null : index);
+    },
+    [openIndex]
+  );
 
   return (
     <div
@@ -27,15 +31,15 @@ export function FAQ({ padding, items = faqItems, animate = false }) {
       })}
     >
       <TitleTag className="mb-10 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:mb-20 xl:text-next-heading-2">
-        <span className={cx({'white-gradient-text': theme === 'dark'})}>Frequently asked</span> <span className={cx({'ai-text': theme === 'dark'})}>questions</span>
+        <span className={cx({ 'white-gradient-text': theme === 'dark' })}>
+          Frequently asked
+        </span>{' '}
+        <span className={cx({ 'ai-text': theme === 'dark' })}>questions</span>
       </TitleTag>
       <div>
         {items.map((item, idx) => (
-					<Animated
-					key={idx}
-					delay={100 * idx}
-				>
-          <FaqItem
+          <Animated key={idx} delay={100 * idx}>
+            <FaqItem
               key={idx}
               question={item.q}
               answer={item.a}
@@ -45,7 +49,7 @@ export function FAQ({ padding, items = faqItems, animate = false }) {
                 'next-to-open': openIndex !== null && idx === openIndex + 1,
               })}
             />
-					</Animated>
+          </Animated>
         ))}
       </div>
     </div>
@@ -54,7 +58,7 @@ export function FAQ({ padding, items = faqItems, animate = false }) {
 
 export default function ContactUs() {
   return (
-    <div className="pt-[88px] md:pt-[144px]">
+    <div className="pt-[88px] xl:pt-[112px]">
       <Head>
         <title>{getFullTitle('Contact')}</title>
         <meta

@@ -1,3 +1,4 @@
+'use client';
 import { Transition } from '@headlessui/react';
 import cx from 'clsx';
 import { atom, useAtom, useSetAtom } from 'jotai';
@@ -32,6 +33,7 @@ import Logo from './Logo';
 import links from './links-data';
 import texts from './texts';
 import { themeAtom } from '../lib/theme';
+import CalendlyEmbed from './CalendlyEmbed';
 
 export function BurgerIcon({ isOpen = false, theme, size = 32 }) {
   let stroke = '#19191B';
@@ -67,7 +69,7 @@ export function BurgerIcon({ isOpen = false, theme, size = 32 }) {
     <svg
       style={{ color: stroke }}
       className="transition-colors"
-      width="36"
+      width="32"
       height="14"
       viewBox="0 0 26 14"
       fill="none"
@@ -86,7 +88,7 @@ const BurgerButton = ({ isOpen, className, theme, ...props }) => {
       className={cx(
         'flex items-center justify-center',
         {
-          ['px-[3px] py-[9px]']: !isOpen,
+          [' py-[9px]']: !isOpen,
         },
         className
       )}
@@ -121,7 +123,7 @@ export const Animation = ({ index, children, ...props }) => {
 
 const BurgerMenu = ({ menuId, links }) => {
   const [subMenuParent, setSubMenuParent] = useAtom(subMenuParentAtom);
-	const [theme] = useAtom(themeAtom);
+  const [theme] = useAtom(themeAtom);
   const router = useRouter();
   const [isOpen, setIsOpen] = useAtom(openAtom);
   const [media] = useAtom(mediaAtom);
@@ -147,21 +149,29 @@ const BurgerMenu = ({ menuId, links }) => {
       leaveTo="opacity-0"
       className={cx(
         'fixed left-0 top-0 z-10 h-[150vh] w-full transition-colors duration-100',
-				{'bg-[#0A0A0B]': theme === 'dark', 'bg-white': theme !== 'dark'}
+        { 'bg-[#0A0A0B]': theme === 'dark', 'bg-white': theme !== 'dark' }
       )}
     >
       <div className="overflow-y-auto">
         <Layout>
-          <div className={'flex h-screenx flex-col justify-between'}>
-            <div className={cx("flex items-center justify-between py-[28px] font-medium md:py-6 xl:py-[20px]", {'text-white': theme === 'dark', 'text-black': theme !== 'dark'})}>
+          <div className={'flex h-screen flex-col justify-between'}>
+            <div
+              className={cx(
+                'flex items-center justify-between py-[27.5px] font-medium sm:py-[20px]',
+                {
+                  'text-white': theme === 'dark',
+                  'text-black': theme !== 'dark',
+                }
+              )}
+            >
               <Link
                 href="/"
                 className="flex items-center justify-center"
                 title="home"
               >
-                <Logo className={theme} isBurgerMenu/>
+                <Logo className={theme} isBurgerMenu />
               </Link>
-              <div className="hidden md:block">
+              <div className="hidden">
                 <Link
                   href="/contacts"
                   className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
@@ -169,19 +179,70 @@ const BurgerMenu = ({ menuId, links }) => {
                   Let&apos;s get in touch
                 </Link>
               </div>
-              <BurgerButton
-                className={cx('transition-opacity duration-200 md:hidden', {
-                  'pointer-events-none opacity-0': subMenuParent,
-                })}
-                aria-controls={menuId}
-                isOpen={isOpen}
-                onClick={() => {
-                  setIsOpen((v) => !v);
-                  setSubMenuParent(null);
-                }}
-                aria-expanded={isOpen}
-                aria-label="Menu"
-              />
+              <div
+                className={cx(
+                  'items-center gap-x-3 transition-opacity duration-200 xl:space-x-4'
+                )}
+              >
+                <div className="flex items-center gap-x-5 md:gap-x-8">
+                  <div
+                    className={cx(
+                      'hidden gap-x-3 opacity-100 transition-opacity delay-500 sm:flex'
+                    )}
+                  >
+                    <CalendlyEmbed
+                      classNames="w-full sm:w-auto"
+                      text={
+                        <Animated delay={(links.length + 1) * 100} immediate>
+                          <Button2
+                            className={cx(
+                              'w-full !bg-[#19191B0F] !px-4 !py-3 font-inter font-light normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]',
+                              {
+                                '!bg-[#FFFFFF29] !text-white': theme === 'dark',
+                              }
+                            )}
+                            compact
+                          >
+                            {texts.header_cta}
+                          </Button2>
+                        </Animated>
+                      }
+                    />
+                    <Animated delay={(links.length + 1) * 100} immediate>
+                      <Button2
+                        className={cx(
+                          'w-full !bg-black !py-3 text-center font-inter font-light normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]',
+                          {
+                            '!bg-white !text-black': theme === 'dark',
+                            '!text-white': theme !== 'dark',
+                          }
+                        )}
+                        as={Link}
+                        href="/contact-us"
+                        compact
+                      >
+                        {texts.header_contact}
+                      </Button2>
+                    </Animated>
+                  </div>
+                  <BurgerButton
+                    className={cx(
+                      'max-w-[42px] transition-opacity duration-200',
+                      {
+                        'pointer-events-none opacity-0': subMenuParent,
+                      }
+                    )}
+                    aria-controls={menuId}
+                    isOpen={isOpen}
+                    onClick={() => {
+                      setIsOpen((v) => !v);
+                      setSubMenuParent(null);
+                    }}
+                    aria-expanded={isOpen}
+                    aria-label="Menu"
+                  />
+                </div>
+              </div>
             </div>
             <HeaderMobileMenu links={links} menuId={menuId} />
           </div>
@@ -470,9 +531,9 @@ export default function Header({
         <div className="relative">
           <Layout>
             <div
-              className="flex items-center justify-between py-[28px] md:min-h-[88px] md:justify-start md:py-6 xl:py-[20px]"
+              className="flex items-center justify-between py-[27.5px] sm:py-[20px]  md:min-h-[88px] "
               style={{
-                '--header-theme': 
+                '--header-theme':
                   t === 'brand' || t === 'white'
                     ? 'black'
                     : t === 'dark'
@@ -492,7 +553,8 @@ export default function Header({
               </Animated>
               <div
                 className={cx(
-                  'hidden transition-opacity duration-500 md:absolute md:left-1/2 md:flex md:-translate-x-1/2'
+                  'hidden transition-opacity duration-500 xl:flex'
+                  //md:absolute md:left-1/2 md:flex md:-translate-x-1/2
                 )}
               >
                 {!isFooter &&
@@ -504,48 +566,87 @@ export default function Header({
                 (!isFooter && (
                   <div
                     className={cx(
-                      'hidden transition-opacity duration-200 md:ml-auto md:flex xl:space-x-4'
+                      'items-center gap-x-3 transition-opacity duration-200 xl:space-x-4'
                     )}
                   >
-                    <div
-                      className={cx(
-                        'opacity-100 transition-opacity delay-500',
-                        {
-                          '!opacity-0 !delay-0': isTrialVisible
-                            ? false
-                            : !isTop
-                            ? false
-                            : true,
-                          '!hidden': router.pathname === '/contact-us',
-                        }
-                      )}
-                    >
-                      <Animated delay={(links.length + 1) * 100} immediate>
-                        <Button2
-                          as={Link}
-                          href="/contact-us"
-                          className="!bg-black !px-4 !py-2 font-inter normal-case !tracking-[0.01em] !text-white xl:!px-5 xl:!py-3"
-                          compact
-                        >
-                          {texts.header_cta}
-                        </Button2>
-                      </Animated>
+                    <div className="flex items-center gap-x-5 md:gap-x-8">
+                      <div
+                        className={cx(
+                          'hidden gap-x-3 opacity-100 transition-opacity delay-500 sm:flex ',
+                          {
+                            '!opacity-0 !delay-0': isTrialVisible
+                              ? false
+                              : !isTop
+                              ? false
+                              : true,
+                          }
+                        )}
+                      >
+                        <CalendlyEmbed
+                          classNames="w-full sm:w-auto"
+                          text={
+                            <Animated
+                              delay={(links.length + 1) * 100}
+                              immediate
+                            >
+                              <Button2
+                                className={cx(
+                                  'w-full !bg-[#19191B0F] !px-4 !py-3 font-inter normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]',
+                                  {
+                                    '!bg-[#FFFFFF29] !text-white': t === 'dark',
+                                  }
+                                )}
+                                compact
+                              >
+                                {texts.header_cta}
+                              </Button2>
+                            </Animated>
+                          }
+                        />
+                        <Animated delay={(links.length + 1) * 100} immediate>
+                          <Button2
+                            className={cx(
+                              'w-full !bg-black !py-3 text-center font-inter normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]',
+                              {
+                                '!bg-white !text-black': t === 'dark',
+                                '!text-white': t !== 'dark',
+                              }
+                            )}
+                            as={Link}
+                            href="/contact-us"
+                            compact
+                          >
+                            {texts.header_contact}
+                          </Button2>
+                        </Animated>
+                      </div>
+                      <div className="xl:hidden">
+                        <Animated delay={50} immediate className="test">
+                          <BurgerButton
+                            theme={t}
+                            aria-controls={menuId}
+                            isOpen={isOpen}
+                            onClick={onBurgerClick}
+                            aria-expanded={isOpen}
+                          />
+                        </Animated>
+                      </div>
                     </div>
                   </div>
                 ))}
-              {headerRightSlot ? null : (
-                <div className="md:hidden">
-                  <Animated delay={50} immediate className="test">
-                    <BurgerButton
-                      theme={t}
-                      aria-controls={menuId}
-                      isOpen={isOpen}
-                      onClick={onBurgerClick}
-                      aria-expanded={isOpen}
-                    />
-                  </Animated>
-                </div>
-              )}
+              {/*{headerRightSlot ? null : (*/}
+              {/*  <div className="md-safe:hidden">*/}
+              {/*    <Animated delay={50} immediate className="test">*/}
+              {/*      <BurgerButton*/}
+              {/*        theme={t}*/}
+              {/*        aria-controls={menuId}*/}
+              {/*        isOpen={isOpen}*/}
+              {/*        onClick={onBurgerClick}*/}
+              {/*        aria-expanded={isOpen}*/}
+              {/*      />*/}
+              {/*    </Animated>*/}
+              {/*  </div>*/}
+              {/*)}*/}
             </div>
           </Layout>
         </div>

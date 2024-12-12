@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import { RadioGroup } from '@headlessui/react';
 import cx from 'clsx';
 import debounce from 'lodash.debounce';
@@ -15,11 +15,13 @@ import TextareaAutosize from 'react-textarea-autosize';
 import { useMediaAtom } from '../../lib/agent';
 import { getReferrer, useRem } from '../../lib/utils';
 import Image from '../Image';
-import RusImage from '../Pages/About/assets/rus-2.png';
-import StasImage from '../Pages/About/assets/stas-k.png';
+import RusImage from '../Pages/About/assets/RusImage.png';
+import StasImage from '../Pages/About/assets/StasImage.png';
 import RollingText from '../RollingText';
 import { Checkbox } from '../Checkbox';
 import Button2 from '../Button';
+import CalendlyEmbed from '../CalendlyEmbed';
+import { PopupButton } from 'react-calendly';
 
 const CheckboxCtx = createContext(null);
 
@@ -105,17 +107,17 @@ function Switches({
       <RGroupLabel className="text-next-body-s md:text-next-body-m">
         {title}
       </RGroupLabel>
-      <div className="mt-4 flex flex-wrap gap-4">
+      <div className="mt-4 flex flex-wrap gap-2">
         {options.map((option) => (
           <RGroupOption
-            className="cursor-pointer rounded-full text-xs font-medium uppercase leading-[24px] tracking-[0.02em] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-focus-ring"
+            className="cursor-pointer rounded-full text-xs font-medium uppercase leading-[20px] tracking-[0.02em] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-focus-ring xl:leading-[24px]"
             key={option}
             value={option}
           >
             {({ checked }) => (
               <div
                 className={cx(
-                  'glow-border-light2 rounded-full px-4 py-2 transition-colors duration-200 hover:bg-checkbox-dark-hover xl:px-3 xl:py-[6px]',
+                  'glow-border-light2 rounded-full px-3 py-[7.5px] transition-colors duration-200 hover:bg-checkbox-dark-hover md:px-3 md:py-[7.5px] xl:px-4 xl:py-[6px]',
                   {
                     '!bg-lblue text-black': checked,
                   }
@@ -128,6 +130,76 @@ function Switches({
         ))}
       </div>
     </RGroup>
+  );
+}
+
+function FileInput({
+  theme = 'footer',
+  className,
+  name,
+  value = '',
+  onChange,
+  placeholder = 'Attach file',
+  ...rest
+}) {
+  const [focused, setFocused] = useState(false);
+  const [fileName, setFileName] = useState(value);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 500);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleFileChange = (e) => {
+    const selectedFileName = e.target.files[0]?.name || '';
+    setFileName(selectedFileName);
+    setFocused(false);
+    onChange?.(selectedFileName);
+  };
+
+  const truncatedFileName =
+    isMobile && fileName.length > 20 ? `${fileName.slice(0, 20)}...` : fileName;
+
+  return (
+    <div className={cx('flex items-center', className)}>
+      <label
+        className={cx(
+          'relative w-full border-b bg-transparent pb-4 pt-[8px] text-[16px] leading-[26px] text-current transition-colors duration-200 placeholder:transition-opacity focus-within:outline-none focus-within:placeholder:opacity-60 md:text-[18px] xl:font-medium',
+          {
+            '!border-current': focused,
+            'border-checkbox-dark': theme === 'footer',
+            'border-checkbox-light': theme === 'default',
+          }
+        )}
+      >
+        <span
+          className={cx('pointer-events-none block w-full !truncate', {
+            'text-gray-500': !fileName && focused,
+          })}
+          title={fileName || placeholder}
+        >
+          {truncatedFileName || placeholder}
+        </span>
+        <input
+          type="file"
+          className="absolute inset-0 opacity-0"
+          name={name}
+          onChange={handleFileChange}
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
+          {...rest}
+        />
+      </label>
+    </div>
   );
 }
 
@@ -154,7 +226,7 @@ function Input({
     <div className={cx('flex', className)}>
       <Element
         className={cx(
-          'w-full border-b bg-transparent pb-4 text-[16px] leading-[26px] transition-colors duration-200 placeholder:text-current placeholder:transition-opacity focus:outline-none focus:placeholder:opacity-60 md:text-[18px] xl:font-medium',
+          'w-full border-b bg-transparent pb-4 pt-[7px] text-[16px] leading-[26px] transition-colors duration-200 placeholder:text-current placeholder:transition-opacity focus:outline-none focus:placeholder:opacity-60 md:text-[18px] xl:font-medium',
           {
             '!border-current': focused,
             'border-checkbox-dark': theme === 'footer',
@@ -227,6 +299,8 @@ export default function FooterForm({
 
   const [checked, setChecked] = useState(false);
 
+  const openCalModal = () => {};
+
   return (
     <div className="relative h-full">
       <Image
@@ -236,7 +310,7 @@ export default function FooterForm({
       />
       {isSubmitted ? (
         <div className="flex h-full flex-grow flex-col items-end justify-end text-right text-xl xl:text-4xl">
-          <div className="mb-6 flex space-x-2 md:mb-9">
+          <div className="mb-[31px] flex space-x-2 md:mb-[32px]">
             <Image
               className="h-[64px] w-[64px] rounded-[20px] object-cover md:h-[72px] md:w-[72px]"
               src={RusImage}
@@ -249,12 +323,10 @@ export default function FooterForm({
             />
           </div>
           <div>
-            <h3 className="font-glow text-heading-h3 md:mb-2 md:text-heading-h3">
+            <h3 className="font-glow text-heading-h3 md:text-heading-h3">
               Thank you!
             </h3>
-            <div className="text-subtitle-m opacity-50">
-              We will contact you ASAP!
-            </div>
+            <div className="text-subtitle-m">We will contact you ASAP!</div>
           </div>
         </div>
       ) : (
@@ -281,7 +353,6 @@ export default function FooterForm({
 
             data.append('source', referrer || 'Direct');
             data.append('query', query || '');
-
             Promise.race([
               fetch('/contact2.php', {
                 method: 'POST',
@@ -304,7 +375,7 @@ export default function FooterForm({
           {!hideToggles && (
             <div className="md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 xl:mb-0 xl:flex xl:flex-col xl:gap-0">
               <Switches
-                className="-mr-1 mb-8 md:col-span-4 md:mb-0 md:mr-0 md:pr-6 xl:mb-8"
+                className="-mr-1 mb-8 md:col-span-4 md:mb-0 md:mr-0 md:pr-6 xl:mb-8 xl:pr-0"
                 title="Service"
                 name="service"
                 selected={selectedServices}
@@ -327,7 +398,7 @@ export default function FooterForm({
             className={cx('grid pb-10 md:pb-0', {
               'text-lblue': theme === 'footer',
               'md:grid-flow-row md:grid-cols-8': useGrid,
-              'pt-12 xl:pt-14': !disablePadding,
+              'pt-10 xl:pt-14': !disablePadding,
               'gap-8': gapSize === '8',
               'gap-10': gapSize === '10',
             })}
@@ -352,6 +423,13 @@ export default function FooterForm({
               required
               theme={theme}
             />
+            {/*<FileInput*/}
+            {/*  className="md:col-span-8"*/}
+            {/*  name="file"*/}
+            {/*  placeholder="Attach file"*/}
+            {/*  onChange={(fileName) => console.log('Selected file:', fileName)}*/}
+            {/*  theme={theme}*/}
+            {/*/>*/}
             <Input
               as="textarea"
               className="md:col-span-8"
@@ -360,8 +438,8 @@ export default function FooterForm({
               theme={theme}
             />
           </div>
-          <div className="md:mt-10 md:flex md:items-center md:justify-between md:space-x-4 xl:mt-14">
-            <div className="flex space-x-4 text-body-xs leading-[160%] xl:max-w-[428px] xl:text-[16px]">
+          <div className="gap-x-6 sm:flex sm:items-center sm:justify-between md:mt-10 md:space-x-4 x-920:gap-0 xl:mt-14">
+            <div className="flex space-x-4 text-body-xs font-normal leading-5 md:leading-[24px] xl:max-w-[428px] xl:text-[16px]">
               <div className="pt-[2px] md:pt-[3px]">
                 <Checkbox
                   id="terms"
@@ -383,11 +461,11 @@ export default function FooterForm({
             </div>
             <Button2
               type="submit"
-              flavor="secondary"
-              className="mt-8 w-full shrink-0 bg-white md:mt-0 md:w-auto"
+              flavor="primary"
+              className="mt-10 w-full shrink-0 bg-white sm:mt-0 sm:w-[160px]"
               compact
             >
-              Book a free call
+              Send message
             </Button2>
             {/* <button
               type="submit"
