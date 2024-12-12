@@ -32,16 +32,14 @@ export default function IconsSection({
             }}
           >
             <div className="flex items-center">
-              <div className={`${iconClasses} xl:block hidden`}>
-                <item.icon
-                  isReady={map?.[index]}
-                ></item.icon>
+              <div className={`${iconClasses} hidden xl:block`}>
+                <item.icon isReady={map?.[index]}></item.icon>
               </div>
-              <div className={`${iconClasses} xl:hidden`}>
-                <item.iconMd
-                  isReady={map?.[index]}
-                ></item.iconMd>
-              </div>
+              {item.iconMd && (
+                <div className={`${iconClasses} xl:hidden`}>
+                  <item.iconMd isReady={map?.[index]}></item.iconMd>
+                </div>
+              )}
               <div>
                 <div className={titleClasses}>{item.title}</div>
               </div>
