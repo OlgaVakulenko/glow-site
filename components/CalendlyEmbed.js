@@ -3,7 +3,7 @@ import { PopupButton } from 'react-calendly';
 
 const CalendlyEmbed = ({
   text = 'Book a free call',
-  url = 'https://calendly.com/serdiukdmitro1/30min',
+  url = 'https://calendly.com/stas-kovalsky/meet',
   classNames,
 }) => {
   const [isClient, setIsClient] = useState(false);

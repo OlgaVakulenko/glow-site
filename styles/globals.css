@@ -4,6 +4,7 @@
 
 @import '../assets/fonts/inter/inter.css';
 @import '../assets/fonts/satoshi/satoshi.css';
+@import "../assets/fonts/sf-pro/sf-pro.css";
 
 @layer base {
 	:root {
@@ -622,6 +623,9 @@
 
 .absolute-center {
   @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+}
+.sticky-center {
+    @apply sticky top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
 }
 
 .icons-slider-l {

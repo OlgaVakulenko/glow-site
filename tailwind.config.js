@@ -17,6 +17,7 @@ module.exports = {
         glow: 'Satoshi',
         satoshi: 'Satoshi',
         inter: 'Inter-Variable',
+        sf: 'SF Pro Text',
       },
       screens: {
         xxs: '320px',

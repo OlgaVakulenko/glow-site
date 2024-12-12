@@ -23,15 +23,13 @@ const RespSVG = ({ src, md, xl, className, alt }) => {
 
     xlQuery.addEventListener('change', handleMediaQueryChange);
     mdQuery.addEventListener('change', handleMediaQueryChange);
-    console.log('1xlQuery');
     return () => {
       xlQuery.removeEventListener('change', handleMediaQueryChange);
       mdQuery.removeEventListener('change', handleMediaQueryChange);
-      console.log('xlQuery');
     };
   }, [src, md, xl]);
 
-  return <img src={svgSrc} alt={alt} className={className} />;
+  return <img src={svgSrc} alt={alt} className={className} loading="lazy" />;
 };
 
 export default RespSVG;
