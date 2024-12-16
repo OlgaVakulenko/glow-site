@@ -16,6 +16,13 @@ import Frame8 from './assets/frame-8.png';
 import Frame9 from './assets/frame-9.png';
 import Frame10md from './assets/frame-10-md.png';
 import Frame10xl from './assets/frame-10-xl.png';
+import Frame18 from './assets/frame-18.png';
+import Frame18md from './assets/frame-18-md.png';
+import Frame18xl from './assets/frame-18-xl.png';
+import Frame20xl from './assets/frame-20-xl.png';
+import Frame20md from './assets/frame-20-md.png';
+import Frame21 from './assets/frame-21.png';
+import Frame22 from './assets/frame-22.png';
 
 export default function AiProductivity() {
   return (
@@ -28,17 +35,17 @@ export default function AiProductivity() {
         ></meta>
       </Head>
       <Layout disablePadding className="mb-[96px] xl:mb-[132px]">
-        <Animated>
+        {/*<Animated immediate delay={5500}>*/}
           <video
             autoPlay
             loop
             muted
-            preload="auto"
+            preload='false'
             controls={false}
             src="/video/ai/video-1.mp4"
             className="object-fill md:max-h-[569px] xl:max-h-[800px]"
           />
-        </Animated>
+        {/*</Animated>*/}
       </Layout>
       <Layout>
         <div className="mb-8 md:mb-[48px] xl:mb-[77px]">
@@ -230,7 +237,7 @@ export default function AiProductivity() {
               preload="auto"
               controls={false}
               src="/video/ai/video-2.mp4"
-              className="md:max-h-[930px] xl:max-h-[1271px] "
+              className="md:max-h-[930px] xl:max-h-[1271px]"
             />
           </Animated>
         </div>
@@ -245,9 +252,199 @@ export default function AiProductivity() {
               preload="auto"
               controls={false}
               src="/video/ai/video-3.mp4"
-              className="object-fill md:max-h-[648px] xl:max-h-[886px] "
+              className="object-fill md:max-h-[648px] xl:max-h-[886px]"
             />
           </Animated>
+        </div>
+      </Layout>
+      <Layout>
+        <div
+          className="mb-[96px] grid grid-cols-2 gap-3 md:grid-cols-3 md:grid-rows-2 md:gap-x-[13px] md:gap-y-3 xl:mb-[132px] xl:gap-x-[16.5px] xl:gap-y-4">
+          <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
+            <video
+              // autoPlay
+              loop
+              muted
+              preload="auto"
+              controls={false}
+              src="/video/ai/video-4.mp4"
+              className="h-full w-full rounded-[12px] object-cover object-[30%]  md:rounded-[32px] xl:rounded-[48px]"
+            ></video>
+          </div>
+          <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
+            <video
+              // autoPlay
+              loop
+              muted
+              preload="auto"
+              controls={false}
+              src="/video/ai/video-5.mp4"
+              className="h-full w-full rounded-[12px] object-cover md:rounded-[32px] xl:rounded-[48px]"
+            ></video>
+          </div>
+          <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
+            <video
+              // autoPlay
+              loop
+              muted
+              preload="auto"
+              controls={false}
+              src="/video/ai/video-6.mp4"
+              className="h-full w-full rounded-[12px] object-cover md:rounded-[32px] xl:rounded-[48px]"
+            ></video>
+          </div>
+          <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
+            <video
+              //autoPlay
+              loop
+              muted
+              preload="auto"
+              controls={false}
+              src="/video/ai/video-7.mp4"
+              className="h-full w-full rounded-[12px] object-cover md:rounded-[32px] xl:rounded-[48px]"
+            ></video>
+          </div>
+          <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
+            <video
+              // autoPlay
+              loop
+              muted
+              preload="auto"
+              controls={false}
+              src="/video/ai/video-8.mp4"
+              className="h-full w-full rounded-[12px] object-cover md:rounded-[32px] xl:rounded-[48px]"
+            ></video>
+          </div>
+          <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
+            <video
+              // autoPlay
+              loop
+              muted
+              preload="auto"
+              controls={false}
+              src="/video/ai/video-9.mp4"
+              className="h-full w-full rounded-[12px] object-cover object-[60%] md:rounded-[32px] xl:rounded-[48px]"
+            ></video>
+          </div>
+        </div>
+        {/*//dddd*/}
+        <div className="mb-8 hidden md:mb-[61px] md:block xl:mb-[66px]">
+          <div className="mb-4 xl:mb-[26px]">
+            <RespSVG
+              src="/img/aiCase/frame-15-xl.svg"
+              className=""
+              md="/img/aiCase/frame-15-xl.svg"
+              xl="/img/aiCase/frame-15-xl.svg"
+            />
+          </div>
+          <div className=" items-start justify-between gap-[50px] md:flex">
+            <h2
+              className="mb-[20px] font-sf text-[32px] font-semibold leading-[32px] tracking-[-2px] md:mb-0 md:max-w-[45.8%] md:text-[36px] md:leading-[36px] md:tracking-[-3px] xl:max-w-[40.3%] xl:text-[48px] xl:leading-[48px] xl:tracking-[-4px]">
+              Key Phases of the <br className="" />
+              Design Process: From <br className="" />{' '}
+              <span className="text-light-red">Research to Testing</span>
+            </h2>
+            <p
+              className="text-[12px] font-normal  leading-[17px] text-[#6F6F6F] md:max-w-[50%] md:text-[14px] md:leading-[20px] xl:max-w-[46.4%] xl:text-[16px] xl:leading-[24px]">
+              The design process involves understanding the problem and audience
+              through research, creating personas, and mapping the user journey.
+              Wireframes and design systems are developed to define structure
+              and consistency, while visual concepts establish style. Testing
+              then refines the design to ensure it meets user needs and
+              functions smoothly.
+            </p>
+          </div>
+        </div>
+        <div
+          className="mb-[48.5px] hidden w-full rounded-[32px] border border-[#E8E8E8] p-[50px_32px_49.5px_32px] md:block xl:mb-[64px] xl:rounded-[48px]  xl:p-[68px_109px_70px_108px]">
+          <RespSVG
+            src="/img/aiCase/frame-16.svg"
+            className="w-full"
+            md="/img/aiCase/frame-16.svg"
+            xl="/img/aiCase/frame-16-xl.svg"
+          />
+        </div>
+        <div className="mb-[96px] hidden w-full md:block xl:mb-[132px]">
+          <RespImage
+            src={Frame18}
+            className="w-full"
+            md={Frame18md}
+            xl={Frame18xl}
+          />
+        </div>
+        <div className="mb-8 md:mb-[49px] xl:mb-[64px]">
+          <div className="mb-4 xl:mb-[29px]">
+            <RespSVG
+              src="/img/aiCase/frame-19.svg"
+              className=""
+              md="/img/aiCase/frame-19-md.svg"
+              xl="/img/aiCase/frame-19-xl.svg"
+            />
+          </div>
+          <div className=" items-start justify-between gap-[50px] md:flex">
+            <h2
+              className="mb-[20px] font-sf text-[32px] font-semibold leading-[32px] tracking-[-2px] md:mb-0 md:max-w-[45.8%] md:text-[36px] md:leading-[36px] md:tracking-[-3px] xl:max-w-[40.3%] xl:text-[48px] xl:leading-[48px] xl:tracking-[-4px]">
+              Visual{" "}
+              <span className="text-light-red">Identity</span>
+            </h2>
+            <p
+              className="md:block hidden text-[12px] font-normal md:mt-[-4px] xl:mt-0  leading-[17px] text-[#6F6F6F] md:max-w-[50.5%] md:text-[14px] md:leading-[20px] xl:max-w-[46%] xl:text-[16px] xl:leading-[24px]">
+              A visual identity is the cohesive and strategic use of visual
+              elements that define and communicate a brand’s personality,
+              values, and purpose. It includes the logo as the central symbol,
+              complemented by a consistent color palette, carefully chosen
+              typography, and imagery that reflects the brand’s character.
+            </p>
+            <p
+              className="mx-[-4px] md:hidden text-[12px] font-normal  leading-[17px] text-[#6F6F6F] md:max-w-[50.5%] md:text-[14px] md:leading-[20px] xl:max-w-[46%] xl:text-[16px] xl:leading-[24px]">
+              This animation highlights the AI&#39;s engagement, with real-time visual feedback. As the AI speaks, the
+              pulsing motion of the sphere conveys intelligence and responsiveness, turning the conversation into a more
+              interactive and visually engaging experience.
+            </p>
+          </div>
+        </div>
+        <div className="sm:hidden mb-3 w-full">
+          <RespSVG
+            src="/img/aiCase/frame-23.svg"
+            className="w-full"
+            md="/img/aiCase/frame-23.svg"
+            xl="/img/aiCase/frame-23.svg"
+          />
+        </div>
+        <div className="sm:block hidden mb-3 md:mb-[96px] w-full xl:mb-[132px]">
+          <RespImage
+            src={Frame20md}
+            className="w-full"
+            md={Frame20md}
+            xl={Frame20xl}
+          />
+        </div>
+        <div className=" sm:hidden mb-3 w-full ">
+          <RespImage
+            src={Frame21}
+            className="w-full"
+            md={Frame20md}
+            xl={Frame20xl}
+          />
+        </div>
+        <div className="mb-3  sm:hidden w-full">
+          <RespImage
+            src={Frame22}
+            className="w-full"
+            md={Frame22}
+            xl={Frame22}
+          />
+        </div>
+        <div  className="xl:mb-[88px] mb-[59px] md:mb-[72px] h-[491px] xs:h-[515px] sm:h-[500px] md:h-[491px] xl:h-[671px]" >
+          <video
+            // autoPla
+            loop
+            muted
+            preload="auto"
+            controls={false}
+            src="/video/ai/last-video.mp4"
+            className="h-full w-full rounded-[35px] object-cover [object-position:35%] md:object-top md:rounded-[32px] xl:rounded-[48px]"
+          ></video>
         </div>
       </Layout>
     </>

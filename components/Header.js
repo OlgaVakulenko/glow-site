@@ -37,8 +37,8 @@ import CalendlyEmbed from './CalendlyEmbed';
 
 export function BurgerIcon({ isOpen = false, theme, size = 32 }) {
   let stroke = '#19191B';
-
-  if (theme === 'dark') {
+const route = useRouter()
+  if (theme === 'dark' || route.pathname === "/ai-productivity" ) {
     stroke = 'white';
   }
 
@@ -481,7 +481,8 @@ export default function Header({
   const isTrialVisible = useMemo(() => {
     return router.pathname !== '/trial';
   }, [router.pathname]);
-
+  console.log(backdropActive && !isTop)
+const isAi =backdropActive && !isTop
   return (
     <div ref={rootRef}>
       {/* <div className={cx('fixed top-0 z-10 w-full font-inter')}>
@@ -548,6 +549,7 @@ export default function Header({
                     style={{
                       color,
                     }}
+                    isAi={isAi}
                   />
                 </Link>
               </Animated>
@@ -559,7 +561,7 @@ export default function Header({
               >
                 {!isFooter &&
                   links.map((link, i) => (
-                    <HeaderLink key={i} index={i} item={link} theme={t} />
+                    <HeaderLink key={i} index={i} item={link} theme={t} isAi={isAi} />
                   ))}
               </div>
               {headerRightSlot ||
