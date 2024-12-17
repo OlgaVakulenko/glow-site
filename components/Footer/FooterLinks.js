@@ -59,10 +59,10 @@ export default function FooterLinks({ className = '' }) {
       <SocialLinks />
       <div className="relative flex w-full shrink-0 justify-between px-2 py-4 md:gap-6 md-safe:w-auto xl:space-x-9">
         <div className="absolute left-1/2 top-1/2 h-[16px] w-[1px] -translate-x-1/2 -translate-y-1/2 bg-checkbox-light md:hidden"></div>
-        <Link href="/privacy-policy" className={cx({'text-white': dark})}>
+        <Link href="/privacy-policy" className={cx("max-md:text-[14px] max-md:leading-[16px] max-md:font-normal", {'text-white': dark})}>
           <RollingText text="Privacy Policy" height={24}></RollingText>
         </Link>
-        <Link href="terms-of-service" className={cx({'text-white': dark})}>
+        <Link href="terms-of-service" className={cx("max-md:text-[14px] max-md:leading-[16px] max-md:font-normal", {'text-white': dark})}>
           <RollingText text="Terms Of Service" height={24}></RollingText>
         </Link>
       </div>

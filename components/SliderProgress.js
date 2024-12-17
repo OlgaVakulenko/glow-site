@@ -9,6 +9,7 @@ export default function SliderProgress({
   className = '',
   mode = 'progress',
   theme = 'white',
+  trial,
 }) {
   const ref = useRef(null);
   const thumbRef = useRef(null);
@@ -171,9 +172,10 @@ export default function SliderProgress({
 				{slidesCount > 0 && (
 					<>
 						<div
-							className={cx('h-[1px] w-full bg-black opacity-20', {
+							className={cx('w-full h-[1px] bg-black opacity-20', {
 								'bg-black': theme === 'white',
 								'bg-white': theme === 'dark',
+
 							})}
 						></div>
 						{/* <div
@@ -187,6 +189,7 @@ export default function SliderProgress({
 								{
 									'bg-black': theme === 'white',
 									'bg-white': theme === 'dark',
+                  "h-[4px] !bg-black": trial,
 								}
 							)}
 						></div>

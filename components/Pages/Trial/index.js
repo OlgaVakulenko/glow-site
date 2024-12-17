@@ -47,8 +47,8 @@ const IconsSection = dynamic(() => import('../../IconsSection'), {
 
 const imageBlockFrames = [
   '/video/trial/trial_1.mp4',
-  '/video/trial/trial_2.mp4',
   '/video/trial/trial_3.mp4',
+  '/video/trial/trial_2.mp4',
 ];
 
 function PageHeading() {
@@ -63,21 +63,21 @@ function PageHeading() {
   }, []);
 
   return (
-    <Layout className="flex flex-col pt-[192px] md:pt-[271px] xl:pb-8 xl:pt-[300px] ">
+    <Layout className="flex flex-col pt-[192px] md:pt-[268px] xl:pb-8 xl:pt-[296px] ">
       <Tag className="block w-fit !font-normal">
         <SlotText />
       </Tag>
-      <div className="pt-[18px] md:flex md:items-end md:justify-between md:pt-[26px] xl:grid xl:grid-cols-12 xl:gap-8 xl:pt-[42px]">
+      <div className="pt-[18px] md:flex md:items-end md:justify-between md:pt-[26px] xl:grid xl:grid-cols-12 xl:gap-8 xl:pt-[40px]">
         <Animated
           as="h1"
-          className="mb-4 text-next-heading-4 md:mb-0 md:mr-4 md:!min-w-[496px] md:text-next-heading-3 xl:col-span-6 xl:mr-0 xl:text-next-heading-0"
+          className="mb-4 text-next-heading-4 md:mb-0 md:mr-4 md:!min-w-[496px] md:text-next-heading-3 xl:col-span-6 xl:text-[56px] xl:leading-[72px] xl:tracking-[-1px]"
         >
           {title}
         </Animated>
         <div className="hidden xl:col-span-1 xl:block"></div>
         <Animated
           delay={100}
-          className="pb-8 text-[16px] leading-[160%] md:pb-0 md:text-next-body-l xl:col-span-5"
+          className="pb-[52px] text-[18px] font-normal leading-[28px] md:pb-0 md:text-next-body-l xl:col-span-5"
         >
           {pageHeaderSubtitle}
         </Animated>
@@ -132,21 +132,22 @@ export default function Trial() {
       <Box>
         <IconsSection
           items={iconsSectionItems}
-          sectionClasses="grid md:grid-cols-2 grid-cols-1 md:gap-8 gap-y-11"
-          blockClasses="gap-6"
-          titleClasses="text-body-heading-m2 font-satoshi font-normal ml-6"
-          iconClasses="w-[72px] h-[72px] xl:w-20 xl:h-20"
+          sectionClasses="grid md:grid-cols-2 grid-cols-1 md:gap-8 gap-y-10"
+          blockClasses="gap-10 md:gap-[80px]"
+          titleClasses="font-normal text-[24px] leading-[32px] font-satoshi font-normal ml-6 md:text-[32px] md:leading-[40px] md:tracking-[-1px] md:font-medium "
+          iconClasses="w-20 h-20"
           cardView
         />
       </Box>
       <Process
+        trial={true}
         headingTitle={processHeadingTitle}
         isColumn
-        headingDescriptionClassNames="md:gap-x-8 gap-y-4 md:!text-next-body-m xl:!text-next-body-l overflow-hidden"
+        headingDescriptionClassNames="md:gap-x-8 gap-y-4  md:!text-next-body-m xl:!text-next-body-l overflow-hidden"
       >
         {mobile ? <SingleImageSlider slide={S2.src} /> : <ProcessPicture />}
       </Process>
-      <Box>
+      <Box className="xl:pb-[48px]">
         <ImageBlock
           headerTitle={imageBlogHeadingTitle}
           items={imageBlockItems}
@@ -154,8 +155,9 @@ export default function Trial() {
         />
       </Box>
       <Layout>
-        <Box>
+        <Box className="md:pb-0">
           <Heading
+            trial
             title={servicesHeadingTitle}
             descriptionClassNames="!text-next-body-m xl:!text-next-body-l md:!max-w-[448px] xl:!max-w-[528px] md:self-end font-normal"
           />
@@ -167,23 +169,25 @@ export default function Trial() {
               blockClassNames="xl:max-w-[304px]"
               columnNumber={{ md: 4, xl: 4 }}
               cardView
+              trial
             />
           </Box>
         </Box>
       </Layout>
-      <Box>
+      <Box className="xl:pt-20 md:pt-[56px]">
         <OurExperience
+          trial
           title={ourExperienceTitle}
           padding={false}
           titleClassName="!text-next-heading-5"
         />
       </Box>
       <Box>
-        <Reviews padding={false} />
+        <Reviews padding={false} trial />
       </Box>
       <Box>
         <Layout>
-          <FAQ padding={false} animate />
+          <FAQ padding={false} animate trial />
         </Layout>
       </Box>
     </div>

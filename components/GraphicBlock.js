@@ -11,6 +11,7 @@ export default function GraphicBlock({
   titleClassNames,
   columnNumber,
   cardView,
+  trial,
 }) {
   const [map, setMap] = useState({});
   const media = useMediaAtom();
@@ -58,12 +59,12 @@ export default function GraphicBlock({
             delay={delay}
             onViewChange={(isVisible) => handleViewChange(index, isVisible)}
           >
-            <div className="mb-[38px] h-20 w-20 md:mb-[40px]">
+            <div className={cx("h-20 w-20 md:mb-[40px]", {"mb-[38px]" :!trial, "mb-[40px]": trial} )}>
               <item.icon isReady={map[index]} />
             </div>
             <div
               className={cx(
-                'mb-[14px] text-next-heading-6 md:mb-4 md:leading-[28px] xl:text-next-heading-6',
+                'text-next-heading-6 md:mb-4 md:leading-[28px] xl:text-next-heading-6', {"mb-[14px]": !trial, "mb-[16px]": trial},
                 titleClassNames
               )}
             >
@@ -71,7 +72,8 @@ export default function GraphicBlock({
             </div>
             <div
               className={cx(
-                'text-next-body-m md:leading-6 md:tracking-normal',
+                'md:leading-6 md:tracking-normal xl:leading-[28px] md:font-normal',
+                {"md:text-[16px] xl:text-next-body-m font-normal": trial},
                 descriptionClassNames
               )}
             >

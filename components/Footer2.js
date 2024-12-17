@@ -83,8 +83,8 @@ export default function Footer2({
           <Layout disableOnMobile={true} className="px-2">
             <Animated
               className={cx(
-                'text-inter relative rounded-3xl px-6 py-[106px] md:rounded-[32px] md:py-[134px] xl:py-[142px] xl:pb-[124px] xl:pt-[128px]',
-                { 'footer-dark dark-outline': dark }
+                'text-inter relative rounded-3xl px-6 md:rounded-[32px] md:py-[134px] xl:py-[142px] xl:pb-[124px] xl:pt-[128px]',
+                { 'footer-dark dark-outline': dark, "py-[106px]" : router.pathname !== '/trial', "py-[82px]" : router.pathname === '/trial',  }
               )}
             >
               <Image
@@ -118,8 +118,18 @@ export default function Footer2({
                   <SlotText />
                 </div>
                 <h3 className="mb-8 text-center text-next-heading-4 text-white md:mb-8 md:text-next-heading-3 xl:mb-8 xl:text-[72px] xl:leading-[72px]">
-                  Let’s make
-                  <br /> your project glow
+                  {router.pathname === '/trial' ? (
+                    <>
+                      Ready to start
+                      <br /> your free 3 days
+                      <br /> design trial?
+                    </>
+                  ) : (
+                    <>
+                      Let’s make
+                      <br /> your project glow
+                    </>
+                  )}
                 </h3>
                 <div className="mb-10 text-[16px] leading-[24px] text-lblue md:mb-10 md:text-next-body-s xl:mb-10 xl:text-[18px]">
                   Our team will get back to you within 24 hours 🙌
@@ -150,7 +160,7 @@ export default function Footer2({
                     )}
                     compact
                   >
-                    Let&#39;s talk
+                    Get a quote
                   </Button2>
                 </div>
               </div>

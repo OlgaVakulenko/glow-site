@@ -173,7 +173,7 @@ const BurgerMenu = ({ menuId, links }) => {
               </Link>
               <div className="hidden">
                 <Link
-                  href="/contacts"
+                  href="/contact-us"
                   className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
                 >
                   Let&apos;s get in touch
@@ -479,7 +479,7 @@ export default function Header({
   const handleFooterFormClick = useHandleFooterFormClick();
 
   const isTrialVisible = useMemo(() => {
-    return router.pathname !== '/trial';
+    return router.pathname !== '/tral';
   }, [router.pathname]);
   console.log(backdropActive && !isTop)
 const isAi =backdropActive && !isTop

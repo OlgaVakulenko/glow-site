@@ -308,7 +308,7 @@ function ReviewCard({
     </div>
   );
 }
-export default function Reviews({ padding, title, animate = false }) {
+export default function Reviews({ padding, title, trial, animate = false }) {
   const swiperRef = useRef();
 	const [theme] = useAtom(themeAtom);
 	const dark = theme === 'dark';
@@ -409,8 +409,8 @@ export default function Reviews({ padding, title, animate = false }) {
                   />
                 </div>
 
-                <div className="w-full">
-                  <SliderProgress theme={theme}/>
+                <div className={cx("w-full", {"max-md:mt-[24px]" :trial})}>
+                  <SliderProgress theme={theme} trial={trial}/>
                 </div>
               </div>
             </div>
