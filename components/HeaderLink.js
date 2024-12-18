@@ -14,12 +14,13 @@ export default function HeaderLink({
   theme,
   // subItems = [],
   onSubMenuClick,
+  isAi,
 }) {
   const subItems = item.children;
+  // console.log(subItems)
   const { href, label, icon } = item;
   const [subMenuParent, setSubMenuParent] = useAtom(subMenuParentAtom);
   const debounceRef = useRef(false);
-
   const props = useMemo(() => {
     if (subItems?.length) {
       return {
@@ -64,7 +65,7 @@ export default function HeaderLink({
       delay={(index + 1) * 100}
       className={cx(
         'rolling-text-group flex items-center justify-center px-5 text-[16px] leading-[24px] tracking-[0.03em]',
-        theme === 'dark' && 'text-white',
+        (theme === 'dark' ) && 'text-white',
 				{'ai-link': href === '/ai'}
       )}
       immediate

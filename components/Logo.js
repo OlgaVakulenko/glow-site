@@ -2,8 +2,9 @@ import cx from 'clsx';
 import { useAtom } from 'jotai';
 import { useMediaAtom } from '../lib/agent';
 import { subMenuParentAtom } from './Header';
+import { useRouter } from 'next/router';
 
-export default function Logo({ className = '', style = {}, isBurgerMenu = false }) {
+export default function Logo({ className = '', style = {}, isBurgerMenu = false, backDrop, isAi}) {
   const media = useMediaAtom();
   const [subMenuParent] = useAtom(subMenuParentAtom);
 
@@ -22,6 +23,11 @@ export default function Logo({ className = '', style = {}, isBurgerMenu = false 
 	// 		</svg>
 	// 	)
 	// }
+  const router = useRouter()
+  // console.log(isAi)
+  const color = isAi
+    ? "white"
+    : (router.pathname === "/ai-productivity" ? "dark" : className);
 
   return (
     <svg
@@ -31,7 +37,7 @@ export default function Logo({ className = '', style = {}, isBurgerMenu = false 
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={cx(
-        className,
+        color,
         'h-[33px] w-[80px]',
         !style.color && 'header-logo',
         subMenuParent && 'submenu'

@@ -11,7 +11,7 @@ import FaqItem from '../components/ContactUs/FaqItem';
 import Animated from '../components/Animated';
 import { faqItems } from '../data/faq-items';
 
-export function FAQ({ padding, items = faqItems, animate = false }) {
+export function FAQ({ padding, items = faqItems, animate = false, trial }) {
   const [theme] = useAtom(themeAtom);
   const TitleTag = animate ? Animated : 'h2';
   const [openIndex, setOpenIndex] = useState(null);
@@ -29,11 +29,11 @@ export function FAQ({ padding, items = faqItems, animate = false }) {
         'mb-[52px] md:mb-[72px] xl:mb-[88px]': padding == null,
       })}
     >
-      <TitleTag className="mb-10 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:mb-20 xl:text-next-heading-2">
+      <TitleTag className={cx("mb-10 text-next-heading-5 md:mb-14 xl:mb-20 xl:text-next-heading-2", {"md:text-next-heading-2": trial, "md:text-next-heading-3": !trial })}>
         <span className={cx({ 'white-gradient-text': theme === 'dark' })}>
-          Frequently asked
+          FAQ
         </span>{' '}
-        <span className={cx({ 'ai-text': theme === 'dark' })}>questions</span>
+        {/*<span className={cx({ 'ai-text': theme === 'dark' })}>questions</span>*/}
       </TitleTag>
       <div>
         {items.map((item, idx) => (

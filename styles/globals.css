@@ -452,7 +452,7 @@
 
 .fade-up, .fadeInUp {
   transform: translate3d(0, 10px, 0);
-} 
+}
 
 .in-viewport, .ready .immediate {
   opacity: 1 !important;
@@ -629,7 +629,7 @@
 }
 
 .icons-slider-l {
-	-webkit-mask-image: linear-gradient(270deg, white 95%, transparent 100%); 
+	-webkit-mask-image: linear-gradient(270deg, white 95%, transparent 100%);
   mask-image: linear-gradient(270deg, white 95%, transparent 100%);
 }
 
@@ -909,7 +909,7 @@
 	background-size: cover;
   border: 0.5px solid rgba(64, 62, 81, 0.30);
   transition: border 800ms cubic-bezier(0.4, 0, 0.2, 1);
-}  
+}
 
 .ai-logo-border:first-child {
   border-radius: 16px 0 0 0;
@@ -949,9 +949,9 @@
 }
 
 .ai-icon-circle {
-	-webkit-box-shadow: none; 
+	-webkit-box-shadow: none;
   -moz-box-shadow: none;
-  box-shadow: none; 
+  box-shadow: none;
 	transition: border-color 2s ease, box-shadow 2s ease;
 }
 
@@ -983,7 +983,7 @@
 	.ai-logo-border:nth-last-child(2) {
 		border-radius: 0;
 	}
-	
+
 	.ai-logo-border:nth-child(2) {
 		border-radius: 0;
 	}
@@ -1043,7 +1043,7 @@
 
 .group:hover .jucr-icon svg path:nth-child(2),
 .group:hover .jucr-icon svg path:nth-child(3) {
-    fill: #e355529e; 
+    fill: #e355529e;
 		transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 		transition-duration: 250ms;
@@ -1104,7 +1104,7 @@
 .animated-line.left-down {
   bottom: 300px;
   left: -500px;
-  transform: translate(-300px, 300px) rotate(-135deg); 
+  transform: translate(-300px, 300px) rotate(-135deg);
   animation: line-down-to-up-left linear infinite;
 }
 
@@ -1310,7 +1310,7 @@ h3.blog-post-h3 {
 }
 
 .social-link {
-	color: #09121F; 
+	color: #09121F;
 	display: inline-block;
 	opacity: 0.5;
 }
@@ -1340,9 +1340,9 @@ h3.blog-post-h3 {
 
 @keyframes dashAnimation {
   0% {
-    stroke-dashoffset: 148; 
+    stroke-dashoffset: 148;
   }
   100% {
-    stroke-dashoffset: 0; 
+    stroke-dashoffset: 0;
   }
 }

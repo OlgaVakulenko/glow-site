@@ -184,6 +184,14 @@ function MyApp({ Component, pageProps }) {
           `,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.documentElement.classList.remove("no-js");
+              document.documentElement.classList.add("js");
+          `,
+          }}
+        />
         <style id="my-styles">
           {`
             .to-animate {
