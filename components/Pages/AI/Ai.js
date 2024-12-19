@@ -61,9 +61,9 @@ const AIDesign = () => {
   return (
     <div className="md:grid-row-7 grid gap-4 md:h-[708px] md:grid-cols-4 xl:max-h-[684px] xl:grid-rows-6">
       <Card className="card-underlay relative order-1 md:col-span-2 md:row-span-2 md:min-h-[272px] xl:row-span-3">
-        <h3 className="ai-design-card-title mb-6 text-next-heading-6 md:text-next-heading-5 md-safe:mb-8 xl:mb-[58px] xl:text-next-heading-4">
+        <h2 className="ai-design-card-title mb-6 text-next-heading-6 md:text-next-heading-5 md-safe:mb-8 xl:mb-[58px] xl:text-next-heading-4">
           AI Design Shapes the Future Landscape
-        </h3>
+        </h2>
         <p className="ai-design-card-description text-next-body-s xl:text-next-body-m">
           The AI industry is a leader in the Web4 revolution. With a proven
           track record, we navigate the dynamic landscape of artificial
@@ -156,9 +156,9 @@ export default function AI() {
             <span className="absolute z-10"> {item.tagIcon}</span>
             <span className="overtext ml-8 w-full">{item.tagText}</span>
           </div>
-          <div className="white-gradient-text pb-4 pt-6 !font-inter text-next-heading-6 md:pt-8 md:text-next-heading-5 md:!leading-9 xl:tracking-normal">
+          <h3 className="white-gradient-text pb-4 pt-6 !font-inter text-next-heading-6 md:pt-8 md:text-next-heading-5 md:!leading-9 xl:tracking-normal">
             {item.title}
-          </div>
+          </h3>
           <div className="text-next-body-s md:text-next-body-m">
             {item.description}
           </div>
@@ -214,7 +214,7 @@ export default function AI() {
       </Box>
       <Box>
         <Layout>
-          <Animated className="our-work-text mb-10 shrink-0 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:mb-20 xl:text-next-heading-2">
+          <Animated as="h2" className="our-work-text mb-10 shrink-0 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:mb-20 xl:text-next-heading-2">
             Our work
           </Animated>
         </Layout>
@@ -241,6 +241,7 @@ export default function AI() {
         <Layout>
           <Animated
             delay={100}
+            as="h2"
             className="white-gradient-text mb-4 shrink-0 text-next-heading-5 md:mb-14 md:text-next-heading-3 xl:text-next-heading-2"
           >
             Why choose <span className="ai-text">Glow Team</span>

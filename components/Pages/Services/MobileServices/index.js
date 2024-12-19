@@ -14,6 +14,7 @@ import S1 from '../assets/ui-ux-s1.svg';
 import S2 from '../assets/ui-ux-s2.svg';
 import S3 from '../assets/ui-ux-s3.svg';
 import { items } from '../../../../data/mobile-services-graphic-data';
+import Awards from '../../../Awards';
 
 const GraphicBlock = dynamic(() => import('../../../GraphicBlock'), {
   ssr: false,
@@ -146,6 +147,7 @@ export default function MobileServices() {
           <TrialBanner />
         </Box>
       </Layout>
+      <Awards />
       <Box>
         <Reviews padding={false} />
       </Box>

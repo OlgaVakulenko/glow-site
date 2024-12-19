@@ -162,7 +162,7 @@ export function CaseSlide({ type = 'default', item, index, total }) {
               </>
             )}
           </div> */}
-          <h2
+          <h3
             className={cx(
               'mb-4 mt-6 max-w-[364px] font-satoshi text-[28px] font-medium leading-[130%] md:mb-3 md:text-next-heading-5 xl:max-w-[464px]',
               {
@@ -173,7 +173,7 @@ export function CaseSlide({ type = 'default', item, index, total }) {
             )}
           >
             {item.title2 || item.title}
-          </h2>
+          </h3>
           {item.description && (
             <div className="mb-8 max-w-[364px] font-inter text-[16px] leading-[24px] md:text-next-body-s xl:max-w-[464px] xl:text-next-body-m">
               {item.description}

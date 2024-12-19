@@ -42,12 +42,18 @@ export default function Tilt() {
                   Tilt: a platform that connects students with financial aid
                   opportunities
                 </h1>
-                <h2
+                <p
                   className="welcome__scroll wow fadeInUp"
                   data-wow-duration="1.2s"
                 >
                   Start Scrolling 21,645px
-                </h2>
+                </p>
+                {/*<h2*/}
+                {/*  className="welcome__scroll wow fadeInUp"*/}
+                {/*  data-wow-duration="1.2s"*/}
+                {/*>*/}
+                {/*  Start Scrolling 21,645px*/}
+                {/*</h2>*/}
               </div>
               <div
                 className="welcome__right wow fadeInUp"
@@ -104,13 +110,20 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                {/*<h1*/}
+                {/*  className="title-big wow fadeInUp"*/}
+                {/*  data-wow-duration="1.2s"*/}
+                {/*  data-wow-delay="0.1s"*/}
+                {/*>*/}
+                {/*  Challenge*/}
+                {/*</h1>*/}
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Challenge
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -158,13 +171,20 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                {/*<h1*/}
+                {/*  className="title-big wow fadeInUp"*/}
+                {/*  data-wow-duration="1.2s"*/}
+                {/*  data-wow-delay="0.1s"*/}
+                {/*>*/}
+                {/*  Tilt works like a swiss watch*/}
+                {/*</h1>*/}
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Tilt works like a swiss watch
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -188,19 +208,19 @@ export default function Tilt() {
               data-wow-delay="0.1s"
             >
               <div>
-                <h3>19 9 mln</h3>
+                <span className="font-satoshi spanWork">19 9 mln</span>
                 <p>Students enrolled in 2019</p>
               </div>
               <div>
-                <h3>$6 345</h3>
+                <span className="font-satoshi spanWork">$6 345</span>
                 <p>Federal Pell Grant</p>
               </div>
               <div>
-                <h3>72%</h3>
+                <span className="font-satoshi spanWork">72%</span>
                 <p>Received financial aid</p>
               </div>
               <div>
-                <h3>57%</h3>
+                <span className="font-satoshi spanWork">57%</span>
                 <p>Grants and scholarships</p>
               </div>
             </div>
@@ -211,13 +231,13 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   How it works
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -240,13 +260,13 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Website &amp; mobile adaptation
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -312,13 +332,13 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Colours
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -350,13 +370,13 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Typography
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -403,13 +423,13 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Icons
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -451,13 +471,13 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Illustrations
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -501,13 +521,13 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Dashboard
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -536,13 +556,13 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Colleges search
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -571,13 +591,13 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Detailed college page
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -608,13 +628,13 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Mobile
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -655,13 +675,13 @@ export default function Tilt() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Design system
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -698,13 +718,13 @@ export default function Tilt() {
             <div className="inline-header">
               {/* Left*/}
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
-                  <span>Client’s words about work with Glow</span>
-                </h1>
+                  <>Client’s words about work with Glow</>
+                </h2>
               </div>
               {/* Right*/}
               <div className="inline-header__item inline-header__right">
@@ -735,14 +755,22 @@ export default function Tilt() {
                               </a>
                             </div>
                           </div>
-                          <h2 className="text-big">
+                          {/*<h2 className="text-big">*/}
+                          {/*  We had them create the designs of our website from*/}
+                          {/*  scratch. We then also used them to create an initial*/}
+                          {/*  user experience for our platform. We had them design*/}
+                          {/*  the login experience as well as a way for students*/}
+                          {/*  to search colleges in the US and save them to their*/}
+                          {/*  list.*/}
+                          {/*</h2>*/}
+                          <p className="text-big">
                             We had them create the designs of our website from
                             scratch. We then also used them to create an initial
                             user experience for our platform. We had them design
                             the login experience as well as a way for students
                             to search colleges in the US and save them to their
                             list.
-                          </h2>
+                          </p>
                           <a
                             className="visible-xs"
                             href="https://clutch.co/profile/glow-design-agency"
@@ -766,7 +794,7 @@ export default function Tilt() {
         <NextCase
           title="FleetChaser: efficient fleet management platform"
           href="/fleet"
-					icon={fleetChaiserIcon}
+          icon={fleetChaiserIcon}
         />
       </main>
     </LegacyCaseContainer>

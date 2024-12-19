@@ -62,18 +62,19 @@ export default function GraphicBlock({
             <div className={cx("h-20 w-20 md:mb-[40px]", {"mb-[38px]" :!trial, "mb-[40px]": trial} )}>
               <item.icon isReady={map[index]} />
             </div>
-            <div
+            <h3
               className={cx(
                 'text-next-heading-6 md:mb-4 md:leading-[28px] xl:text-next-heading-6', {"mb-[14px]": !trial, "mb-[16px]": trial},
                 titleClassNames
               )}
             >
               {item.title}
-            </div>
+            </h3>
             <div
               className={cx(
-                'md:leading-6 md:tracking-normal xl:leading-[28px] md:font-normal',
-                {"md:text-[16px] xl:text-next-body-m font-normal": trial},
+                'md:leading-6 md:tracking-normal',
+                {"md:text-[16px] xl:text-next-body-m font-normal xl:leading-[28px] md:font-normal": trial},
+                {"text-next-body-m": !trial},
                 descriptionClassNames
               )}
             >
