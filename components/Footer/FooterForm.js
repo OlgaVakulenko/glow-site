@@ -5,6 +5,7 @@ import debounce from 'lodash.debounce';
 import Link from 'next/link';
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -133,18 +134,88 @@ function Switches({
   );
 }
 
+// function FileInput({
+//   theme = 'footer',
+//   className,
+//   name,
+//   value = '',
+//   onChange,
+//   placeholder = 'Attach file',
+//   ...rest
+// }) {
+//   const [focused, setFocused] = useState(false);
+//   const [fileName, setFileName] = useState(value);
+//   const [isMobile, setIsMobile] = useState(false);
+//
+//   useEffect(() => {
+//     const handleResize = () => {
+//       setIsMobile(window.innerWidth < 500);
+//     };
+//
+//     window.addEventListener('resize', handleResize);
+//     handleResize();
+//
+//     return () => {
+//       window.removeEventListener('resize', handleResize);
+//     };
+//   }, []);
+//
+//   const handleFileChange = (e) => {
+//     const selectedFileName = e.target.files[0]?.name || '';
+//     setFileName(selectedFileName);
+//     setFocused(false);
+//     onChange?.(selectedFileName);
+//   };
+//
+//   const truncatedFileName =
+//     isMobile && fileName.length > 20 ? `${fileName.slice(0, 20)}...` : fileName;
+//
+//   return (
+//     <div className={cx('flex items-center', className)}>
+//       <label
+//         className={cx(
+//           'relative w-full border-b bg-transparent pb-4 pt-[8px] text-[16px] leading-[26px] text-current transition-colors duration-200 placeholder:transition-opacity focus-within:outline-none focus-within:placeholder:opacity-60 md:text-[18px] xl:font-medium',
+//           {
+//             '!border-current': focused,
+//             'border-checkbox-dark': theme === 'footer',
+//             'border-checkbox-light': theme === 'default',
+//           }
+//         )}
+//       >
+//         <span
+//           className={cx('pointer-events-none block w-full !truncate', {
+//             'text-gray-500': !fileName && focused,
+//           })}
+//           title={fileName || placeholder}
+//         >
+//           {truncatedFileName || placeholder}
+//         </span>
+//         <input
+//           type="file"
+//           className="absolute inset-0 opacity-0"
+//           name={name}
+//           onChange={handleFileChange}
+//           onFocus={() => setFocused(true)}
+//           onBlur={() => setFocused(false)}
+//           {...rest}
+//         />
+//       </label>
+//     </div>
+//   );
+// }
+
 function FileInput({
   theme = 'footer',
   className,
   name,
   value = '',
   onChange,
-  placeholder = 'Attach file',
+  placeholder = 'Choose a file or drag and drop here',
   ...rest
 }) {
-  const [focused, setFocused] = useState(false);
   const [fileName, setFileName] = useState(value);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDragOver, setIsDragOver] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -159,46 +230,112 @@ function FileInput({
     };
   }, []);
 
-  const handleFileChange = (e) => {
-    const selectedFileName = e.target.files[0]?.name || '';
-    setFileName(selectedFileName);
-    setFocused(false);
-    onChange?.(selectedFileName);
-  };
+  const handleFileChange = useCallback(
+    (e) => {
+      const selectedFile = e.target.files[0];
+      const selectedFileName = selectedFile?.name || '';
+      setFileName(selectedFileName);
+      if (onChange) onChange(selectedFileName);
+    },
+    [onChange]
+  );
+
+  const handleDragOver = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragOver(true);
+  }, []);
+
+  const handleDragLeave = useCallback(() => {
+    setIsDragOver(false);
+  }, []);
+
+  const handleDrop = useCallback(
+    (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setIsDragOver(false);
+
+      const file = e.dataTransfer.files[0];
+      if (file) {
+        const fileName = file.name;
+        setFileName(fileName);
+        if (onChange) onChange(fileName);
+      }
+    },
+    [onChange]
+  );
 
   const truncatedFileName =
     isMobile && fileName.length > 20 ? `${fileName.slice(0, 20)}...` : fileName;
 
   return (
-    <div className={cx('flex items-center', className)}>
-      <label
-        className={cx(
-          'relative w-full border-b bg-transparent pb-4 pt-[8px] text-[16px] leading-[26px] text-current transition-colors duration-200 placeholder:transition-opacity focus-within:outline-none focus-within:placeholder:opacity-60 md:text-[18px] xl:font-medium',
-          {
-            '!border-current': focused,
-            'border-checkbox-dark': theme === 'footer',
-            'border-checkbox-light': theme === 'default',
-          }
-        )}
-      >
-        <span
-          className={cx('pointer-events-none block w-full !truncate', {
-            'text-gray-500': !fileName && focused,
-          })}
-          title={fileName || placeholder}
-        >
-          {truncatedFileName || placeholder}
-        </span>
-        <input
-          type="file"
-          className="absolute inset-0 opacity-0"
-          name={name}
-          onChange={handleFileChange}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-          {...rest}
-        />
+    <div
+      className={className}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+    >
+      <label className="text-[16px] font-normal leading-[24px] md:text-[18px] md:leading-[28px]">
+        Attach a file (optional)
       </label>
+
+      <div className="mt-[16px] flex items-center md:borderDashed borderDashedMd py-[1px]">
+        <label
+          htmlFor="file-upload"
+          className={`flex w-full cursor-pointer items-center justify-center gap-2 rounded-[24px]  bg-gradient-to-r from-[#403E5112] to-[#403E5137] py-[31px] transition-all duration-300 hover:from-[#403E5124] hover:to-[#403E514A] ${
+            isDragOver ? 'bg-[#403E514A]' : ''
+          }`}
+        >
+          <svg
+            className="md:hidden"
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="16"
+            viewBox="0 0 17 16"
+            fill="none"
+          >
+            <path
+              d="M14.6025 7.26598L8.59206 13.2764C7.22523 14.6432 5.00915 14.6432 3.64231 13.2764C2.27548 11.9095 2.27548 9.69347 3.64231 8.32664L9.65272 2.31623C10.5639 1.40501 12.0413 1.40501 12.9526 2.31623C13.8638 3.22745 13.8638 4.70484 12.9526 5.61606L7.17785 11.3908C6.72224 11.8464 5.98354 11.8464 5.52793 11.3908C5.07232 10.9352 5.07232 10.1965 5.52793 9.74085L10.5955 4.67325"
+              stroke="white"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+
+          <svg
+            className="hidden md:block"
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="24"
+            viewBox="0 0 25 24"
+            fill="none"
+          >
+            <path
+              d="M21.6537 10.9029L12.6381 19.9185C10.5878 21.9687 7.26372 21.9687 5.21347 19.9185C3.16322 17.8682 3.16322 14.5441 5.21347 12.4939L14.2291 3.47825C15.5959 2.11142 17.812 2.11142 19.1788 3.47825C20.5457 4.84509 20.5457 7.06116 19.1788 8.428L10.5168 17.0901C9.83335 17.7735 8.72531 17.7735 8.0419 17.0901C7.35848 16.4066 7.35848 15.2986 8.0419 14.6152L15.6433 7.01378"
+              stroke="white"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+
+          <span
+            className="pointer-events-none block w-fit !truncate text-[14px] font-normal leading-[20px] md:text-[16px] md:leading-[24px]"
+            title={fileName || placeholder}
+          >
+            {truncatedFileName || placeholder}
+          </span>
+
+          <input
+            id="file-upload"
+            type="file"
+            className="hidden"
+            name={name}
+            onChange={handleFileChange}
+            {...rest}
+          />
+        </label>
+      </div>
     </div>
   );
 }
@@ -309,24 +446,26 @@ export default function FooterForm({
         alt=""
       />
       {isSubmitted ? (
-        <div className="flex h-full flex-grow flex-col items-end justify-end text-right text-xl xl:text-4xl">
+        <div className="relative flex h-full flex-grow flex-col items-end justify-end text-right text-xl max-xl:top-[-15px] max-sm:top-auto xl:text-4xl">
           <div className="mb-[31px] flex space-x-2 md:mb-[32px]">
             <Image
-              className="h-[64px] w-[64px] rounded-[20px] object-cover md:h-[72px] md:w-[72px]"
+              className="h-[72px] w-[72px] rounded-[20px] object-cover"
               src={RusImage}
               alt=""
             />
             <Image
-              className="h-[64px] w-[64px] rounded-[20px] object-cover md:h-[72px] md:w-[72px]"
+              className="h-[72px] w-[72px] rounded-[20px] object-cover"
               src={StasImage}
               alt=""
             />
           </div>
           <div>
-            <h3 className="font-glow text-heading-h3 md:text-heading-h3">
+            <h3 className="mb-2 font-glow text-heading-h3 leading-[40px] tracking-[-1px] md:text-heading-h3">
               Thank you!
             </h3>
-            <div className="text-subtitle-m">We will contact you ASAP!</div>
+            <div className="text-subtitle-m font-normal leading-[32px]">
+              We will contact you ASAP!
+            </div>
           </div>
         </div>
       ) : (
@@ -425,8 +564,7 @@ export default function FooterForm({
             />
             <FileInput
               className="md:col-span-8"
-              name="file"
-              placeholder="Attach file"
+              name="attachment"
               onChange={(fileName) => console.log('Selected file:', fileName)}
               theme={theme}
             />
