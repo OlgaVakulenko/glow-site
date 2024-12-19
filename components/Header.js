@@ -481,7 +481,6 @@ export default function Header({
   const isTrialVisible = useMemo(() => {
     return router.pathname !== '/tral';
   }, [router.pathname]);
-  console.log(backdropActive && !isTop)
 const isAi =backdropActive && !isTop
   return (
     <div ref={rootRef}>
