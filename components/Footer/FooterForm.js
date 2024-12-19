@@ -216,7 +216,16 @@ function FileInput({
   const [fileName, setFileName] = useState(value);
   const [isMobile, setIsMobile] = useState(false);
   const [isDragOver, setIsDragOver] = useState(false);
+  const [error, setError] = useState('');
 
+  const allowedTypes = [
+    'application/pdf',
+    'application/msword',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'image/jpeg',
+    'image/png',
+    'image/svg+xml',
+  ];
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 500);
@@ -233,9 +242,17 @@ function FileInput({
   const handleFileChange = useCallback(
     (e) => {
       const selectedFile = e.target.files[0];
-      const selectedFileName = selectedFile?.name || '';
-      setFileName(selectedFileName);
-      if (onChange) onChange(selectedFileName);
+      if (selectedFile && allowedTypes.includes(selectedFile.type)) {
+        const selectedFileName = selectedFile.name;
+        setFileName(selectedFileName);
+        setError('');
+        if (onChange) onChange(selectedFileName);
+      } else {
+        setFileName('');
+        setError(
+          'Invalid file type. Only DOC, PDF, JPEG, PNG and SVG are allowed.'
+        );
+      }
     },
     [onChange]
   );
@@ -258,9 +275,16 @@ function FileInput({
 
       const file = e.dataTransfer.files[0];
       if (file) {
-        const fileName = file.name;
-        setFileName(fileName);
-        if (onChange) onChange(fileName);
+        if (allowedTypes.includes(file.type)) {
+          setFileName(file.name);
+          setError('');
+          if (onChange) onChange(file.name);
+        } else {
+          setFileName('');
+          setError(
+            'Invalid file type. Only DOC, PDF, JPEG, PNG and SVG are allowed.'
+          );
+        }
       }
     },
     [onChange]
@@ -280,45 +304,13 @@ function FileInput({
         Attach a file (optional)
       </label>
 
-      <div className="mt-[16px] flex items-center md:borderDashed borderDashedMd py-[1px]">
+      <div className="md:borderDashed borderDashedMd mt-[16px] flex items-center py-[1px]">
         <label
           htmlFor="file-upload"
-          className={`flex w-full cursor-pointer items-center justify-center gap-2 rounded-[24px]  bg-gradient-to-r from-[#403E5112] to-[#403E5137] py-[31px] transition-all duration-300 hover:from-[#403E5124] hover:to-[#403E514A] ${
+          className={`flex w-full cursor-pointer items-center justify-center gap-2 rounded-[24px] bg-gradient-to-r from-[#403E5112] to-[#403E5137] py-[31px] transition-all duration-300 hover:from-[#403E5124] hover:to-[#403E514A] ${
             isDragOver ? 'bg-[#403E514A]' : ''
           }`}
         >
-          <svg
-            className="md:hidden"
-            xmlns="http://www.w3.org/2000/svg"
-            width="17"
-            height="16"
-            viewBox="0 0 17 16"
-            fill="none"
-          >
-            <path
-              d="M14.6025 7.26598L8.59206 13.2764C7.22523 14.6432 5.00915 14.6432 3.64231 13.2764C2.27548 11.9095 2.27548 9.69347 3.64231 8.32664L9.65272 2.31623C10.5639 1.40501 12.0413 1.40501 12.9526 2.31623C13.8638 3.22745 13.8638 4.70484 12.9526 5.61606L7.17785 11.3908C6.72224 11.8464 5.98354 11.8464 5.52793 11.3908C5.07232 10.9352 5.07232 10.1965 5.52793 9.74085L10.5955 4.67325"
-              stroke="white"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-
-          <svg
-            className="hidden md:block"
-            xmlns="http://www.w3.org/2000/svg"
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-          >
-            <path
-              d="M21.6537 10.9029L12.6381 19.9185C10.5878 21.9687 7.26372 21.9687 5.21347 19.9185C3.16322 17.8682 3.16322 14.5441 5.21347 12.4939L14.2291 3.47825C15.5959 2.11142 17.812 2.11142 19.1788 3.47825C20.5457 4.84509 20.5457 7.06116 19.1788 8.428L10.5168 17.0901C9.83335 17.7735 8.72531 17.7735 8.0419 17.0901C7.35848 16.4066 7.35848 15.2986 8.0419 14.6152L15.6433 7.01378"
-              stroke="white"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-
           <span
             className="pointer-events-none block w-fit !truncate text-[14px] font-normal leading-[20px] md:text-[16px] md:leading-[24px]"
             title={fileName || placeholder}
@@ -330,12 +322,16 @@ function FileInput({
             id="file-upload"
             type="file"
             className="hidden"
+            accept=".doc,.docx,.pdf,image/*"
             name={name}
             onChange={handleFileChange}
             {...rest}
           />
         </label>
       </div>
+      {error && (
+        <p className="text-[14px] text-red-500 md:text-[16px]">{error}</p>
+      )}
     </div>
   );
 }
