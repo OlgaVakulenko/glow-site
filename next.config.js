@@ -34,6 +34,12 @@ const nextConfig = {
 				statusCode: 301,
       },
       {
+        source: '/services/terms-of-service/',
+        destination: '/terms-of-service/',
+        permanent: true,
+        statusCode: 301,
+      },
+      {
         source: '/contact/',
         destination: '/contact-us/',
         permanent: true,

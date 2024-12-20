@@ -37,8 +37,8 @@ import CalendlyEmbed from './CalendlyEmbed';
 
 export function BurgerIcon({ isOpen = false, theme, size = 32 }) {
   let stroke = '#19191B';
-
-  if (theme === 'dark') {
+const route = useRouter()
+  if (theme === 'dark' || route.pathname === "/ai-productivity" ) {
     stroke = 'white';
   }
 
@@ -173,7 +173,7 @@ const BurgerMenu = ({ menuId, links }) => {
               </Link>
               <div className="hidden">
                 <Link
-                  href="/contacts"
+                  href="/contact-us"
                   className="glow-border-black rounded-full px-4 py-[15px] text-sm leading-[19px] shadow-black transition-colors duration-300 hover:bg-black hover:text-brand"
                 >
                   Let&apos;s get in touch
@@ -479,9 +479,9 @@ export default function Header({
   const handleFooterFormClick = useHandleFooterFormClick();
 
   const isTrialVisible = useMemo(() => {
-    return router.pathname !== '/trial';
+    return router.pathname !== '/tral';
   }, [router.pathname]);
-
+const isAi =backdropActive && !isTop
   return (
     <div ref={rootRef}>
       {/* <div className={cx('fixed top-0 z-10 w-full font-inter')}>
@@ -548,6 +548,7 @@ export default function Header({
                     style={{
                       color,
                     }}
+                    isAi={isAi}
                   />
                 </Link>
               </Animated>
@@ -559,7 +560,7 @@ export default function Header({
               >
                 {!isFooter &&
                   links.map((link, i) => (
-                    <HeaderLink key={i} index={i} item={link} theme={t} />
+                    <HeaderLink key={i} index={i} item={link} theme={t} isAi={isAi} />
                   ))}
               </div>
               {headerRightSlot ||

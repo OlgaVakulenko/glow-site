@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
@@ -22,6 +22,8 @@ import CaseCard from './CaseCard';
 import CaseNavArrow from './CaseNavArrow';
 import AiTag from '../Pages/AI/AiTag';
 import Animated from '../Animated';
+import Button2 from '../Button';
+import LastSlideBg from '../Pages/Home/assets/card-bg.png';
 
 const featured = [
   '/beast',
@@ -29,6 +31,7 @@ const featured = [
   '/cryptogenie',
   '/jucr',
   '/liquidspace',
+  // '/work'
 ];
 
 const cases = featured.reduce((t, href) => {
@@ -77,17 +80,20 @@ export function Col({ title, items, className = '' }) {
 function CaseSlideMobile() {}
 
 function Tag({ name, theme }) {
-	if (name === 'AI') {
-		return <AiTag name={name} />
-	}
+  if (name === 'AI') {
+    return <AiTag name={name} />;
+  }
 
   return (
-    <div className={cx('rounded-full px-[12px] py-[2px] font-inter text-[12px] uppercase leading-[24px] tracking-[0.02em]', 
-			{
-				'glow-border-light': theme === 'dark',
-				'glow-border-dark bg-black-dim': theme !== 'dark'
-			}
-		)}>
+    <div
+      className={cx(
+        'rounded-full px-[12px] py-[2px] font-inter text-[12px] uppercase leading-[24px] tracking-[0.02em]',
+        {
+          'glow-border-light': theme === 'dark',
+          'glow-border-dark bg-black-dim': theme !== 'dark',
+        }
+      )}
+    >
       {name}
     </div>
   );
@@ -95,31 +101,44 @@ function Tag({ name, theme }) {
 
 export function CaseSlide({ type = 'default', item, index, total }) {
   const [media] = useAtom(mediaAtom);
-	const [theme] = useAtom(themeAtom);
-	
+  const [theme] = useAtom(themeAtom);
+
   if (media === 'mobile') {
     return <CaseCard item={item} type={type} index={index} total={total} />;
   }
 
   return (
     <div className="__slide-wrapper h-full w-full">
-      <div className={cx('__slide group relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-dim-gray text-black md:max-h-[456px] md:min-h-[456px] md:flex-row md:items-start md:rounded-[32px] xl:max-h-[560px] xl:min-h-[560px]', {'case-card-dark': theme === 'dark'})}>
+      <div
+        className={cx(
+          '__slide group relative flex min-h-[732px] flex-col overflow-hidden rounded-3xl bg-dim-gray text-black md:max-h-[456px] md:min-h-[456px] md:flex-row md:items-start md:rounded-[32px] xl:max-h-[560px] xl:min-h-[560px]',
+          {
+            'case-card-dark': theme === 'dark',
+            '!flex-col !items-center !justify-center': item.lastSlide,
+          }
+        )}
+      >
         <div
           // className="relative px-6 pt-[193px] pb-12 md:px-[45px] md:pb-[57px] md:pt-[250px]"
-          className="relative z-[1] p-6 pb-14 md:mt-0 md:h-full md:px-16 md:pb-[80px] md:pt-16 xl:pb-[114px] xl:pt-[100px]"
+          className={cx(
+            'relative z-[1] p-6 pb-14 md:mt-0 md:h-full md:px-16 md:pb-[80px] md:pt-16 xl:pb-[114px] xl:pt-[100px]',
+            {
+              '!p-0': item.lastSlide,
+            }
+          )}
         >
-          {/* {item.icon && ( */}
-          <div className="mb-0 md:mb-8">
-            <div className="h-[40px] w-[40px] md:h-[56px] md:w-[56px]">
-              {item.icon}
-            </div>
-            {/* <Image
+          {item.icon && (
+            <div className="mb-0 md:mb-8">
+              <div className="h-[40px] w-[40px] md:h-[56px] md:w-[56px]">
+                {item.icon}
+              </div>
+              {/* <Image
               src={BLogo}
               alt=""
               className="h-[40px] w-[40px] md:h-[48px] md:w-[48px]"
             /> */}
-          </div>
-          {/* )} */}
+            </div>
+          )}
           {/* <div className="relative hidden font-glow text-[11px] font-medium uppercase tracking-[2px] md:block">
             <div className="absolute left-[79px] top-[-18px]">
               <svg
@@ -143,15 +162,26 @@ export function CaseSlide({ type = 'default', item, index, total }) {
               </>
             )}
           </div> */}
-          <h2 className={cx("mb-4 mt-6 max-w-[364px] font-satoshi text-[28px] font-medium leading-[130%] md:mb-3 md:text-next-heading-5 xl:max-w-[464px]", {'font-normal': theme === 'dark'})}>
+          <h3
+            className={cx(
+              'mb-4 mt-6 max-w-[364px] font-satoshi text-[28px] font-medium leading-[130%] md:mb-3 md:text-next-heading-5 xl:max-w-[464px]',
+              {
+                'font-normal': theme === 'dark',
+                '!mt-0 !max-w-[598px] !text-center !text-[56px] !leading-[64px]':
+                  item.lastSlide,
+              }
+            )}
+          >
             {item.title2 || item.title}
-          </h2>
-          <div className="mb-8 max-w-[364px] font-inter text-[16px] leading-[24px] md:text-next-body-s xl:max-w-[464px] xl:text-next-body-m">
-            {item.description}
-          </div>
+          </h3>
+          {item.description && (
+            <div className="mb-8 max-w-[364px] font-inter text-[16px] leading-[24px] md:text-next-body-s xl:max-w-[464px] xl:text-next-body-m">
+              {item.description}
+            </div>
+          )}
           <div className="flex flex-wrap gap-2 md:max-w-[364px] xl:max-w-[464px]">
             {item.tags?.map((tag) => (
-              <Tag key={tag} name={tag} theme={theme}/>
+              <Tag key={tag} name={tag} theme={theme} />
             ))}
           </div>
           {/* <div className="flex space-x-[40px] pl-[3px] md:space-x-[62px]">
@@ -164,7 +194,7 @@ export function CaseSlide({ type = 'default', item, index, total }) {
             {item.company && <Col title="Company" items={item.company} />}
           </div> */}
         </div>
-        {item.imageMobile ? (
+        {item.imageMobile && !item.lastSlide ? (
           <picture>
             <Source
               image={(type === 'work' && item.imageWork) || item.image}
@@ -178,14 +208,35 @@ export function CaseSlide({ type = 'default', item, index, total }) {
               alt=""
             />
           </picture>
-        ) : (
+        ) : !item.lastSlide ? (
           <Image
             className="absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:right-[-54px]  md:h-[calc(100%-45px)] md:max-h-full md:w-[663px] md:origin-[90%_90%] md:rounded-none md:object-contain xl:left-auto xl:right-[-50px] xl:w-[75%]"
             src={item.image}
             alt=""
           />
+        ) : null}
+        {item.lastSlide && (
+          <div>
+            <Button2
+              as={Link}
+              href="/work"
+              color="white"
+              flavor="primary"
+              className="mt-7 !bg-black"
+              compact
+            >
+              Show more cases
+            </Button2>
+          </div>
         )}
       </div>
+      {item.lastSlide && (
+        <Image
+          src={LastSlideBg}
+          alt=""
+          className="absolute inset-0 z-[-1] h-full w-full rounded-3xl md:rounded-[32px]"
+        />
+      )}
     </div>
   );
 }
@@ -331,7 +382,7 @@ export function CasesSlider2({
   const [w, setW] = useState(0);
   const [k, setK] = useState(0);
   const swiperRef = useRef();
-	const [theme] = useAtom(themeAtom);
+  const [theme] = useAtom(themeAtom);
 
   useEffect(() => {
     const onResize = throttle(() => {
@@ -374,7 +425,7 @@ export function CasesSlider2({
 
   return (
     <div ref={ref} className="overflow-hidden">
-      <Animated className='mx-auto w-full max-w-[1440px] px-4 md:px-8 xl:px-16'>
+      <Animated className="mx-auto w-full max-w-[1440px] px-4 md:px-8 xl:px-16">
         <Section
           withLayout={false}
           className={cx({
@@ -416,7 +467,7 @@ export function CasesSlider2({
                 <SlideComponent
                   key={i}
                   className={cx(
-										'cursor-none select-none md:!w-[904px] xl:!w-[1200px]'
+                    'cursor-none select-none md:!w-[904px] xl:!w-[1200px]'
                     // '4xl:first:pl-[120px]'
                   )}
                 >
@@ -435,7 +486,7 @@ export function CasesSlider2({
               {/* <SwiperSlide className="md:!w-[412px] md:pr-4 xl:pr-16 4xl:pr-[120px]">
                   <EndSlide />
                 </SwiperSlide> */}
-              <div className='md:mt-[49px] xl:mt-[40px]'>
+              <div className="md:mt-[49px] xl:mt-[40px]">
                 <div className="hidden items-center space-x-8 md:flex">
                   <div className="flex shrink-0 space-x-4">
                     <CaseNavArrow
@@ -566,7 +617,7 @@ function LastSlide2() {
         </Link>
       )}
       <Link
-        href="/work"
+        href="/pages/wor"
         className="group md:flex md:flex-col md:items-center md:justify-center"
       >
         <div className="glow-border-black relative flex h-[163px] w-full items-center justify-center rounded-3xl md:h-[168px] md:w-[168px] md:rounded-full">
@@ -602,7 +653,7 @@ function LastSlide2() {
 function LastSlide() {
   return (
     <Link
-      href="/work"
+      href="/pages/wor"
       className="relative flex w-[322px] items-end justify-center p-[30px]"
     >
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rotate-[-30deg] font-medium uppercase tracking-[0.48px] transition-opacity duration-300 group-hover:opacity-0">

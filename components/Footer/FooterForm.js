@@ -5,6 +5,7 @@ import debounce from 'lodash.debounce';
 import Link from 'next/link';
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useMemo,
@@ -133,19 +134,98 @@ function Switches({
   );
 }
 
+// function FileInput({
+//   theme = 'footer',
+//   className,
+//   name,
+//   value = '',
+//   onChange,
+//   placeholder = 'Attach file',
+//   ...rest
+// }) {
+//   const [focused, setFocused] = useState(false);
+//   const [fileName, setFileName] = useState(value);
+//   const [isMobile, setIsMobile] = useState(false);
+//
+//   useEffect(() => {
+//     const handleResize = () => {
+//       setIsMobile(window.innerWidth < 500);
+//     };
+//
+//     window.addEventListener('resize', handleResize);
+//     handleResize();
+//
+//     return () => {
+//       window.removeEventListener('resize', handleResize);
+//     };
+//   }, []);
+//
+//   const handleFileChange = (e) => {
+//     const selectedFileName = e.target.files[0]?.name || '';
+//     setFileName(selectedFileName);
+//     setFocused(false);
+//     onChange?.(selectedFileName);
+//   };
+//
+//   const truncatedFileName =
+//     isMobile && fileName.length > 20 ? `${fileName.slice(0, 20)}...` : fileName;
+//
+//   return (
+//     <div className={cx('flex items-center', className)}>
+//       <label
+//         className={cx(
+//           'relative w-full border-b bg-transparent pb-4 pt-[8px] text-[16px] leading-[26px] text-current transition-colors duration-200 placeholder:transition-opacity focus-within:outline-none focus-within:placeholder:opacity-60 md:text-[18px] xl:font-medium',
+//           {
+//             '!border-current': focused,
+//             'border-checkbox-dark': theme === 'footer',
+//             'border-checkbox-light': theme === 'default',
+//           }
+//         )}
+//       >
+//         <span
+//           className={cx('pointer-events-none block w-full !truncate', {
+//             'text-gray-500': !fileName && focused,
+//           })}
+//           title={fileName || placeholder}
+//         >
+//           {truncatedFileName || placeholder}
+//         </span>
+//         <input
+//           type="file"
+//           className="absolute inset-0 opacity-0"
+//           name={name}
+//           onChange={handleFileChange}
+//           onFocus={() => setFocused(true)}
+//           onBlur={() => setFocused(false)}
+//           {...rest}
+//         />
+//       </label>
+//     </div>
+//   );
+// }
+
 function FileInput({
   theme = 'footer',
   className,
   name,
   value = '',
   onChange,
-  placeholder = 'Attach file',
+  placeholder = 'Choose a file or drag and drop here',
   ...rest
 }) {
-  const [focused, setFocused] = useState(false);
   const [fileName, setFileName] = useState(value);
   const [isMobile, setIsMobile] = useState(false);
+  const [isDragOver, setIsDragOver] = useState(false);
+  const [error, setError] = useState('');
 
+  const allowedTypes = [
+    'application/pdf',
+    'application/msword',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'image/jpeg',
+    'image/png',
+    'image/svg+xml',
+  ];
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 500);
@@ -159,46 +239,99 @@ function FileInput({
     };
   }, []);
 
-  const handleFileChange = (e) => {
-    const selectedFileName = e.target.files[0]?.name || '';
-    setFileName(selectedFileName);
-    setFocused(false);
-    onChange?.(selectedFileName);
-  };
+  const handleFileChange = useCallback(
+    (e) => {
+      const selectedFile = e.target.files[0];
+      if (selectedFile && allowedTypes.includes(selectedFile.type)) {
+        const selectedFileName = selectedFile.name;
+        setFileName(selectedFileName);
+        setError('');
+        if (onChange) onChange(selectedFileName);
+      } else {
+        setFileName('');
+        setError(
+          'Invalid file type. Only DOC, PDF, JPEG, PNG and SVG are allowed.'
+        );
+      }
+    },
+    [onChange]
+  );
+
+  const handleDragOver = useCallback((e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDragOver(true);
+  }, []);
+
+  const handleDragLeave = useCallback(() => {
+    setIsDragOver(false);
+  }, []);
+
+  const handleDrop = useCallback(
+    (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setIsDragOver(false);
+
+      const file = e.dataTransfer.files[0];
+      if (file) {
+        if (allowedTypes.includes(file.type)) {
+          setFileName(file.name);
+          setError('');
+          if (onChange) onChange(file.name);
+        } else {
+          setFileName('');
+          setError(
+            'Invalid file type. Only DOC, PDF, JPEG, PNG and SVG are allowed.'
+          );
+        }
+      }
+    },
+    [onChange]
+  );
 
   const truncatedFileName =
     isMobile && fileName.length > 20 ? `${fileName.slice(0, 20)}...` : fileName;
 
   return (
-    <div className={cx('flex items-center', className)}>
-      <label
-        className={cx(
-          'relative w-full border-b bg-transparent pb-4 pt-[8px] text-[16px] leading-[26px] text-current transition-colors duration-200 placeholder:transition-opacity focus-within:outline-none focus-within:placeholder:opacity-60 md:text-[18px] xl:font-medium',
-          {
-            '!border-current': focused,
-            'border-checkbox-dark': theme === 'footer',
-            'border-checkbox-light': theme === 'default',
-          }
-        )}
-      >
-        <span
-          className={cx('pointer-events-none block w-full !truncate', {
-            'text-gray-500': !fileName && focused,
-          })}
-          title={fileName || placeholder}
-        >
-          {truncatedFileName || placeholder}
-        </span>
-        <input
-          type="file"
-          className="absolute inset-0 opacity-0"
-          name={name}
-          onChange={handleFileChange}
-          onFocus={() => setFocused(true)}
-          onBlur={() => setFocused(false)}
-          {...rest}
-        />
+    <div
+      className={className}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleDrop}
+    >
+      <label className="text-[16px] font-normal leading-[24px] md:text-[18px] md:leading-[28px]">
+        Attach a file (optional)
       </label>
+
+      <div className="md:borderDashed borderDashedMd mt-[16px] flex items-center py-[1px]">
+        <label
+          htmlFor="file-upload"
+          className={`flex w-full cursor-pointer items-center justify-center gap-2 rounded-[24px] bg-gradient-to-r from-[#403E5112] to-[#403E5137] py-[31px] transition-all duration-300 hover:from-[#403E5124] hover:to-[#403E514A] ${
+            isDragOver ? 'bg-[#403E514A]' : ''
+          }`}
+        >
+          <span
+            className="pointer-events-none block w-fit !truncate text-[14px] font-normal leading-[20px] md:text-[16px] md:leading-[24px]"
+            title={fileName || placeholder}
+          >
+            {truncatedFileName || placeholder}
+          </span>
+
+          <input
+            id="file-upload"
+            type="file"
+            className="hidden"
+            accept=".doc,.docx,.pdf,image/*"
+            name={name}
+            onChange={handleFileChange}
+            {...rest}
+          />
+        </label>
+      </div>
+      {error && (
+        <p className="text-[14px] text-red-500 md:text-[16px]">{error}</p>
+      )}
     </div>
   );
 }
@@ -309,24 +442,26 @@ export default function FooterForm({
         alt=""
       />
       {isSubmitted ? (
-        <div className="flex h-full flex-grow flex-col items-end justify-end text-right text-xl xl:text-4xl">
+        <div className="relative flex h-full flex-grow flex-col items-end justify-end text-right text-xl max-xl:top-[-15px] max-sm:top-auto xl:text-4xl">
           <div className="mb-[31px] flex space-x-2 md:mb-[32px]">
             <Image
-              className="h-[64px] w-[64px] rounded-[20px] object-cover md:h-[72px] md:w-[72px]"
+              className="h-[72px] w-[72px] rounded-[20px] object-cover"
               src={RusImage}
               alt=""
             />
             <Image
-              className="h-[64px] w-[64px] rounded-[20px] object-cover md:h-[72px] md:w-[72px]"
+              className="h-[72px] w-[72px] rounded-[20px] object-cover"
               src={StasImage}
               alt=""
             />
           </div>
           <div>
-            <h3 className="font-glow text-heading-h3 md:text-heading-h3">
+            <h3 className="mb-2 font-glow text-heading-h3 leading-[40px] tracking-[-1px] md:text-heading-h3">
               Thank you!
             </h3>
-            <div className="text-subtitle-m">We will contact you ASAP!</div>
+            <div className="text-subtitle-m font-normal leading-[32px]">
+              We will contact you ASAP!
+            </div>
           </div>
         </div>
       ) : (
@@ -423,13 +558,12 @@ export default function FooterForm({
               required
               theme={theme}
             />
-            {/*<FileInput*/}
-            {/*  className="md:col-span-8"*/}
-            {/*  name="file"*/}
-            {/*  placeholder="Attach file"*/}
-            {/*  onChange={(fileName) => console.log('Selected file:', fileName)}*/}
-            {/*  theme={theme}*/}
-            {/*/>*/}
+            <FileInput
+              className="md:col-span-8"
+              name="attachment"
+              onChange={(fileName) => console.log('Selected file:', fileName)}
+              theme={theme}
+            />
             <Input
               as="textarea"
               className="md:col-span-8"

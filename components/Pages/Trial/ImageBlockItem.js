@@ -8,13 +8,13 @@ export default function ImageBlockItem({
   item = { title: '', description: '', tags: [] },
 }) {
   return (
-    <div className="pt-10 md:pt-14 xl:pt-20">
+    <div className="pt-10 md:pt-14 xl:pt-20 xl:mb-10">
       <Animated className="pb-10">
-        <InlineVideo width="1000px" height="auto" trial src={frames} />
+        <InlineVideo width="1000px" height="auto"  trial src={frames} />
       </Animated>
       <Animated className="items-end justify-between self-stretch md:flex">
         <div className="flex flex-col md:max-w-[550px] xl:max-w-[659px]">
-          <div className="pb-6 text-next-heading-6">{item.title}</div>
+          <div className="pb-6 text-next-heading-6 max-xs:mr-[-10px] ">{item.title}</div>
           <div className="text-next-body-s md:text-next-body-m">
             {item.description}
           </div>

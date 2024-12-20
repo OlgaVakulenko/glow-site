@@ -75,16 +75,21 @@ function MyApp({ Component, pageProps }) {
     return u;
   }, [router.asPath]);
 
+  const isBlogSubpage = router.pathname.startsWith("/blog/");
+  console.log(isBlogSubpage)
   return (
     <div>
       <Head>
         <title>{getFullTitle('AI UI UX & Product Design Agency')}</title>
-        <meta
-          name="description"
-          content={getFullDescription(
-            `Glow Team specializes in design, transforming businesses through creativity and innovation. Explore our services for success.`
-          )}
-        ></meta>
+
+        {!isBlogSubpage && (
+          <meta
+            name="description"
+            content={getFullDescription(
+              `Glow Team specializes in design, transforming businesses through creativity and innovation. Explore our services for success.`
+            )}
+          ></meta>        )}
+
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="akey" content="needle-4" />
         <meta property="og:image" content="/img/og-image.png?v=2" />
@@ -178,6 +183,14 @@ function MyApp({ Component, pageProps }) {
             updateScreenHeight();
             window.addEventListener('resize', updateScreenHeight);
             window.addEventListener('orientationchange', updateScreenHeight);
+          `,
+          }}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.documentElement.classList.remove("no-js");
+              document.documentElement.classList.add("js");
           `,
           }}
         />

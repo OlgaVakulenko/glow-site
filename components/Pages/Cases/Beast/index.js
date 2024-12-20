@@ -35,12 +35,12 @@ function Intro() {
               <br />
               car rental
             </h1>
-            <h2
+            <p
               className="welcome__scroll wow fadeInUp"
               data-wow-duration="1.2s"
             >
               Start Scrolling 24508px
-            </h2>
+            </p>
           </div>
           <div className="welcome__right wow fadeInUp" data-wow-duration="1.2s">
             <div className="welcome__big-image" />
@@ -102,13 +102,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Challenge
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -162,7 +162,8 @@ export default function Beast() {
                 data-wow-delay="0.2s"
               />
               <div className="challenge__image-block-right">
-                <h3>Solutions we provided for the Beast:</h3>
+                <h2 className="mb" >Solutions we provided for the Beast:</h2>
+                {/*<h3>Solutions we provided for the Beast:</h3>*/}
                 <ul>
                   <li>
                     Found an approach to the consumer by breaking the stereotype
@@ -190,7 +191,7 @@ export default function Beast() {
               data-wow-delay="0.2s"
             />
             <div className="challenge__image-block-right">
-              <h3>Solutions we provided for the Beast:</h3>
+              <h2 className="mb" aria-hidden>Solutions we provided for the Beast:</h2>
               <ul>
                 <li>
                   Found an approach to the consumer by breaking the stereotype
@@ -213,13 +214,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Research
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -240,7 +241,7 @@ export default function Beast() {
               data-wow-delay="0.1s"
             >
               <div>
-                <h3>160</h3>
+                <span className="spanWork">160</span>
                 <p>
                   Electric charging
                   <br />
@@ -248,7 +249,7 @@ export default function Beast() {
                 </p>
               </div>
               <div>
-                <h3>40-60 km</h3>
+                <span className="spanWork">40-60 km</span>
                 <p>
                   Average distance between
                   <br />
@@ -256,7 +257,7 @@ export default function Beast() {
                 </p>
               </div>
               <div>
-                <h3>5%</h3>
+                <span className="spanWork">5%</span>
                 <p>
                   Annual increase in the
                   <br />
@@ -264,7 +265,7 @@ export default function Beast() {
                 </p>
               </div>
               <div>
-                <h3>2021</h3>
+                <span className="spanWork">2021</span>
                 <p>
                   The year of expected
                   <br />
@@ -282,10 +283,10 @@ export default function Beast() {
               potential for electric carsharing is high among the population.
             </div>
             <div className="research__center-block">
-              <h3>
+              <p>
                 In 2020 the number of registered electric vehicles in Estonia
                 has significantly grown compared to 2019
-              </h3>
+              </p>
             </div>
             <div className="research__increase-block">
               <div>
@@ -295,7 +296,9 @@ export default function Beast() {
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
-                <h4>210%</h4>
+                {/*<h4>210%</h4>*/}
+                <span className="spanRes">210%</span>
+
                 <p>
                   Increase in electricaly chargable vehicles (ECV) registration
                 </p>
@@ -307,7 +310,7 @@ export default function Beast() {
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
-                <h4>182%</h4>
+                <span className="spanRes">182%</span>
                 <p>Increase in battery electric vehicles (BEV) registration</p>
               </div>
               <div>
@@ -317,7 +320,7 @@ export default function Beast() {
                   data-wow-duration="0.7s"
                   data-wow-delay="0.2s"
                 />
-                <h4>325%</h4>
+                <span className="spanRes">325%</span>
                 <p>
                   Increase in plug-in hybrid electric vehicles (PHEV)
                   registration
@@ -331,13 +334,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Wireframes
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -385,13 +388,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Customer journey map
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -428,13 +431,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Colors
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -471,13 +474,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Typography
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -512,13 +515,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Icons
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -554,13 +557,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Car Search Flow
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -595,13 +598,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Radar
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -647,13 +650,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Car Statistics and Maps
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -704,13 +707,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Car damage reports
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -747,13 +750,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   A library of components
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -788,13 +791,13 @@ export default function Beast() {
           <div className="container">
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
                   Branding
-                </h1>
+                </h2>
               </div>
               <div className="inline-header__item inline-header__right">
                 <p
@@ -895,13 +898,13 @@ export default function Beast() {
             <div className="inline-header">
               {/* Left*/}
               <div className="inline-header__item inline-header__left">
-                <h1
+                <h2
                   className="title-big wow fadeInUp"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
-                  <span>Client’s words about work with Glow</span>
-                </h1>
+                  <>Client’s words about work with Glow</>
+                </h2>
               </div>
               {/* Right*/}
               <div className="inline-header__item inline-header__right">
@@ -932,13 +935,13 @@ export default function Beast() {
                               </a>
                             </div>
                           </div>
-                          <h2 className="text-big">
+                          <p className="text-big">
                             Glow Design Agency designed an app for a
                             self-service car rental app. They provided a
                             competitor&apos;s analysis, wireframes, and UI
                             concepts for all screens. During the final stages,
                             they presented a prototype.
-                          </h2>
+                          </p>
                           <a
                             className="visible-xs"
                             href="https://clutch.co/profile/glow-design-agency"
@@ -959,11 +962,11 @@ export default function Beast() {
           </div>
         </section>
       </div>
-			<NextCase 
-				title="Platform that connects students with financial aid opportunities"
+      <NextCase
+        title="Platform that connects students with financial aid opportunities"
         href="/tilt"
-				icon={tiltIcon}
-			/>
+        icon={tiltIcon}
+      />
     </LegacyCaseContainer>
   );
 }
@@ -976,13 +979,13 @@ function System() {
       <div className="container">
         <div className="inline-header inline-header-midle">
           <div className="inline-header__item inline-header__left">
-            <h1
+            <h2
               className="title-big wow fadeInUp"
               data-wow-duration="1.2s"
               data-wow-delay="0.1s"
             >
               System illustrations and the wheel of fortune
-            </h1>
+            </h2>
           </div>
           <div className="inline-header__item inline-header__right">
             <p

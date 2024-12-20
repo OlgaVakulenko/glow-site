@@ -4,22 +4,35 @@ import { useAtom } from 'jotai';
 import { themeAtom } from '../../lib/theme';
 import Link from 'next/link';
 import { links, usFlag } from '../../data/footer-data';
+import { useEffect, useState } from 'react';
 
 export function SocialLinks() {
 	const [theme] = useAtom(themeAtom);
 
+  const [windowWidth, setWindowWidth] = useState(null);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
   return (
     <div className="flex w-full justify-between py-2 md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:justify-center md:gap-4">
       {links.map((link) => (
         <a
           title={link.label}
-          className={cx('whitespace-nowrap p-1 hover:text-brand transition-colors text-[#19191B]', {'text-white': theme === 'dark'})}
+          className={cx('whitespace-nowrap p-[6px] md:p-1 hover:text-brand transition-colors text-[#19191B]', {'text-white': theme === 'dark'})}
           key={link.href}
           href={link.href}
           target="_blank"
           rel="noreferrer"
         >
-          {link.icon}
+          {windowWidth < 820 ? link.iconPhone : link.icon}
         </a>
       ))}
     </div>
@@ -57,12 +70,12 @@ export default function FooterLinks({ className = '' }) {
         </div> */}
       </div>
       <SocialLinks />
-      <div className="relative flex w-full shrink-0 justify-between px-2 py-4 md:gap-6 md-safe:w-auto xl:space-x-9">
-        <div className="absolute left-1/2 top-1/2 h-[16px] w-[1px] -translate-x-1/2 -translate-y-1/2 bg-checkbox-light md:hidden"></div>
-        <Link href="/privacy-policy" className={cx({'text-white': dark})}>
+      <div className="relative flex w-full shrink-0 justify-between px-2 py-4 md:gap-6 md-safe:w-auto ">
+        <div className="absolute left-[46%] sm:left-1/2 top-1/2 h-[16px] w-[1px] -translate-x-1/2 -translate-y-1/2 bg-checkbox-light md:hidden"></div>
+        <Link href="/privacy-policy" className={cx("max-md:text-[14px] max-md:leading-[16px] max-md:font-normal", {'text-white': dark})}>
           <RollingText text="Privacy Policy" height={24}></RollingText>
         </Link>
-        <Link href="terms-of-service" className={cx({'text-white': dark})}>
+        <Link href="terms-of-service" className={cx("max-md:text-[14px] max-md:leading-[16px] max-md:font-normal", {'text-white': dark})}>
           <RollingText text="Terms Of Service" height={24}></RollingText>
         </Link>
       </div>

@@ -1,0 +1,49 @@
+{
+  "data": {
+    "title": "Designing the Best User Experience for Digital Banking: A Comprehensive Guide",
+    "html_title": "Designing the Best User Experience for Digital Banking",
+    "html_description": "Discover a comprehensive guide to designing the best user experience for digital banking. Learn key principles, best practices, and strategies to enhance user engagement and satisfaction.",
+    "description": "Imagine a world where managing your finances is as easy as ordering your favorite meal online. Welcome to the future of digital banking! ",
+    "image": "/img/blog/designing-the-best/Glow-Article.png",
+    "author_name": "Kryvoshei Oleksandr",
+    "author_image": "/img/blog/sasha.webp",
+    "date": "Dec 19, 2024",
+    "created_at": 1734613200000,
+    "read_minutes": "15 min read",
+    "href": "designing-the-best-user-experience-for-digital-banking-a-comprehensive-guide",
+
+    "tags": ["Process", "Design", "Business"],
+    "paragraphs": [
+      {
+        "id": "p1",
+        "text": "Introduction"
+      },
+      {
+        "id": "p2",
+        "text": "Understanding User Experience in Digital Banking"
+      },
+      {
+        "id": "p3",
+        "text": "Best Practices for Improving Digital Banking UX"
+      },
+      {
+        "id": "p4",
+        "text": "Innovative Strategies and Future Trends"
+      },
+      {
+        "id": "p5",
+        "text": "Measuring and Optimizing Digital Banking UX"
+      },
+      {
+        "id": "p6",
+        "text": "Case Studies: Successful Digital Banking UX Transformations"
+      },
+      {
+        "id": "p7",
+        "text": "Conclusion: Embracing UX as a Core Strategy in Digital Banking"
+      }
+    ],
+    "order": 1000,
+    "date_iso": "2024-12-19T14:00:00.000Z"
+  }
+}

@@ -151,6 +151,14 @@
     display: none;
   }
 
+  .spanRes {
+    display: inline-block;
+    font-family: 'Satoshi', serif;
+  }
+  .spanWork {
+    font-family: 'Satoshi', serif;
+  }
+
   @media (max-width: 1020px) {
     .hidden-sm {
       display: none !important;
@@ -2064,11 +2072,21 @@
     font-size: 18px;
     line-height: 1.78;
   }
+  .owl-carousel.owl-theme .item p.text-big {
+    font-size: 18px;
+    line-height: 1.78;
+    font-family: 'Satoshi', serif;
+  }
 
   @media (max-width: 767px) {
     .owl-carousel.owl-theme .item h2.text-big {
       font-size: 16px;
       line-height: 28px;
+    }
+    .owl-carousel.owl-theme .item p.text-big {
+      font-size: 16px;
+      line-height: 28px;
+      font-family: 'Satoshi', serif;
     }
   }
 
@@ -3548,7 +3566,7 @@
     width: 50%;
   }
 
-  .challenge__image-block .challenge__image-block-right h3 {
+  .challenge__image-block .challenge__image-block-right  h2 {
     font-weight: 500;
   }
 
@@ -3556,11 +3574,13 @@
     padding-left: 20px;
   }
 
-  .challenge__image-block h3 {
+  .challenge__image-block h3, h2 {
     font-style: normal;
     font-weight: normal;
     font-size: 26px;
     color: #ffffff;
+  }
+  .mb {
     margin-bottom: 48px;
   }
 
@@ -3609,7 +3629,10 @@
       margin-top: -180px;
     }
 
-    .challenge__image-block h3 {
+    //.challenge__image-block h2 {
+    //  margin-bottom: 15px;
+    //}
+    .mb {
       margin-bottom: 15px;
     }
 
@@ -3733,7 +3756,7 @@
     justify-content: space-between;
   }
 
-  .research__data > div h3 {
+  .research__data > div h3, .spanWork {
     color: #080808;
     font-size: 30px;
     font-weight: 500;
@@ -3754,7 +3777,8 @@
     line-height: 1.78;
   }
 
-  .research__center-block h3 {
+  .research__center-block p {
+    font-family: 'Satoshi', serif;
     text-align: center;
     width: 80%;
     margin: 0 auto 100px;
@@ -3766,8 +3790,9 @@
   }
 
   @media (max-width: 767px) {
-    .research__center-block h3 {
+    .research__center-block p {
       margin-bottom: 60px;
+      font-family: 'Satoshi', serif;
     }
   }
 
@@ -3828,7 +3853,7 @@
     margin-left: -8px;
   }
 
-  .research__increase-block div h4 {
+  .research__increase-block div h4, .spanRes {
     font-size: 30px;
     line-height: 42px;
     color: #080808;
@@ -3837,7 +3862,7 @@
   }
 
   @media (max-width: 767px) {
-    .research__increase-block div h4 {
+    .research__increase-block div h4, .spanRes {
       font-size: 26px;
     }
   }
@@ -3892,7 +3917,7 @@
       max-width: auto;
     }
 
-    .research__data > div h3 {
+    .research__data > div h3, .spanWork {
       font-size: 26px;
     }
 

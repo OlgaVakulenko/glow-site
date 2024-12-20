@@ -13,7 +13,7 @@ export default function Slider({ mobileURLs }) {
       <CasesSlider2 filter={filter} disableOnMobile padding={false} />
       <Layout className="md:hidden">
         <Link
-          href="/work"
+          href="/pages/wor"
           className="flex w-full items-center justify-center gap-2 rounded-full border border-black px-8 py-[15px] text-[16px] uppercase leading-[24px] tracking-[0.03em]"
         >
           <div>Cases</div>

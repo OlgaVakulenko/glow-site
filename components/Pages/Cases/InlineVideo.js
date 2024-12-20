@@ -28,13 +28,17 @@ export default function InlineVideo({
     if (trial) {
       if (window.innerWidth < 650) {
         video.style.height = '304px';
-        video.style.objectFit = 'contain';
-      } else {
+        video.style.objectFit = 'cover';
+      } else if (window.innerWidth < 1280) {
         video.style.height = '480px';
+        video.style.objectFit = 'fill';
+      } else {
+        video.style.height = '720px';
         video.style.objectFit = 'cover';
       }
       video.style.borderRadius = '32px';
     }
+
 
     if (type) {
       const source = document.createElement('source');

@@ -5,6 +5,7 @@ export default function Document() {
     <Html lang="en" className="no-js l scroll-pt-4 xl:scroll-pt-14">
       <Head>
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+
         <meta
           name="google-site-verification"
           content="I4egQ7qOh-ZASJcyRGFSfIvpiIm9jLhwy-clP3dcR5Q"
