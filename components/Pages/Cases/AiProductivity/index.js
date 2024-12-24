@@ -99,7 +99,7 @@ export default function AiProductivity() {
           <div className="mb-3 h-[151px] object-cover xs:h-auto">
             <RespImage
               src={Frame6}
-              className=" h-[151px] w-full  object-cover object-top xs:h-auto sm:hidden"
+              className=" h-[151px] w-full object-contain xs:h-auto sm:hidden"
               md={Frame6}
               xl={Frame6}
             />

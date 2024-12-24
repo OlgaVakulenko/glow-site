@@ -1,7 +1,7 @@
 import cx from 'clsx';
 import { useAtom } from 'jotai';
 import Link from 'next/link';
-import { useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import Animated from './Animated';
 import { subMenuParentAtom } from './Header';
 import RollingText from './RollingText';
@@ -17,7 +17,6 @@ export default function HeaderLink({
   isAi,
 }) {
   const subItems = item.children;
-  // console.log(subItems)
   const { href, label, icon } = item;
   const [subMenuParent, setSubMenuParent] = useAtom(subMenuParentAtom);
   const debounceRef = useRef(false);
@@ -35,6 +34,20 @@ export default function HeaderLink({
       href,
     };
   }, [subItems, href]);
+console.log(!subMenuParent)
+  const [shouldApplyWhite, setShouldApplyWhite] = useState(false);
+
+  useEffect(() => {
+    let timer
+    if (!subMenuParent) {
+      timer = setTimeout(() => {
+        setShouldApplyWhite(true);
+      }, 600);
+    } else {
+      setShouldApplyWhite(false);
+    }
+    return () => clearTimeout(timer);
+  }, [subMenuParent]);
 
   return (
     <Animated
@@ -60,13 +73,13 @@ export default function HeaderLink({
 
             return item;
           });
-        } 
+        }
       }}
       delay={(index + 1) * 100}
       className={cx(
         'rolling-text-group flex items-center justify-center px-5 text-[16px] leading-[24px] tracking-[0.03em]',
         (theme === 'dark' ) && 'text-white',
-				{'ai-link': href === '/ai'}
+				{'ai-link': href === '/ai', "!text-white":  isAi && shouldApplyWhite }
       )}
       immediate
     >

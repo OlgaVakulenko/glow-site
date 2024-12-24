@@ -477,11 +477,13 @@ export default function Header({
   }, [media, prevMedia, resetSubMenuItems]);
 
   const handleFooterFormClick = useHandleFooterFormClick();
+  const textWhite = router.pathname === "/ai-productivity" && isTop && !backdropActive;
 
   const isTrialVisible = useMemo(() => {
     return router.pathname !== '/tral';
   }, [router.pathname]);
-const isAi =backdropActive && !isTop
+const isAi = backdropActive && !isTop
+  const ai = router.pathname === "/ai-productivity"
   return (
     <div ref={rootRef}>
       {/* <div className={cx('fixed top-0 z-10 w-full font-inter')}>
@@ -560,7 +562,7 @@ const isAi =backdropActive && !isTop
               >
                 {!isFooter &&
                   links.map((link, i) => (
-                    <HeaderLink key={i} index={i} item={link} theme={t} isAi={isAi} />
+                    <HeaderLink key={i} index={i} item={link} theme={t} isAi={textWhite} />
                   ))}
               </div>
               {headerRightSlot ||
@@ -591,8 +593,9 @@ const isAi =backdropActive && !isTop
                               immediate
                             >
                               <Button2
+
                                 className={cx(
-                                  'w-full !bg-[#19191B0F] !px-4 !py-3 font-inter normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]',
+                                  `w-full  !px-4 ${ai && !isAi ? '!bg-[#FFFFFF]' : '!bg-[#19191B0F]'} !py-3 font-inter normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]`,
                                   {
                                     '!bg-[#FFFFFF29] !text-white': t === 'dark',
                                   }
