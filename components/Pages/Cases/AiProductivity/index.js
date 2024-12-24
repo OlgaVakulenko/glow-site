@@ -287,7 +287,7 @@ export default function AiProductivity() {
           <Animated>
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
               <video
-                // autoPlay
+                autoPlay
                 loop
                 muted
                 preload="auto"
@@ -300,7 +300,7 @@ export default function AiProductivity() {
           <Animated>
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
               <video
-                // autoPlay
+                autoPlay
                 loop
                 muted
                 preload="auto"
@@ -313,7 +313,7 @@ export default function AiProductivity() {
           <Animated>
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
               <video
-                // autoPlay
+                autoPlay
                 loop
                 muted
                 preload="auto"
@@ -326,7 +326,7 @@ export default function AiProductivity() {
           <Animated>
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
               <video
-                //autoPlay
+                autoPlay
                 loop
                 muted
                 preload="auto"
@@ -339,7 +339,7 @@ export default function AiProductivity() {
           <Animated>
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
               <video
-                // autoPlay
+                autoPlay
                 loop
                 muted
                 preload="auto"
@@ -352,7 +352,7 @@ export default function AiProductivity() {
           <Animated>
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
               <video
-                // autoPlay
+                autoPlay
                 loop
                 muted
                 preload="auto"
@@ -363,7 +363,6 @@ export default function AiProductivity() {
             </div>
           </Animated>
         </div>
-        {/*//dddd*/}
         <Animated>
           <div className="mb-8 hidden md:mb-[61px] md:block xl:mb-[66px]">
             <div className="mb-4 xl:mb-[26px]">
@@ -487,7 +486,7 @@ export default function AiProductivity() {
           <div
             className="mb-[59px] h-[491px] xs:h-[515px] sm:h-[500px] md:mb-[72px] md:h-[491px] xl:mb-[88px] xl:h-[671px]">
             <video
-              // autoPla
+              autoPlay
               loop
               muted
               preload="auto"
