@@ -88,7 +88,7 @@ function MyApp({ Component, pageProps }) {
             content={getFullDescription(
               `Glow Team specializes in design, transforming businesses through creativity and innovation. Explore our services for success.`
             )}
-          ></meta>        )}
+          ></meta>)}
 
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta property="akey" content="needle-4" />
@@ -226,22 +226,22 @@ function MyApp({ Component, pageProps }) {
       <CookieBanner>
         {(isConsent) => (isConsent ? <Analytics /> : null)}
       </CookieBanner>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-              setTimeout(function(){
-                if (!window.__app_mounted) {
-                  var t = document.querySelectorAll('.to-animate');
-                  for (var i = 0; i < t.length; i++) {
-                    var el = t[i];
-                    el && el.classList && el.setAttribute('in-viewport', true);
-                    window.__mobile_in_viewport = true;
-                  }
-                }
-              }, 500);
-            `,
-        }}
-      />
+      {/*<script*/}
+      {/*  dangerouslySetInnerHTML={{*/}
+      {/*    __html: `*/}
+      {/*        setTimeout(function(){*/}
+      {/*          if (!window.__app_mounted) {*/}
+      {/*            var t = document.querySelectorAll('.to-animate');*/}
+      {/*            for (var i = 0; i < t.length; i++) {*/}
+      {/*              var el = t[i];*/}
+      {/*              el && el.classList && el.setAttribute('in-viewport', true);*/}
+      {/*              window.__mobile_in_viewport = true;*/}
+      {/*            }*/}
+      {/*          }*/}
+      {/*        }, 500);*/}
+      {/*      `,*/}
+      {/*  }}*/}
+      {/*/>*/}
       <div id="drag-cursor"></div>
     </div>
   );

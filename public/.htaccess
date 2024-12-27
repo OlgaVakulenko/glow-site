@@ -3,7 +3,6 @@ RewriteEngine on
 #example.com/page will display the contents of example.com/page.html
 
 # /trial -> /
-RewriteRule ^trial/?$ / [R=301,L]
 RewriteRule ^contacts/?$ /contact-us/ [R=301,L]
 RewriteRule ^/icons-temp/?$ / [R=301,L]
 RewriteRule ^form/?$ /contact-us/ [R=301,L]
