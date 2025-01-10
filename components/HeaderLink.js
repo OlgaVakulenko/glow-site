@@ -34,7 +34,6 @@ export default function HeaderLink({
       href,
     };
   }, [subItems, href]);
-console.log(!subMenuParent)
   const [shouldApplyWhite, setShouldApplyWhite] = useState(false);
 
   useEffect(() => {
