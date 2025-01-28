@@ -114,7 +114,6 @@ function emailNotification() {
     $mailer->addAddress('rusmashatov@gmail.com');
 	$mailer->addAddress('chr99272@gmail.com');
 
-
     $mailer->isHTML(true);
     $mailer->Subject = 'Contact form submission';
     $message = [
