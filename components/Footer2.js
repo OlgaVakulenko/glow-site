@@ -117,7 +117,7 @@ export default function Footer2({
                 <div className="mb-[40px] text-[12px] uppercase leading-[24px] tracking-[0.02em] text-white md:mb-10 xl:mb-10">
                   <SlotText />
                 </div>
-                <div className="mb-8 text-center text-next-heading-4 text-white md:mb-8 md:text-next-heading-3 xl:mb-8 xl:text-[72px] xl:leading-[72px]">
+                <div className="mb-8 text-center font-satoshi text-next-heading-4 text-white md:mb-8 md:text-[56px] md:leading-[64px] md:tracking-[-2px] xl:mb-8 xl:text-[72px] xl:leading-[72px]">
                   {router.pathname === '/trial' ? (
                     <>
                       Ready to start
