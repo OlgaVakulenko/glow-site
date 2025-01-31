@@ -114,6 +114,13 @@ function emailNotification() {
     $mailer->addAddress('rusmashatov@gmail.com');
 	$mailer->addAddress('chr99272@gmail.com');
 
+    if (!empty($_FILES['attachment']['tmp_name'])) {
+      $mailer->addAttachment(
+        $_FILES['attachment']['tmp_name'],
+        $_FILES['attachment']['name']
+      );
+    }
+
     $mailer->isHTML(true);
     $mailer->Subject = 'Contact form submission';
     $message = [
