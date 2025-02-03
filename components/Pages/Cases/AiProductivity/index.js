@@ -222,6 +222,42 @@ export default function AiProductivity() {
           </div>
         </Animated>
         <Animated>
+          <div className="mb-[96px] w-full xl:mb-[132px] sm:mb-[96px]">
+            <RespSVG
+              src="/img/aiCase/frame-grid-xl.png"
+              className="w-full hidden sm:block"
+              md="/img/aiCase/frame-grid-md.png"
+              xl="/img/aiCase/frame-grid-xl.png"
+            />
+           <div className={'sm:hidden flex flex-col gap-[12px]'}>
+             <RespSVG
+               src="/img/aiCase/frame-grid-sm-1.png"
+               className="w-full"
+             />
+             <RespSVG
+               src="/img/aiCase/frame-grid-sm-2.png"
+               className="w-full"
+             />
+             <RespSVG
+               src="/img/aiCase/frame-grid-sm-3.png"
+               className="w-full"
+             />
+             <RespSVG
+               src="/img/aiCase/frame-grid-sm-4.png"
+               className="w-full"
+             />
+             <RespSVG
+               src="/img/aiCase/frame-grid-sm-5.png"
+               className="w-full"
+             />
+             <RespSVG
+               src="/img/aiCase/frame-grid-sm-6.png"
+               className="w-full"
+             />
+           </div>
+          </div>
+        </Animated>
+        <Animated>
           <div className="mb-[96px] w-full xl:mb-[132px]">
             <RespSVG
               src="/img/aiCase/frame-13.svg"
