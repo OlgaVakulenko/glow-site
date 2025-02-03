@@ -2,14 +2,33 @@ import Head from 'next/head';
 import Header from './Header';
 import Objectives from './Objectives';
 import Layout from '../../../Layout';
+import EchoImage from './assets/echo.png';
+import EchoImageMd from './assets/echo-md.png';
+import EchoImageXl from './assets/echo-xl.png';
 import Frame1xl from './assets/frame-1-xl.png';
 import Frame1md from './assets/frame-1-md.png';
 import Frame1 from './assets/frame-1.png';
 import Frame2xl from './assets/frame-2-xl.png';
 import Frame2md from './assets/frame-2-md.png';
 import Frame2 from './assets/frame-2.png';
+import Frame3xl from './assets/frame-3-xl.png';
+import Frame3md from './assets/frame-3-md.png';
+import Frame3 from './assets/frame-3.png';
+import Frame4xl from './assets/frame-4-xl.png';
+import Frame4md from './assets/frame-4-md.png';
+import Frame4 from './assets/frame-4.png';
 import Frame7xl from './assets/frame-7-xl.png';
+import Frame7md from './assets/frame-7-md.png';
+import Frame7 from './assets/frame-7.png';
 import Frame6xl from './assets/frame-6-xl.png';
+import Frame6md from './assets/frame-6-md.png';
+import Frame6 from './assets/frame-6.png';
+import Frame8xl from './assets/frame-8-xl.png';
+import Frame8md from './assets/frame-8-md.png';
+import Frame8 from './assets/frame-8.png';
+import Frame9xl from './assets/frame-9-xl.png';
+import Frame9md from './assets/frame-9-md.png';
+import Frame9 from './assets/frame-9.png';
 import RespImage from '../Renovation/RespImage';
 import RespSVG from '../Renovation/RespSVG';
 import Animated from '../../../Animated';
@@ -49,6 +68,15 @@ export default function Echo() {
         />
       </Animated>
       <Animated>
+        <RespImage
+          pictureClassname=""
+          className="h-full"
+          src={EchoImage}
+          md={EchoImageMd}
+          xl={EchoImageXl}
+        />
+      </Animated>
+      <Animated>
         <Objectives />
       </Animated>
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
@@ -65,8 +93,7 @@ export default function Echo() {
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
         <Animated>
           <h2 className="mb-10 font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:h-[77px] md:text-[56px] md:leading-[64px] xl:mb-20">
-            <span className="block md:hidden">Competitors research</span>
-            <span className="hidden md:block">Customer journey map</span>
+            <span className="block">Competitors research</span>
           </h2>
         </Animated>
         <Animated>
@@ -81,7 +108,7 @@ export default function Echo() {
       </Layout>
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
         <Animated>
-          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-20">
+          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-20 flex sm:block items-center">
             User Flow
           </h2>
         </Animated>
@@ -96,7 +123,7 @@ export default function Echo() {
       </Layout>
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px]">
+          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px] flex sm:block items-center">
             Color
           </h2>
         </Animated>
@@ -127,7 +154,7 @@ export default function Echo() {
       </Animated>
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px]">
+          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px] flex sm:block items-center">
             Typography
           </h2>
         </Animated>
@@ -139,16 +166,16 @@ export default function Echo() {
         </Animated>
       </Layout>
       <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
-        <RespSVG
+        <RespImage
           className="h-full w-full"
-          src="/img/echo/frame-9.svg"
-          md="/img/echo/frame-9-md.svg"
-          xl="/img/echo/frame-9-xl.svg"
+          src={Frame3}
+          md={Frame3md}
+          xl={Frame3xl}
         />
       </Animated>
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] xl:mb-[54px] md:text-[56px] md:leading-[64px]">
+          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] xl:mb-[54px] md:text-[56px] md:leading-[64px] flex sm:block items-center">
             Branding
           </h2>
         </Animated>
@@ -160,17 +187,17 @@ export default function Echo() {
         </Animated>
       </Layout>
       <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
-        <RespSVG
+        <RespImage
           className="h-full w-full"
-          src="/img/echo/frame-9.svg"
-          md="/img/echo/frame-9-md.svg"
-          xl="/img/echo/frame-9-xl.svg"
+          src={Frame4}
+          md={Frame4md}
+          xl={Frame4xl}
         />
       </Animated>
       <Layout className="pt-[50px] pb-[30px] md:py-[72px] xl:py-[88px]">
         <div className="mb-10 flex max-md:flex-col items-start justify-between gap-10 md:gap-[56px] xl:gap-[70px]  md:mb-[56px] xl:mb-20">
           <Animated className="xl:flex-1">
-            <h2 className="h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:text-[56px] md:leading-[64px]">
+            <h2 className="h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:text-[56px] md:leading-[64px] flex sm:block items-center">
               Meeting
             </h2>
           </Animated>
@@ -199,15 +226,15 @@ export default function Echo() {
             <RespImage
               pictureClassname=" "
               className="max-md:w-[75vw] max-md:h-[30%] w-[400px] h-[257px] xl:mt-[132px] max-md:ml-0  max-xl:ml-[6.2vw] max-md-safe:ml-[4vw] max-xl:w-[400px] max-md-safe:w-[355px] max-md-safe:h-[240px] max-md:mt-0 max-xl:mt-[40px]"
-              src={Frame6xl}
-              md={Frame6xl}
+              src={Frame6}
+              md={Frame6md}
               xl={Frame6xl}
             />
             <RespImage
               pictureClassname=" "
               className="w-[400px] max-md:ml-auto max-md:h-[36.5%] max-md:w-[75vw] h-[305px] max-md-safe:h-[285px] xl:mt-10 max-md-safe:w-[370px] relative max-xl:top-[-49%] max-md:static max-md-safe:top-[-58%]"
-              src={Frame7xl}
-              md={Frame7xl}
+              src={Frame7}
+              md={Frame7md}
               xl={Frame7xl}
             />
           </Animated>
@@ -218,7 +245,7 @@ export default function Echo() {
           className="mb-10 flex max-md:flex-col items-start justify-between gap-10 md:gap-[70px] md:mb-[56px] xl:mb-20">
           <Animated className="xl:flex-1">
             <h2
-              className="h-[77px] w-max font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:text-[56px] md:leading-[64px]">
+              className="h-[77px] w-max font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:text-[56px] md:leading-[64px] flex sm:block items-center">
               Past meetings
             </h2>
           </Animated>
@@ -238,7 +265,7 @@ export default function Echo() {
 
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px]">
+          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px] flex sm:block items-center">
             Templates
           </h2>
         </Animated>
@@ -265,7 +292,7 @@ export default function Echo() {
           className="mb-10 xl:flex max-md-safe:flex-col items-start justify-between gap-10 md:gap-[70px] xl:gap-[30px] md:mb-[56px] xl:mb-20">
           <Animated className="xl:flex-1">
             <h2
-              className="h-[77px] md:mb-[56px] mb-10 xl:mb-0  w-max font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:text-[56px] md:leading-[64px]">
+              className="h-[77px] md:mb-[56px] mb-10 xl:mb-0  w-max font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:text-[56px] md:leading-[64px] flex sm:block items-center">
               Upcoming meetings
             </h2>
           </Animated>
@@ -311,7 +338,7 @@ export default function Echo() {
 
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px]">
+          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px] flex sm:block items-center">
             Current meeting
           </h2>
         </Animated>
@@ -322,12 +349,18 @@ export default function Echo() {
             After a question is asked, the program utilizes artificial intelligence to automatically mark it as already asked.          </p>
         </Animated>
       </Layout>
-      <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
-        <RespSVG
+      <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px] flex flex-col sm:flex-row justify-center gap-[16px] sm:gap-[24px] mx-[16px] sm:mx-[32px] xl:mx-[64px]">
+        <RespImage
           className="h-full w-full"
-          src="/img/echo/frame-9.svg"
-          md="/img/echo/frame-9-md.svg"
-          xl="/img/echo/frame-9-xl.svg"
+          src={Frame8}
+          md={Frame8md}
+          xl={Frame8xl}
+        />
+        <RespImage
+          className="h-full w-full"
+          src={Frame9}
+          md={Frame9md}
+          xl={Frame9xl}
         />
       </Animated>
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
@@ -335,7 +368,7 @@ export default function Echo() {
           className="mb-10 flex max-md:flex-col  items-start justify-between gap-10 md:gap-[70px] xl:gap-[30px] md:mb-[56px] xl:mb-20">
           <Animated className="xl:flex-1">
             <h2
-              className="h-[77px]  w-max font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:text-[56px] md:leading-[64px]">
+              className="h-[77px]  w-max font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:text-[56px] md:leading-[64px] flex sm:block items-center">
               Analytics
             </h2>
           </Animated>

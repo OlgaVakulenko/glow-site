@@ -10,7 +10,7 @@ function Col({ className, title, items = [] }) {
         'text-base leading-[160%] md:text-xl md:leading-[150%]'
       )}
     >
-      <div className="mb-3 opacity-30 md:mb-10 text-[#FFFFFF75]">{title}</div>
+      <div className="mb-3 opacity-30 md:mb-10 text-[#FFFFFF90]">{title}</div>
       <div className="md:grid md:gap-3 text-white">
         {items.map((item, index) => (
           <Animated
