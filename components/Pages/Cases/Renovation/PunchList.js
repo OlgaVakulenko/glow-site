@@ -1,22 +1,18 @@
 import Layout from '../../../Layout';
 import Animated from '../../../Animated';
 import RespImage from './RespImage';
-import Frame36 from './assets/frame-36.svg';
-import Frame36md from './assets/frame-36-md.svg';
-import Frame36xl from './assets/frame-36-xl.svg';
-
-import Frame37 from './assets/frame-37.svg';
-import Frame37md from './assets/frame-37-md.svg';
-import Frame37xl from './assets/frame-37-xl.svg';
-
-import Frame38 from './assets/frame-38.svg';
-import Frame38md from './assets/frame-38-md.svg';
-import Frame38xl from './assets/frame-38-xl.svg';
-
-import Frame39 from './assets/frame-39.svg';
-import Frame39md from './assets/frame-39-md.svg';
-import Frame39xl from './assets/frame-39-xl.svg';
-import RespSVG from './RespSVG';
+import Frame36 from './assets/frame-36.png';
+import Frame36md from './assets/frame-36-md.png';
+import Frame36xl from './assets/frame-36-xl.png';
+import Frame37 from './assets/frame-37.png';
+import Frame37md from './assets/frame-37-md.png';
+import Frame37xl from './assets/frame-37-xl.png';
+import Frame38 from './assets/frame-38.png';
+import Frame38md from './assets/frame-38-md.png';
+import Frame38xl from './assets/frame-38-xl.png';
+import Frame39 from './assets/frame-39.png';
+import Frame39md from './assets/frame-39-md.png';
+import Frame39xl from './assets/frame-39-xl.png';
 
 function Title({ className, children }) {
   return (
@@ -60,33 +56,33 @@ export default function PunchList() {
         </div>
         <div className="flex h-full items-end justify-between xl:gap-[35px]">
           <div className="h-full w-full flex-1 md:mt-[315px] md-safe:mt-[345px] xl:mr-[9px]">
-            <RespSVG
-              className="h-full w-full"
-              src="/img/wr/frame-36.svg"
-              md="/img/wr/frame-36-md.svg"
-              xl="/img/wr/frame-36-xl.svg"
+            <RespImage
+              className="w-full"
+              src={Frame36}
+              md={Frame36md}
+              xl={Frame36xl}
             />
           </div>
           <div className="h-full w-full flex-1 md:mb-[55px] md-safe:mb-[106px] xl:mb-[96px]">
-            <RespSVG
-              className="h-full w-full"
-              src="/img/wr/frame-37.svg"
-              md="/img/wr/frame-37-md.svg"
-              xl="/img/wr/frame-37-xl.svg"
+            <RespImage
+              className="w-full"
+              src={Frame37}
+              md={Frame37md}
+              xl={Frame37xl}
             />
           </div>
           <div className="h-full w-full flex-1 md:mb-[45px] md:pt-[64px] md-safe:mb-[61px] xl:mb-[44px] xl:pt-[68px]">
-            <RespSVG
-              className="h-full w-full md-safe:mb-4 md-safe:max-h-[385px] xl:mb-6 xl:max-h-[494px] "
-              src="/img/wr/frame-38.svg"
-              md="/img/wr/frame-38-md.svg"
-              xl="/img/wr/frame-38-xl.svg"
+            <RespImage
+              className="w-full md-safe:mb-4 md-safe:max-h-[385px] xl:mb-6 xl:max-h-[494px]"
+              src={Frame38}
+              md={Frame38md}
+              xl={Frame38xl}
             />
-            <RespSVG
-              className="h-full w-full md-safe:max-h-[449px] xl:max-h-[574px] "
-              src="/img/wr/frame-39.svg"
-              md="/img/wr/frame-39-md.svg"
-              xl="/img/wr/frame-39-xl.svg"
+            <RespImage
+              className="w-full md-safe:max-h-[449px] xl:max-h-[574px]"
+              src={Frame39}
+              md={Frame39md}
+              xl={Frame39xl}
             />
           </div>
         </div>
@@ -94,31 +90,31 @@ export default function PunchList() {
       <div className="pb-[56px] md:hidden">
         <div className="flex">
           <div className="mt-[46px] h-full w-full flex-1">
-            <RespSVG
-              className="mb-[24px] h-full w-full md:mb-0"
-              src="/img/wr/frame-38.svg"
-              md="/img/wr/frame-38-md.svg"
-              xl="/img/wr/frame-38-xl.svg"
+            <RespImage
+              className="w-full mb-[24px] md:mb-0"
+              src={Frame38}
+              md={Frame38md}
+              xl={Frame38xl}
             />
-            <RespSVG
-              className="h-full w-full"
-              src="/img/wr/frame-36.svg"
-              md="/img/wr/frame-36-md.svg"
-              xl="/img/wr/frame-36-xl.svg"
+            <RespImage
+              className="w-full"
+              src={Frame36}
+              md={Frame36md}
+              xl={Frame36xl}
             />
           </div>
           <div className="mt-[24px] h-full w-full flex-1">
-            <RespSVG
-              className="h-full w-full md-safe:mb-4  md-safe:max-h-[385px] xl:mb-6 xl:max-h-[494px] "
-              src="/img/wr/frame-37.svg"
-              md="/img/wr/frame-37-md.svg"
-              xl="/img/wr/frame-37-xl.svg"
+            <RespImage
+              className="w-full md-safe:mb-4  md-safe:max-h-[385px] xl:mb-6 xl:max-h-[494px]"
+              src={Frame37}
+              md={Frame37md}
+              xl={Frame37xl}
             />
-            <RespSVG
-              className="h-full w-full md-safe:max-h-[449px] xl:max-h-[574px] "
-              src="/img/wr/frame-39.svg"
-              md="/img/wr/frame-39-md.svg"
-              xl="/img/wr/frame-39-xl.svg"
+            <RespImage
+              className="w-full md-safe:max-h-[449px] xl:max-h-[574px]"
+              src={Frame39}
+              md={Frame39md}
+              xl={Frame39xl}
             />
           </div>
         </div>

@@ -1,13 +1,12 @@
 import Layout from '../../../Layout';
 import Animated from '../../../Animated';
 import RespImage from './RespImage';
-import Frame30 from './assets/frame-30.svg';
-import Frame30md from './assets/frame-30-xl.svg';
-import Frame30xl from './assets/frame-30-xl.svg';
-import Frame31 from './assets/frame-31.svg';
-import Frame31md from './assets/frame-31-xl.svg';
-import Frame31xl from './assets/frame-31-xl.svg';
-import RespSVG from './RespSVG';
+import Frame30 from './assets/frame-30.png';
+import Frame30md from './assets/frame-30-md.png';
+import Frame30xl from './assets/frame-30-xl.png';
+import Frame31 from './assets/frame-31.png';
+import Frame31md from './assets/frame-31-md.png';
+import Frame31xl from './assets/frame-31-xl.png';
 
 function Title({ className, children }) {
   return (
@@ -49,19 +48,19 @@ export default function ProjectManagement() {
         <div className="mb-[56px] flex h-full w-full flex-col justify-center gap-0 pt-6 md:mb-0 md:flex-row md:justify-between md:pt-[40px] md-safe:pt-[56px] xl:gap-20 xl:pt-[72px]">
           <div className="flex w-full xl:gap-10">
             <div className="flex-1 md:max-h-[597px] xl:max-h-[740px] xl:max-w-[400px]">
-              <RespSVG
-                className="h-full w-full"
-                src="/img/wr/frame-30.svg"
-                md="/img/wr/frame-30-md.svg"
-                xl="/img/wr/frame-30-xl.svg"
+              <RespImage
+                className="w-full"
+                src={Frame30}
+                md={Frame30md}
+                xl={Frame30xl}
               />
             </div>
             <div className="flex-1 md:max-h-[597px] xl:max-h-[740px] xl:max-w-[400px]">
-              <RespSVG
-                className="h-full w-full"
-                src="/img/wr/frame-31.svg"
-                md="/img/wr/frame-31-md.svg"
-                xl="/img/wr/frame-31-xl.svg"
+              <RespImage
+                className="w-full"
+                src={Frame31}
+                md={Frame31md}
+                xl={Frame31xl}
               />
             </div>
           </div>

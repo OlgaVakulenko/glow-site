@@ -2,6 +2,18 @@ import Layout from '../../../Layout';
 import Animated from '../../../Animated';
 import RespImage from './RespImage';
 
+import StripeFrame from './assets/Img2_stripe.png';
+import StripeFrameMd from './assets/Img2_stripe-md.png';
+import StripeFrameXl from './assets/Img2_stripe-xl.png';
+import Twilio1Frame from './assets/Img1_twilio.png';
+import Twilio1FrameMd from './assets/Img1_twilio-md.png';
+import Twilio1FrameXl from './assets/Img1_twilio-xl.png';
+import Twilio2FrameMd from './assets/Img2_twilio-md.png';
+import Twilio2FrameXl from './assets/Img2_twilio-xl.png';
+import DosusignFrame from './assets/Img2_docusign.png';
+import DosusignFrameMd from './assets/Img2_docusign-md.png';
+import DosusignFrameXl from './assets/Img2_docusign-xl.png';
+
 import Frame20 from './assets/frame-20.svg';
 import Frame20xl from './assets/frame-20-xl.svg';
 import Frame21 from './assets/frame-21.png';
@@ -51,7 +63,7 @@ export default function IntegrationsOverview() {
         disablePadding
         className="rounded-[32px] bg-charcoal-black md:rounded-[56px]"
       >
-        <Layout className="flex max-w-[978px] flex-col items-center  pb-[40px] pt-[72px] text-white md:px-10 md:pb-[80px] md:pt-[120px] xl:px-0">
+        <Layout disablePadding className="flex max-w-[978px] flex-col items-center  pb-[40px] pt-[72px] text-white md:px-10 md:pb-[80px] md:pt-[120px] xl:px-0">
           <div className="mx-auto mb-6 w-fit rounded-[32px] bg-light-green px-4 py-2 font-inter text-[12px] font-medium uppercase leading-[24px] tracking-[0.02em] text-lightGray">
             Integrations
           </div>
@@ -95,11 +107,11 @@ export default function IntegrationsOverview() {
                 </div>
               </div>
               <div className="mb-[65px]  h-full max-h-[475px] w-[340px] pb-[5px] pt-[40px] xs:max-h-[470px] xs:max-w-[340px] sm:max-h-[550px] sm:w-full sm:max-w-[400px] md:mb-0 md:max-h-[640px] md:max-w-[330px] md:pt-[71px]  md-safe:max-h-[740px] md-safe:max-w-[400px]">
-                <RespSVG
+                <RespImage
                   className="h-full w-full"
-                  src="/img/wr/frame-22.svg"
-                  md="/img/wr/frame-22-md.svg"
-                  xl="/img/wr/frame-22-xl.svg"
+                  src={StripeFrame}
+                  md={StripeFrameMd}
+                  xl={StripeFrameXl}
                 />
               </div>
             </div>
@@ -118,11 +130,11 @@ export default function IntegrationsOverview() {
           <div className=" relative mb-4 overflow-hidden rounded-[24px] bg-light-red md:mb-8 md:rounded-[40px]">
             <div className="flex flex-col items-center justify-between py-10 md:w-[95%] md:flex-row md:items-end md:pb-[3px] md:pl-10 md:pt-[73px]  md-safe:pl-[56px] xl:pl-[104px]">
               <div className="mb-[25px] h-full max-h-[475px]  w-[340px] xs:max-h-[470px] xs:max-w-[340px] sm:max-h-[550px] sm:w-full sm:max-w-[400px] md:mb-0 md:max-h-[610px] md:max-w-[360px] md-safe:max-h-[740px] md-safe:max-w-[431px] xl:max-w-[488px]">
-                <RespSVG
+                <RespImage
                   className="h-full w-full"
-                  src="/img/wr/frame-24.svg"
-                  md="/img/wr/frame-24-md.svg"
-                  xl="/img/wr/frame-24-xl.svg"
+                  src={Twilio1Frame}
+                  md={Twilio1FrameMd}
+                  xl={Twilio1FrameXl}
                 />
               </div>
               <div className="px-6 md:mr-0  md:max-w-[392px] md:px-0 md:pb-10 md-safe:pb-[56px] xl:mr-[96px] xl:pb-[96px]">
@@ -145,11 +157,11 @@ export default function IntegrationsOverview() {
                   </TitleDesc>
                 </div>
                 <div className="absolute top-[-2%] hidden h-full w-full md:right-[11%] md:top-[-0%] md:block md:max-h-[150px] md:max-w-[210px] md-safe:right-[9.5%] md-safe:max-h-[304px] md-safe:max-w-[290px]   xl:right-[7.5%] xl:top-[-3%]">
-                  <RespSVG
-                    className="h-full w-full"
-                    src="/img/wr/frame-25-xl.svg"
-                    md="/img/wr/frame-25-xl.svg"
-                    xl="/img/wr/frame-25-xl.svg"
+                  <RespImage
+                    className="w-full"
+                    src={Twilio2FrameMd}
+                    md={Twilio2FrameMd}
+                    xl={Twilio2FrameXl}
                   />
                 </div>
               </div>
@@ -190,11 +202,11 @@ export default function IntegrationsOverview() {
                 </div>
               </div>
               <div className="mb-[25px] h-full max-h-[475px]  w-[340px] xs:max-h-[470px] xs:max-w-[340px] sm:max-h-[550px] sm:w-full sm:max-w-[400px] md:mb-[65px] md:mt-[96px] md:max-h-[520px] md:max-w-[360px] md-safe:max-h-[654px] md-safe:max-w-[456px] xl:my-[81px] xl:max-w-[428px]">
-                <RespSVG
-                  className="h-full w-full"
-                  src="/img/wr/frame-29.svg"
-                  md="/img/wr/frame-29-md.svg"
-                  xl="/img/wr/frame-29-xl.svg"
+                <RespImage
+                  className="w-full h-full"
+                  src={DosusignFrame}
+                  md={DosusignFrameMd}
+                  xl={DosusignFrameXl}
                 />
               </div>
             </div>

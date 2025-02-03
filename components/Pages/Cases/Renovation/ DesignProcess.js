@@ -45,7 +45,7 @@ export default function DesignProcess() {
         disablePadding
         className="overflow-hidden rounded-[32px] bg-charcoal-black md:rounded-[56px]"
       >
-        <Layout className="overflow-hidden">
+        <Layout className="overflow-hidden mb-[16px] sm:mb-[0px]">
           <div className="pb-10 pt-[72px] md:pb-[64px] md:pt-[96px] xl:pb-[120px] xl:pt-[120px]">
             <div className="mb-[40px] flex flex-col  justify-start md:mb-[48px] xl:mb-[96px]">
               <div className="mb-8 w-fit rounded-[32px] bg-light-green px-4 py-2 font-inter text-[12px] font-medium uppercase leading-[24px] tracking-[0.02em] text-lightGray md:mb-[34px]">
@@ -77,7 +77,7 @@ export default function DesignProcess() {
             <div className="relative z-[9] w-screen overflow-scroll md:hidden">
               <div className="center-block fix-width scroll-inner">
                 <RespImage
-                  className="image max-h-[294px] pb-10 pr-[33px] xs:max-h-initial md:max-h-[392px] md:pb-0 xl:max-h-[536px]"
+                  className="!w-auto max-h-[294px] pb-10 pr-[33px] xs:max-h-initial md:max-h-[392px] md:pb-0 xl:max-h-[536px]"
                   src={Frame7md}
                   md={Frame7md}
                   xl={Frame7xl}

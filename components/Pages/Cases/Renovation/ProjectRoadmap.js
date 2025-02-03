@@ -8,7 +8,11 @@ import Frame15md from './assets/frame-15-md.png';
 import Frame15xl from './assets/frame-15-xl.png';
 import Frame15 from './assets/frame-15.png';
 import CardIcon from './assets/CardIcon.png';
-import ListIcon from './assets/Listicon.png';
+import CardIconXl from './assets/CardIcon-xl.png';
+import CardIconMd from './assets/CardIcon-md.png';
+import ListIcon from './assets/ListIcon.png';
+import ListIconXl from './assets/ListIcon-xl.png';
+import ListIconMd from './assets/ListIcon-md.png';
 
 function Title({ className, children }) {
   return (
@@ -57,8 +61,8 @@ export default function ProjectRoadmap() {
               pictureClassname="h-[56px] w-[56px]"
               className=""
               src={CardIcon}
-              md={CardIcon}
-              xl={CardIcon}
+              md={CardIconMd}
+              xl={CardIconXl}
             />
             <Title>{'Card view'}</Title>
             <Text>
@@ -94,8 +98,8 @@ export default function ProjectRoadmap() {
               pictureClassname="h-[56px] w-[56px]"
               className=""
               src={ListIcon}
-              md={ListIcon}
-              xl={ListIcon}
+              md={ListIconMd}
+              xl={ListIconXl}
             />
             <Title>{'List view'}</Title>
             <Text>
@@ -110,8 +114,8 @@ export default function ProjectRoadmap() {
             pictureClassname="h-[56px] w-[56px]"
             className=""
             src={CardIcon}
-            md={CardIcon}
-            xl={CardIcon}
+            md={CardIconMd}
+            xl={CardIconXl}
           />
           <Title className="text-center">{'Card view'}</Title>
           <Text className="text-center">
@@ -125,8 +129,8 @@ export default function ProjectRoadmap() {
             pictureClassname="h-[56px] w-[56px]"
             className=""
             src={ListIcon}
-            md={ListIcon}
-            xl={ListIcon}
+            md={ListIconMd}
+            xl={ListIconXl}
           />
           <Title className="text-center">{'List view'}</Title>
           <Text className="text-center">

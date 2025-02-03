@@ -1,13 +1,12 @@
 import Layout from '../../../Layout';
 import Animated from '../../../Animated';
 import RespImage from './RespImage';
-import Frame40 from './assets/frame-40.svg';
-import Frame40md from './assets/frame-40-xl.svg';
-import Frame40xl from './assets/frame-40-xl.svg';
-import Frame41 from './assets/frame-41.svg';
-import Frame41md from './assets/frame-41-xl.svg';
-import Frame41xl from './assets/frame-41-xl.svg';
-import RespSVG from './RespSVG';
+import Frame40 from './assets/frame-40.png';
+import Frame40md from './assets/frame-40-md.png';
+import Frame40xl from './assets/frame-40-xl.png';
+import Frame41 from './assets/frame-41.png';
+import Frame41md from './assets/frame-41-md.png';
+import Frame41xl from './assets/frame-41-xl.png';
 
 function Title({ className, children }) {
   return (
@@ -37,19 +36,19 @@ export default function Calendar() {
         <div className="mb-[56px] flex h-full w-full flex-col justify-center gap-0  pt-[24px] md:mb-0 md:flex-row md:justify-between  md:pt-[48px] xl:gap-20 xl:pt-0 ">
           <div className="flex w-full justify-between xl:gap-[40px]">
             <div className=" flex-1 md:max-h-[597px] xl:max-h-[740px] xl:max-w-[400px]">
-              <RespSVG
-                className="h-full w-full"
-                src="/img/wr/frame-40.svg"
-                md="/img/wr/frame-40-md.svg"
-                xl="/img/wr/frame-40-xl.svg"
+              <RespImage
+                className="w-full"
+                src={Frame40}
+                md={Frame40md}
+                xl={Frame40xl}
               />
             </div>
             <div className="flex-1 md:max-h-[597px] xl:mt-[140px] xl:max-h-[740px] xl:max-w-[400px]">
-              <RespSVG
-                className="h-full w-full"
-                src="/img/wr/frame-41.svg"
-                md="/img/wr/frame-41-md.svg"
-                xl="/img/wr/frame-41-xl.svg"
+              <RespImage
+                className="w-full"
+                src={Frame41}
+                md={Frame41md}
+                xl={Frame41xl}
               />
             </div>
           </div>

@@ -3,9 +3,9 @@ import Header from './Header';
 import Frame1md from './assets/frame-1-md.png';
 import Frame1xl from './assets/frame-1-xl.png';
 import Frame1 from './assets/frame-1.png';
-import Frame35md from './assets/frame-35-md.svg';
-import Frame35xl from './assets/frame-35-xl.svg';
-import Frame35 from './assets/frame-35.svg';
+import Frame35 from './assets/frame-35.png';
+import Frame35md from './assets/frame-35-md.png';
+import Frame35xl from './assets/frame-35-xl.png';
 import Layout from '../../../Layout';
 import Objectives from './Objectives';
 import RespImage from './RespImage';
@@ -62,7 +62,7 @@ export default function WelcomeRenovation() {
           src={Frame1}
           md={Frame1md}
           xl={Frame1xl}
-          className="bg-[#7a7b7c] xl:h-[1080px]"
+          className="bg-[#7a7b7c]"
         />
       </Animated>
       <Objectives />
@@ -75,16 +75,17 @@ export default function WelcomeRenovation() {
       <ProjectManagement />
       <Reporting />
       <div className="bg-lightGray">
-        <Layout disablePadding>
-          <RespSVG
-            src="/img/wr/frame-35.svg"
-            md="/img/wr/frame-35-md.svg"
-            xl="/img/wr/frame-35-xl.svg"
+        <Layout>
+          <RespImage
+            className="w-full"
+            src={Frame35}
+            md={Frame35md}
+            xl={Frame35xl}
           />
         </Layout>
         <Calendar />
         <PunchList />
-        <Layout className="flex flex-col gap-2 bg-lightGray md:gap-8">
+        <Layout className="flex flex-col gap-2 bg-lightGray md:gap-8 py-[16px] sm:py-[0px]">
           <RespSVG
             src="/img/wr/frame-42.svg"
             md="/img/wr/frame-42-md.svg"
