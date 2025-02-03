@@ -29,7 +29,7 @@ export function FAQ({ padding, items = faqItems, animate = false, trial }) {
         'mb-[52px] md:mb-[72px] xl:mb-[88px]': padding == null,
       })}
     >
-      <TitleTag className={cx("mb-10 text-next-heading-5 md:mb-14 xl:mb-20 xl:text-next-heading-2", {"md:text-next-heading-2": trial, "md:text-next-heading-3": !trial })}>
+      <TitleTag as='h2' className={cx("mb-10 text-next-heading-5 md:mb-14 xl:mb-20 xl:text-next-heading-2", {"md:text-next-heading-2": trial, "md:text-next-heading-3": !trial })}>
         <span className={cx({ 'white-gradient-text': theme === 'dark' })}>
           FAQ
         </span>{' '}
