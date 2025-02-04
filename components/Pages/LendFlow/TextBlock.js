@@ -28,18 +28,18 @@ export default function TextBlock({
         <Animated>
           <div
             className={cx(
-              'box-sizing-border relative mx-auto mb-6 flex h-[34px] flex-row  items-center  justify-between rounded-[52px] bg-[#2A2A2A] p-[8px_11px_8px_11px]',
+              'box-sizing-border relative mx-auto mb-6 flex h-[34px] flex-row  items-center  justify-between rounded-[52px] bg-[#2A2A2A] p-[8px_13px_8px_13px] sm:p-[8px_11px_8px_11px]',
               {},
               topicClassName
             )}
           >
             <RespSVG
-              src="/img/lendFlow/textBlocIcon.svg"
+              src="/img/lendFlow/Banknotes.svg"
               md="/img/lendFlow/textBlocIcon.svg"
               xl="/img/lendFlow/textBlocIcon.svg"
-              className="h-[18px] w-[18px] "
+              className="sm:h-[18px] sm:w-[18px] h-[16px] w-[16px]  "
             />
-            <div className=" inline-block break-words pt-0.5 font-inter text-[14px] font-medium leading-[16.94px]  text-[#FFFFFF]">
+            <div className=" inline-block break-words pt-0.5 font-inter text-[12px] leading-[14.54px] md:text-[14px] font-medium md:leading-[16.94px]  text-[#FFFFFF]">
               {topic}
             </div>
           </div>
@@ -60,10 +60,10 @@ export default function TextBlock({
               >
                 {title}
               </Animated>
-              <div className="pl-8">
+              <div className="px-[8px] flex justify-center">
                 <Animated
                   className={cx(
-                    'relative text-center font-inter text-[14px] leading-[16.8px] text-[#FFFFFF] text-opacity-70 md:text-[16px] md:leading-[20.8px] xl:text-[16px] xl:leading-[20.8px]',
+                    'relative mb-[60px] sm:mb-0 text-center font-inter text-[14px] leading-[16.8px] text-[#FFFFFF] text-opacity-70 md:text-[16px] md:leading-[20.8px] xl:text-[16px] xl:leading-[20.8px]',
                     {},
                     subBoxClassName
                   )}
