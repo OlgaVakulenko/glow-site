@@ -24,6 +24,7 @@ import AiTag from '../Pages/AI/AiTag';
 import Animated from '../Animated';
 import Button2 from '../Button';
 import LastSlideBg from '../Pages/Home/assets/card-bg.png';
+import { useRouter } from 'next/router';
 
 const featured = [
   '/beast',
@@ -31,7 +32,9 @@ const featured = [
   '/cryptogenie',
   '/jucr',
   '/liquidspace',
+  '/echo',
   '/work',
+
 ];
 
 const cases = featured.reduce((t, href) => {
@@ -80,8 +83,11 @@ export function Col({ title, items, className = '' }) {
 function CaseSlideMobile() {}
 
 function Tag({ name, theme }) {
+  const router = useRouter();
+ const ai=  router.pathname === `/ai`;
+  const dark = theme === 'dark';
   if (name === 'AI') {
-    return <AiTag name={name} />;
+    return <AiTag name={name} hidden={ai} />;
   }
 
   return (
@@ -210,7 +216,7 @@ export function CaseSlide({ type = 'default', item, index, total }) {
           </picture>
         ) : !item.lastSlide ? (
           <Image
-            className="absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:right-[-54px]  md:h-[calc(100%-45px)] md:max-h-full md:w-[663px] md:origin-[90%_90%] md:rounded-none md:object-contain xl:left-auto xl:right-[-50px] xl:w-[75%]"
+            className={cx("absolute bottom-0 h-auto min-h-[304px] w-full object-contain transition-transform duration-500 group-hover:scale-105 md:pointer-events-none md:absolute md:right-[-54px]  md:h-[calc(100%-45px)] md:max-h-full md:w-[663px] md:origin-[90%_90%] md:rounded-none md:object-contain xl:left-auto xl:right-[-50px] xl:w-[75%]", {'!right-[-145px] !w-[68%] !h-[85%] !object-fill' : item.echo})}
             src={item.image}
             alt=""
           />

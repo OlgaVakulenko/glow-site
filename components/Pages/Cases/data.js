@@ -30,6 +30,9 @@ import Tilt from './assets/new3/tilt.png';
 // import TiltWork from './assets/new/tilt-work.png';
 // import ParkingWork from './assets/new/parking-work.png';
 import InvoiceMaker from './assets/new/invoice-maker-cover.png';
+import EchoDark from './assets/new3/echo-dark.png';
+import EchoWhite from './assets/new3/echo-white.png';
+
 
 const cases = [
   {
@@ -457,6 +460,48 @@ const cases = [
         <path
           d="M37.8395 12.1333L33.5924 14.5223L34.8754 14.6993L23.1074 40.8897L26.5139 42.8363L28.5048 38.191L36.0257 20.5833L37.6183 16.9113L38.3262 15.1859L39.8746 15.4071L37.8395 12.1333Z"
           fill="#52A800"
+        />
+      </svg>
+    ),
+  },
+  {
+    href: '/echo',
+    title: (
+      <>
+        Echo - <br />
+        AI Meeting Assistant
+      </>
+    ),
+    description:
+      'Echo Assistant is an AI tool that records meetings and offers insights, simplifying your workflow.',
+    industry: ['AI'],
+    service: ['Product Design', 'UI', 'UX', 'AI'],
+    company: ['Funding $34.5M'],
+    echo: true,
+    image: EchoDark,
+    imageWork: EchoWhite,
+    // imageMobile: LiquidSpaceMobile,
+    category: ['other'],
+    type: ['desktop'],
+    tags: ['Product Design', 'UI', 'UX', 'AI'],
+    icon: (
+      <svg className="h-full w-full" viewBox="0 0 56 56" fill="none">
+        <rect width="56" height="56" rx="16" fill="#BBA7F4" />
+        <circle cx="24" cy="30" r="12" fill="white" fillOpacity="0.32" />
+        <circle
+          cx="12"
+          cy="12"
+          r="12"
+          transform="matrix(-1 0 0 1 44 14)"
+          fill="white"
+          fillOpacity="0.56"
+        />
+        <path
+          fillRule="evenodd"
+          clipRule="evenodd"
+          d="M32 38C25.3726 38 20 32.6274 20 26C20 22.9456 21.1412 20.1577 23.0205 18.0394C23.3435 18.0133 23.6702 18 24 18C30.6274 18 36 23.3726 36 30C36 33.0544 34.8588 35.8423 32.9795 37.9606C32.6565 37.9867 32.3298 38 32 38Z"
+          fill="white"
+          fillOpacity="0.56"
         />
       </svg>
     ),

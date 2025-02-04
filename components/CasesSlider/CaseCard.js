@@ -47,7 +47,7 @@ export default function CaseCard({ type, item, index, total }) {
             src={(type === 'work' && item.imageWork) || item.image}
             alt=""
             style={{
-              objectPosition: '60%',
+              objectPosition: item.echo ? '0%' : '60%',
             }}
           />
         )}
