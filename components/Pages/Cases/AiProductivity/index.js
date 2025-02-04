@@ -13,6 +13,8 @@ import Frame9 from './assets/frame-9.png';
 import Frame20xl from './assets/frame-20-xl.png';
 import Frame20md from './assets/frame-20-md.png';
 import Frame21 from './assets/frame-21.png';
+import Frame10 from './assets/frame10.png';
+
 
 export default function AiProductivity() {
   return (
@@ -30,8 +32,9 @@ export default function AiProductivity() {
             autoPlay
             loop
             muted
-            preload="false"
+            preload
             controls={false}
+            playsInline
             src="/video/ai/video-1.mp4"
             className="hidden object-fill xl:block xl:max-h-[800px]"
           />
@@ -39,8 +42,9 @@ export default function AiProductivity() {
             autoPlay
             loop
             muted
-            preload="false"
+            preload
             controls={false}
+            playsInline
             src="/video/ai/video-1-tablet.mp4"
             className="object-fill max-md:hidden md:max-h-[569px] xl:hidden"
           />
@@ -48,8 +52,9 @@ export default function AiProductivity() {
             autoPlay
             loop
             muted
-            preload="false"
+            preload
             controls={false}
+            playsInline
             src="/video/ai/video-1-phone.mp4"
             className="object-fill md:hidden"
           />
@@ -158,11 +163,17 @@ export default function AiProductivity() {
       </Layout>
       <Animated>
         <div className="relative mb-[96px] h-[812px] w-full xs:h-auto xl:mb-[132px] ">
-          <RespSVG
-            src="/img/aiCase/framee-10-xl.svg"
+          {/*<RespSVG*/}
+          {/*  src="/img/aiCase/framee-10-xl.svg"*/}
+          {/*  className="hidden h-full w-full md:block"*/}
+          {/*  md="/img/aiCase/framee-10-xl.svg"*/}
+          {/*  xl="/img/aiCase/framee-10-xl.svg"*/}
+          {/*/>*/}
+          <RespImage
+            src={Frame10}
             className="hidden h-full w-full md:block"
-            md="/img/aiCase/framee-10-xl.svg"
-            xl="/img/aiCase/framee-10-xl.svg"
+            md={Frame10}
+            xl={Frame10}
           />
           <Image
             src="/img/aiCase/frame-9-md.svg"
@@ -263,7 +274,7 @@ export default function AiProductivity() {
               src="/img/aiCase/frame-13.svg"
               className="w-full"
               md="/img/aiCase/frame-13-md.svg"
-              xl="/img/aiCase/framee-13-xl.svg"
+              xl="/img/aiCase/framee-13-xl.png"
             />
           </div>
         </Animated>
@@ -319,7 +330,7 @@ export default function AiProductivity() {
               src="/img/aiCase/frame-0.svg"
               className="w-full"
               md="/img/aiCase/frame-0-md.svg"
-              xl="/img/aiCase/frame-0-xl.svg"
+              xl="/img/aiCase/frame-0-xl.png"
             />
           </Animated>
         </div>
@@ -328,98 +339,74 @@ export default function AiProductivity() {
         <div className="mb-[96px] grid grid-cols-2 gap-3 md:grid-cols-3 md:grid-rows-2 md:gap-x-[13px] md:gap-y-3 xl:mb-[132px] xl:gap-x-[16.5px] xl:gap-y-4">
           <Animated>
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
-              <video
-                autoPlay
-                loop
-                muted
-                poster="/img/aiCase/poster1.png"
-                preload="auto"
-                playsInline
-                controls={false}
-                className="h-full w-full rounded-[12px] object-cover object-[30%]  md:rounded-[32px] xl:rounded-[48px]"
-              >
-                <source src="/video/ai/video-4.mp4" type="video/mp4" />
-              </video>
+              {/*<video*/}
+              {/*  autoPlay*/}
+              {/*  loop*/}
+              {/*  muted*/}
+              {/*  poster="/img/aiCase/poster1.png"*/}
+              {/*  preload="auto"*/}
+              {/*  playsInline*/}
+              {/*  controls={false}*/}
+              {/*  className="h-full w-full rounded-[12px] object-cover object-[30%]  md:rounded-[32px] xl:rounded-[48px]"*/}
+              {/*>*/}
+              {/*  <source src="/video/ai/video-4.mp4" type="video/mp4" />*/}
+              {/*</video>*/}
+              <RespSVG
+                src="/img/aiCase/card1.png"
+                className="w-full h-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
+                md="/img/aiCase/card1.png"
+                xl="/img/aiCase/card1.png"
+              />
             </div>
           </Animated>
           <Animated>
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
-              <video
-                autoPlay
-                loop
-                muted
-                poster="/img/aiCase/poster2.png"
-                preload="auto"
-                playsInline
-                controls={false}
-                className="h-full w-full rounded-[12px] object-cover md:rounded-[32px] xl:rounded-[48px]"
-              >
-                <source src="/video/ai/video-5.mp4" type="video/mp4" />
-              </video>
+              <RespSVG
+                src="/img/aiCase/card2.png"
+                className="w-full h-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
+                md="/img/aiCase/card2.png"
+                xl="/img/aiCase/card2.png"
+              />
             </div>
           </Animated>
           <Animated>
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
-              <video
-                autoPlay
-                loop
-                muted
-                poster="/img/aiCase/poster3.png"
-                preload="auto"
-                playsInline
-                controls={false}
-                className="h-full w-full rounded-[12px] object-cover md:rounded-[32px] xl:rounded-[48px]"
-              >
-                <source src="/video/ai/video-6.mp4" type="video/mp4" />
-              </video>
+              <RespSVG
+                src="/img/aiCase/card3.png"
+                className="w-full h-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
+                md="/img/aiCase/card3.png"
+                xl="/img/aiCase/card3.png"
+              />
             </div>
           </Animated>
           <Animated>
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
-              <video
-                autoPlay
-                poster="/img/aiCase/poster4.png"
-                loop
-                muted
-                preload="auto"
-                playsInline
-                controls={false}
-                className="h-full w-full rounded-[12px] object-cover md:rounded-[32px] xl:rounded-[48px]"
-              >
-                <source src="/video/ai/video-7.mp4" type="video/mp4" />
-              </video>
+              <RespSVG
+                src="/img/aiCase/card4.png"
+                className="w-full h-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
+                md="/img/aiCase/card4.png"
+                xl="/img/aiCase/card4.png"
+              />
             </div>
           </Animated>
           <Animated>
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
-              <video
-                autoPlay
-                loop
-                poster="/img/aiCase/poster5.png"
-                muted
-                preload="auto"
-                playsInline
-                controls={false}
-                className="h-full w-full rounded-[12px] object-cover md:rounded-[32px] xl:rounded-[48px]"
-              >
-                <source src="/video/ai/video-8.mp4" type="video/mp4" />
-              </video>
+              <RespSVG
+                src="/img/aiCase/card5.png"
+                className="w-full h-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
+                md="/img/aiCase/card5.png"
+                xl="/img/aiCase/card5.png"
+              />
             </div>
           </Animated>
           <Animated>
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
-              <video
-                autoPlay
-                loop
-                muted
-                preload="auto"
-                playsInline
-                poster="/img/aiCase/poster6.png"
-                controls={false}
-                className="h-full w-full rounded-[12px] object-cover object-[60%] md:rounded-[32px] xl:rounded-[48px]"
-              >
-                <source src="/video/ai/video-9.mp4" type="video/mp4" />
-              </video>
+              <RespSVG
+                src="/img/aiCase/card6.png"
+                className="w-full h-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
+                md="/img/aiCase/card6.png"
+                xl="/img/aiCase/card6.png"
+              />
             </div>
           </Animated>
         </div>
@@ -463,10 +450,10 @@ export default function AiProductivity() {
         <Animated>
           <div className="mb-[96px] hidden w-full md:block xl:mb-[132px]">
             <RespSVG
-              src="/img/aiCase/framee-18-xl.svg"
+              src="/img/aiCase/framee-18-xl.png"
               className="w-full"
               md="/img/aiCase/framee-18-md.svg"
-              xl="/img/aiCase/framee-18-xl.svg"
+              xl="/img/aiCase/framee-18-xl.png"
             />
           </div>
         </Animated>
