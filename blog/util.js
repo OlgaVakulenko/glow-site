@@ -47,6 +47,9 @@ const positionMap = {
   'Daria Haman': 'HR Manager',
   'Liudmyla Gramatyk': 'Content Manager',
   'Ruslan Mashatov': 'Co-Founder & Designer',
+  'Vlad Obertun': 'Lead Designer',
+  'Olha Malova': "Product Designer"
+
 };
 
 export function withAuthor(post) {

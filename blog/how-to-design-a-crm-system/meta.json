@@ -1,0 +1,57 @@
+{
+  "data": {
+    "title": "How to Design a CRM System",
+    "html_title": "How to Design a CRM System",
+    "html_description": "Learn how to design a CRM System",
+    "description": "In today's world of digital transformation, the development of an effective CRM system is becoming a key factor in business success. Customer relationship management is no longer just a fashion trend.",
+    "image": "/img/blog/crm/Glow-Article.jpg",
+
+    "author_name": "Olha Malova",
+    "author_image": "/img/blog/IMG_6483.JPG",
+
+    "date": "Feb 09, 2025",
+    "created_at": 1739059200000,
+    "read_minutes": "12 min read",
+    "href": "how-to-design-a-crm-system",
+    "tags": [
+      "Web Design",
+      "Design"
+    ],
+    "paragraphs": [
+      {
+        "id": "p1",
+        "text": "Understanding CRM Systems"
+      },
+      {
+        "id": "p2",
+        "text": "Key Components of CRM Design"
+      },
+      {
+        "id": "p3",
+        "text": "Steps to Designing a CRM System"
+      },
+      {
+        "id": "p4",
+        "text": "Best Practices in CRM Design"
+      },
+      {
+        "id": "p5",
+        "text": "Common Challenges and Solutions in CRM Design"
+      },
+      {
+        "id": "p5",
+        "text": "Case Studies of Successful CRM Implementations"
+      },
+      {
+        "id": "p6",
+        "text": "Frequently Asked Questions (FAQ)"
+      },
+      {
+        "id": "p7",
+        "text": "Conclusion"
+      }
+    ],
+    "order": 1012,
+    "date_iso": "2025-02-09T00:00:00.000Z"
+  }
+}
