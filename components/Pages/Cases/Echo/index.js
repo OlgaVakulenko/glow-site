@@ -49,7 +49,7 @@ export default function Echo() {
     return () => {
       setTheme('light');
     };
-  },[setTheme]);
+  }, [setTheme]);
 
   return (
     <div className="dark-theme bg-[#0a0a0b]">
@@ -68,12 +68,21 @@ export default function Echo() {
         />
       </Animated>
       <Animated>
-        <RespImage
-          pictureClassname=""
-          className="h-full"
-          src={EchoImage}
-          md={EchoImageMd}
-          xl={EchoImageXl}
+        {/*<RespImage*/}
+        {/*  pictureClassname=""*/}
+        {/*  className="h-full"*/}
+        {/*  src={EchoImage}*/}
+        {/*  md={EchoImageMd}*/}
+        {/*  xl={EchoImageXl}*/}
+        {/*/>*/}
+        <video
+          src="/video/echo/titlee.mp4"
+          preload="auto"
+          controls={false}
+          autoPlay
+          playsInline
+          muted
+          className="max-xs:h-[292px] md:max-h-[689px] xl:max-h-[966px]"
         />
       </Animated>
       <Animated>
@@ -108,7 +117,7 @@ export default function Echo() {
       </Layout>
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
         <Animated>
-          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-20 flex sm:block items-center">
+          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-20">
             User Flow
           </h2>
         </Animated>
@@ -123,19 +132,19 @@ export default function Echo() {
       </Layout>
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px] flex sm:block items-center">
+          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px]">
             Color
           </h2>
         </Animated>
         <div className="flex items-start gap-4 max-sm:flex-col md:gap-12 xl:gap-20 ">
-          <Animated className="flex-1 flex">
+          <Animated className="flex flex-1">
             <p className="text-4 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]">
               The application&#39;s design revolves around muted colors with
               vibrant accents, aiming to focus on the primary content while not
               missing out on essential elements.
             </p>
           </Animated>
-          <Animated  className="flex-1 flex">
+          <Animated className="flex flex-1">
             <p className="text-4 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]">
               This aligns with the core concept of the application – your call
               might be lengthy and comprehensive, but afterward, you&#39;ll
@@ -154,54 +163,84 @@ export default function Echo() {
       </Animated>
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px] flex sm:block items-center">
+          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px]">
             Typography
           </h2>
         </Animated>
-        <Animated className="xl:flex items-start justify-between gap-4 max-sm:flex-col md:gap-12 xl:gap-[80px]">
-          <p className="xl:flex-1 text-4 font-normal max-sm:mb-4 leading-[26px] text-white max-xl:mb-2 md:text-[20px]  md:leading-[32px] xl:leading-[32px]">
-            The choice of the Satoshi font aligns perfectly with our app&#39;s ethos. This restrained yet elegant font ensures readability without distracting from the finer details. Its simplicity underscores usability, enhancing the overall user experience. </p>{" "} <br className="max-md:hidden xl:hidden"/>
-          <p className="xl:flex-1 text-4 font-normal leading-[26px] text-white md:text-[20px]  md:leading-[32px] xl:leading-[32px]">
-            Its clean lines and balanced proportions not only convey clarity but also elevate the app&#39;s visual appeal, contributing to a seamless interface that resonates with our users.          </p>
+        <Animated className="items-start justify-between gap-4 max-sm:flex-col md:gap-12 xl:flex xl:gap-[80px]">
+          <p className="text-4 font-normal leading-[26px] text-white max-xl:mb-2 max-sm:mb-4 md:text-[20px] md:leading-[32px]  xl:flex-1 xl:leading-[32px]">
+            The choice of the Satoshi font aligns perfectly with our app&#39;s
+            ethos. This restrained yet elegant font ensures readability without
+            distracting from the finer details. Its simplicity underscores
+            usability, enhancing the overall user experience.{' '}
+          </p>{' '}
+          <br className="max-md:hidden xl:hidden" />
+          <p className="text-4 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]  xl:flex-1 xl:leading-[32px]">
+            Its clean lines and balanced proportions not only convey clarity but
+            also elevate the app&#39;s visual appeal, contributing to a seamless
+            interface that resonates with our users.{' '}
+          </p>
         </Animated>
       </Layout>
       <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
-        <RespImage
-          className="h-full w-full"
-          src={Frame3}
-          md={Frame3md}
-          xl={Frame3xl}
+        {/*<RespImage*/}
+        {/*  className="h-full w-full"*/}
+        {/*  src={Frame3}*/}
+        {/*  md={Frame3md}*/}
+        {/*  xl={Frame3xl}*/}
+        {/*/>*/}
+        <video
+          src="/video/echo/typo.mp4"
+          preload="auto"
+          controls={false}
+          autoPlay
+          playsInline
+          loop
+          muted
+          className="max-xs:h-[278px] xl:h-[500px]"
         />
       </Animated>
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] xl:mb-[54px] md:text-[56px] md:leading-[64px] flex sm:block items-center">
+          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-[54px]">
             Branding
           </h2>
         </Animated>
-        <Animated className="xl:flex items-start justify-between gap-4 max-sm:flex-col md:gap-12 xl:gap-[144px]">
-          <p className="xl:w-[49%] text-4 font-normal max-sm:mb-4 leading-[26px] text-white max-xl:mb-2 md:text-[20px]  md:leading-[32px] xl:leading-[32px]">
-            Echo&#39;s emblematic logo, an artistic fusion of intersecting circles, ingeniously reflects the application&#39;s core functionality. They symbolize the app&#39;s ability to capture and mirror essential call details seamlessly. </p>{" "} <br className="max-md:hidden xl:hidden"/>
-          <p className="xl:w-[40.2%] text-4 font-normal leading-[26px] text-white md:text-[20px]  md:leading-[32px] xl:leading-[32px]">
-            Harnessing these striking visual elements, our branding strategy resonates across social media platforms, captivating audiences with its symbolic representation of call echoing.          </p>
+        <Animated className="items-start justify-between gap-4 max-sm:flex-col md:gap-12 xl:flex xl:gap-[144px]">
+          <p className="text-4 font-normal leading-[26px] text-white max-xl:mb-2 max-sm:mb-4 md:text-[20px] md:leading-[32px]  xl:w-[49%] xl:leading-[32px]">
+            Echo&#39;s emblematic logo, an artistic fusion of intersecting
+            circles, ingeniously reflects the application&#39;s core
+            functionality. They symbolize the app&#39;s ability to capture and
+            mirror essential call details seamlessly.{' '}
+          </p>{' '}
+          <br className="max-md:hidden xl:hidden" />
+          <p className="text-4 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]  xl:w-[40.2%] xl:leading-[32px]">
+            Harnessing these striking visual elements, our branding strategy
+            resonates across social media platforms, captivating audiences with
+            its symbolic representation of call echoing.{' '}
+          </p>
         </Animated>
       </Layout>
       <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
-        <RespImage
-          className="h-full w-full"
-          src={Frame4}
-          md={Frame4md}
-          xl={Frame4xl}
+        <video
+          src="/video/echo/Branding.mp4"
+          preload="auto"
+          controls={false}
+          autoPlay
+          playsInline
+          loop
+          muted
+          className="max-xl:max-h-[798px] max-sm:h-auto max-xs:h-[278px]"
         />
       </Animated>
-      <Layout className="pt-[50px] pb-[30px] md:py-[72px] xl:py-[88px]">
-        <div className="mb-10 flex max-md:flex-col items-start justify-between gap-10 md:gap-[56px] xl:gap-[70px]  md:mb-[56px] xl:mb-20">
+      <Layout className="pb-[30px] pt-[50px] md:py-[72px] xl:py-[88px]">
+        <div className="mb-10 flex items-start justify-between gap-10 max-md:flex-col md:mb-[56px] md:gap-[56px]  xl:mb-20 xl:gap-[70px]">
           <Animated className="xl:flex-1">
-            <h2 className="h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:text-[56px] md:leading-[64px] flex sm:block items-center">
+            <h2 className="flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:text-[56px] md:leading-[64px]">
               Meeting
             </h2>
           </Animated>
-          <p className="text-4 max-md:w-full max-xl:w-[74%] xl:flex-1 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]">
+          <p className="text-4 font-normal leading-[26px] text-white max-xl:w-[74%] max-md:w-full md:text-[20px] md:leading-[32px] xl:flex-1">
             After saving the video, you can view it and read the transcription.
             The page also displays highlights created by artificial intelligence
             and important places noted by the manager during the call. This will
@@ -216,23 +255,23 @@ export default function Echo() {
             xl="/img/echo/frame-5-xl.svg"
           />
         </Animated>
-        <div className="flex flex-col xl:flex-row xl:mx-10 gap-[24px] md:gap-[55px] md:h-[529px] max-xl:pt-[76px] max-md:pt-0 xl:h-[429px] relative">
-          <p className="xl:max-w-[29.5%] md:max-w-[48.5%] xl:mt-[170px] text-white text-4 font-normal leading-[26px] md:text-[20px] md:leading-[30px]">
-            In the &#39;Soundbites&#39; tab, you can cut out an important part of the
-            video. You can edit, delete, or share individual fragments with
-            colleagues.
+        <div className="relative flex flex-col gap-[24px] max-xl:pt-[76px] max-md:pt-0 md:h-[529px] md:gap-[55px] xl:mx-10 xl:h-[429px] xl:flex-row">
+          <p className="text-4 font-normal leading-[26px] text-white md:max-w-[48.5%] md:text-[20px] md:leading-[30px] xl:mt-[170px] xl:max-w-[29.5%]">
+            In the &#39;Soundbites&#39; tab, you can cut out an important part
+            of the video. You can edit, delete, or share individual fragments
+            with colleagues.
           </p>
-          <Animated className="flex max-md:flex-col-reverse gap-[24px] md:gap-[13px] w-full xl:h-full justify-between max-md:static max-xl:absolute bottom-0 ">
+          <Animated className="bottom-0 flex w-full justify-between gap-[24px] max-xl:absolute max-md:static max-md:flex-col-reverse md:gap-[13px] xl:h-full ">
             <RespImage
               pictureClassname=" "
-              className="max-md:w-[75vw] max-md:h-[30%] w-[400px] h-[257px] xl:mt-[132px] max-md:ml-0  max-xl:ml-[6.2vw] max-md-safe:ml-[4vw] max-xl:w-[400px] max-md-safe:w-[355px] max-md-safe:h-[240px] max-md:mt-0 max-xl:mt-[40px]"
+              className="h-[257px] w-[400px] max-xl:ml-[6.2vw] max-xl:mt-[40px] max-xl:w-[400px] max-md-safe:ml-[4vw]  max-md-safe:h-[240px] max-md-safe:w-[355px] max-md:ml-0 max-md:mt-0 max-md:h-[30%] max-md:w-[75vw] xl:mt-[132px]"
               src={Frame6}
               md={Frame6md}
               xl={Frame6xl}
             />
             <RespImage
               pictureClassname=" "
-              className="w-[400px] max-md:ml-auto max-md:h-[36.5%] max-md:w-[75vw] h-[305px] max-md-safe:h-[285px] xl:mt-10 max-md-safe:w-[370px] relative max-xl:top-[-49%] max-md:static max-md-safe:top-[-58%]"
+              className="relative h-[305px] w-[400px] max-xl:top-[-49%] max-md-safe:top-[-58%] max-md-safe:h-[285px] max-md-safe:w-[370px] max-md:static max-md:ml-auto max-md:h-[36.5%] max-md:w-[75vw] xl:mt-10"
               src={Frame7}
               md={Frame7md}
               xl={Frame7xl}
@@ -241,16 +280,16 @@ export default function Echo() {
         </div>
       </Layout>
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
-        <div
-          className="mb-10 flex max-md:flex-col items-start justify-between gap-10 md:gap-[70px] md:mb-[56px] xl:mb-20">
+        <div className="mb-10 flex items-start justify-between gap-10 max-md:flex-col md:mb-[56px] md:gap-[70px] xl:mb-20">
           <Animated className="xl:flex-1">
-            <h2
-              className="h-[77px] w-max font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:text-[56px] md:leading-[64px] flex sm:block items-center">
+            <h2 className="flex h-[77px] w-max items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:text-[56px] md:leading-[64px]">
               Past meetings
             </h2>
           </Animated>
-          <p className="text-4 max-md:w-full max-xl:w-[57.5%] xl:flex-1 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]">
-            The meetings library stores all recorded calls. Categories will help you quickly find the call you are interested in. You can also view insights on a block of calls to identify patterns.
+          <p className="text-4 font-normal leading-[26px] text-white max-xl:w-[57.5%] max-md:w-full md:text-[20px] md:leading-[32px] xl:flex-1">
+            The meetings library stores all recorded calls. Categories will help
+            you quickly find the call you are interested in. You can also view
+            insights on a block of calls to identify patterns.
           </p>
         </div>
         <Animated>
@@ -265,19 +304,22 @@ export default function Echo() {
 
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px] flex sm:block items-center">
+          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px]">
             Templates
           </h2>
         </Animated>
-        <Animated className="xl:flex items-start justify-between gap-4 max-sm:flex-col md:gap-12 xl:gap-[144px]">
-            <p className=" max-xl:inline xl:w-[49%] text-4 font-normal leading-[26px] text-white md:text-[24px]  xl:text-[20px] md:leading-[38.4px] xl:leading-[32px]">
-              In the template library, you can find the template you need by category. The library contains templates for all main types of calls.
-            </p>{" "}
-            <p className=" xl:w-[40.2%] max-xl:inline text-4 font-normal leading-[26px] text-white md:text-[24px] xl:text-[20px] md:leading-[38.4px] xl:leading-[32px]">
-              You can also create a template yourself and also use artificial intelligence to help.
-            </p>
-          </Animated>
-          </Layout>
+        <Animated className="items-start justify-between gap-4 max-sm:flex-col md:gap-12 xl:flex xl:gap-[144px]">
+          <p className=" text-4 font-normal leading-[26px] text-white max-xl:inline md:text-[24px] md:leading-[38.4px]  xl:w-[49%] xl:text-[20px] xl:leading-[32px]">
+            In the template library, you can find the template you need by
+            category. The library contains templates for all main types of
+            calls.
+          </p>{' '}
+          <p className=" text-4 font-normal leading-[26px] text-white max-xl:inline md:text-[24px] md:leading-[38.4px] xl:w-[40.2%] xl:text-[20px] xl:leading-[32px]">
+            You can also create a template yourself and also use artificial
+            intelligence to help.
+          </p>
+        </Animated>
+      </Layout>
       <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
         <RespSVG
           className="h-full w-full"
@@ -288,20 +330,21 @@ export default function Echo() {
       </Animated>
       {/*events*/}
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
-        <div
-          className="mb-10 xl:flex max-md-safe:flex-col items-start justify-between gap-10 md:gap-[70px] xl:gap-[30px] md:mb-[56px] xl:mb-20">
+        <div className="mb-10 items-start justify-between gap-10 max-md-safe:flex-col md:mb-[56px] md:gap-[70px] xl:mb-20 xl:flex xl:gap-[30px]">
           <Animated className="xl:flex-1">
-            <h2
-              className="h-[77px] md:mb-[56px] mb-10 xl:mb-0  w-max font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:text-[56px] md:leading-[64px] flex sm:block items-center">
+            <h2 className="mb-10 flex h-[77px] w-max  items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-0">
               Upcoming meetings
             </h2>
           </Animated>
-          <p className="text-4 max-md:w-full max-xl:w-[67%] xl:flex-1 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]">
-            The Upcoming Appointments feature allows you to view your call schedule in calendar and weekly views. Using the switch, you can enable or disable call recording.          </p>
+          <p className="text-4 font-normal leading-[26px] text-white max-xl:w-[67%] max-md:w-full md:text-[20px] md:leading-[32px] xl:flex-1">
+            The Upcoming Appointments feature allows you to view your call
+            schedule in calendar and weekly views. Using the switch, you can
+            enable or disable call recording.{' '}
+          </p>
         </div>
         <Animated>
           <RespSVG
-            className="h-full w-full max-w-[93.5%] md:max-w-[780px] xl:max-w-[1020px] mb-6 xl:mb-10 md:mb-8"
+            className="mb-6 h-full w-full max-w-[93.5%] md:mb-8 md:max-w-[780px] xl:mb-10 xl:max-w-[1020px]"
             src="/img/echo/frame-10.svg"
             md="/img/echo/frame-10-md.svg"
             xl="/img/echo/frame-10-xl.svg"
@@ -309,25 +352,29 @@ export default function Echo() {
         </Animated>
         <Animated>
           <RespSVG
-            className="h-full w-full max-w-[93.5%] md:max-w-[780px] xl:max-w-[1020px] ml-auto mb-6 md:mb-[56px]"
+            className="mb-6 ml-auto h-full w-full max-w-[93.5%] md:mb-[56px] md:max-w-[780px] xl:max-w-[1020px]"
             src="/img/echo/frame-11.svg"
             md="/img/echo/frame-11-md.svg"
             xl="/img/echo/frame-11-xl.svg"
           />
         </Animated>
-        <div className="md:flex justify-between  md-safe:mr-[90px] md:mr-[70px] xl:mr-[120px] relative">
-          <p className="xl:mt-[130px] max-md:text-[#AAAAAA] md:mt-[34px] max-md:mr-0 max-md-safe:mr-6 xl:max-w-[432px] md:max-w-[440px] md-safe:max-w-[509px]   text-white md:text-[20px] text-[14px] leading-[17px] max-md:max-w-[71.8%] max-md:mb-6 font-normal md:leading-[32px]">Calls are categorized by topic. Additionally, you can attach a template with questions to the call, which will be displayed during the call on the right-hand panel.</p>
+        <div className="relative justify-between  md:mr-[70px] md:flex md-safe:mr-[90px] xl:mr-[120px]">
+          <p className="text-[14px] font-normal leading-[17px] text-white max-md-safe:mr-6 max-md:mb-6 max-md:mr-0 max-md:max-w-[71.8%]   max-md:text-[#AAAAAA] md:mt-[34px] md:max-w-[440px] md:text-[20px] md:leading-[32px] md-safe:max-w-[509px] xl:mt-[130px] xl:max-w-[432px]">
+            Calls are categorized by topic. Additionally, you can attach a
+            template with questions to the call, which will be displayed during
+            the call on the right-hand panel.
+          </p>
           <Animated>
             <RespSVG
-              className="h-full w-full max-md:w-[58.5%] max-md:mb-6 max-md:ml-auto"
+              className="h-full w-full max-md:mb-6 max-md:ml-auto max-md:w-[58.5%]"
               src="/img/echo/frame-12.svg"
               md="/img/echo/frame-12-xl.svg"
               xl="/img/echo/frame-12-xl.svg"
             />
           </Animated>
-          <Animated className="max-xl:absolute max-md:static max-xl:top-[50%] max-xl:left-[12%]">
+          <Animated className="max-xl:absolute max-xl:left-[12%] max-xl:top-[50%] max-md:static">
             <RespSVG
-              className="h-full w-full max-md:w-[58.5%] max-md:mr-auto"
+              className="h-full w-full max-md:mr-auto max-md:w-[58.5%]"
               src="/img/echo/frame-13.svg"
               md="/img/echo/frame-13-xl.svg"
               xl="/img/echo/frame-13-xl.svg"
@@ -338,42 +385,60 @@ export default function Echo() {
 
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 h-[77px] font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:text-[56px] md:leading-[64px] flex sm:block items-center">
+          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px]">
             Current meeting
           </h2>
         </Animated>
-        <Animated className="xl:flex items-start justify-between gap-4 max-sm:flex-col md:gap-12 xl:gap-[144px]">
-          <p className="xl:w-[49%] text-4 font-normal max-sm:mb-4 leading-[26px] text-white max-xl:mb-2 md:text-[20px]  md:leading-[32px] xl:leading-[32px]">
-            When connected to a Google Meet or Zoom call, a panel appears on the right-hand side. Within this panel, you can pause or stop the recording. Additionally, it displays a list of questions from the attached call template.          </p>{" "} <br className="max-md:hidden xl:hidden"/>
-          <p className="xl:w-[40.2%] text-4 font-normal leading-[26px] text-white md:text-[20px]  md:leading-[32px] xl:leading-[32px]">
-            After a question is asked, the program utilizes artificial intelligence to automatically mark it as already asked.          </p>
+        <Animated className="items-start justify-between gap-4 max-sm:flex-col md:gap-12 xl:flex xl:gap-[144px]">
+          <p className="text-4 font-normal leading-[26px] text-white max-xl:mb-2 max-sm:mb-4 md:text-[20px] md:leading-[32px]  xl:w-[49%] xl:leading-[32px]">
+            When connected to a Google Meet or Zoom call, a panel appears on the
+            right-hand side. Within this panel, you can pause or stop the
+            recording. Additionally, it displays a list of questions from the
+            attached call template.{' '}
+          </p>{' '}
+          <br className="max-md:hidden xl:hidden" />
+          <p className="text-4 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]  xl:w-[40.2%] xl:leading-[32px]">
+            After a question is asked, the program utilizes artificial
+            intelligence to automatically mark it as already asked.{' '}
+          </p>
         </Animated>
       </Layout>
-      <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px] flex flex-col sm:flex-row justify-center gap-[16px] sm:gap-[24px] mx-[16px] sm:mx-[32px] xl:mx-[64px]">
-        <RespImage
-          className="h-full w-full"
-          src={Frame8}
-          md={Frame8md}
-          xl={Frame8xl}
-        />
-        <RespImage
-          className="h-full w-full"
-          src={Frame9}
-          md={Frame9md}
-          xl={Frame9xl}
+      <Animated className="mx-[16px] flex flex-col justify-center gap-[16px] pb-[50px] sm:mx-[32px] sm:flex-row sm:gap-[24px] md:pb-[72px] xl:mx-[64px] xl:pb-[88px]">
+        {/*<RespImage*/}
+        {/*  className="h-full w-full"*/}
+        {/*  src={Frame8}*/}
+        {/*  md={Frame8md}*/}
+        {/*  xl={Frame8xl}*/}
+        {/*/>*/}
+        {/*<RespImage*/}
+        {/*  className="h-full w-full"*/}
+        {/*  src={Frame9}*/}
+        {/*  md={Frame9md}*/}
+        {/*  xl={Frame9xl}*/}
+        {/*/>*/}
+        <video
+          src="/video/echo/met.mp4"
+          preload="auto"
+          controls={false}
+          autoPlay
+          playsInline
+          loop
+          muted
+          className="md:h-[658px]"
         />
       </Animated>
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
-        <div
-          className="mb-10 flex max-md:flex-col  items-start justify-between gap-10 md:gap-[70px] xl:gap-[30px] md:mb-[56px] xl:mb-20">
+        <div className="mb-10 flex items-start  justify-between gap-10 max-md:flex-col md:mb-[56px] md:gap-[70px] xl:mb-20 xl:gap-[30px]">
           <Animated className="xl:flex-1">
-            <h2
-              className="h-[77px]  w-max font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:text-[56px] md:leading-[64px] flex sm:block items-center">
+            <h2 className="flex  h-[77px] w-max items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:text-[56px] md:leading-[64px]">
               Analytics
             </h2>
           </Animated>
-          <p className="text-4 max-md:w-full max-xl:w-[52%] xl:flex-1 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]">
-            Analytics can help you improve your team&#39;s performance. The dashboard displays key performance indicators and leads to more detailed reports for in-depth analysis.          </p>
+          <p className="text-4 font-normal leading-[26px] text-white max-xl:w-[52%] max-md:w-full md:text-[20px] md:leading-[32px] xl:flex-1">
+            Analytics can help you improve your team&#39;s performance. The
+            dashboard displays key performance indicators and leads to more
+            detailed reports for in-depth analysis.{' '}
+          </p>
         </div>
         <Animated>
           <RespSVG
@@ -384,7 +449,6 @@ export default function Echo() {
           />
         </Animated>
       </Layout>
-
     </div>
   );
 }
