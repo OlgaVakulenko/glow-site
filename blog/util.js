@@ -48,7 +48,9 @@ const positionMap = {
   'Liudmyla Gramatyk': 'Content Manager',
   'Ruslan Mashatov': 'Co-Founder & Designer',
   'Vlad Obertun': 'Lead Designer',
-  'Olha Malova': "Product Designer"
+  'Olha Malova': "Product Designer",
+  'Pavel Dobronosov': 'Project Manager',
+  "Michael Bliznetsov": "Sales Manager"
 
 };
 
