@@ -37,7 +37,7 @@ export default function Author({ name, image, position }) {
       <AuthorImage
         name={name}
         src={image}
-        className={'mr-4 h-[64px] w-[64px] rounded-[20px]'}
+        className={'mr-4 h-[64px] w-[64px] rounded-[20px] object-cover'}
       />
 
       <div className="flex flex-col justify-center">
