@@ -10,7 +10,7 @@ function Author({ name, image, date, minutes, position }) {
           name={name}
           src={image}
           alt=""
-          className="mt-[2px] max-h-[40px] w-full max-w-[40px] rounded-full object-cover"
+          className="mt-[2px] object-cover h-full w-full max-h-[40px] w-full max-w-[40px] rounded-full object-cover"
         />
         {/* <img
           src={image}
