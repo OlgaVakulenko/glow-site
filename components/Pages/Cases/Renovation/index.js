@@ -62,10 +62,10 @@ export default function WelcomeRenovation() {
           src={Frame1}
           md={Frame1md}
           xl={Frame1xl}
-          className="bg-[#7a7b7c]"
+          className="bg-[#7a7b7c] max-h-[1016px]"
         />
       </Animated>
-      <Objectives />
+      <Objectives wr />
       <WelcomeVideo />
       <UserApps />
       <DesignProcess />

@@ -2,12 +2,39 @@ import cx from 'clsx';
 import Animated from '../../Animated';
 import RoundControl from './RoundControl';
 
+
+import { useState, useEffect } from "react";
+
+const useResponsiveText = (breakpoint, smallScreenText, largeScreenText) => {
+  const [text, setText] = useState(largeScreenText);
+
+  useEffect(() => {
+    const updateText = () => {
+      setText(window.innerWidth < breakpoint ? smallScreenText : largeScreenText);
+    };
+
+    updateText();
+    window.addEventListener("resize", updateText);
+
+    return () => window.removeEventListener("resize", updateText);
+  }, [breakpoint, smallScreenText, largeScreenText]);
+
+  return text;
+};
+
+
+
+
 export default function InnovateSolutionTextBlock({
   title,
   subtitle,
   boxClassName,
   subBoxClassName = '',
 }) {
+  const text1 = useResponsiveText(1280, "AI tech", "Logistics");
+  const text2 = useResponsiveText(1280, "Fintech", "Fintech");
+  const text3 = useResponsiveText(1280, "Ed tech", "E-commerce");
+
   return (
     <div>
       <div className={cx('mb-1  flex justify-start ', {}, boxClassName)}>
@@ -32,20 +59,20 @@ export default function InnovateSolutionTextBlock({
             {subtitle}
           </Animated>
           <Animated>
-            <div className="hidden flex-row justify-start md:mt-[53px] md:flex xl:mt-[130px] xl:flex">
+            <div className="flex-row justify-start mt-[15px] md:mt-[45px] flex xl:mt-[130px] xl:flex">
               <RoundControl
-                className="box-sizing-border m-[10px_0_10px_0] mr-3  flex h-[fit-content] !bg-transparent  p-[12px_0_12px_0] text-center font-medium !text-white md:w-[91px] xl:w-[140px] xl:text-[20px] xl:leading-[24.2px] "
-                text="Logistics"
+                className="box-sizing-border mt-[10px] sm:m-[10px_0_10px_0] !mr-3  flex h-[fit-content] !bg-transparent  p-[12px_0_12px_0] text-center !font-normal md:font-medium !text-white w-[91px] xl:w-[140px] xl:text-[20px] xl:leading-[24.2px] "
+                text={text1}
               />
               <RoundControl
-                className="box-sizing-border m-[10px_0_10px_0] mr-3 flex h-[fit-content] !bg-transparent  p-[12px_0_12px_0] text-center font-medium !text-white md:w-[91px] xl:w-[128px] xl:text-[20px] xl:leading-[24.2px]"
+                className="box-sizing-border mt-[10px] sm:m-[10px_0_10px_0] !mr-3 flex h-[fit-content] !bg-transparent  p-[12px_0_12px_0] text-center !font-normal md:font-medium !text-white w-[91px] xl:w-[128px] xl:text-[20px] xl:leading-[24.2px]"
                 compact
-                text="Fintech"
+                text={text2}
               />
               <RoundControl
-                className="box-sizing-border m-[10px_0_10px_0]  flex h-[fit-content] !bg-transparent  p-[12px_0_12px_0] text-center font-medium !text-white md:w-[91px] xl:w-[180px] xl:text-[20px] xl:leading-[24.2px]"
+                className="box-sizing-border  mt-[10px] sm:m-[10px_0_10px_0]  flex h-[fit-content] !bg-transparent  p-[12px_0_12px_0] text-center !font-normal md:font-medium !text-white w-[91px] xl:w-[180px] xl:text-[20px] xl:leading-[24.2px]"
                 compact
-                text="E-commerce"
+                text={text3}
               />
             </div>
           </Animated>

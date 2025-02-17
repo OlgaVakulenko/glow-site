@@ -17,7 +17,7 @@ export default function WelcomeVideo() {
           loop
           muted
           controls={false}
-          src="/video/renovation/wr-video.mp4"
+          src="/video/wr/case.mp4"
           className="mb-14 max-h-[741px] w-screen md:mb-8 md:rounded-[40px] xl:h-[740px]"
         />
       </Layout>

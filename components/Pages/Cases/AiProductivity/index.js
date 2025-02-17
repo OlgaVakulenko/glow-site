@@ -90,6 +90,42 @@ export default function AiProductivity() {
           </div>
         </Animated>
         <Animated>
+          <div className="mb-[96px] w-full sm:mb-[96px] xl:mb-[132px]">
+            <RespSVG
+              src="/img/aiCase/frame-grid-xl.png"
+              className="hidden w-full sm:block"
+              md="/img/aiCase/frame-grid-md.png"
+              xl="/img/aiCase/frame-grid-xl.png"
+            />
+            <div className={'flex flex-col gap-[12px] sm:hidden'}>
+              <RespSVG
+                src="/img/aiCase/frame-grid-sm-1.svg"
+                className="w-full"
+              />
+              <RespSVG
+                src="/img/aiCase/frame-grid-sm-2.svg"
+                className="w-full"
+              />
+              <RespSVG
+                src="/img/aiCase/frame-grid-sm-3.png"
+                className="w-full"
+              />
+              <RespSVG
+                src="/img/aiCase/frame-grid-sm-4.png"
+                className="w-full"
+              />
+              <RespSVG
+                src="/img/aiCase/frame-grid-sm-5.png"
+                className="w-full"
+              />
+              <RespSVG
+                src="/img/aiCase/frame-grid-sm-6.png"
+                className="w-full"
+              />
+            </div>
+          </div>
+        </Animated>
+        <Animated>
           <div className="mb-[96px] xl:mb-[132px]">
             {/*TODO: Fix svg size or use svg for each photo*/}
             {/*<RespSVG*/}
@@ -98,104 +134,106 @@ export default function AiProductivity() {
             {/*  md="/img/aiCase/frame-3-xl.svg"*/}
             {/*  xl="/img/aiCase/frame-3-xl.svg"*/}
             {/*/>*/}
-            <Animated>
-              <div className="mb-3">
-                <RespImage
-                  src={Frame4}
-                  className="w-full sm:hidden"
-                  md={Frame4}
-                  xl={Frame4}
-                />
-              </div>
-            </Animated>
-            <Animated>
-              <div className="mb-3">
-                <RespImage
-                  src={Frame5}
-                  className="w-full sm:hidden"
-                  md={Frame5}
-                  xl={Frame5}
-                />
-              </div>
-            </Animated>
-            <Animated>
-              <div className="mb-3 h-[151px] object-cover xs:h-auto">
-                <RespImage
-                  src={Frame6}
-                  className=" h-[151px] w-full object-contain xs:h-auto sm:hidden"
-                  md={Frame6}
-                  xl={Frame6}
-                />
-              </div>
-            </Animated>
-            <Animated>
-              <div className="mb-3">
-                <RespImage
-                  src={Frame7}
-                  className="w-full sm:hidden"
-                  md={Frame7}
-                  xl={Frame7}
-                />
-              </div>
-            </Animated>
-            <Animated>
-              <div className="mb-3">
-                <RespImage
-                  src={Frame8}
-                  className="w-full sm:hidden"
-                  md={Frame8}
-                  xl={Frame8}
-                />
-              </div>
-            </Animated>
-            <Animated>
-              <div>
-                <RespImage
-                  src={Frame9}
-                  className="w-full sm:hidden"
-                  md={Frame9}
-                  xl={Frame9}
-                />
-              </div>
-            </Animated>
+            {/*<Animated>*/}
+            {/*  <div className="mb-3">*/}
+            {/*    <RespImage*/}
+            {/*      src={Frame4}*/}
+            {/*      className="w-full sm:hidden"*/}
+            {/*      md={Frame4}*/}
+            {/*      xl={Frame4}*/}
+            {/*    />*/}
+            {/*  </div>*/}
+            {/*</Animated>*/}
+            {/*<Animated>*/}
+            {/*  <div className="mb-3">*/}
+            {/*    <RespImage*/}
+            {/*      src={Frame5}*/}
+            {/*      className="w-full sm:hidden"*/}
+            {/*      md={Frame5}*/}
+            {/*      xl={Frame5}*/}
+            {/*    />*/}
+            {/*  </div>*/}
+            {/*</Animated>*/}
+            {/*<Animated>*/}
+            {/*  <div className="mb-3 h-[151px] object-cover xs:h-auto">*/}
+            {/*    <RespImage*/}
+            {/*      src={Frame6}*/}
+            {/*      className=" h-[151px] w-full object-contain xs:h-auto sm:hidden"*/}
+            {/*      md={Frame6}*/}
+            {/*      xl={Frame6}*/}
+            {/*    />*/}
+            {/*  </div>*/}
+            {/*</Animated>*/}
+            {/*<Animated>*/}
+            {/*  <div className="mb-3">*/}
+            {/*    <RespImage*/}
+            {/*      src={Frame7}*/}
+            {/*      className="w-full sm:hidden"*/}
+            {/*      md={Frame7}*/}
+            {/*      xl={Frame7}*/}
+            {/*    />*/}
+            {/*  </div>*/}
+            {/*</Animated>*/}
+            {/*<Animated>*/}
+            {/*  <div className="mb-3">*/}
+            {/*    <RespImage*/}
+            {/*      src={Frame8}*/}
+            {/*      className="w-full sm:hidden"*/}
+            {/*      md={Frame8}*/}
+            {/*      xl={Frame8}*/}
+            {/*    />*/}
+            {/*  </div>*/}
+            {/*</Animated>*/}
+            {/*<Animated>*/}
+            {/*  <div>*/}
+            {/*    <RespImage*/}
+            {/*      src={Frame9}*/}
+            {/*      className="w-full sm:hidden"*/}
+            {/*      md={Frame9}*/}
+            {/*      xl={Frame9}*/}
+            {/*    />*/}
+            {/*  </div>*/}
+            {/*</Animated>*/}
           </div>
         </Animated>
       </Layout>
-      <Animated>
-        <div className="relative mb-[96px] h-[812px] w-full xs:h-auto xl:mb-[132px] ">
-          {/*<RespSVG*/}
-          {/*  src="/img/aiCase/framee-10-xl.svg"*/}
-          {/*  className="hidden h-full w-full md:block"*/}
-          {/*  md="/img/aiCase/framee-10-xl.svg"*/}
-          {/*  xl="/img/aiCase/framee-10-xl.svg"*/}
-          {/*/>*/}
-          <RespImage
-            src={Frame10}
-            className="hidden h-full w-full md:block"
-            md={Frame10}
-            xl={Frame10}
-          />
-          <Image
-            src="/img/aiCase/frame-9-md.svg"
-            className="hidden h-auto w-full xs:block md:hidden"
-            width={0}
-            height={0}
-            alt=""
-          />
-          <RespSVG
-            src="/img/aiCase/frame-9.svg"
-            className="h-full w-full object-cover object-top xs:hidden"
-            md="/img/aiCase/frame-9-md.svg"
-            xl="/img/aiCase/frame-9-xl.svg"
-          />
-          <RespSVG
-            src="/img/aiCase/frame-10.svg"
-            className="absolute-center !left-[56%] !top-[66%] xs:hidden"
-            md="/img/aiCase/frame-10.svg"
-            xl="/img/aiCase/frame-10.svg"
-          />
-        </div>
-      </Animated>
+      <Layout disablePadding>
+        <Animated>
+          <div className="relative mb-[96px] h-[812px] w-full xs:h-auto xl:mb-[132px] ">
+            {/*<RespSVG*/}
+            {/*  src="/img/aiCase/framee-10-xl.svg"*/}
+            {/*  className="hidden h-full w-full md:block"*/}
+            {/*  md="/img/aiCase/framee-10-xl.svg"*/}
+            {/*  xl="/img/aiCase/framee-10-xl.svg"*/}
+            {/*/>*/}
+            <RespImage
+              src={Frame10}
+              className="hidden h-full w-full md:block"
+              md={Frame10}
+              xl={Frame10}
+            />
+            <Image
+              src="/img/aiCase/frame-9-md.svg"
+              className="hidden h-auto w-full xs:block md:hidden"
+              width={0}
+              height={0}
+              alt=""
+            />
+            <RespSVG
+              src="/img/aiCase/frame-9.svg"
+              className="h-full w-full object-cover object-top xs:hidden"
+              md="/img/aiCase/frame-9-md.svg"
+              xl="/img/aiCase/frame-9-xl.svg"
+            />
+            <RespSVG
+              src="/img/aiCase/frame-10.png"
+              className="absolute-center !left-[56%] !top-[66%] max-sm:w-[288px] xs:hidden"
+              md="/img/aiCase/frame-10.svg"
+              xl="/img/aiCase/frame-10.svg"
+            />
+          </div>
+        </Animated>
+      </Layout>
       <Layout>
         <Animated>
           <div className="mb-8 md:mb-[99px] xl:mb-[80px]">
@@ -230,42 +268,6 @@ export default function AiProductivity() {
                 tailored to your needs.
               </p>
             </div>
-          </div>
-        </Animated>
-        <Animated>
-          <div className="mb-[96px] w-full xl:mb-[132px] sm:mb-[96px]">
-            <RespSVG
-              src="/img/aiCase/frame-grid-xl.png"
-              className="w-full hidden sm:block"
-              md="/img/aiCase/frame-grid-md.png"
-              xl="/img/aiCase/frame-grid-xl.png"
-            />
-           <div className={'sm:hidden flex flex-col gap-[12px]'}>
-             <RespSVG
-               src="/img/aiCase/frame-grid-sm-1.png"
-               className="w-full"
-             />
-             <RespSVG
-               src="/img/aiCase/frame-grid-sm-2.png"
-               className="w-full"
-             />
-             <RespSVG
-               src="/img/aiCase/frame-grid-sm-3.png"
-               className="w-full"
-             />
-             <RespSVG
-               src="/img/aiCase/frame-grid-sm-4.png"
-               className="w-full"
-             />
-             <RespSVG
-               src="/img/aiCase/frame-grid-sm-5.png"
-               className="w-full"
-             />
-             <RespSVG
-               src="/img/aiCase/frame-grid-sm-6.png"
-               className="w-full"
-             />
-           </div>
           </div>
         </Animated>
         <Animated>
@@ -317,8 +319,17 @@ export default function AiProductivity() {
               muted
               preload="auto"
               controls={false}
-              src="/video/ai/video-2.mp4"
-              className="md:max-h-[930px] xl:max-h-[1271px]"
+              src="/video/ai/desktoptablet.mp4"
+              className="md:max-h-[930px] xl:max-h-[1271px] md:block hidden"
+            />
+            <video
+              autoPlay
+              loop
+              muted
+              preload="auto"
+              controls={false}
+              src="/video/ai/mobile.mp4"
+              className="md:max-h-[930px] xl:max-h-[1271px] md:hidden"
             />
           </Animated>
         </div>
@@ -327,7 +338,7 @@ export default function AiProductivity() {
         <div className="mb-[48px] w-full md:mb-[96px] xl:mb-[132px]">
           <Animated>
             <RespSVG
-              src="/img/aiCase/frame-0.svg"
+              src="/img/aiCase/frame-0.png"
               className="w-full"
               md="/img/aiCase/frame-0-md.svg"
               xl="/img/aiCase/frame-0-xl.png"
@@ -353,7 +364,7 @@ export default function AiProductivity() {
               {/*</video>*/}
               <RespSVG
                 src="/img/aiCase/card1.png"
-                className="w-full h-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
+                className="h-full w-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
                 md="/img/aiCase/card1.png"
                 xl="/img/aiCase/card1.png"
               />
@@ -363,7 +374,7 @@ export default function AiProductivity() {
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
               <RespSVG
                 src="/img/aiCase/card2.png"
-                className="w-full h-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
+                className="h-full w-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
                 md="/img/aiCase/card2.png"
                 xl="/img/aiCase/card2.png"
               />
@@ -373,7 +384,7 @@ export default function AiProductivity() {
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
               <RespSVG
                 src="/img/aiCase/card3.png"
-                className="w-full h-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
+                className="h-full w-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
                 md="/img/aiCase/card3.png"
                 xl="/img/aiCase/card3.png"
               />
@@ -383,7 +394,7 @@ export default function AiProductivity() {
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
               <RespSVG
                 src="/img/aiCase/card4.png"
-                className="w-full h-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
+                className="h-full w-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
                 md="/img/aiCase/card4.png"
                 xl="/img/aiCase/card4.png"
               />
@@ -393,7 +404,7 @@ export default function AiProductivity() {
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
               <RespSVG
                 src="/img/aiCase/card5.png"
-                className="w-full h-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
+                className="h-full w-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
                 md="/img/aiCase/card5.png"
                 xl="/img/aiCase/card5.png"
               />
@@ -403,7 +414,7 @@ export default function AiProductivity() {
             <div className="h-[172px] xs:h-[220px] sm:h-[260px] md:h-[317px] xl:h-[433px]">
               <RespSVG
                 src="/img/aiCase/card6.png"
-                className="w-full h-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
+                className="h-full w-full  rounded-[12px]  md:rounded-[32px] xl:rounded-[48px]"
                 md="/img/aiCase/card6.png"
                 xl="/img/aiCase/card6.png"
               />
@@ -536,15 +547,25 @@ export default function AiProductivity() {
           </div>
         </Animated>
         <Animated>
-          <div className="mb-[59px] h-[491px] xs:h-[515px] sm:h-[500px] md:mb-[72px] md:h-[491px] xl:mb-[88px] xl:h-[671px]">
+          <div
+            className="mb-[59px] h-[491px] xs:h-[515px] sm:h-[500px] md:mb-[72px] md:h-[491px] xl:mb-[88px] xl:h-[671px]">
             <video
               autoPlay
               loop
               muted
               preload="auto"
               controls={false}
-              src="/video/ai/last-video.mp4"
-              className="h-full w-full rounded-[35px] object-cover [object-position:35%] md:rounded-[32px] md:object-top xl:rounded-[48px]"
+              src="/video/ai/lastdesk.mp4"
+              className="h-full w-full md:block hidden rounded-[35px] object-cover [object-position:35%] md:rounded-[32px] md:object-top xl:rounded-[48px]"
+            ></video>
+            <video
+              autoPlay
+              loop
+              muted
+              preload="auto"
+              controls={false}
+              src="/video/ai/last.mp4"
+              className="h-full w-full md:hidden rounded-[35px] object-cover [object-position:35%] md:rounded-[32px] md:object-top xl:rounded-[48px]"
             ></video>
           </div>
         </Animated>

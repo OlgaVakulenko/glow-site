@@ -37,7 +37,7 @@ const cols = [
   },
 ];
 
-export default function Objectives() {
+export default function Objectives({wr = false}) {
   return (
     <Layout>
       <div className="py-[72px] md:py-[96px] xl:py-[150px]">
@@ -46,10 +46,10 @@ export default function Objectives() {
           <br className="hidden md:block" /> Los Angeles-based renovation
           company
         </Animated>
-        <div className="xl:gax-x-4 flex gap-x-[85px] gap-y-[38px] xs:grid xs:grid-cols-7 md:grid-cols-5 md:gap-x-[80px] md-safe:grid-cols-6 xl:grid-cols-12">
+        <div className={cx("xl:gax-x-4 flex gap-x-[85px] gap-y-[38px] xs:grid xs:grid-cols-7 md:grid-cols-5 md:gap-x-[80px] md-safe:grid-cols-6 xl:grid-cols-12", {"max-xs:gap-x-[50px]": wr })  }>
           {cols.map((col, index) => (
             <Col
-              className="col-span-2 font-normal last:col-span-4 md:col-span-2 md:last:col-span-2 xl:col-span-3 xl:last:col-span-3"
+              className={cx("col-span-2 font-normal  last:col-span-4 md:col-span-2 md:last:col-span-2 xl:col-span-3 xl:last:col-span-3", {"max-xs:flex-1": wr })}
               key={index}
               title={col.title}
               items={col.items}

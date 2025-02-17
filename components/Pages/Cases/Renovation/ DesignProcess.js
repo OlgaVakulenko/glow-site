@@ -77,7 +77,7 @@ export default function DesignProcess() {
             <div className="relative z-[9] w-screen overflow-scroll md:hidden">
               <div className="center-block fix-width scroll-inner">
                 <RespImage
-                  className="!w-auto max-h-[294px] pb-10 pr-[33px] xs:max-h-initial md:max-h-[392px] md:pb-0 xl:max-h-[536px]"
+                  className="!w-auto max-xs:h-[294px] pb-10 pr-[33px] xs:max-h-initial md:max-h-[392px] md:pb-0 xl:max-h-[536px]"
                   src={Frame7md}
                   md={Frame7md}
                   xl={Frame7xl}
@@ -109,7 +109,7 @@ export default function DesignProcess() {
                 className="h-full w-full rounded-br-[24px] md:rounded-br-[40px]"
                 src="/img/wr/frame-8.svg"
                 md="/img/wr/frame-8-md.svg"
-                xl="/img/wr/frame-8-xl.svg"
+                xl="/img/wr/frame-8-xl.png"
               />
             </div>
           </div>

@@ -45,7 +45,7 @@ export default function Objectives() {
   return (
     <Layout>
       <div className="py-[50px] md:py-[72px] xl:py-[88px]">
-        <Animated className="mb-10 text-white font-satoshi text-[32px] font-medium leading-[40px] tracking-[-2px] md:mb-[64px] md:text-[48px] md:leading-[64px] xl:text-[56px]">
+        <Animated className="mb-10 text-white font-satoshi text-[28px] font-medium leading-[36px] md:tracking-[-2px] md:mb-[64px] md:text-[48px] md:leading-[64px] xl:text-[56px]">
           We balance business
           <br className="hidden md:block" /> objectives with customer needs
         </Animated>

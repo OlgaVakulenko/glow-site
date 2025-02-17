@@ -23,12 +23,9 @@ import Frame7 from './assets/frame-7.png';
 import Frame6xl from './assets/frame-6-xl.png';
 import Frame6md from './assets/frame-6-md.png';
 import Frame6 from './assets/frame-6.png';
-import Frame8xl from './assets/frame-8-xl.png';
-import Frame8md from './assets/frame-8-md.png';
-import Frame8 from './assets/frame-8.png';
-import Frame9xl from './assets/frame-9-xl.png';
-import Frame9md from './assets/frame-9-md.png';
-import Frame9 from './assets/frame-9.png';
+import Last from './assets/lastt.png';
+import LastMd from './assets/lastt-md.png';
+import LastXl from './assets/lastt-xl.png';
 import RespImage from '../Renovation/RespImage';
 import RespSVG from '../Renovation/RespSVG';
 import Animated from '../../../Animated';
@@ -52,7 +49,7 @@ export default function Echo() {
   }, [setTheme]);
 
   return (
-    <div className="dark-theme bg-[#0a0a0b]">
+    <div className="dark-theme bg-[#000000]">
       <Head>
         <title>Case Echo - AI Meeting Assistant</title>
         <meta
@@ -67,24 +64,26 @@ export default function Echo() {
           subtitle="Echo Assistant is an AI tool that records meetings and offers insights, simplifying your workflow."
         />
       </Animated>
-      <Animated>
-        {/*<RespImage*/}
-        {/*  pictureClassname=""*/}
-        {/*  className="h-full"*/}
-        {/*  src={EchoImage}*/}
-        {/*  md={EchoImageMd}*/}
-        {/*  xl={EchoImageXl}*/}
-        {/*/>*/}
-        <video
-          src="/video/echo/titlee.mp4"
-          preload="auto"
-          controls={false}
-          autoPlay
-          playsInline
-          muted
-          className="max-xs:h-[292px] md:max-h-[689px] xl:max-h-[966px]"
-        />
-      </Animated>
+      <Layout disablePadding>
+        <Animated>
+          {/*<RespImage*/}
+          {/*  pictureClassname=""*/}
+          {/*  className="h-full"*/}
+          {/*  src={EchoImage}*/}
+          {/*  md={EchoImageMd}*/}
+          {/*  xl={EchoImageXl}*/}
+          {/*/>*/}
+          <video
+            src="/video/echo/titlee.mp4"
+            preload="auto"
+            controls={false}
+            autoPlay
+            playsInline
+            muted
+            className="max-xs:h-[292px] md:max-h-[689px] xl:max-h-[966px]"
+          />
+        </Animated>
+      </Layout>
       <Animated>
         <Objectives />
       </Animated>
@@ -153,6 +152,7 @@ export default function Echo() {
           </Animated>
         </div>
       </Layout>
+
       <Animated>
         <RespSVG
           className="mb-[50px] h-full w-full md:mb-[72px] xl:mb-[88px]"
@@ -182,24 +182,44 @@ export default function Echo() {
           </p>
         </Animated>
       </Layout>
-      <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
-        {/*<RespImage*/}
-        {/*  className="h-full w-full"*/}
-        {/*  src={Frame3}*/}
-        {/*  md={Frame3md}*/}
-        {/*  xl={Frame3xl}*/}
-        {/*/>*/}
-        <video
-          src="/video/echo/typo.mp4"
-          preload="auto"
-          controls={false}
-          autoPlay
-          playsInline
-          loop
-          muted
-          className="max-xs:h-[278px] xl:h-[500px]"
-        />
-      </Animated>
+      <Layout>
+        <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
+          {/*<RespImage*/}
+          {/*  className="h-full w-full"*/}
+          {/*  src={Frame3}*/}
+          {/*  md={Frame3md}*/}
+          {/*  xl={Frame3xl}*/}
+          {/*/>*/}
+            <video
+              src="/video/echo/Typography.mp4"
+              preload="auto"
+              controls={false}
+              autoPlay
+              playsInline
+              loop
+              muted
+              className="max-xs:h-[142px] md:h-[332px] max-xl:w-[800px] max-xl:mx-auto xl:h-[432px]"
+            />
+          <div className="flex justify-between max-sm:flex-col max-sm:gap-6">
+            <div className="flex items-center flex-col">
+              <p className="font-satoshi font-light text-[#AAAAAA] mb-[8px] md:text-[20px] text-[16px]  md:leading-[30px] leading-[24px] tracking-[0.16em]">
+                !@£$%^&*()
+              </p>
+              <p className=" font-satoshi  font-light text-[#AAAAAA] md:text-[20px] text-[16px]  md:leading-[30px] leading-[24px]  tracking-[0.16em]">
+                1234567890
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <p className=" uppercase  font-satoshi font-light text-[#AAAAAA] mb-[8px]  md:text-[20px] leading-[24px]  text-[16px] md:leading-[30px] tracking-[0.16em]">
+                abcdefghijklmnopqrstuvwxyz
+              </p>
+              <p className=" font-satoshi font-light text-[#AAAAAA] md:text-[20px] text-[16px] leading-[24px]   md:leading-[30px] tracking-[0.32em]">
+                abcdefghijklmnopqrstuvwxyz
+              </p>
+            </div>
+          </div>
+        </Animated>
+      </Layout>
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
           <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-[54px]">
@@ -221,18 +241,30 @@ export default function Echo() {
           </p>
         </Animated>
       </Layout>
-      <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
-        <video
-          src="/video/echo/Branding.mp4"
-          preload="auto"
-          controls={false}
-          autoPlay
-          playsInline
-          loop
-          muted
-          className="max-xl:max-h-[798px] max-sm:h-auto max-xs:h-[278px]"
-        />
-      </Animated>
+      <Layout disablePadding>
+        <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
+          <video
+            src="/video/echo/Brandin.mp4"
+            preload="auto"
+            controls={false}
+            autoPlay
+            playsInline
+            loop
+            muted
+            className="max-xl:max-h-[798px] max-sm:h-auto max-xs:h-[433px] md:hidden"
+          />
+          <video
+            src="/video/echo/Brandinn.mp4"
+            preload="auto"
+            controls={false}
+            autoPlay
+            playsInline
+            loop
+            muted
+            className="max-xl:max-h-[798px] max-md:hidden max-sm:h-auto max-xs:h-[278px]"
+          />
+        </Animated>
+      </Layout>
       <Layout className="pb-[30px] pt-[50px] md:py-[72px] xl:py-[88px]">
         <div className="mb-10 flex items-start justify-between gap-10 max-md:flex-col md:mb-[56px] md:gap-[56px]  xl:mb-20 xl:gap-[70px]">
           <Animated className="xl:flex-1">
@@ -403,31 +435,38 @@ export default function Echo() {
           </p>
         </Animated>
       </Layout>
-      <Animated className="mx-[16px] flex flex-col justify-center gap-[16px] pb-[50px] sm:mx-[32px] sm:flex-row sm:gap-[24px] md:pb-[72px] xl:mx-[64px] xl:pb-[88px]">
-        {/*<RespImage*/}
-        {/*  className="h-full w-full"*/}
-        {/*  src={Frame8}*/}
-        {/*  md={Frame8md}*/}
-        {/*  xl={Frame8xl}*/}
-        {/*/>*/}
-        {/*<RespImage*/}
-        {/*  className="h-full w-full"*/}
-        {/*  src={Frame9}*/}
-        {/*  md={Frame9md}*/}
-        {/*  xl={Frame9xl}*/}
-        {/*/>*/}
-        <video
-          src="/video/echo/met.mp4"
-          preload="auto"
-          controls={false}
-          autoPlay
-          playsInline
-          loop
-          muted
-          className="md:h-[658px]"
-        />
-      </Animated>
-      <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
+      <Layout disablePadding>
+        <Animated className="mx-[16px] flex flex-col justify-center gap-[16px] pb-[50px] sm:mx-[32px] sm:gap-[24px] md:flex-row md:pb-[72px] xl:mx-[64px] xl:pb-[88px]">
+          {/*<RespImage*/}
+          {/*  className="h-full w-full"*/}
+          {/*  src={Frame8}*/}
+          {/*  md={Frame8md}*/}
+          {/*  xl={Frame8xl}*/}
+          {/*/>*/}
+          {/*<RespImage*/}
+          {/*  className="h-full w-full"*/}
+          {/*  src={Frame9}*/}
+          {/*  md={Frame9md}*/}
+          {/*  xl={Frame9xl}*/}
+          {/*/>*/}
+          <div className="flex-1">
+            <video
+              src="/video/echo/met.mp4"
+              preload="auto"
+              controls={false}
+              autoPlay
+              playsInline
+              loop
+              muted
+              className="h-full w-auto"
+            />
+          </div>
+          <div className="w-auto flex-1">
+            <RespImage src={Last} md={LastMd} xl={LastXl} />
+          </div>
+        </Animated>
+      </Layout>
+      <Layout className="pb-[100px] pt-[50px] md:pb-[144px] md:pt-[72px] xl:pb-[176px] xl:pt-[88px]">
         <div className="mb-10 flex items-start  justify-between gap-10 max-md:flex-col md:mb-[56px] md:gap-[70px] xl:mb-20 xl:gap-[30px]">
           <Animated className="xl:flex-1">
             <h2 className="flex  h-[77px] w-max items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:text-[56px] md:leading-[64px]">
@@ -443,9 +482,9 @@ export default function Echo() {
         <Animated>
           <RespSVG
             className="h-full w-full"
-            src="/img/echo/frame-14.svg"
-            md="/img/echo/frame-14-md.svg"
-            xl="/img/echo/frame-14-xl.svg"
+            src="/img/echo/frame-14-xl.png"
+            md="/img/echo/frame-14-xl.png"
+            xl="/img/echo/frame-14-xl.png"
           />
         </Animated>
       </Layout>

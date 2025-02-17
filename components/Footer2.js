@@ -61,6 +61,7 @@ export default function Footer2({
 
     router.push(u);
   }, [router, footerStyle]);
+  const isEcho = router.pathname === '/echo'
 
   return (
     <footer
@@ -69,6 +70,7 @@ export default function Footer2({
         'bg-[#0a0a0b]': dark,
         '!mt-0 flex h-screenx flex-col !pt-[88px] font-inter xl:!pt-[112px]':
           isSubmitted,
+        'bg-[#000000]': isEcho,
       })}
     >
       {isSubmitted ? (
@@ -117,7 +119,7 @@ export default function Footer2({
                 <div className="mb-[40px] text-[12px] uppercase leading-[24px] tracking-[0.02em] text-white md:mb-10 xl:mb-10">
                   <SlotText />
                 </div>
-                <div className="mb-8 text-center font-satoshi text-next-heading-4 text-white md:mb-8 md:text-[56px] md:leading-[64px] md:tracking-[-2px] xl:mb-8 xl:text-[72px] xl:leading-[72px]">
+                <div className="mb-8 text-center font-satoshi text-next-heading-4 text-white md:mb-8 md:text-[56px] md:leading-[64px] md:tracking-[-2px] xl:tracking-[-1px] xl:mb-8 xl:text-[72px] xl:leading-[80px]">
                   {router.pathname === '/trial' ? (
                     <>
                       Ready to start

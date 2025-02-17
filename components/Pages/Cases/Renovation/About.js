@@ -10,6 +10,7 @@ import Frame12 from './assets/frame-12.png';
 import Frame13md from './assets/frame-13-md.png';
 import Frame13xl from './assets/frame-13-xl.png';
 import Frame13 from './assets/frame-13.png';
+import RespSVG from './RespSVG';
 
 function Text({ className, children }) {
   return (
@@ -40,30 +41,41 @@ export default function About() {
           </Text>
         </div>
         <div className="flex w-full flex-col gap-4 md:gap-8">
-          <RespImage
-            pictureClassname=""
+          {/*<RespImage*/}
+          {/*  pictureClassname=""*/}
+          {/*  className="h-full rounded-[24px] md:rounded-[40px] "*/}
+          {/*  src={Frame11}*/}
+          {/*  md={Frame11md}*/}
+          {/*  xl={Frame11xl}*/}
+          {/*/>*/}
+          <RespSVG
             className="h-full rounded-[24px] md:rounded-[40px] "
-            src={Frame11}
-            md={Frame11md}
-            xl={Frame11xl}
+            src='/img/wr/frame-11.png'
+            md='/img/wr/frame-11-md.png'
+            xl='/img/wr/frame-11-xl.png'
           />
           <div className="flex flex-col gap-4 md:flex-row md:gap-8">
             <div className="flex-1">
-              <RespImage
-                pictureClassname=""
-                className="h-full rounded-[24px] md:rounded-[40px]"
-                src={Frame12}
-                md={Frame12md}
-                xl={Frame12xl}
+              {/*<RespImage*/}
+              {/*  pictureClassname=""*/}
+              {/*  className="h-full rounded-[24px] md:rounded-[40px]"*/}
+              {/*  src={Frame12}*/}
+              {/*  md={Frame12md}*/}
+              {/*  xl={Frame12xl}*/}
+              {/*/>*/}
+              <RespSVG
+                className="h-full max-xs:w-full rounded-[24px] md:rounded-[40px] "
+                src='/img/wr/frame-12.png'
+                md='/img/wr/frame-12-md.png'
+                xl='/img/wr/frame-12-xl.png'
               />
             </div>
             <div className="flex-1">
-              <RespImage
-                pictureClassname=""
-                className="h-full rounded-[24px] md:rounded-[40px]"
-                src={Frame13}
-                md={Frame13md}
-                xl={Frame13xl}
+              <RespSVG
+                className="h-full max-xs:w-full rounded-[24px] md:rounded-[40px] "
+                src='/img/wr/frame-13.png'
+                md='/img/wr/frame-13-md.png'
+                xl='/img/wr/frame-13-xl.png'
               />
             </div>
           </div>
