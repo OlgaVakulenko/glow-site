@@ -1,34 +1,26 @@
 import cx from 'clsx';
-import { atom, useAtom } from 'jotai';
+import { useAtom } from 'jotai';
 import Head from 'next/head';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Animated from '../../Animated';
 import Layout from '../../Layout';
 import RespImage from '../Cases/Invoice/RespImage';
-
-import Pic0 from './assets/pic0.png';
-import Pic0md from './assets/pic0-md.png';
 import Solutionxl from './assets/solution-xl.png';
-// import Image from "../../Image";
 import TextBlock from './TextBlock';
 import NextCase from './NextCase';
 import nextCaseIcon from './assets/nexCase-icon.png';
 import InnovateSolutionTextBlock from './InnovateSolution';
 import SectionIntro from './Intro';
 import Image from 'next/image';
-import { resolve, Source } from '../../Image';
-
-import Frame1xl from '../LendFlow/assets/frame-1-xl.svg';
 import { mediaAtom } from '../../../lib/agent';
 import RespSVG from '../Cases/Renovation/RespSVG';
 import Logo1 from '../../../assets/img/lend/Logos.png';
 import Logo2 from '../../../assets/img/lend/Card.png';
 import Logo3 from '../../../assets/img/lend/Logo3.png';
-import Card1 from '../../../assets/img/lend/card1.png';
 
 export default function LendFlow() {
   return (
-    <Layout disablePadding={true}>
+    <>
       <Head>
         <title className="text-5xl font-bold">{`Glow Team Portfolio: Showcasing Our Innovative Design Projects`}</title>
         <meta
@@ -36,7 +28,7 @@ export default function LendFlow() {
           content="Explore Glow Team's diverse portfolio of design and development projects, highlighting our commitment to creative solutions and client success."
         ></meta>
       </Head>
-      <div>
+      <Layout disablePadding={true}>
         <Animated>
           <SectionIntro
             className="pt-[140px] md:pt-[268px] xl:pt-[175px] "
@@ -52,21 +44,10 @@ export default function LendFlow() {
             subtitle="Lendflow provides the tools to create and integrate credit products, from application to underwriting."
           />
         </Animated>
-      </div>
-      <Animated className="md:hidden">
+      </Layout>
+      <Animated>
         <Image
-          src="/img/lendFlow/frame-1-xl.svg"
-          priority
-          width={0}
-          height={0}
-          style={{ width: '100%', height: 'auto' }}
-          alt="Lendflow design ecosystem"
-          unoptimized
-        />
-      </Animated>
-      <Animated className="max-md:hidden">
-        <Image
-          src="/img/lendFlow/frame-1-xl.png"
+          src="/img/lendFlow/frame1-xl.jpg"
           priority
           width={0}
           height={0}
@@ -75,60 +56,45 @@ export default function LendFlow() {
           alt="Lendflow design ecosystem"
           unoptimized
         />
-        <div className="absolute flex md:gap-6 xl:gap-5 xl:top-[5%] xl:left-[4.5%] md:top-[6%] md:left-[3%]">
-          <RespSVG
-            src="/img/lendFlow/fintech-logo.svg"
-            md="/img/lendFlow/fintech-logo.svg"
-            xl="/img/lendFlow/fintech-logo.svg"
-            alt=""
-            className="xl:w-auto md:w-[158px]"
-          />
-          <RespSVG
-            src="/img/lendFlow/logo-ycombinator.svg"
-            md="/img/lendFlow/logo-ycombinator.svg"
-            xl="/img/lendFlow/logo-ycombinator.svg"
-            className="xl:w-auto md:w-[158px]"
-
-            alt=""
-          />
-        </div>
       </Animated>
-      <SectionBalance />
-      <SectionInnovate />
-      <SectionTransforming />
-      <Animated>
-        <div className="mb-[104px] flex h-[169px] justify-center md:mb-[123px] md:ml-[101px] md:w-[80vw] md-safe:w-[819px] xl:mb-[150px] xl:ml-[140px] xl:w-[1160px]">
-          <Image
-            src="/img/lendFlow/process-1-md.svg"
-            width={0}
-            height={0}
-            objectfit="contain"
-            className="max-md:hidden"
-            style={{ width: '100%', height: '100%' }}
-          />
-          <RespSVG
-            src="/img/lendFlow/process.svg"
-            md="/img/lendFlow/process.svg"
-            xl="/img/lendFlow/process.svg"
-            alt="Logo"
-            className="md:hidden"
-          />
-        </div>
-      </Animated>
-      <SectionToolsHeader />
-      <SectionTools />
-      <NextCase
-        icon={
-          <Image
-            src={nextCaseIcon}
-            className="mb-8 mr-8 h-[68px] w-[68px] md:mb-0"
-            alt="icon"
-          />
-        }
-        title={<>FleetChaser: efficient fleet management platform</>}
-        link="/fleet"
-      />
-    </Layout>
+      <Layout disablePadding={true}>
+        <SectionBalance />
+        <SectionInnovate />
+        <SectionTransforming />
+        <Animated>
+          <div className="mb-[104px] flex h-[169px] justify-center md:mb-[123px] md:ml-[101px] md:w-[80vw] md-safe:w-[819px] xl:mb-[150px] xl:ml-[140px] xl:w-[1160px]">
+            <Image
+              src="/img/lendFlow/process-1-md.svg"
+              width={0}
+              height={0}
+              objectfit="contain"
+              className="max-md:hidden"
+              style={{ width: '100%', height: '100%' }}
+            />
+            <RespSVG
+              src="/img/lendFlow/process.svg"
+              md="/img/lendFlow/process.svg"
+              xl="/img/lendFlow/process.svg"
+              alt="Logo"
+              className="md:hidden"
+            />
+          </div>
+        </Animated>
+        <SectionToolsHeader />
+        <SectionTools />
+        <NextCase
+          icon={
+            <Image
+              src={nextCaseIcon}
+              className="mb-8 mr-8 h-[68px] w-[68px] md:mb-0"
+              alt="icon"
+            />
+          }
+          title={<>FleetChaser: efficient fleet management platform</>}
+          link="/fleet"
+        />
+      </Layout>
+    </>
   );
 }
 
@@ -138,8 +104,7 @@ function SectionBalance() {
       <Animated>
         <div className="mx-4 pb-[35px] pt-[104px] font-inter md:mx-0 md:pb-[32px] md:pt-[144px] xl:pb-[50px] xl:pt-[150px]">
           <SectionFullCycle className="mb-6 text-[28px] leading-[36px] tracking-[-1px] md:mb-[8px] md:ml-8 md:text-[48px] md:text-next-heading-3 md:leading-[56px] md:tracking-[-2px] xl:mb-16 xl:ml-[64px] xl:text-[56px] xl:leading-[64px] xl:tracking-[-2px]">
-            <div style={{ fontFeatureSettings: 'normal' }}>
-              {' '}
+            <div className="font-normal">
               The full cycle of product design:
               <br className="hidden md:inline" /> from concept to launch and
               growth
@@ -188,7 +153,7 @@ function SectionInnovate() {
         <Animated>
           <div className="mb-5 md:mb-[25px] md:h-auto md:w-full xl:mb-[36px]  xl:h-auto xl:w-[1312px]">
             <Image
-              src="/img/lendFlow/innovate-0-xl.svg"
+              src="/img/lendFlow/innovate-0-xl.png"
               width={0}
               height={0}
               className="max-sm:rounded-[18px]"
@@ -199,13 +164,6 @@ function SectionInnovate() {
           {/*Mobile layout*/}
           <div className="flex  w-full flex-col items-center gap-[20px] bg-[#FFFFFF] md:hidden xl:hidden ">
             <div className=" flex w-full flex-row gap-[0_16px]">
-              {/*<Image*/}
-              {/*  src="/img/lendFlow/innovate-1-xl.svg"*/}
-              {/*  width={0}*/}
-              {/*  height={0}*/}
-              {/*  className="flex w-auto flex-1 flex-col items-center justify-center md:rounded-[22px] xl:rounded-[30px]"*/}
-              {/*  alt="Innovate"*/}
-              {/*/>*/}
               <div className="w-full flex-1">
                 <RespImage
                   src={Logo1}
@@ -222,25 +180,10 @@ function SectionInnovate() {
                   xl={Logo2}
                 />
               </div>
-
-              {/*<Image*/}
-              {/*  src="/img/lendFlow/innovate-3-xl.svg"*/}
-              {/*  width={0}*/}
-              {/*  height={0}*/}
-              {/*  className="bg-[#F4F5F6] w-auto flex-1 md:rounded-[22px] xl:rounded-[30px] "*/}
-              {/*  alt="Innovate"*/}
-              {/*/>*/}
             </div>
             <div className="mb-[100px] w-full">
               <RespImage src={Logo3} md={Logo3} className="w-full" xl={Logo3} />
             </div>
-            {/*<Image*/}
-            {/*  src="/img/lendFlow/innovate-2-xl.svg"*/}
-            {/*  width={0}*/}
-            {/*  height={0}*/}
-            {/*  className="box-sizing-border mt-5 flex md:rounded-[22px] xl:rounded-[30px]"*/}
-            {/*  alt="Innovate"*/}
-            {/*/>*/}
           </div>
 
           <Animated>
@@ -340,11 +283,11 @@ function SectionFullCycleList({ data }) {
             { 'col-span-2': i === 2 }
           )}
         >
-          <div className="text-[16px]  font-normal leading-[25.6px] opacity-50 md:mb-[42px] md:ml-8 md:mt-[64px] md:text-[20px] md:normal-case md:leading-[30px] md:opacity-30 xl:mb-[42px] xl:ml-[64px] xl:mt-0">
+          <div className="text-[16px]  leading-[25.6px] opacity-50 md:mb-[42px] md:ml-8 md:mt-[64px] md:text-[20px] md:normal-case md:leading-[30px] md:opacity-30 xl:mb-[42px] xl:ml-[64px] xl:mt-0">
             {column.title}
           </div>
 
-          <div className="mt-[22px] font-normal leading-[25.6px]  md:ml-[32px] md:mt-0 md:text-[20px] md:leading-[24px] xl:ml-[64px] xl:pl-[1px]">
+          <div className="mt-[22px] leading-[25.6px]  md:ml-[32px] md:mt-0 md:text-[20px] md:leading-[24px] xl:ml-[64px] xl:pl-[1px]">
             {column.values.map((value, k) => (
               <Animated
                 delay={i * k * 50}
@@ -368,7 +311,7 @@ function SectionTransforming() {
         <div className="flex items-center justify-center">
           <div
             style={{ fontFeatureSettings: 'normal' }}
-            className="mb-[64px] font-satoshi text-[38px] font-bold leading-[45px] tracking-tight text-black md:mb-[55px] md:text-[56px] md:leading-[67.2px]
+            className="mb-[64px] font-satoshi text-[38px] font-semibold leading-[45px] tracking-tight text-black md:mb-[55px] md:text-[56px] md:leading-[67.2px]
                      md:tracking-[-2px] xl:mb-[78px] xl:text-[80px] xl:leading-[96px] xl:tracking-[-3px] "
           >
             Lendflow is transforming the credit industry
@@ -451,7 +394,7 @@ function SectionToolsHeader() {
               <div className="flex items-center justify-center md:ml-[15px] xl:ml-[30px] xl:mr-[30px] xl:w-[1120px]">
                 <div
                   style={{ fontFeatureSettings: 'normal' }}
-                  className="text-center font-satoshi text-[38px] font-medium leading-[45px] tracking-[-1.5px]  text-white md:mb-7 md:text-[56px] md:leading-[67px] xl:text-[80px]
+                  className="text-center font-satoshi text-[38px] font-normal leading-[45px] tracking-[-1.5px]  text-white md:mb-7 md:text-[56px] md:leading-[67px] xl:text-[80px]
                             xl:leading-[96px] forced-colors:accent-white"
                 >
                   Lendflow provides the tools you{' '}
@@ -502,13 +445,6 @@ function SectionTools() {
         <div className="gap flex max-h-full w-full max-w-full flex-col md:flex-row md:gap-[24px] md:pt-[14px] xl:ml-0 xl:gap-9 xl:pt-[174px]">
           <div className="mb-6 flex-1 flex-shrink md:mb-0 md:pl-0 xl:pl-0">
             <div className=" md:h-full md:rounded-[22px] xl:h-[700px]">
-              {/*<Image*/}
-              {/*  src="/img/lendFlow/product0-xl.svg"*/}
-              {/*  width={0}*/}
-              {/*  height={0}*/}
-              {/*  objectfit="contain"*/}
-              {/*  style={{ width: '100%', height: '100%' }}*/}
-              {/*/>*/}
               <RespSVG
                 src="/img/lendFlow/Font.svg"
                 md="/img/lendFlow/product0-xl.svg"
@@ -519,13 +455,6 @@ function SectionTools() {
           </div>
           <div className="flex-1 flex-shrink">
             <div className="md:h-full md:rounded-[22px] xl:h-[700px]">
-              {/*<Image*/}
-              {/*  src="/img/lendFlow/product1-xl.svg"*/}
-              {/*  width={0}*/}
-              {/*  height={0}*/}
-              {/*  objectfit="contain"*/}
-              {/*  style={{ width: '100%', height: '100%' }}*/}
-              {/*/>*/}
               <RespSVG
                 src="/img/lendFlow/product1-xl.svg"
                 md="/img/lendFlow/product1-xl.svg"
@@ -539,7 +468,7 @@ function SectionTools() {
       <Animated>
         <div className="mb-[100px] mt-5 bg-transparent md:mb-[50px] md:mt-6 md:h-[auto] md:w-[960px] xl:mb-[64px] xl:ml-0 xl:mt-9 xl:h-auto xl:w-[1312px]">
           <Image
-            src="/img/lendFlow/product-xl.svg"
+            src="/img/lendFlow/product-xl.png"
             width={0}
             height={0}
             objectfit="contain"
@@ -576,7 +505,7 @@ function SectionTools() {
         <Animated>
           <div className="bg-transparent md:w-[960px] xl:h-fit xl:w-[1285px] xl:pt-[45px]">
             <Image
-              src="/img/lendFlow/screen1.svg"
+              src="/img/lendFlow/screen1.png"
               width={0}
               height={0}
               objectfit="contain"
@@ -644,7 +573,7 @@ function SectionTools() {
               <RespSVG
                 xl="/img/lendFlow/activity1-md.svg"
                 md="/img/lendFlow/activity1-md.svg"
-                src="/img/lendFlow/Contacts.svg"
+                src="/img/lendFlow/activity1-md.png"
                 className="block xl:hidden"
               />
               <Image
@@ -671,7 +600,7 @@ function SectionTools() {
               <RespSVG
                 xl="/img/lendFlow/activity2-md.svg"
                 md="/img/lendFlow/activity2-md.svg"
-                src="/img/lendFlow/Activity.svg"
+                src="/img/lendFlow/activity2-md.png"
                 className="block xl:hidden"
               />
               <Image
@@ -742,7 +671,7 @@ function SectionTools() {
             }}
           >
             <Image
-              src="/img/lendFlow/screen3-xl.svg"
+              src="/img/lendFlow/screen3-xl.png"
               width={0}
               height={0}
               objectfit="contain"
@@ -815,7 +744,7 @@ function SectionTools() {
                   style={{ width: '100%', height: '100%' }}
                 />
                 <Image
-                  src="/img/lendFlow/act.svg"
+                  src="/img/lendFlow/branding1-xs.png"
                   className="block sm:hidden"
                   width={0}
                   height={0}
@@ -852,7 +781,7 @@ function SectionTools() {
                   style={{ width: '100%', height: '100%' }}
                 />
                 <Image
-                  src="/img/lendFlow/con.svg"
+                  src="/img/lendFlow/branding2-xs.png"
                   className="block sm:hidden"
                   width={0}
                   height={0}
@@ -925,7 +854,7 @@ function SectionTools() {
               }}
             >
               <Image
-                src="/img/lendFlow/screen2-xl.svg"
+                src="/img/lendFlow/screen2-xl.png"
                 width={0}
                 height={0}
                 objectfit="contain"
@@ -1017,13 +946,13 @@ function SectionTools() {
                 objectfit="contain"
                 style={{ width: '100%', height: '100%' }}
               />
-              <div className="flex xs:hidden justify-between px-[9px] relative">
+              <div className="relative flex justify-between px-[9px] xs:hidden">
                 <div>
                   <RespSVG
                     src="/img/lendFlow/img-modal1.svg"
                     md="/img/lendFlow/img-modal1.svg"
                     xl="/img/lendFlow/img-modal1.svg"
-                    className="w-[150px] mb-[23px]"
+                    className="mb-[23px] w-[150px]"
                   />
                   <RespSVG
                     src="/img/lendFlow/img-modal3.svg"
@@ -1154,7 +1083,7 @@ function SectionTools() {
                 className="max-md:hidden"
               />
               <Image
-                src="/img/lendFlow/Logo.svg"
+                src="/img/lendFlow/pic1-xs.png"
                 width={0}
                 height={0}
                 // objectfit="contain"
@@ -1183,7 +1112,7 @@ function SectionTools() {
                 className="max-md:hidden"
               />
               <Image
-                src="/img/lendFlow/App.svg"
+                src="/img/lendFlow/pic2-xs.png"
                 width={0}
                 height={0}
                 // objectfit="contain"
@@ -1205,7 +1134,7 @@ function SectionTools() {
             }}
           >
             <Image
-              src="/img/lendFlow/pic0-md.svg"
+              src="/img/lendFlow/pic0-xs.png"
               className="block xl:hidden"
               width={0}
               height={0}

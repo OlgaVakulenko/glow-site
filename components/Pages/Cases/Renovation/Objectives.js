@@ -49,7 +49,7 @@ export default function Objectives({wr = false}) {
         <div className={cx("xl:gax-x-4 flex gap-x-[85px] gap-y-[38px] xs:grid xs:grid-cols-7 md:grid-cols-5 md:gap-x-[80px] md-safe:grid-cols-6 xl:grid-cols-12", {"max-xs:gap-x-[50px]": wr })  }>
           {cols.map((col, index) => (
             <Col
-              className={cx("col-span-2 font-normal  last:col-span-4 md:col-span-2 md:last:col-span-2 xl:col-span-3 xl:last:col-span-3", {"max-xs:flex-1": wr })}
+              className={cx("col-span-2 last:col-span-4 md:col-span-2 md:last:col-span-2 xl:col-span-3 xl:last:col-span-3", {"max-xs:flex-1": wr })}
               key={index}
               title={col.title}
               items={col.items}

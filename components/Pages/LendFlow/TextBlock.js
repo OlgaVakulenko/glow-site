@@ -39,7 +39,7 @@ export default function TextBlock({
               xl="/img/lendFlow/textBlocIcon.svg"
               className="sm:h-[18px] sm:w-[18px] h-[16px] w-[16px]  "
             />
-            <div className=" inline-block break-words pt-0.5 font-inter text-[12px] leading-[14.54px] md:text-[14px] font-medium md:leading-[16.94px]  text-[#FFFFFF]">
+            <div className=" inline-block break-words pt-0.5 font-inter text-[12px] leading-[14.54px] md:text-[14px] font-normal md:leading-[16.94px]  text-[#FFFFFF]">
               {topic}
             </div>
           </div>
@@ -55,7 +55,7 @@ export default function TextBlock({
             <div className="items-center md:mb-11">
               <Animated
                 style={{ fontFeatureSettings: 'normal' }}
-                className=" mb-6 text-center font-satoshi text-[28px] font-medium leading-[36px] tracking-tighter text-white md:text-[48px] md:leading-[56px]
+                className=" mb-6 text-center font-satoshi text-[28px] font-normal leading-[36px] tracking-tighter text-white md:text-[48px] md:leading-[56px]
   xl:text-[56px] xl:leading-[64px] xl:tracking-[-2px] forced-colors:accent-white"
               >
                 {title}

@@ -389,7 +389,7 @@ export default function Beast() {
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
                 <h2
-                  className="title-big wow fadeInUp"
+                  className="title-big wow fadeInUp font-normal"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >
@@ -432,7 +432,7 @@ export default function Beast() {
             <div className="inline-header inline-header-midle">
               <div className="inline-header__item inline-header__left">
                 <h2
-                  className="title-big wow fadeInUp"
+                  className="title-big wow fadeInUp font-normal"
                   data-wow-duration="1.2s"
                   data-wow-delay="0.1s"
                 >

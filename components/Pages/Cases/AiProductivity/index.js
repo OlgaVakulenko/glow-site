@@ -259,7 +259,7 @@ export default function AiProductivity() {
                 <br className="md:hidden" />
                 and Smart Strategist
               </h2>
-              <p className="text-[12px] font-normal  leading-[17px] text-[#6F6F6F] md:max-w-[50%] md:text-[14px] md:leading-[20px] xl:max-w-[46.4%] xl:text-[16px] xl:leading-[24px]">
+              <p className="text-[12px] leading-[17px] text-[#6F6F6F] md:max-w-[50%] md:text-[14px] md:leading-[20px] xl:max-w-[46.4%] xl:text-[16px] xl:leading-[24px]">
                 This assistant helps with choosing interior designs, writing
                 essays, crafting social media posts, analyzing competitors, and
                 even performing calculations. It analyzes images to suggest
@@ -317,7 +317,8 @@ export default function AiProductivity() {
               autoPlay
               loop
               muted
-              preload="auto"
+              preload
+              playsInline
               controls={false}
               src="/video/ai/desktoptablet.mp4"
               className="md:max-h-[930px] xl:max-h-[1271px] md:block hidden"
@@ -326,7 +327,8 @@ export default function AiProductivity() {
               autoPlay
               loop
               muted
-              preload="auto"
+              playsInline
+              preload
               controls={false}
               src="/video/ai/mobile.mp4"
               className="md:max-h-[930px] xl:max-h-[1271px] md:hidden"
@@ -553,7 +555,8 @@ export default function AiProductivity() {
               autoPlay
               loop
               muted
-              preload="auto"
+              preload
+              playsInline
               controls={false}
               src="/video/ai/lastdesk.mp4"
               className="h-full w-full md:block hidden rounded-[35px] object-cover [object-position:35%] md:rounded-[32px] md:object-top xl:rounded-[48px]"
@@ -562,7 +565,8 @@ export default function AiProductivity() {
               autoPlay
               loop
               muted
-              preload="auto"
+              playsInline
+              preload
               controls={false}
               src="/video/ai/last.mp4"
               className="h-full w-full md:hidden rounded-[35px] object-cover [object-position:35%] md:rounded-[32px] md:object-top xl:rounded-[48px]"

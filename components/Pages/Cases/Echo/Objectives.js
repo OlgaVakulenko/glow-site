@@ -10,8 +10,8 @@ function Col({ className, title, items = [] }) {
         'text-base leading-[160%] md:text-xl md:leading-[150%]'
       )}
     >
-      <div className="mb-3 opacity-30 md:mb-10 text-[#FFFFFF90]">{title}</div>
-      <div className="md:grid md:gap-3 text-white">
+      <div className="mb-3 text-[#FFFFFF90] opacity-30 md:mb-10">{title}</div>
+      <div className="text-white md:grid md:gap-3">
         {items.map((item, index) => (
           <Animated
             delay={index * 50}
@@ -29,7 +29,14 @@ function Col({ className, title, items = [] }) {
 const cols = [
   {
     title: 'User Experience ',
-    items: ['UX Audit', 'Research', 'Wireframe', 'Prototype', "UI/UX Design", 'App Design'],
+    items: [
+      'UX Audit',
+      'Research',
+      'Wireframe',
+      'Prototype',
+      'UI/UX Design',
+      'App Design',
+    ],
   },
   {
     title: 'Visual Design',
@@ -45,14 +52,14 @@ export default function Objectives() {
   return (
     <Layout>
       <div className="py-[50px] md:py-[72px] xl:py-[88px]">
-        <Animated className="mb-10 text-white font-satoshi text-[28px] font-medium leading-[36px] md:tracking-[-2px] md:mb-[64px] md:text-[48px] md:leading-[64px] xl:text-[56px]">
+        <Animated className="mb-10 font-satoshi text-[28px] font-medium leading-[36px] text-white md:mb-[64px] md:text-[48px] md:leading-[64px] md:tracking-[-2px] xl:text-[56px]">
           We balance business
           <br className="hidden md:block" /> objectives with customer needs
         </Animated>
-        <div className=" flex gap-x-[60px] xs:gap-x-[85px] flex-wrap gap-y-[40px] xs:grid xs:grid-cols-4 md:grid-cols-6 md:gap-x-[0px] xl:gap-x-[40px] md-safe:grid-cols-7.5 xl:grid-cols-12">
+        <div className=" md-safe:grid-cols-7.5 flex flex-wrap gap-x-[60px] gap-y-[40px] xs:grid xs:grid-cols-4 xs:gap-x-[85px] md:grid-cols-6 md:gap-x-[0px] xl:grid-cols-12 xl:gap-x-[40px]">
           {cols.map((col, index) => (
             <Col
-              className="col-span-2 font-normal last:col-span-4 md:col-span-2 md:last:col-span-2 xl:col-span-3 xl:last:col-span-3"
+              className="col-span-2 last:col-span-4 md:col-span-2 md:last:col-span-2 xl:col-span-3 xl:last:col-span-3"
               key={index}
               title={col.title}
               items={col.items}

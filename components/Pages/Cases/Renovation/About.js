@@ -34,7 +34,7 @@ export default function About() {
           >
             All information about the renovation process in your pocket
           </Animated>
-          <Text className="max-w-[732px] text-center text-[16px] font-normal leading-6 md:text-[20px] md:leading-8">
+          <Text className="max-w-[732px] text-center text-[16px] leading-6 md:text-[20px] md:leading-8">
             {
               'Our goal was for the homeowner to see all the information they needed about the project here without having to navigate anywhere within the app.'
             }

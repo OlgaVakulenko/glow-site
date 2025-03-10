@@ -23,7 +23,7 @@ export default function Header({ title, subtitle, type }) {
         <Animated
           as="h2"
           delay={100}
-          className="text-base xl:mr-[6.2%] text-white font-normal leading-[26px] sm:flex md:w-[320px] md:items-end md:text-[18px] xl:text-[20px] md:leading-[28.8px]  xl:leading-[32px] md-safe:w-[414px] xl:w-[468px]"
+          className="text-base xl:mr-[6.2%] text-white leading-[26px] sm:flex md:w-[320px] md:items-end md:text-[18px] xl:text-[20px] md:leading-[28.8px]  xl:leading-[32px] md-safe:w-[414px] xl:w-[460px]"
         >
           {subtitle}
         </Animated>

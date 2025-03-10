@@ -39,7 +39,7 @@ export default function ProjectManagement() {
           </div>
           <Animated
             as="div"
-            className="text-center font-satoshi text-[32px] font-medium leading-10 tracking-[-1px] sm:w-[91.5%] md:w-full md:text-[48px] md:leading-[64px] md-safe:w-[91.5%] xl:w-full  xl:text-[56px] xl:leading-[72px]"
+            className="text-center font-satoshi text-[32px] font-normal leading-10 tracking-[-1px] sm:w-[91.5%] md:w-full md:text-[48px] md:leading-[64px] md-safe:w-[91.5%] xl:w-full  xl:text-[56px] xl:leading-[72px]"
           >
             After finalizing the homeowner app, we proceeded to the project
             manager’s side
@@ -65,9 +65,9 @@ export default function ProjectManagement() {
             </div>
           </div>
           <div className="flex flex-col items-start  md:max-w-[275px] md:pt-[5%] md-safe:ml-6 md-safe:max-w-[290px] xl:ml-0 xl:mr-[56px]  xl:max-w-[320px] xl:pt-[16%]">
-            <Title>{'Home and projects'}</Title>
+            <Title className="font-normal">{'Home and projects'}</Title>
             <div>
-              <Text className="mb-4">
+              <Text className="mb-4 font-light">
                 {
                   'Our team designed a home screen with a notification center and a checklist of reports to be sent. This way the PM can easily track their daily tasks and important events.'
                 }

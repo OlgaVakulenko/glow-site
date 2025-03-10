@@ -46,8 +46,8 @@ export default function Reporting() {
             />
           </div>
           <div className="md:ml-0 md:mr-[2.4vw] md:min-w-[260px] md:max-w-[288px]  md-safe:min-w-[288px] xl:mx-[3.9vw]">
-            <Title className="md-6">{'Reporting'}</Title>
-            <Text>
+            <Title className="md-6 font-normal">{'Reporting'}</Title>
+            <Text className='font-light'>
               {
                 'When sending the report, the project manager manager should state how far the current stage has progressed, briefly describe the work done, and attach several photos if needed.'
               }

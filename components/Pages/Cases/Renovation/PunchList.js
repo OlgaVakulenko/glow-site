@@ -40,14 +40,14 @@ export default function PunchList() {
     <Layout className="flex h-full w-full flex-col-reverse bg-lightGray md-safe:!px-8 md-safe:pb-[96px] xl:!px-20 xl:pb-[160px]">
       <div className="relative hidden md:block">
         <div className="absolute w-[68%] xl:ml-[40px] xl:w-[60%] ">
-          <Title>{'Punch list'}</Title>
+          <Title className="font-normal">{'Punch list'}</Title>
           <div className="flex h-full w-full justify-between gap-6">
-            <Text className="md:max-w-[288px] xl:max-w-[389px]">
+            <Text className="font-light md:max-w-[288px] xl:max-w-[389px]">
               {
                 'Once all phases have been completed, the project manager must create a punch list, a document that identifies and tracks the remaining adjustments, repairs, or\u00A0deviations.'
               }
             </Text>
-            <Text className="md:max-w-[288px] xl:max-w-[320px]">
+            <Text className="font-light md:max-w-[288px] xl:max-w-[320px]">
               {
                 'To ensure customer satisfaction, the project can be finished only after the punch list is completed and approved by the homeowner. '
               }
@@ -91,7 +91,7 @@ export default function PunchList() {
         <div className="flex">
           <div className="mt-[46px] h-full w-full flex-1">
             <RespImage
-              className="w-full mb-[24px] md:mb-0"
+              className="mb-[24px] w-full md:mb-0"
               src={Frame38}
               md={Frame38md}
               xl={Frame38xl}
