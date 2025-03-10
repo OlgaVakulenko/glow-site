@@ -39,7 +39,7 @@ export default function IllustrationCard() {
           </div>
           <Animated
             as="div"
-            className="text-center font-satoshi text-[32px] font-medium leading-10 tracking-[-1px] md:text-[48px] md:leading-[64px] xl:max-w-[1018px] xl:text-[56px] xl:leading-[72px]"
+            className="text-center font-satoshi text-[32px] font-normal leading-10 tracking-[-1px] md:text-[48px] md:leading-[64px] xl:max-w-[1018px] xl:text-[56px] xl:leading-[72px]"
           >
             For onboarding, empty states and information screens, we created a
             series of minimalistic linear illustrations.

@@ -31,7 +31,7 @@ function TitleDesc({ className, children }) {
   return (
     <Animated
       as="p"
-      className={`text-[16px] font-normal leading-6 text-white md:text-[20px] md:leading-8 ${className}`}
+      className={`text-[16px] leading-6 text-white md:text-[20px] md:leading-8 ${className}`}
     >
       {children}
     </Animated>
@@ -48,7 +48,7 @@ export default function DesignProcess() {
         <Layout className="overflow-hidden mb-[16px] sm:mb-[0px]">
           <div className="pb-10 pt-[72px] md:pb-[64px] md:pt-[96px] xl:pb-[120px] xl:pt-[120px]">
             <div className="mb-[40px] flex flex-col  justify-start md:mb-[48px] xl:mb-[96px]">
-              <div className="mb-8 w-fit rounded-[32px] bg-light-green px-4 py-2 font-inter text-[12px] font-medium uppercase leading-[24px] tracking-[0.02em] text-lightGray md:mb-[34px]">
+              <div className="mb-8 w-fit rounded-[32px] bg-light-green px-4 py-2 font-inter text-[12px] font-normal uppercase leading-[24px] tracking-[0.02em] text-lightGray md:mb-[34px]">
                 The process
               </div>
               <div className="flex w-full flex-col justify-between md:gap-y-6 xl:flex-row xl:gap-x-[96px]">
@@ -57,7 +57,7 @@ export default function DesignProcess() {
                     'Before starting the project, we by creating a roadmap for our design process'
                   }
                 </TitleSection>
-                <TitleDesc className="xl:w-[39%]">
+                <TitleDesc className="xl:w-[39%] ">
                   We worked in two-week sprints and kept in touch with the
                   client throughout the project, both by texting in slack and
                   via video calls twice a week to discuss progress. This way we
@@ -117,11 +117,11 @@ export default function DesignProcess() {
         <Layout className="bg-charcoal-black xl:!pr-[56px]">
           <div className="mb-4 flex flex-col gap-y-8 rounded-[24px] bg-light-black pb-0 pt-8 md:flex-row md:justify-between md:gap-x-[20px] md:rounded-[40px] md:py-10 md:pl-8 md:pr-0 x-920:gap-x-[72px] xl:mb-8 xl:gap-x-[144px] xl:py-[56px] xl:pl-[72px]">
             <div className="flex flex-col items-start justify-between px-4 md:w-[49%] md:px-0 x-920:w-[39%] xl:w-[34.6%]">
-              <TitleSection className="mb-6 md:mb-0 xl:pt-4">
+              <TitleSection className="mb-6 md:mb-0 xl:pt-4 Feature font-normal prioritizatio">
                 {'Feature prioritization matrix'}
               </TitleSection>
               <div className="xl:pb-10">
-                <TitleDesc className="mb-4">
+                <TitleDesc className="mb-4 font-light">
                   Based on CJM, we made a list of features that could be present
                   in the apps. Then we gathered stakeholders and prioritized
                   these features based on the resources spent on development and
@@ -146,10 +146,10 @@ export default function DesignProcess() {
         <Layout className="mb-5 bg-charcoal-black md:mb-8 xl:mb-[64px] xl:!pr-[56px]">
           <div className="rounded-[24px] bg-light-black py-8 pl-4 md:rounded-[40px] md:px-[32px] md:py-[40px] xl:px-[72px] xl:pb-[64px] xl:pt-[96px]">
             <div className="mb-8 flex flex-col items-start justify-between pr-4 md:flex-row md:pr-0 xl:mb-4">
-              <TitleSection className="md:md-0 mb-6 md:w-[32%] x-920:w-[33%] xl:w-[33.5%]">
+              <TitleSection className="md:md-0 mb-6 md:w-[32%] x-920:w-[33%] font-normal xl:w-[32.5%]">
                 {'Application map'}
               </TitleSection>
-              <TitleDesc className="md:w-[53%] x-920:w-[47%] xl:w-[46.5%]">
+              <TitleDesc className="md:w-[53%] x-920:w-[47%] xl:w-[46.5%] font-light">
                 Next, we had to decide on the structure of the application. For
                 this purpose, we grouped the main functionality and top-priority
                 features into categories, which became sections of the main

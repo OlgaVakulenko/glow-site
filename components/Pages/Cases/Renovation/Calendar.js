@@ -53,9 +53,9 @@ export default function Calendar() {
             </div>
           </div>
           <div className="flex flex-col items-start pt-[15px] md:max-w-[270px]  md:pt-[11%] md-safe:ml-[22px] md-safe:max-w-[290px] xl:ml-0 xl:mr-[56px]  xl:max-w-[320px] xl:pt-[21.3%]">
-            <Title>{'Calendar'}</Title>
+            <Title className='font-normal'>{'Calendar'}</Title>
             <div>
-              <Text className="mb-4">
+              <Text className="mb-4 font-light">
                 {'For meetings we have created a calendar section.'}
               </Text>
               <Text>

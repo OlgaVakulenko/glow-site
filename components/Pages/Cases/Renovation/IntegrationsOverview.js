@@ -69,7 +69,7 @@ export default function IntegrationsOverview() {
           </div>
           <Animated
             as="div"
-            className="text-center font-satoshi text-[32px] font-medium leading-10 tracking-[-1px] md:text-[48px] md:leading-[64px] xl:text-[56px] xl:leading-[72px]"
+            className="text-center font-satoshi text-[32px] font-normal leading-10 tracking-[-1px] md:text-[48px] md:leading-[64px] xl:text-[56px] xl:leading-[72px]"
           >
             To reduce development time and budget, we used off-the-shelf
             solutions for the application&#39;s key features.
@@ -87,12 +87,12 @@ export default function IntegrationsOverview() {
                   xl="/img/wr/frame-20-xl.svg"
                 />
                 <div className="md:pb-[80px] md-safe:pb-[127px] xl:pb-[78px]">
-                  <TitleDesc className="mb-4 md:mb-[18px]">
+                  <TitleDesc className="mb-4 md:mb-[18px] !font-light">
                     Payments are structured into milestones, ensuring that
                     financial transactions align with the progress of the
                     renovation project.
                   </TitleDesc>
-                  <TitleDesc className="">
+                  <TitleDesc className="!font-light">
                     Stripe, a secure and widely trusted payment gateway, is
                     integrated to handle these transactions.
                   </TitleDesc>
@@ -145,11 +145,11 @@ export default function IntegrationsOverview() {
                   xl="/img/wr/frame-26-xl.svg"
                 />
                 <div className="">
-                  <TitleDesc className="mb-4">
+                  <TitleDesc className="mb-4 !font-light">
                     Twilio integration enables real-time chat functionality
                     between customers and project managers.
                   </TitleDesc>
-                  <TitleDesc className="">
+                  <TitleDesc className="!font-light">
                     In addition, Twilio enriches the app with video meeting
                     functionality for multiple stakeholders fostering
                     collaborative discussions and enhancing project
@@ -189,12 +189,12 @@ export default function IntegrationsOverview() {
                     xl="/img/wr/frame-28-xl.svg"
                   />
                   <div className="">
-                    <TitleDesc className="mb-4">
+                    <TitleDesc className="mb-4 !font-light">
                       The Document Section in the Welcome Renovation app serves
                       as a centralized repository for essential project
                       documents.
                     </TitleDesc>
-                    <TitleDesc className="">
+                    <TitleDesc className="!font-light">
                       With DocuSign integration, stakeholders can electronically
                       sign vital documents directly within the app.
                     </TitleDesc>

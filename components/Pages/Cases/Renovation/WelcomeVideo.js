@@ -16,6 +16,8 @@ export default function WelcomeVideo() {
           autoPlay
           loop
           muted
+          preload
+          playsInline
           controls={false}
           src="/video/wr/case.mp4"
           className="mb-14 max-h-[741px] w-screen md:mb-8 md:rounded-[40px] xl:h-[740px]"

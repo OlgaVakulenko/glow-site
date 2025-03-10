@@ -45,7 +45,7 @@ export default function UserApps() {
               <h5 className="mb-4 font-satoshi text-2xl font-medium md:mb-6 md:text-[32px] md:leading-10 md:tracking-[-1px]">
                 Homeowner
               </h5>
-              <Text className="min-h-full font-inter text-[16px] font-normal leading-6 xl:text-[20px] xl:leading-8">
+              <Text className="min-h-full font-inter text-[16px] leading-6 xl:text-[20px] xl:leading-8">
                 {`Homeowners are looking for a reliable and experienced contractor who will do a quality job without unexpected costs in the middle of the project. They want to find someone they can trust with their space and money without any worries.`}
               </Text>
             </div>

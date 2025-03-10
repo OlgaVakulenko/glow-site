@@ -45,11 +45,11 @@ export default function ProjectRoadmap() {
           </div>
           <Animated
             as="div"
-            className="mb-4 text-center font-satoshi text-[32px] font-medium leading-10 tracking-[-1px] md:text-[48px] md:leading-[64px] xl:text-[56px] xl:leading-[72px]"
+            className="mb-4 text-center font-satoshi text-[32px] font-normal leading-10 tracking-[-1px] md:text-[48px] md:leading-[64px] xl:text-[56px] xl:leading-[72px]"
           >
             Detailed project roadmap
           </Animated>
-          <Text className="max-w-[826px] text-center text-[16px] font-normal leading-6 md:text-[20px] md:leading-8">
+          <Text className="max-w-[826px] text-center text-[16px] leading-6 md:text-[20px] md:leading-8">
             {
               'This section describes all the stages of the project in each room, as well as deadlines, reports, and tasks of already completed stages. For the convenience of the homeowner, we designed 2 views of this section.'
             }
@@ -64,8 +64,8 @@ export default function ProjectRoadmap() {
               md={CardIconMd}
               xl={CardIconXl}
             />
-            <Title>{'Card view'}</Title>
-            <Text>
+            <Title className="font-normal">{'Card view'}</Title>
+            <Text className="font-light">
               {'This view provides'}
               <br /> {'a detailed perspective,'}
               <br /> {'allowing users to focus'}
@@ -101,8 +101,8 @@ export default function ProjectRoadmap() {
               md={ListIconMd}
               xl={ListIconXl}
             />
-            <Title>{'List view'}</Title>
-            <Text>
+            <Title className="font-normal">{'List view'}</Title>
+            <Text className="font-light">
               {
                 'Provides a broader overview of the renovation project, making it suitable for users who prefer a high-level summary of what has been completed.'
               }
@@ -117,8 +117,8 @@ export default function ProjectRoadmap() {
             md={CardIconMd}
             xl={CardIconXl}
           />
-          <Title className="text-center">{'Card view'}</Title>
-          <Text className="text-center">
+          <Title className="text-center font-normal">{'Card view'}</Title>
+          <Text className="text-center font-light">
             {
               'This view provides a detailed perspective, allowing users to focus on the current stage of work in a particular room.'
             }

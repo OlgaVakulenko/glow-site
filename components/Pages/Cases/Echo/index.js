@@ -65,22 +65,25 @@ export default function Echo() {
         />
       </Animated>
       <Layout disablePadding>
-        <Animated>
-          {/*<RespImage*/}
-          {/*  pictureClassname=""*/}
-          {/*  className="h-full"*/}
-          {/*  src={EchoImage}*/}
-          {/*  md={EchoImageMd}*/}
-          {/*  xl={EchoImageXl}*/}
-          {/*/>*/}
+        <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
           <video
             src="/video/echo/titlee.mp4"
-            preload="auto"
+            preload
             controls={false}
             autoPlay
             playsInline
+            loop
+            muted className=" object-fill max-xl:max-h-[798px] max-sm:h-auto max-xs:h-[433px] md:hidden"
+          />
+          <video
+            src="/video/echo/titlee.mp4"
+            preload
+            controls={false}
+            autoPlay
+            playsInline
+            loop
             muted
-            className="max-xs:h-[292px] md:max-h-[689px] xl:max-h-[966px]"
+            className=" object-fillmax-xl:max-h-[798px] max-md:hidden max-sm:h-auto max-xs:h-[278px]"
           />
         </Animated>
       </Layout>
@@ -100,7 +103,7 @@ export default function Echo() {
       </Layout>
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
         <Animated>
-          <h2 className="mb-10 font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:h-[77px] md:text-[56px] md:leading-[64px] xl:mb-20">
+          <h2 className="mb-10 font-satoshi text-[40px] font-normal leading-[48px] tracking-[-2px] text-white md:mb-[56px] md:h-[77px] md:text-[56px] md:leading-[64px] xl:mb-20">
             <span className="block">Competitors research</span>
           </h2>
         </Animated>
@@ -116,7 +119,7 @@ export default function Echo() {
       </Layout>
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
         <Animated>
-          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-20">
+          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-normal leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-20">
             User Flow
           </h2>
         </Animated>
@@ -131,20 +134,20 @@ export default function Echo() {
       </Layout>
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px]">
+          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-normal leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px]">
             Color
           </h2>
         </Animated>
         <div className="flex items-start gap-4 max-sm:flex-col md:gap-12 xl:gap-20 ">
           <Animated className="flex flex-1">
-            <p className="text-4 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]">
+            <p className="text-4 leading-[26px] text-white md:text-[20px] md:leading-[32px]">
               The application&#39;s design revolves around muted colors with
               vibrant accents, aiming to focus on the primary content while not
               missing out on essential elements.
             </p>
           </Animated>
           <Animated className="flex flex-1">
-            <p className="text-4 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]">
+            <p className="text-4 leading-[26px] text-white md:text-[20px] md:leading-[32px]">
               This aligns with the core concept of the application – your call
               might be lengthy and comprehensive, but afterward, you&#39;ll
               receive a summary of the most crucial moments.
@@ -163,19 +166,19 @@ export default function Echo() {
       </Animated>
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px]">
+          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-normal leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px]">
             Typography
           </h2>
         </Animated>
         <Animated className="items-start justify-between gap-4 max-sm:flex-col md:gap-12 xl:flex xl:gap-[80px]">
-          <p className="text-4 font-normal leading-[26px] text-white max-xl:mb-2 max-sm:mb-4 md:text-[20px] md:leading-[32px]  xl:flex-1 xl:leading-[32px]">
+          <p className="text-4 leading-[26px] text-white max-xl:mb-2 max-sm:mb-4 md:text-[20px] md:leading-[32px]  xl:flex-1 xl:leading-[32px]">
             The choice of the Satoshi font aligns perfectly with our app&#39;s
             ethos. This restrained yet elegant font ensures readability without
             distracting from the finer details. Its simplicity underscores
             usability, enhancing the overall user experience.{' '}
           </p>{' '}
           <br className="max-md:hidden xl:hidden" />
-          <p className="text-4 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]  xl:flex-1 xl:leading-[32px]">
+          <p className="text-4 leading-[26px] text-white md:text-[20px] md:leading-[32px]  xl:flex-1 xl:leading-[32px]">
             Its clean lines and balanced proportions not only convey clarity but
             also elevate the app&#39;s visual appeal, contributing to a seamless
             interface that resonates with our users.{' '}
@@ -192,7 +195,7 @@ export default function Echo() {
           {/*/>*/}
             <video
               src="/video/echo/Typography.mp4"
-              preload="auto"
+              preload
               controls={false}
               autoPlay
               playsInline
@@ -222,19 +225,19 @@ export default function Echo() {
       </Layout>
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-[54px]">
+          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-normal leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-[54px]">
             Branding
           </h2>
         </Animated>
         <Animated className="items-start justify-between gap-4 max-sm:flex-col md:gap-12 xl:flex xl:gap-[144px]">
-          <p className="text-4 font-normal leading-[26px] text-white max-xl:mb-2 max-sm:mb-4 md:text-[20px] md:leading-[32px]  xl:w-[49%] xl:leading-[32px]">
+          <p className="text-4 leading-[26px] text-white max-xl:mb-2 max-sm:mb-4 md:text-[20px] md:leading-[32px]  xl:w-[49%] xl:leading-[32px]">
             Echo&#39;s emblematic logo, an artistic fusion of intersecting
             circles, ingeniously reflects the application&#39;s core
             functionality. They symbolize the app&#39;s ability to capture and
             mirror essential call details seamlessly.{' '}
           </p>{' '}
           <br className="max-md:hidden xl:hidden" />
-          <p className="text-4 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]  xl:w-[40.2%] xl:leading-[32px]">
+          <p className="text-4 leading-[26px] text-white md:text-[20px] md:leading-[32px]  xl:w-[40.2%] xl:leading-[32px]">
             Harnessing these striking visual elements, our branding strategy
             resonates across social media platforms, captivating audiences with
             its symbolic representation of call echoing.{' '}
@@ -245,7 +248,7 @@ export default function Echo() {
         <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
           <video
             src="/video/echo/Brandin.mp4"
-            preload="auto"
+            preload
             controls={false}
             autoPlay
             playsInline
@@ -255,7 +258,7 @@ export default function Echo() {
           />
           <video
             src="/video/echo/Brandinn.mp4"
-            preload="auto"
+            preload
             controls={false}
             autoPlay
             playsInline
@@ -268,11 +271,11 @@ export default function Echo() {
       <Layout className="pb-[30px] pt-[50px] md:py-[72px] xl:py-[88px]">
         <div className="mb-10 flex items-start justify-between gap-10 max-md:flex-col md:mb-[56px] md:gap-[56px]  xl:mb-20 xl:gap-[70px]">
           <Animated className="xl:flex-1">
-            <h2 className="flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:text-[56px] md:leading-[64px]">
+            <h2 className="flex h-[77px] items-center font-satoshi text-[40px] font-normal leading-[48px] tracking-[-2px] text-white sm:block md:text-[56px] md:leading-[64px]">
               Meeting
             </h2>
           </Animated>
-          <p className="text-4 font-normal leading-[26px] text-white max-xl:w-[74%] max-md:w-full md:text-[20px] md:leading-[32px] xl:flex-1">
+          <p className="text-4 leading-[26px] text-white max-xl:w-[74%] max-md:w-full md:text-[20px] md:leading-[32px] xl:flex-1">
             After saving the video, you can view it and read the transcription.
             The page also displays highlights created by artificial intelligence
             and important places noted by the manager during the call. This will
@@ -288,7 +291,7 @@ export default function Echo() {
           />
         </Animated>
         <div className="relative flex flex-col gap-[24px] max-xl:pt-[76px] max-md:pt-0 md:h-[529px] md:gap-[55px] xl:mx-10 xl:h-[429px] xl:flex-row">
-          <p className="text-4 font-normal leading-[26px] text-white md:max-w-[48.5%] md:text-[20px] md:leading-[30px] xl:mt-[170px] xl:max-w-[29.5%]">
+          <p className="text-4 leading-[26px] text-white md:max-w-[48.5%] md:text-[20px] md:leading-[30px] xl:mt-[170px] xl:max-w-[29.5%]">
             In the &#39;Soundbites&#39; tab, you can cut out an important part
             of the video. You can edit, delete, or share individual fragments
             with colleagues.
@@ -314,11 +317,11 @@ export default function Echo() {
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
         <div className="mb-10 flex items-start justify-between gap-10 max-md:flex-col md:mb-[56px] md:gap-[70px] xl:mb-20">
           <Animated className="xl:flex-1">
-            <h2 className="flex h-[77px] w-max items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:text-[56px] md:leading-[64px]">
+            <h2 className="flex h-[77px] w-max items-center font-satoshi text-[40px] font-normal leading-[48px] tracking-[-2px] text-white sm:block md:text-[56px] md:leading-[64px]">
               Past meetings
             </h2>
           </Animated>
-          <p className="text-4 font-normal leading-[26px] text-white max-xl:w-[57.5%] max-md:w-full md:text-[20px] md:leading-[32px] xl:flex-1">
+          <p className="text-4 leading-[26px] text-white max-xl:w-[57.5%] max-md:w-full md:text-[20px] md:leading-[32px] xl:flex-1">
             The meetings library stores all recorded calls. Categories will help
             you quickly find the call you are interested in. You can also view
             insights on a block of calls to identify patterns.
@@ -336,17 +339,17 @@ export default function Echo() {
 
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px]">
+          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-normal leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px]">
             Templates
           </h2>
         </Animated>
         <Animated className="items-start justify-between gap-4 max-sm:flex-col md:gap-12 xl:flex xl:gap-[144px]">
-          <p className=" text-4 font-normal leading-[26px] text-white max-xl:inline md:text-[24px] md:leading-[38.4px]  xl:w-[49%] xl:text-[20px] xl:leading-[32px]">
+          <p className=" text-4 leading-[26px] text-white max-xl:inline md:text-[24px] md:leading-[38.4px]  xl:w-[49%] xl:text-[20px] xl:leading-[32px]">
             In the template library, you can find the template you need by
             category. The library contains templates for all main types of
             calls.
           </p>{' '}
-          <p className=" text-4 font-normal leading-[26px] text-white max-xl:inline md:text-[24px] md:leading-[38.4px] xl:w-[40.2%] xl:text-[20px] xl:leading-[32px]">
+          <p className=" text-4 leading-[26px] text-white max-xl:inline md:text-[24px] md:leading-[38.4px] xl:w-[40.2%] xl:text-[20px] xl:leading-[32px]">
             You can also create a template yourself and also use artificial
             intelligence to help.
           </p>
@@ -364,11 +367,11 @@ export default function Echo() {
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
         <div className="mb-10 items-start justify-between gap-10 max-md-safe:flex-col md:mb-[56px] md:gap-[70px] xl:mb-20 xl:flex xl:gap-[30px]">
           <Animated className="xl:flex-1">
-            <h2 className="mb-10 flex h-[77px] w-max  items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-0">
+            <h2 className="mb-10 flex h-[77px] w-max  items-center font-satoshi text-[40px] font-normal leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px] xl:mb-0">
               Upcoming meetings
             </h2>
           </Animated>
-          <p className="text-4 font-normal leading-[26px] text-white max-xl:w-[67%] max-md:w-full md:text-[20px] md:leading-[32px] xl:flex-1">
+          <p className="text-4 leading-[26px] text-white max-xl:w-[67%] max-md:w-full md:text-[20px] md:leading-[32px] xl:flex-1">
             The Upcoming Appointments feature allows you to view your call
             schedule in calendar and weekly views. Using the switch, you can
             enable or disable call recording.{' '}
@@ -391,7 +394,7 @@ export default function Echo() {
           />
         </Animated>
         <div className="relative justify-between  md:mr-[70px] md:flex md-safe:mr-[90px] xl:mr-[120px]">
-          <p className="text-[14px] font-normal leading-[17px] text-white max-md-safe:mr-6 max-md:mb-6 max-md:mr-0 max-md:max-w-[71.8%]   max-md:text-[#AAAAAA] md:mt-[34px] md:max-w-[440px] md:text-[20px] md:leading-[32px] md-safe:max-w-[509px] xl:mt-[130px] xl:max-w-[432px]">
+          <p className="text-[14px] leading-[17px] text-white max-md-safe:mr-6 max-md:mb-6 max-md:mr-0 max-md:max-w-[71.8%]   max-md:text-[#AAAAAA] md:mt-[34px] md:max-w-[440px] md:text-[20px] md:leading-[32px] md-safe:max-w-[509px] xl:mt-[130px] xl:max-w-[432px]">
             Calls are categorized by topic. Additionally, you can attach a
             template with questions to the call, which will be displayed during
             the call on the right-hand panel.
@@ -417,19 +420,19 @@ export default function Echo() {
 
       <Layout className="mb-10 pt-[50px] md:mb-[56px] md:pt-[72px] xl:mb-20 xl:pt-[88px]">
         <Animated>
-          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px]">
+          <h2 className="mb-10 flex h-[77px] items-center font-satoshi text-[40px] font-normal leading-[48px] tracking-[-2px] text-white sm:block md:mb-[56px] md:text-[56px] md:leading-[64px]">
             Current meeting
           </h2>
         </Animated>
         <Animated className="items-start justify-between gap-4 max-sm:flex-col md:gap-12 xl:flex xl:gap-[144px]">
-          <p className="text-4 font-normal leading-[26px] text-white max-xl:mb-2 max-sm:mb-4 md:text-[20px] md:leading-[32px]  xl:w-[49%] xl:leading-[32px]">
+          <p className="text-4 leading-[26px] text-white max-xl:mb-2 max-sm:mb-4 md:text-[20px] md:leading-[32px]  xl:w-[49%] xl:leading-[32px]">
             When connected to a Google Meet or Zoom call, a panel appears on the
             right-hand side. Within this panel, you can pause or stop the
             recording. Additionally, it displays a list of questions from the
             attached call template.{' '}
           </p>{' '}
           <br className="max-md:hidden xl:hidden" />
-          <p className="text-4 font-normal leading-[26px] text-white md:text-[20px] md:leading-[32px]  xl:w-[40.2%] xl:leading-[32px]">
+          <p className="text-4 leading-[26px] text-white md:text-[20px] md:leading-[32px]  xl:w-[40.2%] xl:leading-[32px]">
             After a question is asked, the program utilizes artificial
             intelligence to automatically mark it as already asked.{' '}
           </p>
@@ -452,7 +455,7 @@ export default function Echo() {
           <div className="flex-1">
             <video
               src="/video/echo/met.mp4"
-              preload="auto"
+              preload
               controls={false}
               autoPlay
               playsInline
@@ -469,11 +472,11 @@ export default function Echo() {
       <Layout className="pb-[100px] pt-[50px] md:pb-[144px] md:pt-[72px] xl:pb-[176px] xl:pt-[88px]">
         <div className="mb-10 flex items-start  justify-between gap-10 max-md:flex-col md:mb-[56px] md:gap-[70px] xl:mb-20 xl:gap-[30px]">
           <Animated className="xl:flex-1">
-            <h2 className="flex  h-[77px] w-max items-center font-satoshi text-[40px] font-medium leading-[48px] tracking-[-2px] text-white sm:block md:text-[56px] md:leading-[64px]">
+            <h2 className="flex  h-[77px] w-max items-center font-satoshi text-[40px] font-normal leading-[48px] tracking-[-2px] text-white sm:block md:text-[56px] md:leading-[64px]">
               Analytics
             </h2>
           </Animated>
-          <p className="text-4 font-normal leading-[26px] text-white max-xl:w-[52%] max-md:w-full md:text-[20px] md:leading-[32px] xl:flex-1">
+          <p className="text-4 leading-[26px] text-white max-xl:w-[52%] max-md:w-full md:text-[20px] md:leading-[32px] xl:flex-1">
             Analytics can help you improve your team&#39;s performance. The
             dashboard displays key performance indicators and leads to more
             detailed reports for in-depth analysis.{' '}

@@ -10,13 +10,13 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
-          'Inter-Variable',
+          'Inter',
           'GeneralSans',
           ...defaultTheme.fontFamily.sans,
         ],
         glow: 'Satoshi',
         satoshi: 'Satoshi',
-        inter: 'Inter-Variable',
+        inter: 'Inter',
         sf: 'SF Pro Text',
       },
       screens: {

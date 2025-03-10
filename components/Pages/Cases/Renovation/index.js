@@ -62,7 +62,7 @@ export default function WelcomeRenovation() {
           src={Frame1}
           md={Frame1md}
           xl={Frame1xl}
-          className="bg-[#7a7b7c] max-h-[1016px]"
+          className="bg-[#7a7b7c]"
         />
       </Animated>
       <Objectives wr />
@@ -85,25 +85,25 @@ export default function WelcomeRenovation() {
         </Layout>
         <Calendar />
         <PunchList />
-        <Layout className="flex flex-col gap-2 bg-lightGray md:gap-8 py-[16px] sm:py-[0px]">
+        <Layout className="flex flex-col gap-2 bg-lightGray py-[16px] sm:py-[0px] md:gap-8">
           <RespSVG
-            src="/img/wr/frame-42.svg"
-            md="/img/wr/frame-42-md.svg"
+            src="/img/wr/frame-42-xl.svg"
+            md="/img/wr/frame-42-xl.svg"
             xl="/img/wr/frame-42-xl.svg"
           />
           <RespSVG
-            src="/img/wr/frame-43.svg"
-            md="/img/wr/frame-43-md.svg"
+            src="/img/wr/frame-43-xl.svg"
+            md="/img/wr/frame-43-xl.svg"
             xl="/img/wr/frame-43-xl.svg"
           />
           <RespSVG
-            src="/img/wr/frame-44.svg"
-            md="/img/wr/frame-44-md.svg"
+            src="/img/wr/frame-44-xl.svg"
+            md="/img/wr/frame-44-xl.svg"
             xl="/img/wr/frame-44-xl.svg"
           />
           <RespSVG
-            src="/img/wr/frame-45.svg"
-            md="/img/wr/frame-45-md.svg"
+            src="/img/wr/frame-45-xl.svg"
+            md="/img/wr/frame-45-xl.svg"
             xl="/img/wr/frame-45-xl.svg"
           />
         </Layout>
