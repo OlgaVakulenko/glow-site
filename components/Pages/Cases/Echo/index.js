@@ -95,7 +95,7 @@ export default function Echo() {
           <RespImage
             pictureClassname=""
             className="h-full rounded-[8px] md:rounded-[24px] "
-            src={Frame1}
+            src={Frame1md}
             md={Frame1md}
             xl={Frame1xl}
           />

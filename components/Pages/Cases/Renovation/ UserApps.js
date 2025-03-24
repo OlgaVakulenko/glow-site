@@ -62,7 +62,7 @@ export default function UserApps() {
               <h5 className="mb-4 font-satoshi text-2xl font-medium md:mb-6 md:text-[32px] md:leading-10 md:tracking-[-1px]">
                 Project manager
               </h5>
-              <Text className="font-inter text-[16px] font-normal leading-6 xl:text-[20px] xl:leading-8">
+              <Text className="font-inter text-[16px] leading-6 xl:text-[20px] xl:leading-8">
                 {`Their job is to monitor the work progress and solve any problems that arise, as well as keep in touch with homeowners, send them daily progress reports and answer any of their questions. They need to be as mobile and flexible as possible.`}
               </Text>
             </div>

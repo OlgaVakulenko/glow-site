@@ -59,7 +59,7 @@ export default function InnovateSolutionTextBlock({
             {subtitle}
           </Animated>
           <Animated>
-            <div className="flex-row justify-start mt-[15px] md:mt-[45px] flex xl:mt-[130px] xl:flex">
+            <div className="flex-row  mt-[15px] md:mt-[45px] flex xl:mt-[130px] xl:flex justify-center md:justify-start">
               <RoundControl
                 className="box-sizing-border mt-[10px] sm:m-[10px_0_10px_0] !mr-3  flex h-[fit-content] !bg-transparent  p-[12px_0_12px_0] text-center !font-normal md:font-medium !text-white w-[91px] xl:w-[140px] xl:text-[20px] xl:leading-[24.2px] "
                 text={text1}

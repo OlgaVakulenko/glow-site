@@ -67,7 +67,7 @@ export default function Footer2({
     <footer
       id="footer"
       className={cx('', {
-        'bg-[#0a0a0b]': dark,
+        'bg-[#000]': dark,
         '!mt-0 flex h-screenx flex-col !pt-[88px] font-inter xl:!pt-[112px]':
           isSubmitted,
         'bg-[#000000]': isEcho,

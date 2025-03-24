@@ -909,17 +909,17 @@ function SectionTools() {
       >
         <Layout
           disableOnMobile={true}
-          className="mt-[-40px] md:ml-0 md:mt-[-20px] xl:ml-[100px] xl:mt-[20px]"
+          className="mt-[-40px] md:ml-0 md:mt-[-20px]  xl:mt-[20px]"
         >
           <Animated>
-            <div
-              className="cover mt-5 bg-transparent pb-5 md:h-[404px] md:w-max md:px-[50px] md:pb-0 xl:h-[569px] xl:w-[1120px] xl:px-0"
-              style={{
-                borderRadius: '18px', // Set the desired border radius for all breakpoints
-                '@media (minWidth: 768px)': { borderRadius: '22px' }, // Adjust for md breakpoint
-                '@media (minWidth: 1280px)': { borderRadius: '30px' }, // Adjust for xl breakpoint
-              }}
-            >
+            {/*<div*/}
+            {/*  className="cover mt-5 bg-transparent pb-5 md:h-[404px] md:w-max md:px-[50px] md:pb-0 xl:h-[569px] xl:w-[1120px] xl:px-0"*/}
+            {/*  style={{*/}
+            {/*    borderRadius: '18px', // Set the desired border radius for all breakpoints*/}
+            {/*    '@media (minWidth: 768px)': { borderRadius: '22px' }, // Adjust for md breakpoint*/}
+            {/*    '@media (minWidth: 1280px)': { borderRadius: '30px' }, // Adjust for xl breakpoint*/}
+            {/*  }}*/}
+            {/*>*/}
               {/*<RespSVG*/}
               {/*  src="/img/lendFlow/card1.svg"*/}
               {/*  md="/img/lendFlow/card1.svg"*/}
@@ -942,11 +942,11 @@ function SectionTools() {
                 src="/img/lendFlow/widget-xl.svg"
                 width={0}
                 height={0}
-                className="hidden xs:block"
+                className="hidden sm:block"
                 objectfit="contain"
                 style={{ width: '100%', height: '100%' }}
               />
-              <div className="relative flex justify-between px-[9px] xs:hidden">
+              <div className="relative flex justify-between px-[9px] sm:hidden">
                 <div>
                   <RespSVG
                     src="/img/lendFlow/img-modal1.svg"
@@ -970,7 +970,7 @@ function SectionTools() {
                   />
                 </div>
               </div>
-            </div>
+            {/*</div>*/}
           </Animated>
         </Layout>
       </div>

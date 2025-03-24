@@ -736,7 +736,7 @@
 .text-next-heading-7,
 .prose-headings\:text-next-heading-6 :is(:where(h1, h2, h3, h4, h5, h6)) {
   font-family: 'Satoshi';
-  font-weight: 500;
+  font-weight: 400;
   font-feature-settings: 'ss03'on, 'liga'off;
 }
 
