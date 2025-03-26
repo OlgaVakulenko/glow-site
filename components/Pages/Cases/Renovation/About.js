@@ -50,9 +50,9 @@ export default function About() {
           {/*/>*/}
           <RespSVG
             className="h-full rounded-[24px] md:rounded-[40px] "
-            src='/img/wr/frame-11.png'
-            md='/img/wr/frame-11-md.png'
-            xl='/img/wr/frame-11-xl.png'
+            src="/img/wr/frame-11.png"
+            md="/img/wr/frame-11-md.png"
+            xl="/img/wr/frame-11-xl.png"
           />
           <div className="flex flex-col gap-4 md:flex-row md:gap-8">
             <div className="flex-1">
@@ -64,18 +64,18 @@ export default function About() {
               {/*  xl={Frame12xl}*/}
               {/*/>*/}
               <RespSVG
-                className="h-full max-xs:w-full rounded-[24px] md:rounded-[40px] "
-                src='/img/wr/frame-12.png'
-                md='/img/wr/frame-12-md.png'
-                xl='/img/wr/frame-12-xl.png'
+                className="rounded-[24px] max-xs:w-full md:rounded-[40px] "
+                src="/img/wr/frame-12.png"
+                md="/img/wr/frame-12-md.png"
+                xl="/img/wr/frame-12-xl.png"
               />
             </div>
             <div className="flex-1">
               <RespSVG
-                className="h-full max-xs:w-full rounded-[24px] md:rounded-[40px] "
-                src='/img/wr/frame-13.png'
-                md='/img/wr/frame-13-md.png'
-                xl='/img/wr/frame-13-xl.png'
+                className="rounded-[24px] max-xs:w-full md:rounded-[40px] "
+                src="/img/wr/frame-13.png"
+                md="/img/wr/frame-13-md.png"
+                xl="/img/wr/frame-13-xl.png"
               />
             </div>
           </div>
