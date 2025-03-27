@@ -479,7 +479,7 @@ function SectionTools() {
       <div className="md:ml-4 md:mt-[-5px] xl:ml-0 xl:mt-0">
         <TextBlock
           topic="Orchestration"
-          topicClassName="w-[137px]"
+          topicClassName="gap-[4px]"
           boxClassName="md:w-[500px] w-[300px] xl:w-[583px] "
           subBoxClassName="xl:w-[500px] md:w-[500px] md:pr-0 xl:pr-[5px] max-sm:mb-[32px]"
           title={
@@ -515,6 +515,7 @@ function SectionTools() {
         </Animated>
       </div>
       <div
+        className="hidden md:block"
         style={{
           position: 'relative',
           top: '-350px', // Adjust this value to position below the image
@@ -534,7 +535,7 @@ function SectionTools() {
       >
         <TextBlock
           topic="Activity"
-          topicClassName="w-[88px]"
+          topicClassName="gap-[4px]"
           boxClassName="md:w-[550px]  w-[300px] xl:w-[700px] md:pl-[10px] p-0"
           subBoxClassName="w-[306px]  md:w-[525px] xl:w-[484px] md:pr-[20px] xl:pl-0 xl:pr-0 md:pl-[20px]"
           title={
@@ -616,6 +617,7 @@ function SectionTools() {
         </div>
       </div>
       <div
+        className="hidden md:block"
         style={{
           position: 'relative',
           top: '-350px', // Adjust this value to position below the image
@@ -635,7 +637,7 @@ function SectionTools() {
       <div className="mt-[-100px] flex flex-col justify-center md:ml-[15px] md:mt-[31px] xl:ml-[2px] xl:mt-[-125px]">
         <TextBlock
           topic="Scorecards"
-          topicClassName="w-[122px]"
+          topicClassName="gap-[4px]"
           boxClassName="md:w-[550px] w-[300px] xl:w-[650px] md:pl-[10px]"
           subBoxClassName="xl:w-[475px] md:w-[500px] w-[300px] xl:pl-0 xl:pr-[0px] md:pl-[20px] md:pr-[20px]"
           title={
@@ -681,6 +683,7 @@ function SectionTools() {
         </Animated>
       </div>
       <div
+        className="hidden md:block"
         style={{
           position: 'relative',
           top: media === 'tablet' ? '-250px' : '-450px', // Adjust this value to position below the image
@@ -697,7 +700,7 @@ function SectionTools() {
       <div className="mt-[-80px] md:ml-5 md:mt-[-100px] xl:ml-[2px] xl:mt-[-94px]">
         <TextBlock
           topic="Branding"
-          topicClassName="w-[107px]"
+          topicClassName="gap-[4px]"
           boxClassName="md:w-[550px] w-[300px] xl:w-[650px] md:pl-[10px]"
           subBoxClassName="md:w-[550px] max-sm:mb-[30px] xl:w-[484px] w-[300px] xl:pl-0 xl:pr-[0px] md:pl-[10px] md:pr-[0px]"
           title={
@@ -802,6 +805,7 @@ function SectionTools() {
         </Layout>
       </div>
       <div
+        className="hidden md:block"
         style={{
           position: 'relative',
           top: media === 'tablet' ? '-230px' : '-350px', // Adjust this value to position below the image
@@ -818,7 +822,7 @@ function SectionTools() {
       <div className="mt-[-45px] flex flex-col justify-center  max-sm:mb-[-20px] md:ml-[14px] md:mt-[17px] xl:ml-[1px] xl:mt-[-64px]">
         <TextBlock
           topic="Businesses"
-          topicClassName="w-[122px]"
+          topicClassName="gap-[4px]"
           boxClassName="md:w-[600px] w-[300px] md:ml-[-0px] max-md:px-0"
           subBoxClassName="md:w-[460px] md:mx-[24px] max-md:w-[314px]"
           title={
@@ -865,6 +869,7 @@ function SectionTools() {
         </div>
       </div>
       <div
+        className="hidden md:block"
         style={{
           position: 'relative',
           top: media === 'tablet' ? '-400px' : '-430px', // Adjust this value to position below the image
@@ -881,7 +886,7 @@ function SectionTools() {
       <div className="mt-[-15px] md:ml-[15px] md:mt-[-14px] xl:ml-[2px] xl:mt-[-46px]">
         <TextBlock
           topic="Widget"
-          topicClassName="w-[95px]"
+          topicClassName="gap-[4px]"
           boxClassName="md:w-[500px] xl:w-[583px] w-[300px] xl:pl-0 md:pl-[35px]"
           subBoxClassName="xl:w-[510px] md:w-[510px] w-[300px] xl:ml-[0px]"
           title={

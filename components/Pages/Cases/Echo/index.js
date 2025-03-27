@@ -73,7 +73,7 @@ export default function Echo() {
             autoPlay
             playsInline
             loop
-            muted className=" object-fill max-xl:max-h-[798px] max-sm:h-auto max-xs:h-[433px] md:hidden"
+            muted className=" object-fill max-xl:max-h-[798px] max-sm:h-auto md:hidden"
           />
           <video
             src="/video/echo/titlee.mp4"
