@@ -19,7 +19,7 @@ export default function TextBlock({
         className="mx-[20] flex flex-col items-center bg-[#070919] md:mx-[100px] xl:mx-[300px] xl:rounded-[1440px] "
         style={{
           borderRadius: '50%',
-          backgroundImage: `radial-gradient(circle at center, rgba(7, 9, 25, 0.08) 0, rgba(255, 255, 255, 0.08) 1px, #070919 0.5px, #070919 2px)`,
+          backgroundImage: `radial-gradient(circle at center, rgba(7, 9, 25, 0.12) 0, rgba(255, 255, 255, 0.12) 1px, #070919 0.5px, #070919 2px)`,
           backgroundSize: '13px 13px',
           backgroundRepeat: 'repeat',
           zIndex: 1,

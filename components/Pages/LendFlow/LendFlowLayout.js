@@ -17,6 +17,7 @@ import RespSVG from '../Cases/Renovation/RespSVG';
 import Logo1 from '../../../assets/img/lend/Logos.png';
 import Logo2 from '../../../assets/img/lend/Card.png';
 import Logo3 from '../../../assets/img/lend/Logo3.png';
+import Logo3Mobile from '../../../assets/img/lend/Logo3-mobile.png';
 
 export default function LendFlow() {
   return (
@@ -168,7 +169,7 @@ function SectionInnovate() {
                 <RespImage
                   src={Logo1}
                   md={Logo1}
-                  className=" w-full"
+                  className="h-full w-full"
                   xl={Logo1}
                 />
               </div>
@@ -181,9 +182,17 @@ function SectionInnovate() {
                 />
               </div>
             </div>
-            <div className="mb-[100px] w-full">
-              <RespImage src={Logo3} md={Logo3} className="w-full" xl={Logo3} />
+            <div className="mb-[52px] w-full md:mb-[100px]">
+              <RespImage
+                src={Logo3Mobile}
+                md={Logo3}
+                className="w-full rounded-[18px]"
+                xl={Logo3}
+              />
             </div>
+            {/*<div className="mb-[52px] md:mb-[100px] w-full">*/}
+            {/*  <RespImage src={Logo3} md={Logo3} className="w-full" xl={Logo3} />*/}
+            {/*</div>*/}
           </div>
 
           <Animated>
@@ -283,7 +292,7 @@ function SectionFullCycleList({ data }) {
             { 'col-span-2': i === 2 }
           )}
         >
-          <div className="text-[16px]  leading-[25.6px] opacity-50 md:mb-[42px] md:ml-8 md:mt-[64px] md:text-[20px] md:normal-case md:leading-[30px] md:opacity-30 xl:mb-[42px] xl:ml-[64px] xl:mt-0">
+          <div className="color-[#19191b] text-[16px]  leading-[25.6px] opacity-[0.3] md:mb-[42px] md:ml-8 md:mt-[64px] md:text-[20px] md:normal-case md:leading-[30px] xl:mb-[42px] xl:ml-[64px] xl:mt-0">
             {column.title}
           </div>
 
@@ -531,7 +540,7 @@ function SectionTools() {
 
       <div
         //!
-        className="md:ml-4 md:mt-[-16px] xl:ml-[2px] xl:mt-[-12px]"
+        className="  pt-[100px] sm:pt-[unset] md:ml-4 md:mt-[-16px] xl:ml-[2px] xl:mt-[-12px]"
       >
         <TextBlock
           topic="Activity"
@@ -634,7 +643,7 @@ function SectionTools() {
       />
       {/* end*/}
 
-      <div className="mt-[-100px] flex flex-col justify-center md:ml-[15px] md:mt-[31px] xl:ml-[2px] xl:mt-[-125px]">
+      <div className="flex flex-col justify-center pt-[100px] sm:pt-[unset] md:ml-[15px] md:mt-[31px] xl:ml-[2px] xl:mt-[-125px]">
         <TextBlock
           topic="Scorecards"
           topicClassName="gap-[4px]"
@@ -697,7 +706,7 @@ function SectionTools() {
       />
       {/* end*/}
 
-      <div className="mt-[-80px] md:ml-5 md:mt-[-100px] xl:ml-[2px] xl:mt-[-94px]">
+      <div className="pt-[100px] sm:pt-[unset] md:ml-5 md:mt-[-100px] xl:ml-[2px] xl:mt-[-94px]">
         <TextBlock
           topic="Branding"
           topicClassName="gap-[4px]"
@@ -819,7 +828,7 @@ function SectionTools() {
       />
       {/* end*/}
 
-      <div className="mt-[-45px] flex flex-col justify-center  max-sm:mb-[-20px] md:ml-[14px] md:mt-[17px] xl:ml-[1px] xl:mt-[-64px]">
+      <div className="flex flex-col justify-center pt-[100px] max-sm:mb-[-20px]  sm:pt-[unset] md:ml-[14px] md:mt-[17px] xl:ml-[1px] xl:mt-[-64px]">
         <TextBlock
           topic="Businesses"
           topicClassName="gap-[4px]"
@@ -883,7 +892,7 @@ function SectionTools() {
       />
       {/*end*/}
 
-      <div className="mt-[-15px] md:ml-[15px] md:mt-[-14px] xl:ml-[2px] xl:mt-[-46px]">
+      <div className="pt-[100px] sm:pt-[unset] md:ml-[15px] md:mt-[-14px] xl:ml-[2px] xl:mt-[-46px]">
         <TextBlock
           topic="Widget"
           topicClassName="gap-[4px]"
@@ -925,61 +934,62 @@ function SectionTools() {
             {/*    '@media (minWidth: 1280px)': { borderRadius: '30px' }, // Adjust for xl breakpoint*/}
             {/*  }}*/}
             {/*>*/}
-              {/*<RespSVG*/}
-              {/*  src="/img/lendFlow/card1.svg"*/}
-              {/*  md="/img/lendFlow/card1.svg"*/}
-              {/*  xl="/img/lendFlow/card1.svg"*/}
-              {/*  className="sm:hidden w-full"*/}
-              {/*/>*/}
-              {/*<RespSVG*/}
-              {/*  src="/img/lendFlow/card2.svg"*/}
-              {/*  md="/img/lendFlow/card2.svg"*/}
-              {/*  xl="/img/lendFlow/card2.svg"*/}
-              {/*  className="sm:hidden w-full"*/}
-              {/*/>*/}
-              {/*<RespSVG*/}
-              {/*  src="/img/lendFlow/card3.svg"*/}
-              {/*  md="/img/lendFlow/card3.svg"*/}
-              {/*  xl="/img/lendFlow/card3.svg"*/}
-              {/*  className="sm:hidden w-full"*/}
-              {/*/>*/}
-              <Image
-                src="/img/lendFlow/widget-xl.svg"
-                width={0}
-                height={0}
-                className="hidden sm:block"
-                objectfit="contain"
-                style={{ width: '100%', height: '100%' }}
-              />
-              <div className="relative flex justify-between px-[9px] sm:hidden">
-                <div>
-                  <RespSVG
-                    src="/img/lendFlow/img-modal1.svg"
-                    md="/img/lendFlow/img-modal1.svg"
-                    xl="/img/lendFlow/img-modal1.svg"
-                    className="mb-[23px] w-[150px]"
-                  />
-                  <RespSVG
-                    src="/img/lendFlow/img-modal3.svg"
-                    md="/img/lendFlow/img-modal3.svg"
-                    xl="/img/lendFlow/img-modal3.svg"
-                    className="w-[150px]"
-                  />
-                </div>
-                <div className="absolute right-[9px] top-[19%]">
-                  <RespSVG
-                    src="/img/lendFlow/img-modal2.svg"
-                    md="/img/lendFlow/img-modal2.svg"
-                    xl="/img/lendFlow/img-modal2.svg"
-                    className="w-[150px]"
-                  />
-                </div>
+            {/*<RespSVG*/}
+            {/*  src="/img/lendFlow/card1.svg"*/}
+            {/*  md="/img/lendFlow/card1.svg"*/}
+            {/*  xl="/img/lendFlow/card1.svg"*/}
+            {/*  className="sm:hidden w-full"*/}
+            {/*/>*/}
+            {/*<RespSVG*/}
+            {/*  src="/img/lendFlow/card2.svg"*/}
+            {/*  md="/img/lendFlow/card2.svg"*/}
+            {/*  xl="/img/lendFlow/card2.svg"*/}
+            {/*  className="sm:hidden w-full"*/}
+            {/*/>*/}
+            {/*<RespSVG*/}
+            {/*  src="/img/lendFlow/card3.svg"*/}
+            {/*  md="/img/lendFlow/card3.svg"*/}
+            {/*  xl="/img/lendFlow/card3.svg"*/}
+            {/*  className="sm:hidden w-full"*/}
+            {/*/>*/}
+            <Image
+              src="/img/lendFlow/widget-xl.png"
+              width={0}
+              height={0}
+              className="hidden sm:block"
+              objectfit="contain"
+              style={{ width: '100%', height: '100%' }}
+            />
+            <div className="relative flex justify-between px-[9px] sm:hidden">
+              <div>
+                <RespSVG
+                  src="/img/lendFlow/img-modal1.svg"
+                  md="/img/lendFlow/img-modal1.svg"
+                  xl="/img/lendFlow/img-modal1.svg"
+                  className="mb-[23px] w-[150px]"
+                />
+                <RespSVG
+                  src="/img/lendFlow/img-modal3.svg"
+                  md="/img/lendFlow/img-modal3.svg"
+                  xl="/img/lendFlow/img-modal3.svg"
+                  className="w-[150px]"
+                />
               </div>
+              <div className="absolute right-[9px] top-[19%]">
+                <RespSVG
+                  src="/img/lendFlow/img-modal2.svg"
+                  md="/img/lendFlow/img-modal2.svg"
+                  xl="/img/lendFlow/img-modal2.svg"
+                  className="w-[150px]"
+                />
+              </div>
+            </div>
             {/*</div>*/}
           </Animated>
         </Layout>
       </div>
       <div
+        className="opacity-0 sm:opacity-100"
         style={{
           position: 'relative',
           top: media === 'tablet' ? '-300px' : '-500px', // Adjust this value to position below the image

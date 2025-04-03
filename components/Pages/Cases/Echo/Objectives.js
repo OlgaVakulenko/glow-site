@@ -10,7 +10,7 @@ function Col({ className, title, items = [] }) {
         'text-base leading-[160%] md:text-xl md:leading-[150%]'
       )}
     >
-      <div className="mb-3 text-[#FFFFFF90] opacity-30 md:mb-10">{title}</div>
+      <div className="mb-3 text-[#FFFFFF] opacity-30 md:mb-10">{title}</div>
       <div className="text-white md:grid md:gap-3">
         {items.map((item, index) => (
           <Animated
@@ -52,7 +52,7 @@ export default function Objectives() {
   return (
     <Layout>
       <div className="py-[50px] md:py-[72px] xl:py-[88px]">
-        <Animated className="mb-10 font-satoshi text-[28px] font-medium leading-[36px] text-white md:mb-[64px] md:text-[48px] md:leading-[64px] md:tracking-[-2px] xl:text-[56px]">
+        <Animated className="mb-10 font-satoshi text-[28px] font-normal leading-[36px] text-white md:mb-[64px] md:text-[48px] md:leading-[64px] md:tracking-[-2px] xl:text-[56px]">
           We balance business
           <br className="hidden md:block" /> objectives with customer needs
         </Animated>

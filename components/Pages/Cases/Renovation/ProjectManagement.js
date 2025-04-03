@@ -22,7 +22,7 @@ function Text({ className, children }) {
   return (
     <Animated
       as="p"
-      className={`text-[16px] font-normal leading-6 md:text-[18px] md:leading-[28px] xl:text-[20px] xl:leading-8   ${className}`}
+      className={`text-[16px] leading-6 md:text-[18px] md:leading-[28px] xl:text-[20px] xl:leading-8   ${className}`}
     >
       {children}
     </Animated>
@@ -67,15 +67,14 @@ export default function ProjectManagement() {
           <div className="flex flex-col items-start  md:max-w-[275px] md:pt-[5%] md-safe:ml-6 md-safe:max-w-[290px] xl:ml-0 xl:mr-[56px]  xl:max-w-[320px] xl:pt-[16%]">
             <Title className="font-normal">{'Home and projects'}</Title>
             <div>
-              <Text className="mb-4 font-light">
-                {
-                  'Our team designed a home screen with a notification center and a checklist of reports to be sent. This way the PM can easily track their daily tasks and important events.'
-                }
+              <Text className="mb-4 ">
+                Our team designed a home screen with a notification center and a
+                checklist of reports to be sent. This way the PM can easily
+                track their daily tasks and important events.
               </Text>
-              <Text>
-                {
-                  'One project manager can lead up to 5 projects at a time. To keep projects organized, we made a separate Projects section.'
-                }
+              <Text className=" ">
+                One project manager can lead up to 5 projects at a time. To keep
+                projects organized, we made a separate Projects section.
               </Text>
             </div>
           </div>

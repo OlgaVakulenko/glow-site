@@ -9,7 +9,7 @@ export default function Header({ title, subtitle, type }) {
       <div className="md:justify-between pb-[50px] pt-[232px] md:flex md:pb-[72px] md:pt-[384px] xl:pb-[88px] xl:gap-[60px]   x-1280:pt-[400px]">
         <Animated
           as="h1"
-          className="mb-6 text-white font-satoshi text-[40px] font-medium leading-[48px] tracking-[-1px] md:mb-0 md:w-[53.5vw]  md:max-w-[546px] xl:md:min-w-[642px]  md:text-[56px] md:leading-[64px] xl:text-[72px] xl:leading-[80px]"
+          className="mb-6 text-white font-satoshi text-[40px] font-normal leading-[48px] tracking-[-1px] md:mb-0 md:w-[53.5vw]  md:max-w-[546px] xl:md:min-w-[642px]  md:text-[56px] md:leading-[64px] xl:text-[72px] xl:leading-[80px]"
         >
           {title.includes('<br />')
             ? title.split('<br />').map((line, index) => (

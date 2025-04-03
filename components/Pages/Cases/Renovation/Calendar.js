@@ -22,7 +22,7 @@ function Text({ className, children }) {
   return (
     <Animated
       as="p"
-      className={`text-[16px] font-normal leading-6 md:text-[18px] md:leading-[28px] xl:text-[20px] xl:leading-8   ${className}`}
+      className={`text-[16px] leading-6 md:text-[18px] md:leading-[28px] xl:text-[20px] xl:leading-8   ${className}`}
     >
       {children}
     </Animated>

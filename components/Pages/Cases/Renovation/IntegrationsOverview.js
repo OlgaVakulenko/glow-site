@@ -69,7 +69,7 @@ export default function IntegrationsOverview() {
           </div>
           <Animated
             as="div"
-            className="text-center font-satoshi text-[32px] font-normal leading-10 tracking-[-1px] md:text-[48px] md:leading-[64px] xl:text-[56px] xl:leading-[72px]"
+            className="text-center font-satoshi px-1 text-[32px] font-normal leading-10 tracking-[-1px] md:text-[48px] md:leading-[64px] xl:text-[56px] xl:leading-[72px]"
           >
             To reduce development time and budget, we used off-the-shelf
             solutions for the application&#39;s key features.

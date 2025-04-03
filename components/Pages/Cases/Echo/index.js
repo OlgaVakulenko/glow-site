@@ -2,21 +2,11 @@ import Head from 'next/head';
 import Header from './Header';
 import Objectives from './Objectives';
 import Layout from '../../../Layout';
-import EchoImage from './assets/echo.png';
-import EchoImageMd from './assets/echo-md.png';
-import EchoImageXl from './assets/echo-xl.png';
 import Frame1xl from './assets/frame-1-xl.png';
 import Frame1md from './assets/frame-1-md.png';
-import Frame1 from './assets/frame-1.png';
 import Frame2xl from './assets/frame-2-xl.png';
 import Frame2md from './assets/frame-2-md.png';
 import Frame2 from './assets/frame-2.png';
-import Frame3xl from './assets/frame-3-xl.png';
-import Frame3md from './assets/frame-3-md.png';
-import Frame3 from './assets/frame-3.png';
-import Frame4xl from './assets/frame-4-xl.png';
-import Frame4md from './assets/frame-4-md.png';
-import Frame4 from './assets/frame-4.png';
 import Frame7xl from './assets/frame-7-xl.png';
 import Frame7md from './assets/frame-7-md.png';
 import Frame7 from './assets/frame-7.png';
@@ -33,7 +23,6 @@ import { useSetAtom } from 'jotai/index';
 import { themeAtom } from '../../../../lib/theme';
 import { useEffect, useRef } from 'react';
 import { useHeaderTheme } from '../../../Header';
-import { useMediaAtom } from '../../../../lib/agent';
 
 export default function Echo() {
   const ref = useRef(null);
@@ -73,7 +62,8 @@ export default function Echo() {
             autoPlay
             playsInline
             loop
-            muted className=" object-fill max-xl:max-h-[798px] max-sm:h-auto md:hidden"
+            muted
+            className=" object-fill max-xl:max-h-[798px] max-sm:h-auto md:hidden"
           />
           <video
             src="/video/echo/titlee.mp4"
@@ -193,30 +183,30 @@ export default function Echo() {
           {/*  md={Frame3md}*/}
           {/*  xl={Frame3xl}*/}
           {/*/>*/}
-            <video
-              src="/video/echo/Typography.mp4"
-              preload
-              controls={false}
-              autoPlay
-              playsInline
-              loop
-              muted
-              className="max-xs:h-[142px] md:h-[332px] max-xl:w-[800px] max-xl:mx-auto xl:h-[432px]"
-            />
+          <video
+            src="/video/echo/Typography.mp4"
+            preload
+            controls={false}
+            autoPlay
+            playsInline
+            loop
+            muted
+            className="max-xl:mx-auto max-xl:w-[800px] max-xs:h-[142px] md:h-[332px] xl:h-[432px]"
+          />
           <div className="flex justify-between max-sm:flex-col max-sm:gap-6">
-            <div className="flex items-center flex-col">
-              <p className="font-satoshi font-light text-[#AAAAAA] mb-[8px] md:text-[20px] text-[16px]  md:leading-[30px] leading-[24px] tracking-[0.16em]">
+            <div className="flex flex-col items-center">
+              <p className="mb-[8px] font-satoshi text-[16px] font-light leading-[24px] tracking-[0.16em]  text-[#AAAAAA] md:text-[20px] md:leading-[30px]">
                 !@£$%^&*()
               </p>
-              <p className=" font-satoshi  font-light text-[#AAAAAA] md:text-[20px] text-[16px]  md:leading-[30px] leading-[24px]  tracking-[0.16em]">
+              <p className=" font-satoshi  text-[16px] font-light leading-[24px] tracking-[0.16em]  text-[#AAAAAA] md:text-[20px]  md:leading-[30px]">
                 1234567890
               </p>
             </div>
             <div className="flex flex-col items-center">
-              <p className=" uppercase  font-satoshi font-light text-[#AAAAAA] mb-[8px]  md:text-[20px] leading-[24px]  text-[16px] md:leading-[30px] tracking-[0.16em]">
+              <p className=" mb-[8px]  font-satoshi text-[16px] font-light uppercase  leading-[24px] tracking-[0.16em]  text-[#AAAAAA] md:text-[20px] md:leading-[30px]">
                 abcdefghijklmnopqrstuvwxyz
               </p>
-              <p className=" font-satoshi font-light text-[#AAAAAA] md:text-[20px] text-[16px] leading-[24px]   md:leading-[30px] tracking-[0.32em]">
+              <p className=" font-satoshi text-[16px] font-light leading-[24px] tracking-[0.32em] text-[#AAAAAA]   md:text-[20px] md:leading-[30px]">
                 abcdefghijklmnopqrstuvwxyz
               </p>
             </div>
@@ -285,9 +275,9 @@ export default function Echo() {
         <Animated className="mb-6">
           <RespSVG
             className="h-full w-full"
-            src="/img/echo/frame-5.svg"
-            md="/img/echo/frame-5-md.svg"
-            xl="/img/echo/frame-5-xl.svg"
+            src="/img/echo/frame-5.png"
+            md="/img/echo/frame-5.png"
+            xl="/img/echo/frame-5.png"
           />
         </Animated>
         <div className="relative flex flex-col gap-[24px] max-xl:pt-[76px] max-md:pt-0 md:h-[529px] md:gap-[55px] xl:mx-10 xl:h-[429px] xl:flex-row">
@@ -327,7 +317,7 @@ export default function Echo() {
             insights on a block of calls to identify patterns.
           </p>
         </div>
-        <Animated>
+        <Animated className="mr-[-16px]">
           <RespSVG
             className="h-full w-full"
             src="/img/echo/frame-8.svg"
@@ -355,14 +345,16 @@ export default function Echo() {
           </p>
         </Animated>
       </Layout>
-      <Animated className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
-        <RespSVG
-          className="h-full w-full"
-          src="/img/echo/frame-9.svg"
-          md="/img/echo/frame-9-md.svg"
-          xl="/img/echo/frame-9-xl.svg"
-        />
-      </Animated>
+      <Layout className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
+        <Animated className="mx-[-4rem]">
+          <RespSVG
+            className="h-full w-full"
+            src="/img/echo/frame-9.svg"
+            md="/img/echo/frame-9-md.svg"
+            xl="/img/echo/frame-9-xl.svg"
+          />
+        </Animated>
+      </Layout>
       {/*events*/}
       <Layout className="py-[50px] md:py-[72px] xl:py-[88px]">
         <div className="mb-10 items-start justify-between gap-10 max-md-safe:flex-col md:mb-[56px] md:gap-[70px] xl:mb-20 xl:flex xl:gap-[30px]">

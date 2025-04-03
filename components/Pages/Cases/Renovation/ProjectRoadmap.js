@@ -28,7 +28,7 @@ function Text({ className, children }) {
   return (
     <Animated
       as="p"
-      className={`text-[16px] font-normal leading-6 xl:text-[20px] xl:leading-8   ${className}`}
+      className={`text-[16px] leading-6 xl:text-[20px] xl:leading-8   ${className}`}
     >
       {children}
     </Animated>
@@ -58,13 +58,13 @@ export default function ProjectRoadmap() {
         <div className="mb-10 flex h-full w-full justify-center gap-4 md:mb-0 md:justify-between md-safe:gap-8">
           <div className="hidden flex-col items-start md:flex md:max-w-[272px]  md:pt-[12.5%] xl:pt-[17%]">
             <RespImage
-              pictureClassname="h-[56px] w-[56px]"
+              pictureClassname="h-[72px] w-[72px] mt-[-10px] ml-[-10px]"
               className=""
               src={CardIcon}
               md={CardIconMd}
               xl={CardIconXl}
             />
-            <Title className="font-normal">{'Card view'}</Title>
+            <Title className="!pt-[26px] font-normal">{'Card view'}</Title>
             <Text className="font-light">
               {'This view provides'}
               <br /> {'a detailed perspective,'}
@@ -95,13 +95,13 @@ export default function ProjectRoadmap() {
           </div>
           <div className="hidden flex-col  items-start md:flex md:max-w-[200px] md:pt-[12.5%]  xl:max-w-[272px] xl:pt-[17%]">
             <RespImage
-              pictureClassname="h-[56px] w-[56px]"
+              pictureClassname="h-[72px] w-[72px] mt-[-10px] ml-[-10px]"
               className=""
               src={ListIcon}
               md={ListIconMd}
               xl={ListIconXl}
             />
-            <Title className="font-normal">{'List view'}</Title>
+            <Title className="!pt-[26px] font-normal">{'List view'}</Title>
             <Text className="font-light">
               {
                 'Provides a broader overview of the renovation project, making it suitable for users who prefer a high-level summary of what has been completed.'
@@ -111,13 +111,15 @@ export default function ProjectRoadmap() {
         </div>
         <div className="mb-10 flex max-w-[450px] flex-col items-center md:hidden">
           <RespImage
-            pictureClassname="h-[56px] w-[56px]"
+            pictureClassname="h-[72px] w-[72px] mt-[-10px] ml-[-10px]"
             className=""
             src={CardIcon}
             md={CardIconMd}
             xl={CardIconXl}
           />
-          <Title className="text-center font-normal">{'Card view'}</Title>
+          <Title className="!pt-[26px] text-center font-normal">
+            {'Card view'}
+          </Title>
           <Text className="text-center font-light">
             {
               'This view provides a detailed perspective, allowing users to focus on the current stage of work in a particular room.'
@@ -126,17 +128,19 @@ export default function ProjectRoadmap() {
         </div>
         <div className="flex max-w-[450px] flex-col items-center md:hidden">
           <RespImage
-            pictureClassname="h-[56px] w-[56px]"
+            pictureClassname="h-[72px] w-[72px] mt-[-10px] ml-[-10px]"
             className=""
             src={ListIcon}
             md={ListIconMd}
             xl={ListIconXl}
           />
-          <Title className="text-center">{'List view'}</Title>
+          <Title className="!pt-[26px] text-center font-normal">
+            {'List view'}
+          </Title>
           <Text className="text-center">
-            {
-              'Provides a broader overview of the renovation project, making it suitable for users who prefer a high-level summary of what has been completed.'
-            }
+            Provides a broader overview of the renovation project, making it
+            suitable for users who prefer a high-level summary of what has been
+            completed.
           </Text>
         </div>
       </Layout>

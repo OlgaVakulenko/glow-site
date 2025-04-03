@@ -25,7 +25,7 @@ function Text({ className, children }) {
   return (
     <Animated
       as="p"
-      className={`text-[16px] font-normal leading-6 md:text-[18px] md:leading-[28px] xl:text-[20px] xl:leading-8   ${className}`}
+      className={`text-[16px] leading-6 md:text-[18px] md:leading-[28px] xl:text-[20px] xl:leading-8   ${className}`}
     >
       {children}
     </Animated>
@@ -47,7 +47,7 @@ export default function Reporting() {
           </div>
           <div className="md:ml-0 md:mr-[2.4vw] md:min-w-[260px] md:max-w-[288px]  md-safe:min-w-[288px] xl:mx-[3.9vw]">
             <Title className="md-6 font-normal">{'Reporting'}</Title>
-            <Text className='font-light'>
+            <Text className="font-light">
               {
                 'When sending the report, the project manager manager should state how far the current stage has progressed, briefly describe the work done, and attach several photos if needed.'
               }
