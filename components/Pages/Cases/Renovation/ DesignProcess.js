@@ -20,7 +20,7 @@ function TitleSection({ className, children }) {
   return (
     <Animated
       as="h2"
-      className={`font-satoshi text-[32px] font-medium leading-[40px] tracking-[-1px] text-white md:text-[48px] md:leading-[64px] xl:text-[56px] xl:leading-[72px]  ${className}`}
+      className={`font-satoshi text-[32px] font-normal leading-[40px] tracking-[-1px] text-white md:text-[48px] md:leading-[64px] xl:text-[56px] xl:leading-[72px]  ${className}`}
     >
       {children}
     </Animated>
@@ -43,7 +43,7 @@ export default function DesignProcess() {
     <div className="bg-lightGray">
       <Layout
         disablePadding
-        className="overflow-hidden rounded-[32px] bg-charcoal-black md:rounded-[56px]"
+        className="overflow-hidden rounded-[32px] mx-[unset] max-w-[unset] bg-charcoal-black md:rounded-[56px]"
       >
         <Layout className="overflow-hidden mb-[16px] sm:mb-[0px]">
           <div className="pb-10 pt-[72px] md:pb-[64px] md:pt-[96px] xl:pb-[120px] xl:pt-[120px]">
@@ -52,7 +52,7 @@ export default function DesignProcess() {
                 The process
               </div>
               <div className="flex w-full flex-col justify-between md:gap-y-6 xl:flex-row xl:gap-x-[96px]">
-                <TitleSection className="md:w-[94%] xl:w-[56%]">
+                <TitleSection className="mb-[24px] md:w-[94%] xl:w-[56%]">
                   {
                     'Before starting the project, we by creating a roadmap for our design process'
                   }
@@ -75,7 +75,7 @@ export default function DesignProcess() {
             />
 
             <div className="relative z-[9] w-screen overflow-scroll md:hidden">
-              <div className="center-block fix-width scroll-inner">
+              <div className="center-block w-[650px] scroll-inner">
                 <RespImage
                   className="!w-auto max-xs:h-[294px] pb-10 pr-[33px] xs:max-h-initial md:max-h-[392px] md:pb-0 xl:max-h-[536px]"
                   src={Frame7md}

@@ -61,7 +61,7 @@ export default function IntegrationsOverview() {
     <div className="bg-lightGray">
       <Layout
         disablePadding
-        className="rounded-[32px] bg-charcoal-black md:rounded-[56px]"
+        className="rounded-[32px] mx-[unset] max-w-[unset] bg-charcoal-black md:rounded-[56px]"
       >
         <Layout disablePadding className="flex max-w-[978px] flex-col items-center  pb-[40px] pt-[72px] text-white md:px-10 md:pb-[80px] md:pt-[120px] xl:px-0">
           <div className="mx-auto mb-6 w-fit rounded-[32px] bg-light-green px-4 py-2 font-inter text-[12px] font-medium uppercase leading-[24px] tracking-[0.02em] text-lightGray">

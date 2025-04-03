@@ -382,60 +382,67 @@ function SectionToolsHeader() {
               ? '13px 13px'
               : '19px 19px',
         }}
-        className="ml-0 mr-0 flex w-full max-w-full flex-col items-center  overflow-hidden rounded-t-[20px] bg-[#070919] py-10 pl-0  pr-0  text-white  md:h-[645px] md:rounded-t-[40px]  md:pb-[0px] md:pt-16 xl:h-[970px] xl:rounded-t-[60px] xl:p-20 xl:pb-[48px]"
+        className="rounded-t-[20px] md:rounded-t-[40px] xl:rounded-t-[60px] overflow-hidden  bg-[#070919]"
       >
-        <div className="flex  w-full flex-col items-center bg-transparent">
-          <div className="mt-[50px] flex items-center justify-center md:ml-[15px] md:mt-[138px] md:w-11/12 xl:mb-[-50px] xl:ml-[0px] xl:mt-[199px]">
-            <Image
-              alt="logo"
-              src="/img/lendFlow/logo-big-xl.svg"
-              width={0}
-              height={0}
-              className="h-[50px] w-[50px] md:h-[80px] md:w-[80px] xl:h-[114px] xl:w-[114px] "
-            />
-          </div>
-          <Layout className="px-[16px] pt-[30px] md:px-[50px] md:pb-0 md:pl-[28px] md:pt-[54px]  xl:pb-0 xl:pt-[59px] ">
-            {/* The code below draws the gradient behind the image */}
-            <div
-              className="flex w-full md:ml-[19px] md:mt-[2px] xl:ml-[14px] xl:mt-[70px]"
-              style={{ zIndex: 2 }}
-            >
-              <div className="flex items-center justify-center md:ml-[15px] xl:ml-[30px] xl:mr-[30px] xl:w-[1120px]">
-                <div
-                  style={{ fontFeatureSettings: 'normal' }}
-                  className="text-center font-satoshi text-[38px] font-normal leading-[45px] tracking-[-1.5px]  text-white md:mb-7 md:text-[56px] md:leading-[67px] xl:text-[80px]
+        <div
+          className="ml-0 mr-0 flex w-full max-w-full flex-col items-center  py-10 pl-0  pr-0  text-white  md:h-[645px]   md:pb-[0px] md:pt-16 xl:h-[970px]  xl:p-20 xl:pb-[48px]"
+          style={{
+            backgroundImage: 'linear-gradient(0deg,  #070919 0, transparent 110px)',
+          }}
+        >
+          <div className="flex  w-full flex-col items-center bg-transparent">
+            <div className="mt-[50px] flex items-center justify-center md:ml-[15px] md:mt-[138px] md:w-11/12 xl:mb-[-50px] xl:ml-[0px] xl:mt-[199px]">
+              <Image
+                alt="logo"
+                src="/img/lendFlow/logo-big-xl.svg"
+                width={0}
+                height={0}
+                className="h-[50px] w-[50px] md:h-[80px] md:w-[80px] xl:h-[114px] xl:w-[114px] "
+              />
+            </div>
+            <Layout className="px-[16px] pt-[30px] md:px-[50px] md:pb-0 md:pl-[28px] md:pt-[54px]  xl:pb-0 xl:pt-[59px] ">
+              {/* The code below draws the gradient behind the image */}
+              <div
+                className="flex w-full md:ml-[19px] md:mt-[2px] xl:ml-[14px] xl:mt-[70px]"
+                style={{ zIndex: 2 }}
+              >
+                <div className="flex items-center justify-center md:ml-[15px] xl:ml-[30px] xl:mr-[30px] xl:w-[1120px]">
+                  <div
+                    style={{ fontFeatureSettings: 'normal' }}
+                    className="text-center font-satoshi text-[38px] font-normal leading-[45px] tracking-[-1.5px]  text-white md:mb-7 md:text-[56px] md:leading-[67px] xl:text-[80px]
                             xl:leading-[96px] forced-colors:accent-white"
-                >
-                  Lendflow provides the tools you{' '}
-                  <br className="hidden md:inline xl:hidden" />
-                  need <br className="sm:hidden" />
-                  to{' '}
-                  <span className="pl-[-5px]" style={{ color: '#00FF72' }}>
-                    build and embed
-                  </span>{' '}
-                  credit products.
+                  >
+                    Lendflow provides the tools you{' '}
+                    <br className="hidden md:inline xl:hidden" />
+                    need <br className="sm:hidden" />
+                    to{' '}
+                    <span className="pl-[-5px]" style={{ color: '#00FF72' }}>
+                      build and embed
+                    </span>{' '}
+                    credit products.
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              style={{
-                position: 'relative',
-                top: screenSize === 'md' ? '-150px' : '-200px', // Adjust this value to position below the image
-                left:
-                  screenSize === 'sm'
-                    ? '200px'
-                    : screenSize === 'md'
-                    ? '300px'
-                    : '330px',
-                width: '547px',
-                height: '31px',
-                backgroundColor: '#00FF72',
-                filter: screenSize === 'md' ? 'blur(88.8px)' : 'blur(125px)',
-                transform: 'matrix(1, -0.03, -0.26, -0.97, 0, 0)',
-              }}
-            />
-            {/*end*/}
-          </Layout>
+              <div
+                style={{
+                  position: 'relative',
+                  top: screenSize === 'md' ? '-150px' : '-200px', // Adjust this value to position below the image
+                  left:
+                    screenSize === 'sm'
+                      ? '200px'
+                      : screenSize === 'md'
+                      ? '300px'
+                      : '330px',
+                  width: '547px',
+                  height: '31px',
+                  backgroundColor: '#00FF72',
+                  filter: screenSize === 'md' ? 'blur(88.8px)' : 'blur(125px)',
+                  transform: 'matrix(1, -0.03, -0.26, -0.97, 0, 0)',
+                }}
+              />
+              {/*end*/}
+            </Layout>
+          </div>
         </div>
       </div>
     </Animated>

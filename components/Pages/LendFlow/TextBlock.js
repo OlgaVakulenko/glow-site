@@ -14,9 +14,9 @@ export default function TextBlock({
   subBoxClassName = '',
 }) {
   return (
-    <div className="mt-[20px]  md:mt-[97px]">
+    <div className="mt-[10px]  md:mt-[57px]">
       <div
-        className="mx-[20] flex flex-col items-center bg-[#070919] md:mx-[100px] xl:mx-[300px] xl:rounded-[1440px] "
+        className="mx-[20] pt-[10px]  md:pt-[40px]  flex flex-col items-center bg-[#070919] md:mx-[100px] xl:mx-[300px] xl:rounded-[1440px] "
         style={{
           borderRadius: '50%',
           backgroundImage: `radial-gradient(circle at center, rgba(7, 9, 25, 0.12) 0, rgba(255, 255, 255, 0.12) 1px, #070919 0.5px, #070919 2px)`,

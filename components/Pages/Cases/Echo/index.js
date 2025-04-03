@@ -345,8 +345,8 @@ export default function Echo() {
           </p>
         </Animated>
       </Layout>
-      <Layout className="pb-[50px] md:pb-[72px] xl:pb-[88px]">
-        <Animated className="mx-[-4rem]">
+      <Layout className="pb-[50px] md:pb-[72px] xl:pb-[88px] overflow-hidden">
+        <Animated className="mx-[-1.2rem] sm:mx-[-2.2rem] md:mx-[-2.2rem] x-1280:mx-[-4rem]">
           <RespSVG
             className="h-full w-full"
             src="/img/echo/frame-9.svg"

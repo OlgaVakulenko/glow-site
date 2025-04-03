@@ -33,7 +33,7 @@ export default function UserApps() {
         </div>
         {/*md:h-[537px]*/}
         <div className="flex flex-col items-start gap-y-4 md:flex-row md:gap-x-8">
-          <div className="flex-1 rounded-[32px] bg-white md:min-h-[530px] md:rounded-[40px] x-920:min-h-[550px] md-safe:h-[568px] x-1280:h-[712px]">
+          <div className="flex-1 rounded-[32px] bg-white pb-[40px] md:min-h-[530px] md:rounded-[40px] x-920:min-h-[550px] md-safe:h-[568px] x-1280:h-[712px]">
             <RespImage
               pictureClassname=""
               className="mb-6 h-full rounded-[24px] md:mb-8 md:max-h-[320px] md:rounded-[40px] xl:mb-10 xl:max-h-[408px]"
@@ -50,7 +50,7 @@ export default function UserApps() {
               </Text>
             </div>
           </div>
-          <div className="flex-1 rounded-[32px] bg-white md:min-h-[530px] md:rounded-[40px] x-920:min-h-[550px] md-safe:h-[568px] x-1280:h-[712px]">
+          <div className="flex-1 rounded-[32px] bg-white pb-[40px] md:min-h-[530px] md:rounded-[40px] x-920:min-h-[550px] md-safe:h-[568px] x-1280:h-[712px]">
             <RespImage
               pictureClassname=""
               className="mb-6 h-full rounded-[24px] md:mb-8 md:max-h-[320px] md:rounded-[40px] xl:mb-10 xl:max-h-[408px]"
