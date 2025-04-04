@@ -32,8 +32,8 @@ export default function UserApps() {
           </Animated>
         </div>
         {/*md:h-[537px]*/}
-        <div className="flex flex-col items-start gap-y-4 md:flex-row md:gap-x-8">
-          <div className="flex-1 rounded-[32px] bg-white pb-[40px] md:min-h-[530px] md:rounded-[40px] x-920:min-h-[550px] md-safe:h-[568px] x-1280:h-[712px]">
+        <div className="flex flex-col  items-stretch gap-y-4 md:flex-row md:gap-x-8">
+          <div className="flex-1 rounded-[32px] h-[max-content] bg-white md:rounded-[40px]">
             <RespImage
               pictureClassname=""
               className="mb-6 h-full rounded-[24px] md:mb-8 md:max-h-[320px] md:rounded-[40px] xl:mb-10 xl:max-h-[408px]"
@@ -41,7 +41,7 @@ export default function UserApps() {
               md={Frame5md}
               xl={Frame5xl}
             />
-            <div className="px-4 pb-6 md:px-[24px] md:pb-0">
+            <div className="px-4 pb-[40px] md:px-[24px]">
               <h5 className="mb-4 font-satoshi text-2xl font-medium md:mb-6 md:text-[32px] md:leading-10 md:tracking-[-1px]">
                 Homeowner
               </h5>
@@ -50,7 +50,7 @@ export default function UserApps() {
               </Text>
             </div>
           </div>
-          <div className="flex-1 rounded-[32px] bg-white pb-[40px] md:min-h-[530px] md:rounded-[40px] x-920:min-h-[550px] md-safe:h-[568px] x-1280:h-[712px]">
+          <div className="flex-1 rounded-[32px] h-[max-content] bg-white md:rounded-[40px]">
             <RespImage
               pictureClassname=""
               className="mb-6 h-full rounded-[24px] md:mb-8 md:max-h-[320px] md:rounded-[40px] xl:mb-10 xl:max-h-[408px]"
@@ -58,7 +58,7 @@ export default function UserApps() {
               md={Frame6md}
               xl={Frame6xl}
             />
-            <div className="px-4 pb-6 md:px-[23.5px] md:pb-0">
+            <div className="px-4 pb-[40px] md:px-[23.5px]">
               <h5 className="mb-4 font-satoshi text-2xl font-medium md:mb-6 md:text-[32px] md:leading-10 md:tracking-[-1px]">
                 Project manager
               </h5>
