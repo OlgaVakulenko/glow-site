@@ -106,7 +106,7 @@ export default function Awards() {
   };
 
   return (
-    <Animated className="py-[52px] md:py-[72px] xl:py-[88px] overflow-hidden">
+    <Animated className="pb-[52px] md:pb-[72px] xl:pb-[88px] overflow-hidden">
       <Layout>
         <Heading
           title={title}

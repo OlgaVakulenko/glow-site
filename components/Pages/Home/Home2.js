@@ -18,6 +18,7 @@ import TypedWords from './TypedWords';
 import CardBg from './assets/card-bg.png';
 import HomeIntroSection from '../../HomeIntroSection';
 import { iconsSectionItems } from '../../../data/home-icons-section-data';
+import Awards from '../../Awards';
 
 const IconsSection = dynamic(() => import('../../IconsSection'));
 
@@ -25,12 +26,12 @@ function IntroSection5() {
   return (
     <HomeIntroSection
       animate
-      className="!pt-[232px] md:!pt-[384px] xl:!pt-[401px]"
+      className="!pt-[232px] md:!pt-[384px] text-pretty xl:!pt-[401px]"
       showBg={false}
       title={
         <>
-          Your strategic partner in&nbsp;design of&nbsp;successful
-          digital&nbsp;products
+          Product design agency
+          for B2B&nbsp;&&nbsp;AI companies
         </>
       }
       subtitle={
@@ -126,6 +127,7 @@ export default function Home2() {
         />
       </div>
       <NextStep />
+      <Awards />
       <OurExperience />
       <Layout className="mb-[100px] font-inter md:mb-[144px] xl:mb-[176px]">
         <TrialBanner />

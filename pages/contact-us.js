@@ -10,6 +10,7 @@ import { getFullTitle } from '../components/HeadTitle';
 import FaqItem from '../components/ContactUs/FaqItem';
 import Animated from '../components/Animated';
 import { faqItems } from '../data/faq-items';
+import PreDevForm from '../components/PreDevForm';
 
 export function FAQ({ padding, items = faqItems, animate = false, trial }) {
   const [theme] = useAtom(themeAtom);

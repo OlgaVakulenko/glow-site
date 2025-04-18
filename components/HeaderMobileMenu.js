@@ -94,24 +94,6 @@ export default function HeaderMobileMenu({ menuId, links }) {
                 {texts.header_contact}
               </Button2>
             </Animated>
-            <CalendlyEmbed
-              classNames="w-full sm:w-auto"
-              text={
-                <Animated delay={(links.length + 1) * 100} immediate>
-                  <Button2
-                    className={cx(
-                      'w-full !bg-[#19191B0F] !py-5 font-inter font-normal normal-case !tracking-[0.01em]',
-                      {
-                        '!bg-[#FFFFFF29] !text-white': theme === 'dark',
-                      }
-                    )}
-                    compact
-                  >
-                    {texts.header_cta}
-                  </Button2>
-                </Animated>
-              }
-            />
           </div>
         </Animation>
       )}

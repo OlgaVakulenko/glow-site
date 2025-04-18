@@ -190,24 +190,6 @@ const BurgerMenu = ({ menuId, links }) => {
                       'hidden gap-x-3 opacity-100 transition-opacity delay-500 sm:flex'
                     )}
                   >
-                    <CalendlyEmbed
-                      classNames="w-full sm:w-auto"
-                      text={
-                        <Animated delay={(links.length + 1) * 100} immediate>
-                          <Button2
-                            className={cx(
-                              'w-full !bg-[#19191B0F] !px-4 !py-3 font-inter font-light normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]',
-                              {
-                                '!bg-[#FFFFFF29] !text-white': theme === 'dark',
-                              }
-                            )}
-                            compact
-                          >
-                            {texts.header_cta}
-                          </Button2>
-                        </Animated>
-                      }
-                    />
                     <Animated delay={(links.length + 1) * 100} immediate>
                       <Button2
                         className={cx(
@@ -585,28 +567,6 @@ const isAi = backdropActive && !isTop
                           }
                         )}
                       >
-                        <CalendlyEmbed
-                          classNames="w-full sm:w-auto"
-                          text={
-                            <Animated
-                              delay={(links.length + 1) * 100}
-                              immediate
-                            >
-                              <Button2
-
-                                className={cx(
-                                  `w-full  !px-4 ${ai && !isAi ? '!bg-[#FFFFFF]' : '!bg-[#19191B0F]'} !py-3 font-inter normal-case !tracking-[0.01em] sm:w-[160px] md:w-[150px]`,
-                                  {
-                                    '!bg-[#FFFFFF29] !text-white': t === 'dark',
-                                  }
-                                )}
-                                compact
-                              >
-                                {texts.header_cta}
-                              </Button2>
-                            </Animated>
-                          }
-                        />
                         <Animated delay={(links.length + 1) * 100} immediate>
                           <Button2
                             className={cx(

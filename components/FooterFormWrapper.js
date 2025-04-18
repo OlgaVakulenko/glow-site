@@ -14,6 +14,7 @@ import BgMd from './Pages/Home/assets/form-bg-md.png';
 import BgXl from './Pages/Home/assets/form-bg-xl.png';
 import RespImage from './Pages/Cases/Renovation/RespImage';
 import BgDesktop from "../assets/img/bg-form-tab.png"
+import PreDevForm from './PreDevForm';
 
 const footerStyle = 'default';
 export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
@@ -111,22 +112,9 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
                 <span className="not-italic">🙌</span>
               </div>
             ) : (
-              <div className="hidden max-w-[259px] flex-col items-start gap-8 x-1280:flex">
-                <span className="font-satoshi text-[20px] font-medium leading-6">
-                  Always busy and want to book an exact time to call?
-                </span>
-                <CalendlyEmbed
-                  text={
-                    <Button2
-                      flavor="secondary"
-                      color="white"
-                      className="mt-8 w-[180px] shrink-0 border-0 !bg-[#ffffff30] font-normal md:mt-0"
-                      compact
-                    >
-                      Book a free call
-                    </Button2>
-                  }
-                />
+              <div className="hidden max-w-[259px] text-next-heading-7 flex-col items-start x-1280:flex">
+                <div>Got a bright idea?</div>
+                <div>Let’s bring it to life!</div>
               </div>
             )}
           </div>
@@ -136,49 +124,11 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
                 'self-end': footerStyle === 'trial',
               })}
             >
-              <FooterForm
-                // hideToggles={hideToggles}
-                isSubmitted={_isSubmitted}
-                setIsSubmitted={() => {
-                  // setIsSubmitted(true);
-                  router.push('/form-success');
-                }}
-                footerStyle={footerStyle}
-              />
+              <PreDevForm />
             </div>
           }
         </div>
       </div>
-      {!_isSubmitted ? (
-        <div
-          className={cx(
-            'relative mt-2.5 items-center justify-between overflow-hidden rounded-3xl bg-black p-6 text-white sm:flex md:rounded-[32px] md:p-12 xl:p-20 xl:px-16 xl:py-[72px] x-1280:hidden',
-            {
-              '4xl:px-24 4xl:py-[120px]': footerStyle === 'default',
-              'xl:pt-14': footerStyle === 'trial',
-              'h-full !pb-8 md:!pb-20 xl:!px-[64px] xl:!py-[72px]':
-                _isSubmitted,
-            }
-          )}
-        >
-          <p className="mb-6 mr-[72px] max-w-full font-satoshi text-base font-normal leading-6 xs:mr-0 sm:mb-0 sm:max-w-60 md:max-w-64 md:text-[20px] md:font-medium">
-            Always busy and want to book an exact time to call?
-          </p>
-          <CalendlyEmbed
-            classNames="sm:w-auto w-full"
-            text={
-              <Button2
-                flavor="secondary"
-                color="white"
-                className="w-full shrink-0 border-0 !bg-[#ffffff30] font-normal sm:w-[160px]"
-                compact
-              >
-                Book a free call
-              </Button2>
-            }
-          />
-        </div>
-      ) : null}
     </Layout>
   );
 }
