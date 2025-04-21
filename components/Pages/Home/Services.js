@@ -113,7 +113,7 @@ export default function Services() {
       <Layout className="mb-10 md:mb-[64px] md:grid md:grid-cols-8 md:gap-8 xl:mb-[80px] xl:grid-cols-12">
         <Animated
           as="h2"
-          className="font-satoshi text-[32px] font-medium leading-[130%] tracking-[-1px] md:col-span-4 md:mb-0 md:text-[48px] md:leading-[56px] md:tracking-[-2px] xl:col-span-7 xl:max-w-[560px] xl:text-[56px] xl:text-heading-h2-2 xl:leading-[64px]"
+          className="text-next-heading-5 md:text-next-heading-3 md:col-span-6 xl:max-w-[560px] md:mb-0 xl:col-span-7 xl:text-next-heading-2"
         >
           We are open to any <br /> kind of co-operation
         </Animated>

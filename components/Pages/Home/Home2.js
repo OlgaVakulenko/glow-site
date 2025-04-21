@@ -24,7 +24,7 @@ function IntroSection5() {
   return (
     <HomeIntroSection
       animate
-      className="!pt-[232px] md:!pt-[384px] text-pretty xl:!pt-[401px]"
+      className="!pt-[232px] md:!pt-[384px] text-pretty xl:!pt-[490px]"
       showBg={false}
       title={
         <>
