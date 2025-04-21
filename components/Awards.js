@@ -54,9 +54,11 @@ export default function Awards() {
     let animationFrameId2;
 
     const animateRow1 = () => {
+      if (!row1Ref.current) return;
+      
       if (!isPausedRow1Ref.current) {
         row1Start.current += -1 * 0.7;
-        const totalWidth = row1Ref.current?.scrollWidth / 2;
+        const totalWidth = row1Ref.current.scrollWidth / 2;
 
         if (Math.abs(row1Start.current) >= totalWidth) {
           row1Start.current = 0;
@@ -69,9 +71,11 @@ export default function Awards() {
     };
 
     const animateRow2 = () => {
+      if (!row2Ref.current) return;
+      
       if (!isPausedRow2Ref.current) {
         row2Start.current += 1 * 0.7;
-        const totalWidth = row2Ref.current?.scrollWidth / 2;
+        const totalWidth = row2Ref.current.scrollWidth / 2;
 
         if (row2Start.current >= 0) {
           row2Start.current = -totalWidth;

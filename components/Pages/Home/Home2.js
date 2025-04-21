@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic';
 import Animated from '../../Animated';
 import Button2 from '../../Button';
 import Image from '../../Image';
-import IntroSection2 from '../../IntroSection2';
 import Layout from '../../Layout';
 import { SkipRenderOnClient } from '../../SkipRender';
 import casesData from '../Cases/data';
@@ -19,8 +18,7 @@ import CardBg from './assets/card-bg.png';
 import HomeIntroSection from '../../HomeIntroSection';
 import { iconsSectionItems } from '../../../data/home-icons-section-data';
 import Awards from '../../Awards';
-
-const IconsSection = dynamic(() => import('../../IconsSection'));
+import IconsSection2 from '../../IconsSection2';
 
 function IntroSection5() {
   return (
@@ -118,12 +116,12 @@ export default function Home2() {
         </SkipRenderOnClient>
       </div>
       <div className="pb-[100px] font-satoshi md:pb-5">
-        <IconsSection
+        <IconsSection2
           items={iconsSectionItems}
           blockClasses="xl:items-start"
           iconClasses="4xl:mr-6 mr-8 md:mr-4 min-w-[72px]"
-          titleClasses="4xl:text-[22px] 4xl:leading-[120%] mb-2 md:max-w-[208px] xl:max-w-[208px] text-body-heading-m"
-          sectionClasses="flex flex-col gap-10 md:mx-auto md:grid md:max-w-[668px] md:grid-cols-2 md:flex-wrap md:items-start md:justify-between md:gap-x-20 md:gap-y-[92px] xl:max-w-full xl:grid-cols-4"
+          titleClasses="4xl:text-[22px] 4xl:leading-[120%] mb-2 md:max-w-[204px] xl:max-w-[204px] text-body-heading-m"
+          sectionClasses="flex flex-col gap-10 md:mx-auto md:grid md:max-w-[668px] md:grid-cols-2 md:flex-wrap md:items-start md:justify-between md:gap-x-8 md:gap-y-[92px] xl:max-w-full xl:grid-cols-4"
         />
       </div>
       <NextStep />
