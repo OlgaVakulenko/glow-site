@@ -1,0 +1,47 @@
+{
+  "data": {
+    "title": "AI in Business Intelligence: Transforming Data-Driven Decision Making",
+    "description": "Advances in artificial intelligence (AI) technologies are revolutionizing the landscape of business intelligence.",
+    "html_description": "Advances in artificial intelligence (AI) technologies are revolutionizing the landscape of business intelligence.",
+    "image": "/img/blog/ai-business/1.png",
+    "author_name": "Ruslan Mashatov",
+    "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/0*TZLn6eils9KJ4IoB.",
+    "date": "Apr 25, 2025",
+    "created_at": 1745575300414,
+    "read_minutes": "15 min read",
+    "href": "ai-in-business-intelligence-transforming-data-driven-decision-making",
+    "tags": [
+      "AI",
+      "Process",
+      "Design"
+    ],
+    "paragraphs": [
+      {
+        "id": "p-1",
+        "text": "What are AI and BI?"
+      },
+      {
+        "id": "p-2",
+        "text": "Why AI is Revolutionizing BI"
+      },
+      {
+        "id": "p-3",
+        "text": "Benefits of AI in Business Intelligence"
+      },
+      {
+        "id": "p-4",
+        "text": "How Businesses Are Using AI in BI Today"
+      },
+      {
+        "id": "p-5",
+        "text": "Steps to Implement AI in Business Intelligence"
+      },
+      {
+        "id": "p-6",
+        "text": "Conclusion"
+      }
+    ],
+    "order": 1000,
+    "date_iso": "2025-04-25T10:03:15.915Z"
+  }
+}

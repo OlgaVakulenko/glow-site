@@ -1,26 +1,19 @@
 'use client';
 import cx from 'clsx';
+import { useAtom } from 'jotai';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useCallback, useState } from 'react';
-import { useIsClient } from '../lib/utils';
-import { useAtom } from 'jotai';
 import { themeAtom } from '../lib/theme';
+import { useIsClient } from '../lib/utils';
+import { FAQ } from '../pages/contact-us';
+import Animated from './Animated';
 import Button2 from './Button';
 import FooterLinks from './Footer/FooterLinks';
 import FooterFormWrapper from './FooterFormWrapper';
-import Image, { Source, resolve } from './Image';
+import Image from './Image';
 import Layout from './Layout';
-import GlwEffectM from './Pages/Home/assets/glw-eff-m.png';
-import GlwEffect from './Pages/Home/assets/glw-eff.png';
 import FormBG from './Pages/Home/assets/form-bg.png';
-import Animated from './Animated';
-import CalendlyEmbed from './CalendlyEmbed';
-import { FAQ } from '../pages/contact-us';
-import RespImage from './Pages/Cases/Renovation/RespImage';
-import BgXl from './Pages/Home/assets/form-bg-xl.png';
-import BgMd from './Pages/Home/assets/form-bg-md.png';
-import BgSm from './Pages/Home/assets/form-bgg.png';
 
 function SlotText() {
   const isClient = useIsClient();
@@ -94,27 +87,6 @@ export default function Footer2({
                 alt=""
                 className="pointer-events-none absolute inset-0 z-0 h-full w-full rounded-3xl md:rounded-[32px]"
               />
-              {/*<RespImage*/}
-              {/*    src={BgSm}*/}
-              {/*    md={BgMd}*/}
-              {/*    xl={BgXl}*/}
-              {/*    className="pointer-events-none absolute inset-0 z-0 h-full w-full"*/}
-              {/*/>*/}
-
-              {/* <picture>
-                <Source
-                  image={GlwEffect}
-                  width="1280"
-                  media="(min-width: 820px)"
-                />
-                <Source image={GlwEffectM} width="480" />
-
-                <img
-                  className="absolute inset-0 z-0 h-full w-full"
-                  src={resolve({ src: GlwEffect.src })}
-                  alt=""
-                />
-              </picture> */}
               <div className="relative z-[1] text-center">
                 <div className="mb-[40px] text-[12px] uppercase leading-[24px] tracking-[0.02em] text-white md:mb-10 xl:mb-10">
                   <SlotText />

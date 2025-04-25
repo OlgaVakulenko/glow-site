@@ -12,9 +12,9 @@ import Animated from './Animated';
 import BgSm from './Pages/Home/assets/form-bgg.png';
 import BgMd from './Pages/Home/assets/form-bg-md.png';
 import BgXl from './Pages/Home/assets/form-bg-xl.png';
-import RespImage from './Pages/Cases/Renovation/RespImage';
 import BgDesktop from "../assets/img/bg-form-tab.png"
 import PreDevForm from './PreDevForm';
+import FormBg from './Pages/Home/assets/form-bg-2.png'
 
 const footerStyle = 'default';
 export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
@@ -37,38 +37,9 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
         )}
       >
         <Image
-          className={cx(
-            'pointer-events-none absolute inset-0 top-[-1%] hidden h-full w-full sm:top-[-26%] sm:block sm:rotate-180  xl:bottom-0 xl:left-0 xl:top-0 xl:rotate-0',
-            {
-              'sm:top-[-40%]': _isSubmitted,
-              'sm:top-[-10%] xl:hidden': !_isSubmitted,
-            }
-          )}
-          src={GlowImg}
+          src={FormBg}
           alt=""
-        />
-        <Image
-          className={cx(
-            'pointer-events-none absolute inset-0 h-full w-full xl:left-0 xl:top-0',
-            {
-              'hidden': _isSubmitted,
-              'xl:block hidden': !_isSubmitted,
-            }
-          )}
-          src={BgDesktop}
-          alt=""
-        />
-        <RespImage
-          src={BgSm}
-          md={BgMd}
-          xl={BgXl}
-          className={cx(
-            'pointer-events-none absolute inset-0 z-0 h-full w-full sm:hidden',
-            {
-              'top-[-38%]': _isSubmitted,
-              'top-[0%]': !_isSubmitted,
-            }
-          )}
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover"
         />
 
         <div
@@ -112,9 +83,9 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
                 <span className="not-italic">🙌</span>
               </div>
             ) : (
-              <div className="hidden max-w-[259px] text-next-heading-7 flex-col items-start x-1280:flex">
-                <div>Got a bright idea?</div>
-                <div>Let’s bring it to life!</div>
+              <div className="hidden max-w-[259px] text-next-heading-7 flex-col items-start xl:flex">
+                <div>Become a client</div>
+                <div><a href="mailto:hello@glow.team">hello@glow.team</a></div>
               </div>
             )}
           </div>
