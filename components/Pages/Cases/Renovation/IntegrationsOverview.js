@@ -1,37 +1,19 @@
-import Layout from '../../../Layout';
 import Animated from '../../../Animated';
+import Layout from '../../../Layout';
 import RespImage from './RespImage';
 
-import StripeFrame from './assets/Img2_stripe.png';
-import StripeFrameMd from './assets/Img2_stripe-md.png';
-import StripeFrameXl from './assets/Img2_stripe-xl.png';
-import Twilio1Frame from './assets/Img1_twilio.png';
 import Twilio1FrameMd from './assets/Img1_twilio-md.png';
 import Twilio1FrameXl from './assets/Img1_twilio-xl.png';
-import Twilio2FrameMd from './assets/Img2_twilio-md.png';
-import Twilio2FrameXl from './assets/Img2_twilio-xl.png';
-import DosusignFrame from './assets/Img2_docusign.png';
+import Twilio1Frame from './assets/Img1_twilio.png';
 import DosusignFrameMd from './assets/Img2_docusign-md.png';
 import DosusignFrameXl from './assets/Img2_docusign-xl.png';
+import DosusignFrame from './assets/Img2_docusign.png';
+import StripeFrameMd from './assets/Img2_stripe-md.png';
+import StripeFrameXl from './assets/Img2_stripe-xl.png';
+import StripeFrame from './assets/Img2_stripe.png';
+import Twilio2FrameMd from './assets/Img2_twilio-md.png';
+import Twilio2FrameXl from './assets/Img2_twilio-xl.png';
 
-import Frame20 from './assets/frame-20.svg';
-import Frame20xl from './assets/frame-20-xl.svg';
-import Frame21 from './assets/frame-21.png';
-import Frame22xl from './assets/frame-22-xl.svg';
-import Frame22 from './assets/frame-22.svg';
-import Frame23 from './assets/frame-23.svg';
-import Frame24 from './assets/frame-24.svg';
-import Frame24md from './assets/frame-24-md.svg';
-import Frame24xl from './assets/frame-24-xl.svg';
-import Frame25xl from './assets/frame-25-xl.svg';
-import Frame26xl from './assets/frame-26-xl.svg';
-import Frame26md from './assets/frame-26-md.svg';
-import Frame27 from './assets/frame-27.svg';
-import Frame28xl from './assets/frame-28-xl.svg';
-import Frame28md from './assets/frame-28-md.svg';
-import Frame29 from './assets/frame-29.svg';
-import Frame29md from './assets/frame-29-md.svg';
-import Frame29xl from './assets/frame-29-xl.svg';
 import RespSVG from './RespSVG';
 
 function TitleSection({ className, children }) {

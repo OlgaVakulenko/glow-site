@@ -1,20 +1,10 @@
-import Layout from '../../../Layout';
 import Animated from '../../../Animated';
+import Layout from '../../../Layout';
 import RespImage from './RespImage';
+import RespSVG from './RespSVG';
 import Frame7md from './assets/frame-7-md.png';
 import Frame7xl from './assets/frame-7-xl.png';
 import Frame7 from './assets/frame-7.png';
-import Frame8md from './assets/frame-8-md.svg';
-import Frame8xl from './assets/frame-8-xl.svg';
-import Frame8 from './assets/framee-8.svg';
-import Frame9md from './assets/frame-9-md.svg';
-import Frame9xl from './assets/frame-9-xl.svg';
-import Frame9 from './assets/frame-9.svg';
-import Frame10md from './assets/frame-10-md.svg';
-import Frame10xl from './assets/frame-10-xl.svg';
-import Frame10 from './assets/frame-10.svg';
-import Image from 'next/image';
-import RespSVG from './RespSVG';
 
 function TitleSection({ className, children }) {
   return (

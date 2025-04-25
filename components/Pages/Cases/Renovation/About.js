@@ -1,15 +1,5 @@
-import Layout from '../../../Layout';
 import Animated from '../../../Animated';
-import RespImage from './RespImage';
-import Frame11md from './assets/frame-11-md.png';
-import Frame11xl from './assets/frame-11-xl.png';
-import Frame11 from './assets/frame-11.png';
-import Frame12md from './assets/frame-12-md.png';
-import Frame12xl from './assets/frame-12-xl.png';
-import Frame12 from './assets/frame-12.png';
-import Frame13md from './assets/frame-13-md.png';
-import Frame13xl from './assets/frame-13-xl.png';
-import Frame13 from './assets/frame-13.png';
+import Layout from '../../../Layout';
 import RespSVG from './RespSVG';
 
 function Text({ className, children }) {

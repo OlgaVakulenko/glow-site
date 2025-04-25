@@ -1,7 +1,6 @@
-import Layout from '../../../Layout';
-import Animated from '../../../Animated';
-import cx from 'clsx';
 import { Fragment } from 'react';
+import Animated from '../../../Animated';
+import Layout from '../../../Layout';
 
 export default function Header({ title, subtitle, type }) {
   return (
