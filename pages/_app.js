@@ -230,14 +230,6 @@ function MyApp({ Component, pageProps }) {
         {(isConsent) => (isConsent ? <Analytics /> : null)}
       </CookieBanner>
       <div id="drag-cursor"></div>
-      <div>
-        <iframe
-          src="https://pre.dev/iframe/enterprise/mini-chat/7af5286f-a622-4eae-a9b4-39c1009c9f16"
-          style={{
-            zIndex: 9999,
-          }}
-        />
-      </div>
     </div>
   );
 }
