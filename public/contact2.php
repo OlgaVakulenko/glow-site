@@ -63,7 +63,7 @@ function formHandler() {
     'title' => 'Deal for '.$email.' created at '.date('d-m-Y H:i'),
     'person_id' => $contactId,
     'bd0449a7ade1fa104321ebfe32832776893aba00' => $budget,
-    '20bd831899a494d6d5bc2d538b165d65534d7c5c' => $project . '; ' . $project_about,
+    '20bd831899a494d6d5bc2d538b165d65534d7c5c' => $project_about,
     '7cf4f42f1176eb222897785f57283aa4103dc48e' => $source,
     'ae1b7802a994f39f8ae8801ede19c6a6fa15f7eb' => $query,
   ]);
@@ -110,10 +110,8 @@ function emailNotification() {
     $mailer->Port = 587;
     $mailer->SMTPSecure = 'tls';
     $mailer->setFrom('hello@glow.team', 'Glow Team');
-//     $mailer->addAddress('hello@glow.team');
-//     $mailer->addAddress('rusmashatov@gmail.com');
-// 	$mailer->addAddress('chr99272@gmail.com');
-	$mailer->addAddress('serdiukdmitro1@gmail.com');
+    $mailer->addAddress("promo@glow.team");
+    $mailer->addAddress("sergey.bogdan.vi@glow.team");
 
     $mailer->isHTML(true);
     $mailer->Subject = 'Contact form submission';
