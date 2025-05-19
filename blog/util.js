@@ -44,10 +44,12 @@ export async function getBlogPosts() {
 
 const positionMap = {
   'Kovalsky Stanislav': 'Co-Founder & Designer',
+  'Stas Kovalsky': 'Co-Founder & Designer',
   'Daria Haman': 'HR Manager',
   'Liudmyla Gramatyk': 'Content Manager',
   'Ruslan Mashatov': 'Co-Founder & Designer',
   'Michael Bliznetsov': 'Sales Manager',
+  'Pavel Dobronosov': 'Project Manager',
 };
 
 export function withAuthor(post) {
