@@ -14,7 +14,6 @@ import BgMd from './Pages/Home/assets/form-bg-md.png';
 import BgXl from './Pages/Home/assets/form-bg-xl.png';
 import RespImage from './Pages/Cases/Renovation/RespImage';
 import BgDesktop from "../assets/img/bg-form-tab.png"
-import PreDevForm from './PreDevForm';
 
 const footerStyle = 'default';
 export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
@@ -124,7 +123,15 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
                 'self-end': footerStyle === 'trial',
               })}
             >
-              <PreDevForm />
+							<FooterForm
+                // hideToggles={hideToggles}
+                isSubmitted={_isSubmitted}
+                setIsSubmitted={() => {
+                  // setIsSubmitted(true);
+                  router.push('/form-success');
+                }}
+                footerStyle={footerStyle}
+              />
             </div>
           }
         </div>

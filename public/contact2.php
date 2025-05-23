@@ -110,10 +110,9 @@ function emailNotification() {
     $mailer->Port = 587;
     $mailer->SMTPSecure = 'tls';
     $mailer->setFrom('hello@glow.team', 'Glow Team');
-//     $mailer->addAddress('hello@glow.team');
-//     $mailer->addAddress('rusmashatov@gmail.com');
-// 	$mailer->addAddress('chr99272@gmail.com');
-	$mailer->addAddress('serdiukdmitro1@gmail.com');
+    $mailer->addAddress('hello@glow.team');
+    $mailer->addAddress('rusmashatov@gmail.com');
+		$mailer->addAddress('chr99272@gmail.com');
 
     $mailer->isHTML(true);
     $mailer->Subject = 'Contact form submission';
