@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node scripts/image.js && next-sitemap",
+		"build": "next build && next-sitemap",
+  	"postbuild:local": "node scripts/image.js",
     "start": "next start",
     "lint": "next lint",
     "blog:fetch": "node scripts/fetch-medium.mjs",
