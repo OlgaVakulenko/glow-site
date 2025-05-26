@@ -14,6 +14,7 @@ import FooterFormWrapper from './FooterFormWrapper';
 import Image from './Image';
 import Layout from './Layout';
 import FormBG from './Pages/Home/assets/form-bg.png';
+import CalendlyEmbed from './CalendlyEmbed';
 
 function SlotText() {
   const isClient = useIsClient();
@@ -109,6 +110,18 @@ export default function Footer2({
                   Our team will get back to you within 24 hours 🙌
                 </div>
                 <div className=" mx-auto flex max-w-[400px] flex-col gap-4 text-center md:block">
+									<CalendlyEmbed
+										classNames="w-full md:w-[160px] xl:w-[180px] mr-[12px]"
+										text={
+											<Button2
+												color="white"
+												className="w-full !bg-[#FFFFFF29] !px-5 !py-3 font-inter font-light normal-case !tracking-[0.01em] text-white"
+												compact
+											>
+												Book a free call
+											</Button2>
+										}
+									/>
                   <Button2
                     // color="white"
                     as={Link}
