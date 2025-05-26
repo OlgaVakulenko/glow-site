@@ -35,7 +35,8 @@
     "react-textarea-autosize": "^8.5.3",
     "sass": "^1.57.1",
     "slugify": "^1.6.5",
-    "swiper": "^10.3.1"
+    "swiper": "^10.3.1",
+		"sharp": "^0.32.5"
   },
   "devDependencies": {
     "@root/walk": "^1.1.0",
