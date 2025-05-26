@@ -113,7 +113,6 @@ function emailNotification() {
     $mailer->addAddress("promo@glow.team");
     $mailer->addAddress('hello@glow.team');
     $mailer->addAddress('rusmashatov@gmail.com');
-    $mailer->addAddress("sergey.bogdan.vi@gmail.com");
 
     $mailer->isHTML(true);
     $mailer->Subject = 'Contact form submission';

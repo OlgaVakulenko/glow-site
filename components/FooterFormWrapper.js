@@ -12,9 +12,8 @@ import Animated from './Animated';
 import BgSm from './Pages/Home/assets/form-bgg.png';
 import BgMd from './Pages/Home/assets/form-bg-md.png';
 import BgXl from './Pages/Home/assets/form-bg-xl.png';
-import BgDesktop from "../assets/img/bg-form-tab.png"
-import PreDevForm from './PreDevForm';
-import FormBg from './Pages/Home/assets/form-bg-2.png'
+import BgDesktop from '../assets/img/bg-form-tab.png';
+import FormBg from './Pages/Home/assets/form-bg-2.png';
 
 const footerStyle = 'default';
 export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
@@ -83,9 +82,11 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
                 <span className="not-italic">🙌</span>
               </div>
             ) : (
-              <div className="hidden max-w-[259px] text-next-heading-7 flex-col items-start xl:flex">
+              <div className="hidden max-w-[259px] flex-col items-start text-next-heading-7 xl:flex">
                 <div>Become a client</div>
-                <div><a href="mailto:hello@glow.team">hello@glow.team</a></div>
+                <div>
+                  <a href="mailto:hello@glow.team">hello@glow.team</a>
+                </div>
               </div>
             )}
           </div>
@@ -95,7 +96,15 @@ export default function FooterFormWrapper({ isSubmitted: showSuccess }) {
                 'self-end': footerStyle === 'trial',
               })}
             >
-              <PreDevForm />
+              <FooterForm
+                // hideToggles={hideToggles}
+                isSubmitted={_isSubmitted}
+                setIsSubmitted={() => {
+                  // setIsSubmitted(true);
+                  router.push('/form-success');
+                }}
+                footerStyle={footerStyle}
+              />
             </div>
           }
         </div>
