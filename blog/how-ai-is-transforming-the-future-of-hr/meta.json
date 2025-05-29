@@ -1,0 +1,45 @@
+{
+  "data": {
+    "title": "AI in HR: How AI Is Transforming the Future of HR",
+    "description": "The landscape of human resources is undergoing a dramatic transformation thanks to AI for HR. Modern HR departments embrace artificial intelligence to streamline operations and improve decision-making processes.",
+    "image": "/img/blog/ai-hr/1.png",
+    "author_name": "Daria Haman",
+    "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/2*5uDfocwzTmm0N9ZJGlTplQ.png",
+    "date": "May 29, 2025",
+    "date_iso": "2025-05-29T14:33:09.882Z",
+    "created_at": 1748529189882,
+    "read_minutes": "10 min read",
+    "href": "how-ai-is-transforming-the-future-of-hr",
+    "tags": [
+      "Process",
+      "Design"
+    ],
+    "paragraphs": [
+      {
+        "id": "p-1",
+        "text": "Understanding the Role of AI in HR"
+      },
+      {
+        "id": "p-2",
+        "text": "AI Applications in HR: Transforming Core HR Functions"
+      },
+      {
+        "id": "p-3",
+        "text": "How HR Supports Design Teams in Navigating IT and AI Challenges"
+      },
+      {
+        "id": "p-4",
+        "text": "Benefits and Challenges of AI in HR"
+      },
+      {
+        "id": "p-5",
+        "text": "Best Practices for HR Teams Adopting AI"
+      },
+      {
+        "id": "p-6",
+        "text": "Conclusion"
+      }
+    ],
+    "order": 1000
+  }
+}
