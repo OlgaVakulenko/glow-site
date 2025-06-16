@@ -5,6 +5,7 @@ import GTag from './GTag';
 import Hotjar from './Hotjar';
 import Leadfeed from './Leadfeed';
 import Linkedin from './Linkedin';
+import Apollo from './Apollo';
 
 export const pageview = (url) => {
   window?.gtag?.('config', 'G-5NP2XWNRBX', {
@@ -60,6 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       </noscript>
       <Linkedin />
       <Leadfeed />
+      <Apollo />
     </>
   );
 }

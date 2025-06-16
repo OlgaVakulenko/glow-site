@@ -1,6 +1,6 @@
 export const links = [
   {
-    href: 'https://www.behance.net/GlowDesignAgency',
+    href: 'https://www.behance.net/glow_dsgn',
     label: 'Behance',
     icon: (
       <svg
