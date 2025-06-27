@@ -1,0 +1,48 @@
+{
+  "data": {
+    "title": "Conversational UI: Enhancing Human Computer Interaction",
+    "description": "In today's world, technology is becoming more and more complex. However, our need for simple and intuitive interaction with technology is growing. This is where conversational UI emerges as a revolutionary solution.",
+    "image": "/img/blog/conversational-ui:-enhancing-human-computer-interaction/7.jpg",
+    "author_name": "Ruslan Mashatov",
+    "created_at": 1743848199541,
+    "date_iso": "2025-04-05T10:16:39.541Z",
+    "date": "Apr 05, 2025",
+    "read_minutes": "10 min read",
+    "href": "conversational-ui-enhancing-human-computer-interaction",
+    "tags": [
+      "Process",
+      "Design"
+    ],
+    "paragraphs": [
+      {
+        "id": "p-1",
+        "text": "What Is Conversational UI Design?"
+      },
+      {
+        "id": "p-4",
+        "text": "Key Principles of Conversational UI Design"
+      },
+      {
+        "id": "p-6",
+        "text": "Types of Conversational Interfaces"
+      },
+      {
+        "id": "p-8",
+        "text": "Designing Effective Conversational Experiences"
+      },
+      {
+        "id": "p-10",
+        "text": "Future Trends in Conversational UI"
+      },
+      {
+        "id": "p-12",
+        "text": "Frequently Asked Questions (FAQ)"
+      },
+      {
+        "id": "p-13",
+        "text": "Conclusion"
+      }
+    ],
+    "order": 1000
+  }
+}

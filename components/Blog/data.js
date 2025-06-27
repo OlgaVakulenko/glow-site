@@ -7,6 +7,7 @@ import StasK from '../Pages/About/assets/team-new/stas.png';
 import PavelD from '../Pages/About/assets/team-new/pd.png';
 import RusM from '../Pages/About/assets/team-new/rus.png';
 import LG from '../Pages/About/assets/team-new/lg.png';
+import OK from '../Pages/About/assets/team-new/ok.png';
 
 // import RusM from '../Pages/About/assets/rus-2.png';
 
@@ -34,6 +35,10 @@ const data = [
   {
     author: 'Pavel Dobronosov',
     image: PavelD,
+  },
+  {
+    author: 'Oleksandr Kryvoshei',
+    image: OK,
   },
 ];
 
