@@ -88,17 +88,15 @@ function formHandler() {
 
 function emailNotification() {
   $mailer = new \PHPMailer\PHPMailer\PHPMailer();
+
   $name = post('name');
-  // $company_name = post('company_name');
   $project = implode(", ", post('services', []));
   $project_about = post('project-about');
   $budget = post('budget');
   $email = post('email');
   $source = post('source');
   $query = post('query');
-  //honeypot
-  $phonenumber = post('phonenumber');
-  
+
   try {
     $mailer->isSMTP();
     $mailer->CharSet = 'UTF-8';
@@ -106,16 +104,17 @@ function emailNotification() {
 
     $mailer->Host = 'smtp.gmail.com';
     $mailer->Username = 'hello@glow.team';
-    $mailer->Password = 'xugo puyo hzxz wmyr';
+    $mailer->Password = 'qcogbxmufgubsfcb';
     $mailer->Port = 587;
     $mailer->SMTPSecure = 'tls';
     $mailer->setFrom('hello@glow.team', 'Glow Team');
-    $mailer->addAddress("promo@glow.team");
     $mailer->addAddress('hello@glow.team');
     $mailer->addAddress('rusmashatov@gmail.com');
+		$mailer->addAddress('chr99272@gmail.com');
 
     $mailer->isHTML(true);
     $mailer->Subject = 'Contact form submission';
+
     $message = [
       'Name' => $name,
       'Email' => $email,
@@ -125,22 +124,22 @@ function emailNotification() {
       'Source' => $source,
       'Query' => $query,
     ];
+
     $msg = '';
     foreach ($message as $key => $value) {
       $msg .= "<b>$key:</b> $value<br><br>";
     }
-
     $mailer->Body = $msg;
 
-    if ($mailer->send()) {
-      return true;
-    } else {
-      return false;
-    }
-
+    if (!$mailer->send()) {
+			return false;
+		} else {
+			return true;
+		}
 
   } catch (Exception $e) {
-    throw $e;
+    echo "<h3 style='color:red;'>Exception:</h3><pre>" . $e->getMessage() . "</pre>";
+    exit;
   }
 }
 
