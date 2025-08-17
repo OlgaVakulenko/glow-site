@@ -1,0 +1,52 @@
+{
+  "data": {
+    "title": "An Itroduction Yo Product (UX/UI) Design for Web3",
+    "html_title": "An Itroduction Yo Product (UX/UI) Design for Web3",
+    "html_description":"The digital landscape is evolving rapidly.",
+    "description": "The digital landscape is evolving rapidly.",
+    "image": "/img/blog/an-introduction-to-product-design-for-web3/Glow-Article.jpg",
+		"author_name": "Ruslan Mashatov",
+    "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/0*TZLn6eils9KJ4IoB.",
+    "date": "Aug 10, 2025",
+    "created_at": 1754784000000,
+    "read_minutes": "5 min read",
+    "href": "an-introduction-to-product-design-for-web3",
+    "tags": ["Design", "Web3"],
+    "paragraphs": [
+      {
+        "id": "p1",
+        "text": "What Makes Web3 Different from Web2?"
+      },
+      {
+        "id": "p2",
+        "text": "Core Challenges in Web3 Product Design"
+      },
+      {
+        "id": "p3",
+        "text": "Why UI/UX Design Matters in the Web3 Space"
+      },
+      {
+        "id": "p4",
+        "text": "Key UX/UI Principles for Web3 Products"
+      },
+      {
+        "id": "p5",
+        "text": "Case Study: Designing Web3 Wallets and Marketplaces"
+      },
+      {
+        "id": "p6",
+        "text": "Creating a Web3 Design System"
+      },
+      {
+        "id": "p7",
+        "text": "The Future of Product Design for Web3"
+      },
+      {
+        "id": "p8",
+        "text": "Conclusion: Designing for a Decentralized Future"
+      }
+    ],
+    "order": 991,
+    "date_iso": "2025-10-08T18:07:09.112Z"
+  }
+}
