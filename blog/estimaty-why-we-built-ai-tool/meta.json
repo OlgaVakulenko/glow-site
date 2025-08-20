@@ -1,0 +1,52 @@
+{
+  "data": {
+    "title": "Estimaty: Why We Built an AI Tool to Fix UX Project Estimation",
+    "html_title": "Estimaty - The AI Tool Making UI/UX Project Estimation Instant and Effortless",
+    "html_description":"Estimaty is an AI-powered tool that delivers instant, accurate UI/UX project estimates. Built by designers for designers, it streamlines scoping, saves time, and helps you win more clients.",
+    "description": "In the design world, there's an eternal problem — how to quickly and accurately estimate project costs. Every UX designer has faced a situation where a client asks for an estimate 'by tomorrow', while quality design estimation requires time for analysis and reflection.",
+    "image": "/img/blog/estimaty-why-we-built-ai-tool/Glow-Article-Web-103.jpg",
+		"author_name": "Ruslan Mashatov",
+    "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/0*TZLn6eils9KJ4IoB.",
+    "date": "Aug 20, 2025",
+		"created_at": 1755648000000,
+    "read_minutes": "7 min read",
+    "href": "estimaty-why-we-built-ai-tool",
+    "tags": ["Process", "Design", "Product", "UI/UX"],
+    "paragraphs": [
+      {
+        "id": "p1",
+        "text": "AI That Understands UX Project Scopes"
+      },
+      {
+        "id": "p2",
+        "text": "Instant Time and Cost Breakdowns"
+      },
+      {
+        "id": "p3",
+        "text": "Who It's For"
+      },
+      {
+        "id": "p4",
+        "text": "Why We Built It"
+      },
+      {
+        "id": "p5",
+        "text": "How It Works (In 3 Simple Steps)"
+      },
+      {
+        "id": "p6",
+        "text": "From Internal Tool to Public Beta"
+      },
+      {
+        "id": "p7",
+        "text": "What's Next for Estimaty"
+      },
+      {
+        "id": "p8",
+        "text": "Try Estimaty Yourself"
+      }
+    ],
+    "order": 992,
+    "date_iso": "2025-20-08T18:07:09.112Z"
+  }
+}
