@@ -1493,3 +1493,7 @@ h3.blog-post-h3 {
 		padding: 2px;
 	}
 }
+
+.italic {
+	font-style: italic;
+}

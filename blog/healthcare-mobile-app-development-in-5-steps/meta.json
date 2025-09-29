@@ -1,0 +1,51 @@
+{
+  "data": {
+    "title": "Healthcare Mobile App Development in 5 Steps",
+    "html_title": "Healthcare Mobile App Development in 5 Steps",
+    "html_description":"Imagine a world where patients can consult doctors from their living rooms, receive instant medication reminders, and access their complete medical history with a simple tap.",
+    "description": "Imagine a world where patients can consult doctors from their living rooms, receive instant medication reminders, and access their complete medical history with a simple tap.",
+    "image": "/img/blog/healthcare-mobile-app-development-in-5-steps/Glow-Article-Web-112.jpg",
+		"author_name": "Oleksandr Kryvoshei",
+    "date": "Sept 29, 2025",
+		"created_at": 1759104000000,
+    "read_minutes": "7 min read",
+    "href": "healthcare-mobile-app-development-in-5-steps",
+    "tags": ["Healthcare", "Development", "UI/UX", "Mobile App"],
+		"paragraphs": [
+		{
+			"id": "p1",
+			"text": "What is a Healthcare Mobile App?"
+		},
+		{
+			"id": "p2",
+			"text": "Why Invest in Healthcare Mobile App Development?"
+		},
+		{
+			"id": "p3",
+			"text": "Healthcare Mobile App Development Process in 5 Steps"
+		},
+		{
+			"id": "p4",
+			"text": "Must-Have Features for a Successful Healthcare App"
+		},
+		{
+			"id": "p5",
+			"text": "Ensuring Security and Compliance"
+		},
+		{
+			"id": "p6",
+			"text": "Healthcare Mobile App Development Cost and Timeline"
+		},
+		{
+			"id": "p7",
+			"text": "Conclusion: Building the Future of Healthcare"
+		},
+		{
+			"id": "p8",
+			"text": "FAQs"
+		}
+	],
+    "order": 994,
+    "date_iso": "2025-09-29T00:00:00.000Z"
+  }
+}
