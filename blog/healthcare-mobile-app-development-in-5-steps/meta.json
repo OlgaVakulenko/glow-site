@@ -6,8 +6,8 @@
     "description": "Imagine a world where patients can consult doctors from their living rooms, receive instant medication reminders, and access their complete medical history with a simple tap.",
     "image": "/img/blog/healthcare-mobile-app-development-in-5-steps/Glow-Article-Web-112.jpg",
 		"author_name": "Oleksandr Kryvoshei",
-    "date": "Sept 29, 2025",
-		"created_at": 1759104000000,
+    "date": "Sept 10, 2025",
+		"created_at": 1757481600000,
     "read_minutes": "7 min read",
     "href": "healthcare-mobile-app-development-in-5-steps",
     "tags": ["Healthcare", "Development", "UI/UX", "Mobile App"],
@@ -46,6 +46,6 @@
 		}
 	],
     "order": 994,
-    "date_iso": "2025-09-29T00:00:00.000Z"
+    "date_iso": "2025-09-10T00:00:00.000Z"
   }
 }
