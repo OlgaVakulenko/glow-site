@@ -1,0 +1,43 @@
+{
+  "data": {
+    "title": "From Idea to Innovation: How Team Glow Created a Revolutionary Service",
+    "html_title": "From Idea to Innovation: How Team Glow Created a Revolutionary Service",
+    "html_description":"Glow Team is a team of professionals specializing in UX/UI mobile app design.",
+    "description": "Glow Team is a team of professionals specializing in UX/UI mobile app design. We are proud that each of our projects becomes a model of an innovative approach to solving complex problems.",
+    "image": "/img/blog/from-idea-to-innovation/Glow-Article-2.png",
+		"author_name": "Stas Kovalsky",
+    "date": "Oct 8, 2025",
+		"created_at": 1760188800000,
+    "read_minutes": "7 min read",
+    "href": "from-idea-to-innovation-how-team-glow-created-a-revolutionary-service",
+    "tags": ["Design", "UI/UX", "Case Study"],
+		"paragraphs": [
+			{
+				"id": "p1",
+				"text": "Welcome Renovation: A Revolution in Renovation Planning"
+			},
+			{
+				"id": "p2",
+				"text": "Ambitious Goals and Challenging Tasks"
+			},
+			{
+				"id": "p3",
+				"text": "Path to Excellence: Stages of Development"
+			},
+			{
+				"id": "p4",
+				"text": "Impressive Results"
+			},
+			{
+				"id": "p5",
+				"text": "The Glow Team: Your Reliable Partner in the Creation of Digital Products"
+			},
+			{
+				"id": "p6",
+				"text": "Conclusion: Your path to a successful digital product"
+			}
+		],
+    "order": 998,
+    "date_iso": "2025-10-08T00:00:00.000Z"
+  }
+}
