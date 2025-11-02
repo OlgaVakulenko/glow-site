@@ -100,11 +100,9 @@ function emailNotification() {
   try {
     $mailer->isSMTP();
     $mailer->CharSet = 'UTF-8';
-    $mailer->SMTPAuth = true;
+    $mailer->SMTPAuth = false;
 
-    $mailer->Host = 'smtp.gmail.com';
-    $mailer->Username = 'hello@glow.team';
-    $mailer->Password = 'qcogbxmufgubsfcb';
+    $mailer->Host = 'smtp-relay.gmail.com';
     $mailer->Port = 587;
     $mailer->SMTPSecure = 'tls';
     $mailer->setFrom('hello@glow.team', 'Glow Team');
