@@ -1,0 +1,47 @@
+{
+  "data": {
+    "title": "10 UX Design Frameworks to Help You Create User-Centered Products",
+    "html_title": "10 UX Design Frameworks to Help You Create User-Centered Products",
+    "html_description":"Building digital products without a clear structure is like navigating a city without a map. You might eventually reach your destination, but you'll waste time, resources, and energy along the way. That's where UX design frameworks come into play — they provide the roadmap your team needs to create products that users actually love.",
+    "description": "Building digital products without a clear structure is like navigating a city without a map. You might eventually reach your destination, but you'll waste time, resources, and energy along the way.",
+    "image": "/img/blog/10-ux-design-frameworks/Glow-Article-Web-170.jpg",
+		"author_name": "Stas Kovalsky",
+    "date": "Nov 4, 2025",
+		"created_at": 1762224000000,
+		"read_minutes": "7 min read",
+		"href": "10-ux-design-frameworks",
+		"tags": ["UI/UX", "Design", "Process"],
+		 "paragraphs": [
+			{
+				"id": "p1",
+				"text": "Why UX Design Frameworks Matter"
+			},
+			{
+				"id": "p2",
+				"text": "How to Choose the Right UX Framework"
+			},
+			{
+				"id": "p3",
+				"text": "10 Best UX Design Frameworks"
+			},
+			{
+				"id": "p4",
+				"text": "How to Integrate UX Frameworks Into Your Workflow"
+			},
+			{
+				"id": "p5",
+				"text": "Which Framework Is Right for You?"
+			},
+			{
+				"id": "p6",
+				"text": "Final Thoughts"
+			},
+			{
+				"id": "p7",
+				"text": "FAQ"
+			}
+		],
+		"order": 1000,
+		"date_iso": "2025-11-04T00:00:00.000Z"
+	}
+}
