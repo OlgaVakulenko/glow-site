@@ -1,0 +1,44 @@
+{
+  "data": {
+    "title": "Designing for Trust: The Growth Metric Fintech Can't Ignore",
+    "html_title": "Designing for Trust: The Growth Metric Fintech Can't Ignore",
+    "html_description":"In collaboration with Lendflow, we examine how design transforms embedded lending - and why trust has become the most valuable product feature in modern finance.",
+    "description": "In collaboration with Lendflow, we examine how design transforms embedded lending - and why trust has become the most valuable product feature in modern finance.",
+    "image": "/img/blog/designing-for-trust/Glow-Article-Web-213.jpg",
+		"author_name": "Ruslan Mashatov",
+    "author_image": "https://cdn-images-1.medium.com/fit/c/72/72/0*TZLn6eils9KJ4IoB.",
+   	"date": "Nov 13, 2025",
+		"created_at": 1762992000000,
+		"read_minutes": "5 min read",
+		"href": "designing-for-trust",
+		"tags": ["Design", "Case Study", "Fintech", "Process"],
+		"paragraphs": [
+			{
+				"id": "p1",
+				"text": "The Trust Gap in Modern Fintech"
+			},
+			{
+				"id": "p2",
+				"text": "The Trust Equation: From Friction to Flow"
+			},
+			{
+				"id": "p3",
+				"text": "Four Rules for Designing Trust Into Finance"
+			},
+			{
+				"id": "p4",
+				"text": "Measuring Trust: The Metrics That Matter"
+			},
+			{
+				"id": "p5",
+				"text": "Trust as the Moat"
+			},
+			{
+				"id": "p6",
+				"text": "Conclusion: Make Trust Your Product"
+			}
+		],
+		"order": 1003,
+		"date_iso": "2025-11-13T00:00:00.000Z"
+	}
+}
