@@ -1,0 +1,43 @@
+{
+  "data": {
+    "title": "What is Holistic Design?",
+    "html_title": "What is Holistic Design?",
+    "html_description": "In today's world of digital products, users expect more than just functionality; they want a holistic, well-thought-out experience when interacting with apps and websites.",
+    "description": "In today's world of digital products, users expect more than just functionality; they want a holistic, well-thought-out experience when interacting with apps and websites.",
+    "image": "/img/blog/what-is-holistic-design/Glow-Article-Web-69.jpg",
+    "author_name": "Stas Kovalsky",
+		"date": "Dec 3, 2025",
+		"created_at": 1764720000000,
+		"read_minutes": "5 min read",
+		"href": "what-is-holistic-design",
+		"tags": [
+			"Product Design",
+			"Design",
+			"UX/UI"
+		],
+		"paragraphs": [
+			{
+				"id": "p1",
+				"text": "Defining Holistic Design in UX"
+			},
+			{
+				"id": "p2",
+				"text": "Core Principles of Holistic Design"
+			},
+			{
+				"id": "p3",
+				"text": "Real-World Examples of Holistic Design"
+			},
+			{
+				"id": "p4",
+				"text": "How Holistic Design Changes the Designer's Role"
+			},
+			{
+				"id": "p5",
+				"text": "Final Thoughts: Why Holistic Design Matters in Modern UX"
+			}
+		],
+		"order": 1006,
+		"date_iso": "2025-12-03T00:00:00.000Z"
+	}
+}
