@@ -1,17 +1,19 @@
 {
   "data": {
     "title": "Web Design Agency Pricing Explained",
+		"html_title": "Web Design Agency Pricing Models and How They Differ - Glow Team",
     "description": "A quality website has become a true business calling card in today's digital world. When creating an effective online presence, many business owners face difficulty choosing a contractor and development cost issues.",
-    "image": "/img/blog/web-design-agency-pricing-overview/1.png",
-    "author_name": "Michael Bliznetsov",
-    "author_image": "/img/blog/author/mc.png",
-    "date": "Feb 27, 2025",
-    "created_at": 1740739200000,
+    "html_description": "Learn everything about web design agency pricing. Explore cost factors, pricing models, and FAQs to choose the best option for your website needs.",
+		"image": "/img/blog/web-design-agency-pricing-overview/1.png",
+    "author_name": "Stas Kovalsky",
+    "date": "Apr 9, 2025",
+    "created_at": 1744156800000,
     "read_minutes": "10 min read",
-    "href": "web-design-agency-pricing-overview",
+    "href": "web-design-agency-pricing-explained",
     "tags": [
       "Process",
-      "Design"
+      "Design",
+			"UX/UI"
     ],
     "paragraphs": [
       {
@@ -40,6 +42,6 @@
       }
     ],
     "order": 995,
-    "date_iso": "2025-02-27T00:00:00.000Z"
+    "date_iso": "2025-04-09T00:00:00.000Z"
   }
 }

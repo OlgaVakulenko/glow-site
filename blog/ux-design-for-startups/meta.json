@@ -1,0 +1,59 @@
+{
+  "data": {
+    "title": "UX Design for Startups: Building User-Centric Experiences That Drive Growth",
+		"html_title": "UX Design for Startups 2026 - Glow Team",
+    "description": "In today's competitive digital landscape, UX for startups has become crucial in determining success or failure. When building a new company, every interaction with your product can make or break user relationships.",
+    "html_description": "Learn how UX design can drive growth for startups. Explore principles, tools, and strategies to create user-friendly, impactful designs on a budget.",
+		"image": "/img/blog/ux-design-for-startups/Glow-Article.png",
+    "author_name": "Stas Kovalsky",
+		"date": "May 17, 2025",
+		"created_at": 1747440000000,
+		"read_minutes": "7 min read",
+		"href": "ux-design-for-startups",
+		"tags": [
+			"UX/UI",
+			"Design",
+			"Research"
+		],
+		"paragraphs": [
+			{
+				"id": "p1",
+				"text": "Why UX Design Matters for Startups"
+			},
+			{
+				"id": "p2",
+				"text": "Essential UX Design Principles for New Ventures"
+			},
+			{
+				"id": "p3",
+				"text": "Building a Strong UX Foundation"
+			},
+			{
+				"id": "p4",
+				"text": "Making Design Decisions That Scale"
+			},
+			{
+				"id": "p5",
+				"text": "Tools and Resources"
+			},
+			{
+				"id": "p6",
+				"text": "Measuring Success"
+			},
+			{
+				"id": "p7",
+				"text": "Common Pitfalls to Avoid"
+			},
+			{
+				"id": "p8",
+				"text": "Looking Ahead"
+			},
+			{
+				"id": "p9",
+				"text": "Conclusion"
+			}
+		],
+		"order": 995,
+		"date_iso": "2025-05-17T00:00:00.000Z"
+	}
+}

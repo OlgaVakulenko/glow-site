@@ -1,0 +1,56 @@
+{
+  "data": {
+    "title": "CRM Design Best Practices",
+		"html_title": "CRM Design Best Practices - Glow Team",
+    "description": "In today's world of digital transformation, the development of an effective CRM system is becoming a key factor in business success. Customer relationship management is no longer just a fashion trend. It is a necessity dictated by a highly competitive environment and growing consumer expectations.",
+    "html_description": "CRM design best practices to create user-friendly, scalable systems. Learn key principles, steps, and tips for effective CRM implementation in 2026.",
+		"image": "/img/blog/how-to-design-a-crm-system/Glow-Article.png",
+    "author_name": "Ruslan Mashatov",
+		"author_image": "https://cdn-images-1.medium.com/fit/c/72/72/0*TZLn6eils9KJ4IoB.",
+    "date": "May 10, 2025",
+    "created_at": 1746835200000,
+    "read_minutes": "7 min read",
+    "href": "how-to-design-a-crm-system",
+    "tags": [
+      "Process",
+      "Research",
+			"UX/UI"
+    ],
+		"paragraphs": [
+			{
+				"id": "p1",
+				"text": "What is CRM Design?"
+			},
+			{
+				"id": "p2",
+				"text": "Key Principles of CRM Design"
+			},
+			{
+				"id": "p3",
+				"text": "Best Practices in CRM Design"
+			},
+			{
+				"id": "p4",
+				"text": "Steps in the CRM Design Process"
+			},
+			{
+				"id": "p5",
+				"text": "Common Challenges in CRM Design and How to Overcome Them"
+			},
+			{
+				"id": "p6",
+				"text": "Future Trends in CRM Design"
+			},
+			{
+				"id": "p7",
+				"text": "Frequently Asked Questions (FAQ)"
+			},
+			{
+				"id": "p8",
+				"text": "Conclusion"
+			}
+		],
+    "order": 995,
+    "date_iso": "2025-05-10T00:00:00.000Z"
+  }
+}

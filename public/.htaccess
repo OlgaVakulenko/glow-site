@@ -11,6 +11,22 @@ RewriteRule ^blog/[id]/?$ /blog/ [R=301,L]
 RewriteRule ^blog/ui-ux-case-study-automation-of-parking-lots-at-airports/?$ /parking/ [R=301,L]
 RewriteRule ^blog/why-perform-a-ui-ux-audit-benefits-and-techniques-for-a-good-start/?$ /jucr/ [R=301,L]
 
+RewriteRule ^blog/website-redesign-process-a-step-by-step-guide-to-transforming-your-site/?$ /blog/website-redesign-process/ [R=301,L]
+RewriteRule ^blog/leveraging-brand-archetypes-in-product-design/?$ /blog/leveraging-brand-archetypes-product-design/ [R=301,L]
+RewriteRule ^blog/ai-in-hr-how-al-is-transforming-the-future-of-hr/?$ /blog/how-ai-is-transforming-the-future-of-hr/ [R=301,L]
+RewriteRule ^blog/ai-in-hr-how-ai-is-transforming-the-future-of-hr/?$ /blog/how-ai-is-transforming-the-future-of-hr/ [R=301,L]
+RewriteRule ^blog/glow-design-agency-has-won-the-clutch-2024-global-award/?$ /blog/glow-design-agency-has-won-the-clutch-global-award/ [R=301,L]
+RewriteRule ^blog/ux-design-for-startups-building-user-centric-experiences-that-drive-growth/?$ /blog/ux-design-for-startups/ [R=301,L]
+RewriteRule ^blog/glow-design-agency-has-won-the-clutch-global-award/?$ / [R=301,L]
+RewriteCond %{REQUEST_URI} ^/blog/implementing-ai-marketing-bots-for-startups(%3A|:) [NC]
+RewriteRule ^blog/implementing-ai-marketing-bots-for-startups.*$ /blog/implementing-ai-marketing-bots-for-startups:-a-step-by-step-guide/ [R=301,L]
+RewriteCond %{REQUEST_URI} ^/blog/the-design-looks-great(%2C|,) [NC]
+RewriteRule ^blog/the-design-looks-great.*$ /blog/the-design-looks-great,-but-the-final-product-does-not-fix-frontend-issues-with-design-qa/ [R=301,L]
+RewriteCond %{REQUEST_URI} ^/blog/unlocking-ai-influence-design-trends-(%26|&) [NC]
+RewriteRule ^blog/unlocking-ai-influence-design-trends-.*$ /blog/unlocking-ai-influence-design-trends-&-creative-opportunities-ahead/ [R=301,L]
+RewriteRule ^blog/terms-of-service/?$ /terms-of-service/ [R=301,L]
+RewriteRule ^services/terms-of-service/?$ /terms-of-service/ [R=301,L]
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
