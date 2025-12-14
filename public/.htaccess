@@ -28,9 +28,7 @@ RewriteRule ^blog/implementing-ai-marketing-bots-for-startups.*$ /blog/implement
 RewriteCond %{REQUEST_URI} ^/blog/the-design-looks-great(%2C|,) [NC]
 RewriteRule ^blog/the-design-looks-great.*$ /blog/the-design-looks-great,-but-the-final-product-does-not-fix-frontend-issues-with-design-qa/ [R=301,L]
 
-RewriteRule ^blog/unlocking-ai-influence-design-trends-%26-creative-opportunities-ahead/?$ /blog/unlocking-ai-influence-design-trends-&-creative-opportunities-ahead/ [R=301,L]
-RewriteRule ^blog/unlocking-ai-influence-design-trends-&-creative-opportunities-ahead/?$ /blog/unlocking-ai-influence-design-trends-&-creative-opportunities-ahead/ [R=301,L]
-
+RewriteRule ^blog/unlocking-ai-influence-design-trends-%26-creative-opportunities-ahead/?$ /blog/unlocking-ai-influence-design-trends-and-creative-opportunities-ahead/ [R=301,L]
 RewriteRule ^blog/terms-of-service/?$ /terms-of-service/ [R=301,L]
 RewriteRule ^services/terms-of-service/?$ /terms-of-service/ [R=301,L]
 
