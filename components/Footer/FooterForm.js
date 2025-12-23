@@ -13,6 +13,7 @@ import {
   useState,
 } from 'react';
 import TextareaAutosize from 'react-textarea-autosize';
+import Script from 'next/script';
 import { useMediaAtom } from '../../lib/agent';
 import { getReferrer, useRem } from '../../lib/utils';
 import Image from '../Image';
@@ -431,11 +432,56 @@ export default function FooterForm({
   ]);
 
   const [checked, setChecked] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileReady, setTurnstileReady] = useState(false);
+  const turnstileRef = useRef(null);
+  const turnstileWidgetId = useRef(null);
 
   const openCalModal = () => {};
 
+  useEffect(() => {
+    if (
+      !turnstileReady ||
+      !turnstileRef.current ||
+      typeof window === 'undefined' ||
+      !window.turnstile ||
+      turnstileWidgetId.current
+    ) {
+      return;
+    }
+
+    const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY;
+    if (!sitekey) {
+      return;
+    }
+
+    turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
+      sitekey,
+      callback: (token) => setTurnstileToken(token || ''),
+      'expired-callback': () => setTurnstileToken(''),
+      'error-callback': () => setTurnstileToken(''),
+    });
+
+    return () => {
+      if (window?.turnstile && turnstileWidgetId.current) {
+        try {
+          window.turnstile.remove(turnstileWidgetId.current);
+        } catch (e) {
+          //
+        }
+      }
+      turnstileWidgetId.current = null;
+    };
+  }, [turnstileReady]);
+
   return (
     <div className="relative h-full">
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+        async
+        defer
+        onLoad={() => setTurnstileReady(true)}
+      />
       <Image
         className="hidden h-16 w-16 rounded-[20px] object-cover"
         src={StasImage}
@@ -482,6 +528,10 @@ export default function FooterForm({
             }
 
             const data = new FormData(e.target);
+            if (!turnstileToken) {
+              // If Turnstile did not provide a token, do not submit
+              return;
+            }
             selectedServices.forEach((service) => {
               data.append('services[]', service);
             });
@@ -507,6 +557,20 @@ export default function FooterForm({
             });
           }}
         >
+          <div
+            className="pointer-events-none absolute h-0 w-0 overflow-hidden"
+            aria-hidden="true"
+          >
+            <label>
+              Leave this field empty
+              <input
+                tabIndex={-1}
+                autoComplete="off"
+                name="phonenumber"
+                className="hidden"
+              />
+            </label>
+          </div>
           {!hideToggles && (
             <div className="md:grid md:grid-flow-col md:grid-cols-8 md:gap-8 xl:mb-0 xl:flex xl:flex-col xl:gap-0">
               <Switches
@@ -570,6 +634,15 @@ export default function FooterForm({
               name="project-about"
               placeholder="Project details (optional)"
               theme={theme}
+            />
+          </div>
+          <div className="mb-6 md:mb-8">
+            <div ref={turnstileRef} />
+            <input
+              type="hidden"
+              name="cf-turnstile-response"
+              value={turnstileToken}
+              readOnly
             />
           </div>
           <div className="gap-x-6 sm:flex sm:items-center sm:justify-between md:mt-10 md:space-x-4 x-920:gap-0 xl:mt-14">

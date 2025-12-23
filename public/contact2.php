@@ -33,6 +33,30 @@ function post($key, $default = null) {
   return isset($_POST[$key]) ? $_POST[$key] : $default;
 }
 
+function verify_turnstile($token) {
+  if (!$token) {
+    return false;
+  }
+
+  $secret = getenv('TURNSTILE_SECRET');
+  if (!$secret) {
+    return false;
+  }
+
+  $response = request_post(
+    'https://challenges.cloudflare.com/turnstile/v0/siteverify',
+    [
+      'secret' => $secret,
+      'response' => $token,
+      'remoteip' => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '',
+    ]
+  );
+
+  $data = json_decode($response, true);
+
+  return isset($data['success']) && $data['success'] === true;
+}
+
 function formHandler() {
   $name = post('name');
   // $company_name = post('company_name');
@@ -45,6 +69,21 @@ function formHandler() {
   //honeypot
   $phonenumber = post('phonenumber');
 
+  if (!empty($phonenumber)) {
+    return json_respond([
+      'status' => 'error',
+      'cause' => 'honeypot',
+    ]);
+  }
+
+  $turnstileToken = post('cf-turnstile-response');
+  if (!verify_turnstile($turnstileToken)) {
+    return json_respond([
+      'status' => 'error',
+      'cause' => 'turnstile',
+    ]);
+  }
+
   $contactResponse = request_post(pipeUrl('persons'), [
     'name' => $name,
     'email' => $email,
@@ -53,7 +92,7 @@ function formHandler() {
 
   $contactId = (int)$contact['data']['id'];
   if (empty($contactId)) {
-    json_respond([
+    return json_respond([
       'status' => 'error',
       'cause' => 'contact id',
     ]);
@@ -73,7 +112,7 @@ function formHandler() {
 
   $dealId = (int)$deal['data']['id'];
   if (empty($dealId)) {
-    json_respond([
+    return json_respond([
       'status' => 'error',
       'cause' => 'deal id'
     ]);
@@ -81,7 +120,7 @@ function formHandler() {
 
   emailNotification();
 
-  json_respond([
+  return json_respond([
     'status' => 'ok'
   ]);
 }
