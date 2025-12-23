@@ -1,0 +1,65 @@
+{
+  "data": {
+    "title": "Mobile App Development Process",
+    "html_title": "Mobile App Development Process: A Complete Step-by-Step Guide",
+    "description": "Understanding the mobile app development process isn't just for developers - it's essential for anyone investing time, money, or reputation into building a product. Whether you're a startup founder with a breakthrough idea or a corporate team launching an internal tool, the process remains fundamentally the same.",
+    "html_description": "A practical overview of the mobile app development process-strategy, planning, design, development, testing, deployment, and ongoing maintenance.",
+    "image": "/img/blog/mobile-app-development-process/Glow-Article-Web-323.jpg",
+    "author_name": "Pavel Dobronosov",
+    "date": "Dec 10, 2025",
+    "created_at": 1765324800000,
+    "read_minutes": "8 min read",
+    "href": "mobile-app-development-process",
+    "tags": [
+      "Process",
+      "Business",
+      "Design",
+      "Mobile app"
+    ],
+    "paragraphs": [
+      {
+        "id": "p1",
+        "text": "What the Mobile App Development Process Includes"
+      },
+      {
+        "id": "p2",
+        "text": "Step 1 - Strategy & Planning"
+      },
+      {
+        "id": "p3",
+        "text": "Step 2 - Analysis & Requirements"
+      },
+      {
+        "id": "p4",
+        "text": "Step 3 - UX & UI Design"
+      },
+      {
+        "id": "p5",
+        "text": "Step 4 - Development (Frontend, Backend, Architecture)"
+      },
+      {
+        "id": "p6",
+        "text": "Step 5 - Testing & Quality Assurance"
+      },
+      {
+        "id": "p7",
+        "text": "Step 6 - Deployment to App Stores"
+      },
+      {
+        "id": "p8",
+        "text": "Step 7 - Post-Launch Maintenance & Improvements"
+      },
+      {
+        "id": "p9",
+        "text": "Key Considerations Before You Start"
+      },
+      {
+        "id": "p10",
+        "text": "FAQ"
+      }
+    ],
+    "order": 1008,
+    "date_iso": "2025-12-10T00:00:00.000Z"
+  }
+}
+

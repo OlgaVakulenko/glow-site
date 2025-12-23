@@ -1,0 +1,35 @@
+{
+  "data": {
+    "title": "Startup Product Development: Steps, Strategies, and Best Practices",
+    "html_title": "Startup Product Development: Steps & Strategies for Success",
+    "description": "Building a startup product means turning an idea into something people actually use. It's not about perfect plans or guessing what users want. It's about testing fast, learning from real feedback, and improving with each iteration.",
+    "html_description": "Learn the key steps and strategies of startup product development - from idea validation to MVP, agile workflows, and launch-ready execution.",
+    "image": "/img/blog/sartup-product-development/Glow-Article-Web-284.jpg",
+    "author_name": "Anastasiia Lavrentii",
+    "author_image": "/img/blog/al.png",
+    "date": "Dec 23, 2025",
+    "created_at": 1766448000000,
+    "read_minutes": "6 min read",
+    "href": "sartup-product-development",
+    "tags": [
+      "UX UI",
+      "Design",
+      "Product Design",
+      "Startup"
+    ],
+    "paragraphs": [
+      { "id": "p1", "text": "What Startup Product Development Really Means Today" },
+      { "id": "p2", "text": "Why a Structured Product Development Process Matters for Startups" },
+      { "id": "p3", "text": "Key Stages of Startup Product Development" },
+      { "id": "p4", "text": "Popular Product Development Strategies for Startups" },
+      { "id": "p5", "text": "Common Challenges in Startup Product Development and How to Solve Them" },
+      { "id": "p6", "text": "In-House vs Outsourced Development: How to Choose the Right Path" },
+      { "id": "p7", "text": "Practical Tips for Successful Product Development" },
+      { "id": "p8", "text": "Work With a Product Team That Understands Startup Needs" },
+      { "id": "p9", "text": "FAQ" }
+    ],
+    "order": 1011,
+    "date_iso": "2025-12-23T00:00:00.000Z"
+  }
+}
+
