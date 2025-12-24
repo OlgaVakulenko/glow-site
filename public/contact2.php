@@ -6,224 +6,140 @@ require 'phpmailer/PHPMailer.php';
 require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
 
-$h = $_SERVER['HTTP_HOST'];
-if ($h === 'localhost:8000') {
-  header('Access-Control-Allow-Origin: *');
-  header('Access-Control-Allow-Methods: GET, POST');  
-  header("Access-Control-Allow-Headers: *");
+/**
+ * Разрешаем вызов ТОЛЬКО через Cloudflare Worker
+ */
+if (
+    empty($_SERVER['HTTP_USER_AGENT']) ||
+    strpos($_SERVER['HTTP_USER_AGENT'], 'CF-Worker') === false
+) {
+    http_response_code(403);
+    echo 'Forbidden';
+    exit;
 }
 
 $res = formHandler();
-
 echo $res;
 die();
 
 function pipeUrl($path) {
-  $company_domain = 'glow-cdac99';
-  $api_token = '418d3e3b3508c377a04b54e502d5868aa79f61ef';
-  
-  return 'https://'.$company_domain.'.pipedrive.com/v1/'.$path.'?api_token='.$api_token;
-}
-
-function get($key) {
-  return isset($_GET[$key]) ? $_GET[$key] : null;
+    $company_domain = 'glow-cdac99';
+    $api_token = '418d3e3b3508c377a04b54e502d5868aa79f61ef';
+    return 'https://' . $company_domain . '.pipedrive.com/v1/' . $path . '?api_token=' . $api_token;
 }
 
 function post($key, $default = null) {
-  return isset($_POST[$key]) ? $_POST[$key] : $default;
-}
-
-function verify_turnstile($token) {
-  if (!$token) {
-    return false;
-  }
-
-  $secret = getenv('TURNSTILE_SECRET');
-  if (!$secret) {
-    return false;
-  }
-
-  $response = request_post(
-    'https://challenges.cloudflare.com/turnstile/v0/siteverify',
-    [
-      'secret' => $secret,
-      'response' => $token,
-      'remoteip' => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : '',
-    ]
-  );
-
-  $data = json_decode($response, true);
-
-  return isset($data['success']) && $data['success'] === true;
+    return isset($_POST[$key]) ? $_POST[$key] : $default;
 }
 
 function formHandler() {
-  $name = post('name');
-  // $company_name = post('company_name');
-  $project = implode(", ", post('services', []));
-  $project_about = post('project-about', '');
-  $budget = post('budget', '');
-  $email = post('email', '');
-  $source = post('source', 'Direct');
-  $query = post('query', '');
-  //honeypot
-  $phonenumber = post('phonenumber');
 
-  if (!empty($phonenumber)) {
-    return json_respond([
-      'status' => 'error',
-      'cause' => 'honeypot',
+    $name    = post('name');
+    $project = implode(", ", post('services', []));
+    $about   = post('project-about', '');
+    $budget  = post('budget', '');
+    $email   = post('email', '');
+    $source  = post('source', 'Direct');
+    $query   = post('query', '');
+
+    // honeypot
+    if (!empty(post('phonenumber'))) {
+        return json_respond(['status' => 'error', 'cause' => 'honeypot']);
+    }
+
+    // create contact
+    $contactResponse = request_post(pipeUrl('persons'), [
+        'name'  => $name,
+        'email' => $email,
     ]);
-  }
 
-  $turnstileToken = post('cf-turnstile-response');
-  if (!verify_turnstile($turnstileToken)) {
-    return json_respond([
-      'status' => 'error',
-      'cause' => 'turnstile',
+    $contact = json_decode($contactResponse, true);
+    $contactId = (int)($contact['data']['id'] ?? 0);
+
+    if (!$contactId) {
+        return json_respond(['status' => 'error', 'cause' => 'contact id']);
+    }
+
+    // create lead
+    $dealResponse = request_post_json(pipeUrl('leads'), [
+        'title' => 'Deal for ' . $email . ' at ' . date('d-m-Y H:i'),
+        'person_id' => $contactId,
+        'bd0449a7ade1fa104321ebfe32832776893aba00' => $budget,
+        '20bd831899a494d6d5bc2d538b165d65534d7c5c' => $about,
+        '7cf4f42f1176eb222897785f57283aa4103dc48e' => $source,
+        'ae1b7802a994f39f8ae8801ede19c6a6fa15f7eb' => $query,
     ]);
-  }
 
-  $contactResponse = request_post(pipeUrl('persons'), [
-    'name' => $name,
-    'email' => $email,
-  ]);
-  $contact = json_decode($contactResponse, true);
+    $deal = json_decode($dealResponse, true);
+    $dealId = (int)($deal['data']['id'] ?? 0);
 
-  $contactId = (int)$contact['data']['id'];
-  if (empty($contactId)) {
-    return json_respond([
-      'status' => 'error',
-      'cause' => 'contact id',
-    ]);
-  }
+    if (!$dealId) {
+        return json_respond(['status' => 'error', 'cause' => 'deal id']);
+    }
 
-  $dealResponse = request_post_json(pipeUrl('leads'), [
-    'title' => 'Deal for '.$email.' created at '.date('d-m-Y H:i'),
-    'person_id' => $contactId,
-    'bd0449a7ade1fa104321ebfe32832776893aba00' => $budget,
-    '20bd831899a494d6d5bc2d538b165d65534d7c5c' => $project_about,
-    '7cf4f42f1176eb222897785f57283aa4103dc48e' => $source,
-    'ae1b7802a994f39f8ae8801ede19c6a6fa15f7eb' => $query,
-  ]);
-
-
-  $deal = json_decode($dealResponse, true);
-
-  $dealId = (int)$deal['data']['id'];
-  if (empty($dealId)) {
-    return json_respond([
-      'status' => 'error',
-      'cause' => 'deal id'
-    ]);
-  }
-
-  emailNotification();
-
-  return json_respond([
-    'status' => 'ok'
-  ]);
+    emailNotification();
+    return json_respond(['status' => 'ok']);
 }
 
 function emailNotification() {
-  $mailer = new \PHPMailer\PHPMailer\PHPMailer();
 
-  $name = post('name');
-  $project = implode(", ", post('services', []));
-  $project_about = post('project-about');
-  $budget = post('budget');
-  $email = post('email');
-  $source = post('source');
-  $query = post('query');
+    $mailer = new PHPMailer();
 
-  try {
-    $mailer->isSMTP();
-    $mailer->CharSet = 'UTF-8';
-    $mailer->SMTPAuth = false;
+    try {
+        $mailer->isSMTP();
+        $mailer->CharSet = 'UTF-8';
+        $mailer->SMTPAuth = false;
+        $mailer->Host = 'smtp-relay.gmail.com';
+        $mailer->Port = 587;
+        $mailer->SMTPSecure = 'tls';
 
-    $mailer->Host = 'smtp-relay.gmail.com';
-    $mailer->Port = 587;
-    $mailer->SMTPSecure = 'tls';
-    $mailer->setFrom('hello@glow.team', 'Glow Team');
-    $mailer->addAddress('hello@glow.team');
-    $mailer->addAddress('rusmashatov@gmail.com');
-		$mailer->addAddress('chr99272@gmail.com');
+        $mailer->setFrom('hello@glow.team', 'Glow Team');
+        $mailer->addAddress('hello@glow.team');
 
-    $mailer->isHTML(true);
-    $mailer->Subject = 'Contact form submission';
+        $mailer->isHTML(true);
+        $mailer->Subject = 'Contact form submission';
 
-    $message = [
-      'Name' => $name,
-      'Email' => $email,
-      'Project Type' => $project,
-      'Project About' => $project_about,
-      'Budget' => $budget,
-      'Source' => $source,
-      'Query' => $query,
-    ];
+        $mailer->Body = "
+            <b>Name:</b> ".post('name')."<br><br>
+            <b>Email:</b> ".post('email')."<br><br>
+            <b>Project:</b> ".implode(", ", post('services', []))."<br><br>
+            <b>About:</b> ".post('project-about')."<br><br>
+            <b>Budget:</b> ".post('budget')."<br><br>
+            <b>Source:</b> ".post('source')."<br><br>
+            <b>Query:</b> ".post('query')."
+        ";
 
-    $msg = '';
-    foreach ($message as $key => $value) {
-      $msg .= "<b>$key:</b> $value<br><br>";
-    }
-    $mailer->Body = $msg;
+        $mailer->send();
 
-    if (!$mailer->send()) {
-			return false;
-		} else {
-			return true;
-		}
-
-  } catch (Exception $e) {
-    echo "<h3 style='color:red;'>Exception:</h3><pre>" . $e->getMessage() . "</pre>";
-    exit;
-  }
+    } catch (Exception $e) {}
 }
 
 function request_post($url, $data) {
-
-  $ch = curl_init();
-  curl_setopt($ch, CURLOPT_URL, $url);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch, CURLOPT_POST, true);
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-
-
-  $response = curl_exec($ch);
-  curl_close($ch);
-
-  return $response;
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => $data
+    ]);
+    $res = curl_exec($ch);
+    curl_close($ch);
+    return $res;
 }
 
 function request_post_json($url, $data) {
-  // Initialize cURL session
-  $ch = curl_init();
-
-  // Convert the data array to JSON format
-  $jsonData = json_encode($data);
-
-  // Set cURL options
-  curl_setopt($ch, CURLOPT_URL, $url);
-  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-  curl_setopt($ch, CURLOPT_POST, true);
-
-  // Attach encoded JSON data
-  curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
-
-  // Set the content type to application/json
-  curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-
-  // Execute the request
-  $response = curl_exec($ch);
-
-  // Close the cURL session
-  curl_close($ch);
-
-  // Return the response
-  return $response;
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => json_encode($data),
+        CURLOPT_HTTPHEADER => ['Content-Type: application/json']
+    ]);
+    $res = curl_exec($ch);
+    curl_close($ch);
+    return $res;
 }
 
 function json_respond($data) {
-  header('Content-type: application/json');
-  return json_encode($data);
+    header('Content-Type: application/json');
+    return json_encode($data);
 }
