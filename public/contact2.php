@@ -6,9 +6,6 @@ require 'phpmailer/PHPMailer.php';
 require 'phpmailer/SMTP.php';
 require 'phpmailer/Exception.php';
 
-/**
- * Разрешаем вызов ТОЛЬКО через Cloudflare Worker
- */
 if (
     empty($_SERVER['HTTP_USER_AGENT']) ||
     strpos($_SERVER['HTTP_USER_AGENT'], 'CF-Worker') === false
@@ -95,6 +92,8 @@ function emailNotification() {
 
         $mailer->setFrom('hello@glow.team', 'Glow Team');
         $mailer->addAddress('hello@glow.team');
+				$mailer->addAddress('rusmashatov@gmail.com');
+				$mailer->addAddress('chr99272@gmail.com');
 
         $mailer->isHTML(true);
         $mailer->Subject = 'Contact form submission';

@@ -66,7 +66,7 @@ export default function PreDevForm() {
         fd.append('budget', data.budget);
         fd.append('cf-turnstile-response', turnstileToken);
 
-        fetch('https://quiet-darkness-7ed7.broad-night-e7a5.workers.dev', {
+        fetch('/api/contact', {
           method: 'POST',
           body: fd,
         }).then(() => {

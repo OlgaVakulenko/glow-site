@@ -539,7 +539,7 @@ export default function FooterForm({
             data.append('source', referrer || 'Direct');
             data.append('query', query || '');
             Promise.race([
-              fetch('https://quiet-darkness-7ed7.broad-night-e7a5.workers.dev', {
+              fetch('/api/contact', {
                 method: 'POST',
                 body: data,
               }),
