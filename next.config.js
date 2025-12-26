@@ -55,4 +55,15 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 module.exports = withBundleAnalyzer(nextConfig);
 
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/api/contact',
+        destination: 'https://glow.team/api/contact',
+      },
+    ];
+  },
+};
+
 // module.exports = nextConfig;

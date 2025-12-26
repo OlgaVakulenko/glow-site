@@ -198,6 +198,40 @@
 	border: 1px solid rgb(34, 33, 36);
 }
 
+@keyframes dotFade {
+  0%,
+  40% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.footer-form .dots {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  line-height: 1;
+}
+
+.footer-form .dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 9999px;
+  background: currentColor;
+  display: inline-block;
+  animation: dotFade 1.2s infinite;
+}
+
+.footer-form .dot-2 {
+  animation-delay: 0.2s;
+}
+
+.footer-form .dot-3 {
+  animation-delay: 0.4s;
+}
+
 .dark-outline {
 	border: 1px solid rgb(35, 33, 36);
 }

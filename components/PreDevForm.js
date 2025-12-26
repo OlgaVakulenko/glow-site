@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import Script from 'next/script';
 import { getReferrer } from '../lib/utils';
 
@@ -9,8 +9,9 @@ export default function PreDevForm() {
   const [turnstileReady, setTurnstileReady] = useState(false);
   const turnstileRef = useRef(null);
   const turnstileWidgetId = useRef(null);
+  const turnstileTokenRef = useRef('');
 
-  useEffect(() => {
+  const renderTurnstile = useCallback(() => {
     if (
       !turnstileReady ||
       !turnstileRef.current ||
@@ -21,29 +22,37 @@ export default function PreDevForm() {
       return;
     }
 
-    const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY;
-    if (!sitekey) {
-      return;
-    }
-
     turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
-      sitekey,
-      callback: (token) => setTurnstileToken(token || ''),
-      'expired-callback': () => setTurnstileToken(''),
-      'error-callback': () => setTurnstileToken(''),
+      sitekey: '0x4AAAAAACIykZNRrFqlGZdR',
+      callback: (token) => {
+        turnstileTokenRef.current = token || '';
+        setTurnstileToken(token || '');
+      },
+      'expired-callback': () => {
+        turnstileTokenRef.current = '';
+        setTurnstileToken('');
+      },
+      'error-callback': () => {
+        turnstileTokenRef.current = '';
+        setTurnstileToken('');
+      },
     });
+  }, [turnstileReady]);
+
+  useEffect(() => {
+    renderTurnstile();
 
     return () => {
       if (window?.turnstile && turnstileWidgetId.current) {
         try {
           window.turnstile.remove(turnstileWidgetId.current);
         } catch (e) {
-          //
+          console.error(e);
         }
       }
       turnstileWidgetId.current = null;
     };
-  }, [turnstileReady]);
+  }, [renderTurnstile, turnstileReady]);
 
   useEffect(() => {
     const handleMessage = (e) => {
@@ -53,7 +62,12 @@ export default function PreDevForm() {
 
       const { type, data } = e.data || {};
       if (type === 'new_lead') {
-        if (!turnstileToken) {
+        const token =
+          turnstileTokenRef.current ||
+          (window.turnstile && turnstileWidgetId.current
+            ? window.turnstile.getResponse(turnstileWidgetId.current) || ''
+            : '');
+        if (!token) {
           return;
         }
         const [referrer, query] = getReferrer();
@@ -64,7 +78,7 @@ export default function PreDevForm() {
         fd.append('project-about', data.businessURL);
         fd.append('email', data.email);
         fd.append('budget', data.budget);
-        fd.append('cf-turnstile-response', turnstileToken);
+        fd.append('cf-turnstile-response', token);
 
         fetch('/api/contact', {
           method: 'POST',
@@ -79,15 +93,14 @@ export default function PreDevForm() {
     return () => {
       window.removeEventListener('message', handleMessage);
     };
-  }, []);
+  }, [turnstileToken]);
 
   return (
     <>
       <Script
         src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        async
-        defer
         onLoad={() => setTurnstileReady(true)}
+        strategy="afterInteractive"
       />
       <div className="hidden" aria-hidden="true">
         <div ref={turnstileRef} />

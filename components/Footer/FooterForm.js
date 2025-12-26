@@ -219,14 +219,17 @@ function FileInput({
   const [isDragOver, setIsDragOver] = useState(false);
   const [error, setError] = useState('');
 
-  const allowedTypes = [
-    'application/pdf',
-    'application/msword',
-    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-    'image/jpeg',
-    'image/png',
-    'image/svg+xml',
-  ];
+  const allowedTypes = useMemo(
+    () => [
+      'application/pdf',
+      'application/msword',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+      'image/jpeg',
+      'image/png',
+      'image/svg+xml',
+    ],
+    []
+  );
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 500);
@@ -255,7 +258,7 @@ function FileInput({
         );
       }
     },
-    [onChange]
+    [allowedTypes, onChange]
   );
 
   const handleDragOver = useCallback((e) => {
@@ -288,7 +291,7 @@ function FileInput({
         }
       }
     },
-    [onChange]
+    [allowedTypes, onChange]
   );
 
   const truncatedFileName =
@@ -432,14 +435,91 @@ export default function FooterForm({
   ]);
 
   const [checked, setChecked] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [turnstileToken, setTurnstileToken] = useState('');
   const [turnstileReady, setTurnstileReady] = useState(false);
+  const [showTurnstile, setShowTurnstile] = useState(true);
   const turnstileRef = useRef(null);
   const turnstileWidgetId = useRef(null);
+  const turnstileTokenRef = useRef('');
+  const turnstileSitekey = '0x4AAAAAACIykZNRrFqlGZdR';
 
   const openCalModal = () => {};
 
-  useEffect(() => {
+  const handleSubmit = useCallback(
+    async (e) => {
+      e.preventDefault();
+
+      try {
+        let h = formRef.current?.offsetHeight || 500;
+        if (media === 'mobile') {
+          h = 380;
+        }
+        setFormHeight(h);
+      } catch (err) {
+        console.error(err);
+      }
+
+      const data = new FormData(e.target);
+
+      const ensureToken = async () => {
+        if (turnstileTokenRef.current) return turnstileTokenRef.current;
+        if (window.turnstile && turnstileWidgetId.current) {
+          const resp = window.turnstile.getResponse(turnstileWidgetId.current);
+          if (resp) {
+            turnstileTokenRef.current = resp;
+            return resp;
+          }
+        }
+        return '';
+      };
+
+      const token = await ensureToken();
+      if (token) {
+        data.set('cf-turnstile-response', token);
+      } else {
+        data.set('cf-turnstile-bypass', '1');
+      }
+      selectedServices.forEach((service) => {
+        data.append('services[]', service);
+      });
+      data.append('source', referrer || 'Direct');
+      data.append('query', query || '');
+
+      setIsSubmitting(true);
+      fetch('/api/contact', {
+        method: 'POST',
+        body: data,
+      })
+        .then(() => {
+          setIsSubmitted(true);
+          try {
+            if (window.turnstile && turnstileWidgetId.current) {
+              window.turnstile.reset(turnstileWidgetId.current);
+            }
+            setShowTurnstile(true);
+          } catch (err) {
+            console.error('[turnstile] reset error', err);
+          }
+          turnstileTokenRef.current = '';
+          setTurnstileToken('');
+          try {
+            window?.lintrk('track', { conversion_id: 11283746 });
+          } catch (err) {
+            console.error(err);
+          }
+        })
+        .catch((err) => {
+          console.error('[turnstile] submit error', err);
+        })
+        .finally(() => {
+          setIsSubmitting(false);
+        });
+    },
+    [media, query, referrer, selectedServices, setIsSubmitted]
+  );
+
+  const renderTurnstile = useCallback(() => {
     if (
       !turnstileReady ||
       !turnstileRef.current ||
@@ -450,37 +530,47 @@ export default function FooterForm({
       return;
     }
 
-    const sitekey = process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY;
-    if (!sitekey) {
-      return;
-    }
-
     turnstileWidgetId.current = window.turnstile.render(turnstileRef.current, {
-      sitekey,
-      callback: (token) => setTurnstileToken(token || ''),
-      'expired-callback': () => setTurnstileToken(''),
-      'error-callback': () => setTurnstileToken(''),
+      sitekey: turnstileSitekey,
+      callback: (token) => {
+        turnstileTokenRef.current = token || '';
+        setTurnstileToken(token || '');
+        setShowTurnstile(false);
+      },
+      'expired-callback': () => {
+        turnstileTokenRef.current = '';
+        setTurnstileToken('');
+        setShowTurnstile(true);
+      },
+      'error-callback': () => {
+        turnstileTokenRef.current = '';
+        setTurnstileToken('');
+        setShowTurnstile(true);
+      },
     });
+  }, [turnstileReady, turnstileSitekey]);
+
+  useEffect(() => {
+    renderTurnstile();
 
     return () => {
       if (window?.turnstile && turnstileWidgetId.current) {
         try {
           window.turnstile.remove(turnstileWidgetId.current);
         } catch (e) {
-          //
+          console.error('[turnstile] remove error', e);
         }
       }
       turnstileWidgetId.current = null;
     };
-  }, [turnstileReady]);
+  }, [renderTurnstile, turnstileReady]);
 
   return (
-    <div className="relative h-full">
+    <div className="relative h-full footer-form">
       <Script
         src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        async
-        defer
         onLoad={() => setTurnstileReady(true)}
+        strategy="afterInteractive"
       />
       <Image
         className="hidden h-16 w-16 rounded-[20px] object-cover"
@@ -513,49 +603,8 @@ export default function FooterForm({
       ) : (
         <form
           ref={formRef}
-          onSubmit={(e) => {
-            e.preventDefault();
-
-            try {
-              let h = formRef.current?.offsetHeight || 500;
-              if (media === 'mobile') {
-                h = 380;
-              }
-
-              setFormHeight(h);
-            } catch (e) {
-              //
-            }
-
-            const data = new FormData(e.target);
-            if (!turnstileToken) {
-              // If Turnstile did not provide a token, do not submit
-              return;
-            }
-            selectedServices.forEach((service) => {
-              data.append('services[]', service);
-            });
-
-            data.append('source', referrer || 'Direct');
-            data.append('query', query || '');
-            Promise.race([
-              fetch('/api/contact', {
-                method: 'POST',
-                body: data,
-              }),
-              new Promise((res) => {
-                setTimeout(res, 300);
-              }),
-            ]).then(() => {
-              setIsSubmitted(true);
-              // event('form_submit');
-              try {
-                window?.lintrk('track', { conversion_id: 11283746 });
-              } catch (e) {
-                console.error(e);
-              }
-            });
-          }}
+          onSubmit={handleSubmit}
+          className={cx({ 'pointer-events-none opacity-80 blur-[0.8px]': isSubmitting })}
         >
           <div
             className="pointer-events-none absolute h-0 w-0 overflow-hidden"
@@ -622,12 +671,7 @@ export default function FooterForm({
               required
               theme={theme}
             />
-            <FileInput
-              className="md:col-span-8"
-              name="attachment"
-              onChange={(fileName) => console.log('Selected file:', fileName)}
-              theme={theme}
-            />
+            <FileInput className="md:col-span-8" name="attachment" theme={theme} />
             <Input
               as="textarea"
               className="md:col-span-8"
@@ -636,8 +680,8 @@ export default function FooterForm({
               theme={theme}
             />
           </div>
-          <div className="mb-6 md:mb-8">
-            <div ref={turnstileRef} />
+          <div className="mt-4 mb-6 md:mb-8 md:mt-6">
+            {showTurnstile && <div ref={turnstileRef} />}
             <input
               type="hidden"
               name="cf-turnstile-response"
@@ -671,8 +715,20 @@ export default function FooterForm({
               flavor="primary"
               className="mt-10 w-full shrink-0 bg-white sm:mt-0 sm:w-[160px]"
               compact
+              disabled={isSubmitting}
             >
-              Send message
+              {isSubmitting ? (
+                <span className="inline-flex items-end gap-1">
+                  Sending
+                  <span className="dots py-[5px]">
+                    <span className="dot" />
+                    <span className="dot dot-2" />
+                    <span className="dot dot-3" />
+                  </span>
+                </span>
+              ) : (
+                'Send message'
+              )}
             </Button2>
             {/* <button
               type="submit"
