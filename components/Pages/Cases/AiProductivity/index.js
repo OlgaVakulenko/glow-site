@@ -76,7 +76,7 @@ export default function AiProductivity() {
                 chatbot assistant, engineered to transform how you engage with
                 technology. Designed with a perfect blend of functionality and
                 aesthetics, this AI-powered assistant is not just about
-                delivering answers—it’s about understanding your needs,
+                delivering answers-it’s about understanding your needs,
                 anticipating your next steps, and integrating seamlessly into
                 your daily tasks.
               </p>

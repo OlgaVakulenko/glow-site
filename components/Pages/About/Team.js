@@ -22,7 +22,7 @@ export default function Team() {
         linkProps={{
           target: '_blank',
         }}
-        description="Our talented and diverse team works together for one purpose—to unlock the potential of those around us."
+        description="Our talented and diverse team works together for one purpose-to unlock the potential of those around us."
         showButtonOnMobile={true}
         withLayout={false}
       /> */}
