@@ -1,0 +1,47 @@
+{
+  "data": {
+    "title": "The Design Decision Founders Regret After 6 Months",
+    "html_title": "The Design Decision Founders Regret After 6 Months",
+    "html_description": "A design decision that feels right early on often becomes a source of friction six months later. Why founders regret it — and how it quietly shapes growth.",
+    "description": "We lost three weeks building a component library nobody asked for. Thirty-seven reusable components, documented spacing tokens, a complete color system.",
+    "image": "/img/blog/design-decision-founders-regret/Glow-Article-Web-361.jpg",
+    "author_name": "Stas Kovalsky",
+    "date": "Jan 15, 2026",
+    "created_at": 1768435200000,
+    "read_minutes": "6 min read",
+    "href": "design-decision-founders-regret",
+    "tags": ["UX UI", "Design", "Business"],
+    "paragraphs": [
+      {
+        "id": "p1",
+        "text": "Why this decision feels obvious in the early stage"
+      },
+      {
+        "id": "p2",
+        "text": "What this decision actually locks in"
+      },
+      {
+        "id": "p3",
+        "text": "How this decision reshapes product thinking"
+      },
+      {
+        "id": "p4",
+        "text": "The moment founders start feeling friction"
+      },
+      {
+        "id": "p5",
+        "text": "How this regret shows up after 6 months"
+      },
+      {
+        "id": "p6",
+        "text": "What founders wish they had decided differently"
+      },
+      {
+        "id": "p7",
+        "text": "What changes when this decision is delayed or reframed"
+      }
+    ],
+    "order": 1012,
+    "date_iso": "2026-01-15T00:00:00.000Z"
+  }
+}
