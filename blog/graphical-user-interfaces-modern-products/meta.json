@@ -1,0 +1,55 @@
+{
+	"data": {
+		"title": "Graphical User Interfaces in Modern Products: The 2026 Guide",
+		"html_title": "Graphical User Interfaces in Modern Products: Definition & Trends",
+		"html_description": "Understand the role of Graphical User Interfaces (GUIs) in 2026. From desktop WIMP models to AI-driven voice commands, learn how GUIs shape modern product experiences.",
+		"description": "The way we interact with technology has fundamentally changed since the early days of computing. Graphical User Interfaces (GUIs) have become the invisible bridge between human intention and machine execution - the \"face\" of every digital product we use.",
+		"image": "/img/blog/graphical-user-interfaces-modern-products/Glow-Article-Web-406.jpg",
+		"author_name": "Oleksandr Kryvoshei",
+		"date": "Jan 25, 2025",
+		"created_at": 1737763200000,
+		"read_minutes": "6 min read",
+		"href": "graphical-user-interfaces-modern-products",
+		"tags": [
+			"UX UI",
+			"Design",
+			"Product Design"
+		],
+		"paragraphs": [
+			{
+				"id": "p1",
+				"text": "Quick Summary (Key Takeaways)"
+			},
+			{
+				"id": "p2",
+				"text": "What Is a Graphical User Interface (GUI)?"
+			},
+			{
+				"id": "p3",
+				"text": "The Evolution of GUI: From Desktop to Everywhere"
+			},
+			{
+				"id": "p4",
+				"text": "Key Components of Modern GUIs"
+			},
+			{
+				"id": "p5",
+				"text": "GUI Design Principles for 2026"
+			},
+			{
+				"id": "p6",
+				"text": "Real-World Examples in Modern Products"
+			},
+			{
+				"id": "p7",
+				"text": "The Future: AI and Adaptive Interfaces"
+			},
+			{
+				"id": "p8",
+				"text": "Conclusion: The Interface Is the Product"
+			}
+		],
+		"order": 1017,
+		"date_iso": "2025-01-25T00:00:00.000Z"
+	}
+}

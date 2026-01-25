@@ -1,0 +1,55 @@
+{
+	"data": {
+		"title": "What Is Data-Driven Design? Moving Beyond Intuition in 2026",
+		"html_title": "What Is Data-Driven Design? Definition, Process & Examples",
+		"html_description": "Move beyond intuition. Learn what data-driven design is, how to combine qualitative and quantitative insights, and see real-world examples of successful implementation.",
+		"description": "\"I think users will like this color.\" \"I believe this layout feels more intuitive.\" These statements represent the old guard of design decision-making - a world governed by gut feelings and personal preferences. But in 2026, successful design teams have moved beyond the \"I think\" era into the \"I know\" paradigm.",
+		"image": "/img/blog/what-is-data-driven-design/Glow-Article-Web-384.jpg",
+		"author_name": "Stas Kovalsky",
+		"date": "Jan 22, 2026",
+		"created_at": 1769040000000,
+		"read_minutes": "7 min read",
+		"href": "what-is-data-driven-design",
+		"tags": [
+			"UX UI",
+			"Design",
+			"Business"
+		],
+		"paragraphs": [
+			{
+				"id": "p1",
+				"text": "Quick Summary (Key Takeaways)"
+			},
+			{
+				"id": "p2",
+				"text": "The Core Definition: What Does \"Data-Driven\" Actually Mean?"
+			},
+			{
+				"id": "p3",
+				"text": "The Two Pillars of Data: Quantitative vs. Qualitative"
+			},
+			{
+				"id": "p4",
+				"text": "The Data-Driven Design Process (Step-by-Step)"
+			},
+			{
+				"id": "p5",
+				"text": "Standard Tools for Data-Driven Designers"
+			},
+			{
+				"id": "p6",
+				"text": "Real-World Examples of Data-Driven Success"
+			},
+			{
+				"id": "p7",
+				"text": "The Trap: Confirmation Bias and \"Data Obsession\""
+			},
+			{
+				"id": "p8",
+				"text": "Conclusion: Balancing Art and Science"
+			}
+		],
+		"order": 1015,
+		"date_iso": "2026-01-22T00:00:00.000Z"
+	}
+}
