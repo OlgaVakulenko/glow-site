@@ -6,8 +6,8 @@
 		"description": "The way we interact with technology has fundamentally changed since the early days of computing. Graphical User Interfaces (GUIs) have become the invisible bridge between human intention and machine execution - the \"face\" of every digital product we use.",
 		"image": "/img/blog/graphical-user-interfaces-modern-products/Glow-Article-Web-406.jpg",
 		"author_name": "Oleksandr Kryvoshei",
-		"date": "Jan 25, 2025",
-		"created_at": 1737763200000,
+		"date": "Jan 25, 2026",
+		"created_at": 1769299200000,
 		"read_minutes": "6 min read",
 		"href": "graphical-user-interfaces-modern-products",
 		"tags": [
@@ -50,6 +50,6 @@
 			}
 		],
 		"order": 1017,
-		"date_iso": "2025-01-25T00:00:00.000Z"
+		"date_iso": "2026-01-25T00:00:00.000Z"
 	}
 }
