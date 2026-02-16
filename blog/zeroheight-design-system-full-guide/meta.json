@@ -1,0 +1,55 @@
+{
+	"data": {
+		"title": "Zeroheight Design System: Full Guide (2026)",
+		"html_title": "Zeroheight Design System: The Complete Guide (2026)",
+		"html_description": "Master Zeroheight for your design system. Learn how to centralize documentation, sync with Figma, and create a single source of truth for design and dev teams.",
+		"description": "Picture this: your design team just updated button styles in Figma, but developers are still referencing a six-month-old PDF.",
+		"image": "/img/blog/zeroheight-design-system-full-guide/Glow-Article-Web-418.jpg",
+		"author_name": "Ruslan Mashatov",
+		"date": "Feb 15, 2026",
+		"created_at": 1771113600000,
+		"read_minutes": "7 min read",
+		"href": "zeroheight-design-system-full-guide",
+		"tags": [
+			"UX UI",
+			"Design",
+			"Product Design"
+		],
+		"paragraphs": [
+			{
+				"id": "p1",
+				"text": "Quick Summary (Key Takeaways)"
+			},
+			{
+				"id": "p2",
+				"text": "What Is Zeroheight and Why Use It?"
+			},
+			{
+				"id": "p3",
+				"text": "Getting Started: Setting Up Your Zeroheight Account"
+			},
+			{
+				"id": "p4",
+				"text": "Best Practices for Documenting in Zeroheight"
+			},
+			{
+				"id": "p5",
+				"text": "Step-by-Step: Workflow for a Healthy Design System"
+			},
+			{
+				"id": "p6",
+				"text": "Top 3 Real-World Zeroheight Examples"
+			},
+			{
+				"id": "p7",
+				"text": "Zeroheight vs. Competitors (Storybook, Notion)"
+			},
+			{
+				"id": "p8",
+				"text": "Conclusion: Building a Culture of Documentation"
+			}
+		],
+		"order": 1015,
+		"date_iso": "2026-02-15T00:00:00.000Z"
+	}
+}
