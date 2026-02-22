@@ -1,0 +1,51 @@
+{
+	"data": {
+		"title": "Mental Models vs. Conceptual Models: The UX Design Guide (2026)",
+		"html_title": "Mental Models vs. Conceptual Models: A UX Designer's Guide",
+		"html_description": "Master the difference between Mental Models (what users believe) and Conceptual Models (what you design). Learn how to align them for intuitive UX.",
+		"description": "Design isn't about pixels. It never was. At its core, design is applied psychology - the art of predicting how a human brain will interpret what's on a screen and then shaping that screen to match.",
+		"image": "/img/blog/mental-models-vs-conceptual-models/Glow-Article-Web-460.jpg",
+		"author_name": "Oleksandr Kryvoshei",
+		"date": "Feb 22, 2026",
+		"created_at": 1771718400000,
+		"read_minutes": "7 min read",
+		"href": "mental-models-vs-conceptual-models",
+		"tags": [
+			"Product Design",
+			"Design",
+			"Process"
+		],
+		"paragraphs": [
+			{
+				"id": "p1",
+				"text": "Quick Summary (Key Takeaways)"
+			},
+			{
+				"id": "p2",
+				"text": "What Is a Mental Model? (The User's View)"
+			},
+			{
+				"id": "p3",
+				"text": "What Is a Conceptual Model? (The Designer's View)"
+			},
+			{
+				"id": "p4",
+				"text": "The Core Conflict: When Models Don't Match"
+			},
+			{
+				"id": "p5",
+				"text": "How to Align Mental and Conceptual Models"
+			},
+			{
+				"id": "p6",
+				"text": "Case Studies: Successful vs. Failed Models"
+			},
+			{
+				"id": "p7",
+				"text": "Conclusion: The Designer as a Translator"
+			}
+		],
+		"order": 1019,
+		"date_iso": "2026-02-22T00:00:00.000Z"
+	}
+}

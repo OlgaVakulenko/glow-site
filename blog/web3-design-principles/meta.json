@@ -1,0 +1,60 @@
+{
+	"data": {
+		"title": "Web3 Design Principles: Building Trust in Decentralized Apps (2026)",
+		"html_title": "Web3 Design Principles: Building Trust in Decentralized Apps (2026)",
+		"html_description": "Master Web3 UX. From wallet connections to gas fees, learn the 7 core design principles that build trust and adoption in decentralized applications.",
+		"description": "Let's be honest - Web3 still scares people. The idea of managing your own keys, paying gas fees for a button click, and staring at a transaction hash that looks like a cat walking across a keyboard is not exactly a warm welcome.",
+		"image": "/img/blog/web3-design-principles/Glow-Article-Web-420.jpg",
+		"author_name": "Anastasiia Lavrentii",
+		"author_image": "/img/blog/al.png",
+		"date": "Feb 17, 2026",
+		"created_at": 1771286400000,
+		"read_minutes": "7 min read",
+		"href": "web3-design-principles",
+		"tags": [
+			"Web3",
+			"Design",
+			"Process"
+		],
+		"paragraphs": [
+			{
+				"id": "p1",
+				"text": "Quick Summary (Key Takeaways)"
+			},
+			{
+				"id": "p2",
+				"text": "The Core Philosophy: \"Code is Law\" vs. \"User is King\""
+			},
+			{
+				"id": "p3",
+				"text": "Principle 1: Transparency & Provenance"
+			},
+			{
+				"id": "p4",
+				"text": "Principle 2: Wallet-First Authentication"
+			},
+			{
+				"id": "p5",
+				"text": "Principle 3: Communicating Security & Risk"
+			},
+			{
+				"id": "p6",
+				"text": "Principle 4: Transaction Feedback Loops"
+			},
+			{
+				"id": "p7",
+				"text": "Principle 5: Simplification (The \"Web2.5\" Approach)"
+			},
+			{
+				"id": "p8",
+				"text": "Real-World Examples of Great Web3 UX"
+			},
+			{
+				"id": "p9",
+				"text": "Conclusion: Designing for the Next Billion Users"
+			}
+		],
+		"order": 1017,
+		"date_iso": "2026-02-17T00:00:00.000Z"
+	}
+}

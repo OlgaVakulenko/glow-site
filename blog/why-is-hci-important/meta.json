@@ -1,0 +1,51 @@
+{
+	"data": {
+		"title": "Why Is HCI Important? The Bridge Between Humans and Technology",
+		"html_title": "Why Is HCI Important?",
+		"html_description": "Why Human-Computer Interaction (HCI) is vital for safety, accessibility, and business success. Move beyond \"easy to use\" to \"essential for life.\"",
+		"description": "Every day, billions of people tap screens, talk to voice assistants, and swipe through interfaces without a second thought. When everything works, nobody notices.",
+		"image": "/img/blog/why-is-hci-important/Glow-Article-Web-452.jpg",
+		"author_name": "Pavel Dobronosov",
+		"date": "Feb 21, 2026",
+		"created_at": 1771632000000,
+		"read_minutes": "6 min read",
+		"href": "why-is-hci-important",
+		"tags": [
+			"UX UI",
+			"Design",
+			"Product Design"
+		],
+		"paragraphs": [
+			{
+				"id": "p1",
+				"text": "Quick Summary (Key Takeaways)"
+			},
+			{
+				"id": "p2",
+				"text": "What Is Human-Computer Interaction (HCI) Really?"
+			},
+			{
+				"id": "p3",
+				"text": "The 5 Pillars of HCI Importance"
+			},
+			{
+				"id": "p4",
+				"text": "The Business Impact: ROI of Investment in HCI"
+			},
+			{
+				"id": "p5",
+				"text": "HCI in the Age of AI (2026 Perspective)"
+			},
+			{
+				"id": "p6",
+				"text": "Bad vs. Good HCI: Real-World Examples"
+			},
+			{
+				"id": "p7",
+				"text": "Conclusion: Making Technology Human"
+			}
+		],
+		"order": 1018,
+		"date_iso": "2026-02-21T00:00:00.000Z"
+	}
+}
