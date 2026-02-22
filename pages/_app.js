@@ -80,13 +80,13 @@ function MyApp({ Component, pageProps }) {
   return (
     <div>
       <Head>
-        <title>{getFullTitle('AI UI UX & Product Design Agency')}</title>
+        <title>{getFullTitle('UI/UX & Product Design Agency for Web, Mobile & AI')}</title>
 
         {!isBlogSubpage && (
           <meta
             name="description"
             content={getFullDescription(
-              `Glow Team specializes in design, transforming businesses through creativity and innovation. Explore our services for success.`
+              `Strategic UI/UX and product design agency helping startups and SaaS companies build high-converting web, mobile and AI products.`
             )}
           ></meta>)}
 

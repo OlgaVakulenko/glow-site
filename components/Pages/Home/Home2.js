@@ -28,8 +28,7 @@ function IntroSection5() {
       showBg={false}
       title={
         <>
-          Product design agency
-          for B2B&nbsp;&&nbsp;AI companies
+          UI/UX & Product Design Agency for SaaS and AI Companies
         </>
       }
       subtitle={
