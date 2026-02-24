@@ -1,0 +1,52 @@
+{
+	"data": {
+		"title": "SPA vs. MPA: The Complete Guide to Web Architecture",
+		"html_title": "SPA vs. MPA: Which Architecture is Right for Your Project?",
+		"html_description": "Choosing between Single-Page (SPA) and Multi-Page (MPA) applications? We break down the differences in SEO, performance, and UX to help you decide.",
+		"description": "Before you write a single line of code, before you pick a framework or hire a designer, there is one architectural decision that will quietly shape everything that follows: how your web application loads and navigates.",
+		"image": "/img/blog/spa-vs-mpa/Glow-Article-Web-468.jpg",
+		"author_name": "Ruslan Mashatov",
+		"date": "Feb 24, 2026",
+		"created_at": 1771891200000,
+		"read_minutes": "6 min read",
+		"href": "spa-vs-mpa",
+		"tags": [
+			"Web",
+			"Design",
+			"Process",
+			"Guide"
+		],
+		"paragraphs": [
+			{
+				"id": "p1",
+				"text": "Quick Summary (Key Takeaways)"
+			},
+			{
+				"id": "p2",
+				"text": "What Is a Single-Page Application (SPA)?"
+			},
+			{
+				"id": "p3",
+				"text": "What Is a Multi-Page Application (MPA)?"
+			},
+			{
+				"id": "p4",
+				"text": "The Core Comparison: SPA vs. MPA"
+			},
+			{
+				"id": "p5",
+				"text": "Decision Framework: Which One Should You Choose?"
+			},
+			{
+				"id": "p6",
+				"text": "The Modern Hybrid: SSR and Static Generation"
+			},
+			{
+				"id": "p7",
+				"text": "Conclusion: Context is King"
+			}
+		],
+		"order": 1020,
+		"date_iso": "2026-02-24T00:00:00.000Z"
+	}
+}
