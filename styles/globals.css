@@ -1481,6 +1481,15 @@ h3.blog-post-h3 {
 	gap: 12px;
 }
 
+.ux-card__fact__title {
+	font-weight: 500;
+	color: #000000;
+}
+
+.gap-24 {
+	gap: 24px;
+}
+
 .ux-icon {
 	width: 24px;
 	height: 24px;
