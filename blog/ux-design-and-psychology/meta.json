@@ -1,0 +1,47 @@
+{
+  "data": {
+    "title": "Design and Psychology: Ultimate Guide",
+    "html_title": "UX Design and Psychology: Ultimate Guide to Behavioral Interfaces",
+    "html_description": "Master cognitive load, emotional design, and behavioral laws for superior UX.",
+    "description": "Every pixel on your screen is competing for a scarce resource: human attention. The apps we love - the ones we open without thinking - don't win because of flashier gradients or trendier typefaces. They win because someone on the design team understood how the brain actually works. That understanding sits at the crossroads of UX Design and Psychology, a discipline that treats cognitive science not as academic trivia but as a practical toolkit for building better products.",
+    "image": "/img/blog/ux-design-and-psychology/Glow-Article-Web-476.jpg",
+    "author_name": "Stas Kovalsky",
+    "date": "Mar 13, 2026",
+    "created_at": 1773360000000,
+    "read_minutes": "5 min read",
+    "href": "ux-design-and-psychology",
+    "tags": [
+      "Ux design",
+      "Guide",
+      "Design"
+    ],
+    "paragraphs": [
+      {
+        "id": "p1",
+        "text": "The Three Pillars of Design Psychology"
+      },
+      {
+        "id": "p2",
+        "text": "5 Psychological Laws for Better UX"
+      },
+      {
+        "id": "p3",
+        "text": "Gestalt Principles: Grouping Information"
+      },
+      {
+        "id": "p4",
+        "text": "Emotional Design (Don Norman's Framework)"
+      },
+      {
+        "id": "p5",
+        "text": "Ethical Design vs. Dark Patterns"
+      },
+      {
+        "id": "p6",
+        "text": "Conclusion: Designing for Humans"
+      }
+    ],
+    "order": 1773360000000,
+    "date_iso": "2026-03-13T00:00:00.000Z"
+  }
+}
