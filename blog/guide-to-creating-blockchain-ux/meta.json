@@ -1,0 +1,48 @@
+{
+  "data": {
+    "title": "Guide to Creating a Great Blockchain UX (2026)",
+    "html_title": "Guide to Creating a Great Blockchain UX: Best Practices",
+    "html_description": "Master blockchain UX design with actionable strategies for simplifying onboarding, building trust, handling irreversibility, and designing for Web3 users in 2026.",
+    "description": "Most people never complete their first blockchain transaction. They open a wallet app, encounter a seed phrase, see a gas fee denominated in a unit they have never heard of, and close the tab forever.",
+    "image": "/img/blog/guide-to-creating-blockchain-ux/Glow-Article-Web-497.jpg",
+    "author_name": "Oleksandr Kryvoshei",
+    "date": "Mar 22, 2026",
+    "created_at": 1774137600000,
+    "read_minutes": "6 min read",
+    "href": "guide-to-creating-blockchain-ux",
+    "tags": [
+      "Guide",
+      "Design",
+      "Process",
+      "Blockchain"
+    ],
+    "paragraphs": [
+      {
+        "id": "p1",
+        "text": "Why Blockchain UX Is Uniquely Hard"
+      },
+      {
+        "id": "p2",
+        "text": "The 5 Most Common Blockchain UX Problems"
+      },
+      {
+        "id": "p3",
+        "text": "5 Strategies for Building Great Blockchain UX"
+      },
+      {
+        "id": "p4",
+        "text": "The Blockchain UX Design Process"
+      },
+      {
+        "id": "p5",
+        "text": "Blockchain UX Patterns by Product Type"
+      },
+      {
+        "id": "p6",
+        "text": "Conclusion: UX Is the Real Web3 Challenge"
+      }
+    ],
+    "order": 1001,
+    "date_iso": "2026-03-22T00:00:00.000Z"
+  }
+}
