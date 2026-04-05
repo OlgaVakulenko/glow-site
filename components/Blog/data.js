@@ -8,6 +8,8 @@ import PavelD from '../Pages/About/assets/team-new/pd.png';
 import RusM from '../Pages/About/assets/team-new/rus.png';
 import LG from '../Pages/About/assets/team-new/lg.png';
 import OK from '../Pages/About/assets/team-new/ok.png';
+import OleksandrA from '../Pages/About/assets/team-new/OleksandrAndronikov.png';
+import VladyslavO from '../Pages/About/assets/team-new/VladislavObertun.png';
 
 // import RusM from '../Pages/About/assets/rus-2.png';
 
@@ -39,6 +41,14 @@ const data = [
   {
     author: 'Oleksandr Kryvoshei',
     image: OK,
+  },
+  {
+    author: 'Oleksandr Andronikov',
+    image: OleksandrA,
+  },
+  {
+    author: 'Vladyslav Obertun',
+    image: VladyslavO,
   },
 ];
 

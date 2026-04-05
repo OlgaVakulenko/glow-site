@@ -50,6 +50,8 @@ const positionMap = {
   'Ruslan Mashatov': 'Co-Founder & Designer',
   'Michael Bliznetsov': 'Sales Manager',
   'Pavel Dobronosov': 'Project Manager',
+  'Oleksandr Andronikov': 'Product Designer',
+  'Vladyslav Obertun': 'Lead Designer',
 };
 
 export function withAuthor(post) {

@@ -1,0 +1,51 @@
+{
+  "data": {
+    "title": "Accessible vs. Inclusive Design: Key Differences and Why Both Matter (2026)",
+    "html_title": "Accessible vs Inclusive Design: Key Differences and Why Both Matter",
+    "html_description": "Understand the real difference between accessible and inclusive design — what separates them, where they overlap, and how to apply both to create better products for everyone.",
+    "description": "There's a mistake that shows up constantly in design conversations: using \"accessible\" and \"inclusive\" as if they mean the same thing. They don't.",
+    "image": "/img/blog/accessible-vs-inclusive-design/Glow-Article-Web-539.jpg",
+    "author_name": "Stas Kovalsky",
+    "date": "Apr 3, 2026",
+    "created_at": 1775174400000,
+    "read_minutes": "5 min read",
+    "href": "accessible-vs-inclusive-design",
+    "tags": [
+      "Inclusive Design",
+      "Process",
+      "Examples"
+    ],
+    "paragraphs": [
+      {
+        "id": "p1",
+        "text": "What Is Accessible Design?"
+      },
+      {
+        "id": "p2",
+        "text": "What Is Inclusive Design?"
+      },
+      {
+        "id": "p3",
+        "text": "The Core Difference - Scope, Approach, and Intent"
+      },
+      {
+        "id": "p4",
+        "text": "Where Accessible and Inclusive Design Meet"
+      },
+      {
+        "id": "p5",
+        "text": "Two Ways to Move Toward Inclusive Design Today"
+      },
+      {
+        "id": "p6",
+        "text": "Why Every Team Needs Both"
+      },
+      {
+        "id": "p7",
+        "text": "Conclusion: Accessibility Is the Floor, Inclusion Is the Ceiling"
+      }
+    ],
+    "order": 989,
+    "date_iso": "2026-04-03T00:00:00.000Z"
+  }
+}
